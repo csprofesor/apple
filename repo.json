@@ -1,7 +1,8 @@
 {
   "name": "Apple",
   "description": "csprofesor CloudStream eklentileri",
+  "manifestVersion": 1,
   "pluginLists": [
-    "https://raw.githubusercontent.com/csprofesor/apple/main/plugins.json"
+    "https://raw.githubusercontent.com/csprofesor/apple/builds/plugins.json"
   ]
 }
