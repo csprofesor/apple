@@ -8,22 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: gradle:8.10.2-jdk17
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: "17"
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
-
       - name: Build plugins
-        run: ./gradlew make --stacktrace
-
+        run: gradle make --stacktrace
       - name: Upload builds
         uses: actions/upload-artifact@v4
         with:
