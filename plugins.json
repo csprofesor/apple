@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    {
+      "name": "HintFilmİzle",
+      "internalName": "HintFilmIzle",
+      "url": "https://raw.githubusercontent.com/csprofesor/apple/main/HintFilmIzle.cs3",
+      "authors": ["csprofesor"],
+      "description": "HintFilmizle.com CloudStream eklentisi",
+      "version": 1,
+      "status": 1,
+      "language": "tr",
+      "tvTypes": ["Movie", "TvSeries"],
+      "iconUrl": "https://www.google.com/s2/favicons?domain=hintfilmizle.com&sz=%size%"
+    }
+  ]
+}
