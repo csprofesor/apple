@@ -1,0 +1,8 @@
+package com.csprofesor
+import android.content.Context
+import com.lagradost.cloudstream3.plugins.CloudstreamPlugin
+import com.lagradost.cloudstream3.plugins.Plugin
+@CloudstreamPlugin
+class HintFilmIzlePlugin : Plugin() {
+    override fun load(context: Context) { registerMainAPI(HintFilmIzle()) }
+}
