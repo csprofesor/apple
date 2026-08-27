@@ -1,0 +1,44 @@
+{
+  "plugins": [
+    {
+      "url": "https://raw.githubusercontent.com/csprofesor/apple/main/Anizm.cs3",
+      "status": 1,
+      "version": 1,
+      "name": "Anizm",
+      "internalName": "Anizm",
+      "authors": [
+        "csprofesor"
+      ],
+      "language": "tr",
+      "tvTypes": [
+        "AnimeMovie",
+        "Anime",
+        "OVA"
+      ],
+      "iconUrl": "https://www.google.com/s2/favicons?domain=anizm.net&sz=%size%",
+      "apiVersion": 1,
+      "fileSize": 17645,
+      "fileHash": "sha256-727b73b2016865e7908b96d2f1f8514b9b05fb2a8fb2ad4d9fd0e0c5f4612a31"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/csprofesor/apple/main/HintFilmIzle.cs3",
+      "status": 1,
+      "version": 1,
+      "name": "HintFilmIzle",
+      "internalName": "HintFilmIzle",
+      "authors": [
+        "csprofesor"
+      ],
+      "description": "HintFilmizle.com Hint filmleri, yabancı filmler ve diziler",
+      "language": "tr",
+      "tvTypes": [
+        "Movie",
+        "TvSeries"
+      ],
+      "iconUrl": "https://www.google.com/s2/favicons?domain=www.hintfilmizle.com&sz=%size%",
+      "apiVersion": 1,
+      "fileSize": 22049,
+      "fileHash": "sha256-3298a819f1994a031facec54d920ca4a3c4926ebc79619a564f1de349af2b6de"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Apple",
+  "description": "csprofesor CloudStream eklentileri",
+  "iconUrl": "https://raw.githubusercontent.com/csprofesor/apple/main/icon.png",
+  "pluginLists": [
+    "https://raw.githubusercontent.com/csprofesor/apple/main/plugins.json"
+  ]
+}
