@@ -116,9 +116,9 @@ class HintFilmIzle : MainAPI() {
     ): Boolean {
         return try {
             val resolver = WebViewResolver(
-                interceptUrl = Regex("""\\.m3u8(?:\\?|$)"""),
+                interceptUrl = Regex("""\.m3u8(?:\?|$)"""),
                 additionalUrls = listOf(
-                    Regex("""kinescopecdn\\.net/hls/""")
+                    Regex("""kinescopecdn\.net/hls/""")
                 ),
                 userAgent = null,
                 useOkhttp = false,
@@ -150,10 +150,11 @@ class HintFilmIzle : MainAPI() {
             }
 
             M3u8Helper.generateM3u8(
-                name = "HintFilmİzle - Kinescope",
+                source = "HintFilmİzle",
                 streamUrl = manifestUrl,
                 referer = iframeUrl,
-                headers = browserHeaders
+                headers = browserHeaders,
+                name = "Kinescope"
             ).forEach(callback)
 
             true
