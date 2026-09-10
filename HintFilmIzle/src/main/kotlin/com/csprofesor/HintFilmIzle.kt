@@ -8,7 +8,7 @@ import org.jsoup.nodes.Element
 class HintFilmIzle : MainAPI() {
     override var mainUrl = "https://www.hintfilmizle.com"
     override var name = "HintFilmİzle"
-    override val lang = "tr"
+    override var lang = "tr"
     override val supportedTypes = setOf(TvType.Movie, TvType.TvSeries)
     override val hasMainPage = true
     override val mainPage = mainPageOf(
@@ -97,17 +97,6 @@ class HintFilmIzle : MainAPI() {
         }
     }
 
-    /**
-     * Kinescope tarafında iframe açılırken imzalı HLS URL'si JavaScript
-     * tarafından üretiliyor. Bu nedenle iframe URL'sini normal HTTP GET
-     * ile okumak yeterli değil.
-     *
-     * WebViewResolver gerçek tarayıcı akışını çalıştırır ve .m3u8 isteğine
-     * ulaştığında o isteğin TAM URL'sini ve tarayıcının gönderdiği header'ları
-     * alır. Ardından aynı imzalı manifest M3u8Helper'a verilir; böylece
-     * manifestten çıkan .ts istekleri de aynı Referer/User-Agent/header seti
-     * ile yapılır.
-     */
     private suspend fun loadKinescope(
         iframeUrl: String,
         parentUrl: String,
@@ -142,9 +131,6 @@ class HintFilmIzle : MainAPI() {
             if (!manifestUrl.contains(".m3u8", ignoreCase = true)) return false
 
             val browserHeaders = finalRequest.headers.toMap().toMutableMap()
-
-            // Kinescope CDN 403 verirse ilk kontrol edilmesi gereken header
-            // iframe'in kendisidir. WebView'dan gelen değer varsa onu bozma.
             if (browserHeaders.keys.none { it.equals("Referer", ignoreCase = true) }) {
                 browserHeaders["Referer"] = iframeUrl
             }
