@@ -5,7 +5,8 @@ import android.util.Log
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 
-open class CloseLoadExtractor : ExtractorApi() {
+
+class CloseLoadExtractor : ExtractorApi() {
     override val mainUrl = "https://closeload.filmmakinesi.to"
     override val name = "CloseLoad"
     override val requiresReferer = true
@@ -66,26 +67,29 @@ open class CloseLoadExtractor : ExtractorApi() {
         if (videoUrl.isNullOrBlank()) {
             val jsonLdMatch = Regex(""""contentUrl"\s*:\s*"([^"]+)"""").find(rawHtml)
             videoUrl = jsonLdMatch?.groupValues?.get(1)
+                ?.replace(".txt", ".m3u8")
             Log.d(name, "Fallback JSON-LD contentUrl: $videoUrl")
-        }
-
-        if (videoUrl.isNullOrBlank()) {
-            val atobMatch = Regex("""aHR0[0-9a-zA-Z+\/=]+""").find(rawHtml)
-            if (atobMatch != null) {
-                var atob = atobMatch.value
-                val padding = atob.length % 4
-                if (padding != 0) {
-                    atob += "=".repeat(4 - padding)
-                }
-                videoUrl = String(Base64.decode(atob, Base64.DEFAULT), Charsets.UTF_8)
-                Log.d(name, "Fallback atob m3u8: $videoUrl")
-            }
         }
 
         if (videoUrl.isNullOrBlank()) {
             Log.e(name, "Video URL bulunamadı!")
             return
         }
+
+        Log.d(name, "Master fetch ediliyor: $videoUrl")
+        val masterResponse = app.get(videoUrl, referer = url, headers = mapOf(
+            "Accept" to "*/*",
+            "Origin" to "https://closeload.filmmakinesi.to"
+        ))
+        Log.d(name, "Master status: ${masterResponse.code}")
+
+        if (masterResponse.code != 200) {
+            Log.e(name, "Master 404/500!")
+            return
+        }
+
+        val masterBody = masterResponse.text
+        Log.d(name, "Master body (ilk 500):\n${masterBody.take(500)}")
 
         val tracksMatch = Regex("""tracks:\s*\[(.*?)\]""", RegexOption.DOT_MATCHES_ALL).find(rawHtml)
         val tracksStr = tracksMatch?.groupValues?.get(1)
@@ -120,7 +124,7 @@ open class CloseLoadExtractor : ExtractorApi() {
                 this.quality = Qualities.Unknown.value
                 this.headers = mapOf(
                     "Accept" to "*/*",
-                    "Origin" to mainUrl
+                    "Origin" to "https://closeload.filmmakinesi.to"
                 )
             }
         )
@@ -292,24 +296,4 @@ open class CloseLoadExtractor : ExtractorApi() {
         var decoded = atob(value); decoded = decoded.reversed(); decoded = atob(decoded)
         return xorUnmix(decoded, 130, 10)
     }
-}
-
-class CloseLoadTo : CloseLoadExtractor() {
-    override val mainUrl = "https://closeload.filmmakinesi.to"
-}
-
-class CloseLoadFilm : CloseLoadExtractor() {
-    override val mainUrl = "https://closeload.filmmakinesi.film"
-}
-
-class CloseLoadDe : CloseLoadExtractor() {
-    override val mainUrl = "https://closeload.filmmakinesi.de"
-}
-
-class CloseLoadTv : CloseLoadExtractor() {
-    override val mainUrl = "https://closeload.filmmakinesi.tv"
-}
-
-class CloseLoadSh : CloseLoadExtractor() {
-    override val mainUrl = "https://closeload.filmmakinesi.sh"
 }
