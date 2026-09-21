@@ -288,7 +288,7 @@ class SinemaTvAzWebViewExtractor(private val context: Context) : ExtractorApi() 
                     ): WebResourceResponse? {
                         val reqUrl = request?.url?.toString() ?: ""
 
-                        if (reqUrl.contains(".mp4") || reqUrl.contains(".m3u8") || reqUrl.contains("m3u") || reqUrl.contains("manifest") || reqUrl.contains("playlist") || reqUrl.contains("master") || reqUrl.contains("json") || reqUrl.contains("api") || reqUrl.contains("proxy") || reqUrl.contains("token")) {
+                        if (reqUrl.contains(".mp4") || reqUrl.contains(".m3u8") || reqUrl.contains("parsed.json") || reqUrl.contains("catalog-api/episodes") || reqUrl.contains("balancer-api") || reqUrl.contains("playlist") || reqUrl.contains("manifest") || reqUrl.contains("master")) {
                             emitStream(reqUrl)
                         }
 
