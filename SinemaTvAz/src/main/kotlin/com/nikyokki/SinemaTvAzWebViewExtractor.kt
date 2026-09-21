@@ -73,7 +73,7 @@ class SinemaTvAzWebViewExtractor(private val context: Context) : ExtractorApi() 
                 return
             }
 
-            if ((fixStream.startsWith("http://") || fixStream.startsWith("https://")) && !foundStream.getAndSet(true)) {
+            if ((fixStream.startsWith("http://") || fixStream.startsWith("https://")) && !foundStream.get()) {
                 Log.d("SinemaTvAzWebView", "EMITTING_STREAM=$fixStream")
                 CoroutineScope(Dispatchers.IO).launch {
                     if (fixStream.contains("parsed.json") || fixStream.contains("catalog-api/episodes")) {
