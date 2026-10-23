@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Site listesi varsayılana sıfırlandı!", Toast.LENGTH_SHORT).show()
         }
 
-        // Add New Site
+        // Add & Validate New Site
         binding.pageSites.btnAddSite.setOnClickListener {
             val newUrl = binding.pageSites.etNewSiteUrl.text?.toString()?.trim().orEmpty()
             if (newUrl.isBlank() || !newUrl.startsWith("http")) {
@@ -110,15 +110,43 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (!savedSitesList.contains(newUrl)) {
-                savedSitesList.add(newUrl)
-                saveSitesListToPrefs()
-                updateSavedSitesUI()
-                binding.pageSites.etNewSiteUrl.setText("")
-                appendLog("[SITE ADDED] $newUrl")
-                Toast.makeText(this, "Yeni site eklendi!", Toast.LENGTH_SHORT).show()
-            } else {
+            if (savedSitesList.contains(newUrl)) {
                 Toast.makeText(this, "Bu site zaten kayıtlı!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            binding.pageSites.btnAddSite.isEnabled = false
+            Toast.makeText(this, "Site kontrol ediliyor...", Toast.LENGTH_SHORT).show()
+            appendLog("[VALIDATING SITE] $newUrl kontrol ediliyor...")
+
+            lifecycleScope.launch {
+                try {
+                    val testLinks = scraperEngine.discoverAllMovieLinks(siteUrl = newUrl, maxPages = 1, onPageProgress = { _, _, _ -> })
+                    if (testLinks.isNotEmpty()) {
+                        savedSitesList.add(newUrl)
+                        saveSitesListToPrefs()
+                        updateSavedSitesUI()
+                        binding.pageSites.etNewSiteUrl.setText("")
+                        appendLog("✓ [SITE VERIFIED] $newUrl doğrulandı (${testLinks.size} film bulundu) ve eklendi!")
+                        Toast.makeText(this@MainActivity, "Site başarıyla doğrulandı ve eklendi!", Toast.LENGTH_SHORT).show()
+                    } else {
+                        // Add anyway as fallback
+                        savedSitesList.add(newUrl)
+                        saveSitesListToPrefs()
+                        updateSavedSitesUI()
+                        binding.pageSites.etNewSiteUrl.setText("")
+                        appendLog("[SITE ADDED] $newUrl eklendi.")
+                        Toast.makeText(this@MainActivity, "Site listeye eklendi.", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (_: Exception) {
+                    savedSitesList.add(newUrl)
+                    saveSitesListToPrefs()
+                    updateSavedSitesUI()
+                    binding.pageSites.etNewSiteUrl.setText("")
+                    appendLog("[SITE ADDED] $newUrl eklendi.")
+                } finally {
+                    binding.pageSites.btnAddSite.isEnabled = true
+                }
             }
         }
 
@@ -135,7 +163,7 @@ class MainActivity : AppCompatActivity() {
 
             setControlsEnabled(false)
             showPage(1)
-            appendLog("[SINGLE CRAWL START] $singleUrl")
+            appendLog("[SINGLE CRAWL START] $singleUrl (Limit: $maxPages sayfa)")
 
             lifecycleScope.launch {
                 try {
@@ -174,7 +202,7 @@ class MainActivity : AppCompatActivity() {
         // 2. MASTER 1-CLICK ALL SITES UPDATE WITH SMART MERGE
         binding.pageDashboard.btnUpdateAllSites.setOnClickListener {
             val tmdbApiKey = binding.pageSingle.etTmdbApiKey.text?.toString()?.trim().orEmpty()
-            val maxPagesPerSite = binding.pageSingle.etMaxPages.text?.toString()?.toIntOrNull() ?: 20
+            val maxPagesPerSite = binding.pageDashboard.etMaxPagesDashboard.text?.toString()?.toIntOrNull() ?: 20
 
             if (savedSitesList.isEmpty()) {
                 Toast.makeText(this, "Kayıtlı site bulunmuyor!", Toast.LENGTH_SHORT).show()
@@ -182,7 +210,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             setControlsEnabled(false)
-            appendLog("[MASTER UPDATE START] ${savedSitesList.size} kayıtlı sitenin tamamı taranıyor...")
+            appendLog("[MASTER UPDATE START] ${savedSitesList.size} kayıtlı sitenin tamamı taranıyor (Limit: site başı $maxPagesPerSite sayfa)...")
 
             lifecycleScope.launch {
                 val allBatchMovies = mutableListOf<ScrapedMovie>()

@@ -28,7 +28,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal">
 
         <!-- Stat 1 -->
@@ -104,12 +104,31 @@
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
+    <!-- Page Limit Option inside Dashboard -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Site Başına Tarama Sayfa Limiti"
+        app:boxStrokeColor="#FFFFFF"
+        app:hintTextColor="#888888">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMaxPagesDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="20"
+            android:textColor="#FFFFFF" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <!-- Master Action Button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnUpdateAllSites"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="#FFFFFF"
         android:padding="16dp"
         android:text="🚀 TÜM SİTELERİ GÜNCELLE VE YÜKLE"
@@ -122,7 +141,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
