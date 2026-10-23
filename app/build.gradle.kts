@@ -1,3 +1,11 @@
+import java.util.Properties
+
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(localPropertiesFile.inputStream())
+}
+
 plugins {
     id("com.android.application")
 }
@@ -12,6 +20,9 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
+
+        val githubToken = localProperties.getProperty("GITHUB_TOKEN") ?: ""
+        buildConfigField("String", "GITHUB_TOKEN", "\"$githubToken\"")
     }
 
     buildTypes {
@@ -31,6 +42,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 

@@ -23,19 +23,21 @@ class GitHubPublisher {
     private val gson = Gson()
 
     suspend fun publishBatchToGitHub(
-        githubToken: String,
+        githubToken: String = BuildConfig.GITHUB_TOKEN,
         repoOwner: String = DEFAULT_OWNER,
         repoName: String = DEFAULT_REPO,
         scrapedMovies: List<ScrapedMovie>
     ): Result<String> = withContext(Dispatchers.IO) {
-        if (githubToken.isBlank()) {
+        val effectiveToken = githubToken.ifBlank { BuildConfig.GITHUB_TOKEN }
+
+        if (effectiveToken.isBlank()) {
             return@withContext Result.failure(Exception("GitHub Token bulunamadı. Lütfen ayarları kontrol edin."))
         }
 
         try {
             // 1. Update data/streams.json
             val streamsResult = updateFileOnGitHub(
-                githubToken = githubToken,
+                githubToken = effectiveToken,
                 repoOwner = repoOwner,
                 repoName = repoName,
                 filePath = "data/streams.json",
@@ -44,7 +46,7 @@ class GitHubPublisher {
 
             // 2. Update data/catalog.json with categories
             updateCatalogOnGitHub(
-                githubToken = githubToken,
+                githubToken = effectiveToken,
                 repoOwner = repoOwner,
                 repoName = repoName,
                 scrapedMovies = scrapedMovies
@@ -227,7 +229,7 @@ class GitHubPublisher {
     }
 
     suspend fun publishToGitHub(
-        githubToken: String,
+        githubToken: String = BuildConfig.GITHUB_TOKEN,
         repoOwner: String = DEFAULT_OWNER,
         repoName: String = DEFAULT_REPO,
         scrapedMovie: ScrapedMovie

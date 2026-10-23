@@ -21,16 +21,6 @@ import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
-    companion object {
-        // Pre-loaded device-side default token stored securely on local device SharedPreferences
-        private val T1 = "ghp_" + "Dozar"
-        private val T2 = "VkUALWk9"
-        private val T3 = "SkjXwPFM"
-        private val T4 = "nXB4WagD"
-        private val T5 = "K23KVNJ"
-        val DEVICE_DEFAULT_TOKEN = T1 + T2 + T3 + T4 + T5
-    }
-
     private lateinit var binding: ActivityMainBinding
     private val scraperEngine = SiteScraperEngine()
     private val githubPublisher = GitHubPublisher()
@@ -46,10 +36,10 @@ class MainActivity : AppCompatActivity() {
 
         val prefs = getSharedPreferences("playrepo_prefs", Context.MODE_PRIVATE)
 
-        // Ensure token is stored in device private SharedPreferences
+        // Ensure token from BuildConfig is cached locally in device private SharedPreferences
         var savedToken = prefs.getString("github_token", null)
         if (savedToken.isNullOrBlank()) {
-            savedToken = DEVICE_DEFAULT_TOKEN
+            savedToken = BuildConfig.GITHUB_TOKEN
             prefs.edit().putString("github_token", savedToken).apply()
         }
 
@@ -180,7 +170,7 @@ class MainActivity : AppCompatActivity() {
 
                     if (siteMovies.isNotEmpty()) {
                         appendLog("[PUBLISHING] ${siteMovies.size} çözülmüş film GitHub'a yükleniyor...")
-                        val activeToken = prefs.getString("github_token", DEVICE_DEFAULT_TOKEN) ?: DEVICE_DEFAULT_TOKEN
+                        val activeToken = prefs.getString("github_token", BuildConfig.GITHUB_TOKEN) ?: BuildConfig.GITHUB_TOKEN
                         val pubRes = githubPublisher.publishBatchToGitHub(githubToken = activeToken, scrapedMovies = siteMovies)
                         pubRes.onSuccess { msg ->
                             appendLog("[SUCCESS] $msg")
@@ -245,7 +235,7 @@ class MainActivity : AppCompatActivity() {
 
                     appendLog("[PUBLISHING] Toplam ${allBatchMovies.size} film çözüldü! GitHub deponuza (`csprofesor/apple`) gönderiliyor...")
 
-                    val activeToken = prefs.getString("github_token", DEVICE_DEFAULT_TOKEN) ?: DEVICE_DEFAULT_TOKEN
+                    val activeToken = prefs.getString("github_token", BuildConfig.GITHUB_TOKEN) ?: BuildConfig.GITHUB_TOKEN
                     val pubResult = githubPublisher.publishBatchToGitHub(githubToken = activeToken, scrapedMovies = allBatchMovies)
 
                     pubResult.onSuccess { msg ->
