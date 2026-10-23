@@ -231,12 +231,13 @@ class SiteScraperEngine {
                 }
             }
 
-            // 3. Scrape external links (vidmoly, vidhide, voe, streamtape, ok.ru, kinescope, odnoklassniki)
+            // 3. Scrape external links (vidmoly, vidhide, voe, streamtape, ok.ru, kinescope, odnoklassniki, mixdrop, doodstream, vidsrc, rapidrame)
             doc.select("a[href]").forEach { a ->
                 val href = a.absUrl("href").ifBlank { a.attr("href") }
-                if (href.contains("vidmoly") || href.contains("vidhide") ||
-                    href.contains("voe.sx") || href.contains("streamtape") ||
-                    href.contains("ok.ru") || href.contains("kinescope") || href.contains("odnoklassniki")
+                if (href.contains("vidmoly") || href.contains("vidhide") || href.contains("filelions") ||
+                    href.contains("streamwish") || href.contains("voe.sx") || href.contains("streamtape") ||
+                    href.contains("ok.ru") || href.contains("kinescope") || href.contains("odnoklassniki") ||
+                    href.contains("mixdrop") || href.contains("dood") || href.contains("vidsrc") || href.contains("vixsrc")
                 ) {
                     val resolvedStream = resolveStreamUrl(href, movieUrl, foundStreams.size + 1, qualityTag, langTag)
                     if (foundStreams.none { it.url == resolvedStream.url }) {
@@ -245,7 +246,7 @@ class SiteScraperEngine {
                 }
             }
 
-            // 4. Scrape Base64 encoded atob("...") player embeds (e.g. filmkovasi.co, hdfilmcehennemi, dizipal)
+            // 4. Scrape Base64 encoded atob("...") player embeds
             val atobRegex = Regex("""atob\s*\(\s*["'`]([A-Za-z0-9+/=]+)["'`]\s*\)""")
             atobRegex.findAll(html).forEach { match ->
                 try {
@@ -315,9 +316,13 @@ class SiteScraperEngine {
     }
 
     /**
-     * Unpacks/decrypts embed players (Vidmoly, Vidhide, VOE, Kinescope, Streamtape, Odnoklassniki) into direct M3U8 / MP4 URLs.
+     * Unpacks/decrypts embed players (Vidmoly, Vidhide, FileLions, StreamWish, VOE, Kinescope, Streamtape, Ok.ru, Mixdrop, Doodstream, Vidsrc) into direct M3U8 / MP4 URLs.
      */
     private fun unpackEmbedStreamUrl(embedUrl: String, referer: String): String {
+        if (embedUrl.contains(".m3u8") && !embedUrl.contains("/embed/")) {
+            return embedUrl
+        }
+
         try {
             val request = Request.Builder()
                 .url(embedUrl)
@@ -329,8 +334,9 @@ class SiteScraperEngine {
                 if (!response.isSuccessful) return embedUrl
                 val html = response.body?.string().orEmpty()
 
-                // 1. Vidmoly & standard M3U8 regex: file:"(https://...m3u8)"
+                // 1. Vidmoly, Vidhide, FileLions, StreamWish, JWPlayer, Standard M3U8 regex
                 val m3u8Match = Regex("""file\s*:\s*["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
+                    ?: Regex("""src\s*:\s*["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
                     ?: Regex("""["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
                 if (m3u8Match != null) {
                     return m3u8Match.groupValues[1]
@@ -338,11 +344,25 @@ class SiteScraperEngine {
 
                 // 2. VOE regex: 'hls': '(https://...m3u8)'
                 val voeMatch = Regex("""'hls'\s*:\s*['"](https?://[^'"]+)['"]""", RegexOption.IGNORE_CASE).find(html)
+                    ?: Regex("""["']hls["']\s*:\s*["'](https?://[^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
                 if (voeMatch != null) {
                     return voeMatch.groupValues[1]
                 }
 
-                // 3. Direct MP4 regex
+                // 3. Ok.ru (Odnoklassniki) HLS Manifest
+                val okRuMatch = Regex("""hlsManifestUrl["']?\s*:\s*["'](https?://[^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
+                if (okRuMatch != null) {
+                    return okRuMatch.groupValues[1].replace("\\u0026", "&")
+                }
+
+                // 4. Mixdrop regex: MDCore.wurl="(https://...)"
+                val mixdropMatch = Regex("""MDCore\.wurl\s*=\s*["']([^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
+                if (mixdropMatch != null) {
+                    val streamUrl = mixdropMatch.groupValues[1]
+                    return if (streamUrl.startsWith("//")) "https:$streamUrl" else streamUrl
+                }
+
+                // 5. Direct MP4 regex
                 val mp4Match = Regex("""["'](https?://[^"']+\.mp4[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
                 if (mp4Match != null) {
                     return mp4Match.groupValues[1]
