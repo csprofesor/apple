@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Tarama Sayfa Limiti (Örn: 20 veya 50 sayfa)"
+            android:hint="Tarama Sayfa Limiti (Örn: 30 veya 50 sayfa)"
             app:boxStrokeColor="#00E676"
             app:hintTextColor="#00E676">
 
@@ -108,20 +108,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="#2979FF"
-            android:text="1. Tüm Siteyi Tara (Derin Taramayı Başlat)"
+            android:text="1. Tüm Siteyi Tara ve Video Linklerini Çöz"
             android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            android:textSize="15sp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPublishBatch"
+            android:id="@+id/btnOpenGithubWeb"
+            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#00E676"
-            android:enabled="false"
-            android:text="2. GitHub'a Otomatik Yükle (Token ile)"
-            android:textColor="#000000"
-            android:textSize="16sp" />
+            android:text="Google ile GitHub'a Giriş Yap (Web Sayfası)"
+            android:textColor="#FFB74D"
+            android:textSize="15sp"
+            app:strokeColor="#FFB74D" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCopyJson"
@@ -130,10 +130,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:enabled="false"
-            android:text="3. VEYA JSON'u Kopyala (GitHub Web'e Yapıştır)"
+            android:text="JSON'u Kopyala (GitHub Web'e Yapıştır)"
             android:textColor="#00E676"
             android:textSize="15sp"
             app:strokeColor="#00E676" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPublishBatch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#00E676"
+            android:enabled="false"
+            android:text="Token İle Otomatik Yükle"
+            android:textColor="#000000"
+            android:textSize="15sp" />
 
         <!-- Output Status -->
         <TextView

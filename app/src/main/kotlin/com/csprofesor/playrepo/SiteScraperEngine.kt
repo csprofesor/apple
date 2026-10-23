@@ -13,8 +13,8 @@ import java.util.concurrent.TimeUnit
 class SiteScraperEngine {
 
     private val client = OkHttpClient.Builder()
-        .connectTimeout(12, TimeUnit.SECONDS)
-        .readTimeout(12, TimeUnit.SECONDS)
+        .connectTimeout(15, TimeUnit.SECONDS)
+        .readTimeout(15, TimeUnit.SECONDS)
         .followRedirects(true)
         .build()
 
@@ -22,12 +22,12 @@ class SiteScraperEngine {
     private val userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 
     /**
-     * Finds ALL movie page links across all catalog pagination pages.
+     * Finds ALL movie page links across all catalog pagination pages and genre categories.
      */
     suspend fun discoverAllMovieLinks(
         siteUrl: String,
-        maxPages: Int = 20,
-        onPageProgress: (pageNumber: Int, foundMoviesCount: Int, statusMsg: String) -> Unit
+        maxPages: Int = 30,
+        onPageProgress: suspend (pageNumber: Int, foundMoviesCount: Int, statusMsg: String) -> Unit
     ): List<String> = withContext(Dispatchers.IO) {
         val siteBase = if (siteUrl.contains("://")) {
             val parts = siteUrl.split("/")
@@ -37,19 +37,23 @@ class SiteScraperEngine {
         val cleanSiteUrl = siteUrl.trimEnd('/')
         val discoveredMovies = mutableSetOf<String>()
         val visitedCatalogPages = mutableSetOf<String>()
-        val catalogPagesQueue = mutableListOf(siteUrl)
+        val catalogPagesQueue = mutableSetOf<String>()
 
+        // 1. Initial catalog URL
+        catalogPagesQueue.add(siteUrl)
+
+        // 2. Add common pagination URLs (/film-izle/page/1..maxPages, /page/1..maxPages)
+        val basePath = if (cleanSiteUrl.endsWith("/film-izle")) cleanSiteUrl else "$cleanSiteUrl/film-izle"
         for (i in 1..maxPages) {
-            val pUrl = if (cleanSiteUrl.contains("page")) cleanSiteUrl else "$cleanSiteUrl/page/$i/"
-            if (!catalogPagesQueue.contains(pUrl)) {
-                catalogPagesQueue.add(pUrl)
-            }
+            catalogPagesQueue.add("$basePath/page/$i/")
+            catalogPagesQueue.add("$cleanSiteUrl/page/$i/")
         }
 
         var pageIndex = 0
+        val queueList = catalogPagesQueue.toMutableList()
 
-        while (catalogPagesQueue.isNotEmpty() && pageIndex < maxPages) {
-            val currentPageUrl = catalogPagesQueue.removeAt(0)
+        while (queueList.isNotEmpty() && pageIndex < maxPages) {
+            val currentPageUrl = queueList.removeAt(0)
             if (visitedCatalogPages.contains(currentPageUrl)) continue
             visitedCatalogPages.add(currentPageUrl)
 
@@ -63,7 +67,7 @@ class SiteScraperEngine {
 
                 client.newCall(request).execute().use { response ->
                     if (!response.isSuccessful) {
-                        onPageProgress(pageIndex, discoveredMovies.size, "Sayfa $pageIndex yanıt vermedi (${response.code})")
+                        onPageProgress(pageIndex, discoveredMovies.size, "Sayfa $pageIndex es geçildi (${response.code})")
                         return@use
                     }
 
@@ -82,11 +86,11 @@ class SiteScraperEngine {
 
                     onPageProgress(pageIndex, discoveredMovies.size, "Sayfa $pageIndex taranıyor ($newMoviesInPage yeni film eklendi)")
 
-                    // Extract next catalog pages from pagination links
+                    // Extract additional category and pagination links
                     doc.select("a[href]").forEach { a ->
                         val href = a.absUrl("href").trim()
-                        if (isValidCatalogPageUrl(href, siteBase) && !visitedCatalogPages.contains(href) && !catalogPagesQueue.contains(href)) {
-                            catalogPagesQueue.add(href)
+                        if (isValidCatalogPageUrl(href, siteBase) && !visitedCatalogPages.contains(href) && !queueList.contains(href)) {
+                            queueList.add(href)
                         }
                     }
                 }
@@ -118,19 +122,19 @@ class SiteScraperEngine {
         if (!url.startsWith(siteBase)) return false
         val lower = url.lowercase()
         if (isValidMovieUrl(url, siteBase)) return false
-        return lower.contains("/page/") || lower.contains("page=") || lower.contains("/kategori/") || lower.contains("/tur/")
+        return lower.contains("/page/") || lower.contains("page=") || lower.contains("/kategori/") || lower.contains("/tur/") || lower.contains("/yeni-filmler")
     }
 
     /**
-     * Crawls all movie links across the whole site and scrapes details and streams for each movie.
+     * Crawls all movie links across the whole site and resolves details & stream URLs for each movie.
      */
     suspend fun crawlEntireSite(
         siteUrl: String,
-        maxPages: Int = 20,
+        maxPages: Int = 30,
         tmdbApiKey: String? = null,
-        onStatusUpdate: (status: String) -> Unit
+        onStatusUpdate: suspend (status: String) -> Unit
     ): List<ScrapedMovie> = withContext(Dispatchers.IO) {
-        onStatusUpdate("Sitedeki tüm sayfalar taranıyor (Sayfalandırmalar kontrol ediliyor)...")
+        onStatusUpdate("Sitedeki tüm sayfalar taranıyor (Kategoriler ve Sayfalandırmalar çekiliyor)...")
 
         val allMovieUrls = discoverAllMovieLinks(
             siteUrl = siteUrl,
@@ -145,7 +149,7 @@ class SiteScraperEngine {
             return@withContext emptyList()
         }
 
-        onStatusUpdate("✓ Toplam ${allMovieUrls.size} film tespit edildi! Kaynaklar çözülüyor...")
+        onStatusUpdate("✓ Toplam ${allMovieUrls.size} film tespit edildi! Video kaynakları ve şifrelemeler çözülüyor...")
 
         val results = mutableListOf<ScrapedMovie>()
 
@@ -154,7 +158,7 @@ class SiteScraperEngine {
                 val movie = scrapeMoviePage(url, tmdbApiKey)
                 if (movie != null) {
                     results.add(movie)
-                    onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] Çözüldü: ${movie.title} (${movie.streams.size} yayın kaynağı)")
+                    onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] Çözüldü: ${movie.title} (${movie.streams.size} M3U8/MP4 yayın kaynağı)")
                 }
             } catch (e: Exception) {
                 onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] Sayfa hatası: ${e.localizedMessage}")
@@ -165,7 +169,7 @@ class SiteScraperEngine {
     }
 
     /**
-     * Scrapes a single movie page, resolves iframe embeds into direct M3U8/MP4 streams, and resolves TMDB ID.
+     * Scrapes a single movie page, unpacks iframe embeds into direct M3U8/MP4 stream URLs, and resolves TMDB ID.
      */
     suspend fun scrapeMoviePage(movieUrl: String, tmdbApiKey: String? = null): ScrapedMovie? = withContext(Dispatchers.IO) {
         val request = Request.Builder()
@@ -188,7 +192,7 @@ class SiteScraperEngine {
 
             val foundStreams = mutableListOf<StreamItem>()
 
-            // 1. Scrape direct iframe & video tags
+            // 1. Scrape direct iframe & video tags and UNPACK embeds
             doc.select("iframe[src], video[src], video source[src]").forEach { el ->
                 val src = el.absUrl("src").ifBlank { el.attr("src") }
                 if (src.isNotBlank()) {
@@ -197,7 +201,7 @@ class SiteScraperEngine {
                 }
             }
 
-            // 2. Scrape external links (vidmoly, vidhide, voe, streamtape, ok.ru, kinescope)
+            // 2. Scrape external links (vidmoly, vidhide, voe, streamtape, ok.ru, kinescope) and UNPACK embeds
             doc.select("a[href]").forEach { a ->
                 val href = a.absUrl("href").ifBlank { a.attr("href") }
                 if (href.contains("vidmoly") || href.contains("vidhide") ||
@@ -211,7 +215,7 @@ class SiteScraperEngine {
                 }
             }
 
-            // Fallback: If no embeds, use page URL
+            // Fallback: If no embeds found, use movie page URL
             if (foundStreams.isEmpty()) {
                 foundStreams.add(
                     StreamItem(

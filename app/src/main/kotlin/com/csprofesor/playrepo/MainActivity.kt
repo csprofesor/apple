@@ -3,6 +3,7 @@ package com.csprofesor.playrepo
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +11,9 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import com.csprofesor.playrepo.databinding.ActivityMainBinding
 import com.google.gson.Gson
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,6 +43,13 @@ class MainActivity : AppCompatActivity() {
             prefs.edit().putString("tmdb_key", text.toString().trim()).apply()
         }
 
+        binding.btnOpenGithubWeb.setOnClickListener {
+            val intent = Intent(this, GitHubWebActivity::class.java).apply {
+                putExtra("url", "https://github.com/csprofesor/apple/edit/main/data/streams.json")
+            }
+            startActivity(intent)
+        }
+
         binding.btnCrawlSite.setOnClickListener {
             val siteUrl = binding.etSiteUrl.text?.toString()?.trim().orEmpty()
             val tmdbApiKey = binding.etTmdbApiKey.text?.toString()?.trim().orEmpty()
@@ -50,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            binding.tvStatus.text = "Sitedeki sayfalar bulunuyor, derin tarama başlatılıyor..."
+            binding.tvStatus.text = "Sitedeki sayfalar taranıyor, video yayın kaynakları çözülüyor..."
             binding.btnCrawlSite.isEnabled = false
             scrapedMoviesList.clear()
 
@@ -60,8 +70,10 @@ class MainActivity : AppCompatActivity() {
                         siteUrl = siteUrl,
                         maxPages = maxPages,
                         tmdbApiKey = tmdbApiKey,
-                        onStatusUpdate = { status ->
-                            binding.tvStatus.text = status
+                        onStatusUpdate = { statusMsg ->
+                            withContext(Dispatchers.Main) {
+                                binding.tvStatus.text = statusMsg
+                            }
                         }
                     )
 
@@ -71,10 +83,10 @@ class MainActivity : AppCompatActivity() {
                     binding.btnCopyJson.isEnabled = hasItems
 
                     val summary = StringBuilder()
-                    summary.append("✓ Derin Site Taraması Tamamlandı!\n")
+                    summary.append("✓ Derin Site Taraması ve Şifre Çözümü Tamamlandı!\n")
                     summary.append("Bulunan ve İşlenen Toplam Film Sayısı: ${scrapedMoviesList.size}\n\n")
                     scrapedMoviesList.take(20).forEachIndexed { idx, m ->
-                        summary.append("${idx + 1}. ${m.title} (TMDB: ${m.tmdbId}) -> ${m.streams.size} kaynak\n")
+                        summary.append("${idx + 1}. ${m.title} (TMDB: ${m.tmdbId}) -> ${m.streams.size} çözülmüş yayın\n")
                     }
                     if (scrapedMoviesList.size > 20) {
                         summary.append("\n... ve ${scrapedMoviesList.size - 20} film daha!")
@@ -145,8 +157,8 @@ class MainActivity : AppCompatActivity() {
             val clip = ClipData.newPlainText("PlayRepo JSON", jsonString)
             clipboard.setPrimaryClip(clip)
 
-            Toast.makeText(this, "JSON panoya kopyalandı! GitHub Web sitesine yapıştırabilirsiniz.", Toast.LENGTH_LONG).show()
-            binding.tvStatus.text = "✓ JSON kopyalandı!\nGitHub'a girip data/streams.json dosyasına yapıştırabilirsiniz."
+            Toast.makeText(this, "JSON panoya kopyalandı! 'Google ile GitHub'a Giriş Yap' butonuna basıp yapıştırabilirsiniz.", Toast.LENGTH_LONG).show()
+            binding.tvStatus.text = "✓ Çözülmüş JSON panoya kopyalandı!\n\n'Google ile GitHub'a Giriş Yap' butonuna basıp data/streams.json dosyasına yapıştırabilirsiniz."
         }
     }
 }
