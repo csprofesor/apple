@@ -117,10 +117,8 @@ class SiteScraperEngine {
         doc.select("iframe[src], video[src], video source[src]").forEach { el ->
             val src = el.absUrl("src").ifBlank { el.attr("src") }
             if (src.isNotBlank()) {
-                val resolvedStream = resolveStreamUrl(src, movieUrl, cleanTitle)
-                if (resolvedStream != null) {
-                    foundStreams.add(resolvedStream)
-                }
+                val resolvedStream = resolveStreamUrl(src, movieUrl, foundStreams.size + 1)
+                foundStreams.add(resolvedStream)
             }
         }
 
@@ -131,8 +129,8 @@ class SiteScraperEngine {
                 href.contains("voe.sx") || href.contains("streamtape") ||
                 href.contains("ok.ru") || href.contains("kinescope")
             ) {
-                val resolvedStream = resolveStreamUrl(href, movieUrl, cleanTitle)
-                if (resolvedStream != null && foundStreams.none { it.url == resolvedStream.url }) {
+                val resolvedStream = resolveStreamUrl(href, movieUrl, foundStreams.size + 1)
+                if (foundStreams.none { it.url == resolvedStream.url }) {
                     foundStreams.add(resolvedStream)
                 }
             }
@@ -142,8 +140,8 @@ class SiteScraperEngine {
         if (foundStreams.isEmpty()) {
             foundStreams.add(
                 StreamItem(
-                    name = "PlayRepo Direct",
-                    title = "$cleanTitle • Direct Web Source",
+                    name = "PlayRepo",
+                    title = "PlayRepo • Sunucu 1 • 1080p",
                     url = movieUrl,
                     quality = 1080,
                     format = "m3u8",
@@ -174,20 +172,12 @@ class SiteScraperEngine {
             .trim()
     }
 
-    private fun resolveStreamUrl(embedUrl: String, referer: String, title: String): StreamItem? {
+    private fun resolveStreamUrl(embedUrl: String, referer: String, serverIndex: Int): StreamItem {
         val format = if (embedUrl.contains(".m3u8")) "m3u8" else "mp4"
-        val providerName = when {
-            embedUrl.contains("vidmoly", true) -> "Vidmoly"
-            embedUrl.contains("vidhide", true) -> "Vidhide"
-            embedUrl.contains("kinescope", true) -> "Kinescope"
-            embedUrl.contains("voe", true) -> "VOE"
-            embedUrl.contains("streamtape", true) -> "Streamtape"
-            else -> "PlayRepo Server"
-        }
 
         return StreamItem(
-            name = "PlayRepo • $providerName",
-            title = "$title • $providerName • 1080p",
+            name = "PlayRepo",
+            title = "PlayRepo • Sunucu $serverIndex • 1080p",
             url = embedUrl,
             quality = 1080,
             format = format,
