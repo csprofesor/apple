@@ -103,7 +103,6 @@ class SiteScraperEngine {
                 onPageProgress(pageIndex, discoveredMovies.size, "Sayfa $pageIndex hatası: ${e.localizedMessage ?: "Bağlantı kesildi"}")
             }
 
-            // Slight delay to prevent rate limiting
             delay(50)
         }
 
@@ -126,7 +125,7 @@ class SiteScraperEngine {
             return false
         }
 
-        return lower.contains("/film/") || lower.contains("/diziler/") || lower.contains("-izle")
+        return lower.contains("/film/") || lower.contains("/diziler/") || lower.contains("/dizi/") || lower.contains("-izle")
     }
 
     private fun isValidCatalogPageUrl(url: String, siteBase: String): Boolean {
@@ -205,7 +204,6 @@ class SiteScraperEngine {
             val cleanTitle = cleanMovieTitle(rawTitle)
             if (cleanTitle.isBlank()) return@withContext null
 
-            // Detect language & quality flags
             val isDub = html.contains("dublaj", true) || rawTitle.contains("dublaj", true)
             val langTag = if (isDub) "[TR Dublaj]" else "[TR Altyazılı]"
             val qualityTag = if (html.contains("4k", true) || rawTitle.contains("4k", true)) "4K" else "1080p"
@@ -215,24 +213,54 @@ class SiteScraperEngine {
             // 1. Scrape direct iframe & video tags
             doc.select("iframe[src], video[src], video source[src]").forEach { el ->
                 val src = el.absUrl("src").ifBlank { el.attr("src") }
-                if (src.isNotBlank()) {
+                if (src.isNotBlank() && !src.contains("about:blank")) {
                     val resolvedStream = resolveStreamUrl(src, movieUrl, foundStreams.size + 1, qualityTag, langTag)
                     foundStreams.add(resolvedStream)
                 }
             }
 
-            // 2. Scrape external links (vidmoly, vidhide, voe, streamtape, ok.ru, kinescope)
+            // 2. Scrape data-src / data-url / data-player / data-embed attributes from player elements
+            doc.select("[data-src], [data-url], [data-player], [data-embed]").forEach { el ->
+                val dataSrc = el.attr("data-src").ifBlank { el.attr("data-url") }.ifBlank { el.attr("data-player") }.ifBlank { el.attr("data-embed") }
+                if (dataSrc.isNotBlank() && !dataSrc.contains("about:blank")) {
+                    val fullUrl = if (dataSrc.startsWith("http")) dataSrc else if (dataSrc.startsWith("//")) "https:$dataSrc" else movieUrl
+                    if (foundStreams.none { it.url == fullUrl }) {
+                        val resolvedStream = resolveStreamUrl(fullUrl, movieUrl, foundStreams.size + 1, qualityTag, langTag)
+                        foundStreams.add(resolvedStream)
+                    }
+                }
+            }
+
+            // 3. Scrape external links (vidmoly, vidhide, voe, streamtape, ok.ru, kinescope, odnoklassniki)
             doc.select("a[href]").forEach { a ->
                 val href = a.absUrl("href").ifBlank { a.attr("href") }
                 if (href.contains("vidmoly") || href.contains("vidhide") ||
                     href.contains("voe.sx") || href.contains("streamtape") ||
-                    href.contains("ok.ru") || href.contains("kinescope")
+                    href.contains("ok.ru") || href.contains("kinescope") || href.contains("odnoklassniki")
                 ) {
                     val resolvedStream = resolveStreamUrl(href, movieUrl, foundStreams.size + 1, qualityTag, langTag)
                     if (foundStreams.none { it.url == resolvedStream.url }) {
                         foundStreams.add(resolvedStream)
                     }
                 }
+            }
+
+            // 4. Scrape Base64 encoded atob("...") player embeds (e.g. filmkovasi.co, hdfilmcehennemi, dizipal)
+            val atobRegex = Regex("""atob\s*\(\s*["'`]([A-Za-z0-9+/=]+)["'`]\s*\)""")
+            atobRegex.findAll(html).forEach { match ->
+                try {
+                    val b64 = match.groupValues[1]
+                    val decodedBytes = android.util.Base64.decode(b64, android.util.Base64.DEFAULT)
+                    val decodedJson = String(decodedBytes, Charsets.UTF_8).replace("\\/", "/")
+                    val urlRegex = Regex("""https?://[^\s"'\\]+""")
+                    urlRegex.findAll(decodedJson).forEach { urlMatch ->
+                        val embedUrl = urlMatch.value
+                        if (embedUrl.isNotBlank() && foundStreams.none { it.url == embedUrl }) {
+                            val resolvedStream = resolveStreamUrl(embedUrl, movieUrl, foundStreams.size + 1, qualityTag, langTag)
+                            foundStreams.add(resolvedStream)
+                        }
+                    }
+                } catch (_: Exception) { }
             }
 
             // Fallback: If no embeds found, use movie page URL
@@ -287,7 +315,7 @@ class SiteScraperEngine {
     }
 
     /**
-     * Unpacks/decrypts embed players (Vidmoly, Vidhide, VOE, Kinescope, Streamtape) into direct M3U8 / MP4 URLs.
+     * Unpacks/decrypts embed players (Vidmoly, Vidhide, VOE, Kinescope, Streamtape, Odnoklassniki) into direct M3U8 / MP4 URLs.
      */
     private fun unpackEmbedStreamUrl(embedUrl: String, referer: String): String {
         try {
