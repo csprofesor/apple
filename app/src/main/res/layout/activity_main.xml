@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="#0D0E12"
     android:padding="16dp">
 
     <LinearLayout
@@ -11,23 +11,122 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- App Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PlayRepo Auto Publisher"
-            android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PlayRepo Pro Publisher"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#1E293B"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="v2.0 Pro"
+                android:textColor="#00E676"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Kayıtlı tüm film sitelerini tek tıkla tarayıp Nuvio eklentinize yükleyin"
-            android:textColor="#B0BEC5"
-            android:textSize="14sp" />
+            android:layout_marginTop="2dp"
+            android:text="Gelişmiş Çoklu Site Tarayıcısı ve M3U8/MP4 Yayın Otomasyonu"
+            android:textColor="#94A3B8"
+            android:textSize="13sp" />
 
-        <!-- 1-Click Master Update Button -->
+        <!-- Stats Overview Cards -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <!-- Card 1: Total Movies -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="#1E293B"
+                app:cardCornerRadius="12dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Toplam Film"
+                        android:textColor="#94A3B8"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvStatTotalMovies"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="0"
+                        android:textColor="#00E676"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 2: Active Sites -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="#1E293B"
+                app:cardCornerRadius="12dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kayıtlı Siteler"
+                        android:textColor="#94A3B8"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvStatActiveSites"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="1"
+                        android:textColor="#38BDF8"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Master 1-Click Batch Update Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnUpdateAllSites"
             android:layout_width="match_parent"
@@ -35,21 +134,23 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="#00E676"
             android:padding="14dp"
-            android:text="🚀 TÜM SİTELERİ GÜNCELLE VE GİTHUB'A YÜKLE"
+            android:text="🚀 TÜM SİTELERİ TEK TIKLA GÜNCELLE &amp; YÜKLE"
             android:textColor="#000000"
             android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:cornerRadius="12dp" />
 
+        <!-- Section 1: Kayıtlı Siteler Yönetimi -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Kayıtlı Film Siteleri:"
+            android:text="Kayıtlı Film Siteleri Yönetimi"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <!-- Site Add Input -->
+        <!-- Add Site Input -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,9 +162,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Yeni Site Adresi Ekle"
-                app:boxStrokeColor="#2979FF"
-                app:hintTextColor="#2979FF">
+                android:hint="Yeni Site Adresi (Örn: https://site.com/film/)"
+                app:boxStrokeColor="#38BDF8"
+                app:hintTextColor="#38BDF8">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etNewSiteUrl"
@@ -79,79 +180,162 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="8dp"
-                android:backgroundTint="#2979FF"
+                android:backgroundTint="#38BDF8"
                 android:text="Site Ekle"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000"
+                app:cornerRadius="10dp" />
         </LinearLayout>
 
-        <!-- Saved Sites TextView / Container -->
+        <!-- Saved Sites Display Container -->
         <TextView
             android:id="@+id/tvSavedSites"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="#1E1E1E"
+            android:background="#1E293B"
             android:padding="12dp"
-            android:text="Kayıtlı site yok."
-            android:textColor="#B0BEC5"
+            android:text="Kayıtlı siteler yükleniyor..."
+            android:textColor="#CBD5E1"
             android:textSize="13sp" />
 
-        <!-- Max Pages Limit -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Site Başına Tarama Sayfa Limiti"
-            app:boxStrokeColor="#00E676"
-            app:hintTextColor="#00E676">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etMaxPages"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="15"
-                android:textColor="#FFFFFF" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- TMDB API Key (Optional) -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="TMDB API Key (Opsiyonel)"
-            app:boxStrokeColor="#00E676"
-            app:hintTextColor="#00E676">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etTmdbApiKey"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:textColor="#FFFFFF" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Output Status -->
+        <!-- Section 2: Tekli Site veya Özel Sayfa Taraması -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="İşlem Durumu ve Canlı Çıktı:"
-            android:textColor="#B0BEC5"
+            android:text="Tekli Site veya Sayfa Taraması"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvStatus"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="#1E1E1E"
-            android:padding="14dp"
-            android:text="Hazır. Tüm siteleri güncellemek için en üstteki yeşil butona basın."
-            android:textColor="#00E676"
-            android:textSize="14sp" />
+            android:hint="Tekli Sayfa / Film Adresi"
+            app:boxStrokeColor="#818CF8"
+            app:hintTextColor="#818CF8">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSingleUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textUri"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCrawlSingle"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Sadece Bu Adresi Tara &amp; Yükle"
+            android:textColor="#818CF8"
+            android:textSize="14sp"
+            app:cornerRadius="10dp"
+            app:strokeColor="#818CF8" />
+
+        <!-- Settings Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Gelişmiş Ayarlar"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Sayfa Limiti"
+                app:boxStrokeColor="#00E676"
+                app:hintTextColor="#00E676">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMaxPages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="20"
+                    android:textColor="#FFFFFF" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:hint="TMDB API Key (Opsiyonel)"
+                app:boxStrokeColor="#00E676"
+                app:hintTextColor="#00E676">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTmdbApiKey"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="#FFFFFF" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- Live Terminal Log Box Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Canlı İşlem Terminal Logu:"
+                android:textColor="#94A3B8"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnClearLogs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="4dp"
+                android:text="Temizle"
+                android:textColor="#F43F5E"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Scrollable Terminal Box -->
+        <ScrollView
+            android:id="@+id/svLogContainer"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="8dp"
+            android:background="#0F172A"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/tvStatusLog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="[READY] System initialized. Press button to update."
+                android:textColor="#00E676"
+                android:textSize="12sp" />
+        </ScrollView>
 
     </LinearLayout>
 </ScrollView>

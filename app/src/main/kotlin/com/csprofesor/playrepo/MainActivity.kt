@@ -12,6 +12,9 @@ import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private val gson = Gson()
 
     private val savedSitesList = mutableListOf<String>()
+    private val logBuilder = StringBuilder()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         val prefs = getSharedPreferences("playrepo_prefs", Context.MODE_PRIVATE)
 
-        // Load saved sites list or initialize with default
+        // 1. Load saved sites list or default
         val savedSitesJson = prefs.getString("saved_sites_json", null)
         if (!savedSitesJson.isNullOrBlank()) {
             try {
@@ -54,6 +58,12 @@ class MainActivity : AppCompatActivity() {
             prefs.edit().putString("tmdb_key", text.toString().trim()).apply()
         }
 
+        binding.btnClearLogs.setOnClickListener {
+            logBuilder.clear()
+            binding.tvStatusLog.text = "[READY] System reset."
+        }
+
+        // Add New Site
         binding.btnAddSite.setOnClickListener {
             val newUrl = binding.etNewSiteUrl.text?.toString()?.trim().orEmpty()
             if (newUrl.isBlank() || !newUrl.startsWith("http")) {
@@ -66,25 +76,72 @@ class MainActivity : AppCompatActivity() {
                 saveSitesListToPrefs()
                 updateSavedSitesUI()
                 binding.etNewSiteUrl.setText("")
-                Toast.makeText(this, "Yeni site başarıyla eklendi!", Toast.LENGTH_SHORT).show()
+                appendLog("[SITE ADDED] $newUrl")
+                Toast.makeText(this, "Yeni site eklendi!", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Bu site zaten ekli!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Bu site zaten kayıtlı!", Toast.LENGTH_SHORT).show()
             }
         }
 
-        // Master 1-Click Update Button for ALL saved sites
-        binding.btnUpdateAllSites.setOnClickListener {
+        // 1. SINGLE SITE / PAGE CRAWL
+        binding.btnCrawlSingle.setOnClickListener {
+            val singleUrl = binding.etSingleUrl.text?.toString()?.trim().orEmpty()
             val tmdbApiKey = binding.etTmdbApiKey.text?.toString()?.trim().orEmpty()
-            val maxPagesPerSite = binding.etMaxPages.text?.toString()?.toIntOrNull() ?: 15
+            val maxPages = binding.etMaxPages.text?.toString()?.toIntOrNull() ?: 20
 
-            if (savedSitesList.isEmpty()) {
-                Toast.makeText(this, "Lütfen önce en az bir film sitesi ekleyin!", Toast.LENGTH_SHORT).show()
+            if (singleUrl.isBlank()) {
+                Toast.makeText(this, "Lütfen bir site/film adresi girin!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            binding.btnUpdateAllSites.isEnabled = false
-            binding.btnAddSite.isEnabled = false
-            binding.tvStatus.text = "Tüm siteler taranmaya başlanıyor..."
+            setControlsEnabled(false)
+            appendLog("[SINGLE CRAWL START] $singleUrl")
+
+            lifecycleScope.launch {
+                try {
+                    val siteMovies = scraperEngine.crawlEntireSite(
+                        siteUrl = singleUrl,
+                        maxPages = maxPages,
+                        tmdbApiKey = tmdbApiKey,
+                        onStatusUpdate = { status ->
+                            withContext(Dispatchers.Main) {
+                                appendLog(status)
+                            }
+                        }
+                    )
+
+                    if (siteMovies.isNotEmpty()) {
+                        appendLog("[PUBLISHING] ${siteMovies.size} filmleri GitHub'a yükleniyor...")
+                        val pubRes = githubPublisher.publishBatchToGitHub(scrapedMovies = siteMovies)
+                        pubRes.onSuccess { msg ->
+                            appendLog("[SUCCESS] $msg")
+                            binding.tvStatTotalMovies.text = siteMovies.size.toString()
+                        }.onFailure { err ->
+                            appendLog("[ERROR] GitHub yükleme hatası: ${err.message}")
+                        }
+                    } else {
+                        appendLog("[WARNING] Bu adresten film çekilemedi.")
+                    }
+                } catch (e: Exception) {
+                    appendLog("[ERROR] $e")
+                } finally {
+                    setControlsEnabled(true)
+                }
+            }
+        }
+
+        // 2. MASTER 1-CLICK ALL SITES UPDATE
+        binding.btnUpdateAllSites.setOnClickListener {
+            val tmdbApiKey = binding.etTmdbApiKey.text?.toString()?.trim().orEmpty()
+            val maxPagesPerSite = binding.etMaxPages.text?.toString()?.toIntOrNull() ?: 20
+
+            if (savedSitesList.isEmpty()) {
+                Toast.makeText(this, "Kayıtlı site bulunmuyor!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            setControlsEnabled(false)
+            appendLog("[MASTER UPDATE START] ${savedSitesList.size} kayıtlı sitenin tamamı taranıyor...")
 
             lifecycleScope.launch {
                 val allBatchMovies = mutableListOf<ScrapedMovie>()
@@ -95,7 +152,7 @@ class MainActivity : AppCompatActivity() {
                         val totalSites = savedSitesList.size
 
                         withContext(Dispatchers.Main) {
-                            binding.tvStatus.text = "[$siteNum / $totalSites] Site Taranıyor: $siteUrl"
+                            appendLog("[SITE $siteNum/$totalSites] Taranıyor: $siteUrl")
                         }
 
                         val siteMovies = scraperEngine.crawlEntireSite(
@@ -104,7 +161,7 @@ class MainActivity : AppCompatActivity() {
                             tmdbApiKey = tmdbApiKey,
                             onStatusUpdate = { statusMsg ->
                                 withContext(Dispatchers.Main) {
-                                    binding.tvStatus.text = "[$siteNum / $totalSites] Site ($siteUrl):\n$statusMsg"
+                                    appendLog(" -> $statusMsg")
                                 }
                             }
                         )
@@ -113,28 +170,43 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     if (allBatchMovies.isEmpty()) {
-                        binding.tvStatus.text = "✗ Sitelerden film çekilemedi. Lütfen site adreslerini kontrol edin."
+                        appendLog("[ERROR] Sitelerden film çekilemedi.")
                         return@launch
                     }
 
-                    // Auto-publish batch results to GitHub
-                    binding.tvStatus.text = "✓ Toplam ${allBatchMovies.size} film çözüldü! Otomatik GitHub deponuza (`csprofesor/apple`) yükleniyor..."
+                    appendLog("[PUBLISHING] Toplam ${allBatchMovies.size} film çözüldü! GitHub'a (`csprofesor/apple`) gönderiliyor...")
 
                     val pubResult = githubPublisher.publishBatchToGitHub(scrapedMovies = allBatchMovies)
 
                     pubResult.onSuccess { msg ->
-                        binding.tvStatus.text = "🎉 $msg\n\nKayıtlı ${savedSitesList.size} sitenin tamamı güncellendi ve Nuvio eklentinize aktarıldı!"
+                        appendLog("🎉 [SUCCESS] $msg")
+                        appendLog("[COMPLETED] Nuvio eklentiniz tamamen güncellendi!")
+                        binding.tvStatTotalMovies.text = allBatchMovies.size.toString()
                     }.onFailure { err ->
-                        binding.tvStatus.text = "✗ GitHub Yükleme Hatası: ${err.message}"
+                        appendLog("✗ [ERROR] GitHub Yükleme Hatası: ${err.message}")
                     }
 
                 } catch (e: Exception) {
-                    binding.tvStatus.text = "Hata oluştu: ${e.message}"
+                    appendLog("[ERROR] $e")
                 } finally {
-                    binding.btnUpdateAllSites.isEnabled = true
-                    binding.btnAddSite.isEnabled = true
+                    setControlsEnabled(true)
                 }
             }
+        }
+    }
+
+    private fun setControlsEnabled(enabled: Boolean) {
+        binding.btnUpdateAllSites.isEnabled = enabled
+        binding.btnCrawlSingle.isEnabled = enabled
+        binding.btnAddSite.isEnabled = enabled
+    }
+
+    private fun appendLog(msg: String) {
+        val time = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
+        logBuilder.append("[$time] $msg\n")
+        binding.tvStatusLog.text = logBuilder.toString()
+        binding.svLogContainer.post {
+            binding.svLogContainer.fullScroll(android.view.View.FOCUS_DOWN)
         }
     }
 
@@ -145,6 +217,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateSavedSitesUI() {
+        binding.tvStatActiveSites.text = savedSitesList.size.toString()
         if (savedSitesList.isEmpty()) {
             binding.tvSavedSites.text = "Kayıtlı site bulunmuyor."
         } else {
