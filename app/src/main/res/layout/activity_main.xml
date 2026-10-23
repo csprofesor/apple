@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PlayRepo Publisher"
+            android:text="PlayRepo Auto Publisher"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -23,36 +23,86 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Film sitesini taratın ve tek tıkla Nuvio eklentinize yükleyin"
+            android:text="Kayıtlı tüm film sitelerini tek tıkla tarayıp Nuvio eklentinize yükleyin"
             android:textColor="#B0BEC5"
             android:textSize="14sp" />
 
-        <!-- Target Site / Catalog URL -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        <!-- 1-Click Master Update Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUpdateAllSites"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Film Sitesi Adresi"
-            app:boxStrokeColor="#00E676"
-            app:hintTextColor="#00E676">
+            android:backgroundTint="#00E676"
+            android:padding="14dp"
+            android:text="🚀 TÜM SİTELERİ GÜNCELLE VE GİTHUB'A YÜKLE"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etSiteUrl"
-                android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Kayıtlı Film Siteleri:"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Site Add Input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:inputType="textUri"
-                android:text="https://www.hintfilmizle.com/film-izle/"
+                android:layout_weight="1"
+                android:hint="Yeni Site Adresi Ekle"
+                app:boxStrokeColor="#2979FF"
+                app:hintTextColor="#2979FF">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNewSiteUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textUri"
+                    android:textColor="#FFFFFF" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddSite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="#2979FF"
+                android:text="Site Ekle"
                 android:textColor="#FFFFFF" />
-        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- Saved Sites TextView / Container -->
+        <TextView
+            android:id="@+id/tvSavedSites"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#1E1E1E"
+            android:padding="12dp"
+            android:text="Kayıtlı site yok."
+            android:textColor="#B0BEC5"
+            android:textSize="13sp" />
 
         <!-- Max Pages Limit -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Tarama Sayfa Limiti"
+            android:layout_marginTop="16dp"
+            android:hint="Site Başına Tarama Sayfa Limiti"
             app:boxStrokeColor="#00E676"
             app:hintTextColor="#00E676">
 
@@ -61,7 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:text="30"
+                android:text="15"
                 android:textColor="#FFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,37 +133,12 @@
                 android:textColor="#FFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Main Action Buttons -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCrawlSite"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#2979FF"
-            android:padding="12dp"
-            android:text="1. Tüm Siteyi Tara ve Video Linklerini Çöz"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPublishBatch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="#00E676"
-            android:enabled="false"
-            android:padding="12dp"
-            android:text="2. GitHub'a Yükle (Nuvio Eklentisine Gönder)"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
         <!-- Output Status -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="İşlem Durumu:"
+            android:layout_marginTop="20dp"
+            android:text="İşlem Durumu ve Canlı Çıktı:"
             android:textColor="#B0BEC5"
             android:textStyle="bold" />
 
@@ -124,7 +149,7 @@
             android:layout_marginTop="8dp"
             android:background="#1E1E1E"
             android:padding="14dp"
-            android:text="Hazır. Sitemizi taratmak için 1. butona basın."
+            android:text="Hazır. Tüm siteleri güncellemek için en üstteki yeşil butona basın."
             android:textColor="#00E676"
             android:textSize="14sp" />
 
