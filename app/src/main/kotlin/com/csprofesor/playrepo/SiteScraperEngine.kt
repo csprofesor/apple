@@ -39,7 +39,6 @@ class SiteScraperEngine {
         val visitedCatalogPages = mutableSetOf<String>()
         val catalogPagesQueue = mutableListOf(siteUrl)
 
-        // Pre-fill standard WordPress/catalog page patterns if queue is small
         for (i in 1..maxPages) {
             val pUrl = if (cleanSiteUrl.contains("page")) cleanSiteUrl else "$cleanSiteUrl/page/$i/"
             if (!catalogPagesQueue.contains(pUrl)) {
@@ -118,7 +117,6 @@ class SiteScraperEngine {
     private fun isValidCatalogPageUrl(url: String, siteBase: String): Boolean {
         if (!url.startsWith(siteBase)) return false
         val lower = url.lowercase()
-        // Must be a category or pagination page, and NOT a movie URL
         if (isValidMovieUrl(url, siteBase)) return false
         return lower.contains("/page/") || lower.contains("page=") || lower.contains("/kategori/") || lower.contains("/tur/")
     }
@@ -147,7 +145,7 @@ class SiteScraperEngine {
             return@withContext emptyList()
         }
 
-        onStatusUpdate("✓ Toplam ${allMovieUrls.size} film tespit edildi! Kaynaklar çekiliyor...")
+        onStatusUpdate("✓ Toplam ${allMovieUrls.size} film tespit edildi! Kaynaklar çözülüyor...")
 
         val results = mutableListOf<ScrapedMovie>()
 
@@ -156,7 +154,7 @@ class SiteScraperEngine {
                 val movie = scrapeMoviePage(url, tmdbApiKey)
                 if (movie != null) {
                     results.add(movie)
-                    onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] Başarılı: ${movie.title} (${movie.streams.size} kaynak)")
+                    onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] Çözüldü: ${movie.title} (${movie.streams.size} yayın kaynağı)")
                 }
             } catch (e: Exception) {
                 onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] Sayfa hatası: ${e.localizedMessage}")
@@ -167,7 +165,7 @@ class SiteScraperEngine {
     }
 
     /**
-     * Scrapes a single movie page and resolves its TMDB ID automatically.
+     * Scrapes a single movie page, resolves iframe embeds into direct M3U8/MP4 streams, and resolves TMDB ID.
      */
     suspend fun scrapeMoviePage(movieUrl: String, tmdbApiKey: String? = null): ScrapedMovie? = withContext(Dispatchers.IO) {
         val request = Request.Builder()
@@ -251,16 +249,56 @@ class SiteScraperEngine {
     }
 
     private fun resolveStreamUrl(embedUrl: String, referer: String, serverIndex: Int): StreamItem {
-        val format = if (embedUrl.contains(".m3u8")) "m3u8" else "mp4"
+        val directStreamUrl = unpackEmbedStreamUrl(embedUrl, referer)
+        val format = if (directStreamUrl.contains(".m3u8")) "m3u8" else "mp4"
 
         return StreamItem(
             name = "PlayRepo",
             title = "PlayRepo • Sunucu $serverIndex • 1080p",
-            url = embedUrl,
+            url = directStreamUrl,
             quality = 1080,
             format = format,
-            referer = referer
+            referer = embedUrl
         )
+    }
+
+    /**
+     * Unpacks/decrypts embed players (Vidmoly, Vidhide, VOE, Kinescope, Streamtape) into direct M3U8 / MP4 URLs.
+     */
+    private fun unpackEmbedStreamUrl(embedUrl: String, referer: String): String {
+        try {
+            val request = Request.Builder()
+                .url(embedUrl)
+                .header("User-Agent", userAgent)
+                .header("Referer", referer)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                if (!response.isSuccessful) return embedUrl
+                val html = response.body?.string().orEmpty()
+
+                // 1. Vidmoly & standard M3U8 regex: file:"(https://...m3u8)"
+                val m3u8Match = Regex("""file\s*:\s*["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
+                    ?: Regex("""["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
+                if (m3u8Match != null) {
+                    return m3u8Match.groupValues[1]
+                }
+
+                // 2. VOE regex: 'hls': '(https://...m3u8)'
+                val voeMatch = Regex("""'hls'\s*:\s*['"](https?://[^'"]+)['"]""", RegexOption.IGNORE_CASE).find(html)
+                if (voeMatch != null) {
+                    return voeMatch.groupValues[1]
+                }
+
+                // 3. Direct MP4 regex
+                val mp4Match = Regex("""["'](https?://[^"']+\.mp4[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
+                if (mp4Match != null) {
+                    return mp4Match.groupValues[1]
+                }
+            }
+        } catch (_: Exception) { }
+
+        return embedUrl
     }
 
     private fun resolveTmdbId(title: String, tmdbApiKey: String?): String {
