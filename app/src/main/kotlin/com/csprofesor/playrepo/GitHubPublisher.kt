@@ -14,37 +14,30 @@ import java.util.Base64
 class GitHubPublisher {
 
     companion object {
-        private val P1 = "ghp_" + "Dozar"
-        private val P2 = "VkUALWk9"
-        private val P3 = "SkjXwPFM"
-        private val P4 = "nXB4WagD"
-        private val P5 = "K23KVNJ"
-
-        val HARDCODED_TOKEN = P1 + P2 + P3 + P4 + P5
-        const val HARDCODED_OWNER = "csprofesor"
-        const val HARDCODED_REPO = "apple"
+        const val DEFAULT_OWNER = "csprofesor"
+        const val DEFAULT_REPO = "apple"
     }
 
     private val client = OkHttpClient()
     private val gson = Gson()
 
     suspend fun publishBatchToGitHub(
-        githubToken: String = HARDCODED_TOKEN,
-        repoOwner: String = HARDCODED_OWNER,
-        repoName: String = HARDCODED_REPO,
+        githubToken: String,
+        repoOwner: String = DEFAULT_OWNER,
+        repoName: String = DEFAULT_REPO,
         scrapedMovies: List<ScrapedMovie>
     ): Result<String> = withContext(Dispatchers.IO) {
-        val effectiveToken = githubToken.ifBlank { HARDCODED_TOKEN }
-        val effectiveOwner = repoOwner.ifBlank { HARDCODED_OWNER }
-        val effectiveRepo = repoName.ifBlank { HARDCODED_REPO }
+        if (githubToken.isBlank()) {
+            return@withContext Result.failure(Exception("GitHub Token bulunamadı. Lütfen ayarları kontrol edin."))
+        }
 
         try {
-            val apiUrl = "https://api.github.com/repos/$effectiveOwner/$effectiveRepo/contents/data/streams.json"
+            val apiUrl = "https://api.github.com/repos/$repoOwner/$repoName/contents/data/streams.json"
 
             // 1. Get current streams.json from GitHub
             val getRequest = Request.Builder()
                 .url(apiUrl)
-                .header("Authorization", "Bearer $effectiveToken")
+                .header("Authorization", "Bearer $githubToken")
                 .header("Accept", "application/vnd.github.v3+json")
                 .build()
 
@@ -117,14 +110,14 @@ class GitHubPublisher {
 
             val putRequest = Request.Builder()
                 .url(apiUrl)
-                .header("Authorization", "Bearer $effectiveToken")
+                .header("Authorization", "Bearer $githubToken")
                 .header("Accept", "application/vnd.github.v3+json")
                 .put(putBody.toString().toRequestBody("application/json".toMediaType()))
                 .build()
 
             client.newCall(putRequest).execute().use { response ->
                 if (response.isSuccessful) {
-                    Result.success("Toplam ${scrapedMovies.size} film akıllı birleştirmeyle GitHub deponuza yüklendi!")
+                    Result.success("Toplam ${scrapedMovies.size} film başarıyla GitHub deponuza yüklendi!")
                 } else {
                     Result.failure(Exception("GitHub API hatası: ${response.code} ${response.message}"))
                 }
@@ -135,13 +128,9 @@ class GitHubPublisher {
     }
 
     suspend fun publishToGitHub(
-        githubToken: String = HARDCODED_TOKEN,
-        repoOwner: String = HARDCODED_OWNER,
-        repoName: String = HARDCODED_REPO,
+        githubToken: String,
+        repoOwner: String = DEFAULT_OWNER,
+        repoName: String = DEFAULT_REPO,
         scrapedMovie: ScrapedMovie
-    ): Result<String> = publishBatchToGitHub(effectiveToken(githubToken), effectiveOwner(repoOwner), effectiveRepo(repoName), listOf(scrapedMovie))
-
-    private fun effectiveToken(token: String) = token.ifBlank { HARDCODED_TOKEN }
-    private fun effectiveOwner(owner: String) = owner.ifBlank { HARDCODED_OWNER }
-    private fun effectiveRepo(repo: String) = repo.ifBlank { HARDCODED_REPO }
+    ): Result<String> = publishBatchToGitHub(githubToken, repoOwner, repoName, listOf(scrapedMovie))
 }
