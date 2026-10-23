@@ -43,13 +43,14 @@ class MainActivity : AppCompatActivity() {
         binding.btnCrawlSite.setOnClickListener {
             val siteUrl = binding.etSiteUrl.text?.toString()?.trim().orEmpty()
             val tmdbApiKey = binding.etTmdbApiKey.text?.toString()?.trim().orEmpty()
+            val maxPages = binding.etMaxPages.text?.toString()?.toIntOrNull() ?: 30
 
             if (siteUrl.isBlank()) {
                 Toast.makeText(this, "Lütfen geçerli bir site adresi girin!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            binding.tvStatus.text = "Site taranıyor, film bağlantıları tespit ediliyor..."
+            binding.tvStatus.text = "Sitedeki sayfalar bulunuyor, derin tarama başlatılıyor..."
             binding.btnCrawlSite.isEnabled = false
             scrapedMoviesList.clear()
 
@@ -57,9 +58,10 @@ class MainActivity : AppCompatActivity() {
                 try {
                     val results = scraperEngine.crawlEntireSite(
                         siteUrl = siteUrl,
+                        maxPages = maxPages,
                         tmdbApiKey = tmdbApiKey,
-                        onProgress = { current, total, movieTitle ->
-                            binding.tvStatus.text = "[$current / $total] Taranıyor: $movieTitle"
+                        onStatusUpdate = { status ->
+                            binding.tvStatus.text = status
                         }
                     )
 
@@ -69,13 +71,13 @@ class MainActivity : AppCompatActivity() {
                     binding.btnCopyJson.isEnabled = hasItems
 
                     val summary = StringBuilder()
-                    summary.append("✓ Site Tarama Tamamlandı!\n")
-                    summary.append("Bulunan ve İşlenen Film Sayısı: ${scrapedMoviesList.size}\n\n")
-                    scrapedMoviesList.take(15).forEachIndexed { idx, m ->
+                    summary.append("✓ Derin Site Taraması Tamamlandı!\n")
+                    summary.append("Bulunan ve İşlenen Toplam Film Sayısı: ${scrapedMoviesList.size}\n\n")
+                    scrapedMoviesList.take(20).forEachIndexed { idx, m ->
                         summary.append("${idx + 1}. ${m.title} (TMDB: ${m.tmdbId}) -> ${m.streams.size} kaynak\n")
                     }
-                    if (scrapedMoviesList.size > 15) {
-                        summary.append("\n... ve ${scrapedMoviesList.size - 15} film daha!")
+                    if (scrapedMoviesList.size > 20) {
+                        summary.append("\n... ve ${scrapedMoviesList.size - 20} film daha!")
                     }
 
                     binding.tvStatus.text = summary.toString()

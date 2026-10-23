@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PlayRepo Site Crawler &amp; Publisher"
+            android:text="PlayRepo Deep Site Crawler &amp; Publisher"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Film sitesindeki tüm filmleri tarayıp Nuvio eklentisine aktarın"
+            android:text="Sitedeki tüm sayfaları gezerek tüm filmleri ve kaynakları tarar"
             android:textColor="#B0BEC5"
             android:textSize="14sp" />
 
@@ -46,13 +46,32 @@
                 android:textColor="#FFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Max Pages Limit -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Tarama Sayfa Limiti (Örn: 20 veya 50 sayfa)"
+            app:boxStrokeColor="#00E676"
+            app:hintTextColor="#00E676">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMaxPages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text="30"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <!-- TMDB API Key -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="TMDB API Key (Opsiyonel - Otomatik ID bulma için)"
+            android:hint="TMDB API Key (Opsiyonel)"
             app:boxStrokeColor="#00E676"
             app:hintTextColor="#00E676">
 
@@ -89,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="#2979FF"
-            android:text="1. Tüm Siteyi Tara (Filmleri Bul)"
+            android:text="1. Tüm Siteyi Tara (Derin Taramayı Başlat)"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 

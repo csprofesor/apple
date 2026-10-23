@@ -22,29 +22,70 @@ class SiteScraperEngine {
     private val userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 
     /**
-     * Finds all movie page links on the target site URL (homepage, category, or catalog page).
+     * Finds ALL movie page links across all catalog pagination pages (e.g. page/1, page/2, page/3...).
      */
-    suspend fun discoverMovieLinks(siteUrl: String): List<String> = withContext(Dispatchers.IO) {
-        val request = Request.Builder()
-            .url(siteUrl)
-            .header("User-Agent", userAgent)
-            .build()
-
-        val response = client.newCall(request).execute()
-        val html = response.body?.string().orEmpty()
-        val doc = Jsoup.parse(html, siteUrl)
-
+    suspend fun discoverAllMovieLinks(
+        siteUrl: String,
+        maxPages: Int = 20,
+        onPageProgress: (pageNumber: Int, foundMoviesCount: Int) -> Unit
+    ): List<String> = withContext(Dispatchers.IO) {
         val siteBase = if (siteUrl.contains("://")) {
             val parts = siteUrl.split("/")
             "${parts[0]}//${parts[2]}"
         } else siteUrl
 
-        val links = doc.select("a[href]").mapNotNull { a ->
-            val href = a.absUrl("href").trim()
-            if (isValidMovieUrl(href, siteBase)) href else null
-        }.distinct()
+        val discoveredMovies = mutableSetOf<String>()
+        val visitedCatalogPages = mutableSetOf<String>()
+        val catalogPagesQueue = mutableListOf(siteUrl)
 
-        links
+        var pageIndex = 0
+
+        while (catalogPagesQueue.isNotEmpty() && pageIndex < maxPages) {
+            val currentPageUrl = catalogPagesQueue.removeAt(0)
+            if (visitedCatalogPages.contains(currentPageUrl)) continue
+            visitedCatalogPages.add(currentPageUrl)
+
+            pageIndex++
+
+            try {
+                val request = Request.Builder()
+                    .url(currentPageUrl)
+                    .header("User-Agent", userAgent)
+                    .build()
+
+                val response = client.newCall(request).execute()
+                if (!response.isSuccessful) continue
+
+                val html = response.body?.string().orEmpty()
+                val doc = Jsoup.parse(html, currentPageUrl)
+
+                // 1. Extract movie URLs from current page
+                var pageNewMovies = 0
+                doc.select("a[href]").forEach { a ->
+                    val href = a.absUrl("href").trim()
+                    if (isValidMovieUrl(href, siteBase)) {
+                        if (discoveredMovies.add(href)) {
+                            pageNewMovies++
+                        }
+                    }
+                }
+
+                onPageProgress(pageIndex, discoveredMovies.size)
+
+                // 2. Extract pagination links for next catalog pages
+                doc.select("a[href]").forEach { a ->
+                    val href = a.absUrl("href").trim()
+                    if (isValidCatalogPageUrl(href, siteBase) && !visitedCatalogPages.contains(href) && !catalogPagesQueue.contains(href)) {
+                        catalogPagesQueue.add(href)
+                    }
+                }
+
+            } catch (_: Exception) {
+                // Ignore page errors and keep crawling next pages
+            }
+        }
+
+        discoveredMovies.toList()
     }
 
     private fun isValidMovieUrl(url: String, siteBase: String): Boolean {
@@ -63,26 +104,44 @@ class SiteScraperEngine {
         return true
     }
 
+    private fun isValidCatalogPageUrl(url: String, siteBase: String): Boolean {
+        if (!url.startsWith(siteBase)) return false
+        val lower = url.lowercase()
+        return lower.contains("/page/") || lower.contains("page=") || lower.contains("/kategori/") || lower.contains("/tur/") || lower.contains("/film-izle")
+    }
+
     /**
-     * Crawls all movie links on a site and scrapes details and streams for each movie.
+     * Crawls all movie links across the whole site and scrapes details and streams for each movie.
      */
     suspend fun crawlEntireSite(
         siteUrl: String,
+        maxPages: Int = 20,
         tmdbApiKey: String? = null,
-        onProgress: (current: Int, total: Int, movieTitle: String) -> Unit
+        onStatusUpdate: (status: String) -> Unit
     ): List<ScrapedMovie> = withContext(Dispatchers.IO) {
-        val movieUrls = discoverMovieLinks(siteUrl)
+        onStatusUpdate("Sitedeki tüm sayfalar taranıyor (Sayfalandırmalar bulunuyor)...")
+
+        val allMovieUrls = discoverAllMovieLinks(
+            siteUrl = siteUrl,
+            maxPages = maxPages,
+            onPageProgress = { pageNum, count ->
+                onStatusUpdate("Sayfa $pageNum taranıyor... Toplam tespit edilen film: $count")
+            }
+        )
+
+        onStatusUpdate("Toplam ${allMovieUrls.size} film tespit edildi! Kaynaklar tek tek çekiliyor...")
+
         val results = mutableListOf<ScrapedMovie>()
 
-        movieUrls.forEachIndexed { index, url ->
+        allMovieUrls.forEachIndexed { index, url ->
             try {
                 val movie = scrapeMoviePage(url, tmdbApiKey)
                 if (movie != null) {
                     results.add(movie)
-                    onProgress(index + 1, movieUrls.size, movie.title)
+                    onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] İşleniyor: ${movie.title}")
                 }
             } catch (_: Exception) {
-                onProgress(index + 1, movieUrls.size, "Hata ($url)")
+                onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] Hata ($url)")
             }
         }
 
