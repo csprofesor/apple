@@ -1,0 +1,35 @@
+{
+  "id": "playRepo",
+  "name": "PlayRepo",
+  "version": "1.0.0",
+  "description": "Otomatik güncellenen yüksek hızlı Türkçe ve Yabancı film/dizi kaynakları.",
+  "logo": "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
+  "scrapers": [
+    {
+      "id": "playrepo-main",
+      "name": "PlayRepo • Ultra Hızlı TR",
+      "description": "Tüm Türkçe ve Yabancı film sitelerinden derlenmiş süper hızlı kaynaklar.",
+      "version": "1.0.0",
+      "author": "csprofesor",
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
+      "filename": "providers/playrepo.js",
+      "enabled": true,
+      "hasSettings": false,
+      "logo": "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
+      "contentLanguage": [
+        "tr",
+        "en"
+      ],
+      "formats": [
+        "m3u8",
+        "mp4"
+      ],
+      "limited": false,
+      "disabledPlatforms": [],
+      "supportsExternalPlayer": true
+    }
+  ]
+}
