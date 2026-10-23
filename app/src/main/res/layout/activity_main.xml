@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PlayRepo Scraper &amp; Publisher"
+            android:text="PlayRepo Site Crawler &amp; Publisher"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -23,62 +23,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Film sitelerini tarayıp Nuvio eklentisine veri gönderin"
+            android:text="Film sitesindeki tüm filmleri tarayıp Nuvio eklentisine aktarın"
             android:textColor="#B0BEC5"
             android:textSize="14sp" />
 
+        <!-- Target Site / Catalog URL -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Film Sayfası Adresi (URL)"
+            android:hint="Film Sitesi Adresi (Örn: https://www.hintfilmizle.com/film-izle/)"
             app:boxStrokeColor="#00E676"
             app:hintTextColor="#00E676">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etMovieUrl"
+                android:id="@+id/etSiteUrl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textUri"
+                android:text="https://www.hintfilmizle.com/film-izle/"
                 android:textColor="#FFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- TMDB API Key -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="TMDB Film/Dizi ID (Örn: 550)"
+            android:hint="TMDB API Key (Opsiyonel - Otomatik ID bulma için)"
             app:boxStrokeColor="#00E676"
             app:hintTextColor="#00E676">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etTmdbId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:text="550"
-                android:textColor="#FFFFFF" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Özel Başlık (Opsiyonel)"
-            app:boxStrokeColor="#00E676"
-            app:hintTextColor="#00E676">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etCustomTitle"
+                android:id="@+id/etTmdbApiKey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:textColor="#FFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- GitHub Personal Access Token -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -96,27 +82,29 @@
                 android:textColor="#FFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Action Buttons -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnScrape"
+            android:id="@+id/btnCrawlSite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="#2979FF"
-            android:text="1. Filmi Tara"
+            android:text="1. Tüm Siteyi Tara (Filmleri Bul)"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPublish"
+            android:id="@+id/btnPublishBatch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:backgroundTint="#00E676"
             android:enabled="false"
-            android:text="2. GitHub'a Yayınla (Nuvio Eklentisine Gönder)"
+            android:text="2. Tüm Filmleri GitHub'a Yükle (Nuvio'ya Gönder)"
             android:textColor="#000000"
             android:textSize="16sp" />
 
+        <!-- Output Status -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

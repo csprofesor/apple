@@ -1,10 +1,13 @@
 package com.csprofesor.playrepo
 
+import com.google.gson.Gson
+import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.jsoup.Jsoup
+import java.net.URLEncoder
 import java.util.concurrent.TimeUnit
 
 class SiteScraperEngine {
@@ -15,22 +18,98 @@ class SiteScraperEngine {
         .followRedirects(true)
         .build()
 
+    private val gson = Gson()
     private val userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 
-    suspend fun scrapeUrl(movieUrl: String, customTitle: String? = null, tmdbIdInput: String? = null): ScrapedMovie = withContext(Dispatchers.IO) {
+    /**
+     * Finds all movie page links on the target site URL (homepage, category, or catalog page).
+     */
+    suspend fun discoverMovieLinks(siteUrl: String): List<String> = withContext(Dispatchers.IO) {
+        val request = Request.Builder()
+            .url(siteUrl)
+            .header("User-Agent", userAgent)
+            .build()
+
+        val response = client.newCall(request).execute()
+        val html = response.body?.string().orEmpty()
+        val doc = Jsoup.parse(html, siteUrl)
+
+        val siteBase = if (siteUrl.contains("://")) {
+            val parts = siteUrl.split("/")
+            "${parts[0]}//${parts[2]}"
+        } else siteUrl
+
+        val links = doc.select("a[href]").mapNotNull { a ->
+            val href = a.absUrl("href").trim()
+            if (isValidMovieUrl(href, siteBase)) href else null
+        }.distinct()
+
+        links
+    }
+
+    private fun isValidMovieUrl(url: String, siteBase: String): Boolean {
+        if (!url.startsWith(siteBase)) return false
+        val lower = url.lowercase()
+        if (url == siteBase || url == "$siteBase/" ||
+            lower.contains("/kategori/") || lower.contains("/tur/") ||
+            lower.contains("/koleksiyon/") || lower.contains("/forum") ||
+            lower.contains("/iletisim") || lower.contains("/page/") ||
+            lower.contains("/tag/") || lower.contains("#") ||
+            lower.contains("javascript:") || lower.endsWith(".jpg") ||
+            lower.endsWith(".png") || lower.endsWith(".css") || lower.endsWith(".js")
+        ) {
+            return false
+        }
+        return true
+    }
+
+    /**
+     * Crawls all movie links on a site and scrapes details and streams for each movie.
+     */
+    suspend fun crawlEntireSite(
+        siteUrl: String,
+        tmdbApiKey: String? = null,
+        onProgress: (current: Int, total: Int, movieTitle: String) -> Unit
+    ): List<ScrapedMovie> = withContext(Dispatchers.IO) {
+        val movieUrls = discoverMovieLinks(siteUrl)
+        val results = mutableListOf<ScrapedMovie>()
+
+        movieUrls.forEachIndexed { index, url ->
+            try {
+                val movie = scrapeMoviePage(url, tmdbApiKey)
+                if (movie != null) {
+                    results.add(movie)
+                    onProgress(index + 1, movieUrls.size, movie.title)
+                }
+            } catch (_: Exception) {
+                onProgress(index + 1, movieUrls.size, "Hata ($url)")
+            }
+        }
+
+        results
+    }
+
+    /**
+     * Scrapes a single movie page and resolves its TMDB ID automatically.
+     */
+    suspend fun scrapeMoviePage(movieUrl: String, tmdbApiKey: String? = null): ScrapedMovie? = withContext(Dispatchers.IO) {
         val request = Request.Builder()
             .url(movieUrl)
             .header("User-Agent", userAgent)
             .build()
 
         val response = client.newCall(request).execute()
+        if (!response.isSuccessful) return@withContext null
+
         val html = response.body?.string().orEmpty()
         val doc = Jsoup.parse(html, movieUrl)
 
-        val title = customTitle?.takeIf { it.isNotBlank() }
-            ?: doc.selectFirst("h1")?.text()?.trim()
+        val rawTitle = doc.selectFirst("h1")?.text()?.trim()
             ?: doc.selectFirst("meta[property=og:title]")?.attr("content")?.trim()
-            ?: "Bilinmeyen Film"
+            ?: movieUrl.substringAfterLast("/").replace("-", " ")
+
+        val cleanTitle = cleanMovieTitle(rawTitle)
+        if (cleanTitle.isBlank()) return@withContext null
 
         val foundStreams = mutableListOf<StreamItem>()
 
@@ -38,33 +117,33 @@ class SiteScraperEngine {
         doc.select("iframe[src], video[src], video source[src]").forEach { el ->
             val src = el.absUrl("src").ifBlank { el.attr("src") }
             if (src.isNotBlank()) {
-                val resolvedStream = resolveStreamUrl(src, movieUrl)
+                val resolvedStream = resolveStreamUrl(src, movieUrl, cleanTitle)
                 if (resolvedStream != null) {
                     foundStreams.add(resolvedStream)
                 }
             }
         }
 
-        // 2. Scrape external links (vidmoly, vidhide, voe, streamtape, ok.ru)
+        // 2. Scrape external links (vidmoly, vidhide, voe, streamtape, ok.ru, kinescope)
         doc.select("a[href]").forEach { a ->
             val href = a.absUrl("href").ifBlank { a.attr("href") }
             if (href.contains("vidmoly") || href.contains("vidhide") ||
                 href.contains("voe.sx") || href.contains("streamtape") ||
                 href.contains("ok.ru") || href.contains("kinescope")
             ) {
-                val resolvedStream = resolveStreamUrl(href, movieUrl)
+                val resolvedStream = resolveStreamUrl(href, movieUrl, cleanTitle)
                 if (resolvedStream != null && foundStreams.none { it.url == resolvedStream.url }) {
                     foundStreams.add(resolvedStream)
                 }
             }
         }
 
-        // Fallback: If no iframe stream found, add the movie detail URL as direct source
+        // Fallback: If no embeds, use page URL
         if (foundStreams.isEmpty()) {
             foundStreams.add(
                 StreamItem(
                     name = "PlayRepo Direct",
-                    title = "$title • Direct Web Source",
+                    title = "$cleanTitle • Direct Web Source",
                     url = movieUrl,
                     quality = 1080,
                     format = "m3u8",
@@ -73,16 +152,29 @@ class SiteScraperEngine {
             )
         }
 
-        val finalTmdbId = tmdbIdInput?.takeIf { it.isNotBlank() } ?: "550"
+        // Resolve TMDB ID
+        val tmdbId = resolveTmdbId(cleanTitle, tmdbApiKey)
 
         ScrapedMovie(
-            tmdbId = finalTmdbId,
-            title = title,
+            tmdbId = tmdbId,
+            title = cleanTitle,
             streams = foundStreams
         )
     }
 
-    private fun resolveStreamUrl(embedUrl: String, referer: String): StreamItem? {
+    private fun cleanMovieTitle(title: String): String {
+        return title
+            .removeSuffix(" izle")
+            .removeSuffix(" İzle")
+            .removeSuffix(" Türkçe Dublaj")
+            .removeSuffix(" Türkçe Altyazılı")
+            .removeSuffix(" Full HD")
+            .removeSuffix(" 1080p")
+            .replace(Regex("""\b(19|20)\d{2}\b.*"""), "")
+            .trim()
+    }
+
+    private fun resolveStreamUrl(embedUrl: String, referer: String, title: String): StreamItem? {
         val format = if (embedUrl.contains(".m3u8")) "m3u8" else "mp4"
         val providerName = when {
             embedUrl.contains("vidmoly", true) -> "Vidmoly"
@@ -95,11 +187,38 @@ class SiteScraperEngine {
 
         return StreamItem(
             name = "PlayRepo • $providerName",
-            title = "PlayRepo • $providerName • 1080p",
+            title = "$title • $providerName • 1080p",
             url = embedUrl,
             quality = 1080,
             format = format,
             referer = referer
         )
+    }
+
+    private fun resolveTmdbId(title: String, tmdbApiKey: String?): String {
+        if (!tmdbApiKey.isNullOrBlank()) {
+            try {
+                val encodedQuery = URLEncoder.encode(title, "UTF-8")
+                val url = "https://api.themoviedb.org/3/search/movie?api_key=$tmdbApiKey&query=$encodedQuery&language=tr-TR"
+                val request = Request.Builder().url(url).header("User-Agent", userAgent).build()
+                client.newCall(request).execute().use { response ->
+                    if (response.isSuccessful) {
+                        val body = response.body?.string().orEmpty()
+                        val jsonObj = gson.fromJson(body, JsonObject::class.java)
+                        val results = jsonObj.getAsJsonArray("results")
+                        if (results != null && results.size() > 0) {
+                            val firstMovie = results.get(0).asJsonObject
+                            val id = firstMovie.get("id")?.asString
+                            if (!id.isNullOrBlank()) {
+                                return id
+                            }
+                        }
+                    }
+                }
+            } catch (_: Exception) { }
+        }
+
+        val hash = kotlin.math.abs(title.lowercase().hashCode()) % 800000 + 100000
+        return hash.toString()
     }
 }

@@ -16,16 +16,16 @@ class GitHubPublisher {
     private val client = OkHttpClient()
     private val gson = Gson()
 
-    suspend fun publishToGitHub(
+    suspend fun publishBatchToGitHub(
         githubToken: String,
         repoOwner: String,
         repoName: String,
-        scrapedMovie: ScrapedMovie
+        scrapedMovies: List<ScrapedMovie>
     ): Result<String> = withContext(Dispatchers.IO) {
         try {
             val apiUrl = "https://api.github.com/repos/$repoOwner/$repoName/contents/data/streams.json"
 
-            // 1. Get current streams.json from GitHub if it exists
+            // 1. Get current streams.json from GitHub
             val getRequest = Request.Builder()
                 .url(apiUrl)
                 .header("Authorization", "Bearer $githubToken")
@@ -53,14 +53,15 @@ class GitHubPublisher {
                 }
             }
 
-            // 2. Add or update the movie entry in data map
-            val key = if (scrapedMovie.tmdbId.startsWith("movie/") || scrapedMovie.tmdbId.startsWith("tv/")) {
-                scrapedMovie.tmdbId
-            } else {
-                "movie/${scrapedMovie.tmdbId}"
+            // 2. Add or update all batch movies
+            scrapedMovies.forEach { movie ->
+                val key = if (movie.tmdbId.startsWith("movie/") || movie.tmdbId.startsWith("tv/")) {
+                    movie.tmdbId
+                } else {
+                    "movie/${movie.tmdbId}"
+                }
+                currentDataMap[key] = movie.streams
             }
-
-            currentDataMap[key] = scrapedMovie.streams
 
             // 3. Serialize back to formatted JSON
             val updatedJson = gson.toJson(currentDataMap)
@@ -68,7 +69,7 @@ class GitHubPublisher {
 
             // 4. Push update to GitHub API
             val putBody = JsonObject().apply {
-                addProperty("message", "Update streams.json for ${scrapedMovie.title} (${scrapedMovie.tmdbId})")
+                addProperty("message", "Batch update streams.json (${scrapedMovies.size} filmleri eklendi)")
                 addProperty("content", encodedContent)
                 if (sha != null) {
                     addProperty("sha", sha)
@@ -84,7 +85,7 @@ class GitHubPublisher {
 
             client.newCall(putRequest).execute().use { response ->
                 if (response.isSuccessful) {
-                    Result.success("Başarıyla GitHub'a yayınlandı! ($key)")
+                    Result.success("Toplam ${scrapedMovies.size} film başarıyla GitHub'a yüklendi!")
                 } else {
                     Result.failure(Exception("GitHub API hatası: ${response.code} ${response.message}"))
                 }
@@ -93,4 +94,11 @@ class GitHubPublisher {
             Result.failure(e)
         }
     }
+
+    suspend fun publishToGitHub(
+        githubToken: String,
+        repoOwner: String,
+        repoName: String,
+        scrapedMovie: ScrapedMovie
+    ): Result<String> = publishBatchToGitHub(githubToken, repoOwner, repoName, listOf(scrapedMovie))
 }
