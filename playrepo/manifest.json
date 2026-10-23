@@ -4,11 +4,19 @@
   "version": "1.0.0",
   "description": "Otomatik güncellenen yüksek hızlı Türkçe ve Yabancı film/dizi kaynakları.",
   "logo": "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
+  "resources": [
+    "catalog",
+    "stream"
+  ],
+  "types": [
+    "movie",
+    "series"
+  ],
   "catalogs": [
     {
       "type": "movie",
       "id": "playrepo-catalog-movies",
-      "name": "PlayRepo • Tüm Filmler",
+      "name": "PlayRepo • Son Eklenen Filmler",
       "genres": [
         "Popüler",
         "Korku & Gerilim",

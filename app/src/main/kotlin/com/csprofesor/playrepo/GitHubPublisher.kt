@@ -168,7 +168,7 @@ class GitHubPublisher {
                 .build()
 
             var sha: String? = null
-            var currentCatalog = mutableListOf<JsonObject>()
+            var currentCatalogMetas = mutableListOf<JsonObject>()
 
             client.newCall(getRequest).execute().use { response ->
                 if (response.isSuccessful) {
@@ -179,10 +179,13 @@ class GitHubPublisher {
                     val base64Content = jsonObj.get("content")?.asString?.replace("\n", "")?.replace("\r", "").orEmpty()
                     if (base64Content.isNotBlank()) {
                         val decodedJson = String(Base64.getDecoder().decode(base64Content))
-                        val typeToken = object : TypeToken<MutableList<JsonObject>>() {}.type
-                        val parsedCatalog: MutableList<JsonObject>? = gson.fromJson(decodedJson, typeToken)
-                        if (parsedCatalog != null) {
-                            currentCatalog = parsedCatalog
+                        val catalogObj = gson.fromJson(decodedJson, JsonObject::class.java)
+                        if (catalogObj != null && catalogObj.has("metas")) {
+                            val typeToken = object : TypeToken<MutableList<JsonObject>>() {}.type
+                            val parsedMetas: MutableList<JsonObject>? = gson.fromJson(catalogObj.getAsJsonArray("metas"), typeToken)
+                            if (parsedMetas != null) {
+                                currentCatalogMetas = parsedMetas
+                            }
                         }
                     }
                 }
@@ -190,7 +193,7 @@ class GitHubPublisher {
 
             scrapedMovies.forEach { movie ->
                 val idStr = if (movie.tmdbId.startsWith("movie/")) movie.tmdbId else "movie/${movie.tmdbId}"
-                if (currentCatalog.none { it.get("id")?.asString == idStr }) {
+                if (currentCatalogMetas.none { it.get("id")?.asString == idStr }) {
                     val genreJsonArray = JsonArray()
                     movie.genres.forEach { genreJsonArray.add(it) }
 
@@ -202,11 +205,17 @@ class GitHubPublisher {
                         addProperty("description", "PlayRepo • ${movie.streams.size} Sunucu Seçeneği")
                         add("genres", genreJsonArray)
                     }
-                    currentCatalog.add(0, catObj)
+                    currentCatalogMetas.add(0, catObj)
                 }
             }
 
-            val updatedCatalogJson = gson.toJson(currentCatalog)
+            val finalWrapper = JsonObject().apply {
+                val metasArray = JsonArray()
+                currentCatalogMetas.forEach { metasArray.add(it) }
+                add("metas", metasArray)
+            }
+
+            val updatedCatalogJson = gson.toJson(finalWrapper)
             val encodedContent = Base64.getEncoder().encodeToString(updatedCatalogJson.toByteArray())
 
             val putBody = JsonObject().apply {
