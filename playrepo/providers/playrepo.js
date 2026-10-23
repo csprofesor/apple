@@ -1,5 +1,33 @@
+const CATALOG_URL = "https://raw.githubusercontent.com/csprofesor/apple/main/data/catalog.json";
 const STREAMS_URL = "https://raw.githubusercontent.com/csprofesor/apple/main/data/streams.json";
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+
+async function getCatalog(type, id, extra) {
+    try {
+        const response = await fetch(CATALOG_URL, {
+            headers: {
+                "User-Agent": UA,
+                "Accept": "application/json"
+            }
+        });
+
+        if (!response.ok) return { metas: [] };
+
+        const catalogData = await response.json();
+        let metas = catalogData || [];
+
+        // Handle search filter if provided
+        if (extra && extra.search) {
+            const query = extra.search.toLowerCase();
+            metas = metas.filter(m => m.name && m.name.toLowerCase().includes(query));
+        }
+
+        return { metas: metas };
+    } catch (e) {
+        console.error("PlayRepo getCatalog error:", e);
+        return { metas: [] };
+    }
+}
 
 async function getStreams(tmdbId, mediaType, season, episode) {
     try {
@@ -14,9 +42,6 @@ async function getStreams(tmdbId, mediaType, season, episode) {
 
         const data = await response.json();
 
-        // Key resolution logic:
-        // TV show: "tv/1399/1/1" or "1399"
-        // Movie: "movie/550" or "550"
         const keyWithPrefix = mediaType === "tv"
             ? `tv/${tmdbId}/${season || 1}/${episode || 1}`
             : `movie/${tmdbId}`;
@@ -42,5 +67,6 @@ async function getStreams(tmdbId, mediaType, season, episode) {
 }
 
 module.exports = {
+    getCatalog: getCatalog,
     getStreams: getStreams
 };

@@ -4,6 +4,23 @@
   "version": "1.0.0",
   "description": "Otomatik güncellenen yüksek hızlı Türkçe ve Yabancı film/dizi kaynakları.",
   "logo": "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
+  "catalogs": [
+    {
+      "type": "movie",
+      "id": "playrepo-catalog-movies",
+      "name": "PlayRepo • Son Eklenen Filmler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        },
+        {
+          "name": "genre",
+          "isRequired": false
+        }
+      ]
+    }
+  ],
   "scrapers": [
     {
       "id": "playrepo-main",
