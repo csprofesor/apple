@@ -3,12 +3,14 @@ package com.csprofesor.playrepo
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.jsoup.Jsoup
 import java.net.URLEncoder
 import java.util.concurrent.TimeUnit
+import kotlin.random.Random
 
 class SiteScraperEngine {
 
@@ -19,10 +21,18 @@ class SiteScraperEngine {
         .build()
 
     private val gson = Gson()
-    private val userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+
+    private val userAgents = listOf(
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15",
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0"
+    )
+
+    private fun getRandomUserAgent(): String = userAgents[Random.nextInt(userAgents.size)]
 
     /**
-     * Finds ALL movie page links dynamically by parsing pagination and category links on the site.
+     * Finds ALL movie page links dynamically across all catalog pages.
      */
     suspend fun discoverAllMovieLinks(
         siteUrl: String,
@@ -39,7 +49,6 @@ class SiteScraperEngine {
         val visitedCatalogPages = mutableSetOf<String>()
         val catalogPagesQueue = mutableListOf<String>()
 
-        // Add initial site URLs to queue
         catalogPagesQueue.add(siteUrl)
         if (!cleanSiteUrl.endsWith("/film")) {
             catalogPagesQueue.add("$siteBase/film/")
@@ -57,7 +66,9 @@ class SiteScraperEngine {
             try {
                 val request = Request.Builder()
                     .url(currentPageUrl)
-                    .header("User-Agent", userAgent)
+                    .header("User-Agent", getRandomUserAgent())
+                    .header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+                    .header("Accept-Language", "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7")
                     .build()
 
                 client.newCall(request).execute().use { response ->
@@ -81,7 +92,6 @@ class SiteScraperEngine {
 
                     onPageProgress(pageIndex, discoveredMovies.size, "Sayfa $pageIndex taranıyor ($newMoviesInPage yeni film eklendi)")
 
-                    // Extract next catalog/pagination pages dynamically from HTML links
                     doc.select("a[href]").forEach { a ->
                         val href = a.absUrl("href").trim()
                         if (isValidCatalogPageUrl(href, siteBase) && !visitedCatalogPages.contains(href) && !catalogPagesQueue.contains(href)) {
@@ -92,6 +102,9 @@ class SiteScraperEngine {
             } catch (e: Exception) {
                 onPageProgress(pageIndex, discoveredMovies.size, "Sayfa $pageIndex hatası: ${e.localizedMessage ?: "Bağlantı kesildi"}")
             }
+
+            // Slight delay to prevent rate limiting
+            delay(50)
         }
 
         discoveredMovies.toList()
@@ -101,7 +114,6 @@ class SiteScraperEngine {
         if (!url.startsWith(siteBase)) return false
         val lower = url.lowercase()
 
-        // Must NOT be homepage, category, or pagination page
         if (url == siteBase || url == "$siteBase/" ||
             lower.contains("/kategori/") || lower.contains("/tur/") ||
             lower.contains("/koleksiyon/") || lower.contains("/forum") ||
@@ -114,7 +126,6 @@ class SiteScraperEngine {
             return false
         }
 
-        // Must be an individual movie post link (contains /film/, /diziler/, or -izle)
         return lower.contains("/film/") || lower.contains("/diziler/") || lower.contains("-izle")
     }
 
@@ -178,7 +189,7 @@ class SiteScraperEngine {
     suspend fun scrapeMoviePage(movieUrl: String, tmdbApiKey: String? = null): ScrapedMovie? = withContext(Dispatchers.IO) {
         val request = Request.Builder()
             .url(movieUrl)
-            .header("User-Agent", userAgent)
+            .header("User-Agent", getRandomUserAgent())
             .build()
 
         client.newCall(request).execute().use { response ->
@@ -194,13 +205,18 @@ class SiteScraperEngine {
             val cleanTitle = cleanMovieTitle(rawTitle)
             if (cleanTitle.isBlank()) return@withContext null
 
+            // Detect language & quality flags
+            val isDub = html.contains("dublaj", true) || rawTitle.contains("dublaj", true)
+            val langTag = if (isDub) "[TR Dublaj]" else "[TR Altyazılı]"
+            val qualityTag = if (html.contains("4k", true) || rawTitle.contains("4k", true)) "4K" else "1080p"
+
             val foundStreams = mutableListOf<StreamItem>()
 
             // 1. Scrape direct iframe & video tags
             doc.select("iframe[src], video[src], video source[src]").forEach { el ->
                 val src = el.absUrl("src").ifBlank { el.attr("src") }
                 if (src.isNotBlank()) {
-                    val resolvedStream = resolveStreamUrl(src, movieUrl, foundStreams.size + 1)
+                    val resolvedStream = resolveStreamUrl(src, movieUrl, foundStreams.size + 1, qualityTag, langTag)
                     foundStreams.add(resolvedStream)
                 }
             }
@@ -212,7 +228,7 @@ class SiteScraperEngine {
                     href.contains("voe.sx") || href.contains("streamtape") ||
                     href.contains("ok.ru") || href.contains("kinescope")
                 ) {
-                    val resolvedStream = resolveStreamUrl(href, movieUrl, foundStreams.size + 1)
+                    val resolvedStream = resolveStreamUrl(href, movieUrl, foundStreams.size + 1, qualityTag, langTag)
                     if (foundStreams.none { it.url == resolvedStream.url }) {
                         foundStreams.add(resolvedStream)
                     }
@@ -224,9 +240,9 @@ class SiteScraperEngine {
                 foundStreams.add(
                     StreamItem(
                         name = "PlayRepo",
-                        title = "PlayRepo • Sunucu 1 • 1080p",
+                        title = "PlayRepo • Sunucu 1 • $qualityTag • $langTag",
                         url = movieUrl,
-                        quality = 1080,
+                        quality = if (qualityTag == "4K") 2160 else 1080,
                         format = "m3u8",
                         referer = movieUrl
                     )
@@ -256,15 +272,15 @@ class SiteScraperEngine {
             .trim()
     }
 
-    private fun resolveStreamUrl(embedUrl: String, referer: String, serverIndex: Int): StreamItem {
+    private fun resolveStreamUrl(embedUrl: String, referer: String, serverIndex: Int, qualityTag: String, langTag: String): StreamItem {
         val directStreamUrl = unpackEmbedStreamUrl(embedUrl, referer)
         val format = if (directStreamUrl.contains(".m3u8")) "m3u8" else "mp4"
 
         return StreamItem(
             name = "PlayRepo",
-            title = "PlayRepo • Sunucu $serverIndex • 1080p",
+            title = "PlayRepo • Sunucu $serverIndex • $qualityTag • $langTag",
             url = directStreamUrl,
-            quality = 1080,
+            quality = if (qualityTag == "4K") 2160 else 1080,
             format = format,
             referer = embedUrl
         )
@@ -277,7 +293,7 @@ class SiteScraperEngine {
         try {
             val request = Request.Builder()
                 .url(embedUrl)
-                .header("User-Agent", userAgent)
+                .header("User-Agent", getRandomUserAgent())
                 .header("Referer", referer)
                 .build()
 
@@ -314,7 +330,7 @@ class SiteScraperEngine {
             try {
                 val encodedQuery = URLEncoder.encode(title, "UTF-8")
                 val url = "https://api.themoviedb.org/3/search/movie?api_key=$tmdbApiKey&query=$encodedQuery&language=tr-TR"
-                val request = Request.Builder().url(url).header("User-Agent", userAgent).build()
+                val request = Request.Builder().url(url).header("User-Agent", getRandomUserAgent()).build()
                 client.newCall(request).execute().use { response ->
                     if (response.isSuccessful) {
                         val body = response.body?.string().orEmpty()

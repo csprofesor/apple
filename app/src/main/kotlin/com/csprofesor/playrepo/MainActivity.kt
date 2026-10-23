@@ -60,7 +60,16 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnClearLogs.setOnClickListener {
             logBuilder.clear()
-            binding.tvStatusLog.text = "[READY] System reset."
+            binding.tvStatusLog.text = "[READY] System v2.5 Ultra Pro initialized."
+        }
+
+        binding.btnResetSites.setOnClickListener {
+            savedSitesList.clear()
+            savedSitesList.add("https://www.hintfilmizle.com/film-izle/")
+            saveSitesListToPrefs()
+            updateSavedSitesUI()
+            appendLog("[SITE LIST RESET] List reset to default.")
+            Toast.makeText(this, "Site listesi varsayılana sıfırlandı!", Toast.LENGTH_SHORT).show()
         }
 
         // Add New Site
@@ -111,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                     )
 
                     if (siteMovies.isNotEmpty()) {
-                        appendLog("[PUBLISHING] ${siteMovies.size} filmleri GitHub'a yükleniyor...")
+                        appendLog("[PUBLISHING] ${siteMovies.size} çözülmüş film GitHub'a yükleniyor...")
                         val pubRes = githubPublisher.publishBatchToGitHub(scrapedMovies = siteMovies)
                         pubRes.onSuccess { msg ->
                             appendLog("[SUCCESS] $msg")
@@ -130,7 +139,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // 2. MASTER 1-CLICK ALL SITES UPDATE
+        // 2. MASTER 1-CLICK ALL SITES UPDATE WITH SMART MERGE
         binding.btnUpdateAllSites.setOnClickListener {
             val tmdbApiKey = binding.etTmdbApiKey.text?.toString()?.trim().orEmpty()
             val maxPagesPerSite = binding.etMaxPages.text?.toString()?.toIntOrNull() ?: 20
@@ -152,7 +161,7 @@ class MainActivity : AppCompatActivity() {
                         val totalSites = savedSitesList.size
 
                         withContext(Dispatchers.Main) {
-                            appendLog("[SITE $siteNum/$totalSites] Taranıyor: $siteUrl")
+                            appendLog("[SITE $siteNum/$totalSites] Taranıyor & Şifreler Çözülüyor: $siteUrl")
                         }
 
                         val siteMovies = scraperEngine.crawlEntireSite(
@@ -174,13 +183,13 @@ class MainActivity : AppCompatActivity() {
                         return@launch
                     }
 
-                    appendLog("[PUBLISHING] Toplam ${allBatchMovies.size} film çözüldü! GitHub'a (`csprofesor/apple`) gönderiliyor...")
+                    appendLog("[PUBLISHING] Toplam ${allBatchMovies.size} film çözüldü! Akıllı birleştirmeyle GitHub'a (`csprofesor/apple`) gönderiliyor...")
 
                     val pubResult = githubPublisher.publishBatchToGitHub(scrapedMovies = allBatchMovies)
 
                     pubResult.onSuccess { msg ->
                         appendLog("🎉 [SUCCESS] $msg")
-                        appendLog("[COMPLETED] Nuvio eklentiniz tamamen güncellendi!")
+                        appendLog("[COMPLETED] Nuvio eklentiniz akıllı birleştirmeyle güncellendi!")
                         binding.tvStatTotalMovies.text = allBatchMovies.size.toString()
                     }.onFailure { err ->
                         appendLog("✗ [ERROR] GitHub Yükleme Hatası: ${err.message}")

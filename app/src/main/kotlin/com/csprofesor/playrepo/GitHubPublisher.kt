@@ -69,14 +69,37 @@ class GitHubPublisher {
                 }
             }
 
-            // 2. Add or update all batch movies
+            // 2. Smart Merge Streams across multi-sites without duplicates
             scrapedMovies.forEach { movie ->
                 val key = if (movie.tmdbId.startsWith("movie/") || movie.tmdbId.startsWith("tv/")) {
                     movie.tmdbId
                 } else {
                     "movie/${movie.tmdbId}"
                 }
-                currentDataMap[key] = movie.streams
+
+                val existingStreams = currentDataMap[key]?.toMutableList() ?: mutableListOf()
+
+                movie.streams.forEach { newStream ->
+                    if (existingStreams.none { it.url == newStream.url }) {
+                        existingStreams.add(newStream)
+                    }
+                }
+
+                // Re-label server index for clean UI
+                val renumberedStreams = existingStreams.mapIndexed { idx, st ->
+                    st.copy(
+                        name = "PlayRepo",
+                        title = if (st.title.contains("•")) {
+                            val parts = st.title.split("•")
+                            val suffix = parts.drop(2).joinToString("•").trim()
+                            if (suffix.isNotBlank()) "PlayRepo • Sunucu ${idx + 1} • $suffix" else "PlayRepo • Sunucu ${idx + 1}"
+                        } else {
+                            "PlayRepo • Sunucu ${idx + 1}"
+                        }
+                    )
+                }
+
+                currentDataMap[key] = renumberedStreams
             }
 
             // 3. Serialize back to formatted JSON
@@ -85,7 +108,7 @@ class GitHubPublisher {
 
             // 4. Push update to GitHub API
             val putBody = JsonObject().apply {
-                addProperty("message", "Batch update streams.json (${scrapedMovies.size} filmleri eklendi)")
+                addProperty("message", "Smart merge streams.json (${scrapedMovies.size} filmleri güncellendi)")
                 addProperty("content", encodedContent)
                 if (sha != null) {
                     addProperty("sha", sha)
@@ -101,7 +124,7 @@ class GitHubPublisher {
 
             client.newCall(putRequest).execute().use { response ->
                 if (response.isSuccessful) {
-                    Result.success("Toplam ${scrapedMovies.size} film başarıyla GitHub deponuza yüklendi!")
+                    Result.success("Toplam ${scrapedMovies.size} film akıllı birleştirmeyle GitHub deponuza yüklendi!")
                 } else {
                     Result.failure(Exception("GitHub API hatası: ${response.code} ${response.message}"))
                 }

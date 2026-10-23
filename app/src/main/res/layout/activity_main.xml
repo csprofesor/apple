@@ -34,7 +34,7 @@
                 android:background="#1E293B"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="4dp"
-                android:text="v2.0 Pro"
+                android:text="v2.5 Ultra Pro"
                 android:textColor="#00E676"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="Gelişmiş Çoklu Site Tarayıcısı ve M3U8/MP4 Yayın Otomasyonu"
+            android:text="Otomatik Şifre Çözücü &amp; Çoklu Kaynak Akıllı Birleştirme Motoru"
             android:textColor="#94A3B8"
             android:textSize="13sp" />
 
@@ -55,7 +55,6 @@
             android:layout_marginTop="16dp"
             android:orientation="horizontal">
 
-            <!-- Card 1: Total Movies -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -74,7 +73,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Toplam Film"
+                        android:text="Çözülen Film"
                         android:textColor="#94A3B8"
                         android:textSize="11sp" />
 
@@ -90,7 +89,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Card 2: Active Sites -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -141,14 +139,33 @@
             app:cornerRadius="12dp" />
 
         <!-- Section 1: Kayıtlı Siteler Yönetimi -->
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Kayıtlı Film Siteleri Yönetimi"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Kayıtlı Film Siteleri Yönetimi"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnResetSites"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="4dp"
+                android:text="Listeyi Temizle"
+                android:textColor="#F43F5E"
+                android:textSize="12sp" />
+        </LinearLayout>
 
         <!-- Add Site Input -->
         <LinearLayout
@@ -162,7 +179,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Yeni Site Adresi (Örn: https://site.com/film/)"
+                android:hint="Yeni Site Adresi Ekle"
                 app:boxStrokeColor="#38BDF8"
                 app:hintTextColor="#38BDF8">
 
@@ -198,7 +215,7 @@
             android:textColor="#CBD5E1"
             android:textSize="13sp" />
 
-        <!-- Section 2: Tekli Site veya Özel Sayfa Taraması -->
+        <!-- Section 2: Tekli Site veya Sayfa Taraması -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -332,7 +349,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:text="[READY] System initialized. Press button to update."
+                android:text="[READY] System v2.5 Ultra Pro initialized."
                 android:textColor="#00E676"
                 android:textSize="12sp" />
         </ScrollView>
