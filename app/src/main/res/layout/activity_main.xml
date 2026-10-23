@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PlayRepo Deep Site Crawler &amp; Publisher"
+            android:text="PlayRepo Publisher"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Sitedeki tüm sayfaları gezerek tüm filmleri ve kaynakları tarar"
+            android:text="Film sitesini taratın ve tek tıkla Nuvio eklentinize yükleyin"
             android:textColor="#B0BEC5"
             android:textSize="14sp" />
 
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="Film Sitesi Adresi (Örn: https://www.hintfilmizle.com/film-izle/)"
+            android:hint="Film Sitesi Adresi"
             app:boxStrokeColor="#00E676"
             app:hintTextColor="#00E676">
 
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Tarama Sayfa Limiti (Örn: 30 veya 50 sayfa)"
+            android:hint="Tarama Sayfa Limiti"
             app:boxStrokeColor="#00E676"
             app:hintTextColor="#00E676">
 
@@ -65,7 +65,7 @@
                 android:textColor="#FFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- TMDB API Key -->
+        <!-- TMDB API Key (Optional) -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -83,75 +83,37 @@
                 android:textColor="#FFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- GitHub Personal Access Token -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="GitHub Personal Access Token (PAT) (Opsiyonel)"
-            app:boxStrokeColor="#00E676"
-            app:hintTextColor="#00E676">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etGithubToken"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:textColor="#FFFFFF" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Action Buttons -->
+        <!-- Main Action Buttons -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCrawlSite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="#2979FF"
+            android:padding="12dp"
             android:text="1. Tüm Siteyi Tara ve Video Linklerini Çöz"
             android:textColor="#FFFFFF"
             android:textSize="15sp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnOpenGithubWeb"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Google ile GitHub'a Giriş Yap (Web Sayfası)"
-            android:textColor="#FFB74D"
-            android:textSize="15sp"
-            app:strokeColor="#FFB74D" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCopyJson"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:enabled="false"
-            android:text="JSON'u Kopyala (GitHub Web'e Yapıştır)"
-            android:textColor="#00E676"
-            android:textSize="15sp"
-            app:strokeColor="#00E676" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPublishBatch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:backgroundTint="#00E676"
             android:enabled="false"
-            android:text="Token İle Otomatik Yükle"
+            android:padding="12dp"
+            android:text="2. GitHub'a Yükle (Nuvio Eklentisine Gönder)"
             android:textColor="#000000"
-            android:textSize="15sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <!-- Output Status -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="İşlem Durumu ve Çıktı:"
+            android:layout_marginTop="24dp"
+            android:text="İşlem Durumu:"
             android:textColor="#B0BEC5"
             android:textStyle="bold" />
 
@@ -161,10 +123,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="#1E1E1E"
-            android:padding="12dp"
-            android:text="Henüz işlem yapılmadı."
+            android:padding="14dp"
+            android:text="Hazır. Sitemizi taratmak için 1. butona basın."
             android:textColor="#00E676"
-            android:textSize="13sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 </ScrollView>

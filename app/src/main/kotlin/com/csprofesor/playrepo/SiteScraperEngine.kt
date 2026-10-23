@@ -13,8 +13,8 @@ import java.util.concurrent.TimeUnit
 class SiteScraperEngine {
 
     private val client = OkHttpClient.Builder()
-        .connectTimeout(15, TimeUnit.SECONDS)
-        .readTimeout(15, TimeUnit.SECONDS)
+        .connectTimeout(12, TimeUnit.SECONDS)
+        .readTimeout(12, TimeUnit.SECONDS)
         .followRedirects(true)
         .build()
 
@@ -22,7 +22,7 @@ class SiteScraperEngine {
     private val userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 
     /**
-     * Finds ALL movie page links across all catalog pagination pages and genre categories.
+     * Finds ALL movie page links dynamically by parsing pagination and category links on the site.
      */
     suspend fun discoverAllMovieLinks(
         siteUrl: String,
@@ -37,23 +37,18 @@ class SiteScraperEngine {
         val cleanSiteUrl = siteUrl.trimEnd('/')
         val discoveredMovies = mutableSetOf<String>()
         val visitedCatalogPages = mutableSetOf<String>()
-        val catalogPagesQueue = mutableSetOf<String>()
+        val catalogPagesQueue = mutableListOf<String>()
 
-        // 1. Initial catalog URL
+        // Add initial site URLs to queue
         catalogPagesQueue.add(siteUrl)
-
-        // 2. Add common pagination URLs (/film-izle/page/1..maxPages, /page/1..maxPages)
-        val basePath = if (cleanSiteUrl.endsWith("/film-izle")) cleanSiteUrl else "$cleanSiteUrl/film-izle"
-        for (i in 1..maxPages) {
-            catalogPagesQueue.add("$basePath/page/$i/")
-            catalogPagesQueue.add("$cleanSiteUrl/page/$i/")
+        if (!cleanSiteUrl.endsWith("/film")) {
+            catalogPagesQueue.add("$siteBase/film/")
         }
 
         var pageIndex = 0
-        val queueList = catalogPagesQueue.toMutableList()
 
-        while (queueList.isNotEmpty() && pageIndex < maxPages) {
-            val currentPageUrl = queueList.removeAt(0)
+        while (catalogPagesQueue.isNotEmpty() && pageIndex < maxPages) {
+            val currentPageUrl = catalogPagesQueue.removeAt(0)
             if (visitedCatalogPages.contains(currentPageUrl)) continue
             visitedCatalogPages.add(currentPageUrl)
 
@@ -86,11 +81,11 @@ class SiteScraperEngine {
 
                     onPageProgress(pageIndex, discoveredMovies.size, "Sayfa $pageIndex taranıyor ($newMoviesInPage yeni film eklendi)")
 
-                    // Extract additional category and pagination links
+                    // Extract next catalog/pagination pages dynamically from HTML links
                     doc.select("a[href]").forEach { a ->
                         val href = a.absUrl("href").trim()
-                        if (isValidCatalogPageUrl(href, siteBase) && !visitedCatalogPages.contains(href) && !queueList.contains(href)) {
-                            queueList.add(href)
+                        if (isValidCatalogPageUrl(href, siteBase) && !visitedCatalogPages.contains(href) && !catalogPagesQueue.contains(href)) {
+                            catalogPagesQueue.add(href)
                         }
                     }
                 }
@@ -105,24 +100,33 @@ class SiteScraperEngine {
     private fun isValidMovieUrl(url: String, siteBase: String): Boolean {
         if (!url.startsWith(siteBase)) return false
         val lower = url.lowercase()
+
+        // Must NOT be homepage, category, or pagination page
         if (url == siteBase || url == "$siteBase/" ||
             lower.contains("/kategori/") || lower.contains("/tur/") ||
             lower.contains("/koleksiyon/") || lower.contains("/forum") ||
             lower.contains("/iletisim") || lower.contains("/page/") ||
+            lower.contains("page=") || lower.contains("orderby=") ||
             lower.contains("/tag/") || lower.contains("#") ||
             lower.contains("javascript:") || lower.endsWith(".jpg") ||
             lower.endsWith(".png") || lower.endsWith(".css") || lower.endsWith(".js")
         ) {
             return false
         }
-        return true
+
+        // Must be an individual movie post link (contains /film/, /diziler/, or -izle)
+        return lower.contains("/film/") || lower.contains("/diziler/") || lower.contains("-izle")
     }
 
     private fun isValidCatalogPageUrl(url: String, siteBase: String): Boolean {
         if (!url.startsWith(siteBase)) return false
         val lower = url.lowercase()
         if (isValidMovieUrl(url, siteBase)) return false
-        return lower.contains("/page/") || lower.contains("page=") || lower.contains("/kategori/") || lower.contains("/tur/") || lower.contains("/yeni-filmler")
+
+        return lower.contains("/page/") || lower.contains("page=") ||
+               lower.contains("/kategori/") || lower.contains("/tur/") ||
+               lower == "$siteBase/film/" || lower == "$siteBase/film" ||
+               lower.contains("orderby=")
     }
 
     /**
@@ -139,8 +143,8 @@ class SiteScraperEngine {
         val allMovieUrls = discoverAllMovieLinks(
             siteUrl = siteUrl,
             maxPages = maxPages,
-            onPageProgress = { _, count, msg ->
-                onStatusUpdate("$msg\nToplam Tespit Edilen Film: $count")
+            onPageProgress = { pageNum, count, msg ->
+                onStatusUpdate("[$pageNum / $maxPages] $msg\nToplam Benzersiz Film: $count")
             }
         )
 
@@ -149,7 +153,7 @@ class SiteScraperEngine {
             return@withContext emptyList()
         }
 
-        onStatusUpdate("✓ Toplam ${allMovieUrls.size} film tespit edildi! Video kaynakları ve şifrelemeler çözülüyor...")
+        onStatusUpdate("✓ Toplam ${allMovieUrls.size} benzersiz film tespit edildi! Video kaynakları ve şifrelemeler çözülüyor...")
 
         val results = mutableListOf<ScrapedMovie>()
 
@@ -192,7 +196,7 @@ class SiteScraperEngine {
 
             val foundStreams = mutableListOf<StreamItem>()
 
-            // 1. Scrape direct iframe & video tags and UNPACK embeds
+            // 1. Scrape direct iframe & video tags
             doc.select("iframe[src], video[src], video source[src]").forEach { el ->
                 val src = el.absUrl("src").ifBlank { el.attr("src") }
                 if (src.isNotBlank()) {
@@ -201,7 +205,7 @@ class SiteScraperEngine {
                 }
             }
 
-            // 2. Scrape external links (vidmoly, vidhide, voe, streamtape, ok.ru, kinescope) and UNPACK embeds
+            // 2. Scrape external links (vidmoly, vidhide, voe, streamtape, ok.ru, kinescope)
             doc.select("a[href]").forEach { a ->
                 val href = a.absUrl("href").ifBlank { a.attr("href") }
                 if (href.contains("vidmoly") || href.contains("vidhide") ||
