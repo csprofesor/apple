@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="Yayınlama" />
+    <item
+        android:id="@+id/nav_sites"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Sitelerim" />
+    <item
+        android:id="@+id/nav_single"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Tekli Tarama" />
+</menu>

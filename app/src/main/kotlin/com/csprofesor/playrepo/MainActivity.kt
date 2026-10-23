@@ -2,6 +2,7 @@ package com.csprofesor.playrepo
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
@@ -53,17 +54,27 @@ class MainActivity : AppCompatActivity() {
         updateSavedSitesUI()
 
         // Load saved TMDB API Key
-        binding.etTmdbApiKey.setText(prefs.getString("tmdb_key", ""))
-        binding.etTmdbApiKey.addTextChangedListener { text ->
+        binding.pageSingle.etTmdbApiKey.setText(prefs.getString("tmdb_key", ""))
+        binding.pageSingle.etTmdbApiKey.addTextChangedListener { text ->
             prefs.edit().putString("tmdb_key", text.toString().trim()).apply()
         }
 
-        binding.btnClearLogs.setOnClickListener {
-            logBuilder.clear()
-            binding.tvStatusLog.text = "[READY] System v2.5 Ultra Pro initialized."
+        // Bottom Navigation Page Switcher
+        binding.bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_dashboard -> showPage(1)
+                R.id.nav_sites -> showPage(2)
+                R.id.nav_single -> showPage(3)
+            }
+            true
         }
 
-        binding.btnResetSites.setOnClickListener {
+        binding.pageDashboard.btnClearLogs.setOnClickListener {
+            logBuilder.clear()
+            binding.pageDashboard.tvStatusLog.text = "[READY] System v2.5 Pro ready."
+        }
+
+        binding.pageSites.btnResetSites.setOnClickListener {
             savedSitesList.clear()
             savedSitesList.add("https://www.hintfilmizle.com/film-izle/")
             saveSitesListToPrefs()
@@ -73,8 +84,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Add New Site
-        binding.btnAddSite.setOnClickListener {
-            val newUrl = binding.etNewSiteUrl.text?.toString()?.trim().orEmpty()
+        binding.pageSites.btnAddSite.setOnClickListener {
+            val newUrl = binding.pageSites.etNewSiteUrl.text?.toString()?.trim().orEmpty()
             if (newUrl.isBlank() || !newUrl.startsWith("http")) {
                 Toast.makeText(this, "Geçerli bir site adresi girin (http/https)!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -84,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                 savedSitesList.add(newUrl)
                 saveSitesListToPrefs()
                 updateSavedSitesUI()
-                binding.etNewSiteUrl.setText("")
+                binding.pageSites.etNewSiteUrl.setText("")
                 appendLog("[SITE ADDED] $newUrl")
                 Toast.makeText(this, "Yeni site eklendi!", Toast.LENGTH_SHORT).show()
             } else {
@@ -93,10 +104,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         // 1. SINGLE SITE / PAGE CRAWL
-        binding.btnCrawlSingle.setOnClickListener {
-            val singleUrl = binding.etSingleUrl.text?.toString()?.trim().orEmpty()
-            val tmdbApiKey = binding.etTmdbApiKey.text?.toString()?.trim().orEmpty()
-            val maxPages = binding.etMaxPages.text?.toString()?.toIntOrNull() ?: 20
+        binding.pageSingle.btnCrawlSingle.setOnClickListener {
+            val singleUrl = binding.pageSingle.etSingleUrl.text?.toString()?.trim().orEmpty()
+            val tmdbApiKey = binding.pageSingle.etTmdbApiKey.text?.toString()?.trim().orEmpty()
+            val maxPages = binding.pageSingle.etMaxPages.text?.toString()?.toIntOrNull() ?: 20
 
             if (singleUrl.isBlank()) {
                 Toast.makeText(this, "Lütfen bir site/film adresi girin!", Toast.LENGTH_SHORT).show()
@@ -104,6 +115,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             setControlsEnabled(false)
+            showPage(1) // Switch to dashboard to view live logs
             appendLog("[SINGLE CRAWL START] $singleUrl")
 
             lifecycleScope.launch {
@@ -124,7 +136,7 @@ class MainActivity : AppCompatActivity() {
                         val pubRes = githubPublisher.publishBatchToGitHub(scrapedMovies = siteMovies)
                         pubRes.onSuccess { msg ->
                             appendLog("[SUCCESS] $msg")
-                            binding.tvStatTotalMovies.text = siteMovies.size.toString()
+                            binding.pageDashboard.tvStatTotalMovies.text = siteMovies.size.toString()
                         }.onFailure { err ->
                             appendLog("[ERROR] GitHub yükleme hatası: ${err.message}")
                         }
@@ -140,9 +152,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         // 2. MASTER 1-CLICK ALL SITES UPDATE WITH SMART MERGE
-        binding.btnUpdateAllSites.setOnClickListener {
-            val tmdbApiKey = binding.etTmdbApiKey.text?.toString()?.trim().orEmpty()
-            val maxPagesPerSite = binding.etMaxPages.text?.toString()?.toIntOrNull() ?: 20
+        binding.pageDashboard.btnUpdateAllSites.setOnClickListener {
+            val tmdbApiKey = binding.pageSingle.etTmdbApiKey.text?.toString()?.trim().orEmpty()
+            val maxPagesPerSite = binding.pageSingle.etMaxPages.text?.toString()?.toIntOrNull() ?: 20
 
             if (savedSitesList.isEmpty()) {
                 Toast.makeText(this, "Kayıtlı site bulunmuyor!", Toast.LENGTH_SHORT).show()
@@ -190,7 +202,7 @@ class MainActivity : AppCompatActivity() {
                     pubResult.onSuccess { msg ->
                         appendLog("🎉 [SUCCESS] $msg")
                         appendLog("[COMPLETED] Nuvio eklentiniz akıllı birleştirmeyle güncellendi!")
-                        binding.tvStatTotalMovies.text = allBatchMovies.size.toString()
+                        binding.pageDashboard.tvStatTotalMovies.text = allBatchMovies.size.toString()
                     }.onFailure { err ->
                         appendLog("✗ [ERROR] GitHub Yükleme Hatası: ${err.message}")
                     }
@@ -204,18 +216,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun showPage(pageNumber: Int) {
+        binding.pageDashboard.root.visibility = if (pageNumber == 1) View.VISIBLE else View.GONE
+        binding.pageSites.root.visibility = if (pageNumber == 2) View.VISIBLE else View.GONE
+        binding.pageSingle.root.visibility = if (pageNumber == 3) View.VISIBLE else View.GONE
+    }
+
     private fun setControlsEnabled(enabled: Boolean) {
-        binding.btnUpdateAllSites.isEnabled = enabled
-        binding.btnCrawlSingle.isEnabled = enabled
-        binding.btnAddSite.isEnabled = enabled
+        binding.pageDashboard.btnUpdateAllSites.isEnabled = enabled
+        binding.pageSingle.btnCrawlSingle.isEnabled = enabled
+        binding.pageSites.btnAddSite.isEnabled = enabled
     }
 
     private fun appendLog(msg: String) {
         val time = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
         logBuilder.append("[$time] $msg\n")
-        binding.tvStatusLog.text = logBuilder.toString()
-        binding.svLogContainer.post {
-            binding.svLogContainer.fullScroll(android.view.View.FOCUS_DOWN)
+        binding.pageDashboard.tvStatusLog.text = logBuilder.toString()
+        binding.pageDashboard.svLogContainer.post {
+            binding.pageDashboard.svLogContainer.fullScroll(View.FOCUS_DOWN)
         }
     }
 
@@ -226,15 +244,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateSavedSitesUI() {
-        binding.tvStatActiveSites.text = savedSitesList.size.toString()
+        binding.pageDashboard.tvStatActiveSites.text = savedSitesList.size.toString()
         if (savedSitesList.isEmpty()) {
-            binding.tvSavedSites.text = "Kayıtlı site bulunmuyor."
+            binding.pageSites.tvSavedSites.text = "Kayıtlı site bulunmuyor."
         } else {
             val sb = StringBuilder()
             savedSitesList.forEachIndexed { idx, url ->
                 sb.append("${idx + 1}. $url\n")
             }
-            binding.tvSavedSites.text = sb.toString().trim()
+            binding.pageSites.tvSavedSites.text = sb.toString().trim()
         }
     }
 }
