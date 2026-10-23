@@ -1,10 +1,15 @@
 package com.csprofesor.playrepo
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import com.csprofesor.playrepo.databinding.ActivityMainBinding
+import com.google.gson.Gson
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -12,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val scraperEngine = SiteScraperEngine()
     private val githubPublisher = GitHubPublisher()
+    private val gson = Gson()
 
     private val scrapedMoviesList = mutableListOf<ScrapedMovie>()
 
@@ -19,6 +25,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val prefs = getSharedPreferences("playrepo_prefs", MODE_PRIVATE)
+
+        // Load saved Token & TMDB API Key
+        binding.etGithubToken.setText(prefs.getString("github_token", ""))
+        binding.etTmdbApiKey.setText(prefs.getString("tmdb_key", ""))
+
+        binding.etGithubToken.addTextChangedListener { text ->
+            prefs.edit().putString("github_token", text.toString().trim()).apply()
+        }
+
+        binding.etTmdbApiKey.addTextChangedListener { text ->
+            prefs.edit().putString("tmdb_key", text.toString().trim()).apply()
+        }
 
         binding.btnCrawlSite.setOnClickListener {
             val siteUrl = binding.etSiteUrl.text?.toString()?.trim().orEmpty()
@@ -44,7 +64,9 @@ class MainActivity : AppCompatActivity() {
                     )
 
                     scrapedMoviesList.addAll(results)
-                    binding.btnPublishBatch.isEnabled = scrapedMoviesList.isNotEmpty()
+                    val hasItems = scrapedMoviesList.isNotEmpty()
+                    binding.btnPublishBatch.isEnabled = hasItems
+                    binding.btnCopyJson.isEnabled = hasItems
 
                     val summary = StringBuilder()
                     summary.append("✓ Site Tarama Tamamlandı!\n")
@@ -74,7 +96,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             if (token.isBlank()) {
-                Toast.makeText(this, "Lütfen GitHub Personal Access Token girin!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Lütfen GitHub Token girin veya 'JSON'u Kopyala' butonunu kullanın!", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
 
@@ -97,6 +119,32 @@ class MainActivity : AppCompatActivity() {
 
                 binding.btnPublishBatch.isEnabled = true
             }
+        }
+
+        binding.btnCopyJson.setOnClickListener {
+            if (scrapedMoviesList.isEmpty()) {
+                Toast.makeText(this, "Önce siteyi taramalısınız!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val dataMap = mutableMapOf<String, List<StreamItem>>()
+            scrapedMoviesList.forEach { movie ->
+                val key = if (movie.tmdbId.startsWith("movie/") || movie.tmdbId.startsWith("tv/")) {
+                    movie.tmdbId
+                } else {
+                    "movie/${movie.tmdbId}"
+                }
+                dataMap[key] = movie.streams
+            }
+
+            val jsonString = gson.toJson(dataMap)
+
+            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("PlayRepo JSON", jsonString)
+            clipboard.setPrimaryClip(clip)
+
+            Toast.makeText(this, "JSON panoya kopyalandı! GitHub Web sitesine yapıştırabilirsiniz.", Toast.LENGTH_LONG).show()
+            binding.tvStatus.text = "✓ JSON kopyalandı!\nGitHub'a girip data/streams.json dosyasına yapıştırabilirsiniz."
         }
     }
 }

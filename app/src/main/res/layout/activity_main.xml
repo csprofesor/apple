@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="GitHub Personal Access Token (PAT)"
+            android:hint="GitHub Personal Access Token (PAT) (Opsiyonel)"
             app:boxStrokeColor="#00E676"
             app:hintTextColor="#00E676">
 
@@ -100,9 +100,21 @@
             android:layout_marginTop="8dp"
             android:backgroundTint="#00E676"
             android:enabled="false"
-            android:text="2. Tüm Filmleri GitHub'a Yükle (Nuvio'ya Gönder)"
+            android:text="2. GitHub'a Otomatik Yükle (Token ile)"
             android:textColor="#000000"
             android:textSize="16sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCopyJson"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:enabled="false"
+            android:text="3. VEYA JSON'u Kopyala (GitHub Web'e Yapıştır)"
+            android:textColor="#00E676"
+            android:textSize="15sp"
+            app:strokeColor="#00E676" />
 
         <!-- Output Status -->
         <TextView
