@@ -1,6 +1,7 @@
 package com.csprofesor.playrepo
 
 import com.google.gson.Gson
+import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
@@ -14,13 +15,6 @@ import java.util.Base64
 class GitHubPublisher {
 
     companion object {
-        private val P1 = "ghp_" + "Dozar"
-        private val P2 = "VkUALWk9"
-        private val P3 = "SkjXwPFM"
-        private val P4 = "nXB4WagD"
-        private val P5 = "K23KVNJ"
-
-        val HARDCODED_TOKEN = P1 + P2 + P3 + P4 + P5
         const val DEFAULT_OWNER = "csprofesor"
         const val DEFAULT_REPO = "apple"
     }
@@ -34,21 +28,23 @@ class GitHubPublisher {
         repoName: String = DEFAULT_REPO,
         scrapedMovies: List<ScrapedMovie>
     ): Result<String> = withContext(Dispatchers.IO) {
-        val effectiveToken = githubToken.ifBlank { HARDCODED_TOKEN }
+        if (githubToken.isBlank()) {
+            return@withContext Result.failure(Exception("GitHub Token bulunamadı. Lütfen ayarları kontrol edin."))
+        }
 
         try {
             // 1. Update data/streams.json
             val streamsResult = updateFileOnGitHub(
-                githubToken = effectiveToken,
+                githubToken = githubToken,
                 repoOwner = repoOwner,
                 repoName = repoName,
                 filePath = "data/streams.json",
                 scrapedMovies = scrapedMovies
             )
 
-            // 2. Update data/catalog.json
+            // 2. Update data/catalog.json with categories
             updateCatalogOnGitHub(
-                githubToken = effectiveToken,
+                githubToken = githubToken,
                 repoOwner = repoOwner,
                 repoName = repoName,
                 scrapedMovies = scrapedMovies
@@ -147,7 +143,7 @@ class GitHubPublisher {
 
         client.newCall(putRequest).execute().use { response ->
             return if (response.isSuccessful) {
-                Result.success("Toplam ${scrapedMovies.size} film akıllı birleştirmeyle GitHub kütüphanenize yüklendi!")
+                Result.success("Toplam ${scrapedMovies.size} film akıllı birleştirmeyle GitHub deponuza yüklendi!")
             } else {
                 Result.failure(Exception("GitHub API hatası: ${response.code} ${response.message}"))
             }
@@ -193,12 +189,16 @@ class GitHubPublisher {
             scrapedMovies.forEach { movie ->
                 val idStr = if (movie.tmdbId.startsWith("movie/")) movie.tmdbId else "movie/${movie.tmdbId}"
                 if (currentCatalog.none { it.get("id")?.asString == idStr }) {
+                    val genreJsonArray = JsonArray()
+                    movie.genres.forEach { genreJsonArray.add(it) }
+
                     val catObj = JsonObject().apply {
                         addProperty("id", idStr)
                         addProperty("type", "movie")
                         addProperty("name", movie.title)
                         addProperty("poster", "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png")
                         addProperty("description", "PlayRepo • ${movie.streams.size} Sunucu Seçeneği")
+                        add("genres", genreJsonArray)
                     }
                     currentCatalog.add(0, catObj)
                 }
@@ -208,7 +208,7 @@ class GitHubPublisher {
             val encodedContent = Base64.getEncoder().encodeToString(updatedCatalogJson.toByteArray())
 
             val putBody = JsonObject().apply {
-                addProperty("message", "Update catalog.json (${scrapedMovies.size} filmleri eklendi)")
+                addProperty("message", "Update catalog.json with categories (${scrapedMovies.size} filmleri eklendi)")
                 addProperty("content", encodedContent)
                 if (sha != null) {
                     addProperty("sha", sha)

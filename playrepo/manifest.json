@@ -8,7 +8,15 @@
     {
       "type": "movie",
       "id": "playrepo-catalog-movies",
-      "name": "PlayRepo • Son Eklenen Filmler",
+      "name": "PlayRepo • Tüm Filmler",
+      "genres": [
+        "Popüler",
+        "Korku & Gerilim",
+        "Aksiyon & Macera",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
       "extra": [
         {
           "name": "search",

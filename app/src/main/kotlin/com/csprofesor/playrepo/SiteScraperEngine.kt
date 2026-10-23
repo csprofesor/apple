@@ -204,9 +204,20 @@ class SiteScraperEngine {
             val cleanTitle = cleanMovieTitle(rawTitle)
             if (cleanTitle.isBlank()) return@withContext null
 
+            // Detect language & quality flags
             val isDub = html.contains("dublaj", true) || rawTitle.contains("dublaj", true)
             val langTag = if (isDub) "[TR Dublaj]" else "[TR Altyazılı]"
             val qualityTag = if (html.contains("4k", true) || rawTitle.contains("4k", true)) "4K" else "1080p"
+
+            // Extract genres / category classification
+            val genreList = mutableListOf<String>()
+            val lowerHtml = html.lowercase()
+            if (lowerHtml.contains("korku") || lowerHtml.contains("gerilim")) genreList.add("Korku & Gerilim")
+            if (lowerHtml.contains("aksiyon") || lowerHtml.contains("macera")) genreList.add("Aksiyon & Macera")
+            if (lowerHtml.contains("komedi") || lowerHtml.contains("mizah")) genreList.add("Komedi")
+            if (lowerHtml.contains("dram") || lowerHtml.contains("romantik")) genreList.add("Dram & Romantik")
+            if (lowerHtml.contains("bilim") || lowerHtml.contains("kurgu") || lowerHtml.contains("fantastik")) genreList.add("Bilim Kurgu & Fantastik")
+            if (genreList.isEmpty()) genreList.add("Popüler")
 
             val foundStreams = mutableListOf<StreamItem>()
 
@@ -219,7 +230,7 @@ class SiteScraperEngine {
                 }
             }
 
-            // 2. Scrape data-src / data-url / data-player / data-embed attributes from player elements
+            // 2. Scrape data-src / data-url / data-player / data-embed attributes
             doc.select("[data-src], [data-url], [data-player], [data-embed]").forEach { el ->
                 val dataSrc = el.attr("data-src").ifBlank { el.attr("data-url") }.ifBlank { el.attr("data-player") }.ifBlank { el.attr("data-embed") }
                 if (dataSrc.isNotBlank() && !dataSrc.contains("about:blank")) {
@@ -284,7 +295,8 @@ class SiteScraperEngine {
             ScrapedMovie(
                 tmdbId = tmdbId,
                 title = cleanTitle,
-                streams = foundStreams
+                streams = foundStreams,
+                genres = genreList
             )
         }
     }

@@ -16,6 +16,15 @@ async function getCatalog(type, id, extra) {
         const catalogData = await response.json();
         let metas = catalogData || [];
 
+        // Handle genre / category filtering (Korku, Aksiyon, Komedi, Popüler vb.)
+        if (extra && extra.genre) {
+            const requestedGenre = extra.genre.toLowerCase();
+            metas = metas.filter(m => {
+                if (!m.genres) return true;
+                return m.genres.some(g => g.toLowerCase().includes(requestedGenre) || requestedGenre.includes(g.toLowerCase()));
+            });
+        }
+
         // Handle search filter if provided
         if (extra && extra.search) {
             const query = extra.search.toLowerCase();
