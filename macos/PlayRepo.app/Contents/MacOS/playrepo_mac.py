@@ -751,6 +751,9 @@ class PlayRepoApp(tk.Tk):
         self.crawler_thread = None
 
         self.setup_ui()
+        self.lift()
+        self.attributes('-topmost', True)
+        self.after(200, lambda: self.attributes('-topmost', False))
 
     def load_config(self) -> dict:
         default_cfg = {
@@ -1217,3 +1220,4 @@ class PlayRepoApp(tk.Tk):
 if __name__ == "__main__":
     app = PlayRepoApp()
     app.mainloop()
+

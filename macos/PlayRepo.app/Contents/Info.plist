@@ -22,5 +22,12 @@
     <true/>
     <key>LSMinimumSystemVersion</key>
     <string>10.15</string>
+    <key>LSArchitecturePriority</key>
+    <array>
+        <string>arm64</string>
+    </array>
+    <key>NSRequiresAquaSystemAppearance</key>
+    <false/>
 </dict>
 </plist>
+
