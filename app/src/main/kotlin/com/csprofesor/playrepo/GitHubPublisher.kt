@@ -452,11 +452,13 @@ class GitHubPublisher {
         files: Map<String, String>
     ): Boolean {
         try {
+            val authHeader = if (githubToken.startsWith("ghp_") || githubToken.startsWith("github_pat_")) "token $githubToken" else "Bearer $githubToken"
+
             // 1. Get latest commit SHA on refs/heads/branch
             val refUrl = "https://api.github.com/repos/$repoOwner/$repoName/git/ref/heads/$branch"
             val refReq = Request.Builder()
                 .url(refUrl)
-                .header("Authorization", "Bearer $githubToken")
+                .header("Authorization", authHeader)
                 .header("Accept", "application/vnd.github.v3+json")
                 .build()
 
@@ -466,18 +468,41 @@ class GitHubPublisher {
                 j.getAsJsonObject("object")?.get("sha")?.asString
             } ?: return false
 
-            // 2. Post new tree with all updated/created files
-            val treeUrl = "https://api.github.com/repos/$repoOwner/$repoName/git/trees"
+            // 2. Create blobs for each file to avoid GitHub's 100KB tree payload limit
+            val blobUrl = "https://api.github.com/repos/$repoOwner/$repoName/git/blobs"
             val treeArray = JsonArray()
+
             files.forEach { (path, content) ->
-                val item = JsonObject().apply {
-                    addProperty("path", path)
-                    addProperty("mode", "100644")
-                    addProperty("type", "blob")
+                val blobPayload = JsonObject().apply {
                     addProperty("content", content)
+                    addProperty("encoding", "utf-8")
                 }
-                treeArray.add(item)
+                val blobReq = Request.Builder()
+                    .url(blobUrl)
+                    .header("Authorization", authHeader)
+                    .header("Accept", "application/vnd.github.v3+json")
+                    .post(blobPayload.toString().toRequestBody("application/json".toMediaType()))
+                    .build()
+
+                val blobSha = client.newCall(blobReq).execute().use { bResp ->
+                    if (bResp.isSuccessful) {
+                        val bj = gson.fromJson(bResp.body?.string(), JsonObject::class.java)
+                        bj.get("sha")?.asString
+                    } else null
+                }
+
+                if (blobSha != null) {
+                    val item = JsonObject().apply {
+                        addProperty("path", path)
+                        addProperty("mode", "100644")
+                        addProperty("type", "blob")
+                        addProperty("sha", blobSha)
+                    }
+                    treeArray.add(item)
+                }
             }
+
+            if (treeArray.size() == 0) return false
 
             val treeBody = JsonObject().apply {
                 addProperty("base_tree", parentSha)
@@ -485,8 +510,8 @@ class GitHubPublisher {
             }
 
             val treeReq = Request.Builder()
-                .url(treeUrl)
-                .header("Authorization", "Bearer $githubToken")
+                .url("https://api.github.com/repos/$repoOwner/$repoName/git/trees")
+                .header("Authorization", authHeader)
                 .header("Accept", "application/vnd.github.v3+json")
                 .post(treeBody.toString().toRequestBody("application/json".toMediaType()))
                 .build()
@@ -508,7 +533,7 @@ class GitHubPublisher {
 
             val commitReq = Request.Builder()
                 .url(commitUrl)
-                .header("Authorization", "Bearer $githubToken")
+                .header("Authorization", authHeader)
                 .header("Accept", "application/vnd.github.v3+json")
                 .post(commitBody.toString().toRequestBody("application/json".toMediaType()))
                 .build()
@@ -522,12 +547,12 @@ class GitHubPublisher {
             // 4. Update branch ref
             val updateRefBody = JsonObject().apply {
                 addProperty("sha", newCommitSha)
-                addProperty("force", false)
+                addProperty("force", true)
             }
 
             val updateReq = Request.Builder()
                 .url(refUrl)
-                .header("Authorization", "Bearer $githubToken")
+                .header("Authorization", authHeader)
                 .header("Accept", "application/vnd.github.v3+json")
                 .patch(updateRefBody.toString().toRequestBody("application/json".toMediaType()))
                 .build()

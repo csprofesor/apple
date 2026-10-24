@@ -273,7 +273,77 @@ async function getMeta(arg1, arg2) {
             } catch (_) {}
         }
 
-        // 2. If it's an IMDb ID (tt...), fetch rich meta from Cinemeta
+        // 2. Search local catalog (Contains site's official Turkish description, genres, and poster)
+        try {
+            const response = await fetch(`${CATALOG_URL}?t=${Date.now()}`, {
+                headers: {
+                    "User-Agent": UA,
+                    "Accept": "application/json"
+                }
+            });
+
+            if (response.ok) {
+                const catalogData = await response.json();
+                const metas = Array.isArray(catalogData) ? catalogData : (catalogData.metas || []);
+
+                const normTarget = idStr.toLowerCase().replace(/[:_]/g, "-");
+                const found = metas.find(m => {
+                    if (!m || !m.id) return false;
+                    const normM = m.id.toLowerCase().replace(/[:_]/g, "-");
+                    return normM === normTarget || m.id === idStr || m.id === hyphenId || m.id === safeId || m.id === cleanId || normM.endsWith(normTarget) || normTarget.endsWith(normM);
+                });
+
+                if (found) {
+                    const videoId = found.id || idStr;
+                    const metaObj = {
+                        id: videoId,
+                        type: found.type || "movie",
+                        name: found.name,
+                        poster: found.poster || "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+                        background: found.background || found.poster || "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+                        logo: "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+                        description: found.description || "Play • Film Yayın Kaynağı",
+                        genres: found.genres || ["Popüler"],
+                        releaseInfo: found.releaseInfo || "",
+                        imdbRating: found.imdbRating || "",
+                        runtime: found.runtime || "",
+                        behaviorHints: {
+                            defaultVideoId: videoId,
+                            hasScheduledVideos: false
+                        },
+                        videos: [
+                            {
+                                id: videoId,
+                                title: found.name,
+                                released: found.releaseInfo ? `${found.releaseInfo}-01-01T00:00:00.000Z` : undefined
+                            }
+                        ]
+                    };
+
+                    // If it has IMDb ID, enrich with trailer/cast from Cinemeta but PRESERVE Turkish description and genres
+                    if (idStr.startsWith("tt")) {
+                        try {
+                            const cmRes = await fetch(`https://v3-cinemeta.strem.io/meta/movie/${idStr}.json`, {
+                                headers: { "User-Agent": UA }
+                            });
+                            if (cmRes.ok) {
+                                const cmData = await cmRes.json();
+                                if (cmData && cmData.meta) {
+                                    if (cmData.meta.cast) metaObj.cast = cmData.meta.cast;
+                                    if (cmData.meta.director) metaObj.director = cmData.meta.director;
+                                    if (cmData.meta.trailers) metaObj.trailers = cmData.meta.trailers;
+                                    if (cmData.meta.trailerStreams) metaObj.trailerStreams = cmData.meta.trailerStreams;
+                                }
+                            }
+                        } catch (_) {}
+                    }
+
+                    return { meta: metaObj };
+                }
+            }
+        } catch (_) {}
+
+        // 3. Fallback: Cinemeta if not found in catalog yet
         if (idStr.startsWith("tt")) {
             try {
                 const cmRes = await fetch(`https://v3-cinemeta.strem.io/meta/movie/${idStr}.json`, {
@@ -299,54 +369,6 @@ async function getMeta(arg1, arg2) {
                     }
                 }
             } catch (_) { }
-        }
-
-        // 3. Fallback: Search local catalog
-        const response = await fetch(CATALOG_URL, {
-            headers: {
-                "User-Agent": UA,
-                "Accept": "application/json"
-            }
-        });
-
-        if (!response.ok) return { meta: null };
-
-        const catalogData = await response.json();
-        const metas = Array.isArray(catalogData) ? catalogData : (catalogData.metas || []);
-
-        const normTarget = idStr.toLowerCase().replace(/[:_]/g, "-");
-        const found = metas.find(m => {
-            if (!m || !m.id) return false;
-            const normM = m.id.toLowerCase().replace(/[:_]/g, "-");
-            return normM === normTarget || m.id === idStr || m.id === hyphenId || m.id === safeId || m.id === cleanId || normM.endsWith(normTarget) || normTarget.endsWith(normM);
-        });
-
-        if (found) {
-            const videoId = found.id || idStr;
-            return {
-                meta: {
-                    id: videoId,
-                    type: found.type || "movie",
-                    name: found.name,
-                    poster: found.poster || "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-                    background: found.poster || "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-                    logo: "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-                    description: found.description || "Play • Film Yayın Kaynağı",
-                    genres: found.genres || ["Popüler"],
-                    releaseInfo: found.releaseInfo || "",
-                    behaviorHints: {
-                        defaultVideoId: videoId,
-                        hasScheduledVideos: false
-                    },
-                    videos: [
-                        {
-                            id: videoId,
-                            title: found.name,
-                            released: found.releaseInfo ? `${found.releaseInfo}-01-01T00:00:00.000Z` : undefined
-                        }
-                    ]
-                }
-            };
         }
 
         const fallbackId = idStr || cleanId;
