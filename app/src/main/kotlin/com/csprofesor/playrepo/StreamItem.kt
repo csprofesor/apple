@@ -6,7 +6,8 @@ data class StreamItem(
     val url: String,
     val quality: Int = 1080,
     val format: String = "m3u8",
-    val referer: String? = null
+    val referer: String? = null,
+    val headers: Map<String, String>? = null
 )
 
 data class ScrapedMovie(

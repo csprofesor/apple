@@ -396,7 +396,7 @@ class SiteScraperEngine {
                 val trimmed = raw.trim()
                 if (trimmed == movieUrl || trimmed == "$movieUrl/") return
                 if (trimmed.contains("about:blank") || trimmed.startsWith("javascript:")) return
-                if (trimmed.contains("player.hintfilmizle.com") || trimmed.contains("youtube.com") || trimmed.contains("youtu.be")) return
+                if (trimmed.contains("youtube.com") || trimmed.contains("youtu.be")) return
                 if (trimmed.endsWith(".jpg") || trimmed.endsWith(".png") || trimmed.endsWith(".webp") ||
                     trimmed.endsWith(".css") || trimmed.endsWith(".js") || trimmed.endsWith(".svg")) return
 
@@ -404,8 +404,10 @@ class SiteScraperEngine {
                     "https:$trimmed"
                 } else if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
                     trimmed
+                } else if (trimmed.startsWith("/")) {
+                    "$siteBase$trimmed"
                 } else {
-                    return // Ignore relative paths that are not video embeds
+                    return
                 }
 
                 if (!candidateEmbedUrls.contains(full)) {
@@ -414,7 +416,7 @@ class SiteScraperEngine {
             }
 
             // 1. data-frame (very common in Turkish movie CMS themes like Hintfilmizle, Filmmodu, etc.)
-            doc.select("[data-frame], a[data-frame]").forEach { el ->
+            doc.select("[data-frame], a[data-frame], li[data-frame], button[data-frame]").forEach { el ->
                 addCandidate(el.attr("data-frame"))
             }
 
@@ -425,17 +427,28 @@ class SiteScraperEngine {
                 addCandidate(el.attr("data-litespeed-src"))
             }
 
-            // 3. data-player / data-embed / data-video / data-url attributes
-            doc.select("[data-player], [data-embed], [data-video], [data-url], [data-link], [data-file]").forEach { el ->
+            // 3. data-player / data-embed / data-video / data-url / data-link / data-file / data-src
+            doc.select("[data-player], [data-embed], [data-video], [data-url], [data-link], [data-file], [data-src], [data-source]").forEach { el ->
                 addCandidate(el.attr("data-player"))
                 addCandidate(el.attr("data-embed"))
                 addCandidate(el.attr("data-video"))
                 addCandidate(el.attr("data-url"))
                 addCandidate(el.attr("data-link"))
                 addCandidate(el.attr("data-file"))
+                addCandidate(el.attr("data-src"))
+                addCandidate(el.attr("data-source"))
             }
 
-            // 4. External video host links (vidmoly, voe, ok.ru, mail.ru, bitchute, streamtape, mixdrop, etc.)
+            // 4. Server Tab Selectors (.keremiya_part, .part-list, .sources, .nav-tabs, .tab-content, etc.)
+            doc.select(".keremiya_part a, .part-list li, .part-list a, .sources-list li, .sources li, .server-item, .tab-content iframe, #parts a, .alternatifler a, ul.nav-tabs li a, div.partlar a, .servers a, .filmi-izle a").forEach { el ->
+                addCandidate(el.attr("data-frame"))
+                addCandidate(el.attr("data-src"))
+                addCandidate(el.attr("data-url"))
+                addCandidate(el.attr("data-embed"))
+                addCandidate(el.absUrl("href"))
+            }
+
+            // 5. External video host links
             doc.select("a[href]").forEach { a ->
                 val href = a.absUrl("href").ifBlank { a.attr("href") }
                 if (isKnownVideoHost(href)) {
@@ -443,7 +456,7 @@ class SiteScraperEngine {
                 }
             }
 
-            // 5. Scrape Base64 encoded atob("...") player embeds
+            // 6. Base64 encoded atob("...") player embeds
             val atobRegex = Regex("""atob\s*\(\s*["'`]([A-Za-z0-9+/=]+)["'`]\s*\)""")
             atobRegex.findAll(html).forEach { match ->
                 try {
@@ -451,7 +464,6 @@ class SiteScraperEngine {
                     val decodedBytes = android.util.Base64.decode(b64, android.util.Base64.DEFAULT)
                     val decodedJson = String(decodedBytes, Charsets.UTF_8).replace("\\/", "/")
 
-                    // A. Parse JSON array
                     try {
                         val arr = org.json.JSONArray(decodedJson)
                         for (i in 0 until arr.length()) {
@@ -463,7 +475,6 @@ class SiteScraperEngine {
                         }
                     } catch (_: Exception) {}
 
-                    // B. Scan via regex for protocol-relative or https URLs
                     val urlRegex = Regex("""(?:https?:)?//[^\s"'\\\]+""")
                     urlRegex.findAll(decodedJson).forEach { urlMatch ->
                         val u = urlMatch.value.trim()
@@ -477,8 +488,8 @@ class SiteScraperEngine {
                 } catch (_: Exception) { }
             }
 
-            // 6. Direct Odnoklassniki / Ok.ru / Vidmoly / Mail.ru embeds in raw HTML
-            val directEmbedRegex = Regex("""(?:https?:)?//[^\s"'`<>]+(?:odnoklassniki\.ru/videoembed|ok\.ru/videoembed|vkuser\.net|vidmoly\.me/embed|my\.mail\.ru/video/embed|voe\.sx/e/)[^\s"'`<>]*""", RegexOption.IGNORE_CASE)
+            // 7. Direct Odnoklassniki / Ok.ru / Vidmoly / Mail.ru / VOE / Streamtape embeds in raw HTML
+            val directEmbedRegex = Regex("""(?:https?:)?//[^\s"'`<>]+(?:odnoklassniki\.ru/videoembed|ok\.ru/videoembed|vkuser\.net|vidmoly\.[a-z]+/embed|vidmoly\.[a-z]+/w|my\.mail\.ru/video/embed|voe\.sx/e/|streamtape\.[a-z]+/e/|dood\.[a-z]+/e/|ds2play\.[a-z]+/e/|video\.sibnet\.ru/shell\.php)[^\s"'`<>]*""", RegexOption.IGNORE_CASE)
             directEmbedRegex.findAll(html).forEach { match ->
                 val u = match.value.replace("\\/", "/").trim('"', '\'', '`', '\\')
                 if (!u.contains(".jpg") && !u.contains(".png") && !u.contains(".css") && !u.contains(".js")) {
@@ -487,10 +498,40 @@ class SiteScraperEngine {
                 }
             }
 
-            // 7. Scrape direct .m3u8 / .mp4 URLs in raw HTML/JS code
+            // 8. Direct .m3u8 / .mp4 URLs in raw HTML/JS code
             val m3u8Regex = Regex("""https?://[^\s"'`<>]+?\.(?:m3u8|mp4)[^\s"'`<>]*""", RegexOption.IGNORE_CASE)
             m3u8Regex.findAll(html).forEach { match ->
                 addCandidate(match.value)
+            }
+
+            // 9. Inspect internal player iframes (e.g. site.com/player/?... or site.com/embed/...) to discover nested video hosts
+            val internalPlayers = candidateEmbedUrls.filter { isInternalPlayerUrl(it, siteBase) }
+            internalPlayers.forEach { playerUrl ->
+                try {
+                    val pReq = Request.Builder()
+                        .url(playerUrl)
+                        .header("User-Agent", getRandomUserAgent())
+                        .header("Referer", movieUrl)
+                        .build()
+                    client.newCall(pReq).execute().use { pResp ->
+                        if (pResp.isSuccessful) {
+                            val pHtml = pResp.body?.string().orEmpty()
+                            val pDoc = Jsoup.parse(pHtml, playerUrl)
+                            pDoc.select("iframe[src], iframe[data-src], a[href], [data-frame], [data-src]").forEach { el ->
+                                val src = el.absUrl("src").ifBlank { el.attr("src") }.ifBlank { el.attr("data-frame") }.ifBlank { el.attr("data-src") }
+                                if (isKnownVideoHost(src) || src.contains(".m3u8") || src.contains(".mp4")) {
+                                    addCandidate(src)
+                                }
+                            }
+                            directEmbedRegex.findAll(pHtml).forEach { m ->
+                                addCandidate(m.value.replace("\\/", "/").trim('"', '\'', '`', '\\'))
+                            }
+                            m3u8Regex.findAll(pHtml).forEach { m ->
+                                addCandidate(m.value)
+                            }
+                        }
+                    }
+                } catch (_: Exception) {}
             }
 
             val resolvedStreams = mutableListOf<StreamItem>()
@@ -499,8 +540,10 @@ class SiteScraperEngine {
                 val directStreamUrl = unpackEmbedStreamUrl(embedUrl, movieUrl)
                 if (directStreamUrl.isNotBlank() && resolvedStreams.none { it.url == directStreamUrl }) {
                     val lowerUrl = directStreamUrl.lowercase()
-                    if (lowerUrl.contains(".m3u8") || lowerUrl.contains(".mp4")) {
+                    if (lowerUrl.contains(".m3u8") || lowerUrl.contains(".mp4") || lowerUrl.contains("/manifest")) {
                         val isM3u8 = lowerUrl.contains(".m3u8")
+                        val ua = getRandomUserAgent()
+                        val ref = embedUrl.ifBlank { directStreamUrl }
                         resolvedStreams.add(
                             StreamItem(
                                 name = "Play",
@@ -508,7 +551,11 @@ class SiteScraperEngine {
                                 url = directStreamUrl,
                                 quality = if (qualityTag == "4K") 2160 else 1080,
                                 format = if (isM3u8) "m3u8" else "mp4",
-                                referer = embedUrl
+                                referer = ref,
+                                headers = mapOf(
+                                    "User-Agent" to ua,
+                                    "Referer" to ref
+                                )
                             )
                         )
                     }
@@ -548,15 +595,60 @@ class SiteScraperEngine {
         }
     }
 
+    private fun isInternalPlayerUrl(url: String, siteBase: String): Boolean {
+        val lower = url.lowercase()
+        val isSameHost = url.startsWith(siteBase) || (siteBase.contains("://") && url.contains(siteBase.substringAfter("://").substringBefore("/")))
+        return (isSameHost && (lower.contains("/player") || lower.contains("/embed") || lower.contains("/video/") || lower.contains("play.php") || lower.contains("part="))) ||
+               lower.contains("player.hintfilmizle.com") || lower.contains("fplayer") || lower.contains("rapidrame") || lower.contains("trplayer")
+    }
+
     private fun isKnownVideoHost(url: String): Boolean {
         val lower = url.lowercase()
         return lower.contains("vidmoly") || lower.contains("vidhide") || lower.contains("filelions") ||
-               lower.contains("streamwish") || lower.contains("voe.sx") || lower.contains("streamtape") ||
-               lower.contains("ok.ru") || lower.contains("odnoklassniki.ru") || lower.contains("my.mail.ru") ||
-               lower.contains("bitchute") || lower.contains("mixdrop") || lower.contains("dood") ||
-               lower.contains("vidsrc") || lower.contains("vixsrc") || lower.contains("videa.hu") ||
-               lower.contains("vk.com") || lower.contains("vkvideo.ru") || lower.contains("vkuser.net") ||
-               lower.contains("dailymotion.com")
+               lower.contains("streamwish") || lower.contains("voe.sx") || lower.contains("voe-unblock") || lower.contains("voe.to") ||
+               lower.contains("streamtape") || lower.contains("streamta.pe") || lower.contains("dood") || lower.contains("ds2play") ||
+               lower.contains("ok.ru") || lower.contains("odnoklassniki") || lower.contains("vkuser.net") || lower.contains("my.mail.ru") ||
+               lower.contains("bitchute") || lower.contains("mixdrop") || lower.contains("sibnet.ru") ||
+               lower.contains("vidsrc") || lower.contains("vixsrc") || lower.contains("vixcloud") || lower.contains("videa.hu") ||
+               lower.contains("vk.com") || lower.contains("vkvideo.ru") || lower.contains("dailymotion.com") ||
+               lower.contains("dropload") || lower.contains("vtube") || lower.contains("streamruby") || lower.contains("supervideo")
+    }
+
+    private object JsPackerUnpacker {
+        private val PACKER_REGEX = Regex(
+            """eval\s*\(\s*function\s*\(\s*p\s*,\s*a\s*,\s*c\s*,\s*k\s*,\s*e\s*,\s*d?\s*\)\s*\{.*?\}\s*\(\s*['"](.*?)['"]\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*['"](.*?)['"]\.split\(\s*['"]\|['"]\s*\)""",
+            RegexOption.DOT_MATCHES_ALL
+        )
+
+        private const val ALPHABET = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+        private fun decodeBaseN(str: String, radix: Int): Int {
+            var result = 0
+            for (ch in str) {
+                val idx = ALPHABET.indexOf(ch)
+                if (idx < 0 || idx >= radix) return -1
+                result = result * radix + idx
+            }
+            return result
+        }
+
+        fun unpack(packedJs: String): String {
+            val match = PACKER_REGEX.find(packedJs) ?: return packedJs
+            val payload = match.groupValues[1]
+            val radix = match.groupValues[2].toIntOrNull() ?: return packedJs
+            val keywords = match.groupValues[4].split("|")
+
+            val wordRegex = Regex("""\b\w+\b""")
+            return wordRegex.replace(payload) { m ->
+                val word = m.value
+                val idx = decodeBaseN(word, radix)
+                if (idx in keywords.indices && keywords[idx].isNotBlank()) {
+                    keywords[idx]
+                } else {
+                    word
+                }
+            }.replace("\\/", "/")
+        }
     }
 
     private fun extractScrapedPoster(doc: org.jsoup.nodes.Document, siteUrl: String): String {
@@ -603,15 +695,15 @@ class SiteScraperEngine {
     }
 
     /**
-     * Unpacks/decrypts embed players into direct playable M3U8 / MP4 URLs.
+     * Unpacks/decrypts embed players into direct playable M3U8 / MP4 URLs across ALL providers.
      */
-    private fun unpackEmbedStreamUrl(rawEmbedUrl: String, referer: String): String {
+    private fun unpackEmbedStreamUrl(rawEmbedUrl: String, referer: String, depth: Int = 0): String {
         val embedUrl = if (rawEmbedUrl.startsWith("//")) "https:$rawEmbedUrl" else rawEmbedUrl
         if (!embedUrl.startsWith("http://") && !embedUrl.startsWith("https://")) return ""
         val lowerEmbed = embedUrl.lowercase()
 
-        // If direct playable stream already, return immediately
-        if ((lowerEmbed.contains(".m3u8") || lowerEmbed.contains(".mp4")) && !lowerEmbed.contains("/embed") && !lowerEmbed.contains("/videoembed")) {
+        // Direct stream already
+        if ((lowerEmbed.contains(".m3u8") || lowerEmbed.contains(".mp4")) && !lowerEmbed.contains("/embed") && !lowerEmbed.contains("/videoembed") && !lowerEmbed.contains("/e/")) {
             return embedUrl
         }
 
@@ -647,6 +739,33 @@ class SiteScraperEngine {
             } catch (_: Exception) { }
         }
 
+        // 2. Doodstream / ds2play API
+        if (lowerEmbed.contains("dood.") || lowerEmbed.contains("ds2play.")) {
+            try {
+                val req = Request.Builder().url(embedUrl).header("User-Agent", getRandomUserAgent()).header("Referer", referer).build()
+                client.newCall(req).execute().use { resp ->
+                    if (resp.isSuccessful) {
+                        val html = resp.body?.string().orEmpty()
+                        val passMatch = Regex("""/pass_md5/([^"'\s]+)""").find(html)
+                        if (passMatch != null) {
+                            val host = try { java.net.URI(embedUrl).host ?: "" } catch (_: Exception) { "" }
+                            val passUrl = "https://$host/pass_md5/" + passMatch.groupValues[1]
+                            val passReq = Request.Builder().url(passUrl).header("User-Agent", getRandomUserAgent()).header("Referer", embedUrl).build()
+                            client.newCall(passReq).execute().use { pResp ->
+                                if (pResp.isSuccessful) {
+                                    val prefix = pResp.body?.string().orEmpty().trim()
+                                    if (prefix.startsWith("http")) {
+                                        val direct = prefix + "1234567890?token=" + passMatch.groupValues[1].substringAfterLast("/")
+                                        return direct
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (_: Exception) {}
+        }
+
         try {
             val request = Request.Builder()
                 .url(embedUrl)
@@ -656,31 +775,58 @@ class SiteScraperEngine {
 
             client.newCall(request).execute().use { response ->
                 if (!response.isSuccessful) return ""
-                val html = response.body?.string().orEmpty()
+                var html = response.body?.string().orEmpty()
 
-                // 2. Bitchute direct MP4
+                // Check Dean Edwards packed JS and unpack it immediately!
+                if (html.contains("eval(function(p,a,c,k,e,d)")) {
+                    val unpacked = JsPackerUnpacker.unpack(html)
+                    html = "$html\n$unpacked"
+                }
+
+                // 3. Vidmoly (m3u8 master playlist)
+                if (lowerEmbed.contains("vidmoly")) {
+                    val vmMatch = Regex("""["'](https?://[^"']+\.m3u8[^"']*)["']""").find(html)
+                    if (vmMatch != null) return vmMatch.groupValues[1]
+                }
+
+                // 4. VOE (HLS)
+                if (lowerEmbed.contains("voe")) {
+                    val voeMatch = Regex("""'hls'\s*:\s*['"](https?://[^'"]+)['"]""", RegexOption.IGNORE_CASE).find(html)
+                        ?: Regex("""["']hls["']\s*:\s*["'](https?://[^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
+                    if (voeMatch != null) return voeMatch.groupValues[1]
+                }
+
+                // 5. Streamtape (robotlink)
+                if (lowerEmbed.contains("streamtape") || lowerEmbed.contains("streamta.pe")) {
+                    val linkMatch = Regex("""id=['"](?:robotlink|ideoolink)['"][^>]*>(.*?)<""").find(html)
+                    if (linkMatch != null && linkMatch.groupValues[1].startsWith("//")) {
+                        return "https:" + linkMatch.groupValues[1]
+                    }
+                    val partMatch = Regex("""document\.getElementById\(['"](?:robotlink|ideoolink)['"]\)\.innerHTML\s*=\s*['"]([^'"]+)['"]\s*\+\s*\(['"]([^'"]+)['"]\)\.substring\((\d+)\)""").find(html)
+                    if (partMatch != null) {
+                        val p1 = partMatch.groupValues[1]
+                        val p2 = partMatch.groupValues[2]
+                        val sub = partMatch.groupValues[3].toIntOrNull() ?: 0
+                        val combined = if (sub < p2.length) p1 + p2.substring(sub) else p1 + p2
+                        return if (combined.startsWith("//")) "https:$combined" else combined
+                    }
+                }
+
+                // 6. Sibnet (video.sibnet.ru)
+                if (lowerEmbed.contains("sibnet.ru")) {
+                    val sibMatch = Regex("""src\s*:\s*["'](/v/[^"']+\.mp4)["']""").find(html)
+                    if (sibMatch != null) {
+                        return "https://video.sibnet.ru" + sibMatch.groupValues[1]
+                    }
+                }
+
+                // 7. Bitchute direct MP4
                 if (lowerEmbed.contains("bitchute.com")) {
                     val bcMatch = Regex("""(https?://[^\s"'<>]+\.bitchute\.com/[^\s"'<>]+\.mp4)""", RegexOption.IGNORE_CASE).find(html)
                     if (bcMatch != null) return bcMatch.groupValues[1]
                 }
 
-                // 3. Vidmoly, Vidhide, FileLions, StreamWish, JWPlayer m3u8
-                val m3u8Match = Regex("""file\s*:\s*["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
-                    ?: Regex("""sources\s*:\s*\[\s*\{\s*file\s*:\s*["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
-                    ?: Regex("""src\s*:\s*["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
-                    ?: Regex("""["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
-                if (m3u8Match != null) {
-                    return m3u8Match.groupValues[1]
-                }
-
-                // 4. VOE regex
-                val voeMatch = Regex("""'hls'\s*:\s*['"](https?://[^'"]+)['"]""", RegexOption.IGNORE_CASE).find(html)
-                    ?: Regex("""["']hls["']\s*:\s*["'](https?://[^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
-                if (voeMatch != null) {
-                    return voeMatch.groupValues[1]
-                }
-
-                // 5. Ok.ru / Odnoklassniki Direct MP4 or HLS Manifest
+                // 8. Ok.ru / Odnoklassniki HLS Manifest
                 if (lowerEmbed.contains("ok.ru") || lowerEmbed.contains("odnoklassniki.ru") || lowerEmbed.contains("vkuser.net") || html.contains("data-options")) {
                     try {
                         val optMatch = Regex("""data-options=(?:["']|&quot;)(.*?)(?:["']|&quot;)""").find(html)
@@ -728,24 +874,47 @@ class SiteScraperEngine {
                     if (okRuMatch != null) {
                         return okRuMatch.groupValues[1].replace("&amp;", "&").replace("\\u0026", "&")
                     }
-                } else {
-                    val okRuMatch = Regex("""hlsManifestUrl["']?\s*:\s*["'](https?://[^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
-                    if (okRuMatch != null) {
-                        return okRuMatch.groupValues[1].replace("\\u0026", "&")
-                    }
                 }
 
-                // 6. Mixdrop regex
+                // 9. Mixdrop
                 val mixdropMatch = Regex("""MDCore\.wurl\s*=\s*["']([^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
                 if (mixdropMatch != null) {
                     val streamUrl = mixdropMatch.groupValues[1]
                     return if (streamUrl.startsWith("//")) "https:$streamUrl" else streamUrl
                 }
 
-                // 7. Direct MP4 regex
+                // 10. Vidhide, FileLions, StreamWish, JWPlayer, VTube, Dropload, StreamRuby
+                val m3u8Match = Regex("""file\s*:\s*["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
+                    ?: Regex("""sources\s*:\s*\[\s*\{\s*file\s*:\s*["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
+                    ?: Regex("""src\s*:\s*["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
+                    ?: Regex("""["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
+                if (m3u8Match != null) {
+                    return m3u8Match.groupValues[1]
+                }
+
+                // 11. VK.com / VKVideo
+                if (lowerEmbed.contains("vk.com") || lowerEmbed.contains("vkvideo")) {
+                    val vkMatch = Regex("""["'](url(?:1080|720|480|360))["']\s*:\s*["'](https?://[^"']+)["']""").find(html)
+                    if (vkMatch != null) {
+                        return vkMatch.groupValues[2].replace("\\/", "/")
+                    }
+                }
+
+                // 12. Direct MP4 regex
                 val mp4Match = Regex("""["'](https?://[^"']+\.mp4[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
                 if (mp4Match != null) {
                     return mp4Match.groupValues[1]
+                }
+
+                // 13. Nested iframe discovery (1 level deep)
+                if (depth < 1) {
+                    val doc = Jsoup.parse(html, embedUrl)
+                    val nestedIframe = doc.selectFirst("iframe[src], iframe[data-src]")
+                    val nestedSrc = nestedIframe?.absUrl("src")?.ifBlank { nestedIframe.attr("src") }
+                    if (!nestedSrc.isNullOrBlank() && nestedSrc != embedUrl && isKnownVideoHost(nestedSrc)) {
+                        val nestedRes = unpackEmbedStreamUrl(nestedSrc, embedUrl, depth = depth + 1)
+                        if (nestedRes.isNotBlank()) return nestedRes
+                    }
                 }
             }
         } catch (_: Exception) { }
@@ -774,7 +943,8 @@ class SiteScraperEngine {
             .replace("ö", "o").replace("ş", "s").replace("ü", "u")
             .replace(Regex("""[^a-z0-9]+"""), "-")
             .trim('-')
-        val fallbackId = "playrepo:$slug"
+        val safeSlug = if (slug.isNotBlank()) slug else "film-" + Math.abs(cleanTitle.hashCode())
+        val fallbackId = "playrepo-$safeSlug"
 
         // 1. First attempt: Cinemeta (Stremio/Nuvio Universal Open API - NO API KEY REQUIRED)
         try {
@@ -830,7 +1000,7 @@ class SiteScraperEngine {
 
                             if (!id.isNullOrBlank()) {
                                 return MetaResolution(
-                                    id = "tmdb:$id",
+                                    id = "tmdb-$id",
                                     title = officialTitle,
                                     poster = posterUrl,
                                     description = overview,
@@ -843,7 +1013,7 @@ class SiteScraperEngine {
             } catch (_: Exception) { }
         }
 
-        // 3. Fallback: Use scraped movie page data (NEVER lose the movie's real poster!)
+        // 3. Fallback: Use scraped movie page data (NEVER lose the movie's real poster or valid ID!)
         return MetaResolution(
             id = fallbackId,
             title = cleanTitle,
