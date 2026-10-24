@@ -108,6 +108,34 @@ async function getCatalog(type, id, extra) {
         const catalogData = await response.json();
         let metas = Array.isArray(catalogData) ? catalogData : (catalogData.metas || []);
 
+        // Filter by Catalog ID (for dedicated Nuvio home screen category rows)
+        if (id === "playrepo-aksiyon") {
+            metas = metas.filter(m => m.genres && m.genres.some(g => {
+                const lg = g.toLowerCase();
+                return lg.includes("aksiyon") || lg.includes("macera");
+            }));
+        } else if (id === "playrepo-komedi") {
+            metas = metas.filter(m => m.genres && m.genres.some(g => {
+                const lg = g.toLowerCase();
+                return lg.includes("komedi") || lg.includes("mizah");
+            }));
+        } else if (id === "playrepo-dram") {
+            metas = metas.filter(m => m.genres && m.genres.some(g => {
+                const lg = g.toLowerCase();
+                return lg.includes("dram") || lg.includes("romantik");
+            }));
+        } else if (id === "playrepo-korku") {
+            metas = metas.filter(m => m.genres && m.genres.some(g => {
+                const lg = g.toLowerCase();
+                return lg.includes("korku") || lg.includes("gerilim");
+            }));
+        } else if (id === "playrepo-bilimkurgu") {
+            metas = metas.filter(m => m.genres && m.genres.some(g => {
+                const lg = g.toLowerCase();
+                return lg.includes("bilim") || lg.includes("kurgu") || lg.includes("fantastik");
+            }));
+        }
+
         if (extra && extra.genre) {
             const requestedGenre = extra.genre.toLowerCase();
             metas = metas.filter(m => {

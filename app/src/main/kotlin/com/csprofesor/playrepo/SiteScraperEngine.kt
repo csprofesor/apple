@@ -68,9 +68,36 @@ class SiteScraperEngine {
         val catalogPagesQueue = mutableListOf<String>()
 
         catalogPagesQueue.add(siteUrl)
+
+        // Seed with all primary category endpoints to ensure movies are pulled from every category
+        val categorySeeds = listOf(
+            "$siteBase/tur/aksiyon-filmleri",
+            "$siteBase/tur/komedi-filmleri",
+            "$siteBase/tur/dram-filmleri",
+            "$siteBase/tur/korku-filmleri",
+            "$siteBase/tur/bilim-kurgu-filmleri",
+            "$siteBase/tur/romantik-filmleri",
+            "$siteBase/tur/macera-filmleri",
+            "$siteBase/tur/animasyon-filmleri",
+            "$siteBase/tur/fantastik-filmleri",
+            "$siteBase/tur/suc-filmleri",
+            "$siteBase/kategori/aksiyon",
+            "$siteBase/kategori/komedi",
+            "$siteBase/kategori/dram",
+            "$siteBase/kategori/korku",
+            "$siteBase/kategori/bilim-kurgu",
+            "$siteBase/film/",
+            "$siteBase/film-izle/"
+        )
+        categorySeeds.forEach { seed ->
+            if (!catalogPagesQueue.contains(seed)) {
+                catalogPagesQueue.add(seed)
+            }
+        }
+
         if (!cleanSiteUrl.endsWith("/film") && !cleanSiteUrl.endsWith("/film-izle") && !cleanSiteUrl.endsWith("/filmler")) {
-            catalogPagesQueue.add("$siteBase/film/")
-            catalogPagesQueue.add("$siteBase/film-izle/")
+            if (!catalogPagesQueue.contains("$siteBase/film/")) catalogPagesQueue.add("$siteBase/film/")
+            if (!catalogPagesQueue.contains("$siteBase/film-izle/")) catalogPagesQueue.add("$siteBase/film-izle/")
         }
 
         var pageIndex = 0
@@ -257,6 +284,18 @@ class SiteScraperEngine {
             // Extract genres / category classification
             val genreList = mutableListOf<String>()
             val lowerHtml = html.lowercase()
+
+            // 1. Extract from explicit category links / breadcrumbs
+            doc.select("a[rel='category tag'], .kategoriler a, .film-kategori a, .genres a, a[href*='/tur/'], a[href*='/kategori/']").forEach { el ->
+                val txt = el.text().trim().lowercase()
+                if (txt.contains("korku") || txt.contains("gerilim")) genreList.add("Korku & Gerilim")
+                if (txt.contains("aksiyon") || txt.contains("macera")) genreList.add("Aksiyon & Macera")
+                if (txt.contains("komedi") || txt.contains("mizah")) genreList.add("Komedi")
+                if (txt.contains("dram") || txt.contains("romantik")) genreList.add("Dram & Romantik")
+                if (txt.contains("bilim") || txt.contains("kurgu") || txt.contains("fantastik")) genreList.add("Bilim Kurgu & Fantastik")
+            }
+
+            // 2. Extract from page HTML text & tags
             if (lowerHtml.contains("korku") || lowerHtml.contains("gerilim")) genreList.add("Korku & Gerilim")
             if (lowerHtml.contains("aksiyon") || lowerHtml.contains("macera")) genreList.add("Aksiyon & Macera")
             if (lowerHtml.contains("komedi") || lowerHtml.contains("mizah")) genreList.add("Komedi")

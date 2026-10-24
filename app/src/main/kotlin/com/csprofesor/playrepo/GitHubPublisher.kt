@@ -297,13 +297,31 @@ class GitHubPublisher {
         repoName: String,
         allMetas: List<JsonObject>
     ) {
-        val filesToSync = listOf(
-            "playrepo/catalog/movie/playrepo-popular.json",
-            "playrepo/catalog/movie/playrepo-catalog-movies.json"
+        val categoryConfigs = listOf(
+            "playrepo/catalog/movie/playrepo-popular.json" to { _: JsonObject -> true },
+            "playrepo/catalog/movie/playrepo-catalog-movies.json" to { _: JsonObject -> true },
+            "playrepo/catalog/movie/playrepo-aksiyon.json" to { m: JsonObject ->
+                hasGenre(m, "aksiyon", "macera")
+            },
+            "playrepo/catalog/movie/playrepo-komedi.json" to { m: JsonObject ->
+                hasGenre(m, "komedi", "mizah")
+            },
+            "playrepo/catalog/movie/playrepo-dram.json" to { m: JsonObject ->
+                hasGenre(m, "dram", "romantik")
+            },
+            "playrepo/catalog/movie/playrepo-korku.json" to { m: JsonObject ->
+                hasGenre(m, "korku", "gerilim")
+            },
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json" to { m: JsonObject ->
+                hasGenre(m, "bilim", "kurgu", "fantastik")
+            }
         )
 
-        filesToSync.forEach { filePath ->
+        categoryConfigs.forEach { (filePath, predicate) ->
             try {
+                val filtered = allMetas.filter { predicate(it) }
+                val targetMetas = if (filtered.isNotEmpty()) filtered else allMetas.take(20)
+
                 val apiUrl = "https://api.github.com/repos/$repoOwner/$repoName/contents/$filePath"
                 val getRequest = Request.Builder()
                     .url(apiUrl)
@@ -322,7 +340,7 @@ class GitHubPublisher {
 
                 val finalWrapper = JsonObject().apply {
                     val metasArray = JsonArray()
-                    allMetas.forEach { metasArray.add(it) }
+                    targetMetas.forEach { metasArray.add(it) }
                     add("metas", metasArray)
                 }
 
@@ -330,7 +348,7 @@ class GitHubPublisher {
                 val encodedContent = Base64.encodeToString(updatedJson.toByteArray(Charsets.UTF_8), Base64.NO_WRAP)
 
                 val putBody = JsonObject().apply {
-                    addProperty("message", "Sync $filePath with updated catalog")
+                    addProperty("message", "Sync $filePath with updated categorized movies")
                     addProperty("content", encodedContent)
                     if (sha != null) {
                         addProperty("sha", sha)
@@ -347,6 +365,17 @@ class GitHubPublisher {
                 client.newCall(putRequest).execute().close()
             } catch (_: Exception) { }
         }
+    }
+
+    private fun hasGenre(movieObj: JsonObject, vararg keywords: String): Boolean {
+        val genresArr = movieObj.getAsJsonArray("genres") ?: return false
+        for (g in genresArr) {
+            val text = g.asString.lowercase()
+            for (kw in keywords) {
+                if (text.contains(kw)) return true
+            }
+        }
+        return false
     }
 
     private fun updateMetaAndStreamsOnGitHub(

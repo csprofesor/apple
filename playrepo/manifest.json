@@ -25,10 +25,10 @@
       "name": "Play • Popüler Filmler",
       "genres": [
         "Popüler",
-        "Korku & Gerilim",
         "Aksiyon & Macera",
         "Komedi",
         "Dram & Romantik",
+        "Korku & Gerilim",
         "Bilim Kurgu & Fantastik"
       ],
       "extra": [
@@ -38,6 +38,61 @@
         },
         {
           "name": "genre",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-aksiyon",
+      "name": "Play • Aksiyon & Macera",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-komedi",
+      "name": "Play • Komedi Filmleri",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-dram",
+      "name": "Play • Dram & Romantik",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-korku",
+      "name": "Play • Korku & Gerilim",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-bilimkurgu",
+      "name": "Play • Bilim Kurgu & Fantastik",
+      "extra": [
+        {
+          "name": "search",
           "isRequired": false
         }
       ]
