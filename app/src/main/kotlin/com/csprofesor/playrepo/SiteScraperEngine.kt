@@ -50,7 +50,7 @@ class SiteScraperEngine {
     private fun getRandomUserAgent(): String = userAgents[Random.nextInt(userAgents.size)]
 
     /**
-     * Finds ALL movie page links dynamically across all catalog pages.
+     * Finds ALL movie page links dynamically across catalog pages.
      */
     suspend fun discoverAllMovieLinks(
         siteUrl: String,
@@ -68,8 +68,9 @@ class SiteScraperEngine {
         val catalogPagesQueue = mutableListOf<String>()
 
         catalogPagesQueue.add(siteUrl)
-        if (!cleanSiteUrl.endsWith("/film")) {
+        if (!cleanSiteUrl.endsWith("/film") && !cleanSiteUrl.endsWith("/film-izle") && !cleanSiteUrl.endsWith("/filmler")) {
             catalogPagesQueue.add("$siteBase/film/")
+            catalogPagesQueue.add("$siteBase/film-izle/")
         }
 
         var pageIndex = 0
@@ -85,11 +86,8 @@ class SiteScraperEngine {
                 val request = Request.Builder()
                     .url(currentPageUrl)
                     .header("User-Agent", getRandomUserAgent())
-                    .header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8")
+                    .header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
                     .header("Accept-Language", "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7")
-                    .header("Sec-Ch-Ua", "\"Chromium\";v=\"124\", \"Google Chrome\";v=\"124\"")
-                    .header("Sec-Ch-Ua-Mobile", "?0")
-                    .header("Sec-Ch-Ua-Platform", "\"Windows\"")
                     .build()
 
                 client.newCall(request).execute().use { response ->
@@ -132,9 +130,9 @@ class SiteScraperEngine {
 
     private fun isValidMovieUrl(url: String, siteBase: String): Boolean {
         if (!url.startsWith(siteBase)) return false
-        val lower = url.lowercase()
+        val lower = url.lowercase().trimEnd('/')
 
-        if (url == siteBase || url == "$siteBase/" ||
+        if (lower == siteBase.lowercase() || lower == "${siteBase.lowercase()}/" ||
             lower.contains("/kategori/") || lower.contains("/tur/") ||
             lower.contains("/koleksiyon/") || lower.contains("/forum") ||
             lower.contains("/iletisim") || lower.contains("/page/") ||
@@ -142,13 +140,13 @@ class SiteScraperEngine {
             lower.contains("/tag/") || lower.contains("#") ||
             lower.contains("javascript:") || lower.endsWith(".jpg") ||
             lower.endsWith(".png") || lower.endsWith(".css") || lower.endsWith(".js") ||
-            lower.contains("/login") || lower.contains("/takvim") || lower.contains("/trendler") ||
-            lower.contains("/seri-filmler") || lower.contains("/yabanci-dizi")
+            lower.contains("/login") || lower.contains("/uye") || lower.contains("/takvim") ||
+            lower.contains("/trendler") || lower.contains("/seri-filmler") || lower.contains("/istek")
         ) {
             return false
         }
 
-        return lower.contains("/film/") || lower.contains("-izle") || lower.contains("/dizi/")
+        return lower.contains("/film/") || lower.contains("-izle") || lower.contains("/dizi/") || lower.contains("/filmler/")
     }
 
     private fun isValidCatalogPageUrl(url: String, siteBase: String): Boolean {
@@ -156,9 +154,11 @@ class SiteScraperEngine {
         val lower = url.lowercase()
         if (isValidMovieUrl(url, siteBase)) return false
 
-        return lower.contains("/page/") || lower.contains("page=") ||
+        return lower.contains("/page/") || lower.contains("page=") || lower.contains("sayfa=") ||
                lower.contains("/kategori/") || lower.contains("/tur/") ||
                lower == "$siteBase/film/" || lower == "$siteBase/film" ||
+               lower == "$siteBase/film-izle/" || lower == "$siteBase/film-izle" ||
+               lower == "$siteBase/filmler/" || lower == "$siteBase/filmler" ||
                lower.contains("orderby=")
     }
 
@@ -171,7 +171,7 @@ class SiteScraperEngine {
         tmdbApiKey: String? = null,
         onStatusUpdate: suspend (status: String) -> Unit
     ): List<ScrapedMovie> = withContext(Dispatchers.IO) {
-        onStatusUpdate("Sitedeki tüm sayfalar taranıyor (Kategoriler ve Sayfalandırmalar çekiliyor)...")
+        onStatusUpdate("Sitedeki sayfalar taranıyor (Kategoriler & Sayfalandırma)...")
 
         val allMovieUrls = discoverAllMovieLinks(
             siteUrl = siteUrl,
@@ -186,7 +186,7 @@ class SiteScraperEngine {
             return@withContext emptyList()
         }
 
-        onStatusUpdate("✓ Toplam ${allMovieUrls.size} benzersiz film tespit edildi! Video kaynakları ve şifrelemeler çözülüyor...")
+        onStatusUpdate("✓ Toplam ${allMovieUrls.size} film tespit edildi! Video oynatıcılar ve posterler çözülüyor...")
 
         val results = mutableListOf<ScrapedMovie>()
 
@@ -195,7 +195,9 @@ class SiteScraperEngine {
                 val movie = scrapeMoviePage(url, tmdbApiKey)
                 if (movie != null && movie.streams.isNotEmpty()) {
                     results.add(movie)
-                    onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] Çözüldü: ${movie.title} (${movie.streams.size} M3U8/MP4 yayın kaynağı)")
+                    onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] ✓ Çözüldü: ${movie.title} (${movie.streams.size} Çalışan Yayın Kaynağı)")
+                } else if (movie != null) {
+                    onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] - ${movie.title}: Aktif video akışı bulunamadı (Atlandı)")
                 }
             } catch (e: Exception) {
                 onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] Sayfa hatası: ${e.localizedMessage}")
@@ -206,7 +208,8 @@ class SiteScraperEngine {
     }
 
     /**
-     * Scrapes a single movie page, unpacks iframe embeds into direct M3U8/MP4 stream URLs, and resolves TMDB ID.
+     * Scrapes a single movie page, unpacks iframe/player embeds into direct playable M3U8/MP4 stream URLs,
+     * extracts official movie poster and metadata (via Cinemeta/IMDb or direct webpage scraping).
      */
     suspend fun scrapeMoviePage(movieUrl: String, tmdbApiKey: String? = null): ScrapedMovie? = withContext(Dispatchers.IO) {
         val request = Request.Builder()
@@ -224,10 +227,27 @@ class SiteScraperEngine {
 
             val rawTitle = doc.selectFirst("h1")?.text()?.trim()
                 ?: doc.selectFirst("meta[property=og:title]")?.attr("content")?.trim()
+                ?: doc.selectFirst("title")?.text()?.trim()
                 ?: movieUrl.substringAfterLast("/").replace("-", " ")
 
             val cleanTitle = cleanMovieTitle(rawTitle)
-            if (cleanTitle.isBlank() || cleanTitle.lowercase() == "filmkovasi.co" || cleanTitle.lowercase() == "www.hintfilmizle.com") return@withContext null
+            if (cleanTitle.isBlank() || cleanTitle.lowercase() == "filmkovasi.co" || cleanTitle.lowercase() == "www.hintfilmizle.com") {
+                return@withContext null
+            }
+
+            // Extract real poster from page
+            val scrapedPoster = extractScrapedPoster(doc, movieUrl)
+
+            // Extract description / plot
+            val scrapedDesc = doc.selectFirst("meta[property=og:description]")?.attr("content")?.trim()
+                ?: doc.selectFirst("meta[name=description]")?.attr("content")?.trim()
+                ?: doc.selectFirst(".film-ozeti, .entry-content p, .ozet, .story")?.text()?.trim()
+                ?: ""
+
+            // Extract release year
+            val year = Regex("""\b(19\d{2}|20\d{2})\b""").find(rawTitle)?.value
+                ?: Regex("""\b(19\d{2}|20\d{2})\b""").find(html)?.value
+                ?: ""
 
             // Detect language & quality flags
             val isDub = html.contains("dublaj", true) || rawTitle.contains("dublaj", true)
@@ -244,38 +264,60 @@ class SiteScraperEngine {
             if (lowerHtml.contains("bilim") || lowerHtml.contains("kurgu") || lowerHtml.contains("fantastik")) genreList.add("Bilim Kurgu & Fantastik")
             if (genreList.isEmpty()) genreList.add("Popüler")
 
-            val foundCandidateUrls = mutableListOf<String>()
+            val candidateEmbedUrls = mutableListOf<String>()
 
-            // 1. Scrape direct iframe & video tags
-            doc.select("iframe[src], video[src], video source[src]").forEach { el ->
-                val src = el.absUrl("src").ifBlank { el.attr("src") }
-                if (src.isNotBlank() && !src.contains("about:blank")) {
-                    foundCandidateUrls.add(src)
+            fun addCandidate(raw: String?) {
+                if (raw.isNullOrBlank()) return
+                val trimmed = raw.trim()
+                if (trimmed == movieUrl || trimmed == "$movieUrl/") return
+                if (trimmed.contains("about:blank") || trimmed.startsWith("javascript:")) return
+                if (trimmed.endsWith(".jpg") || trimmed.endsWith(".png") || trimmed.endsWith(".webp") ||
+                    trimmed.endsWith(".css") || trimmed.endsWith(".js") || trimmed.endsWith(".svg")) return
+
+                val full = if (trimmed.startsWith("//")) {
+                    "https:$trimmed"
+                } else if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+                    trimmed
+                } else {
+                    return // Ignore relative paths that are not video embeds
+                }
+
+                if (!candidateEmbedUrls.contains(full)) {
+                    candidateEmbedUrls.add(full)
                 }
             }
 
-            // 2. Scrape data-src / data-url / data-player / data-embed attributes
-            doc.select("[data-src], [data-url], [data-player], [data-embed]").forEach { el ->
-                val dataSrc = el.attr("data-src").ifBlank { el.attr("data-url") }.ifBlank { el.attr("data-player") }.ifBlank { el.attr("data-embed") }
-                if (dataSrc.isNotBlank() && !dataSrc.contains("about:blank")) {
-                    val fullUrl = if (dataSrc.startsWith("http")) dataSrc else if (dataSrc.startsWith("//")) "https:$dataSrc" else movieUrl
-                    foundCandidateUrls.add(fullUrl)
-                }
+            // 1. data-frame (very common in Turkish movie CMS themes like Hintfilmizle, Filmmodu, etc.)
+            doc.select("[data-frame], a[data-frame]").forEach { el ->
+                addCandidate(el.attr("data-frame"))
             }
 
-            // 3. Scrape external video links (vidmoly, vidhide, voe, streamtape, ok.ru, kinescope, mixdrop, dood)
+            // 2. iframes & video tags
+            doc.select("iframe[src], iframe[data-src], iframe[data-litespeed-src], video[src], video source[src]").forEach { el ->
+                addCandidate(el.absUrl("src").ifBlank { el.attr("src") })
+                addCandidate(el.attr("data-src"))
+                addCandidate(el.attr("data-litespeed-src"))
+            }
+
+            // 3. data-player / data-embed / data-video / data-url attributes
+            doc.select("[data-player], [data-embed], [data-video], [data-url], [data-link], [data-file]").forEach { el ->
+                addCandidate(el.attr("data-player"))
+                addCandidate(el.attr("data-embed"))
+                addCandidate(el.attr("data-video"))
+                addCandidate(el.attr("data-url"))
+                addCandidate(el.attr("data-link"))
+                addCandidate(el.attr("data-file"))
+            }
+
+            // 4. External video host links (vidmoly, voe, ok.ru, mail.ru, bitchute, streamtape, mixdrop, etc.)
             doc.select("a[href]").forEach { a ->
                 val href = a.absUrl("href").ifBlank { a.attr("href") }
-                if (href.contains("vidmoly") || href.contains("vidhide") || href.contains("filelions") ||
-                    href.contains("streamwish") || href.contains("voe.sx") || href.contains("streamtape") ||
-                    href.contains("ok.ru") || href.contains("kinescope") || href.contains("odnoklassniki") ||
-                    href.contains("mixdrop") || href.contains("dood") || href.contains("vidsrc") || href.contains("vixsrc")
-                ) {
-                    foundCandidateUrls.add(href)
+                if (isKnownVideoHost(href)) {
+                    addCandidate(href)
                 }
             }
 
-            // 4. Scrape Base64 encoded atob("...") player embeds
+            // 5. Scrape Base64 encoded atob("...") player embeds
             val atobRegex = Regex("""atob\s*\(\s*["'`]([A-Za-z0-9+/=]+)["'`]\s*\)""")
             atobRegex.findAll(html).forEach { match ->
                 try {
@@ -284,20 +326,23 @@ class SiteScraperEngine {
                     val decodedJson = String(decodedBytes, Charsets.UTF_8).replace("\\/", "/")
                     val urlRegex = Regex("""https?://[^\s"'\\]+""")
                     urlRegex.findAll(decodedJson).forEach { urlMatch ->
-                        foundCandidateUrls.add(urlMatch.value)
+                        val u = urlMatch.value
+                        if (isKnownVideoHost(u) || u.contains(".m3u8") || u.contains(".mp4")) {
+                            addCandidate(u)
+                        }
                     }
                 } catch (_: Exception) { }
             }
 
-            // 5. Scrape direct .m3u8 / .mp4 URLs in raw JS code
+            // 6. Scrape direct .m3u8 / .mp4 URLs in raw HTML/JS code
             val m3u8Regex = Regex("""https?://[^\s"'`<>]+?\.(?:m3u8|mp4)[^\s"'`<>]*""", RegexOption.IGNORE_CASE)
             m3u8Regex.findAll(html).forEach { match ->
-                foundCandidateUrls.add(match.value)
+                addCandidate(match.value)
             }
 
             val resolvedStreams = mutableListOf<StreamItem>()
 
-            foundCandidateUrls.distinct().forEach { embedUrl ->
+            candidateEmbedUrls.forEach { embedUrl ->
                 val directStreamUrl = unpackEmbedStreamUrl(embedUrl, movieUrl)
                 if (directStreamUrl.isNotBlank() && resolvedStreams.none { it.url == directStreamUrl }) {
                     val lowerUrl = directStreamUrl.lowercase()
@@ -321,37 +366,111 @@ class SiteScraperEngine {
                 return@withContext null
             }
 
-            // Resolve TMDB ID, official Title, and Poster URL
-            val (tmdbId, tmdbTitle, posterUrl) = resolveTmdbInfo(cleanTitle, tmdbApiKey)
+            // Resolve official Metadata: Cinemeta (IMDb/Stremio standard) or TMDB or Scraped Page Info
+            val resolvedMeta = resolveMovieMetadata(cleanTitle, scrapedPoster, scrapedDesc, year, tmdbApiKey)
 
             ScrapedMovie(
-                tmdbId = tmdbId,
-                title = tmdbTitle,
-                poster = posterUrl,
+                tmdbId = resolvedMeta.id,
+                title = resolvedMeta.title,
+                poster = resolvedMeta.poster,
                 streams = resolvedStreams,
-                genres = genreList
+                genres = genreList,
+                description = resolvedMeta.description,
+                year = resolvedMeta.year
             )
         }
     }
 
+    private fun isKnownVideoHost(url: String): Boolean {
+        val lower = url.lowercase()
+        return lower.contains("vidmoly") || lower.contains("vidhide") || lower.contains("filelions") ||
+               lower.contains("streamwish") || lower.contains("voe.sx") || lower.contains("streamtape") ||
+               lower.contains("ok.ru") || lower.contains("my.mail.ru") || lower.contains("bitchute") ||
+               lower.contains("mixdrop") || lower.contains("dood") || lower.contains("vidsrc") ||
+               lower.contains("vixsrc") || lower.contains("videa.hu") || lower.contains("vk.com") ||
+               lower.contains("vkvideo.ru")
+    }
+
+    private fun extractScrapedPoster(doc: org.jsoup.nodes.Document, siteUrl: String): String {
+        val siteBase = if (siteUrl.contains("://")) {
+            val parts = siteUrl.split("/")
+            "${parts[0]}//${parts[2]}"
+        } else siteUrl
+
+        val ogImage = doc.selectFirst("meta[property=og:image]")?.attr("content")?.trim()
+        if (!ogImage.isNullOrBlank() && !ogImage.endsWith("/logo.png") && !ogImage.endsWith("/icon.png")) {
+            return if (ogImage.startsWith("//")) "https:$ogImage" else ogImage
+        }
+
+        val twitterImage = doc.selectFirst("meta[name=twitter:image]")?.attr("content")?.trim()
+        if (!twitterImage.isNullOrBlank() && !twitterImage.endsWith("/logo.png")) {
+            return if (twitterImage.startsWith("//")) "https:$twitterImage" else twitterImage
+        }
+
+        val posterEl = doc.selectFirst(".film-afis img, .poster img, .movie-poster img, .f-poster img")
+        if (posterEl != null) {
+            val src = posterEl.attr("data-src").ifBlank { posterEl.attr("src") }.trim()
+            if (src.isNotBlank() && !src.startsWith("data:") && !src.endsWith("/logo.png")) {
+                return if (src.startsWith("//")) "https:$src" else if (src.startsWith("http")) src else "$siteBase/$src".replace("//", "/")
+            }
+        }
+
+        return ""
+    }
+
     private fun cleanMovieTitle(title: String): String {
         return title
-            .removeSuffix(" izle")
-            .removeSuffix(" İzle")
-            .removeSuffix(" Türkçe Dublaj")
-            .removeSuffix(" Türkçe Altyazılı")
-            .removeSuffix(" Full HD")
-            .removeSuffix(" 1080p")
-            .replace(Regex("""\b(19|20)\d{2}\b.*"""), "")
-            .trim()
+            .replace(Regex("""\s*-\s*Full\s*HD\s*izle.*""", RegexOption.IGNORE_CASE), "")
+            .replace(Regex("""\s*-\s*Hintfilmizle.*""", RegexOption.IGNORE_CASE), "")
+            .replace(Regex("""\s*\|\s*Hintfilmizle.*""", RegexOption.IGNORE_CASE), "")
+            .replace(Regex("""\s*\|\s*Filmkovası.*""", RegexOption.IGNORE_CASE), "")
+            .replace(Regex("""\s*Türkçe\s*Dublaj.*""", RegexOption.IGNORE_CASE), "")
+            .replace(Regex("""\s*Türkçe\s*Altyazılı.*""", RegexOption.IGNORE_CASE), "")
+            .replace(Regex("""\s*Full\s*HD.*""", RegexOption.IGNORE_CASE), "")
+            .replace(Regex("""\s*1080p.*""", RegexOption.IGNORE_CASE), "")
+            .replace(Regex("""\s*izle.*""", RegexOption.IGNORE_CASE), "")
+            .replace(Regex("""\s*İzle.*""", RegexOption.IGNORE_CASE), "")
+            .replace(Regex("""\(\s*\d{4}\s*\)"""), "")
+            .trim(' ', '-', '–', ':', '|', '(')
     }
 
     /**
-     * Unpacks/decrypts embed players into direct M3U8 / MP4 URLs.
+     * Unpacks/decrypts embed players into direct playable M3U8 / MP4 URLs.
      */
     private fun unpackEmbedStreamUrl(embedUrl: String, referer: String): String {
-        if (embedUrl.contains(".m3u8") && !embedUrl.contains("/embed/")) {
+        val lowerEmbed = embedUrl.lowercase()
+
+        // If direct playable stream already, return immediately
+        if ((lowerEmbed.contains(".m3u8") || lowerEmbed.contains(".mp4")) && !lowerEmbed.contains("/embed") && !lowerEmbed.contains("/videoembed")) {
             return embedUrl
+        }
+
+        // 1. Mail.ru metadata API
+        if (lowerEmbed.contains("my.mail.ru/video/embed/") || lowerEmbed.contains("my.mail.ru/+/video/meta/")) {
+            val videoId = embedUrl.substringAfterLast("/").substringBefore("?").substringBefore(".html")
+            try {
+                val metaUrl = "https://my.mail.ru/+/video/meta/$videoId"
+                val req = Request.Builder().url(metaUrl).header("User-Agent", getRandomUserAgent()).build()
+                client.newCall(req).execute().use { resp ->
+                    if (resp.isSuccessful) {
+                        val body = resp.body?.string().orEmpty()
+                        val jsonObj = gson.fromJson(body, JsonObject::class.java)
+                        val videos = jsonObj.getAsJsonArray("videos")
+                        if (videos != null && videos.size() > 0) {
+                            var bestUrl = ""
+                            videos.forEach { v ->
+                                val vObj = v.asJsonObject
+                                val u = vObj.get("url")?.asString.orEmpty()
+                                if (u.isNotBlank()) {
+                                    val full = if (u.startsWith("//")) "https:$u" else u
+                                    bestUrl = full // Later ones in array are higher resolution (1080p)
+                                }
+                            }
+                            if (bestUrl.isNotBlank()) return bestUrl
+                        }
+                    }
+                }
+            } catch (_: Exception) { }
         }
 
         try {
@@ -362,38 +481,45 @@ class SiteScraperEngine {
                 .build()
 
             client.newCall(request).execute().use { response ->
-                if (!response.isSuccessful) return embedUrl
+                if (!response.isSuccessful) return ""
                 val html = response.body?.string().orEmpty()
 
-                // 1. Vidmoly, Vidhide, FileLions, StreamWish, JWPlayer, Standard M3U8 regex
+                // 2. Bitchute direct MP4
+                if (lowerEmbed.contains("bitchute.com")) {
+                    val bcMatch = Regex("""(https?://[^\s"'<>]+\.bitchute\.com/[^\s"'<>]+\.mp4)""", RegexOption.IGNORE_CASE).find(html)
+                    if (bcMatch != null) return bcMatch.groupValues[1]
+                }
+
+                // 3. Vidmoly, Vidhide, FileLions, StreamWish, JWPlayer m3u8
                 val m3u8Match = Regex("""file\s*:\s*["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
+                    ?: Regex("""sources\s*:\s*\[\s*\{\s*file\s*:\s*["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
                     ?: Regex("""src\s*:\s*["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
                     ?: Regex("""["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
                 if (m3u8Match != null) {
                     return m3u8Match.groupValues[1]
                 }
 
-                // 2. VOE regex
+                // 4. VOE regex
                 val voeMatch = Regex("""'hls'\s*:\s*['"](https?://[^'"]+)['"]""", RegexOption.IGNORE_CASE).find(html)
                     ?: Regex("""["']hls["']\s*:\s*["'](https?://[^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
                 if (voeMatch != null) {
                     return voeMatch.groupValues[1]
                 }
 
-                // 3. Ok.ru HLS Manifest
+                // 5. Ok.ru HLS Manifest or MP4
                 val okRuMatch = Regex("""hlsManifestUrl["']?\s*:\s*["'](https?://[^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
                 if (okRuMatch != null) {
                     return okRuMatch.groupValues[1].replace("\\u0026", "&")
                 }
 
-                // 4. Mixdrop regex
+                // 6. Mixdrop regex
                 val mixdropMatch = Regex("""MDCore\.wurl\s*=\s*["']([^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
                 if (mixdropMatch != null) {
                     val streamUrl = mixdropMatch.groupValues[1]
                     return if (streamUrl.startsWith("//")) "https:$streamUrl" else streamUrl
                 }
 
-                // 5. Direct MP4 regex
+                // 7. Direct MP4 regex
                 val mp4Match = Regex("""["'](https?://[^"']+\.mp4[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
                 if (mp4Match != null) {
                     return mp4Match.groupValues[1]
@@ -401,36 +527,106 @@ class SiteScraperEngine {
             }
         } catch (_: Exception) { }
 
-        return embedUrl
+        return ""
     }
 
-    private fun resolveTmdbInfo(title: String, tmdbApiKey: String?): Triple<String, String, String> {
-        val apiKey = if (tmdbApiKey.isNullOrBlank()) "15d2921542e613f17d23a2a6b29f7f45" else tmdbApiKey
+    private data class MetaResolution(
+        val id: String,
+        val title: String,
+        val poster: String,
+        val description: String,
+        val year: String
+    )
+
+    private fun resolveMovieMetadata(
+        cleanTitle: String,
+        scrapedPoster: String,
+        scrapedDesc: String,
+        year: String,
+        tmdbApiKey: String?
+    ): MetaResolution {
+        val fallbackPoster = scrapedPoster.ifBlank { "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png" }
+        val slug = cleanTitle.lowercase()
+            .replace("ç", "c").replace("ğ", "g").replace("ı", "i")
+            .replace("ö", "o").replace("ş", "s").replace("ü", "u")
+            .replace(Regex("""[^a-z0-9]+"""), "-")
+            .trim('-')
+        val fallbackId = "playrepo:$slug"
+
+        // 1. First attempt: Cinemeta (Stremio/Nuvio Universal Open API - NO API KEY REQUIRED)
         try {
-            val encodedQuery = URLEncoder.encode(title, "UTF-8")
-            val url = "https://api.themoviedb.org/3/search/movie?api_key=$apiKey&query=$encodedQuery&language=tr-TR"
-            val request = Request.Builder().url(url).header("User-Agent", getRandomUserAgent()).build()
+            val encodedQuery = URLEncoder.encode(cleanTitle, "UTF-8")
+            val cinemetaUrl = "https://v3-cinemeta.strem.io/catalog/movie/top/search=$encodedQuery.json"
+            val request = Request.Builder().url(cinemetaUrl).header("User-Agent", getRandomUserAgent()).build()
             client.newCall(request).execute().use { response ->
                 if (response.isSuccessful) {
                     val body = response.body?.string().orEmpty()
                     val jsonObj = gson.fromJson(body, JsonObject::class.java)
-                    val results = jsonObj.getAsJsonArray("results")
-                    if (results != null && results.size() > 0) {
-                        val firstMovie = results.get(0).asJsonObject
-                        val id = firstMovie.get("id")?.asString
-                        val officialTitle = firstMovie.get("title")?.asString ?: firstMovie.get("original_title")?.asString ?: title
-                        val posterPath = firstMovie.get("poster_path")?.asString
-                        val posterUrl = if (!posterPath.isNullOrBlank()) "https://image.tmdb.org/t/p/w500$posterPath" else "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png"
+                    val metas = jsonObj.getAsJsonArray("metas")
+                    if (metas != null && metas.size() > 0) {
+                        val firstMeta = metas.get(0).asJsonObject
+                        val id = firstMeta.get("id")?.asString
+                        val name = firstMeta.get("name")?.asString ?: cleanTitle
+                        val poster = firstMeta.get("poster")?.asString ?: fallbackPoster
+                        val releaseYear = firstMeta.get("releaseInfo")?.asString ?: year
+                        val desc = firstMeta.get("description")?.asString ?: scrapedDesc
 
                         if (!id.isNullOrBlank()) {
-                            return Triple(id, officialTitle, posterUrl)
+                            return MetaResolution(
+                                id = id,
+                                title = name,
+                                poster = if (poster.isNotBlank()) poster else fallbackPoster,
+                                description = if (desc.isNotBlank()) desc else "PlayRepo • 1080p TR",
+                                year = releaseYear
+                            )
                         }
                     }
                 }
             }
         } catch (_: Exception) { }
 
-        val hash = kotlin.math.abs(title.lowercase().hashCode()) % 800000 + 100000
-        return Triple(hash.toString(), title, "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png")
+        // 2. Second attempt: TMDB if user provided an API key
+        if (!tmdbApiKey.isNullOrBlank()) {
+            try {
+                val encodedQuery = URLEncoder.encode(cleanTitle, "UTF-8")
+                val url = "https://api.themoviedb.org/3/search/movie?api_key=$tmdbApiKey&query=$encodedQuery&language=tr-TR"
+                val request = Request.Builder().url(url).header("User-Agent", getRandomUserAgent()).build()
+                client.newCall(request).execute().use { response ->
+                    if (response.isSuccessful) {
+                        val body = response.body?.string().orEmpty()
+                        val jsonObj = gson.fromJson(body, JsonObject::class.java)
+                        val results = jsonObj.getAsJsonArray("results")
+                        if (results != null && results.size() > 0) {
+                            val firstMovie = results.get(0).asJsonObject
+                            val id = firstMovie.get("id")?.asString
+                            val officialTitle = firstMovie.get("title")?.asString ?: firstMovie.get("original_title")?.asString ?: cleanTitle
+                            val posterPath = firstMovie.get("poster_path")?.asString
+                            val posterUrl = if (!posterPath.isNullOrBlank()) "https://image.tmdb.org/t/p/w500$posterPath" else fallbackPoster
+                            val overview = firstMovie.get("overview")?.asString ?: scrapedDesc
+                            val releaseDate = firstMovie.get("release_date")?.asString?.take(4) ?: year
+
+                            if (!id.isNullOrBlank()) {
+                                return MetaResolution(
+                                    id = "tmdb:$id",
+                                    title = officialTitle,
+                                    poster = posterUrl,
+                                    description = overview,
+                                    year = releaseDate
+                                )
+                            }
+                        }
+                    }
+                }
+            } catch (_: Exception) { }
+        }
+
+        // 3. Fallback: Use scraped movie page data (NEVER lose the movie's real poster!)
+        return MetaResolution(
+            id = fallbackId,
+            title = cleanTitle,
+            poster = fallbackPoster,
+            description = if (scrapedDesc.isNotBlank()) scrapedDesc else "PlayRepo • Film Yayın Kaynağı",
+            year = year
+        )
     }
 }
