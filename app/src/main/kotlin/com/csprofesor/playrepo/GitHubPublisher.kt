@@ -6,6 +6,8 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -391,10 +393,11 @@ class GitHubPublisher {
         repoOwner: String,
         repoName: String,
         scrapedMovies: List<ScrapedMovie>
-    ) = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+    ) = withContext(Dispatchers.IO) {
+        val scope = this
         scrapedMovies.chunked(4).forEach { chunk ->
             val jobs = chunk.map { movie ->
-                kotlinx.coroutines.async {
+                scope.async {
                     val cleanId = movie.tmdbId.replace("tmdb:", "").replace("movie/", "").replace("tv/", "")
                     val idStr = if (movie.tmdbId.startsWith("tt") || movie.tmdbId.startsWith("playrepo:")) movie.tmdbId else cleanId
                     val safeId = idStr.replace(":", "_")
@@ -493,7 +496,7 @@ class GitHubPublisher {
                     }
                 }
             }
-            jobs.forEach { it.await() }
+            jobs.awaitAll()
         }
     }
 
