@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 PlayRepo macOS Desktop Application
-Full-featured desktop port of the Android APK for macOS.
+Ultra-modern Pitch-Black WebApp Desktop GUI for macOS.
 Extracts Turkish Dubbed & Subtitled movies with all video providers (Vidmoly, VOE, Streamtape, Doodstream, etc.),
 and publishes atomically to GitHub (csprofesor/apple) for instant playback on Nuvio / Stremio.
 """
@@ -17,10 +17,8 @@ import urllib.parse
 import subprocess
 import threading
 from datetime import datetime
-from concurrent.futures import ThreadPoolExecutor
-
-import tkinter as tk
-from tkinter import ttk, messagebox, scrolledtext
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import socket
 
 CONFIG_FILE = os.path.expanduser("~/.playrepo_config.json")
 REPO_OWNER = "csprofesor"
@@ -31,15 +29,13 @@ LOGO_URL = "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png"
 USER_AGENTS = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15"
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
 ]
 
 # -------------------------------------------------------------
 # HTTP & Network Helpers
 # -------------------------------------------------------------
 def http_get(url: str, referer: str = None, headers: dict = None, timeout: int = 12) -> str:
-    """Uses macOS native /usr/bin/curl for TLS 1.3, HTTP/2, and Cloudflare bypass."""
     cmd = ["curl", "-s", "-L", "--max-time", str(timeout)]
     ua = random.choice(USER_AGENTS)
     cmd += ["-A", ua]
@@ -58,7 +54,6 @@ def http_get(url: str, referer: str = None, headers: dict = None, timeout: int =
         return ""
 
 def http_json(url: str, method: str = "GET", data: dict = None, token: str = None, timeout: int = 30) -> dict:
-    """Sends JSON requests to GitHub REST / Git Data APIs."""
     cmd = ["curl", "-s", "-L", "--max-time", str(timeout), "-X", method]
     cmd += ["-H", "Accept: application/vnd.github.v3+json"]
     cmd += ["-H", "User-Agent: PlayRepo-MacOS"]
@@ -169,12 +164,11 @@ class ScraperEngine:
             parts = site_url.split("/")
             site_base = f"{parts[0]}//{parts[2]}"
 
-        movie_categories = {}  # url -> set of categories
+        movie_categories = {}
         queue = [site_url]
         visited = set()
         page_category_map = {site_url: "Popüler"}
 
-        # Discover category pages from menu
         home_html = http_get(site_url)
         for href, text in re.findall(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', home_html, re.I | re.DOTALL):
             abs_url = urllib.parse.urljoin(site_url, href.strip())
@@ -194,7 +188,6 @@ class ScraperEngine:
             page_count += 1
 
             cat_for_page = page_category_map.get(curr_url, self.detect_category(curr_url, ""))
-
             html = http_get(curr_url)
             if not html:
                 continue
@@ -226,11 +219,9 @@ class ScraperEngine:
 
         lower = embed_url.lower()
 
-        # Direct playable stream
         if (".m3u8" in lower or ".mp4" in lower) and not any(k in lower for k in ["/embed", "/e/", "/video/"]):
             return embed_url
 
-        # 1. Mail.ru 1080p resolver
         if "my.mail.ru/video/embed/" in lower or "my.mail.ru/+/video/meta/" in lower:
             try:
                 vid = embed_url.split("/")[-1].split("?")[0].replace(".html", "")
@@ -248,23 +239,19 @@ class ScraperEngine:
         if not html:
             return ""
 
-        # Dean Edwards Packer unpack
         if "eval(function(p,a,c,k,e,d)" in html:
             html += "\n" + unpack_packer_js(html)
 
-        # 2. Vidmoly / Vidhide / FileLions / StreamWish / Dropload M3U8
         m3u8_m = re.search(r'file\s*:\s*["\'](https?://[^"\']+\.m3u8[^"\']*)["\']', html, re.I) or \
                  re.search(r'sources\s*:\s*\[\s*\{\s*file\s*:\s*["\'](https?://[^"\']+\.m3u8[^"\']*)["\']', html, re.I) or \
                  re.search(r'["\'](https?://[^"\']+\.m3u8[^"\']*)["\']', html, re.I)
         if m3u8_m:
             return m3u8_m.group(1)
 
-        # 3. VOE
         voe_m = re.search(r"['\"]hls['\"]\s*:\s*['\"](https?://[^'\"]+)['\"]", html, re.I)
         if voe_m:
             return voe_m.group(1)
 
-        # 4. Streamtape
         if "streamtape.com" in lower or "streamta.pe" in lower:
             st_m = re.search(r"document\.getElementById\('robotlink'\)\.innerHTML\s*=\s*['\"](.*?)['\"]", html)
             if st_m:
@@ -275,7 +262,6 @@ class ScraperEngine:
                 st_url = f"https:{tok}" if tok.startswith("//") else (f"https://streamtape.com{tok}" if tok.startswith("/") else tok)
                 return st_url
 
-        # 5. Doodstream
         if "dood" in lower or "ds2play" in lower:
             pass_m = re.search(r"/pass_md5/([^'\"]+)", html)
             if pass_m:
@@ -284,13 +270,11 @@ class ScraperEngine:
                 if token_res:
                     return f"{token_res.strip()}~PlayRepo~{int(time.time() * 1000)}"
 
-        # 6. Sibnet
         if "video.sibnet.ru" in lower:
             sib_m = re.search(r'["\'](/v/[^"\']+\.mp4)["\']', html)
             if sib_m:
                 return f"https://video.sibnet.ru{sib_m.group(1)}"
 
-        # 7. OK.ru
         if "ok.ru" in lower or "odnoklassniki" in lower:
             ok_m = re.search(r'data-options=["\'](.*?)["\']', html)
             if ok_m:
@@ -302,13 +286,11 @@ class ScraperEngine:
                 except Exception:
                     pass
 
-        # 8. Bitchute
         if "bitchute.com" in lower:
             bc_m = re.search(r'(https?://[^\s"\'<>]+\.bitchute\.com/[^\s"\'<>]+\.mp4)', html, re.I)
             if bc_m:
                 return bc_m.group(1)
 
-        # 9. Nested iframe / player recursion
         nested_m = re.search(r'<iframe\s+[^>]*src=["\']([^"\']+)["\']', html, re.I)
         if nested_m:
             nested_src = urllib.parse.urljoin(embed_url, nested_m.group(1).strip())
@@ -324,7 +306,6 @@ class ScraperEngine:
         if not html:
             return None
 
-        # Clean title
         title_m = re.search(r'<h1[^>]*>(.*?)</h1>', html, re.I | re.DOTALL) or \
                   re.search(r'<meta\s+property=["\']og:title["\']\s+content=["\'](.*?)["\']', html, re.I) or \
                   re.search(r'<title>(.*?)</title>', html, re.I)
@@ -338,31 +319,25 @@ class ScraperEngine:
         if not clean_title or clean_title.lower() in ("filmkovasi.co", "www.hintfilmizle.com"):
             return None
 
-        # Year
         year_m = re.search(r'\b(19\d{2}|20\d{2})\b', raw_title) or re.search(r'\b(19\d{2}|20\d{2})\b', html)
         year = year_m.group(1) if year_m else ""
 
-        # Poster
         poster_m = re.search(r'<meta\s+property=["\']og:image["\']\s+content=["\']([^"\']+)["\']', html, re.I) or \
                    re.search(r'<img[^>]+class=["\'][^"\']*(?:poster|afis|cover)[^"\']*["\'][^>]+src=["\']([^"\']+)["\']', html, re.I) or \
                    re.search(r'<img[^>]+src=["\']([^"\']+)["\'][^>]+class=["\'][^"\']*(?:poster|afis|cover)[^"\']*["\']', html, re.I)
         poster = urllib.parse.urljoin(movie_url, poster_m.group(1).strip()) if poster_m else LOGO_URL
 
-        # Description
         desc_m = re.search(r'<meta\s+property=["\']og:description["\']\s+content=["\'](.*?)["\']', html, re.I) or \
                  re.search(r'<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']', html, re.I) or \
                  re.search(r'class=["\'][^"\']*(?:film-ozeti|ozet|story)[^"\']*["\'][^>]*>(.*?)</div>', html, re.I | re.DOTALL)
         desc = re.sub(r'<[^>]+>', '', desc_m.group(1)).strip() if desc_m else "Play • 1080p TR"
 
-        # IMDb Rating
         imdb_m = re.search(r'class=["\'][^"\']*(?:imdb-puan|imdb|puan|rating)[^"\']*["\'][^>]*>([0-9.,]+)<', html, re.I)
         imdb_rating = imdb_m.group(1).replace(",", ".").strip() if imdb_m else None
 
-        # Runtime
         time_m = re.search(r'(\d{2,3})\s*(?:dk|dakika|min)', html, re.I)
         runtime = f"{time_m.group(1)} dk" if time_m else None
 
-        # Categories
         genres = set(initial_cats) if initial_cats else {"Popüler"}
         for href, text in re.findall(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', html, re.I | re.DOTALL):
             if any(k in href.lower() for k in ["/kategori/", "/tur/", "/filmizle/", "/genre/"]):
@@ -370,8 +345,7 @@ class ScraperEngine:
                 if cat != "Popüler":
                     genres.add(cat)
 
-        # Detect Candidates: Embeds, IFrames, Data Attributes
-        candidate_embeds = []  # (url, lang_tag)
+        candidate_embeds = []
         default_lang = "[TR Altyazılı]" if "altyaz" in raw_title.lower() or "altyaz" in movie_url.lower() else "[TR Dublaj]"
 
         def get_lang(txt: str) -> str:
@@ -382,22 +356,18 @@ class ScraperEngine:
                 return "[TR Dublaj]"
             return default_lang
 
-        # 1. Search buttons & player tabs
         for m in re.finditer(r'<[^>]+data-(?:frame|player|embed|video|url)=["\']([^"\']+)["\'][^>]*>(.*?)</[^>]+>', html, re.I | re.DOTALL):
             c_url = urllib.parse.urljoin(movie_url, m.group(1).strip())
             c_lang = get_lang(m.group(2) + " " + c_url)
             candidate_embeds.append((c_url, c_lang))
 
-        # 2. Search iframes
         for m in re.finditer(r'<iframe\s+[^>]*src=["\']([^"\']+)["\'][^>]*>', html, re.I):
             c_url = urllib.parse.urljoin(movie_url, m.group(1).strip())
             candidate_embeds.append((c_url, default_lang))
 
-        # 3. Direct unpack regex
         for m in re.finditer(r'["\'](https?://[^\s"\'<>]+\.(?:m3u8|mp4)[^\s"\'<>]*)["\']', html, re.I):
             candidate_embeds.append((m.group(1).strip(), default_lang))
 
-        # 4. Check Alternate Language Page (e.g. Dubbed page links to Subtitled)
         for href, text in re.findall(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', html, re.I | re.DOTALL):
             t_lower = text.lower()
             if "altyaz" in t_lower or "dublaj" in t_lower:
@@ -411,7 +381,6 @@ class ScraperEngine:
                         for df_m in re.finditer(r'data-frame=["\']([^"\']+)["\']', alt_html, re.I):
                             candidate_embeds.append((urllib.parse.urljoin(alt_url, df_m.group(1).strip()), alt_lang))
 
-        # Resolve streams
         resolved_streams = []
         seen_urls = set()
 
@@ -438,7 +407,6 @@ class ScraperEngine:
         if not resolved_streams:
             return None
 
-        # Prioritize HLS (.m3u8) first
         resolved_streams.sort(key=lambda s: 1 if s["format"] == "m3u8" else 0, reverse=True)
 
         dub_c = 0
@@ -455,7 +423,6 @@ class ScraperEngine:
                 oth_c += 1
                 st["title"] = f"Play • Sunucu {oth_c} • 1080p • [TR]"
 
-        # Metadata resolution: Cinemeta -> TMDB -> Fallback
         meta_id, official_title, official_poster, official_desc, release_year = self.resolve_meta(
             clean_title, poster, desc, year, tmdb_api_key
         )
@@ -473,7 +440,6 @@ class ScraperEngine:
         }
 
     def resolve_meta(self, title: str, poster: str, desc: str, year: str, tmdb_key: str = None):
-        # 1. Cinemeta (Universal Stremio open catalog)
         try:
             q = urllib.parse.quote(title)
             cm_res = http_json(f"https://v3-cinemeta.strem.io/catalog/movie/top/search={q}.json")
@@ -492,7 +458,6 @@ class ScraperEngine:
         except Exception:
             pass
 
-        # 2. TMDB
         if tmdb_key:
             try:
                 q = urllib.parse.quote(title)
@@ -514,7 +479,6 @@ class ScraperEngine:
             except Exception:
                 pass
 
-        # 3. Fallback
         slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
         safe_id = f"playrepo-{slug}" if slug else f"playrepo-film-{abs(hash(title))}"
         return (safe_id, title, poster, desc, year)
@@ -534,25 +498,22 @@ class GitHubAtomicPublisher:
 
     def publish_movies(self, scraped_movies: list) -> bool:
         if not self.token:
-            self.log("✗ [ERROR] GitHub Token girilmemiş! Ayarlar sekmesinden GitHub Token kaydedin.")
+            self.log("✗ [ERROR] GitHub Token girilmemiş! Ayarlar bölümünden GitHub Token kaydedin.")
             return False
 
         self.log(f"[GITHUB] {len(scraped_movies)} film için Git Data API yükleme paketi hazırlanıyor...")
 
         files_to_commit = {}
 
-        # 1. Fetch current catalog.json
         cat_url = f"https://raw.githubusercontent.com/{self.owner}/{self.repo}/{DEFAULT_BRANCH}/data/catalog.json?t={int(time.time())}"
         cat_json = http_json(cat_url)
         metas = cat_json.get("metas", []) if isinstance(cat_json, dict) else []
         meta_dict = {m.get("id"): m for m in metas if isinstance(m, dict) and m.get("id")}
 
-        # 2. Fetch current streams.json
         str_url = f"https://raw.githubusercontent.com/{self.owner}/{self.repo}/{DEFAULT_BRANCH}/data/streams.json?t={int(time.time())}"
         str_json = http_json(str_url)
         streams_map = str_json if isinstance(str_json, dict) else {}
 
-        # 3. Merge scraped movies
         for m in scraped_movies:
             m_id = m["tmdbId"]
             hyphen_id = m_id.replace(":", "-").replace("_", "-")
@@ -579,7 +540,6 @@ class GitHubAtomicPublisher:
             streams_map[hyphen_id] = m["streams"]
             streams_map[safe_id] = m["streams"]
 
-            # Detailed meta JSON
             detail_meta = {
                 "meta": {
                     "id": m_id,
@@ -611,7 +571,6 @@ class GitHubAtomicPublisher:
 
             stream_obj = {"streams": m["streams"]}
 
-            # Meta and stream files (3 safe ID formats)
             m_json_str = json.dumps(detail_meta, ensure_ascii=False, indent=2)
             s_json_str = json.dumps(stream_obj, ensure_ascii=False, indent=2)
 
@@ -623,12 +582,10 @@ class GitHubAtomicPublisher:
             files_to_commit[f"playrepo/stream/movie/{hyphen_id}.json"] = s_json_str
             files_to_commit[f"playrepo/stream/movie/{safe_id}.json"] = s_json_str
 
-        # Update data/catalog.json
         all_metas = list(meta_dict.values())
         files_to_commit["data/catalog.json"] = json.dumps({"metas": all_metas}, ensure_ascii=False, indent=2)
         files_to_commit["data/streams.json"] = json.dumps(streams_map, ensure_ascii=False, indent=2)
 
-        # 4. Update category catalogs
         def has_genre(item, *genres):
             g_list = [g.lower() for g in item.get("genres", [])]
             return any(any(tgt in g for tgt in genres) for g in g_list)
@@ -647,21 +604,17 @@ class GitHubAtomicPublisher:
             filtered = [m for m in all_metas if pred(m)]
             files_to_commit[path] = json.dumps({"metas": filtered}, ensure_ascii=False, indent=2)
 
-        # 5. Atomic Git Data API commit
         self.log(f"[GITHUB] Toplam {len(files_to_commit)} dosya tek bir atomik commit olarak GitHub'a aktarılıyor...")
 
-        # Step A: Get main branch ref
         ref_data = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/ref/heads/{DEFAULT_BRANCH}", token=self.token)
         latest_commit_sha = ref_data.get("object", {}).get("sha")
         if not latest_commit_sha:
             self.log(f"✗ [ERROR] GitHub ref alınamadı: {ref_data.get('message', 'Yetkisiz erişim / Token geçersiz')}")
             return False
 
-        # Step B: Get base tree
         commit_data = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/commits/{latest_commit_sha}", token=self.token)
         base_tree_sha = commit_data.get("tree", {}).get("sha")
 
-        # Step C: Create blobs
         tree_items = []
         for path, content in files_to_commit.items():
             blob_res = http_json(
@@ -679,7 +632,6 @@ class GitHubAtomicPublisher:
                     "sha": blob_sha
                 })
 
-        # Step D: Create tree
         tree_res = http_json(
             f"https://api.github.com/repos/{self.owner}/{self.repo}/git/trees",
             method="POST",
@@ -691,7 +643,6 @@ class GitHubAtomicPublisher:
             self.log(f"✗ [ERROR] Git ağacı oluşturulamadı: {tree_res.get('message')}")
             return False
 
-        # Step E: Create commit
         commit_msg = f"PlayRepo macOS: Sync {len(scraped_movies)} filmleri ve kategorileri güncelle"
         new_commit_res = http_json(
             f"https://api.github.com/repos/{self.owner}/{self.repo}/git/commits",
@@ -708,7 +659,6 @@ class GitHubAtomicPublisher:
             self.log(f"✗ [ERROR] Commit oluşturulamadı: {new_commit_res.get('message')}")
             return False
 
-        # Step F: Update branch ref
         update_ref = http_json(
             f"https://api.github.com/repos/{self.owner}/{self.repo}/git/refs/heads/{DEFAULT_BRANCH}",
             method="PATCH",
@@ -724,861 +674,535 @@ class GitHubAtomicPublisher:
             return False
 
 # -------------------------------------------------------------
-# GUI Application (Ultra High Contrast Pitch Black Edition)
+# Global State & WebApp Engine
 # -------------------------------------------------------------
-class PlayRepoApp(tk.Tk):
-    def __init__(self):
-        super().__init__()
-        self.title("PlayRepo Pro • macOS Film Çekici & Senkronize Edici")
-        self.geometry("980x740")
-        self.minsize(860, 620)
+LOG_BUFFER = ["[READY] PlayRepo macOS Pro (Saf Siyah Tema) hazır."]
 
-        # True Pitch Black & High-Contrast Colors
-        self.bg_color = "#000000"          # Saf Siyah
-        self.card_color = "#0e1015"        # Koyu Kart
-        self.card_border = "#2e3440"       # Belirgin Kart Kenarlığı
-        self.input_bg = "#161922"          # Belirgin Giriş Kutusu Arka Planı
-        self.input_border = "#3b82f6"      # Mavi Parlak Kenarlık
-        self.accent_color = "#2563eb"      # Canlı Mavi Buton
-        self.accent_hover = "#1d4ed8"
-        self.text_color = "#ffffff"        # Saf Beyaz Metin
-        self.text_dim = "#94a3b8"          # Açık Gri Açıklama
-        self.success_color = "#059669"     # Zümrüt Yeşili
-        self.success_hover = "#047857"
-        self.danger_color = "#dc2626"      # Parlak Kırmızı
-        self.danger_hover = "#b91c1c"
+def load_config():
+    default_cfg = {
+        "github_token": "",
+        "tmdb_key": "",
+        "max_pages": 20,
+        "saved_sites": [
+            "https://www.hintfilmizle.com/film-izle/"
+        ]
+    }
+    if os.path.exists(CONFIG_FILE):
+        try:
+            with open(CONFIG_FILE, "r", encoding="utf-8") as f:
+                default_cfg.update(json.load(f))
+        except Exception:
+            pass
+    return default_cfg
 
-        self.configure(bg=self.bg_color)
+def save_config(cfg):
+    try:
+        with open(CONFIG_FILE, "w", encoding="utf-8") as f:
+            json.dump(cfg, f, ensure_ascii=False, indent=2)
+    except Exception:
+        pass
 
-        self.config_data = self.load_config()
-        self.engine = ScraperEngine(log_callback=self.append_log)
-        self.crawler_thread = None
+def append_global_log(msg):
+    ts = datetime.now().strftime("%H:%M:%S")
+    LOG_BUFFER.append(f"[{ts}] {msg}")
+    if len(LOG_BUFFER) > 500:
+        LOG_BUFFER.pop(0)
 
-        self.setup_ui()
-        self.lift()
-        self.attributes('-topmost', True)
-        self.after(200, lambda: self.attributes('-topmost', False))
+CRAWLER_LOCK = threading.Lock()
+CURRENT_WORKER = None
+ENGINE_INSTANCE = ScraperEngine(log_callback=append_global_log)
 
-    def load_config(self) -> dict:
-        default_cfg = {
-            "github_token": "",
-            "tmdb_key": "",
-            "max_pages": 20,
-            "saved_sites": [
-                "https://www.hintfilmizle.com/film-izle/"
-            ]
+HTML_PAGE = """<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>PlayRepo Pro • macOS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #000000;
+      --card-bg: #0d0f17;
+      --border: #23283b;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --emerald: #059669;
+      --emerald-hover: #047857;
+      --red: #dc2626;
+      --text: #ffffff;
+      --dim: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      padding: 24px 32px;
+      line-height: 1.5;
+      user-select: none;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+    }
+    .brand { display: flex; align-items: baseline; gap: 12px; }
+    .brand h1 { font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .brand span { font-size: 13px; font-weight: 600; color: #60a5fa; background: #172554; padding: 4px 10px; border-radius: 6px; }
+    
+    .card {
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+    }
+    .card.highlight {
+      border: 2px solid #3b82f6;
+      background: #090b10;
+    }
+    .card-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #60a5fa;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .row { display: flex; gap: 12px; align-items: center; }
+    .col { display: flex; flex-direction: column; gap: 6px; }
+
+    input[type="text"], input[type="password"], input[type="number"] {
+      width: 100%;
+      background: #141722;
+      border: 2px solid #3b82f6;
+      color: #ffffff;
+      padding: 14px 16px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      outline: none;
+      transition: all 0.2s;
+    }
+    input:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
+      background: #191e2b;
+    }
+
+    button {
+      padding: 13px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.15s ease-in-out;
+    }
+    button:active { transform: scale(0.98); }
+    .btn-blue { background: var(--accent); }
+    .btn-blue:hover { background: var(--accent-hover); }
+    .btn-green { background: var(--emerald); }
+    .btn-green:hover { background: var(--emerald-hover); }
+    .btn-red { background: var(--red); }
+    .btn-red:hover { background: #b91c1c; }
+    .btn-gray { background: #1e2433; border: 1px solid var(--border); color: #cbd5e1; }
+    .btn-gray:hover { background: #272f42; }
+
+    /* Sites List */
+    .site-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #11141e;
+      border: 1px solid var(--border);
+      padding: 12px 18px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .site-item span { color: #f1f5f9; word-break: break-all; }
+    .site-item button { padding: 6px 14px; font-size: 12px; }
+
+    /* Terminal Console */
+    #terminal {
+      background: #040507;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
+      font-size: 12.5px;
+      color: #34d399;
+      height: 250px;
+      overflow-y: auto;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .badge {
+      background: #1e293b;
+      color: #94a3b8;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <h1>🎬 PlayRepo Pro</h1>
+      <span>macOS Edition</span>
+    </div>
+    <div class="row">
+      <button class="btn-gray" onclick="clearLogs()">🧹 Logları Temizle</button>
+      <button id="btn-stop" class="btn-red" onclick="stopCrawler()" style="display:none">⏹ Durdur</button>
+      <button id="btn-run" class="btn-blue" onclick="startMasterUpdate()">⚡ TÜM SİTELERİ GÜNCELLE VE YÜKLE</button>
+    </div>
+  </header>
+
+  <!-- 1. YENİ SİTE EKLEME (EN BELİRGİN KUTU) -->
+  <div class="card highlight">
+    <div class="card-title">🌐 1. YENİ FİLM SİTESİ VEYA KATEGORİ ADRESİ EKLE</div>
+    <div class="row">
+      <input type="text" id="new-site-input" placeholder="Örn: https://www.hintfilmizle.com/film-izle/ veya taranacak site linki" />
+      <button class="btn-green" onclick="addSite()">➕ SİTEYİ LİSTEYE EKLE</button>
+    </div>
+  </div>
+
+  <!-- 2. KAYITLI SİTELER & AYARLAR KONTROLLERİ -->
+  <div class="row" style="align-items: flex-start; margin-bottom: 22px;">
+    
+    <!-- Sol: Kayıtlı Siteler -->
+    <div class="card" style="flex: 1.3; margin-bottom: 0;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <div class="card-title" style="margin-bottom:0">📋 TARANACAK KAYITLI SİTELER (<span id="site-count">0</span>)</div>
+        <button class="btn-gray" style="padding: 5px 12px; font-size: 11px;" onclick="resetSites()">🔄 Sıfırla</button>
+      </div>
+      <div id="sites-list" style="max-height: 160px; overflow-y: auto;"></div>
+    </div>
+
+    <!-- Sağ: Sayfa Limiti & Token -->
+    <div class="card" style="flex: 1; margin-bottom: 0;">
+      <div class="card-title">⚙️ AYARLAR</div>
+      <div class="col" style="margin-bottom: 12px;">
+        <label style="font-size:12px; font-weight:700; color:var(--dim)">SAYFA LİMİTİ (SİTE BAŞI):</label>
+        <input type="number" id="max-pages-input" value="20" style="padding: 10px;" />
+      </div>
+      <div class="col" style="margin-bottom: 14px;">
+        <label style="font-size:12px; font-weight:700; color:var(--dim)">GİTHUB TOKEN (PAT):</label>
+        <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxx" style="padding: 10px;" />
+      </div>
+      <button class="btn-gray" style="width:100%; justify-content:center;" onclick="saveSettings()">💾 Ayarları Kaydet</button>
+    </div>
+
+  </div>
+
+  <!-- 3. CANLI TERMİNAL -->
+  <div class="card" style="padding: 16px 20px;">
+    <div class="card-title" style="display: flex; justify-content: space-between;">
+      <span>💻 CANLI TERMİNAL / İŞLEM ÇIKTISI</span>
+      <span id="status-badge" class="badge">HAZIR</span>
+    </div>
+    <div id="terminal"></div>
+  </div>
+
+  <script>
+    let currentConfig = { saved_sites: [], max_pages: 20, github_token: "", tmdb_key: "" };
+
+    async function loadConfig() {
+      try {
+        const res = await fetch('/api/config');
+        currentConfig = await res.json();
+        document.getElementById('max-pages-input').value = currentConfig.max_pages || 20;
+        document.getElementById('token-input').value = currentConfig.github_token || "";
+        renderSites();
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function renderSites() {
+      const list = document.getElementById('sites-list');
+      list.innerHTML = "";
+      const sites = currentConfig.saved_sites || [];
+      document.getElementById('site-count').innerText = sites.length;
+      if (sites.length === 0) {
+        list.innerHTML = "<div style='color:#64748b; font-size:13px; padding:10px;'>Kayıtlı site bulunmuyor. Yukarıdan site ekleyin.</div>";
+        return;
+      }
+      sites.forEach((site, idx) => {
+        const item = document.createElement('div');
+        item.className = 'site-item';
+        item.innerHTML = `
+          <span>🌐 ${site}</span>
+          <button class="btn-red" onclick="deleteSite(${idx})">🗑️ Sil</button>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    async function addSite() {
+      const inp = document.getElementById('new-site-input');
+      const url = inp.value.trim();
+      if (!url.startsWith('http')) {
+        alert('Lütfen geçerli bir site linki girin! (http:// veya https://)');
+        return;
+      }
+      await fetch('/api/add-site', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ url })
+      });
+      inp.value = "";
+      await loadConfig();
+    }
+
+    async function deleteSite(idx) {
+      await fetch('/api/delete-site', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ index: idx })
+      });
+      await loadConfig();
+    }
+
+    async function resetSites() {
+      if (confirm('Site listesi varsayılana sıfırlansın mı?')) {
+        await fetch('/api/reset-sites', { method: 'POST' });
+        await loadConfig();
+      }
+    }
+
+    async function saveSettings() {
+      const maxPages = parseInt(document.getElementById('max-pages-input').value) || 20;
+      const token = document.getElementById('token-input').value.trim();
+      await fetch('/api/save-config', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ max_pages: maxPages, github_token: token })
+      });
+      alert('Ayarlar başarıyla kaydedildi!');
+      await loadConfig();
+    }
+
+    async function startMasterUpdate() {
+      document.getElementById('btn-run').style.display = 'none';
+      document.getElementById('btn-stop').style.display = 'inline-flex';
+      document.getElementById('status-badge').innerText = 'ÇALIŞIYOR';
+      document.getElementById('status-badge').style.background = '#065f46';
+      document.getElementById('status-badge').style.color = '#34d399';
+
+      await fetch('/api/start-all', { method: 'POST' });
+    }
+
+    async function stopCrawler() {
+      await fetch('/api/stop', { method: 'POST' });
+      document.getElementById('btn-run').style.display = 'inline-flex';
+      document.getElementById('btn-stop').style.display = 'none';
+      document.getElementById('status-badge').innerText = 'DURDURULDU';
+      document.getElementById('status-badge').style.background = '#7f1d1d';
+      document.getElementById('status-badge').style.color = '#f87171';
+    }
+
+    async function clearLogs() {
+      await fetch('/api/clear-logs', { method: 'POST' });
+      document.getElementById('terminal').innerText = "";
+    }
+
+    async function pollLogs() {
+      try {
+        const res = await fetch('/api/logs');
+        const data = await res.json();
+        const term = document.getElementById('terminal');
+        term.innerText = data.logs.join('\\n');
+        term.scrollTop = term.scrollHeight;
+
+        if (!data.is_running) {
+          document.getElementById('btn-run').style.display = 'inline-flex';
+          document.getElementById('btn-stop').style.display = 'none';
+          document.getElementById('status-badge').innerText = 'HAZIR';
+          document.getElementById('status-badge').style.background = '#1e293b';
+          document.getElementById('status-badge').style.color = '#94a3b8';
         }
-        if os.path.exists(CONFIG_FILE):
-            try:
-                with open(CONFIG_FILE, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                    default_cfg.update(data)
-            except Exception:
-                pass
-        return default_cfg
-
-    def save_config(self):
-        try:
-            with open(CONFIG_FILE, "w", encoding="utf-8") as f:
-                json.dump(self.config_data, f, ensure_ascii=False, indent=2)
-        except Exception as e:
-            self.append_log(f"Ayarlar kaydedilemedi: {e}")
-
-    def setup_ui(self):
-        # 1. Header Bar
-        header = tk.Frame(self, bg="#08090c", bd=0, highlightbackground=self.card_border, highlightthickness=1)
-        header.pack(fill=tk.X, side=tk.TOP)
-
-        title_lbl = tk.Label(
-            header,
-            text="🎬 PlayRepo Pro",
-            font=("SF Pro Display", 20, "bold"),
-            fg="#ffffff",
-            bg="#08090c"
-        )
-        title_lbl.pack(side=tk.LEFT, padx=(20, 10), pady=14)
-
-        sub_lbl = tk.Label(
-            header,
-            text="macOS Film & Akış Senkronizasyonu (Dublaj + Altyazı • HLS 1080p)",
-            font=("SF Pro Text", 12, "bold"),
-            fg="#60a5fa",
-            bg="#08090c"
-        )
-        sub_lbl.pack(side=tk.LEFT, padx=5, pady=16)
-
-        # 2. Modern Tab Navigation (Pill Style)
-        nav_frame = tk.Frame(self, bg=self.bg_color, pady=10)
-        nav_frame.pack(fill=tk.X, side=tk.TOP, padx=20)
-
-        self.btn_tab_dashboard = tk.Button(
-            nav_frame, text="⚡ 1. KONTROL PANELİ", font=("SF Pro Text", 12, "bold"),
-            fg="#ffffff", bg=self.accent_color, relief=tk.FLAT, bd=0, padx=20, pady=8, cursor="hand2",
-            highlightbackground="#60a5fa", highlightthickness=1,
-            command=lambda: self.switch_tab(0)
-        )
-        self.btn_tab_dashboard.pack(side=tk.LEFT, padx=(0, 10))
-
-        self.btn_tab_sites = tk.Button(
-            nav_frame, text="🌐 2. KAYITLI SİTELER", font=("SF Pro Text", 12, "bold"),
-            fg="#94a3b8", bg="#13161f", relief=tk.FLAT, bd=0, padx=20, pady=8, cursor="hand2",
-            highlightbackground=self.card_border, highlightthickness=1,
-            command=lambda: self.switch_tab(1)
-        )
-        self.btn_tab_sites.pack(side=tk.LEFT, padx=(0, 10))
-
-        self.btn_tab_settings = tk.Button(
-            nav_frame, text="⚙️ 3. TEKLİ TARAMA & AYARLAR", font=("SF Pro Text", 12, "bold"),
-            fg="#94a3b8", bg="#13161f", relief=tk.FLAT, bd=0, padx=20, pady=8, cursor="hand2",
-            highlightbackground=self.card_border, highlightthickness=1,
-            command=lambda: self.switch_tab(2)
-        )
-        self.btn_tab_settings.pack(side=tk.LEFT)
-
-        # 3. Main Container
-        self.container = tk.Frame(self, bg=self.bg_color)
-        self.container.pack(fill=tk.BOTH, expand=True, padx=20, pady=(0, 15))
-
-        self.tab_dashboard = tk.Frame(self.container, bg=self.bg_color)
-        self.tab_sites = tk.Frame(self.container, bg=self.bg_color)
-        self.tab_settings = tk.Frame(self.container, bg=self.bg_color)
-
-        self.setup_tab_dashboard()
-        self.setup_tab_sites()
-        self.setup_tab_settings()
-
-        self.switch_tab(0)
-
-    def switch_tab(self, index: int):
-        self.tab_dashboard.pack_forget()
-        self.tab_sites.pack_forget()
-        self.tab_settings.pack_forget()
-
-        # Reset button styles
-        for btn in [self.btn_tab_dashboard, self.btn_tab_sites, self.btn_tab_settings]:
-            btn.config(bg="#13161f", fg="#94a3b8", highlightbackground=self.card_border)
-
-        if index == 0:
-            self.tab_dashboard.pack(fill=tk.BOTH, expand=True)
-            self.btn_tab_dashboard.config(bg=self.accent_color, fg="#ffffff", highlightbackground="#60a5fa")
-            self.update_dashboard_sites_summary()
-        elif index == 1:
-            self.tab_sites.pack(fill=tk.BOTH, expand=True)
-            self.btn_tab_sites.config(bg=self.accent_color, fg="#ffffff", highlightbackground="#60a5fa")
-            self.refresh_sites_listbox()
-        elif index == 2:
-            self.tab_settings.pack(fill=tk.BOTH, expand=True)
-            self.btn_tab_settings.config(bg=self.accent_color, fg="#ffffff", highlightbackground="#60a5fa")
-
-    # ---------------- Tab 1: Dashboard (With Quick Add Bar!) ----------------
-    def setup_tab_dashboard(self):
-        # Card 1: Hızlı Site Ekleme Kutusu (Doğrudan Ana Ekranda ve Çok Belirgin!)
-        add_card = tk.Frame(
-            self.tab_dashboard,
-            bg=self.card_color,
-            highlightbackground="#3b82f6",
-            highlightthickness=2,
-            padx=15,
-            pady=12
-        )
-        add_card.pack(fill=tk.X, pady=(0, 12))
-
-        lbl_row = tk.Frame(add_card, bg=self.card_color)
-        lbl_row.pack(fill=tk.X, pady=(0, 6))
-
-        tk.Label(
-            lbl_row,
-            text="🌐 TARANACAK YENİ SİTE VEYA KATEGORİ ADRESİ EKLE:",
-            font=("SF Pro Text", 12, "bold"),
-            fg="#60a5fa",
-            bg=self.card_color
-        ).pack(side=tk.LEFT)
-
-        tk.Label(
-            lbl_row,
-            text="(Örn: https://www.hintfilmizle.com/film-izle/)",
-            font=("SF Pro Text", 11),
-            fg="#94a3b8",
-            bg=self.card_color
-        ).pack(side=tk.LEFT, padx=10)
-
-        input_row = tk.Frame(add_card, bg=self.card_color)
-        input_row.pack(fill=tk.X)
-
-        self.ent_quick_site = tk.Entry(
-            input_row,
-            font=("SF Pro Text", 13),
-            bg=self.input_bg,
-            fg="#ffffff",
-            insertbackground="#ffffff",
-            highlightbackground="#60a5fa",
-            highlightcolor="#38bdf8",
-            highlightthickness=2,
-            relief=tk.FLAT,
-            bd=0
-        )
-        self.ent_quick_site.pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=6, padx=(0, 12))
-
-        btn_quick_add = tk.Button(
-            input_row,
-            text="➕ BU SİTEYİ LİSTEYE EKLE",
-            font=("SF Pro Text", 12, "bold"),
-            fg="#ffffff",
-            bg=self.success_color,
-            activebackground=self.success_hover,
-            activeforeground="#ffffff",
-            relief=tk.FLAT,
-            bd=0,
-            padx=18,
-            pady=8,
-            cursor="hand2",
-            highlightbackground="#10b981",
-            highlightthickness=1,
-            command=self.add_site_from_quick_entry
-        )
-        btn_quick_add.pack(side=tk.LEFT)
-
-        # Card 2: Kontroller ve Başlatma
-        ctrl_card = tk.Frame(
-            self.tab_dashboard,
-            bg=self.card_color,
-            highlightbackground=self.card_border,
-            highlightthickness=1,
-            padx=15,
-            pady=12
-        )
-        ctrl_card.pack(fill=tk.X, pady=(0, 12))
-
-        top_row = tk.Frame(ctrl_card, bg=self.card_color)
-        top_row.pack(fill=tk.X)
-
-        tk.Label(
-            top_row,
-            text="Sayfa Limiti:",
-            fg="#ffffff",
-            bg=self.card_color,
-            font=("SF Pro Text", 12, "bold")
-        ).pack(side=tk.LEFT, padx=(0, 8))
-
-        self.ent_max_pages = tk.Entry(
-            top_row,
-            width=5,
-            font=("SF Pro Text", 13, "bold"),
-            bg=self.input_bg,
-            fg="#38bdf8",
-            insertbackground="#ffffff",
-            highlightbackground="#60a5fa",
-            highlightcolor="#38bdf8",
-            highlightthickness=2,
-            relief=tk.FLAT,
-            bd=0,
-            justify="center"
-        )
-        self.ent_max_pages.insert(0, str(self.config_data.get("max_pages", 20)))
-        self.ent_max_pages.pack(side=tk.LEFT, ipady=5, padx=(0, 15))
-
-        self.btn_start_all = tk.Button(
-            top_row,
-            text="⚡ TÜM SİTELERİ GÜNCELLE VE GITHUB'A YÜKLE",
-            font=("SF Pro Text", 13, "bold"),
-            fg="#ffffff",
-            bg=self.accent_color,
-            activebackground=self.accent_hover,
-            activeforeground="#ffffff",
-            relief=tk.FLAT,
-            bd=0,
-            padx=20,
-            pady=8,
-            cursor="hand2",
-            highlightbackground="#60a5fa",
-            highlightthickness=1,
-            command=self.start_master_update
-        )
-        self.btn_start_all.pack(side=tk.LEFT, padx=(0, 10))
-
-        self.btn_stop = tk.Button(
-            top_row,
-            text="⏹ Durdur",
-            font=("SF Pro Text", 12, "bold"),
-            fg="#ffffff",
-            bg=self.danger_color,
-            activebackground=self.danger_hover,
-            activeforeground="#ffffff",
-            relief=tk.FLAT,
-            bd=0,
-            padx=14,
-            pady=8,
-            cursor="hand2",
-            state=tk.DISABLED,
-            command=self.stop_crawler
-        )
-        self.btn_stop.pack(side=tk.LEFT, padx=(0, 10))
-
-        self.btn_clear_log = tk.Button(
-            top_row,
-            text="🧹 Logları Temizle",
-            font=("SF Pro Text", 11, "bold"),
-            fg="#94a3b8",
-            bg="#1e2230",
-            relief=tk.FLAT,
-            bd=0,
-            padx=12,
-            pady=8,
-            cursor="hand2",
-            command=self.clear_logs
-        )
-        self.btn_clear_log.pack(side=tk.RIGHT)
-
-        # Aktif Siteler Özeti
-        self.lbl_sites_summary = tk.Label(
-            ctrl_card,
-            text="Kayıtlı Siteler: 1 site hazır",
-            font=("SF Pro Text", 11),
-            fg="#34d399",
-            bg=self.card_color
-        )
-        self.lbl_sites_summary.pack(anchor="w", pady=(8, 0))
-        self.update_dashboard_sites_summary()
-
-        # Card 3: Canlı Terminal Ekranı
-        term_header = tk.Frame(self.tab_dashboard, bg=self.bg_color)
-        term_header.pack(fill=tk.X, pady=(0, 6))
-
-        tk.Label(
-            term_header,
-            text="CANLI İŞLEM TERMİNALİ",
-            font=("SF Pro Text", 11, "bold"),
-            fg="#60a5fa",
-            bg=self.bg_color
-        ).pack(side=tk.LEFT)
-
-        self.txt_log = scrolledtext.ScrolledText(
-            self.tab_dashboard,
-            bg="#050608",
-            fg="#34d399",
-            insertbackground="#ffffff",
-            font=("Menlo", 11),
-            bd=0,
-            relief=tk.FLAT,
-            highlightbackground=self.card_border,
-            highlightthickness=1,
-            padx=10,
-            pady=10
-        )
-        self.txt_log.pack(fill=tk.BOTH, expand=True)
-        self.append_log("[READY] PlayRepo macOS Pro (Siyah Tema) hazır.")
-        self.append_log("[INFO] Yukarıdaki mavi kutudan yeni site linki ekleyebilir veya doğrudan 'TÜM SİTELERİ GÜNCELLE' yapabilirsiniz.")
-
-    def update_dashboard_sites_summary(self):
-        saved = self.config_data.get("saved_sites", [])
-        c = len(saved)
-        sites_preview = ", ".join(s.replace("https://", "").replace("http://", "").rstrip("/") for s in saved[:3])
-        if c > 3:
-            sites_preview += f" (+{c - 3} daha)"
-        self.lbl_sites_summary.config(text=f"📋 Taranacak Kayıtlı Siteler ({c} Adet): {sites_preview}")
-
-    def add_site_from_quick_entry(self):
-        url = self.ent_quick_site.get().strip()
-        if not url.startswith("http"):
-            messagebox.showwarning("Geçersiz URL", "Lütfen geçerli bir site linki girin!\nÖrnek: https://www.hintfilmizle.com/film-izle/")
-            return
-        saved = self.config_data.setdefault("saved_sites", [])
-        if url in saved:
-            messagebox.showinfo("Zaten Kayıtlı", "Bu site adresi zaten listenizde mevcut.")
-            return
-
-        saved.append(url)
-        self.save_config()
-        self.update_dashboard_sites_summary()
-        self.ent_quick_site.delete(0, tk.END)
-        self.append_log(f"✓ [YENİ SİTE EKLENDİ] {url}")
-        messagebox.showinfo("Başarılı", f"Site başarıyla eklendi:\n{url}")
-
-    # ---------------- Tab 2: Saved Sites ----------------
-    def setup_tab_sites(self):
-        add_card = tk.Frame(
-            self.tab_sites,
-            bg=self.card_color,
-            highlightbackground="#3b82f6",
-            highlightthickness=2,
-            padx=15,
-            pady=12
-        )
-        add_card.pack(fill=tk.X, pady=(0, 15))
-
-        tk.Label(
-            add_card,
-            text="YENİ SİTE ADRESİ (URL):",
-            font=("SF Pro Text", 12, "bold"),
-            fg="#60a5fa",
-            bg=self.card_color
-        ).pack(anchor="w", pady=(0, 6))
-
-        in_row = tk.Frame(add_card, bg=self.card_color)
-        in_row.pack(fill=tk.X)
-
-        self.ent_new_site = tk.Entry(
-            in_row,
-            font=("SF Pro Text", 13),
-            bg=self.input_bg,
-            fg="#ffffff",
-            insertbackground="#ffffff",
-            highlightbackground="#60a5fa",
-            highlightcolor="#38bdf8",
-            highlightthickness=2,
-            relief=tk.FLAT,
-            bd=0
-        )
-        self.ent_new_site.pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=6, padx=(0, 12))
-
-        btn_add = tk.Button(
-            in_row,
-            text="➕ SİTEYİ EKLE",
-            font=("SF Pro Text", 12, "bold"),
-            fg="#ffffff",
-            bg=self.success_color,
-            activebackground=self.success_hover,
-            activeforeground="#ffffff",
-            relief=tk.FLAT,
-            bd=0,
-            padx=18,
-            pady=8,
-            cursor="hand2",
-            highlightbackground="#10b981",
-            highlightthickness=1,
-            command=self.add_new_site
-        )
-        btn_add.pack(side=tk.LEFT)
-
-        # List Card
-        list_frame = tk.Frame(self.tab_sites, bg=self.bg_color)
-        list_frame.pack(fill=tk.BOTH, expand=True)
-
-        tk.Label(
-            list_frame,
-            text="KAYITLI TARAMA SİTELERİ LİSTESİ",
-            font=("SF Pro Text", 11, "bold"),
-            fg="#ffffff",
-            bg=self.bg_color
-        ).pack(anchor="w", pady=(0, 8))
-
-        self.listbox_sites = tk.Listbox(
-            list_frame,
-            bg=self.card_color,
-            fg="#ffffff",
-            selectbackground=self.accent_color,
-            selectforeground="#ffffff",
-            font=("SF Pro Text", 13),
-            bd=0,
-            relief=tk.FLAT,
-            highlightbackground=self.card_border,
-            highlightthickness=1,
-            height=12,
-            activestyle="none"
-        )
-        self.listbox_sites.pack(fill=tk.BOTH, expand=True, pady=(0, 12))
-
-        bot_row = tk.Frame(list_frame, bg=self.bg_color)
-        bot_row.pack(fill=tk.X)
-
-        btn_delete = tk.Button(
-            bot_row,
-            text="🗑️ Seçili Siteyi Sil",
-            font=("SF Pro Text", 12, "bold"),
-            fg="#ffffff",
-            bg=self.danger_color,
-            activebackground=self.danger_hover,
-            activeforeground="#ffffff",
-            relief=tk.FLAT,
-            bd=0,
-            padx=16,
-            pady=8,
-            cursor="hand2",
-            highlightbackground="#ef4444",
-            highlightthickness=1,
-            command=self.delete_selected_site
-        )
-        btn_delete.pack(side=tk.LEFT, padx=(0, 12))
-
-        btn_reset = tk.Button(
-            bot_row,
-            text="🔄 Varsayılana Sıfırla (Hintfilmizle)",
-            font=("SF Pro Text", 12),
-            fg="#ffffff",
-            bg="#262a36",
-            activebackground="#1e2230",
-            activeforeground="#ffffff",
-            relief=tk.FLAT,
-            bd=0,
-            padx=16,
-            pady=8,
-            cursor="hand2",
-            highlightbackground=self.card_border,
-            highlightthickness=1,
-            command=self.reset_sites_to_default
-        )
-        btn_reset.pack(side=tk.LEFT)
-
-    def refresh_sites_listbox(self):
-        self.listbox_sites.delete(0, tk.END)
-        for s in self.config_data.get("saved_sites", []):
-            self.listbox_sites.insert(tk.END, f"  🌐  {s}")
-
-    def add_new_site(self):
-        url = self.ent_new_site.get().strip()
-        if not url.startswith("http"):
-            messagebox.showwarning("Geçersiz URL", "Lütfen geçerli bir site adresi girin (http:// veya https://)!")
-            return
-        saved = self.config_data.setdefault("saved_sites", [])
-        if url in saved:
-            messagebox.showinfo("Mevcut", "Bu site zaten listede kayıtlı.")
-            return
-
-        saved.append(url)
-        self.save_config()
-        self.refresh_sites_listbox()
-        self.ent_new_site.delete(0, tk.END)
-        self.update_dashboard_sites_summary()
-        self.append_log(f"[SITE EKLENDİ] {url}")
-        messagebox.showinfo("Başarılı", f"{url} listeye eklendi!")
-
-    def delete_selected_site(self):
-        sel = self.listbox_sites.curselection()
-        if not sel:
-            messagebox.showinfo("Seçim Yapın", "Lütfen silmek istediğiniz siteyi listeden tıklayarak seçin.")
-            return
-        idx = sel[0]
-        saved = self.config_data.get("saved_sites", [])
-        if 0 <= idx < len(saved):
-            removed = saved.pop(idx)
-            self.save_config()
-            self.refresh_sites_listbox()
-            self.update_dashboard_sites_summary()
-            self.append_log(f"[SİTE SİLİNDİ] {removed}")
-
-    def reset_sites_to_default(self):
-        self.config_data["saved_sites"] = ["https://www.hintfilmizle.com/film-izle/"]
-        self.save_config()
-        self.refresh_sites_listbox()
-        self.update_dashboard_sites_summary()
-        self.append_log("[SIFIRLANDI] Site listesi varsayılana sıfırlandı.")
-
-    # ---------------- Tab 3: Single Crawl & Settings ----------------
-    def setup_tab_settings(self):
-        # Card 1: Tekli Tarama
-        single_card = tk.Frame(
-            self.tab_settings,
-            bg=self.card_color,
-            highlightbackground="#3b82f6",
-            highlightthickness=2,
-            padx=15,
-            pady=15
-        )
-        single_card.pack(fill=tk.X, pady=(0, 15))
-
-        tk.Label(
-            single_card,
-            text="TEKLİ FİLM VEYA SİTE TARAMA",
-            font=("SF Pro Text", 12, "bold"),
-            fg="#60a5fa",
-            bg=self.card_color
-        ).pack(anchor="w", pady=(0, 8))
-
-        s_row = tk.Frame(single_card, bg=self.card_color)
-        s_row.pack(fill=tk.X)
-
-        tk.Label(
-            s_row,
-            text="Hedef URL:",
-            font=("SF Pro Text", 12, "bold"),
-            fg="#ffffff",
-            bg=self.card_color
-        ).pack(side=tk.LEFT, padx=(0, 10))
-
-        self.ent_single_url = tk.Entry(
-            s_row,
-            font=("SF Pro Text", 13),
-            bg=self.input_bg,
-            fg="#ffffff",
-            insertbackground="#ffffff",
-            highlightbackground="#60a5fa",
-            highlightcolor="#38bdf8",
-            highlightthickness=2,
-            relief=tk.FLAT,
-            bd=0
-        )
-        self.ent_single_url.pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=6, padx=(0, 12))
-
-        btn_single_crawl = tk.Button(
-            s_row,
-            text="▶ TEKLİ TARA & YÜKLE",
-            font=("SF Pro Text", 12, "bold"),
-            fg="#ffffff",
-            bg=self.accent_color,
-            activebackground=self.accent_hover,
-            activeforeground="#ffffff",
-            relief=tk.FLAT,
-            bd=0,
-            padx=16,
-            pady=8,
-            cursor="hand2",
-            highlightbackground="#60a5fa",
-            highlightthickness=1,
-            command=self.start_single_crawl
-        )
-        btn_single_crawl.pack(side=tk.LEFT)
-
-        # Card 2: Ayarlar
-        cfg_card = tk.Frame(
-            self.tab_settings,
-            bg=self.card_color,
-            highlightbackground=self.card_border,
-            highlightthickness=1,
-            padx=15,
-            pady=15
-        )
-        cfg_card.pack(fill=tk.X)
-
-        tk.Label(
-            cfg_card,
-            text="GİTHUB & TMDB ERİŞİM AYARLARI",
-            font=("SF Pro Text", 12, "bold"),
-            fg="#60a5fa",
-            bg=self.card_color
-        ).pack(anchor="w", pady=(0, 15))
-
-        # Token Row
-        tk.Label(
-            cfg_card,
-            text="GitHub Personal Access Token (PAT):",
-            font=("SF Pro Text", 11, "bold"),
-            fg="#ffffff",
-            bg=self.card_color
-        ).pack(anchor="w", pady=(0, 4))
-
-        t_row = tk.Frame(cfg_card, bg=self.card_color)
-        t_row.pack(fill=tk.X, pady=(0, 12))
-
-        self.ent_token = tk.Entry(
-            t_row,
-            font=("SF Pro Text", 13),
-            bg=self.input_bg,
-            fg="#ffffff",
-            insertbackground="#ffffff",
-            highlightbackground="#60a5fa",
-            highlightcolor="#38bdf8",
-            highlightthickness=2,
-            relief=tk.FLAT,
-            bd=0,
-            show="•"
-        )
-        self.ent_token.insert(0, self.config_data.get("github_token", ""))
-        self.ent_token.pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=6, padx=(0, 10))
-
-        self.btn_show_token = tk.Button(
-            t_row,
-            text="Göster",
-            font=("SF Pro Text", 11, "bold"),
-            bg="#262a36",
-            fg="#ffffff",
-            relief=tk.FLAT,
-            bd=0,
-            padx=12,
-            pady=6,
-            cursor="hand2",
-            highlightbackground=self.card_border,
-            highlightthickness=1,
-            command=self.toggle_token_visibility
-        )
-        self.btn_show_token.pack(side=tk.LEFT)
-
-        # TMDB Key Row
-        tk.Label(
-            cfg_card,
-            text="TMDB API Key (İsteğe Bağlı):",
-            font=("SF Pro Text", 11, "bold"),
-            fg="#ffffff",
-            bg=self.card_color
-        ).pack(anchor="w", pady=(0, 4))
-
-        self.ent_tmdb = tk.Entry(
-            cfg_card,
-            font=("SF Pro Text", 13),
-            bg=self.input_bg,
-            fg="#ffffff",
-            insertbackground="#ffffff",
-            highlightbackground="#60a5fa",
-            highlightcolor="#38bdf8",
-            highlightthickness=2,
-            relief=tk.FLAT,
-            bd=0
-        )
-        self.ent_tmdb.insert(0, self.config_data.get("tmdb_key", ""))
-        self.ent_tmdb.pack(fill=tk.X, ipady=6, pady=(0, 15))
-
-        btn_save_cfg = tk.Button(
-            cfg_card,
-            text="💾 AYARLARI KAYDET",
-            font=("SF Pro Text", 12, "bold"),
-            fg="#ffffff",
-            bg=self.success_color,
-            activebackground=self.success_hover,
-            activeforeground="#ffffff",
-            relief=tk.FLAT,
-            bd=0,
-            padx=20,
-            pady=8,
-            cursor="hand2",
-            highlightbackground="#10b981",
-            highlightthickness=1,
-            command=self.save_user_settings
-        )
-        btn_save_cfg.pack(anchor="w")
-
-    def toggle_token_visibility(self):
-        if self.ent_token.cget("show") == "":
-            self.ent_token.config(show="•")
-            self.btn_show_token.config(text="Göster")
+      } catch (e) {}
+      setTimeout(pollLogs, 1000);
+    }
+
+    window.onload = () => {
+      loadConfig();
+      pollLogs();
+    };
+  </script>
+</body>
+</html>
+"""
+
+# -------------------------------------------------------------
+# Web Server Request Handler
+# -------------------------------------------------------------
+class RequestHandler(BaseHTTPRequestHandler):
+    def _send_json(self, data, code=200):
+        self.send_response(code)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(json.dumps(data, ensure_ascii=False).encode("utf-8"))
+
+    def _read_json(self):
+        len_str = self.headers.get("Content-Length", 0)
+        length = int(len_str)
+        if length > 0:
+            body = self.rfile.read(length).decode("utf-8")
+            return json.loads(body)
+        return {}
+
+    def do_GET(self):
+        if self.path == "/" or self.path == "/index.html":
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(HTML_PAGE.encode("utf-8"))
+        elif self.path == "/api/config":
+            self._send_json(load_config())
+        elif self.path == "/api/logs":
+            self._send_json({
+                "logs": LOG_BUFFER,
+                "is_running": ENGINE_INSTANCE.is_running and CURRENT_WORKER is not None and CURRENT_WORKER.is_alive()
+            })
         else:
-            self.ent_token.config(show="")
-            self.btn_show_token.config(text="Gizle")
+            self.send_response(404)
+            self.end_headers()
 
-    def save_user_settings(self):
-        self.config_data["github_token"] = self.ent_token.get().strip()
-        self.config_data["tmdb_key"] = self.ent_tmdb.get().strip()
-        self.save_config()
-        messagebox.showinfo("Kaydedildi", "Ayarlar başarıyla kaydedildi!")
-        self.append_log("[AYARLAR] GitHub Token ve TMDB anahtarı kaydedildi.")
+    def do_POST(self):
+        global CURRENT_WORKER
+        if self.path == "/api/save-config":
+            body = self._read_json()
+            cfg = load_config()
+            cfg.update(body)
+            save_config(cfg)
+            self._send_json({"status": "ok"})
+        elif self.path == "/api/add-site":
+            body = self._read_json()
+            url = body.get("url", "").strip()
+            if url:
+                cfg = load_config()
+                saved = cfg.setdefault("saved_sites", [])
+                if url not in saved:
+                    saved.append(url)
+                    save_config(cfg)
+                    append_global_log(f"[SİTE EKLENDİ] {url}")
+            self._send_json({"status": "ok"})
+        elif self.path == "/api/delete-site":
+            body = self._read_json()
+            idx = body.get("index", -1)
+            cfg = load_config()
+            saved = cfg.get("saved_sites", [])
+            if 0 <= idx < len(saved):
+                removed = saved.pop(idx)
+                save_config(cfg)
+                append_global_log(f"[SİTE SİLİNDİ] {removed}")
+            self._send_json({"status": "ok"})
+        elif self.path == "/api/reset-sites":
+            cfg = load_config()
+            cfg["saved_sites"] = ["https://www.hintfilmizle.com/film-izle/"]
+            save_config(cfg)
+            append_global_log("[SIFIRLANDI] Site listesi varsayılana sıfırlandı.")
+            self._send_json({"status": "ok"})
+        elif self.path == "/api/clear-logs":
+            LOG_BUFFER.clear()
+            self._send_json({"status": "ok"})
+        elif self.path == "/api/stop":
+            ENGINE_INSTANCE.is_running = False
+            append_global_log("[DURDURULDU] İşlem durduruldu.")
+            self._send_json({"status": "ok"})
+        elif self.path == "/api/start-all":
+            cfg = load_config()
+            sites = cfg.get("saved_sites", [])
+            max_p = int(cfg.get("max_pages", 20))
+            token = cfg.get("github_token", "").strip()
+            tmdb = cfg.get("tmdb_key", "").strip()
 
-    # ---------------- Logging & Controls ----------------
-    def append_log(self, text: str):
-        def _append():
-            ts = datetime.now().strftime("%H:%M:%S")
-            line = f"[{ts}] {text}\n"
-            self.txt_log.insert(tk.END, line)
-            self.txt_log.see(tk.END)
-        self.after(0, _append)
+            ENGINE_INSTANCE.is_running = True
 
-    def clear_logs(self):
-        self.txt_log.delete("1.0", tk.END)
-
-    def set_running_state(self, is_running: bool):
-        self.btn_start_all.config(state=tk.DISABLED if is_running else tk.NORMAL)
-        self.btn_stop.config(state=tk.NORMAL if is_running else tk.DISABLED)
-        self.engine.is_running = is_running
-
-    def stop_crawler(self):
-        self.engine.is_running = False
-        self.append_log("[DURDURULDU] İşlem kullanıcı tarafından durduruldu.")
-        self.set_running_state(False)
-
-    # ---------------- Execution Workers ----------------
-    def start_master_update(self):
-        sites = self.config_data.get("saved_sites", [])
-        if not sites:
-            messagebox.showwarning("Kayıtlı Site Yok", "Lütfen önce yukarıdaki kutudan taranacak bir site linki ekleyin!")
-            return
-
-        try:
-            max_p = int(self.ent_max_pages.get().strip())
-        except ValueError:
-            max_p = 20
-
-        self.config_data["max_pages"] = max_p
-        self.save_config()
-
-        self.set_running_state(True)
-        self.switch_tab(0)
-
-        def worker():
-            token = self.config_data.get("github_token", "").strip()
-            tmdb = self.config_data.get("tmdb_key", "").strip()
-
-            self.append_log(f"[GÜNCELLEME BAŞLADI] Toplam {len(sites)} kayıtlı sitenin tamamı taranıyor (Limit: site başı {max_p} sayfa)...")
-            all_scraped = []
-
-            for idx, site_url in enumerate(sites):
-                if not self.engine.is_running:
-                    break
-                self.append_log(f"--- [SİTE {idx + 1}/{len(sites)}] Taranıyor: {site_url} ---")
-                movie_dict = self.engine.discover_movie_links(site_url, max_pages=max_p)
-                self.append_log(f"✓ {site_url} üzerinde {len(movie_dict)} film bulundu. Video akışları ve detaylar çözülüyor...")
-
-                for m_idx, (m_url, cats) in enumerate(movie_dict.items()):
-                    if not self.engine.is_running:
+            def worker():
+                append_global_log(f"[GÜNCELLEME BAŞLADI] Toplam {len(sites)} kayıtlı sitenin tamamı taranıyor...")
+                all_scraped = []
+                for s_idx, site_url in enumerate(sites):
+                    if not ENGINE_INSTANCE.is_running:
                         break
-                    short = m_url.rstrip("/").split("/")[-1]
-                    self.append_log(f"[{m_idx + 1}/{len(movie_dict)}] Çözülüyor: {short}...")
-                    m_data = self.engine.scrape_movie_page(m_url, cats, tmdb_api_key=tmdb)
-                    if m_data and m_data.get("streams"):
-                        all_scraped.append(m_data)
-                        s_count = len(m_data["streams"])
-                        c_str = ", ".join(m_data["genres"])
-                        self.append_log(f"  ✓ {m_data['title']} ({s_count} Sunucu • [{c_str}])")
-                    else:
-                        self.append_log(f"  ↷ {short} (Aktif akış bulunamadı, atlandı)")
+                    append_global_log(f"--- [SİTE {s_idx + 1}/{len(sites)}] Taranıyor: {site_url} ---")
+                    movie_dict = ENGINE_INSTANCE.discover_movie_links(site_url, max_pages=max_p)
+                    append_global_log(f"✓ {site_url} üzerinde {len(movie_dict)} film bulundu. Video akışları çözülüyor...")
 
-            if all_scraped and self.engine.is_running:
-                self.append_log(f"[YÜKLENİYOR] Toplam {len(all_scraped)} çözülmüş film GitHub'a atomik olarak aktarılıyor...")
-                pub = GitHubAtomicPublisher(token=token, log_callback=self.append_log)
-                pub.publish_movies(all_scraped)
-            elif not all_scraped:
-                self.append_log("[UYARI] Hiçbir film çözülemedi veya işlem iptal edildi.")
+                    for m_idx, (m_url, cats) in enumerate(movie_dict.items()):
+                        if not ENGINE_INSTANCE.is_running:
+                            break
+                        short = m_url.rstrip("/").split("/")[-1]
+                        append_global_log(f"[{m_idx + 1}/{len(movie_dict)}] Çözülüyor: {short}...")
+                        m_data = ENGINE_INSTANCE.scrape_movie_page(m_url, cats, tmdb_api_key=tmdb)
+                        if m_data and m_data.get("streams"):
+                            all_scraped.append(m_data)
+                            s_count = len(m_data["streams"])
+                            c_str = ", ".join(m_data["genres"])
+                            append_global_log(f"  ✓ {m_data['title']} ({s_count} Sunucu • [{c_str}])")
+                        else:
+                            append_global_log(f"  ↷ {short} (Aktif akış yok, atlandı)")
 
-            self.set_running_state(False)
+                if all_scraped and ENGINE_INSTANCE.is_running:
+                    append_global_log(f"[YÜKLENİYOR] Toplam {len(all_scraped)} çözülmüş film GitHub'a aktarılıyor...")
+                    pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
+                    pub.publish_movies(all_scraped)
+                elif not all_scraped:
+                    append_global_log("[UYARI] Hiçbir film çözülemedi veya işlem durduruldu.")
 
-        self.crawler_thread = threading.Thread(target=worker, daemon=True)
-        self.crawler_thread.start()
+            CURRENT_WORKER = threading.Thread(target=worker, daemon=True)
+            CURRENT_WORKER.start()
+            self._send_json({"status": "started"})
+        else:
+            self.send_response(404)
+            self.end_headers()
 
-    def start_single_crawl(self):
-        url = self.ent_single_url.get().strip()
-        if not url.startswith("http"):
-            messagebox.showwarning("Geçersiz URL", "Lütfen geçerli bir film veya site linki girin!")
-            return
+    def log_message(self, format, *args):
+        pass
 
-        try:
-            max_p = int(self.ent_max_pages.get().strip())
-        except ValueError:
-            max_p = 20
+def run_app():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.bind(('127.0.0.1', 0))
+    port = sock.getsockname()[1]
+    sock.close()
 
-        self.set_running_state(True)
-        self.switch_tab(0)
+    server = HTTPServer(('127.0.0.1', port), RequestHandler)
+    server_thread = threading.Thread(target=server.serve_forever, daemon=True)
+    server_thread.start()
 
-        def worker():
-            token = self.config_data.get("github_token", "").strip()
-            tmdb = self.config_data.get("tmdb_key", "").strip()
+    url = f"http://127.0.0.1:{port}"
+    chrome_path = "/Applications/Google Chrome.app"
+    if os.path.exists(chrome_path):
+        subprocess.run(["open", "-na", "Google Chrome", "--args", f"--app={url}"])
+    else:
+        subprocess.run(["open", url])
 
-            self.append_log(f"[TEKLİ TARAMA BAŞLADI] Hedef: {url}")
-
-            all_scraped = []
-            if any(k in url.lower() for k in ["/film/", "-izle", "/dizi/"]) and not any(k in url.lower() for k in ["/kategori/", "/tur/", "/filmizle/"]):
-                self.append_log("Hedef doğrudan film sayfası olarak algılandı. Çözülüyor...")
-                m_data = self.engine.scrape_movie_page(url, {"Popüler"}, tmdb_api_key=tmdb)
-                if m_data and m_data.get("streams"):
-                    all_scraped.append(m_data)
-                    self.append_log(f"✓ {m_data['title']} ({len(m_data['streams'])} Sunucu)")
-            else:
-                self.append_log(f"Hedef site/kategori olarak algılandı. {max_p} sayfa taranıyor...")
-                movie_dict = self.engine.discover_movie_links(url, max_pages=max_p)
-                for m_idx, (m_url, cats) in enumerate(movie_dict.items()):
-                    if not self.engine.is_running:
-                        break
-                    m_data = self.engine.scrape_movie_page(m_url, cats, tmdb_api_key=tmdb)
-                    if m_data and m_data.get("streams"):
-                        all_scraped.append(m_data)
-                        self.append_log(f"[{m_idx + 1}/{len(movie_dict)}] ✓ {m_data['title']} ({len(m_data['streams'])} Sunucu)")
-
-            if all_scraped and self.engine.is_running:
-                self.append_log(f"[YÜKLENİYOR] {len(all_scraped)} film GitHub'a yükleniyor...")
-                pub = GitHubAtomicPublisher(token=token, log_callback=self.append_log)
-                pub.publish_movies(all_scraped)
-
-            self.set_running_state(False)
-
-        self.crawler_thread = threading.Thread(target=worker, daemon=True)
-        self.crawler_thread.start()
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        server.shutdown()
 
 if __name__ == "__main__":
-    app = PlayRepoApp()
-    app.mainloop()
-
+    run_app()
