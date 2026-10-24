@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Glowing Outer Radar Ring -->
+    <path
+        android:pathData="M54,18 A36,36 0 1 1 53.99,18 Z"
+        android:strokeWidth="2.5"
+        android:strokeColor="#00E676"
+        android:strokeAlpha="0.4"/>
+
+    <path
+        android:pathData="M54,26 A28,28 0 1 1 53.99,26 Z"
+        android:strokeWidth="1.5"
+        android:strokeColor="#00B0FF"
+        android:strokeAlpha="0.6"/>
+
+    <!-- Central Glowing Play Diamond/Triangle -->
+    <path
+        android:pathData="M44,36 L72,54 L44,72 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="44"
+                android:startY="36"
+                android:endX="72"
+                android:endY="72"
+                android:type="linear">
+                <item android:color="#00E676" android:offset="0.0" />
+                <item android:color="#00B0FF" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Sync Arrow Accents -->
+    <path
+        android:pathData="M34,54 L26,54 M82,54 L74,54 M54,34 L54,26 M54,82 L54,74"
+        android:strokeWidth="3"
+        android:strokeColor="#00E676"
+        android:strokeLineCap="round"/>
+</vector>
