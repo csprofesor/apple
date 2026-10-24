@@ -54,27 +54,87 @@ class SiteScraperEngine {
 
     private fun getRandomUserAgent(): String = userAgents[Random.nextInt(userAgents.size)]
 
+    fun detectCategoryFromUrlOrText(url: String, text: String): String? {
+        val lower = "${url.lowercase()} ${text.lowercase()}"
+        return when {
+            lower.contains("korku") || lower.contains("gerilim") || lower.contains("horror") || lower.contains("thriller") -> "Korku & Gerilim"
+            lower.contains("aksiyon") || lower.contains("macera") || lower.contains("action") || lower.contains("adventure") -> "Aksiyon & Macera"
+            lower.contains("komedi") || lower.contains("mizah") || lower.contains("comedy") -> "Komedi"
+            lower.contains("dram") || lower.contains("romantik") || lower.contains("drama") || lower.contains("romance") -> "Dram & Romantik"
+            lower.contains("bilim") || lower.contains("kurgu") || lower.contains("fantastik") || lower.contains("sci-fi") || lower.contains("scifi") || lower.contains("fantasy") -> "Bilim Kurgu & Fantastik"
+            else -> null
+        }
+    }
+
+    private suspend fun discoverSiteCategories(siteUrl: String, siteBase: String): Map<String, List<String>> = withContext(Dispatchers.IO) {
+        val categoryMap = mutableMapOf<String, MutableList<String>>()
+        try {
+            val request = Request.Builder()
+                .url(siteUrl)
+                .header("User-Agent", getRandomUserAgent())
+                .header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                if (!response.isSuccessful) return@use
+                val html = response.body?.string().orEmpty()
+                val doc = Jsoup.parse(html, siteUrl)
+
+                doc.select("a[href]").forEach { a ->
+                    val href = a.absUrl("href").trim()
+                    val text = a.text().trim()
+                    if (isValidCatalogPageUrl(href, siteBase) && href.startsWith(siteBase)) {
+                        val catName = detectCategoryFromUrlOrText(href, text)
+                        if (catName != null) {
+                            val list = categoryMap.getOrPut(catName) { mutableListOf() }
+                            if (!list.contains(href)) {
+                                list.add(href)
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (_: Exception) {}
+        categoryMap
+    }
+
     /**
-     * Finds ALL movie page links dynamically across catalog pages.
+     * Crawls pages of the website to discover valid movie links and associates each movie with its category.
      */
     suspend fun discoverAllMovieLinks(
         siteUrl: String,
         maxPages: Int = 30,
         onPageProgress: suspend (pageNumber: Int, foundMoviesCount: Int, statusMsg: String) -> Unit
-    ): List<String> = withContext(Dispatchers.IO) {
+    ): Map<String, Set<String>> = withContext(Dispatchers.IO) {
         val siteBase = if (siteUrl.contains("://")) {
             val parts = siteUrl.split("/")
             "${parts[0]}//${parts[2]}"
         } else siteUrl
 
-        val cleanSiteUrl = siteUrl.trimEnd('/')
-        val discoveredMovies = mutableSetOf<String>()
+        val movieCategoriesMap = mutableMapOf<String, MutableSet<String>>()
         val visitedCatalogPages = mutableSetOf<String>()
         val catalogPagesQueue = mutableListOf<String>()
+        val pageCategoryMap = mutableMapOf<String, String>()
 
-        catalogPagesQueue.add(siteUrl)
-        if (siteUrl != siteBase && siteUrl != "$siteBase/") {
+        // 1. Discover categories directly from the site
+        val detectedCategories = discoverSiteCategories(siteUrl, siteBase)
+        detectedCategories.forEach { (catName, urls) ->
+            urls.take(3).forEach { catUrl ->
+                if (!catalogPagesQueue.contains(catUrl)) {
+                    catalogPagesQueue.add(catUrl)
+                    pageCategoryMap[catUrl] = catName
+                }
+            }
+        }
+
+        // Add homepage and base catalog
+        if (!catalogPagesQueue.contains(siteUrl)) {
+            catalogPagesQueue.add(0, siteUrl)
+            pageCategoryMap[siteUrl] = "Popüler"
+        }
+        if (siteUrl != siteBase && siteUrl != "$siteBase/" && !catalogPagesQueue.contains("$siteBase/")) {
             catalogPagesQueue.add("$siteBase/")
+            pageCategoryMap["$siteBase/"] = "Popüler"
         }
 
         var pageIndex = 0
@@ -85,6 +145,7 @@ class SiteScraperEngine {
             visitedCatalogPages.add(currentPageUrl)
 
             pageIndex++
+            val pageCat = pageCategoryMap[currentPageUrl] ?: detectCategoryFromUrlOrText(currentPageUrl, "") ?: "Popüler"
 
             try {
                 val request = Request.Builder()
@@ -96,7 +157,7 @@ class SiteScraperEngine {
 
                 client.newCall(request).execute().use { response ->
                     if (!response.isSuccessful) {
-                        onPageProgress(pageIndex, discoveredMovies.size, "Sayfa $pageIndex es geçildi (${response.code})")
+                        onPageProgress(pageIndex, movieCategoriesMap.size, "Sayfa $pageIndex es geçildi (${response.code})")
                         return@use
                     }
 
@@ -107,29 +168,34 @@ class SiteScraperEngine {
                     doc.select("a[href]").forEach { a ->
                         val href = a.absUrl("href").trim()
                         if (isValidMovieUrl(href, siteBase)) {
-                            if (discoveredMovies.add(href)) {
+                            val cats = movieCategoriesMap.getOrPut(href) { mutableSetOf() }
+                            if (cats.add(pageCat)) {
                                 newMoviesInPage++
                             }
                         }
                     }
 
-                    onPageProgress(pageIndex, discoveredMovies.size, "Sayfa $pageIndex taranıyor ($newMoviesInPage yeni film eklendi)")
+                    onPageProgress(pageIndex, movieCategoriesMap.size, "[$pageCat] Sayfa $pageIndex taranıyor ($newMoviesInPage yeni film eklendi)")
 
                     doc.select("a[href]").forEach { a ->
                         val href = a.absUrl("href").trim()
                         if (isValidCatalogPageUrl(href, siteBase) && !visitedCatalogPages.contains(href) && !catalogPagesQueue.contains(href)) {
                             catalogPagesQueue.add(href)
+                            val inheritedCat = pageCategoryMap[currentPageUrl] ?: detectCategoryFromUrlOrText(href, a.text().trim())
+                            if (inheritedCat != null) {
+                                pageCategoryMap[href] = inheritedCat
+                            }
                         }
                     }
                 }
             } catch (e: Exception) {
-                onPageProgress(pageIndex, discoveredMovies.size, "Sayfa $pageIndex hatası: ${e.localizedMessage ?: "Bağlantı kesildi"}")
+                onPageProgress(pageIndex, movieCategoriesMap.size, "Sayfa $pageIndex hatası: ${e.localizedMessage ?: "Bağlantı kesildi"}")
             }
 
             delay(50)
         }
 
-        discoveredMovies.toList()
+        movieCategoriesMap
     }
 
     private fun isValidMovieUrl(url: String, siteBase: String): Boolean {
@@ -179,9 +245,9 @@ class SiteScraperEngine {
         tmdbApiKey: String? = null,
         onStatusUpdate: suspend (status: String) -> Unit
     ): List<ScrapedMovie> = withContext(Dispatchers.IO) {
-        onStatusUpdate("Sitedeki sayfalar taranıyor (Kategoriler & Sayfalandırma)...")
+        onStatusUpdate("Sitedeki kategoriler ve sayfalar tespit ediliyor...")
 
-        val allMovieUrls = discoverAllMovieLinks(
+        val movieCategoriesMap = discoverAllMovieLinks(
             siteUrl = siteUrl,
             maxPages = maxPages,
             onPageProgress = { pageNum, count, msg ->
@@ -189,12 +255,13 @@ class SiteScraperEngine {
             }
         )
 
-        if (allMovieUrls.isEmpty()) {
+        if (movieCategoriesMap.isEmpty()) {
             onStatusUpdate("✗ Sitede film bağlantısı bulunamadı! Lütfen adresi kontrol edin.")
             return@withContext emptyList()
         }
 
-        onStatusUpdate("✓ Toplam ${allMovieUrls.size} film tespit edildi! Video oynatıcılar ve posterler çözülüyor...")
+        val allMovieUrls = movieCategoriesMap.keys.toList()
+        onStatusUpdate("✓ Toplam ${allMovieUrls.size} film tespit edildi! Video oynatıcılar, kategoriler ve detaylar çözülüyor...")
 
         val results = Collections.synchronizedList(mutableListOf<ScrapedMovie>())
         val processedCounter = AtomicInteger(0)
@@ -208,10 +275,11 @@ class SiteScraperEngine {
                         val shortName = url.trimEnd('/').substringAfterLast('/')
                         onStatusUpdate("[$currentIdx / ${allMovieUrls.size}] İnceleniyor: $shortName...")
                         try {
-                            val movie = scrapeMoviePage(url, tmdbApiKey)
+                            val movie = scrapeMoviePage(url, movieCategoriesMap[url], tmdbApiKey)
                             if (movie != null && movie.streams.isNotEmpty()) {
                                 results.add(movie)
-                                onStatusUpdate("[$currentIdx / ${allMovieUrls.size}] ✓ Çözüldü: ${movie.title} (${movie.streams.size} Sunucu)")
+                                val catSummary = movie.genres.joinToString(", ")
+                                onStatusUpdate("[$currentIdx / ${allMovieUrls.size}] ✓ Çözüldü: ${movie.title} (${movie.streams.size} Sunucu) [$catSummary]")
                             } else {
                                 onStatusUpdate("[$currentIdx / ${allMovieUrls.size}] ↷ $shortName (Aktif akış yok, atlandı)")
                             }
@@ -231,7 +299,11 @@ class SiteScraperEngine {
      * Scrapes a single movie page, unpacks iframe/player embeds into direct playable M3U8/MP4 stream URLs,
      * extracts official movie poster and metadata (via Cinemeta/IMDb or direct webpage scraping).
      */
-    suspend fun scrapeMoviePage(movieUrl: String, tmdbApiKey: String? = null): ScrapedMovie? = withContext(Dispatchers.IO) {
+    suspend fun scrapeMoviePage(
+        movieUrl: String,
+        initialCategories: Set<String>? = null,
+        tmdbApiKey: String? = null
+    ): ScrapedMovie? = withContext(Dispatchers.IO) {
         val request = Request.Builder()
             .url(movieUrl)
             .header("User-Agent", getRandomUserAgent())
@@ -274,27 +346,38 @@ class SiteScraperEngine {
             val langTag = if (isDub) "[TR Dublaj]" else "[TR Altyazılı]"
             val qualityTag = if (html.contains("4k", true) || rawTitle.contains("4k", true)) "4K" else "1080p"
 
-            // Extract genres / category classification
-            val genreList = mutableListOf<String>()
-            val lowerHtml = html.lowercase()
-
-            // 1. Extract from explicit category links / breadcrumbs
-            doc.select("a[rel='category tag'], .kategoriler a, .film-kategori a, .genres a, a[href*='/tur/'], a[href*='/kategori/']").forEach { el ->
-                val txt = el.text().trim().lowercase()
-                if (txt.contains("korku") || txt.contains("gerilim")) genreList.add("Korku & Gerilim")
-                if (txt.contains("aksiyon") || txt.contains("macera")) genreList.add("Aksiyon & Macera")
-                if (txt.contains("komedi") || txt.contains("mizah")) genreList.add("Komedi")
-                if (txt.contains("dram") || txt.contains("romantik")) genreList.add("Dram & Romantik")
-                if (txt.contains("bilim") || txt.contains("kurgu") || txt.contains("fantastik")) genreList.add("Bilim Kurgu & Fantastik")
+            // Extract genres / category classification strictly from detail page links and discovery
+            val genreSet = mutableSetOf<String>()
+            if (!initialCategories.isNullOrEmpty()) {
+                genreSet.addAll(initialCategories)
             }
 
-            // 2. Extract from page HTML text & tags
-            if (lowerHtml.contains("korku") || lowerHtml.contains("gerilim")) genreList.add("Korku & Gerilim")
-            if (lowerHtml.contains("aksiyon") || lowerHtml.contains("macera")) genreList.add("Aksiyon & Macera")
-            if (lowerHtml.contains("komedi") || lowerHtml.contains("mizah")) genreList.add("Komedi")
-            if (lowerHtml.contains("dram") || lowerHtml.contains("romantik")) genreList.add("Dram & Romantik")
-            if (lowerHtml.contains("bilim") || lowerHtml.contains("kurgu") || lowerHtml.contains("fantastik")) genreList.add("Bilim Kurgu & Fantastik")
-            if (genreList.isEmpty()) genreList.add("Popüler")
+            // Extract ONLY from explicit category links / breadcrumbs on the movie page
+            doc.select(".film-bilgileri a, .detaylar a, .entry-content a, .film-kategori a, .kategoriler a, .genres a, .categories a, a[rel='category tag'], a[href*='/tur/'], a[href*='/filmizle/'], a[href*='/kategori/']").forEach { el ->
+                val href = el.absUrl("href").lowercase()
+                val txt = el.text().trim()
+                val cat = detectCategoryFromUrlOrText(href, txt)
+                if (cat != null) {
+                    genreSet.add(cat)
+                }
+            }
+            if (genreSet.isEmpty()) genreSet.add("Popüler")
+
+            // Extract IMDb rating
+            val imdbRating = doc.selectFirst(".imdb-puan, .imdb, span.puan, .rating, [itemprop=ratingValue]")?.text()?.trim()
+                ?.replace("IMDb:", "", true)?.replace("IMDb", "", true)?.trim()
+
+            // Extract runtime
+            val runtime = Regex("""\b(\d{2,3})\s*(?:dk|dakika|min)\b""", RegexOption.IGNORE_CASE).find(html)?.value
+
+            // Extract director
+            val director = doc.selectFirst("a[href*='/yonetmen/'], a[href*='/director/'], .yonetmen a, .yonetmen")?.text()?.trim()
+
+            // Extract cast
+            val castList = doc.select("a[href*='/oyuncu/'], a[href*='/actor/'], .oyuncular a")
+                .map { it.text().trim() }
+                .filter { it.isNotBlank() && it.length in 2..30 }
+                .take(6)
 
             val candidateEmbedUrls = mutableListOf<String>()
 
@@ -407,9 +490,13 @@ class SiteScraperEngine {
                 title = resolvedMeta.title,
                 poster = resolvedMeta.poster,
                 streams = resolvedStreams,
-                genres = genreList,
+                genres = genreSet.toList(),
                 description = resolvedMeta.description,
-                year = resolvedMeta.year
+                year = resolvedMeta.year,
+                imdbRating = imdbRating,
+                runtime = runtime,
+                director = director,
+                cast = if (castList.isNotEmpty()) castList else null
             )
         }
     }

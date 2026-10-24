@@ -96,6 +96,27 @@ async function unpackLiveStreamUrl(rawUrl, referer) {
 
 async function getCatalog(type, id, extra) {
     try {
+        // 1. Try static category catalog file first
+        if (id && id.startsWith("playrepo-") && id !== "playrepo-catalog-movies") {
+            try {
+                const catFileUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/catalog/movie/${id}.json`;
+                const catRes = await fetch(catFileUrl, {
+                    headers: { "User-Agent": UA, "Accept": "application/json" }
+                });
+                if (catRes.ok) {
+                    const catData = await catRes.json();
+                    let metas = Array.isArray(catData) ? catData : (catData.metas || []);
+                    if (metas.length > 0) {
+                        if (extra && extra.search) {
+                            const query = extra.search.toLowerCase();
+                            metas = metas.filter(m => m.name && m.name.toLowerCase().includes(query));
+                        }
+                        return { metas: metas };
+                    }
+                }
+            } catch (_) {}
+        }
+
         const response = await fetch(CATALOG_URL, {
             headers: {
                 "User-Agent": UA,
@@ -160,8 +181,23 @@ async function getMeta(type, id) {
     try {
         const idStr = id ? id.toString() : "";
         const cleanId = idStr.replace(/^tmdb:/, "").replace(/^movie\//, "").replace(/^tv\//, "");
+        const safeId = idStr.replace(/:/g, "_");
 
-        // 1. If it's an IMDb ID (tt...), fetch rich meta from Cinemeta
+        // 1. Try static meta file published by APK first!
+        try {
+            const staticMetaUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/meta/movie/${encodeURIComponent(safeId)}.json`;
+            const smRes = await fetch(staticMetaUrl, {
+                headers: { "User-Agent": UA, "Accept": "application/json" }
+            });
+            if (smRes.ok) {
+                const smData = await smRes.json();
+                if (smData && smData.meta) {
+                    return smData;
+                }
+            }
+        } catch (_) {}
+
+        // 2. If it's an IMDb ID (tt...), fetch rich meta from Cinemeta
         if (idStr.startsWith("tt")) {
             try {
                 const cmRes = await fetch(`https://v3-cinemeta.strem.io/meta/movie/${idStr}.json`, {
@@ -280,6 +316,22 @@ async function getStreams(arg1, arg2, arg3, arg4) {
         }
 
         if (!idStr) return [];
+        const cleanId = idStr.replace(/^tmdb:/, "").replace(/^movie\//, "").replace(/^tv\//, "");
+        const safeId = idStr.replace(/:/g, "_");
+
+        // 1. Try static stream file published by APK first!
+        try {
+            const staticStreamUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/stream/movie/${encodeURIComponent(safeId)}.json`;
+            const ssRes = await fetch(staticStreamUrl, {
+                headers: { "User-Agent": UA, "Accept": "application/json" }
+            });
+            if (ssRes.ok) {
+                const ssData = await ssRes.json();
+                if (ssData && ssData.streams && ssData.streams.length > 0) {
+                    return ssData.streams;
+                }
+            }
+        } catch (_) {}
 
         const response = await fetch(STREAMS_URL, {
             headers: {
@@ -291,7 +343,6 @@ async function getStreams(arg1, arg2, arg3, arg4) {
         if (!response.ok) return [];
 
         const data = await response.json();
-        const cleanId = idStr.replace(/^tmdb:/, "").replace(/^movie\//, "").replace(/^tv\//, "");
 
         const keyMovie = `movie/${cleanId}`;
         const keyTv = `tv/${cleanId}/${season}/${episode}`;

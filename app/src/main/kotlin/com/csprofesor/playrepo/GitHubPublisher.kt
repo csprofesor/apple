@@ -320,7 +320,15 @@ class GitHubPublisher {
         categoryConfigs.forEach { (filePath, predicate) ->
             try {
                 val filtered = allMetas.filter { predicate(it) }
-                val targetMetas = if (filtered.isNotEmpty()) filtered else allMetas.take(20)
+                val targetMetas = if (filePath.contains("popular") || filePath.contains("catalog-movies")) {
+                    allMetas.take(60)
+                } else {
+                    filtered
+                }
+
+                if (targetMetas.isEmpty() && !filePath.contains("popular")) {
+                    return@forEach
+                }
 
                 val apiUrl = "https://api.github.com/repos/$repoOwner/$repoName/contents/$filePath"
                 val getRequest = Request.Builder()
@@ -401,6 +409,21 @@ class GitHubPublisher {
                     addProperty("description", if (!movie.description.isNullOrBlank()) movie.description else "Play • ${movie.streams.size} Sunucu Seçeneği • 1080p TR")
                     if (!movie.year.isNullOrBlank()) {
                         addProperty("releaseInfo", movie.year)
+                    }
+                    if (!movie.imdbRating.isNullOrBlank()) {
+                        addProperty("imdbRating", movie.imdbRating)
+                    }
+                    if (!movie.runtime.isNullOrBlank()) {
+                        addProperty("runtime", movie.runtime)
+                    }
+                    if (!movie.director.isNullOrBlank()) {
+                        val dirArr = JsonArray().apply { add(movie.director) }
+                        add("director", dirArr)
+                    }
+                    if (!movie.cast.isNullOrEmpty()) {
+                        val castArr = JsonArray()
+                        movie.cast.forEach { castArr.add(it) }
+                        add("cast", castArr)
                     }
                     val genreArr = JsonArray()
                     movie.genres.forEach { genreArr.add(it) }

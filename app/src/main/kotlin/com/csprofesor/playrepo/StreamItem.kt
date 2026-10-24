@@ -16,5 +16,9 @@ data class ScrapedMovie(
     val streams: List<StreamItem>,
     val genres: List<String> = listOf("Popüler"),
     val description: String? = null,
-    val year: String? = null
+    val year: String? = null,
+    val imdbRating: String? = null,
+    val runtime: String? = null,
+    val director: String? = null,
+    val cast: List<String>? = null
 )
