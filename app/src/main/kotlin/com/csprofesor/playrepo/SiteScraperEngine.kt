@@ -73,36 +73,8 @@ class SiteScraperEngine {
         val catalogPagesQueue = mutableListOf<String>()
 
         catalogPagesQueue.add(siteUrl)
-
-        // Seed with all primary category endpoints to ensure movies are pulled from every category
-        val categorySeeds = listOf(
-            "$siteBase/tur/aksiyon-filmleri",
-            "$siteBase/tur/komedi-filmleri",
-            "$siteBase/tur/dram-filmleri",
-            "$siteBase/tur/korku-filmleri",
-            "$siteBase/tur/bilim-kurgu-filmleri",
-            "$siteBase/tur/romantik-filmleri",
-            "$siteBase/tur/macera-filmleri",
-            "$siteBase/tur/animasyon-filmleri",
-            "$siteBase/tur/fantastik-filmleri",
-            "$siteBase/tur/suc-filmleri",
-            "$siteBase/kategori/aksiyon",
-            "$siteBase/kategori/komedi",
-            "$siteBase/kategori/dram",
-            "$siteBase/kategori/korku",
-            "$siteBase/kategori/bilim-kurgu",
-            "$siteBase/film/",
-            "$siteBase/film-izle/"
-        )
-        categorySeeds.forEach { seed ->
-            if (!catalogPagesQueue.contains(seed)) {
-                catalogPagesQueue.add(seed)
-            }
-        }
-
-        if (!cleanSiteUrl.endsWith("/film") && !cleanSiteUrl.endsWith("/film-izle") && !cleanSiteUrl.endsWith("/filmler")) {
-            if (!catalogPagesQueue.contains("$siteBase/film/")) catalogPagesQueue.add("$siteBase/film/")
-            if (!catalogPagesQueue.contains("$siteBase/film-izle/")) catalogPagesQueue.add("$siteBase/film-izle/")
+        if (siteUrl != siteBase && siteUrl != "$siteBase/") {
+            catalogPagesQueue.add("$siteBase/")
         }
 
         var pageIndex = 0
@@ -166,6 +138,8 @@ class SiteScraperEngine {
 
         if (lower == siteBase.lowercase() || lower == "${siteBase.lowercase()}/" ||
             lower.contains("/kategori/") || lower.contains("/tur/") ||
+            lower.contains("/filmizle/") || lower.contains("/yil/") ||
+            lower.contains("/category/") || lower.contains("/genre/") ||
             lower.contains("/koleksiyon/") || lower.contains("/forum") ||
             lower.contains("/iletisim") || lower.contains("/page/") ||
             lower.contains("page=") || lower.contains("orderby=") ||
@@ -188,6 +162,8 @@ class SiteScraperEngine {
 
         return lower.contains("/page/") || lower.contains("page=") || lower.contains("sayfa=") ||
                lower.contains("/kategori/") || lower.contains("/tur/") ||
+               lower.contains("/filmizle/") || lower.contains("/yil/") ||
+               lower.contains("/category/") || lower.contains("/genre/") ||
                lower == "$siteBase/film/" || lower == "$siteBase/film" ||
                lower == "$siteBase/film-izle/" || lower == "$siteBase/film-izle" ||
                lower == "$siteBase/filmler/" || lower == "$siteBase/filmler" ||
@@ -442,10 +418,11 @@ class SiteScraperEngine {
         val lower = url.lowercase()
         return lower.contains("vidmoly") || lower.contains("vidhide") || lower.contains("filelions") ||
                lower.contains("streamwish") || lower.contains("voe.sx") || lower.contains("streamtape") ||
-               lower.contains("ok.ru") || lower.contains("my.mail.ru") || lower.contains("bitchute") ||
-               lower.contains("mixdrop") || lower.contains("dood") || lower.contains("vidsrc") ||
-               lower.contains("vixsrc") || lower.contains("videa.hu") || lower.contains("vk.com") ||
-               lower.contains("vkvideo.ru")
+               lower.contains("ok.ru") || lower.contains("odnoklassniki.ru") || lower.contains("my.mail.ru") ||
+               lower.contains("bitchute") || lower.contains("mixdrop") || lower.contains("dood") ||
+               lower.contains("vidsrc") || lower.contains("vixsrc") || lower.contains("videa.hu") ||
+               lower.contains("vk.com") || lower.contains("vkvideo.ru") || lower.contains("vkuser.net") ||
+               lower.contains("dailymotion.com")
     }
 
     private fun extractScrapedPoster(doc: org.jsoup.nodes.Document, siteUrl: String): String {
@@ -563,10 +540,21 @@ class SiteScraperEngine {
                     return voeMatch.groupValues[1]
                 }
 
-                // 5. Ok.ru HLS Manifest or MP4
-                val okRuMatch = Regex("""hlsManifestUrl["']?\s*:\s*["'](https?://[^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
-                if (okRuMatch != null) {
-                    return okRuMatch.groupValues[1].replace("\\u0026", "&")
+                // 5. Ok.ru / Odnoklassniki HLS Manifest or MP4
+                if (lowerEmbed.contains("ok.ru") || lowerEmbed.contains("odnoklassniki.ru") || lowerEmbed.contains("vkuser.net")) {
+                    val m3u8Ok = Regex("""https?://[^\s"'<>&]+(?:video\.m3u8|\.m3u8)[^\s"'<>&]*""", RegexOption.IGNORE_CASE).find(html)
+                    if (m3u8Ok != null) {
+                        return m3u8Ok.value.replace("&amp;", "&").replace("\\u0026", "&")
+                    }
+                    val okRuMatch = Regex("""hlsManifestUrl(?:\\?["']|&quot;)\s*:\s*(?:\\?["']|&quot;)(https?://[^"'\s&]+)""", RegexOption.IGNORE_CASE).find(html)
+                    if (okRuMatch != null) {
+                        return okRuMatch.groupValues[1].replace("&amp;", "&").replace("\\u0026", "&")
+                    }
+                } else {
+                    val okRuMatch = Regex("""hlsManifestUrl["']?\s*:\s*["'](https?://[^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
+                    if (okRuMatch != null) {
+                        return okRuMatch.groupValues[1].replace("\\u0026", "&")
+                    }
                 }
 
                 // 6. Mixdrop regex
