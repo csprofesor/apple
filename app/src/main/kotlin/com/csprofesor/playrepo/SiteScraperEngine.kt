@@ -540,8 +540,45 @@ class SiteScraperEngine {
                     return voeMatch.groupValues[1]
                 }
 
-                // 5. Ok.ru / Odnoklassniki HLS Manifest or MP4
-                if (lowerEmbed.contains("ok.ru") || lowerEmbed.contains("odnoklassniki.ru") || lowerEmbed.contains("vkuser.net")) {
+                // 5. Ok.ru / Odnoklassniki Direct MP4 or HLS Manifest
+                if (lowerEmbed.contains("ok.ru") || lowerEmbed.contains("odnoklassniki.ru") || lowerEmbed.contains("vkuser.net") || html.contains("data-options")) {
+                    try {
+                        val optMatch = Regex("""data-options=(?:["']|&quot;)(.*?)(?:["']|&quot;)""").find(html)
+                        if (optMatch != null) {
+                            val optRaw = optMatch.groupValues[1]
+                                .replace("&quot;", "\"")
+                                .replace("&amp;", "&")
+                                .replace("\\/", "/")
+                            val rootJson = org.json.JSONObject(optRaw)
+                            val flashvars = rootJson.optJSONObject("flashvars")
+                            if (flashvars != null) {
+                                val metaObj = when (val m = flashvars.opt("metadata")) {
+                                    is org.json.JSONObject -> m
+                                    is String -> org.json.JSONObject(m)
+                                    else -> null
+                                }
+                                val videos = metaObj?.optJSONArray("videos")
+                                if (videos != null && videos.length() > 0) {
+                                    var bestUrl = ""
+                                    for (i in 0 until videos.length()) {
+                                        val vItem = videos.optJSONObject(i)
+                                        val vUrl = vItem?.optString("url").orEmpty()
+                                        if (vUrl.isNotBlank()) {
+                                            bestUrl = vUrl
+                                        }
+                                    }
+                                    if (bestUrl.isNotBlank()) {
+                                        return bestUrl.replace("&amp;", "&").replace("\\u0026", "&")
+                                    }
+                                }
+                                val hls = flashvars.optString("hlsManifestUrl")
+                                if (hls.isNotBlank()) {
+                                    return hls.replace("&amp;", "&").replace("\\u0026", "&")
+                                }
+                            }
+                        }
+                    } catch (_: Exception) {}
+
                     val m3u8Ok = Regex("""https?://[^\s"'<>&]+(?:video\.m3u8|\.m3u8)[^\s"'<>&]*""", RegexOption.IGNORE_CASE).find(html)
                     if (m3u8Ok != null) {
                         return m3u8Ok.value.replace("&amp;", "&").replace("\\u0026", "&")
