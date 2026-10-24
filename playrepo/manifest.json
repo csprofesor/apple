@@ -2,8 +2,8 @@
   "id": "playRepo",
   "name": "PlayRepo",
   "version": "1.0.0",
-  "description": "Otomatik güncellenen yüksek hızlı Türkçe ve Yabancı film/dizi kaynakları.",
-  "logo": "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
+  "description": "Tüm Türkçe ve Yabancı film sitelerinden derlenmiş süper hızlı kaynaklar.",
+  "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
   "resources": [
     "catalog",
     "meta",
@@ -42,17 +42,17 @@
     {
       "id": "playrepo-main",
       "name": "PlayRepo • Ultra Hızlı TR",
-      "description": "Tüm Türkçe ve Yabancı film sitelerinden derlenmiş süper hızlı kaynaklar.",
+      "description": "Nuvio için optimize edilmiş Türkçe dublaj/altyazılı akış sağlayıcısı.",
       "version": "1.0.0",
       "author": "csprofesor",
       "supportedTypes": [
         "movie",
-        "tv"
+        "series"
       ],
       "filename": "providers/playrepo.js",
       "enabled": true,
       "hasSettings": false,
-      "logo": "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
       "contentLanguage": [
         "tr",
         "en"

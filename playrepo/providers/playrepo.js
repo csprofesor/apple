@@ -1,4 +1,5 @@
-const STREAMS_URL = "https://raw.githubusercontent.com/csprofesor/apple/main/data/streams.json";
+const CATALOG_URL = "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/data/catalog.json";
+const STREAMS_URL = "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/data/streams.json";
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
 
 async function unpackLiveStreamUrl(rawUrl, referer) {
@@ -50,6 +51,86 @@ async function unpackLiveStreamUrl(rawUrl, referer) {
     return rawUrl;
 }
 
+async function getCatalog(type, id, extra) {
+    try {
+        const response = await fetch(CATALOG_URL, {
+            headers: {
+                "User-Agent": UA,
+                "Accept": "application/json"
+            }
+        });
+
+        if (!response.ok) return { metas: [] };
+
+        const catalogData = await response.json();
+        let metas = Array.isArray(catalogData) ? catalogData : (catalogData.metas || []);
+
+        if (extra && extra.genre) {
+            const requestedGenre = extra.genre.toLowerCase();
+            metas = metas.filter(m => {
+                if (!m.genres) return true;
+                return m.genres.some(g => g.toLowerCase().includes(requestedGenre) || requestedGenre.includes(g.toLowerCase()));
+            });
+        }
+
+        if (extra && extra.search) {
+            const query = extra.search.toLowerCase();
+            metas = metas.filter(m => m.name && m.name.toLowerCase().includes(query));
+        }
+
+        return { metas: metas };
+    } catch (e) {
+        console.error("PlayRepo getCatalog error:", e);
+        return { metas: [] };
+    }
+}
+
+async function getMeta(type, id) {
+    try {
+        const response = await fetch(CATALOG_URL, {
+            headers: {
+                "User-Agent": UA,
+                "Accept": "application/json"
+            }
+        });
+
+        if (!response.ok) return { meta: null };
+
+        const catalogData = await response.json();
+        const metas = Array.isArray(catalogData) ? catalogData : (catalogData.metas || []);
+
+        const cleanId = id ? id.toString().replace(/^tmdb:/, "").replace(/^movie\//, "").replace(/^tv\//, "") : "";
+        const found = metas.find(m => m.id === cleanId || m.id === `movie/${cleanId}` || m.id === `tmdb:${cleanId}`);
+
+        if (found) {
+            return {
+                meta: {
+                    id: found.id,
+                    type: found.type || "movie",
+                    name: found.name,
+                    poster: found.poster,
+                    description: found.description || "PlayRepo • 1080p Film Yayın Kaynağı",
+                    genres: found.genres || ["Popüler"]
+                }
+            };
+        }
+
+        return {
+            meta: {
+                id: cleanId,
+                type: type || "movie",
+                name: `Film ${cleanId}`,
+                poster: "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+                description: "PlayRepo • 1080p Film Yayın Kaynağı",
+                genres: ["Popüler"]
+            }
+        };
+    } catch (e) {
+        console.error("PlayRepo getMeta error:", e);
+        return { meta: null };
+    }
+}
+
 async function getStreams(tmdbId, mediaType, season, episode) {
     try {
         const response = await fetch(STREAMS_URL, {
@@ -67,13 +148,14 @@ async function getStreams(tmdbId, mediaType, season, episode) {
 
         const keyMovie = `movie/${cleanId}`;
         const keyTv = `tv/${cleanId}/${season || 1}/${episode || 1}`;
+        const keyTmdb = `tmdb:${cleanId}`;
 
-        const itemStreams = data[keyTv] || data[keyMovie] || data[cleanId] || data[idStr] || [];
+        const itemStreams = data[keyTv] || data[keyMovie] || data[cleanId] || data[keyTmdb] || data[idStr] || [];
 
         const resolvedStreams = await Promise.all(itemStreams.map(async (s) => {
             const refererUrl = s.referer || s.url || "https://www.google.com";
             const directUrl = await unpackLiveStreamUrl(s.url, refererUrl);
-            const isM3u8 = directUrl.includes(".m3u8");
+            const isM3u8 = directUrl.toLowerCase().includes(".m3u8");
 
             return {
                 name: s.name || "PlayRepo",
@@ -84,9 +166,11 @@ async function getStreams(tmdbId, mediaType, season, episode) {
                 format: isM3u8 ? "m3u8" : "mp4",
                 behaviorHints: {
                     notSupported: false,
-                    requestHeaders: {
-                        "User-Agent": UA,
-                        "Referer": refererUrl
+                    proxyHeaders: {
+                        "request": {
+                            "User-Agent": UA,
+                            "Referer": refererUrl
+                        }
                     }
                 },
                 headers: {
@@ -104,5 +188,7 @@ async function getStreams(tmdbId, mediaType, season, episode) {
 }
 
 module.exports = {
+    getCatalog: getCatalog,
+    getMeta: getMeta,
     getStreams: getStreams
 };

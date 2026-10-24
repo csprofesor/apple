@@ -193,7 +193,6 @@ class SiteScraperEngine {
         allMovieUrls.forEachIndexed { index, url ->
             try {
                 val movie = scrapeMoviePage(url, tmdbApiKey)
-                // STRICT CHECK: ONLY SAVE MOVIE IF WE EXTRACTED AT LEAST 1 DIRECT M3U8/MP4 STREAM
                 if (movie != null && movie.streams.isNotEmpty()) {
                     results.add(movie)
                     onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] Çözüldü: ${movie.title} (${movie.streams.size} M3U8/MP4 yayın kaynağı)")
@@ -300,8 +299,6 @@ class SiteScraperEngine {
 
             foundCandidateUrls.distinct().forEach { embedUrl ->
                 val directStreamUrl = unpackEmbedStreamUrl(embedUrl, movieUrl)
-                
-                // CRITICAL FIX: Only add to streams if it's an actual playable media URL (m3u8 or mp4)
                 if (directStreamUrl.isNotBlank() && resolvedStreams.none { it.url == directStreamUrl }) {
                     val lowerUrl = directStreamUrl.lowercase()
                     if (lowerUrl.contains(".m3u8") || lowerUrl.contains(".mp4")) {
@@ -320,7 +317,6 @@ class SiteScraperEngine {
                 }
             }
 
-            // If no valid media streams unpacked, skip this movie entirely (prevents Nuvio infinite buffering)
             if (resolvedStreams.isEmpty()) {
                 return@withContext null
             }
@@ -424,7 +420,7 @@ class SiteScraperEngine {
                         val id = firstMovie.get("id")?.asString
                         val officialTitle = firstMovie.get("title")?.asString ?: firstMovie.get("original_title")?.asString ?: title
                         val posterPath = firstMovie.get("poster_path")?.asString
-                        val posterUrl = if (!posterPath.isNullOrBlank()) "https://image.tmdb.org/t/p/w500$posterPath" else "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png"
+                        val posterUrl = if (!posterPath.isNullOrBlank()) "https://image.tmdb.org/t/p/w500$posterPath" else "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png"
 
                         if (!id.isNullOrBlank()) {
                             return Triple(id, officialTitle, posterUrl)
@@ -435,6 +431,6 @@ class SiteScraperEngine {
         } catch (_: Exception) { }
 
         val hash = kotlin.math.abs(title.lowercase().hashCode()) % 800000 + 100000
-        return Triple(hash.toString(), title, "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png")
+        return Triple(hash.toString(), title, "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png")
     }
 }
