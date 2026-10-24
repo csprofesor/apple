@@ -5,19 +5,37 @@ import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
+import okhttp3.Cookie
+import okhttp3.CookieJar
+import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.jsoup.Jsoup
 import java.net.URLEncoder
+import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
 class SiteScraperEngine {
 
+    private val cookieStore = ConcurrentHashMap<String, List<Cookie>>()
+
+    private val cookieJar = object : CookieJar {
+        override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
+            cookieStore[url.host] = cookies
+        }
+
+        override fun loadForRequest(url: HttpUrl): List<Cookie> {
+            return cookieStore[url.host] ?: emptyList()
+        }
+    }
+
     private val client = OkHttpClient.Builder()
-        .connectTimeout(12, TimeUnit.SECONDS)
-        .readTimeout(12, TimeUnit.SECONDS)
+        .connectTimeout(15, TimeUnit.SECONDS)
+        .readTimeout(15, TimeUnit.SECONDS)
         .followRedirects(true)
+        .followSslRedirects(true)
+        .cookieJar(cookieJar)
         .build()
 
     private val gson = Gson()
@@ -67,8 +85,11 @@ class SiteScraperEngine {
                 val request = Request.Builder()
                     .url(currentPageUrl)
                     .header("User-Agent", getRandomUserAgent())
-                    .header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+                    .header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8")
                     .header("Accept-Language", "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7")
+                    .header("Sec-Ch-Ua", "\"Chromium\";v=\"124\", \"Google Chrome\";v=\"124\"")
+                    .header("Sec-Ch-Ua-Mobile", "?0")
+                    .header("Sec-Ch-Ua-Platform", "\"Windows\"")
                     .build()
 
                 client.newCall(request).execute().use { response ->
@@ -170,7 +191,7 @@ class SiteScraperEngine {
         allMovieUrls.forEachIndexed { index, url ->
             try {
                 val movie = scrapeMoviePage(url, tmdbApiKey)
-                if (movie != null) {
+                if (movie != null && movie.streams.isNotEmpty()) {
                     results.add(movie)
                     onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] Çözüldü: ${movie.title} (${movie.streams.size} M3U8/MP4 yayın kaynağı)")
                 }
@@ -189,6 +210,8 @@ class SiteScraperEngine {
         val request = Request.Builder()
             .url(movieUrl)
             .header("User-Agent", getRandomUserAgent())
+            .header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+            .header("Referer", movieUrl)
             .build()
 
         client.newCall(request).execute().use { response ->
@@ -219,14 +242,13 @@ class SiteScraperEngine {
             if (lowerHtml.contains("bilim") || lowerHtml.contains("kurgu") || lowerHtml.contains("fantastik")) genreList.add("Bilim Kurgu & Fantastik")
             if (genreList.isEmpty()) genreList.add("Popüler")
 
-            val foundStreams = mutableListOf<StreamItem>()
+            val foundCandidateUrls = mutableListOf<String>()
 
             // 1. Scrape direct iframe & video tags
             doc.select("iframe[src], video[src], video source[src]").forEach { el ->
                 val src = el.absUrl("src").ifBlank { el.attr("src") }
                 if (src.isNotBlank() && !src.contains("about:blank")) {
-                    val resolvedStream = resolveStreamUrl(src, movieUrl, foundStreams.size + 1, qualityTag, langTag)
-                    foundStreams.add(resolvedStream)
+                    foundCandidateUrls.add(src)
                 }
             }
 
@@ -235,14 +257,11 @@ class SiteScraperEngine {
                 val dataSrc = el.attr("data-src").ifBlank { el.attr("data-url") }.ifBlank { el.attr("data-player") }.ifBlank { el.attr("data-embed") }
                 if (dataSrc.isNotBlank() && !dataSrc.contains("about:blank")) {
                     val fullUrl = if (dataSrc.startsWith("http")) dataSrc else if (dataSrc.startsWith("//")) "https:$dataSrc" else movieUrl
-                    if (foundStreams.none { it.url == fullUrl }) {
-                        val resolvedStream = resolveStreamUrl(fullUrl, movieUrl, foundStreams.size + 1, qualityTag, langTag)
-                        foundStreams.add(resolvedStream)
-                    }
+                    foundCandidateUrls.add(fullUrl)
                 }
             }
 
-            // 3. Scrape external links
+            // 3. Scrape external video links (vidmoly, vidhide, voe, streamtape, ok.ru, kinescope, mixdrop, dood)
             doc.select("a[href]").forEach { a ->
                 val href = a.absUrl("href").ifBlank { a.attr("href") }
                 if (href.contains("vidmoly") || href.contains("vidhide") || href.contains("filelions") ||
@@ -250,10 +269,7 @@ class SiteScraperEngine {
                     href.contains("ok.ru") || href.contains("kinescope") || href.contains("odnoklassniki") ||
                     href.contains("mixdrop") || href.contains("dood") || href.contains("vidsrc") || href.contains("vixsrc")
                 ) {
-                    val resolvedStream = resolveStreamUrl(href, movieUrl, foundStreams.size + 1, qualityTag, langTag)
-                    if (foundStreams.none { it.url == resolvedStream.url }) {
-                        foundStreams.add(resolvedStream)
-                    }
+                    foundCandidateUrls.add(href)
                 }
             }
 
@@ -266,27 +282,39 @@ class SiteScraperEngine {
                     val decodedJson = String(decodedBytes, Charsets.UTF_8).replace("\\/", "/")
                     val urlRegex = Regex("""https?://[^\s"'\\]+""")
                     urlRegex.findAll(decodedJson).forEach { urlMatch ->
-                        val embedUrl = urlMatch.value
-                        if (embedUrl.isNotBlank() && foundStreams.none { it.url == embedUrl }) {
-                            val resolvedStream = resolveStreamUrl(embedUrl, movieUrl, foundStreams.size + 1, qualityTag, langTag)
-                            foundStreams.add(resolvedStream)
-                        }
+                        foundCandidateUrls.add(urlMatch.value)
                     }
                 } catch (_: Exception) { }
             }
 
-            // Fallback: If no embeds found, use movie page URL
-            if (foundStreams.isEmpty()) {
-                foundStreams.add(
-                    StreamItem(
-                        name = "PlayRepo",
-                        title = "PlayRepo • Sunucu 1 • $qualityTag • $langTag",
-                        url = movieUrl,
-                        quality = if (qualityTag == "4K") 2160 else 1080,
-                        format = "m3u8",
-                        referer = movieUrl
+            // 5. Scrape direct .m3u8 / .mp4 URLs in raw JS code
+            val m3u8Regex = Regex("""https?://[^\s"'`<>]+?\.(?:m3u8|mp4)[^\s"'`<>]*""", RegexOption.IGNORE_CASE)
+            m3u8Regex.findAll(html).forEach { match ->
+                foundCandidateUrls.add(match.value)
+            }
+
+            val resolvedStreams = mutableListOf<StreamItem>()
+
+            foundCandidateUrls.distinct().forEach { embedUrl ->
+                val directStreamUrl = unpackEmbedStreamUrl(embedUrl, movieUrl)
+                if (directStreamUrl.isNotBlank() && resolvedStreams.none { it.url == directStreamUrl }) {
+                    val isM3u8 = directStreamUrl.contains(".m3u8")
+                    resolvedStreams.add(
+                        StreamItem(
+                            name = "PlayRepo",
+                            title = "PlayRepo • Sunucu ${resolvedStreams.size + 1} • $qualityTag • $langTag",
+                            url = directStreamUrl,
+                            quality = if (qualityTag == "4K") 2160 else 1080,
+                            format = if (isM3u8) "m3u8" else "mp4",
+                            referer = embedUrl
+                        )
                     )
-                )
+                }
+            }
+
+            // If no streams unpacked, skip saving HTML webpage
+            if (resolvedStreams.isEmpty()) {
+                return@withContext null
             }
 
             // Resolve TMDB ID, official Title, and Poster URL
@@ -296,7 +324,7 @@ class SiteScraperEngine {
                 tmdbId = tmdbId,
                 title = tmdbTitle,
                 poster = posterUrl,
-                streams = foundStreams,
+                streams = resolvedStreams,
                 genres = genreList
             )
         }
@@ -312,20 +340,6 @@ class SiteScraperEngine {
             .removeSuffix(" 1080p")
             .replace(Regex("""\b(19|20)\d{2}\b.*"""), "")
             .trim()
-    }
-
-    private fun resolveStreamUrl(embedUrl: String, referer: String, serverIndex: Int, qualityTag: String, langTag: String): StreamItem {
-        val directStreamUrl = unpackEmbedStreamUrl(embedUrl, referer)
-        val format = if (directStreamUrl.contains(".m3u8")) "m3u8" else "mp4"
-
-        return StreamItem(
-            name = "PlayRepo",
-            title = "PlayRepo • Sunucu $serverIndex • $qualityTag • $langTag",
-            url = directStreamUrl,
-            quality = if (qualityTag == "4K") 2160 else 1080,
-            format = format,
-            referer = embedUrl
-        )
     }
 
     /**
