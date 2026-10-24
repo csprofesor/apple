@@ -433,6 +433,10 @@ class GitHubPublisher {
 
             uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/meta/movie/$safeId.json", gson.toJson(metaWrapper))
             uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/stream/movie/$safeId.json", gson.toJson(streamWrapper))
+            if (idStr != safeId) {
+                uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/meta/movie/$idStr.json", gson.toJson(metaWrapper))
+                uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/stream/movie/$idStr.json", gson.toJson(streamWrapper))
+            }
         }
     }
 
