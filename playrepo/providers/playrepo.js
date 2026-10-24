@@ -13,13 +13,13 @@ async function getStreams(tmdbId, mediaType, season, episode) {
         if (!response.ok) return [];
 
         const data = await response.json();
-        const cleanId = tmdbId ? tmdbId.toString().replace("tmdb:", "") : "";
+        const idStr = tmdbId ? tmdbId.toString() : "";
+        const cleanId = idStr.replace(/^tmdb:/, "").replace(/^movie\//, "").replace(/^tv\//, "");
 
-        const keyWithPrefix = mediaType === "tv"
-            ? `tv/${cleanId}/${season || 1}/${episode || 1}`
-            : `movie/${cleanId}`;
+        const keyMovie = `movie/${cleanId}`;
+        const keyTv = `tv/${cleanId}/${season || 1}/${episode || 1}`;
 
-        const itemStreams = data[keyWithPrefix] || data[cleanId] || data[tmdbId?.toString()] || [];
+        const itemStreams = data[keyTv] || data[keyMovie] || data[cleanId] || data[idStr] || [];
 
         return itemStreams.map((s) => ({
             name: s.name || "PlayRepo",
