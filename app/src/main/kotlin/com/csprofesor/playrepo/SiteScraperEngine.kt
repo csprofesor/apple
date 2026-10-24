@@ -519,6 +519,16 @@ class SiteScraperEngine {
                 return@withContext null
             }
 
+            // Prioritize instant-start HLS (.m3u8) streams first so playback starts in <1 second
+            val prioritizedStreams = resolvedStreams.sortedWith(
+                compareByDescending<StreamItem> { it.format == "m3u8" || it.url.contains(".m3u8") }
+                    .thenByDescending { it.quality }
+            ).mapIndexed { idx, st ->
+                val parts = st.title.split("•")
+                val suffix = if (parts.size > 2) parts.drop(2).joinToString(" • ").trim() else ""
+                st.copy(title = if (suffix.isNotBlank()) "Play • Sunucu ${idx + 1} • $suffix" else "Play • Sunucu ${idx + 1}")
+            }
+
             // Resolve official Metadata: Cinemeta (IMDb/Stremio standard) or TMDB or Scraped Page Info
             val resolvedMeta = resolveMovieMetadata(cleanTitle, scrapedPoster, scrapedDesc, year, tmdbApiKey)
 
@@ -526,7 +536,7 @@ class SiteScraperEngine {
                 tmdbId = resolvedMeta.id,
                 title = resolvedMeta.title,
                 poster = resolvedMeta.poster,
-                streams = resolvedStreams,
+                streams = prioritizedStreams,
                 genres = genreSet.toList(),
                 description = resolvedMeta.description,
                 year = resolvedMeta.year,
@@ -618,12 +628,16 @@ class SiteScraperEngine {
                         val videos = jsonObj.getAsJsonArray("videos")
                         if (videos != null && videos.size() > 0) {
                             var bestUrl = ""
-                            videos.forEach { v ->
-                                val vObj = v.asJsonObject
+                            for (i in 0 until videos.size()) {
+                                val vObj = videos[i].asJsonObject
+                                val key = vObj.get("key")?.asString.orEmpty()
                                 val u = vObj.get("url")?.asString.orEmpty()
                                 if (u.isNotBlank()) {
                                     val full = if (u.startsWith("//")) "https:$u" else u
-                                    bestUrl = full // Later ones in array are higher resolution (1080p)
+                                    if (key == "1080p" || key == "720p" || bestUrl.isBlank()) {
+                                        bestUrl = full
+                                        if (key == "1080p") break
+                                    }
                                 }
                             }
                             if (bestUrl.isNotBlank()) return bestUrl
@@ -678,6 +692,11 @@ class SiteScraperEngine {
                             val rootJson = org.json.JSONObject(optRaw)
                             val flashvars = rootJson.optJSONObject("flashvars")
                             if (flashvars != null) {
+                                val hls = flashvars.optString("hlsManifestUrl")
+                                if (hls.isNotBlank()) {
+                                    return hls.replace("&amp;", "&").replace("\\u0026", "&")
+                                }
+
                                 val metaObj = when (val m = flashvars.opt("metadata")) {
                                     is org.json.JSONObject -> m
                                     is String -> org.json.JSONObject(m)
@@ -696,10 +715,6 @@ class SiteScraperEngine {
                                     if (bestUrl.isNotBlank()) {
                                         return bestUrl.replace("&amp;", "&").replace("\\u0026", "&")
                                     }
-                                }
-                                val hls = flashvars.optString("hlsManifestUrl")
-                                if (hls.isNotBlank()) {
-                                    return hls.replace("&amp;", "&").replace("\\u0026", "&")
                                 }
                             }
                         }

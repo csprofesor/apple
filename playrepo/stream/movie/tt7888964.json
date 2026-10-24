@@ -2,8 +2,8 @@
   "streams": [
     {
       "name": "Play",
-      "title": "Play • Sunucu 1 • 1080p  •  [TR Dublaj]",
-      "url": "https://cdn59.my.mail.ru/v/73575949.mp4?slave[]=s%3Ahttp%3A%2F%2F10.146.243.0%3A8003%2Frados3%2F73575949-v&p=f&video_key=724c54d05b7b1348583dfa823ce82b875d6426b4&expire_at=1792890000&touch=1639256229&reg=76&sign=4762273eb9a3f45aacf7178951fb09ae04e3fb91",
+      "title": "Play • Sunucu 1 • 1080p • [TR Dublaj]",
+      "url": "https://cdn59.my.mail.ru/hv/73575949.mp4?slave[]=s%3Ahttp%3A%2F%2F10.146.243.0%3A8003%2Frados3%2F73575949-hv&p=f&video_key=724c54d05b7b1348583dfa823ce82b875d6426b4&expire_at=1792890000&touch=1639256229&reg=76&sign=4762273eb9a3f45aacf7178951fb09ae04e3fb91",
       "behaviorHints": {
         "notSupported": false,
         "proxyHeaders": {
@@ -12,6 +12,11 @@
             "Referer": "https://my.mail.ru/video/embed/7750209215083316892"
           }
         }
+      },
+      "quality": 1080,
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://my.mail.ru/video/embed/7750209215083316892"
       }
     }
   ]

@@ -2,7 +2,7 @@
   "streams": [
     {
       "name": "Play",
-      "title": "Play • Sunucu 1 • 1080p  •  [TR Dublaj]",
+      "title": "Play • Sunucu 1 • 1080p • [TR Dublaj]",
       "url": "https://ok6-31.vkuser.net/video.m3u8?cmd=videoPlayerCdn&expires=1792962494087&srcIp=85.107.102.169&pr=10&srcAg=GECKO&ch=1676822812&ms=95.142.206.35&type=2&sig=Cw3SDcS2fYk&ct=8&urls=176.112.172.39%3B95.163.35.41&clientType=0&zs=65&id=624002796105",
       "behaviorHints": {
         "notSupported": false,
@@ -12,6 +12,10 @@
             "Referer": "https://odnoklassniki.ru/videoembed/1469026470473?nochat=1"
           }
         }
+      },
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://odnoklassniki.ru/videoembed/1469026470473?nochat=1"
       }
     }
   ]

@@ -343,7 +343,23 @@ async function getStreams(arg1, arg2, arg3, arg4) {
             if (ssRes.ok) {
                 const ssData = await ssRes.json();
                 if (ssData && ssData.streams && ssData.streams.length > 0) {
-                    return ssData.streams;
+                    // Sort streams so that instant-start HLS (.m3u8) is ALWAYS FIRST!
+                    const sorted = ssData.streams.sort((a, b) => {
+                        const aHls = (a.format === "m3u8" || (a.url && a.url.includes(".m3u8"))) ? 1 : 0;
+                        const bHls = (b.format === "m3u8" || (b.url && b.url.includes(".m3u8"))) ? 1 : 0;
+                        return bHls - aHls;
+                    });
+                    return sorted.map((st, idx) => {
+                        const ref = (st.behaviorHints && st.behaviorHints.proxyHeaders && st.behaviorHints.proxyHeaders.request && st.behaviorHints.proxyHeaders.request.Referer) || st.referer || st.url;
+                        return {
+                            ...st,
+                            title: st.title || `Play • Sunucu ${idx + 1}`,
+                            headers: {
+                                "User-Agent": UA,
+                                "Referer": ref
+                            }
+                        };
+                    });
                 }
             }
         } catch (_) {}
