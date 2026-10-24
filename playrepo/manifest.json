@@ -5,6 +5,7 @@
   "description": "Otomatik güncellenen yüksek hızlı Türkçe ve Yabancı film/dizi kaynakları.",
   "logo": "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
   "resources": [
+    "catalog",
     "stream"
   ],
   "types": [
@@ -14,26 +15,33 @@
   "catalogs": [
     {
       "type": "movie",
-      "id": "playrepo-catalog-movies",
-      "name": "PlayRepo • Son Eklenen Filmler",
-      "genres": [
-        "Popüler",
-        "Korku & Gerilim",
-        "Aksiyon & Macera",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        },
-        {
-          "name": "genre",
-          "isRequired": false
-        }
-      ]
+      "id": "playrepo-popular",
+      "name": "PlayRepo • Popüler Filmler"
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-korku",
+      "name": "PlayRepo • Korku & Gerilim"
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-aksiyon",
+      "name": "PlayRepo • Aksiyon & Macera"
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-komedi",
+      "name": "PlayRepo • Komedi"
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-dram",
+      "name": "PlayRepo • Dram & Romantik"
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-bilimkurgu",
+      "name": "PlayRepo • Bilim Kurgu & Fantastik"
     }
   ],
   "scrapers": [
