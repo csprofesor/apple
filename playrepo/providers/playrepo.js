@@ -24,7 +24,8 @@ async function unpackLiveStreamUrl(rawUrl, referer) {
             if (metaRes.ok) {
                 const metaJson = await metaRes.json();
                 if (metaJson && metaJson.videos && metaJson.videos.length > 0) {
-                    const best = metaJson.videos[metaJson.videos.length - 1];
+                    // Pick 1080p (index 0) or highest available
+                    const best = metaJson.videos.find(v => v.key === "1080p" || v.key === "720p") || metaJson.videos[0];
                     const vUrl = best.url || "";
                     if (vUrl) {
                         return vUrl.startsWith("//") ? `https:${vUrl}` : vUrl;
@@ -69,8 +70,8 @@ async function unpackLiveStreamUrl(rawUrl, referer) {
             return voeMatch[1];
         }
 
-        // 5. Ok.ru HLS Manifest
-        const okMatch = html.match(/hlsManifestUrl["']?\s*:\s*["'](https?:\/\/[^"']+)["']/i);
+        // 5. Ok.ru / Odnoklassniki HLS Manifest
+        const okMatch = html.match(/hlsManifestUrl(?:\\?["']|&quot;)\s*:\s*(?:\\?["']|&quot;)(https?:[^"'\s&]+)/i);
         if (okMatch && okMatch[1]) {
             return okMatch[1].replace(/\\u0026/g, "&");
         }
@@ -351,8 +352,10 @@ async function getStreams(arg1, arg2, arg3, arg4) {
                     });
                     return sorted.map((st, idx) => {
                         const ref = (st.behaviorHints && st.behaviorHints.proxyHeaders && st.behaviorHints.proxyHeaders.request && st.behaviorHints.proxyHeaders.request.Referer) || st.referer || st.url;
+                        const isM3u8 = (st.url && st.url.includes(".m3u8")) || st.format === "m3u8";
                         return {
                             ...st,
+                            format: isM3u8 ? "m3u8" : "mp4",
                             title: st.title || `Play • Sunucu ${idx + 1}`,
                             headers: {
                                 "User-Agent": UA,
@@ -399,7 +402,10 @@ async function getStreams(arg1, arg2, arg3, arg4) {
 
         const resolvedPromises = itemStreams.map(async (s) => {
             const refererUrl = s.referer || s.url || "https://www.google.com";
-            const directUrl = await unpackLiveStreamUrl(s.url, refererUrl);
+            // If the URL is bound to an IP ticket (srcIp=) or referer is an embed player, unpack it live for the user's IP
+            const targetUrl = (refererUrl.includes("/embed") || refererUrl.includes("/videoembed") || s.url.includes("srcIp=")) ? refererUrl : s.url;
+            let directUrl = await unpackLiveStreamUrl(targetUrl, refererUrl);
+            if (!directUrl) directUrl = s.url;
 
             if (!directUrl) return null;
             const lowerDirect = directUrl.toLowerCase();
@@ -437,7 +443,13 @@ async function getStreams(arg1, arg2, arg3, arg4) {
         });
 
         const resolvedStreams = await Promise.all(resolvedPromises);
-        return resolvedStreams.filter(s => s !== null && s.url && s.url.length > 5);
+        const validStreams = resolvedStreams.filter(s => s !== null && s.url && s.url.length > 5);
+        validStreams.sort((a, b) => {
+            const aHls = (a.format === "m3u8" || (a.url && a.url.includes(".m3u8"))) ? 1 : 0;
+            const bHls = (b.format === "m3u8" || (b.url && b.url.includes(".m3u8"))) ? 1 : 0;
+            return bHls - aHls;
+        });
+        return validStreams;
     } catch (e) {
         console.error("Play getStreams error:", e);
         return [];
