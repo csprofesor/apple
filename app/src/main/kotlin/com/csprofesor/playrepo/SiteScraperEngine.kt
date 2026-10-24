@@ -3,6 +3,8 @@ package com.csprofesor.playrepo
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import okhttp3.Cookie
@@ -12,8 +14,10 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.jsoup.Jsoup
 import java.net.URLEncoder
+import java.util.Collections
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicInteger
 import kotlin.random.Random
 
 class SiteScraperEngine {
@@ -31,8 +35,9 @@ class SiteScraperEngine {
     }
 
     private val client = OkHttpClient.Builder()
-        .connectTimeout(15, TimeUnit.SECONDS)
-        .readTimeout(15, TimeUnit.SECONDS)
+        .connectTimeout(5, TimeUnit.SECONDS)
+        .readTimeout(6, TimeUnit.SECONDS)
+        .callTimeout(8, TimeUnit.SECONDS)
         .followRedirects(true)
         .followSslRedirects(true)
         .cookieJar(cookieJar)
@@ -215,23 +220,35 @@ class SiteScraperEngine {
 
         onStatusUpdate("✓ Toplam ${allMovieUrls.size} film tespit edildi! Video oynatıcılar ve posterler çözülüyor...")
 
-        val results = mutableListOf<ScrapedMovie>()
+        val results = Collections.synchronizedList(mutableListOf<ScrapedMovie>())
+        val processedCounter = AtomicInteger(0)
 
-        allMovieUrls.forEachIndexed { index, url ->
-            try {
-                val movie = scrapeMoviePage(url, tmdbApiKey)
-                if (movie != null && movie.streams.isNotEmpty()) {
-                    results.add(movie)
-                    onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] ✓ Çözüldü: ${movie.title} (${movie.streams.size} Çalışan Yayın Kaynağı)")
-                } else if (movie != null) {
-                    onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] - ${movie.title}: Aktif video akışı bulunamadı (Atlandı)")
+        // Process concurrently in chunks of 3 for high speed and live real-time visual progress
+        allMovieUrls.chunked(3).forEach { chunk ->
+            coroutineScope {
+                val jobs = chunk.map { url ->
+                    async(Dispatchers.IO) {
+                        val currentIdx = processedCounter.incrementAndGet()
+                        val shortName = url.trimEnd('/').substringAfterLast('/')
+                        onStatusUpdate("[$currentIdx / ${allMovieUrls.size}] İnceleniyor: $shortName...")
+                        try {
+                            val movie = scrapeMoviePage(url, tmdbApiKey)
+                            if (movie != null && movie.streams.isNotEmpty()) {
+                                results.add(movie)
+                                onStatusUpdate("[$currentIdx / ${allMovieUrls.size}] ✓ Çözüldü: ${movie.title} (${movie.streams.size} Sunucu)")
+                            } else {
+                                onStatusUpdate("[$currentIdx / ${allMovieUrls.size}] ↷ $shortName (Aktif akış yok, atlandı)")
+                            }
+                        } catch (e: Exception) {
+                            onStatusUpdate("[$currentIdx / ${allMovieUrls.size}] ✗ $shortName hatası: ${e.localizedMessage}")
+                        }
+                    }
                 }
-            } catch (e: Exception) {
-                onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] Sayfa hatası: ${e.localizedMessage}")
+                jobs.forEach { it.await() }
             }
         }
 
-        results
+        results.toList()
     }
 
     /**
@@ -310,6 +327,7 @@ class SiteScraperEngine {
                 val trimmed = raw.trim()
                 if (trimmed == movieUrl || trimmed == "$movieUrl/") return
                 if (trimmed.contains("about:blank") || trimmed.startsWith("javascript:")) return
+                if (trimmed.contains("player.hintfilmizle.com") || trimmed.contains("youtube.com") || trimmed.contains("youtu.be")) return
                 if (trimmed.endsWith(".jpg") || trimmed.endsWith(".png") || trimmed.endsWith(".webp") ||
                     trimmed.endsWith(".css") || trimmed.endsWith(".js") || trimmed.endsWith(".svg")) return
 
