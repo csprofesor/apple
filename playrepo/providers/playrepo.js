@@ -38,6 +38,52 @@ async function getCatalog(type, id, extra) {
     }
 }
 
+async function getMeta(type, id) {
+    try {
+        const response = await fetch(CATALOG_URL, {
+            headers: {
+                "User-Agent": UA,
+                "Accept": "application/json"
+            }
+        });
+
+        if (!response.ok) return { meta: null };
+
+        const catalogData = await response.json();
+        const metas = Array.isArray(catalogData) ? catalogData : (catalogData.metas || []);
+
+        const cleanId = id.toString();
+        const found = metas.find(m => m.id === cleanId || m.id === `movie/${cleanId}` || m.id.endsWith(cleanId));
+
+        if (found) {
+            return {
+                meta: {
+                    id: found.id,
+                    type: found.type || "movie",
+                    name: found.name,
+                    poster: found.poster,
+                    description: found.description || "PlayRepo • 1080p Film Yayın Kaynağı",
+                    genres: found.genres || ["Popüler"]
+                }
+            };
+        }
+
+        return {
+            meta: {
+                id: cleanId,
+                type: type || "movie",
+                name: "PlayRepo Film",
+                poster: "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
+                description: "PlayRepo • 1080p Film Yayın Kaynağı",
+                genres: ["Popüler"]
+            }
+        };
+    } catch (e) {
+        console.error("PlayRepo getMeta error:", e);
+        return { meta: null };
+    }
+}
+
 async function getStreams(tmdbId, mediaType, season, episode) {
     try {
         const response = await fetch(STREAMS_URL, {
@@ -77,5 +123,6 @@ async function getStreams(tmdbId, mediaType, season, episode) {
 
 module.exports = {
     getCatalog: getCatalog,
+    getMeta: getMeta,
     getStreams: getStreams
 };

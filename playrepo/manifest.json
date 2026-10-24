@@ -5,6 +5,8 @@
   "description": "Otomatik güncellenen yüksek hızlı Türkçe ve Yabancı film/dizi kaynakları.",
   "logo": "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
   "resources": [
+    "catalog",
+    "meta",
     "stream"
   ],
   "types": [
