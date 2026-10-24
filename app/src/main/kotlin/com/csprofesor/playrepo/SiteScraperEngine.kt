@@ -141,12 +141,14 @@ class SiteScraperEngine {
             lower.contains("page=") || lower.contains("orderby=") ||
             lower.contains("/tag/") || lower.contains("#") ||
             lower.contains("javascript:") || lower.endsWith(".jpg") ||
-            lower.endsWith(".png") || lower.endsWith(".css") || lower.endsWith(".js")
+            lower.endsWith(".png") || lower.endsWith(".css") || lower.endsWith(".js") ||
+            lower.contains("/login") || lower.contains("/takvim") || lower.contains("/trendler") ||
+            lower.contains("/seri-filmler") || lower.contains("/yabanci-dizi")
         ) {
             return false
         }
 
-        return lower.contains("/film/") || lower.contains("/diziler/") || lower.contains("/dizi/") || lower.contains("-izle")
+        return lower.contains("/film/") || lower.contains("-izle") || lower.contains("/dizi/")
     }
 
     private fun isValidCatalogPageUrl(url: String, siteBase: String): Boolean {
@@ -191,6 +193,7 @@ class SiteScraperEngine {
         allMovieUrls.forEachIndexed { index, url ->
             try {
                 val movie = scrapeMoviePage(url, tmdbApiKey)
+                // STRICT CHECK: ONLY SAVE MOVIE IF WE EXTRACTED AT LEAST 1 DIRECT M3U8/MP4 STREAM
                 if (movie != null && movie.streams.isNotEmpty()) {
                     results.add(movie)
                     onStatusUpdate("[${index + 1} / ${allMovieUrls.size}] Çözüldü: ${movie.title} (${movie.streams.size} M3U8/MP4 yayın kaynağı)")
@@ -225,7 +228,7 @@ class SiteScraperEngine {
                 ?: movieUrl.substringAfterLast("/").replace("-", " ")
 
             val cleanTitle = cleanMovieTitle(rawTitle)
-            if (cleanTitle.isBlank()) return@withContext null
+            if (cleanTitle.isBlank() || cleanTitle.lowercase() == "filmkovasi.co" || cleanTitle.lowercase() == "www.hintfilmizle.com") return@withContext null
 
             // Detect language & quality flags
             val isDub = html.contains("dublaj", true) || rawTitle.contains("dublaj", true)
@@ -297,22 +300,27 @@ class SiteScraperEngine {
 
             foundCandidateUrls.distinct().forEach { embedUrl ->
                 val directStreamUrl = unpackEmbedStreamUrl(embedUrl, movieUrl)
+                
+                // CRITICAL FIX: Only add to streams if it's an actual playable media URL (m3u8 or mp4)
                 if (directStreamUrl.isNotBlank() && resolvedStreams.none { it.url == directStreamUrl }) {
-                    val isM3u8 = directStreamUrl.contains(".m3u8")
-                    resolvedStreams.add(
-                        StreamItem(
-                            name = "PlayRepo",
-                            title = "PlayRepo • Sunucu ${resolvedStreams.size + 1} • $qualityTag • $langTag",
-                            url = directStreamUrl,
-                            quality = if (qualityTag == "4K") 2160 else 1080,
-                            format = if (isM3u8) "m3u8" else "mp4",
-                            referer = embedUrl
+                    val lowerUrl = directStreamUrl.lowercase()
+                    if (lowerUrl.contains(".m3u8") || lowerUrl.contains(".mp4")) {
+                        val isM3u8 = lowerUrl.contains(".m3u8")
+                        resolvedStreams.add(
+                            StreamItem(
+                                name = "PlayRepo",
+                                title = "PlayRepo • Sunucu ${resolvedStreams.size + 1} • $qualityTag • $langTag",
+                                url = directStreamUrl,
+                                quality = if (qualityTag == "4K") 2160 else 1080,
+                                format = if (isM3u8) "m3u8" else "mp4",
+                                referer = embedUrl
+                            )
                         )
-                    )
+                    }
                 }
             }
 
-            // If no streams unpacked, skip saving HTML webpage
+            // If no valid media streams unpacked, skip this movie entirely (prevents Nuvio infinite buffering)
             if (resolvedStreams.isEmpty()) {
                 return@withContext null
             }
