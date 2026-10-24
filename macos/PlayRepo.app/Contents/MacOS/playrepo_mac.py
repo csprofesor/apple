@@ -724,25 +724,29 @@ class GitHubAtomicPublisher:
             return False
 
 # -------------------------------------------------------------
-# GUI Application
+# GUI Application (Ultra High Contrast Pitch Black Edition)
 # -------------------------------------------------------------
 class PlayRepoApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("PlayRepo Pro • macOS Movie Scraper")
-        self.geometry("920x680")
-        self.minsize(800, 560)
+        self.title("PlayRepo Pro • macOS Film Çekici & Senkronize Edici")
+        self.geometry("980x740")
+        self.minsize(860, 620)
 
-        # Dark theme colors
-        self.bg_color = "#12141a"
-        self.card_color = "#1b1f2b"
-        self.accent_color = "#3b82f6"
-        self.accent_hover = "#2563eb"
-        self.text_color = "#f3f4f6"
-        self.text_dim = "#9ca3af"
-        self.border_color = "#2d3748"
-        self.success_color = "#10b981"
-        self.danger_color = "#ef4444"
+        # True Pitch Black & High-Contrast Colors
+        self.bg_color = "#000000"          # Saf Siyah
+        self.card_color = "#0e1015"        # Koyu Kart
+        self.card_border = "#2e3440"       # Belirgin Kart Kenarlığı
+        self.input_bg = "#161922"          # Belirgin Giriş Kutusu Arka Planı
+        self.input_border = "#3b82f6"      # Mavi Parlak Kenarlık
+        self.accent_color = "#2563eb"      # Canlı Mavi Buton
+        self.accent_hover = "#1d4ed8"
+        self.text_color = "#ffffff"        # Saf Beyaz Metin
+        self.text_dim = "#94a3b8"          # Açık Gri Açıklama
+        self.success_color = "#059669"     # Zümrüt Yeşili
+        self.success_hover = "#047857"
+        self.danger_color = "#dc2626"      # Parlak Kırmızı
+        self.danger_hover = "#b91c1c"
 
         self.configure(bg=self.bg_color)
 
@@ -781,56 +785,59 @@ class PlayRepoApp(tk.Tk):
             self.append_log(f"Ayarlar kaydedilemedi: {e}")
 
     def setup_ui(self):
-        # Header Bar
-        header = tk.Frame(self, bg=self.card_color, height=60)
+        # 1. Header Bar
+        header = tk.Frame(self, bg="#08090c", bd=0, highlightbackground=self.card_border, highlightthickness=1)
         header.pack(fill=tk.X, side=tk.TOP)
 
         title_lbl = tk.Label(
             header,
             text="🎬 PlayRepo Pro",
-            font=("SF Pro Display", 18, "bold"),
-            fg=self.text_color,
-            bg=self.card_color
+            font=("SF Pro Display", 20, "bold"),
+            fg="#ffffff",
+            bg="#08090c"
         )
-        title_lbl.pack(side=tk.LEFT, padx=20, pady=12)
+        title_lbl.pack(side=tk.LEFT, padx=(20, 10), pady=14)
 
         sub_lbl = tk.Label(
             header,
             text="macOS Film & Akış Senkronizasyonu (Dublaj + Altyazı • HLS 1080p)",
-            font=("SF Pro Text", 11),
-            fg=self.text_dim,
-            bg=self.card_color
+            font=("SF Pro Text", 12, "bold"),
+            fg="#60a5fa",
+            bg="#08090c"
         )
-        sub_lbl.pack(side=tk.LEFT, padx=5, pady=15)
+        sub_lbl.pack(side=tk.LEFT, padx=5, pady=16)
 
-        # Tab Navigation
-        nav_frame = tk.Frame(self, bg=self.card_color)
-        nav_frame.pack(fill=tk.X, side=tk.TOP, pady=(1, 0))
+        # 2. Modern Tab Navigation (Pill Style)
+        nav_frame = tk.Frame(self, bg=self.bg_color, pady=10)
+        nav_frame.pack(fill=tk.X, side=tk.TOP, padx=20)
 
         self.btn_tab_dashboard = tk.Button(
-            nav_frame, text="⚡ Kontrol Paneli", font=("SF Pro Text", 12, "bold"),
-            fg=self.accent_color, bg=self.card_color, relief=tk.FLAT, bd=0, padx=20, pady=8,
+            nav_frame, text="⚡ 1. KONTROL PANELİ", font=("SF Pro Text", 12, "bold"),
+            fg="#ffffff", bg=self.accent_color, relief=tk.FLAT, bd=0, padx=20, pady=8, cursor="hand2",
+            highlightbackground="#60a5fa", highlightthickness=1,
             command=lambda: self.switch_tab(0)
         )
-        self.btn_tab_dashboard.pack(side=tk.LEFT)
+        self.btn_tab_dashboard.pack(side=tk.LEFT, padx=(0, 10))
 
         self.btn_tab_sites = tk.Button(
-            nav_frame, text="🌐 Kayıtlı Siteler", font=("SF Pro Text", 12),
-            fg=self.text_dim, bg=self.card_color, relief=tk.FLAT, bd=0, padx=20, pady=8,
+            nav_frame, text="🌐 2. KAYITLI SİTELER", font=("SF Pro Text", 12, "bold"),
+            fg="#94a3b8", bg="#13161f", relief=tk.FLAT, bd=0, padx=20, pady=8, cursor="hand2",
+            highlightbackground=self.card_border, highlightthickness=1,
             command=lambda: self.switch_tab(1)
         )
-        self.btn_tab_sites.pack(side=tk.LEFT)
+        self.btn_tab_sites.pack(side=tk.LEFT, padx=(0, 10))
 
         self.btn_tab_settings = tk.Button(
-            nav_frame, text="⚙️ Tekli Tarama & Ayarlar", font=("SF Pro Text", 12),
-            fg=self.text_dim, bg=self.card_color, relief=tk.FLAT, bd=0, padx=20, pady=8,
+            nav_frame, text="⚙️ 3. TEKLİ TARAMA & AYARLAR", font=("SF Pro Text", 12, "bold"),
+            fg="#94a3b8", bg="#13161f", relief=tk.FLAT, bd=0, padx=20, pady=8, cursor="hand2",
+            highlightbackground=self.card_border, highlightthickness=1,
             command=lambda: self.switch_tab(2)
         )
         self.btn_tab_settings.pack(side=tk.LEFT)
 
-        # Tab Content Container
+        # 3. Main Container
         self.container = tk.Frame(self, bg=self.bg_color)
-        self.container.pack(fill=tk.BOTH, expand=True, padx=20, pady=15)
+        self.container.pack(fill=tk.BOTH, expand=True, padx=20, pady=(0, 15))
 
         self.tab_dashboard = tk.Frame(self.container, bg=self.bg_color)
         self.tab_sites = tk.Frame(self.container, bg=self.bg_color)
@@ -847,124 +854,367 @@ class PlayRepoApp(tk.Tk):
         self.tab_sites.pack_forget()
         self.tab_settings.pack_forget()
 
-        self.btn_tab_dashboard.config(fg=self.text_dim)
-        self.btn_tab_sites.config(fg=self.text_dim)
-        self.btn_tab_settings.config(fg=self.text_dim)
+        # Reset button styles
+        for btn in [self.btn_tab_dashboard, self.btn_tab_sites, self.btn_tab_settings]:
+            btn.config(bg="#13161f", fg="#94a3b8", highlightbackground=self.card_border)
 
         if index == 0:
             self.tab_dashboard.pack(fill=tk.BOTH, expand=True)
-            self.btn_tab_dashboard.config(fg=self.accent_color)
+            self.btn_tab_dashboard.config(bg=self.accent_color, fg="#ffffff", highlightbackground="#60a5fa")
+            self.update_dashboard_sites_summary()
         elif index == 1:
             self.tab_sites.pack(fill=tk.BOTH, expand=True)
-            self.btn_tab_sites.config(fg=self.accent_color)
+            self.btn_tab_sites.config(bg=self.accent_color, fg="#ffffff", highlightbackground="#60a5fa")
             self.refresh_sites_listbox()
         elif index == 2:
             self.tab_settings.pack(fill=tk.BOTH, expand=True)
-            self.btn_tab_settings.config(fg=self.accent_color)
+            self.btn_tab_settings.config(bg=self.accent_color, fg="#ffffff", highlightbackground="#60a5fa")
 
-    # ---------------- Tab 1: Dashboard ----------------
+    # ---------------- Tab 1: Dashboard (With Quick Add Bar!) ----------------
     def setup_tab_dashboard(self):
-        ctrl_card = tk.Frame(self.tab_dashboard, bg=self.card_color, bd=1, relief=tk.SOLID)
-        ctrl_card.pack(fill=tk.X, pady=(0, 15), ipady=10, ipadx=10)
+        # Card 1: Hızlı Site Ekleme Kutusu (Doğrudan Ana Ekranda ve Çok Belirgin!)
+        add_card = tk.Frame(
+            self.tab_dashboard,
+            bg=self.card_color,
+            highlightbackground="#3b82f6",
+            highlightthickness=2,
+            padx=15,
+            pady=12
+        )
+        add_card.pack(fill=tk.X, pady=(0, 12))
+
+        lbl_row = tk.Frame(add_card, bg=self.card_color)
+        lbl_row.pack(fill=tk.X, pady=(0, 6))
+
+        tk.Label(
+            lbl_row,
+            text="🌐 TARANACAK YENİ SİTE VEYA KATEGORİ ADRESİ EKLE:",
+            font=("SF Pro Text", 12, "bold"),
+            fg="#60a5fa",
+            bg=self.card_color
+        ).pack(side=tk.LEFT)
+
+        tk.Label(
+            lbl_row,
+            text="(Örn: https://www.hintfilmizle.com/film-izle/)",
+            font=("SF Pro Text", 11),
+            fg="#94a3b8",
+            bg=self.card_color
+        ).pack(side=tk.LEFT, padx=10)
+
+        input_row = tk.Frame(add_card, bg=self.card_color)
+        input_row.pack(fill=tk.X)
+
+        self.ent_quick_site = tk.Entry(
+            input_row,
+            font=("SF Pro Text", 13),
+            bg=self.input_bg,
+            fg="#ffffff",
+            insertbackground="#ffffff",
+            highlightbackground="#60a5fa",
+            highlightcolor="#38bdf8",
+            highlightthickness=2,
+            relief=tk.FLAT,
+            bd=0
+        )
+        self.ent_quick_site.pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=6, padx=(0, 12))
+
+        btn_quick_add = tk.Button(
+            input_row,
+            text="➕ BU SİTEYİ LİSTEYE EKLE",
+            font=("SF Pro Text", 12, "bold"),
+            fg="#ffffff",
+            bg=self.success_color,
+            activebackground=self.success_hover,
+            activeforeground="#ffffff",
+            relief=tk.FLAT,
+            bd=0,
+            padx=18,
+            pady=8,
+            cursor="hand2",
+            highlightbackground="#10b981",
+            highlightthickness=1,
+            command=self.add_site_from_quick_entry
+        )
+        btn_quick_add.pack(side=tk.LEFT)
+
+        # Card 2: Kontroller ve Başlatma
+        ctrl_card = tk.Frame(
+            self.tab_dashboard,
+            bg=self.card_color,
+            highlightbackground=self.card_border,
+            highlightthickness=1,
+            padx=15,
+            pady=12
+        )
+        ctrl_card.pack(fill=tk.X, pady=(0, 12))
 
         top_row = tk.Frame(ctrl_card, bg=self.card_color)
-        top_row.pack(fill=tk.X, padx=10, pady=5)
+        top_row.pack(fill=tk.X)
 
-        tk.Label(top_row, text="Sayfa Limiti (Site Başı):", fg=self.text_color, bg=self.card_color, font=("SF Pro Text", 12)).pack(side=tk.LEFT, padx=(0, 10))
+        tk.Label(
+            top_row,
+            text="Sayfa Limiti:",
+            fg="#ffffff",
+            bg=self.card_color,
+            font=("SF Pro Text", 12, "bold")
+        ).pack(side=tk.LEFT, padx=(0, 8))
 
-        self.ent_max_pages = tk.Entry(top_row, width=6, font=("SF Pro Text", 12), bg="#0f1117", fg=self.text_color, insertbackground="white")
+        self.ent_max_pages = tk.Entry(
+            top_row,
+            width=5,
+            font=("SF Pro Text", 13, "bold"),
+            bg=self.input_bg,
+            fg="#38bdf8",
+            insertbackground="#ffffff",
+            highlightbackground="#60a5fa",
+            highlightcolor="#38bdf8",
+            highlightthickness=2,
+            relief=tk.FLAT,
+            bd=0,
+            justify="center"
+        )
         self.ent_max_pages.insert(0, str(self.config_data.get("max_pages", 20)))
-        self.ent_max_pages.pack(side=tk.LEFT, padx=(0, 20))
+        self.ent_max_pages.pack(side=tk.LEFT, ipady=5, padx=(0, 15))
 
         self.btn_start_all = tk.Button(
-            top_row, text="⚡ TÜM SİTELERİ GÜNCELLE VE YÜKLE",
-            font=("SF Pro Text", 12, "bold"), fg="white", bg=self.accent_color,
-            activebackground=self.accent_hover, activeforeground="white",
-            relief=tk.FLAT, padx=15, pady=6, cursor="hand2",
+            top_row,
+            text="⚡ TÜM SİTELERİ GÜNCELLE VE GITHUB'A YÜKLE",
+            font=("SF Pro Text", 13, "bold"),
+            fg="#ffffff",
+            bg=self.accent_color,
+            activebackground=self.accent_hover,
+            activeforeground="#ffffff",
+            relief=tk.FLAT,
+            bd=0,
+            padx=20,
+            pady=8,
+            cursor="hand2",
+            highlightbackground="#60a5fa",
+            highlightthickness=1,
             command=self.start_master_update
         )
         self.btn_start_all.pack(side=tk.LEFT, padx=(0, 10))
 
         self.btn_stop = tk.Button(
-            top_row, text="⏹ Durdur",
-            font=("SF Pro Text", 12), fg="white", bg=self.danger_color,
-            relief=tk.FLAT, padx=12, pady=6, cursor="hand2", state=tk.DISABLED,
+            top_row,
+            text="⏹ Durdur",
+            font=("SF Pro Text", 12, "bold"),
+            fg="#ffffff",
+            bg=self.danger_color,
+            activebackground=self.danger_hover,
+            activeforeground="#ffffff",
+            relief=tk.FLAT,
+            bd=0,
+            padx=14,
+            pady=8,
+            cursor="hand2",
+            state=tk.DISABLED,
             command=self.stop_crawler
         )
         self.btn_stop.pack(side=tk.LEFT, padx=(0, 10))
 
         self.btn_clear_log = tk.Button(
-            top_row, text="🧹 Logları Temizle",
-            font=("SF Pro Text", 11), fg=self.text_dim, bg=self.card_color,
-            relief=tk.FLAT, padx=10, pady=6, cursor="hand2",
+            top_row,
+            text="🧹 Logları Temizle",
+            font=("SF Pro Text", 11, "bold"),
+            fg="#94a3b8",
+            bg="#1e2230",
+            relief=tk.FLAT,
+            bd=0,
+            padx=12,
+            pady=8,
+            cursor="hand2",
             command=self.clear_logs
         )
         self.btn_clear_log.pack(side=tk.RIGHT)
 
-        # Log Terminal View
-        log_label = tk.Label(self.tab_dashboard, text="CANLI TERMİNAL / İŞLEM ÇIKTISI", font=("SF Pro Text", 10, "bold"), fg=self.text_dim, bg=self.bg_color)
-        log_label.pack(anchor="w", pady=(0, 5))
+        # Aktif Siteler Özeti
+        self.lbl_sites_summary = tk.Label(
+            ctrl_card,
+            text="Kayıtlı Siteler: 1 site hazır",
+            font=("SF Pro Text", 11),
+            fg="#34d399",
+            bg=self.card_color
+        )
+        self.lbl_sites_summary.pack(anchor="w", pady=(8, 0))
+        self.update_dashboard_sites_summary()
+
+        # Card 3: Canlı Terminal Ekranı
+        term_header = tk.Frame(self.tab_dashboard, bg=self.bg_color)
+        term_header.pack(fill=tk.X, pady=(0, 6))
+
+        tk.Label(
+            term_header,
+            text="CANLI İŞLEM TERMİNALİ",
+            font=("SF Pro Text", 11, "bold"),
+            fg="#60a5fa",
+            bg=self.bg_color
+        ).pack(side=tk.LEFT)
 
         self.txt_log = scrolledtext.ScrolledText(
             self.tab_dashboard,
-            bg="#0b0d13",
-            fg="#10b981",
-            insertbackground="white",
+            bg="#050608",
+            fg="#34d399",
+            insertbackground="#ffffff",
             font=("Menlo", 11),
             bd=0,
-            relief=tk.FLAT
+            relief=tk.FLAT,
+            highlightbackground=self.card_border,
+            highlightthickness=1,
+            padx=10,
+            pady=10
         )
         self.txt_log.pack(fill=tk.BOTH, expand=True)
-        self.append_log("[READY] PlayRepo macOS v2.5 hazır. 'Tüm Siteleri Güncelle' veya 'Tekli Tarama' yapabilirsiniz.")
+        self.append_log("[READY] PlayRepo macOS Pro (Siyah Tema) hazır.")
+        self.append_log("[INFO] Yukarıdaki mavi kutudan yeni site linki ekleyebilir veya doğrudan 'TÜM SİTELERİ GÜNCELLE' yapabilirsiniz.")
+
+    def update_dashboard_sites_summary(self):
+        saved = self.config_data.get("saved_sites", [])
+        c = len(saved)
+        sites_preview = ", ".join(s.replace("https://", "").replace("http://", "").rstrip("/") for s in saved[:3])
+        if c > 3:
+            sites_preview += f" (+{c - 3} daha)"
+        self.lbl_sites_summary.config(text=f"📋 Taranacak Kayıtlı Siteler ({c} Adet): {sites_preview}")
+
+    def add_site_from_quick_entry(self):
+        url = self.ent_quick_site.get().strip()
+        if not url.startswith("http"):
+            messagebox.showwarning("Geçersiz URL", "Lütfen geçerli bir site linki girin!\nÖrnek: https://www.hintfilmizle.com/film-izle/")
+            return
+        saved = self.config_data.setdefault("saved_sites", [])
+        if url in saved:
+            messagebox.showinfo("Zaten Kayıtlı", "Bu site adresi zaten listenizde mevcut.")
+            return
+
+        saved.append(url)
+        self.save_config()
+        self.update_dashboard_sites_summary()
+        self.ent_quick_site.delete(0, tk.END)
+        self.append_log(f"✓ [YENİ SİTE EKLENDİ] {url}")
+        messagebox.showinfo("Başarılı", f"Site başarıyla eklendi:\n{url}")
 
     # ---------------- Tab 2: Saved Sites ----------------
     def setup_tab_sites(self):
-        add_card = tk.Frame(self.tab_sites, bg=self.card_color, bd=1, relief=tk.SOLID)
-        add_card.pack(fill=tk.X, pady=(0, 15), ipady=8, ipadx=10)
+        add_card = tk.Frame(
+            self.tab_sites,
+            bg=self.card_color,
+            highlightbackground="#3b82f6",
+            highlightthickness=2,
+            padx=15,
+            pady=12
+        )
+        add_card.pack(fill=tk.X, pady=(0, 15))
 
-        tk.Label(add_card, text="Yeni Site Adresi:", font=("SF Pro Text", 12), fg=self.text_color, bg=self.card_color).pack(side=tk.LEFT, padx=(10, 10))
+        tk.Label(
+            add_card,
+            text="YENİ SİTE ADRESİ (URL):",
+            font=("SF Pro Text", 12, "bold"),
+            fg="#60a5fa",
+            bg=self.card_color
+        ).pack(anchor="w", pady=(0, 6))
 
-        self.ent_new_site = tk.Entry(add_card, font=("SF Pro Text", 12), bg="#0f1117", fg=self.text_color, insertbackground="white")
-        self.ent_new_site.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 10))
+        in_row = tk.Frame(add_card, bg=self.card_color)
+        in_row.pack(fill=tk.X)
+
+        self.ent_new_site = tk.Entry(
+            in_row,
+            font=("SF Pro Text", 13),
+            bg=self.input_bg,
+            fg="#ffffff",
+            insertbackground="#ffffff",
+            highlightbackground="#60a5fa",
+            highlightcolor="#38bdf8",
+            highlightthickness=2,
+            relief=tk.FLAT,
+            bd=0
+        )
+        self.ent_new_site.pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=6, padx=(0, 12))
 
         btn_add = tk.Button(
-            add_card, text="+ Site Ekle & Doğrula", font=("SF Pro Text", 12, "bold"),
-            fg="white", bg=self.accent_color, relief=tk.FLAT, padx=12, pady=5, cursor="hand2",
+            in_row,
+            text="➕ SİTEYİ EKLE",
+            font=("SF Pro Text", 12, "bold"),
+            fg="#ffffff",
+            bg=self.success_color,
+            activebackground=self.success_hover,
+            activeforeground="#ffffff",
+            relief=tk.FLAT,
+            bd=0,
+            padx=18,
+            pady=8,
+            cursor="hand2",
+            highlightbackground="#10b981",
+            highlightthickness=1,
             command=self.add_new_site
         )
-        btn_add.pack(side=tk.LEFT, padx=(0, 10))
+        btn_add.pack(side=tk.LEFT)
 
-        # Sites List
+        # List Card
         list_frame = tk.Frame(self.tab_sites, bg=self.bg_color)
         list_frame.pack(fill=tk.BOTH, expand=True)
 
-        tk.Label(list_frame, text="KAYITLI TARAMA SİTELERİ", font=("SF Pro Text", 10, "bold"), fg=self.text_dim, bg=self.bg_color).pack(anchor="w", pady=(0, 5))
+        tk.Label(
+            list_frame,
+            text="KAYITLI TARAMA SİTELERİ LİSTESİ",
+            font=("SF Pro Text", 11, "bold"),
+            fg="#ffffff",
+            bg=self.bg_color
+        ).pack(anchor="w", pady=(0, 8))
 
         self.listbox_sites = tk.Listbox(
             list_frame,
             bg=self.card_color,
-            fg=self.text_color,
+            fg="#ffffff",
             selectbackground=self.accent_color,
-            font=("SF Pro Text", 12),
+            selectforeground="#ffffff",
+            font=("SF Pro Text", 13),
             bd=0,
             relief=tk.FLAT,
-            height=12
+            highlightbackground=self.card_border,
+            highlightthickness=1,
+            height=12,
+            activestyle="none"
         )
-        self.listbox_sites.pack(fill=tk.BOTH, expand=True, pady=(0, 10))
+        self.listbox_sites.pack(fill=tk.BOTH, expand=True, pady=(0, 12))
 
         bot_row = tk.Frame(list_frame, bg=self.bg_color)
         bot_row.pack(fill=tk.X)
 
         btn_delete = tk.Button(
-            bot_row, text="Seçili Siteyi Sil", font=("SF Pro Text", 11),
-            fg="white", bg=self.danger_color, relief=tk.FLAT, padx=12, pady=5, cursor="hand2",
+            bot_row,
+            text="🗑️ Seçili Siteyi Sil",
+            font=("SF Pro Text", 12, "bold"),
+            fg="#ffffff",
+            bg=self.danger_color,
+            activebackground=self.danger_hover,
+            activeforeground="#ffffff",
+            relief=tk.FLAT,
+            bd=0,
+            padx=16,
+            pady=8,
+            cursor="hand2",
+            highlightbackground="#ef4444",
+            highlightthickness=1,
             command=self.delete_selected_site
         )
-        btn_delete.pack(side=tk.LEFT, padx=(0, 10))
+        btn_delete.pack(side=tk.LEFT, padx=(0, 12))
 
         btn_reset = tk.Button(
-            bot_row, text="Varsayılana Sıfırla", font=("SF Pro Text", 11),
-            fg=self.text_color, bg="#374151", relief=tk.FLAT, padx=12, pady=5, cursor="hand2",
+            bot_row,
+            text="🔄 Varsayılana Sıfırla (Hintfilmizle)",
+            font=("SF Pro Text", 12),
+            fg="#ffffff",
+            bg="#262a36",
+            activebackground="#1e2230",
+            activeforeground="#ffffff",
+            relief=tk.FLAT,
+            bd=0,
+            padx=16,
+            pady=8,
+            cursor="hand2",
+            highlightbackground=self.card_border,
+            highlightthickness=1,
             command=self.reset_sites_to_default
         )
         btn_reset.pack(side=tk.LEFT)
@@ -988,12 +1238,14 @@ class PlayRepoApp(tk.Tk):
         self.save_config()
         self.refresh_sites_listbox()
         self.ent_new_site.delete(0, tk.END)
-        self.append_log(f"[SITE ADDED] {url} kayıtlı sitelere eklendi.")
-        messagebox.showinfo("Başarılı", f"{url} başarıyla eklendi!")
+        self.update_dashboard_sites_summary()
+        self.append_log(f"[SITE EKLENDİ] {url}")
+        messagebox.showinfo("Başarılı", f"{url} listeye eklendi!")
 
     def delete_selected_site(self):
         sel = self.listbox_sites.curselection()
         if not sel:
+            messagebox.showinfo("Seçim Yapın", "Lütfen silmek istediğiniz siteyi listeden tıklayarak seçin.")
             return
         idx = sel[0]
         saved = self.config_data.get("saved_sites", [])
@@ -1001,77 +1253,187 @@ class PlayRepoApp(tk.Tk):
             removed = saved.pop(idx)
             self.save_config()
             self.refresh_sites_listbox()
-            self.append_log(f"[SITE REMOVED] {removed} silindi.")
+            self.update_dashboard_sites_summary()
+            self.append_log(f"[SİTE SİLİNDİ] {removed}")
 
     def reset_sites_to_default(self):
         self.config_data["saved_sites"] = ["https://www.hintfilmizle.com/film-izle/"]
         self.save_config()
         self.refresh_sites_listbox()
-        self.append_log("[SITE LIST RESET] Site listesi varsayılana sıfırlandı.")
+        self.update_dashboard_sites_summary()
+        self.append_log("[SIFIRLANDI] Site listesi varsayılana sıfırlandı.")
 
     # ---------------- Tab 3: Single Crawl & Settings ----------------
     def setup_tab_settings(self):
-        # Single Crawl Card
-        single_card = tk.Frame(self.tab_settings, bg=self.card_color, bd=1, relief=tk.SOLID)
-        single_card.pack(fill=tk.X, pady=(0, 15), ipady=10, ipadx=10)
+        # Card 1: Tekli Tarama
+        single_card = tk.Frame(
+            self.tab_settings,
+            bg=self.card_color,
+            highlightbackground="#3b82f6",
+            highlightthickness=2,
+            padx=15,
+            pady=15
+        )
+        single_card.pack(fill=tk.X, pady=(0, 15))
 
-        tk.Label(single_card, text="TEKLİ SİTE VEYA FİLM TARAMA", font=("SF Pro Text", 12, "bold"), fg=self.accent_color, bg=self.card_color).pack(anchor="w", padx=10, pady=(5, 10))
+        tk.Label(
+            single_card,
+            text="TEKLİ FİLM VEYA SİTE TARAMA",
+            font=("SF Pro Text", 12, "bold"),
+            fg="#60a5fa",
+            bg=self.card_color
+        ).pack(anchor="w", pady=(0, 8))
 
         s_row = tk.Frame(single_card, bg=self.card_color)
-        s_row.pack(fill=tk.X, padx=10, pady=5)
+        s_row.pack(fill=tk.X)
 
-        tk.Label(s_row, text="Film / Kategori URL:", font=("SF Pro Text", 11), fg=self.text_color, bg=self.card_color).pack(side=tk.LEFT, padx=(0, 10))
-        self.ent_single_url = tk.Entry(s_row, font=("SF Pro Text", 11), bg="#0f1117", fg=self.text_color, insertbackground="white")
-        self.ent_single_url.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 10))
+        tk.Label(
+            s_row,
+            text="Hedef URL:",
+            font=("SF Pro Text", 12, "bold"),
+            fg="#ffffff",
+            bg=self.card_color
+        ).pack(side=tk.LEFT, padx=(0, 10))
+
+        self.ent_single_url = tk.Entry(
+            s_row,
+            font=("SF Pro Text", 13),
+            bg=self.input_bg,
+            fg="#ffffff",
+            insertbackground="#ffffff",
+            highlightbackground="#60a5fa",
+            highlightcolor="#38bdf8",
+            highlightthickness=2,
+            relief=tk.FLAT,
+            bd=0
+        )
+        self.ent_single_url.pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=6, padx=(0, 12))
 
         btn_single_crawl = tk.Button(
-            s_row, text="▶ Tekli Tara & Yükle", font=("SF Pro Text", 11, "bold"),
-            fg="white", bg=self.accent_color, relief=tk.FLAT, padx=12, pady=5, cursor="hand2",
+            s_row,
+            text="▶ TEKLİ TARA & YÜKLE",
+            font=("SF Pro Text", 12, "bold"),
+            fg="#ffffff",
+            bg=self.accent_color,
+            activebackground=self.accent_hover,
+            activeforeground="#ffffff",
+            relief=tk.FLAT,
+            bd=0,
+            padx=16,
+            pady=8,
+            cursor="hand2",
+            highlightbackground="#60a5fa",
+            highlightthickness=1,
             command=self.start_single_crawl
         )
         btn_single_crawl.pack(side=tk.LEFT)
 
-        # Settings Card
-        cfg_card = tk.Frame(self.tab_settings, bg=self.card_color, bd=1, relief=tk.SOLID)
-        cfg_card.pack(fill=tk.X, ipady=15, ipadx=10)
+        # Card 2: Ayarlar
+        cfg_card = tk.Frame(
+            self.tab_settings,
+            bg=self.card_color,
+            highlightbackground=self.card_border,
+            highlightthickness=1,
+            padx=15,
+            pady=15
+        )
+        cfg_card.pack(fill=tk.X)
 
-        tk.Label(cfg_card, text="GİTHUB & TMDB AYARLARI", font=("SF Pro Text", 12, "bold"), fg=self.accent_color, bg=self.card_color).pack(anchor="w", padx=10, pady=(5, 15))
+        tk.Label(
+            cfg_card,
+            text="GİTHUB & TMDB ERİŞİM AYARLARI",
+            font=("SF Pro Text", 12, "bold"),
+            fg="#60a5fa",
+            bg=self.card_color
+        ).pack(anchor="w", pady=(0, 15))
 
         # Token Row
-        t_row = tk.Frame(cfg_card, bg=self.card_color)
-        t_row.pack(fill=tk.X, padx=10, pady=6)
-        tk.Label(t_row, text="GitHub Personal Access Token (PAT):", width=32, anchor="w", font=("SF Pro Text", 11), fg=self.text_color, bg=self.card_color).pack(side=tk.LEFT)
-        self.ent_token = tk.Entry(t_row, font=("SF Pro Text", 11), bg="#0f1117", fg=self.text_color, insertbackground="white", show="•")
-        self.ent_token.insert(0, self.config_data.get("github_token", ""))
-        self.ent_token.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 10))
+        tk.Label(
+            cfg_card,
+            text="GitHub Personal Access Token (PAT):",
+            font=("SF Pro Text", 11, "bold"),
+            fg="#ffffff",
+            bg=self.card_color
+        ).pack(anchor="w", pady=(0, 4))
 
-        self.btn_show_token = tk.Button(t_row, text="Göster", font=("SF Pro Text", 10), bg="#374151", fg=self.text_color, relief=tk.FLAT, padx=8, command=self.toggle_token_visibility)
+        t_row = tk.Frame(cfg_card, bg=self.card_color)
+        t_row.pack(fill=tk.X, pady=(0, 12))
+
+        self.ent_token = tk.Entry(
+            t_row,
+            font=("SF Pro Text", 13),
+            bg=self.input_bg,
+            fg="#ffffff",
+            insertbackground="#ffffff",
+            highlightbackground="#60a5fa",
+            highlightcolor="#38bdf8",
+            highlightthickness=2,
+            relief=tk.FLAT,
+            bd=0,
+            show="•"
+        )
+        self.ent_token.insert(0, self.config_data.get("github_token", ""))
+        self.ent_token.pack(side=tk.LEFT, fill=tk.X, expand=True, ipady=6, padx=(0, 10))
+
+        self.btn_show_token = tk.Button(
+            t_row,
+            text="Göster",
+            font=("SF Pro Text", 11, "bold"),
+            bg="#262a36",
+            fg="#ffffff",
+            relief=tk.FLAT,
+            bd=0,
+            padx=12,
+            pady=6,
+            cursor="hand2",
+            highlightbackground=self.card_border,
+            highlightthickness=1,
+            command=self.toggle_token_visibility
+        )
         self.btn_show_token.pack(side=tk.LEFT)
 
         # TMDB Key Row
-        k_row = tk.Frame(cfg_card, bg=self.card_color)
-        k_row.pack(fill=tk.X, padx=10, pady=6)
-        tk.Label(k_row, text="TMDB API Key (İsteğe Bağlı):", width=32, anchor="w", font=("SF Pro Text", 11), fg=self.text_color, bg=self.card_color).pack(side=tk.LEFT)
-        self.ent_tmdb = tk.Entry(k_row, font=("SF Pro Text", 11), bg="#0f1117", fg=self.text_color, insertbackground="white")
-        self.ent_tmdb.insert(0, self.config_data.get("tmdb_key", ""))
-        self.ent_tmdb.pack(side=tk.LEFT, fill=tk.X, expand=True)
-
-        # Info Note
-        note_lbl = tk.Label(
+        tk.Label(
             cfg_card,
-            text="* GitHub Token'ınız yerel bilgisayarınızda (~/.playrepo_config.json) güvenle saklanır, asla git deposuna gönderilmez.",
-            font=("SF Pro Text", 10),
-            fg=self.text_dim,
+            text="TMDB API Key (İsteğe Bağlı):",
+            font=("SF Pro Text", 11, "bold"),
+            fg="#ffffff",
             bg=self.card_color
+        ).pack(anchor="w", pady=(0, 4))
+
+        self.ent_tmdb = tk.Entry(
+            cfg_card,
+            font=("SF Pro Text", 13),
+            bg=self.input_bg,
+            fg="#ffffff",
+            insertbackground="#ffffff",
+            highlightbackground="#60a5fa",
+            highlightcolor="#38bdf8",
+            highlightthickness=2,
+            relief=tk.FLAT,
+            bd=0
         )
-        note_lbl.pack(anchor="w", padx=10, pady=(15, 10))
+        self.ent_tmdb.insert(0, self.config_data.get("tmdb_key", ""))
+        self.ent_tmdb.pack(fill=tk.X, ipady=6, pady=(0, 15))
 
         btn_save_cfg = tk.Button(
-            cfg_card, text="💾 Ayarları Kaydet", font=("SF Pro Text", 12, "bold"),
-            fg="white", bg=self.success_color, relief=tk.FLAT, padx=15, pady=6, cursor="hand2",
+            cfg_card,
+            text="💾 AYARLARI KAYDET",
+            font=("SF Pro Text", 12, "bold"),
+            fg="#ffffff",
+            bg=self.success_color,
+            activebackground=self.success_hover,
+            activeforeground="#ffffff",
+            relief=tk.FLAT,
+            bd=0,
+            padx=20,
+            pady=8,
+            cursor="hand2",
+            highlightbackground="#10b981",
+            highlightthickness=1,
             command=self.save_user_settings
         )
-        btn_save_cfg.pack(anchor="w", padx=10)
+        btn_save_cfg.pack(anchor="w")
 
     def toggle_token_visibility(self):
         if self.ent_token.cget("show") == "":
@@ -1086,7 +1448,7 @@ class PlayRepoApp(tk.Tk):
         self.config_data["tmdb_key"] = self.ent_tmdb.get().strip()
         self.save_config()
         messagebox.showinfo("Kaydedildi", "Ayarlar başarıyla kaydedildi!")
-        self.append_log("[SETTINGS] GitHub Token ve TMDB anahtarı güncellendi.")
+        self.append_log("[AYARLAR] GitHub Token ve TMDB anahtarı kaydedildi.")
 
     # ---------------- Logging & Controls ----------------
     def append_log(self, text: str):
@@ -1107,14 +1469,14 @@ class PlayRepoApp(tk.Tk):
 
     def stop_crawler(self):
         self.engine.is_running = False
-        self.append_log("[ABORT] Kullanıcı tarafından durdurma isteği gönderildi...")
+        self.append_log("[DURDURULDU] İşlem kullanıcı tarafından durduruldu.")
         self.set_running_state(False)
 
     # ---------------- Execution Workers ----------------
     def start_master_update(self):
         sites = self.config_data.get("saved_sites", [])
         if not sites:
-            messagebox.showwarning("Kayıtlı Site Yok", "Lütfen önce 'Kayıtlı Siteler' sekmesinden en az bir site ekleyin!")
+            messagebox.showwarning("Kayıtlı Site Yok", "Lütfen önce yukarıdaki kutudan taranacak bir site linki ekleyin!")
             return
 
         try:
@@ -1132,7 +1494,7 @@ class PlayRepoApp(tk.Tk):
             token = self.config_data.get("github_token", "").strip()
             tmdb = self.config_data.get("tmdb_key", "").strip()
 
-            self.append_log(f"[MASTER UPDATE START] Toplam {len(sites)} kayıtlı sitenin tamamı taranıyor (Limit: site başı {max_p} sayfa)...")
+            self.append_log(f"[GÜNCELLEME BAŞLADI] Toplam {len(sites)} kayıtlı sitenin tamamı taranıyor (Limit: site başı {max_p} sayfa)...")
             all_scraped = []
 
             for idx, site_url in enumerate(sites):
@@ -1157,11 +1519,11 @@ class PlayRepoApp(tk.Tk):
                         self.append_log(f"  ↷ {short} (Aktif akış bulunamadı, atlandı)")
 
             if all_scraped and self.engine.is_running:
-                self.append_log(f"[PUBLISHING] Toplam {len(all_scraped)} çözülmüş film GitHub'a atomik olarak aktarılıyor...")
+                self.append_log(f"[YÜKLENİYOR] Toplam {len(all_scraped)} çözülmüş film GitHub'a atomik olarak aktarılıyor...")
                 pub = GitHubAtomicPublisher(token=token, log_callback=self.append_log)
                 pub.publish_movies(all_scraped)
             elif not all_scraped:
-                self.append_log("[WARNING] Hiçbir film çözülemedi veya işlem iptal edildi.")
+                self.append_log("[UYARI] Hiçbir film çözülemedi veya işlem iptal edildi.")
 
             self.set_running_state(False)
 
@@ -1186,10 +1548,9 @@ class PlayRepoApp(tk.Tk):
             token = self.config_data.get("github_token", "").strip()
             tmdb = self.config_data.get("tmdb_key", "").strip()
 
-            self.append_log(f"[SINGLE CRAWL START] Hedef: {url}")
+            self.append_log(f"[TEKLİ TARAMA BAŞLADI] Hedef: {url}")
 
             all_scraped = []
-            # Check if it's a direct movie page or a category/site
             if any(k in url.lower() for k in ["/film/", "-izle", "/dizi/"]) and not any(k in url.lower() for k in ["/kategori/", "/tur/", "/filmizle/"]):
                 self.append_log("Hedef doğrudan film sayfası olarak algılandı. Çözülüyor...")
                 m_data = self.engine.scrape_movie_page(url, {"Popüler"}, tmdb_api_key=tmdb)
@@ -1208,7 +1569,7 @@ class PlayRepoApp(tk.Tk):
                         self.append_log(f"[{m_idx + 1}/{len(movie_dict)}] ✓ {m_data['title']} ({len(m_data['streams'])} Sunucu)")
 
             if all_scraped and self.engine.is_running:
-                self.append_log(f"[PUBLISHING] {len(all_scraped)} film GitHub'a yükleniyor...")
+                self.append_log(f"[YÜKLENİYOR] {len(all_scraped)} film GitHub'a yükleniyor...")
                 pub = GitHubAtomicPublisher(token=token, log_callback=self.append_log)
                 pub.publish_movies(all_scraped)
 
