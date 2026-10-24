@@ -242,7 +242,7 @@ class SiteScraperEngine {
                 }
             }
 
-            // 3. Scrape external links (vidmoly, vidhide, voe, streamtape, ok.ru, kinescope, odnoklassniki, mixdrop, doodstream, vidsrc, rapidrame)
+            // 3. Scrape external links
             doc.select("a[href]").forEach { a ->
                 val href = a.absUrl("href").ifBlank { a.attr("href") }
                 if (href.contains("vidmoly") || href.contains("vidhide") || href.contains("filelions") ||
@@ -289,12 +289,13 @@ class SiteScraperEngine {
                 )
             }
 
-            // Resolve TMDB ID
-            val tmdbId = resolveTmdbId(cleanTitle, tmdbApiKey)
+            // Resolve TMDB ID, official Title, and Poster URL
+            val (tmdbId, tmdbTitle, posterUrl) = resolveTmdbInfo(cleanTitle, tmdbApiKey)
 
             ScrapedMovie(
                 tmdbId = tmdbId,
-                title = cleanTitle,
+                title = tmdbTitle,
+                poster = posterUrl,
                 streams = foundStreams,
                 genres = genreList
             )
@@ -328,7 +329,7 @@ class SiteScraperEngine {
     }
 
     /**
-     * Unpacks/decrypts embed players (Vidmoly, Vidhide, FileLions, StreamWish, VOE, Kinescope, Streamtape, Ok.ru, Mixdrop, Doodstream, Vidsrc) into direct M3U8 / MP4 URLs.
+     * Unpacks/decrypts embed players into direct M3U8 / MP4 URLs.
      */
     private fun unpackEmbedStreamUrl(embedUrl: String, referer: String): String {
         if (embedUrl.contains(".m3u8") && !embedUrl.contains("/embed/")) {
@@ -354,20 +355,20 @@ class SiteScraperEngine {
                     return m3u8Match.groupValues[1]
                 }
 
-                // 2. VOE regex: 'hls': '(https://...m3u8)'
+                // 2. VOE regex
                 val voeMatch = Regex("""'hls'\s*:\s*['"](https?://[^'"]+)['"]""", RegexOption.IGNORE_CASE).find(html)
                     ?: Regex("""["']hls["']\s*:\s*["'](https?://[^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
                 if (voeMatch != null) {
                     return voeMatch.groupValues[1]
                 }
 
-                // 3. Ok.ru (Odnoklassniki) HLS Manifest
+                // 3. Ok.ru HLS Manifest
                 val okRuMatch = Regex("""hlsManifestUrl["']?\s*:\s*["'](https?://[^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
                 if (okRuMatch != null) {
                     return okRuMatch.groupValues[1].replace("\\u0026", "&")
                 }
 
-                // 4. Mixdrop regex: MDCore.wurl="(https://...)"
+                // 4. Mixdrop regex
                 val mixdropMatch = Regex("""MDCore\.wurl\s*=\s*["']([^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
                 if (mixdropMatch != null) {
                     val streamUrl = mixdropMatch.groupValues[1]
@@ -385,30 +386,33 @@ class SiteScraperEngine {
         return embedUrl
     }
 
-    private fun resolveTmdbId(title: String, tmdbApiKey: String?): String {
-        if (!tmdbApiKey.isNullOrBlank()) {
-            try {
-                val encodedQuery = URLEncoder.encode(title, "UTF-8")
-                val url = "https://api.themoviedb.org/3/search/movie?api_key=$tmdbApiKey&query=$encodedQuery&language=tr-TR"
-                val request = Request.Builder().url(url).header("User-Agent", getRandomUserAgent()).build()
-                client.newCall(request).execute().use { response ->
-                    if (response.isSuccessful) {
-                        val body = response.body?.string().orEmpty()
-                        val jsonObj = gson.fromJson(body, JsonObject::class.java)
-                        val results = jsonObj.getAsJsonArray("results")
-                        if (results != null && results.size() > 0) {
-                            val firstMovie = results.get(0).asJsonObject
-                            val id = firstMovie.get("id")?.asString
-                            if (!id.isNullOrBlank()) {
-                                return id
-                            }
+    private fun resolveTmdbInfo(title: String, tmdbApiKey: String?): Triple<String, String, String> {
+        val apiKey = if (tmdbApiKey.isNullOrBlank()) "15d2921542e613f17d23a2a6b29f7f45" else tmdbApiKey
+        try {
+            val encodedQuery = URLEncoder.encode(title, "UTF-8")
+            val url = "https://api.themoviedb.org/3/search/movie?api_key=$apiKey&query=$encodedQuery&language=tr-TR"
+            val request = Request.Builder().url(url).header("User-Agent", getRandomUserAgent()).build()
+            client.newCall(request).execute().use { response ->
+                if (response.isSuccessful) {
+                    val body = response.body?.string().orEmpty()
+                    val jsonObj = gson.fromJson(body, JsonObject::class.java)
+                    val results = jsonObj.getAsJsonArray("results")
+                    if (results != null && results.size() > 0) {
+                        val firstMovie = results.get(0).asJsonObject
+                        val id = firstMovie.get("id")?.asString
+                        val officialTitle = firstMovie.get("title")?.asString ?: firstMovie.get("original_title")?.asString ?: title
+                        val posterPath = firstMovie.get("poster_path")?.asString
+                        val posterUrl = if (!posterPath.isNullOrBlank()) "https://image.tmdb.org/t/p/w500$posterPath" else "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png"
+
+                        if (!id.isNullOrBlank()) {
+                            return Triple(id, officialTitle, posterUrl)
                         }
                     }
                 }
-            } catch (_: Exception) { }
-        }
+            }
+        } catch (_: Exception) { }
 
         val hash = kotlin.math.abs(title.lowercase().hashCode()) % 800000 + 100000
-        return hash.toString()
+        return Triple(hash.toString(), title, "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png")
     }
 }

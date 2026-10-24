@@ -12,6 +12,7 @@ data class StreamItem(
 data class ScrapedMovie(
     val tmdbId: String,
     val title: String,
+    val poster: String = "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
     val streams: List<StreamItem>,
     val genres: List<String> = listOf("Popüler")
 )

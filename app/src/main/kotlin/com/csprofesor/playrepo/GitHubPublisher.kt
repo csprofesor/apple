@@ -44,7 +44,7 @@ class GitHubPublisher {
                 scrapedMovies = scrapedMovies
             )
 
-            // 2. Update data/catalog.json with categories
+            // 2. Update data/catalog.json with categories and real posters
             updateCatalogOnGitHub(
                 githubToken = effectiveToken,
                 repoOwner = repoOwner,
@@ -95,13 +95,11 @@ class GitHubPublisher {
         }
 
         scrapedMovies.forEach { movie ->
-            val key = if (movie.tmdbId.startsWith("movie/") || movie.tmdbId.startsWith("tv/")) {
-                movie.tmdbId
-            } else {
-                "movie/${movie.tmdbId}"
-            }
+            val cleanId = movie.tmdbId.replace("tmdb:", "").replace("movie/", "").replace("tv/", "")
+            val keyMovie = "movie/$cleanId"
+            val keyClean = cleanId
 
-            val existingStreams = currentDataMap[key]?.toMutableList() ?: mutableListOf()
+            val existingStreams = (currentDataMap[keyMovie] ?: currentDataMap[keyClean])?.toMutableList() ?: mutableListOf()
 
             movie.streams.forEach { newStream ->
                 if (existingStreams.none { it.url == newStream.url }) {
@@ -122,7 +120,8 @@ class GitHubPublisher {
                 )
             }
 
-            currentDataMap[key] = renumberedStreams
+            currentDataMap[keyMovie] = renumberedStreams
+            currentDataMap[keyClean] = renumberedStreams
         }
 
         val updatedJson = gson.toJson(currentDataMap)
@@ -192,8 +191,10 @@ class GitHubPublisher {
             }
 
             scrapedMovies.forEach { movie ->
-                val idStr = if (movie.tmdbId.startsWith("movie/")) movie.tmdbId else "movie/${movie.tmdbId}"
-                if (currentCatalogMetas.none { it.get("id")?.asString == idStr }) {
+                val cleanId = movie.tmdbId.replace("tmdb:", "").replace("movie/", "").replace("tv/", "")
+                val idStr = cleanId
+
+                if (currentCatalogMetas.none { it.get("id")?.asString == idStr || it.get("id")?.asString == "movie/$idStr" }) {
                     val genreJsonArray = JsonArray()
                     movie.genres.forEach { genreJsonArray.add(it) }
 
@@ -201,7 +202,7 @@ class GitHubPublisher {
                         addProperty("id", idStr)
                         addProperty("type", "movie")
                         addProperty("name", movie.title)
-                        addProperty("poster", "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png")
+                        addProperty("poster", movie.poster.ifBlank { "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png" })
                         addProperty("description", "PlayRepo • ${movie.streams.size} Sunucu Seçeneği")
                         add("genres", genreJsonArray)
                     }
