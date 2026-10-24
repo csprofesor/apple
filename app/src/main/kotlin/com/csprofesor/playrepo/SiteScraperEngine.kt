@@ -181,9 +181,10 @@ class SiteScraperEngine {
                         val href = a.absUrl("href").trim()
                         if (isValidCatalogPageUrl(href, siteBase) && !visitedCatalogPages.contains(href) && !catalogPagesQueue.contains(href)) {
                             catalogPagesQueue.add(href)
-                            val inheritedCat = pageCategoryMap[currentPageUrl] ?: detectCategoryFromUrlOrText(href, a.text().trim())
-                            if (inheritedCat != null) {
-                                pageCategoryMap[href] = inheritedCat
+                            val isPagination = href.contains("/page/") || href.contains("page=") || href.contains("sayfa=")
+                            val catForPage = if (isPagination) pageCategoryMap[currentPageUrl] else detectCategoryFromUrlOrText(href, a.text().trim())
+                            if (catForPage != null) {
+                                pageCategoryMap[href] = catForPage
                             }
                         }
                     }
@@ -328,6 +329,10 @@ class SiteScraperEngine {
             }
 
             // Extract real poster from page
+            val siteBase = if (movieUrl.contains("://")) {
+                val parts = movieUrl.split("/")
+                "${parts[0]}//${parts[2]}"
+            } else movieUrl
             val scrapedPoster = extractScrapedPoster(doc, movieUrl)
 
             // Extract description / plot
@@ -348,18 +353,23 @@ class SiteScraperEngine {
 
             // Extract genres / category classification strictly from detail page links and discovery
             val genreSet = mutableSetOf<String>()
-            if (!initialCategories.isNullOrEmpty()) {
-                genreSet.addAll(initialCategories)
-            }
 
-            // Extract ONLY from explicit category links / breadcrumbs on the movie page
-            doc.select(".film-bilgileri a, .detaylar a, .entry-content a, .film-kategori a, .kategoriler a, .genres a, .categories a, a[rel='category tag'], a[href*='/tur/'], a[href*='/filmizle/'], a[href*='/kategori/']").forEach { el ->
-                val href = el.absUrl("href").lowercase()
-                val txt = el.text().trim()
-                val cat = detectCategoryFromUrlOrText(href, txt)
-                if (cat != null) {
-                    genreSet.add(cat)
+            // Extract ONLY from explicit category links within the movie details block
+            doc.select("article, .film-bilgileri, #filmbilgileri, .info, .detaylar, .entry-content, .content")
+                .select("a[href]").forEach { el ->
+                    val href = el.absUrl("href").lowercase()
+                    val txt = el.text().trim()
+                    if (isValidCatalogPageUrl(href, siteBase) || href.contains("/tur/") || href.contains("/filmizle/") || href.contains("/kategori/") || href.contains("/genre/")) {
+                        val cat = detectCategoryFromUrlOrText(href, txt)
+                        if (cat != null) {
+                            genreSet.add(cat)
+                        }
+                    }
                 }
+
+            // Fallback to initial discovery category only if movie details didn't specify one
+            if (genreSet.isEmpty() && !initialCategories.isNullOrEmpty()) {
+                genreSet.addAll(initialCategories.filter { it != "Popüler" })
             }
             if (genreSet.isEmpty()) genreSet.add("Popüler")
 
@@ -440,17 +450,44 @@ class SiteScraperEngine {
                     val b64 = match.groupValues[1]
                     val decodedBytes = android.util.Base64.decode(b64, android.util.Base64.DEFAULT)
                     val decodedJson = String(decodedBytes, Charsets.UTF_8).replace("\\/", "/")
-                    val urlRegex = Regex("""https?://[^\s"'\\]+""")
+
+                    // A. Parse JSON array
+                    try {
+                        val arr = org.json.JSONArray(decodedJson)
+                        for (i in 0 until arr.length()) {
+                            val item = arr.optString(i).trim()
+                            if (item.isNotBlank() && item != "about:blank") {
+                                val full = if (item.startsWith("//")) "https:$item" else item
+                                addCandidate(full)
+                            }
+                        }
+                    } catch (_: Exception) {}
+
+                    // B. Scan via regex for protocol-relative or https URLs
+                    val urlRegex = Regex("""(?:https?:)?//[^\s"'\\\]+""")
                     urlRegex.findAll(decodedJson).forEach { urlMatch ->
-                        val u = urlMatch.value
-                        if (isKnownVideoHost(u) || u.contains(".m3u8") || u.contains(".mp4")) {
-                            addCandidate(u)
+                        val u = urlMatch.value.trim()
+                        if (u.isNotBlank() && u != "about:blank") {
+                            val full = if (u.startsWith("//")) "https:$u" else u
+                            if (isKnownVideoHost(full) || full.contains(".m3u8") || full.contains(".mp4") || full.contains("/videoembed/") || full.contains("/embed/")) {
+                                addCandidate(full)
+                            }
                         }
                     }
                 } catch (_: Exception) { }
             }
 
-            // 6. Scrape direct .m3u8 / .mp4 URLs in raw HTML/JS code
+            // 6. Direct Odnoklassniki / Ok.ru / Vidmoly / Mail.ru embeds in raw HTML
+            val directEmbedRegex = Regex("""(?:https?:)?//[^\s"'`<>]+(?:odnoklassniki\.ru/videoembed|ok\.ru/videoembed|vkuser\.net|vidmoly\.me/embed|my\.mail\.ru/video/embed|voe\.sx/e/)[^\s"'`<>]*""", RegexOption.IGNORE_CASE)
+            directEmbedRegex.findAll(html).forEach { match ->
+                val u = match.value.replace("\\/", "/").trim('"', '\'', '`', '\\')
+                if (!u.contains(".jpg") && !u.contains(".png") && !u.contains(".css") && !u.contains(".js")) {
+                    val full = if (u.startsWith("//")) "https:$u" else u
+                    addCandidate(full)
+                }
+            }
+
+            // 7. Scrape direct .m3u8 / .mp4 URLs in raw HTML/JS code
             val m3u8Regex = Regex("""https?://[^\s"'`<>]+?\.(?:m3u8|mp4)[^\s"'`<>]*""", RegexOption.IGNORE_CASE)
             m3u8Regex.findAll(html).forEach { match ->
                 addCandidate(match.value)
@@ -558,7 +595,9 @@ class SiteScraperEngine {
     /**
      * Unpacks/decrypts embed players into direct playable M3U8 / MP4 URLs.
      */
-    private fun unpackEmbedStreamUrl(embedUrl: String, referer: String): String {
+    private fun unpackEmbedStreamUrl(rawEmbedUrl: String, referer: String): String {
+        val embedUrl = if (rawEmbedUrl.startsWith("//")) "https:$rawEmbedUrl" else rawEmbedUrl
+        if (!embedUrl.startsWith("http://") && !embedUrl.startsWith("https://")) return ""
         val lowerEmbed = embedUrl.lowercase()
 
         // If direct playable stream already, return immediately
