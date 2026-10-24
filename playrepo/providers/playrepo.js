@@ -156,7 +156,7 @@ async function getCatalog(type, id, extra) {
         // 1. Try static category catalog file first
         if (id && id.startsWith("playrepo-") && id !== "playrepo-catalog-movies") {
             try {
-                const catFileUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/catalog/movie/${id}.json`;
+                const catFileUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/catalog/movie/${id}.json?t=${Date.now()}`;
                 const catRes = await fetch(catFileUrl, {
                     headers: { "User-Agent": UA, "Accept": "application/json" }
                 });
@@ -174,7 +174,7 @@ async function getCatalog(type, id, extra) {
             } catch (_) {}
         }
 
-        const response = await fetch(CATALOG_URL, {
+        const response = await fetch(`${CATALOG_URL}?t=${Date.now()}`, {
             headers: {
                 "User-Agent": UA,
                 "Accept": "application/json"
@@ -260,7 +260,7 @@ async function getMeta(arg1, arg2) {
         const possibleStaticIds = [encodeURIComponent(idStr), encodeURIComponent(hyphenId), encodeURIComponent(safeId), encodeURIComponent(cleanId)];
         for (const pid of possibleStaticIds) {
             try {
-                const staticMetaUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/meta/movie/${pid}.json`;
+                const staticMetaUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/meta/movie/${pid}.json?t=${Date.now()}`;
                 const smRes = await fetch(staticMetaUrl, {
                     headers: { "User-Agent": UA, "Accept": "application/json" }
                 });
@@ -406,7 +406,7 @@ async function getStreams(arg1, arg2, arg3, arg4) {
         const possibleStaticIds = [encodeURIComponent(idStr), encodeURIComponent(hyphenId), encodeURIComponent(safeId), encodeURIComponent(cleanId)];
         for (const pid of possibleStaticIds) {
             try {
-                const staticStreamUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/stream/movie/${pid}.json`;
+                const staticStreamUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/stream/movie/${pid}.json?t=${Date.now()}`;
                 const ssRes = await fetch(staticStreamUrl, {
                     headers: { "User-Agent": UA, "Accept": "application/json" }
                 });
@@ -437,7 +437,7 @@ async function getStreams(arg1, arg2, arg3, arg4) {
         }
 
         // 2. Fetch streams.json
-        const response = await fetch(STREAMS_URL, {
+        const response = await fetch(`${STREAMS_URL}?t=${Date.now()}`, {
             headers: {
                 "User-Agent": UA,
                 "Accept": "application/json"
