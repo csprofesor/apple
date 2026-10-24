@@ -1,8 +1,8 @@
 {
   "id": "playRepo",
-  "name": "PlayRepo",
+  "name": "Play",
   "version": "1.0.0",
-  "description": "Tüm Türkçe ve Yabancı film sitelerinden derlenmiş süper hızlı kaynaklar.",
+  "description": "Play • Tek kaynaktan yüksek hızlı Türkçe film ve dizi akış sağlayıcısı.",
   "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
   "resources": [
     "catalog",
@@ -17,7 +17,7 @@
     {
       "type": "movie",
       "id": "playrepo-popular",
-      "name": "PlayRepo • Popüler Filmler",
+      "name": "Play • Popüler Filmler",
       "genres": [
         "Popüler",
         "Korku & Gerilim",
@@ -40,9 +40,9 @@
   ],
   "scrapers": [
     {
-      "id": "playrepo-main",
-      "name": "PlayRepo • Ultra Hızlı TR",
-      "description": "Nuvio için optimize edilmiş Türkçe dublaj/altyazılı akış sağlayıcısı.",
+      "id": "play-main",
+      "name": "Play",
+      "description": "Nuvio için optimize edilmiş Play akış sağlayıcısı.",
       "version": "1.0.0",
       "author": "csprofesor",
       "supportedTypes": [

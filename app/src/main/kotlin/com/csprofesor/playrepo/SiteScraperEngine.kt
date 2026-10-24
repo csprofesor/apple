@@ -350,8 +350,8 @@ class SiteScraperEngine {
                         val isM3u8 = lowerUrl.contains(".m3u8")
                         resolvedStreams.add(
                             StreamItem(
-                                name = "PlayRepo",
-                                title = "PlayRepo • Sunucu ${resolvedStreams.size + 1} • $qualityTag • $langTag",
+                                name = "Play",
+                                title = "Play • Sunucu ${resolvedStreams.size + 1} • $qualityTag • $langTag",
                                 url = directStreamUrl,
                                 quality = if (qualityTag == "4K") 2160 else 1080,
                                 format = if (isM3u8) "m3u8" else "mp4",

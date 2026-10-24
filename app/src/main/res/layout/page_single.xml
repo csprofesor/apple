@@ -117,6 +117,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:hint="GitHub Kişisel Erişim Tokeni (PAT)"
+                app:boxStrokeColor="#FFFFFF"
+                app:hintTextColor="#888888"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="#AAAAAA">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etGithubToken"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textColor="#FFFFFF" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:hint="TMDB API Key (Opsiyonel)"
                 app:boxStrokeColor="#FFFFFF"
                 app:hintTextColor="#888888">

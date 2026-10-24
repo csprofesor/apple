@@ -222,12 +222,15 @@ async function getStreams(tmdbId, mediaType, season, episode) {
 
             const isM3u8 = lowerDirect.includes(".m3u8");
 
+            const rawTitle = s.title || `Play • ${s.quality || '1080p'}`;
+            const maskedTitle = rawTitle.replace(/^PlayRepo/i, "Play");
+
             return {
-                name: s.name || "PlayRepo",
-                title: s.title || `PlayRepo • ${s.quality || '1080p'}`,
+                name: "Play",
+                title: maskedTitle,
                 url: directUrl,
                 quality: s.quality || 1080,
-                provider: "playrepo-main",
+                provider: "play",
                 format: isM3u8 ? "m3u8" : "mp4",
                 behaviorHints: {
                     notSupported: false,

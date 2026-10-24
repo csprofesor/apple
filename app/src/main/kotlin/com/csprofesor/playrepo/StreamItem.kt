@@ -1,7 +1,7 @@
 package com.csprofesor.playrepo
 
 data class StreamItem(
-    val name: String = "PlayRepo",
+    val name: String = "Play",
     val title: String,
     val url: String,
     val quality: Int = 1080,

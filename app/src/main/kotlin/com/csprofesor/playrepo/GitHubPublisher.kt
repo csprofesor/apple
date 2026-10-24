@@ -137,13 +137,13 @@ class GitHubPublisher {
             if (existingStreams.isNotEmpty()) {
                 val renumberedStreams = existingStreams.mapIndexed { idx, st ->
                     st.copy(
-                        name = "PlayRepo",
+                        name = "Play",
                         title = if (st.title.contains("•")) {
                             val parts = st.title.split("•")
-                            val suffix = parts.drop(2).joinToString("•").trim()
-                            if (suffix.isNotBlank()) "PlayRepo • Sunucu ${idx + 1} • $suffix" else "PlayRepo • Sunucu ${idx + 1}"
+                            val suffix = parts.drop(2).joinToString(" • ").trim()
+                            if (suffix.isNotBlank()) "Play • Sunucu ${idx + 1} • $suffix" else "Play • Sunucu ${idx + 1}"
                         } else {
-                            "PlayRepo • Sunucu ${idx + 1}"
+                            "Play • Sunucu ${idx + 1}"
                         }
                     )
                 }

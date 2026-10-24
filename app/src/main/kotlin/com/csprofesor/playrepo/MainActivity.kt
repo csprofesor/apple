@@ -62,6 +62,13 @@ class MainActivity : AppCompatActivity() {
 
         updateSavedSitesUI()
 
+        // Load saved GitHub Token (Never committed to git, stored securely in private app prefs)
+        val savedGithubToken = prefs.getString("github_token", "") ?: ""
+        binding.pageSingle.etGithubToken.setText(savedGithubToken)
+        binding.pageSingle.etGithubToken.addTextChangedListener { text ->
+            prefs.edit().putString("github_token", text.toString().trim()).apply()
+        }
+
         // Load saved TMDB API Key
         binding.pageSingle.etTmdbApiKey.setText(prefs.getString("tmdb_key", ""))
         binding.pageSingle.etTmdbApiKey.addTextChangedListener { text ->
@@ -169,8 +176,14 @@ class MainActivity : AppCompatActivity() {
                     )
 
                     if (siteMovies.isNotEmpty()) {
+                        val activeToken = prefs.getString("github_token", "")?.trim().orEmpty().ifBlank { BuildConfig.GITHUB_TOKEN }
+                        if (activeToken.isBlank()) {
+                            appendLog("✗ [ERROR] GitHub Token girilmemiş! Lütfen 'Tekli Tarama & Ayarlar' sayfasından GitHub Tokeninizi girin.")
+                            Toast.makeText(this@MainActivity, "GitHub Token eksik! Lütfen Ayarlar sayfasından girin.", Toast.LENGTH_LONG).show()
+                            return@launch
+                        }
+
                         appendLog("[PUBLISHING] ${siteMovies.size} çözülmüş film GitHub'a yükleniyor...")
-                        val activeToken = prefs.getString("github_token", BuildConfig.GITHUB_TOKEN) ?: BuildConfig.GITHUB_TOKEN
                         val pubRes = githubPublisher.publishBatchToGitHub(githubToken = activeToken, scrapedMovies = siteMovies)
                         pubRes.onSuccess { msg ->
                             appendLog("[SUCCESS] $msg")
@@ -233,9 +246,14 @@ class MainActivity : AppCompatActivity() {
                         return@launch
                     }
 
-                    appendLog("[PUBLISHING] Toplam ${allBatchMovies.size} film çözüldü! GitHub deponuza (`csprofesor/apple`) gönderiliyor...")
+                    val activeToken = prefs.getString("github_token", "")?.trim().orEmpty().ifBlank { BuildConfig.GITHUB_TOKEN }
+                    if (activeToken.isBlank()) {
+                        appendLog("✗ [ERROR] GitHub Token girilmemiş! Lütfen 'Tekli Tarama & Ayarlar' sayfasından GitHub Tokeninizi girin.")
+                        Toast.makeText(this@MainActivity, "GitHub Token eksik! Lütfen Ayarlar sayfasından girin.", Toast.LENGTH_LONG).show()
+                        return@launch
+                    }
 
-                    val activeToken = prefs.getString("github_token", BuildConfig.GITHUB_TOKEN) ?: BuildConfig.GITHUB_TOKEN
+                    appendLog("[PUBLISHING] Toplam ${allBatchMovies.size} film çözüldü! GitHub deponuza (`csprofesor/apple`) gönderiliyor...")
                     val pubResult = githubPublisher.publishBatchToGitHub(githubToken = activeToken, scrapedMovies = allBatchMovies)
 
                     pubResult.onSuccess { msg ->
