@@ -1,1 +1,32 @@
-{"meta":{"id":"tt1808453","type":"movie","name":"Sakli Hayatlar","poster":"https://images.metahub.space/poster/small/tt1808453/img","background":"https://images.metahub.space/poster/small/tt1808453/img","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"An Alevi family masquerading as Sunni tries to establish relations with its Sunni neighbors.","releaseInfo":"2011","imdbRating":"0.0","genres":["Aksiyon \u0026 Macera","Bilim Kurgu \u0026 Fantastik","Dram \u0026 Romantik","Korku \u0026 Gerilim","Komedi"],"behaviorHints":{"defaultVideoId":"tt1808453","hasScheduledVideos":false},"videos":[{"id":"tt1808453","title":"Sakli Hayatlar","released":"2011-01-01T00:00:00.000Z"}]}}
+{
+  "meta": {
+    "id": "tt1808453",
+    "type": "movie",
+    "name": "Sakli Hayatlar",
+    "poster": "https://images.metahub.space/poster/small/tt1808453/img",
+    "background": "https://images.metahub.space/poster/small/tt1808453/img",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "An Alevi family masquerading as Sunni tries to establish relations with its Sunni neighbors.",
+    "releaseInfo": "2011",
+    "imdbRating": "0.0",
+    "runtime": "",
+    "genres": [
+      "Aksiyon & Macera",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt1808453",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt1808453",
+        "title": "Sakli Hayatlar",
+        "released": "2011-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
