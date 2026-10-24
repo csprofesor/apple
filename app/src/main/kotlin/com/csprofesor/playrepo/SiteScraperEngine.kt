@@ -90,6 +90,11 @@ class SiteScraperEngine {
                             if (!list.contains(href)) {
                                 list.add(href)
                             }
+                        } else if (href.contains("altyaz", true) || text.contains("altyaz", true)) {
+                            val list = categoryMap.getOrPut("Altyazılı") { mutableListOf() }
+                            if (!list.contains(href)) {
+                                list.add(href)
+                            }
                         }
                     }
                 }
@@ -231,6 +236,7 @@ class SiteScraperEngine {
                lower.contains("/kategori/") || lower.contains("/tur/") ||
                lower.contains("/filmizle/") || lower.contains("/yil/") ||
                lower.contains("/category/") || lower.contains("/genre/") ||
+               lower.contains("altyazi") || lower.contains("dublaj") ||
                lower == "$siteBase/film/" || lower == "$siteBase/film" ||
                lower == "$siteBase/film-izle/" || lower == "$siteBase/film-izle" ||
                lower == "$siteBase/filmler/" || lower == "$siteBase/filmler" ||
@@ -347,9 +353,22 @@ class SiteScraperEngine {
                 ?: ""
 
             // Detect language & quality flags
-            val isDub = html.contains("dublaj", true) || rawTitle.contains("dublaj", true)
-            val langTag = if (isDub) "[TR Dublaj]" else "[TR Altyazılı]"
+            val pageDefaultLang = when {
+                rawTitle.contains("altyaz", true) || movieUrl.contains("altyaz", true) -> "[TR Altyazılı]"
+                rawTitle.contains("dublaj", true) || movieUrl.contains("dublaj", true) -> "[TR Dublaj]"
+                doc.selectFirst("h1, .film-title, .title")?.text()?.contains("altyaz", true) == true -> "[TR Altyazılı]"
+                else -> "[TR Dublaj]"
+            }
             val qualityTag = if (html.contains("4k", true) || rawTitle.contains("4k", true)) "4K" else "1080p"
+
+            fun detectLangFromContext(vararg texts: String?): String {
+                val combined = texts.filterNotNull().joinToString(" ").lowercase()
+                return when {
+                    combined.contains("altyaz") || combined.contains("sub") || combined.contains("orijinal") || combined.contains("original") || combined.contains("ingilizce") -> "[TR Altyazılı]"
+                    combined.contains("dublaj") || combined.contains("turkce") || combined.contains("türkçe") -> "[TR Dublaj]"
+                    else -> pageDefaultLang
+                }
+            }
 
             // Extract genres / category classification strictly from detail page links and discovery
             val genreSet = mutableSetOf<String>()
@@ -389,9 +408,14 @@ class SiteScraperEngine {
                 .filter { it.isNotBlank() && it.length in 2..30 }
                 .take(6)
 
-            val candidateEmbedUrls = mutableListOf<String>()
+            data class CandidateEmbed(
+                val url: String,
+                val langTag: String
+            )
 
-            fun addCandidate(raw: String?) {
+            val candidateEmbeds = mutableListOf<CandidateEmbed>()
+
+            fun addCandidate(raw: String?, langOverride: String? = null) {
                 if (raw.isNullOrBlank()) return
                 val trimmed = raw.trim()
                 if (trimmed == movieUrl || trimmed == "$movieUrl/") return
@@ -410,49 +434,58 @@ class SiteScraperEngine {
                     return
                 }
 
-                if (!candidateEmbedUrls.contains(full)) {
-                    candidateEmbedUrls.add(full)
+                val finalLang = langOverride ?: detectLangFromContext(full)
+                if (candidateEmbeds.none { it.url == full }) {
+                    candidateEmbeds.add(CandidateEmbed(full, finalLang))
                 }
             }
 
             // 1. data-frame (very common in Turkish movie CMS themes like Hintfilmizle, Filmmodu, etc.)
             doc.select("[data-frame], a[data-frame], li[data-frame], button[data-frame]").forEach { el ->
-                addCandidate(el.attr("data-frame"))
+                val lang = detectLangFromContext(el.text(), el.attr("data-lang"), el.attr("data-audio"), el.attr("title"), el.parent()?.text(), el.attr("data-frame"))
+                addCandidate(el.attr("data-frame"), lang)
             }
 
             // 2. iframes & video tags
             doc.select("iframe[src], iframe[data-src], iframe[data-litespeed-src], video[src], video source[src]").forEach { el ->
-                addCandidate(el.absUrl("src").ifBlank { el.attr("src") })
-                addCandidate(el.attr("data-src"))
-                addCandidate(el.attr("data-litespeed-src"))
+                val lang = detectLangFromContext(el.attr("title"), el.attr("class"), el.parent()?.text())
+                addCandidate(el.absUrl("src").ifBlank { el.attr("src") }, lang)
+                addCandidate(el.attr("data-src"), lang)
+                addCandidate(el.attr("data-litespeed-src"), lang)
             }
 
             // 3. data-player / data-embed / data-video / data-url / data-link / data-file / data-src
             doc.select("[data-player], [data-embed], [data-video], [data-url], [data-link], [data-file], [data-src], [data-source]").forEach { el ->
-                addCandidate(el.attr("data-player"))
-                addCandidate(el.attr("data-embed"))
-                addCandidate(el.attr("data-video"))
-                addCandidate(el.attr("data-url"))
-                addCandidate(el.attr("data-link"))
-                addCandidate(el.attr("data-file"))
-                addCandidate(el.attr("data-src"))
-                addCandidate(el.attr("data-source"))
+                val lang = detectLangFromContext(el.text(), el.attr("data-lang"), el.attr("data-dil"), el.attr("data-audio"), el.attr("title"), el.parent()?.text())
+                addCandidate(el.attr("data-player"), lang)
+                addCandidate(el.attr("data-embed"), lang)
+                addCandidate(el.attr("data-video"), lang)
+                addCandidate(el.attr("data-url"), lang)
+                addCandidate(el.attr("data-link"), lang)
+                addCandidate(el.attr("data-file"), lang)
+                addCandidate(el.attr("data-src"), lang)
+                addCandidate(el.attr("data-source"), lang)
             }
 
-            // 4. Server Tab Selectors (.keremiya_part, .part-list, .sources, .nav-tabs, .tab-content, etc.)
-            doc.select(".keremiya_part a, .part-list li, .part-list a, .sources-list li, .sources li, .server-item, .tab-content iframe, #parts a, .alternatifler a, ul.nav-tabs li a, div.partlar a, .servers a, .filmi-izle a").forEach { el ->
-                addCandidate(el.attr("data-frame"))
-                addCandidate(el.attr("data-src"))
-                addCandidate(el.attr("data-url"))
-                addCandidate(el.attr("data-embed"))
-                addCandidate(el.absUrl("href"))
+            // 4. Server Tab Selectors (.keremiya_part, .part-list, .sources, .nav-tabs, .tab-content, .dil-secenekleri, etc.)
+            doc.select(".keremiya_part a, .part-list li, .part-list a, .sources-list li, .sources li, .server-item, .tab-content iframe, #parts a, .alternatifler a, ul.nav-tabs li a, div.partlar a, .servers a, .filmi-izle a, .dil-secenekleri a, .languages a").forEach { el ->
+                val lang = detectLangFromContext(el.text(), el.attr("data-lang"), el.attr("data-dil"), el.attr("data-audio"), el.attr("title"), el.parent()?.text(), el.absUrl("href"))
+                addCandidate(el.attr("data-frame"), lang)
+                addCandidate(el.attr("data-src"), lang)
+                addCandidate(el.attr("data-url"), lang)
+                addCandidate(el.attr("data-embed"), lang)
+                val href = el.absUrl("href")
+                if (isKnownVideoHost(href) || isInternalPlayerUrl(href, siteBase)) {
+                    addCandidate(href, lang)
+                }
             }
 
             // 5. External video host links
             doc.select("a[href]").forEach { a ->
                 val href = a.absUrl("href").ifBlank { a.attr("href") }
                 if (isKnownVideoHost(href)) {
-                    addCandidate(href)
+                    val lang = detectLangFromContext(a.text(), a.attr("title"), href)
+                    addCandidate(href, lang)
                 }
             }
 
@@ -504,8 +537,8 @@ class SiteScraperEngine {
                 addCandidate(match.value)
             }
 
-            // 9. Inspect internal player iframes (e.g. site.com/player/?... or site.com/embed/...) to discover nested video hosts
-            val internalPlayers = candidateEmbedUrls.filter { isInternalPlayerUrl(it, siteBase) }
+            // 9. Inspect internal player iframes to discover nested video hosts
+            val internalPlayers = candidateEmbeds.map { it.url }.filter { isInternalPlayerUrl(it, siteBase) }
             internalPlayers.forEach { playerUrl ->
                 try {
                     val pReq = Request.Builder()
@@ -520,7 +553,8 @@ class SiteScraperEngine {
                             pDoc.select("iframe[src], iframe[data-src], a[href], [data-frame], [data-src]").forEach { el ->
                                 val src = el.absUrl("src").ifBlank { el.attr("src") }.ifBlank { el.attr("data-frame") }.ifBlank { el.attr("data-src") }
                                 if (isKnownVideoHost(src) || src.contains(".m3u8") || src.contains(".mp4")) {
-                                    addCandidate(src)
+                                    val lang = detectLangFromContext(el.text(), el.attr("data-lang"), playerUrl, src)
+                                    addCandidate(src, lang)
                                 }
                             }
                             directEmbedRegex.findAll(pHtml).forEach { m ->
@@ -534,20 +568,76 @@ class SiteScraperEngine {
                 } catch (_: Exception) {}
             }
 
+            // 10. Scan and fetch alternate language pages (e.g. Dublaj page links to Altyazılı, or vice versa)
+            val alternatePageLinks = mutableListOf<Pair<String, String>>()
+            doc.select("a[href]").forEach { a ->
+                val href = a.absUrl("href").trim()
+                val txt = a.text().trim()
+                if (href.startsWith(siteBase) && href != movieUrl && href != "$movieUrl/") {
+                    val linkLang = when {
+                        txt.contains("altyaz", true) || href.contains("altyaz", true) -> "[TR Altyazılı]"
+                        txt.contains("dublaj", true) || href.contains("dublaj", true) -> "[TR Dublaj]"
+                        else -> null
+                    }
+                    if (linkLang != null && linkLang != pageDefaultLang) {
+                        val baseSlug = movieUrl.trimEnd('/').substringAfterLast('/')
+                            .replace("-turkce-dublaj", "").replace("-turkce-altyazili", "")
+                            .replace("-dublaj", "").replace("-altyazili", "").replace("-izle", "")
+                        if (href.contains(baseSlug) || txt.contains("altyaz", true) || txt.contains("dublaj", true)) {
+                            if (alternatePageLinks.none { it.first == href }) {
+                                alternatePageLinks.add(href to linkLang)
+                            }
+                        }
+                    }
+                }
+            }
+
+            alternatePageLinks.take(2).forEach { (altUrl, altLang) ->
+                try {
+                    val altReq = Request.Builder()
+                        .url(altUrl)
+                        .header("User-Agent", getRandomUserAgent())
+                        .header("Referer", movieUrl)
+                        .build()
+                    client.newCall(altReq).execute().use { altResp ->
+                        if (altResp.isSuccessful) {
+                            val altHtml = altResp.body?.string().orEmpty()
+                            val altDoc = Jsoup.parse(altHtml, altUrl)
+                            altDoc.select("[data-frame], a[data-frame], li[data-frame], button[data-frame]").forEach { el ->
+                                addCandidate(el.attr("data-frame"), altLang)
+                            }
+                            altDoc.select("iframe[src], iframe[data-src], iframe[data-litespeed-src]").forEach { el ->
+                                val s = el.absUrl("src").ifBlank { el.attr("src") }.ifBlank { el.attr("data-src") }
+                                addCandidate(s, altLang)
+                            }
+                            altDoc.select("[data-player], [data-embed], [data-video], [data-url]").forEach { el ->
+                                addCandidate(el.attr("data-player").ifBlank { el.attr("data-embed") }.ifBlank { el.attr("data-video") }.ifBlank { el.attr("data-url") }, altLang)
+                            }
+                            directEmbedRegex.findAll(altHtml).forEach { m ->
+                                addCandidate(m.value.replace("\\/", "/").trim('"', '\'', '`', '\\'), altLang)
+                            }
+                            m3u8Regex.findAll(altHtml).forEach { m ->
+                                addCandidate(m.value, altLang)
+                            }
+                        }
+                    }
+                } catch (_: Exception) {}
+            }
+
             val resolvedStreams = mutableListOf<StreamItem>()
 
-            candidateEmbedUrls.forEach { embedUrl ->
-                val directStreamUrl = unpackEmbedStreamUrl(embedUrl, movieUrl)
+            candidateEmbeds.forEach { cand ->
+                val directStreamUrl = unpackEmbedStreamUrl(cand.url, movieUrl)
                 if (directStreamUrl.isNotBlank() && resolvedStreams.none { it.url == directStreamUrl }) {
                     val lowerUrl = directStreamUrl.lowercase()
                     if (lowerUrl.contains(".m3u8") || lowerUrl.contains(".mp4") || lowerUrl.contains("/manifest")) {
                         val isM3u8 = lowerUrl.contains(".m3u8")
                         val ua = getRandomUserAgent()
-                        val ref = embedUrl.ifBlank { directStreamUrl }
+                        val ref = cand.url.ifBlank { directStreamUrl }
                         resolvedStreams.add(
                             StreamItem(
                                 name = "Play",
-                                title = "Play • Sunucu ${resolvedStreams.size + 1} • $qualityTag • $langTag",
+                                title = "Play • $qualityTag • ${cand.langTag}",
                                 url = directStreamUrl,
                                 quality = if (qualityTag == "4K") 2160 else 1080,
                                 format = if (isM3u8) "m3u8" else "mp4",
@@ -567,13 +657,26 @@ class SiteScraperEngine {
             }
 
             // Prioritize instant-start HLS (.m3u8) streams first so playback starts in <1 second
-            val prioritizedStreams = resolvedStreams.sortedWith(
+            val sortedStreams = resolvedStreams.sortedWith(
                 compareByDescending<StreamItem> { it.format == "m3u8" || it.url.contains(".m3u8") }
                     .thenByDescending { it.quality }
-            ).mapIndexed { idx, st ->
+            )
+
+            val dubCount = java.util.concurrent.atomic.AtomicInteger(0)
+            val subCount = java.util.concurrent.atomic.AtomicInteger(0)
+            val otherCount = java.util.concurrent.atomic.AtomicInteger(0)
+
+            val prioritizedStreams = sortedStreams.map { st ->
+                val isDub = st.title.contains("Dublaj")
+                val isSub = st.title.contains("Altyaz")
+                val label = when {
+                    isDub -> "Dublaj ${dubCount.incrementAndGet()}"
+                    isSub -> "Altyazı ${subCount.incrementAndGet()}"
+                    else -> "Sunucu ${otherCount.incrementAndGet()}"
+                }
                 val parts = st.title.split("•")
-                val suffix = if (parts.size > 2) parts.drop(2).joinToString(" • ").trim() else ""
-                st.copy(title = if (suffix.isNotBlank()) "Play • Sunucu ${idx + 1} • $suffix" else "Play • Sunucu ${idx + 1}")
+                val suffix = if (parts.size > 2) parts.drop(2).joinToString(" • ").trim() else if (isDub) "$qualityTag • [TR Dublaj]" else "$qualityTag • [TR Altyazılı]"
+                st.copy(title = "Play • $label • $suffix")
             }
 
             // Resolve official Metadata: Cinemeta (IMDb/Stremio standard) or TMDB or Scraped Page Info

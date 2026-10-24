@@ -191,18 +191,26 @@ class GitHubPublisher {
                     compareByDescending<StreamItem> { it.format == "m3u8" || it.url.contains(".m3u8") }
                         .thenByDescending { it.quality }
                 )
-                val renumbered = sorted.mapIndexed { idx, st ->
+
+                val dubCount = java.util.concurrent.atomic.AtomicInteger(0)
+                val subCount = java.util.concurrent.atomic.AtomicInteger(0)
+                val otherCount = java.util.concurrent.atomic.AtomicInteger(0)
+
+                val renumbered = sorted.map { st ->
+                    val isDub = st.title.contains("Dublaj")
+                    val isSub = st.title.contains("Altyaz")
+                    val label = when {
+                        isDub -> "Dublaj ${dubCount.incrementAndGet()}"
+                        isSub -> "Altyazı ${subCount.incrementAndGet()}"
+                        else -> "Sunucu ${otherCount.incrementAndGet()}"
+                    }
+                    val parts = st.title.split("•")
+                    val suffix = if (parts.size > 2) parts.drop(2).joinToString(" • ").trim() else if (isDub) "1080p • [TR Dublaj]" else "1080p • [TR Altyazılı]"
                     val ref = st.referer?.ifBlank { st.url } ?: st.url
                     val isM3u8 = st.format == "m3u8" || st.url.contains(".m3u8")
                     st.copy(
                         name = "Play",
-                        title = if (st.title.contains("•")) {
-                            val parts = st.title.split("•")
-                            val suffix = parts.drop(2).joinToString(" • ").trim()
-                            if (suffix.isNotBlank()) "Play • Sunucu ${idx + 1} • $suffix" else "Play • Sunucu ${idx + 1}"
-                        } else {
-                            "Play • Sunucu ${idx + 1}"
-                        },
+                        title = "Play • $label • $suffix",
                         format = if (isM3u8) "m3u8" else "mp4",
                         headers = mapOf(
                             "User-Agent" to "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -392,13 +400,7 @@ class GitHubPublisher {
             movie.streams.forEachIndexed { idx, st ->
                 val ref = st.referer?.ifBlank { st.url } ?: st.url
                 val isM3u8 = st.format == "m3u8" || st.url.contains(".m3u8")
-                val cleanTitle = if (st.title.contains("•")) {
-                    val parts = st.title.split("•")
-                    val suffix = parts.drop(2).joinToString(" • ").trim()
-                    if (suffix.isNotBlank()) "Play • Sunucu ${idx + 1} • $suffix" else "Play • Sunucu ${idx + 1}"
-                } else {
-                    "Play • Sunucu ${idx + 1}"
-                }
+                val cleanTitle = if (st.title.isNotBlank()) st.title else "Play • Sunucu ${idx + 1}"
 
                 val so = JsonObject().apply {
                     addProperty("name", "Play")
