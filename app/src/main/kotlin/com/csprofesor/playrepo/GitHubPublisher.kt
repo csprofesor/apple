@@ -280,9 +280,17 @@ class GitHubPublisher {
                 addProperty("type", "movie")
                 addProperty("name", movie.title)
                 addProperty("poster", movie.poster.ifBlank { LOGO_URL })
+                addProperty("background", movie.poster.ifBlank { LOGO_URL })
+                addProperty("logo", LOGO_URL)
                 addProperty("description", if (!movie.description.isNullOrBlank()) movie.description else "Play • ${movie.streams.size} Sunucu Seçeneği • 1080p TR")
                 if (!movie.year.isNullOrBlank()) {
                     addProperty("releaseInfo", movie.year)
+                }
+                if (!movie.imdbRating.isNullOrBlank()) {
+                    addProperty("imdbRating", movie.imdbRating)
+                }
+                if (!movie.runtime.isNullOrBlank()) {
+                    addProperty("runtime", movie.runtime)
                 }
                 add("genres", genreJsonArray)
             }
