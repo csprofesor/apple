@@ -1,5 +1,5 @@
-const CATALOG_URL = "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/data/catalog.json";
-const STREAMS_URL = "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/data/streams.json";
+const CATALOG_URL = "https://raw.githubusercontent.com/csprofesor/apple/main/data/catalog.json";
+const STREAMS_URL = "https://raw.githubusercontent.com/csprofesor/apple/main/data/streams.json";
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
 
 async function unpackLiveStreamUrl(rawUrl, referer) {
@@ -123,13 +123,45 @@ async function getCatalog(type, id, extra) {
 
         return { metas: metas };
     } catch (e) {
-        console.error("PlayRepo getCatalog error:", e);
+        console.error("Play getCatalog error:", e);
         return { metas: [] };
     }
 }
 
 async function getMeta(type, id) {
     try {
+        const idStr = id ? id.toString() : "";
+        const cleanId = idStr.replace(/^tmdb:/, "").replace(/^movie\//, "").replace(/^tv\//, "");
+
+        // 1. If it's an IMDb ID (tt...), fetch rich meta from Cinemeta
+        if (idStr.startsWith("tt")) {
+            try {
+                const cmRes = await fetch(`https://v3-cinemeta.strem.io/meta/movie/${idStr}.json`, {
+                    headers: { "User-Agent": UA }
+                });
+                if (cmRes.ok) {
+                    const cmData = await cmRes.json();
+                    if (cmData && cmData.meta) {
+                        const m = cmData.meta;
+                        if (!m.behaviorHints) m.behaviorHints = {};
+                        m.behaviorHints.defaultVideoId = idStr;
+                        m.behaviorHints.hasScheduledVideos = false;
+                        if (!m.videos || m.videos.length === 0) {
+                            m.videos = [
+                                {
+                                    id: idStr,
+                                    title: m.name,
+                                    released: m.releaseInfo ? `${m.releaseInfo}-01-01T00:00:00.000Z` : undefined
+                                }
+                            ];
+                        }
+                        return { meta: m };
+                    }
+                }
+            } catch (_) { }
+        }
+
+        // 2. Fetch local catalog
         const response = await fetch(CATALOG_URL, {
             headers: {
                 "User-Agent": UA,
@@ -142,53 +174,85 @@ async function getMeta(type, id) {
         const catalogData = await response.json();
         const metas = Array.isArray(catalogData) ? catalogData : (catalogData.metas || []);
 
-        const idStr = id ? id.toString() : "";
-        const cleanId = idStr.replace(/^tmdb:/, "").replace(/^movie\//, "").replace(/^tv\//, "");
         const found = metas.find(m => m.id === idStr || m.id === cleanId || m.id === `movie/${cleanId}` || m.id === `tmdb:${cleanId}`);
 
         if (found) {
+            const videoId = found.id || idStr;
             return {
                 meta: {
-                    id: found.id,
+                    id: videoId,
                     type: found.type || "movie",
                     name: found.name,
                     poster: found.poster,
-                    description: found.description || "PlayRepo • Film Yayın Kaynağı",
+                    background: found.poster,
+                    description: found.description || "Play • Film Yayın Kaynağı",
                     genres: found.genres || ["Popüler"],
-                    releaseInfo: found.releaseInfo || ""
+                    releaseInfo: found.releaseInfo || "",
+                    behaviorHints: {
+                        defaultVideoId: videoId,
+                        hasScheduledVideos: false
+                    },
+                    videos: [
+                        {
+                            id: videoId,
+                            title: found.name,
+                            released: found.releaseInfo ? `${found.releaseInfo}-01-01T00:00:00.000Z` : undefined
+                        }
+                    ]
                 }
             };
         }
 
-        // If IMDb ID, lookup Cinemeta for metadata
-        if (idStr.startsWith("tt")) {
-            try {
-                const cmRes = await fetch(`https://v3-cinemeta.strem.io/meta/movie/${idStr}.json`);
-                if (cmRes.ok) {
-                    const cmData = await cmRes.json();
-                    if (cmData && cmData.meta) return { meta: cmData.meta };
-                }
-            } catch (_) { }
-        }
-
+        const fallbackId = idStr || cleanId;
         return {
             meta: {
-                id: idStr,
+                id: fallbackId,
                 type: type || "movie",
                 name: `Film ${cleanId}`,
                 poster: "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-                description: "PlayRepo • Film Yayın Kaynağı",
-                genres: ["Popüler"]
+                background: "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+                description: "Play • Film Yayın Kaynağı",
+                genres: ["Popüler"],
+                behaviorHints: {
+                    defaultVideoId: fallbackId,
+                    hasScheduledVideos: false
+                },
+                videos: [
+                    {
+                        id: fallbackId,
+                        title: `Film ${cleanId}`
+                    }
+                ]
             }
         };
     } catch (e) {
-        console.error("PlayRepo getMeta error:", e);
+        console.error("Play getMeta error:", e);
         return { meta: null };
     }
 }
 
-async function getStreams(tmdbId, mediaType, season, episode) {
+async function getStreams(arg1, arg2, arg3, arg4) {
     try {
+        let idStr = "";
+        let mediaType = "movie";
+        let season = 1;
+        let episode = 1;
+
+        // Support both (type, id) and (id, type) and (tmdbId, mediaType, season, episode)
+        if (arg1 === "movie" || arg1 === "series" || arg1 === "tv") {
+            mediaType = arg1;
+            idStr = arg2 ? arg2.toString() : "";
+            season = arg3 || 1;
+            episode = arg4 || 1;
+        } else {
+            idStr = arg1 ? arg1.toString() : "";
+            mediaType = arg2 || "movie";
+            season = arg3 || 1;
+            episode = arg4 || 1;
+        }
+
+        if (!idStr) return [];
+
         const response = await fetch(STREAMS_URL, {
             headers: {
                 "User-Agent": UA,
@@ -199,14 +263,29 @@ async function getStreams(tmdbId, mediaType, season, episode) {
         if (!response.ok) return [];
 
         const data = await response.json();
-        const idStr = tmdbId ? tmdbId.toString() : "";
         const cleanId = idStr.replace(/^tmdb:/, "").replace(/^movie\//, "").replace(/^tv\//, "");
 
         const keyMovie = `movie/${cleanId}`;
-        const keyTv = `tv/${cleanId}/${season || 1}/${episode || 1}`;
+        const keyTv = `tv/${cleanId}/${season}/${episode}`;
         const keyTmdb = `tmdb:${cleanId}`;
 
-        const itemStreams = data[idStr] || data[keyMovie] || data[cleanId] || data[keyTmdb] || data[keyTv] || [];
+        // Match keys
+        let itemStreams = data[idStr] || data[keyMovie] || data[cleanId] || data[keyTmdb] || data[keyTv] || [];
+
+        // Case-insensitive search fallback
+        if (!itemStreams || itemStreams.length === 0) {
+            const lowerId = idStr.toLowerCase();
+            const lowerClean = cleanId.toLowerCase();
+            for (const k of Object.keys(data)) {
+                const lk = k.toLowerCase();
+                if (lk === lowerId || lk === lowerClean || lk === `movie/${lowerClean}` || lk === `tmdb:${lowerClean}`) {
+                    itemStreams = data[k];
+                    break;
+                }
+            }
+        }
+
+        if (!itemStreams || itemStreams.length === 0) return [];
 
         const resolvedPromises = itemStreams.map(async (s) => {
             const refererUrl = s.referer || s.url || "https://www.google.com";
@@ -221,7 +300,6 @@ async function getStreams(tmdbId, mediaType, season, episode) {
             }
 
             const isM3u8 = lowerDirect.includes(".m3u8");
-
             const rawTitle = s.title || `Play • ${s.quality || '1080p'}`;
             const maskedTitle = rawTitle.replace(/^PlayRepo/i, "Play");
 
@@ -251,13 +329,33 @@ async function getStreams(tmdbId, mediaType, season, episode) {
         const resolvedStreams = await Promise.all(resolvedPromises);
         return resolvedStreams.filter(s => s !== null && s.url && s.url.length > 5);
     } catch (e) {
-        console.error("PlayRepo getStreams error:", e);
+        console.error("Play getStreams error:", e);
         return [];
     }
 }
 
-module.exports = {
-    getCatalog: getCatalog,
-    getMeta: getMeta,
-    getStreams: getStreams
-};
+if (typeof module !== "undefined" && module.exports) {
+    module.exports = {
+        getCatalog: getCatalog,
+        catalog: getCatalog,
+        getMeta: getMeta,
+        meta: getMeta,
+        getStreams: getStreams,
+        stream: getStreams
+    };
+}
+if (typeof window !== "undefined") {
+    window.getStreams = getStreams;
+    window.getCatalog = getCatalog;
+    window.getMeta = getMeta;
+}
+if (typeof global !== "undefined") {
+    global.getStreams = getStreams;
+    global.getCatalog = getCatalog;
+    global.getMeta = getMeta;
+}
+if (typeof globalThis !== "undefined") {
+    globalThis.getStreams = getStreams;
+    globalThis.getCatalog = getCatalog;
+    globalThis.getMeta = getMeta;
+}

@@ -1,0 +1,18 @@
+{
+  "streams": [
+    {
+      "name": "Play",
+      "title": "Play • Sunucu 1 • 1080p • [TR Altyazılı]",
+      "url": "https://cdn64.my.mail.ru/hv/78758745.mp4?slave[]=s%3Ahttp%3A%2F%2F10.146.243.12%3A9091%2Fvideo%2F78758745-hv&p=f&video_key=724c54d05b7b1348583dfa823ce82b875d6426b4&expire_at=1792882800&touch=1719212830&reg=76&sign=fb1b1374ce9756bcffd81598085fe2c600b0c41c",
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://www.hintfilmizle.com/film/ae-dil-hai-mushkil-izle"
+          }
+        }
+      }
+    }
+  ]
+}

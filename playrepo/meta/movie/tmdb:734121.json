@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "tmdb:734121",
+    "type": "movie",
+    "name": "Abby Sen",
+    "poster": "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
+    "background": "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Play • 1 Sunucu Seçeneği • 1080p TR",
+    "genres": [
+      "Popüler",
+      "Aksiyon & Macera"
+    ],
+    "releaseInfo": "2024",
+    "behaviorHints": {
+      "defaultVideoId": "tmdb:734121",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tmdb:734121",
+        "title": "Abby Sen",
+        "released": "2024-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}

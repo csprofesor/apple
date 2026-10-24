@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "tmdb:455047",
+    "type": "movie",
+    "name": "Iruttarai",
+    "poster": "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
+    "background": "https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/logo.png",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Play • 1 Sunucu Seçeneği • 1080p TR",
+    "genres": [
+      "Popüler",
+      "Aksiyon & Macera"
+    ],
+    "releaseInfo": "2024",
+    "behaviorHints": {
+      "defaultVideoId": "tmdb:455047",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tmdb:455047",
+        "title": "Iruttarai",
+        "released": "2024-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}

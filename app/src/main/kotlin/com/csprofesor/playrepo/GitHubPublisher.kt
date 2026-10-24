@@ -61,6 +61,14 @@ class GitHubPublisher {
                 )
             }
 
+            // 4. Update playrepo/meta/movie/ and playrepo/stream/movie/ for direct Nuvio Play button
+            updateMetaAndStreamsOnGitHub(
+                githubToken = effectiveToken,
+                repoOwner = repoOwner,
+                repoName = repoName,
+                scrapedMovies = scrapedMovies
+            )
+
             streamsResult
         } catch (e: Exception) {
             Result.failure(e)
@@ -234,7 +242,7 @@ class GitHubPublisher {
                     addProperty("type", "movie")
                     addProperty("name", movie.title)
                     addProperty("poster", movie.poster.ifBlank { "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png" })
-                    addProperty("description", if (!movie.description.isNullOrBlank()) movie.description else "PlayRepo • ${movie.streams.size} Sunucu Seçeneği • 1080p TR")
+                    addProperty("description", if (!movie.description.isNullOrBlank()) movie.description else "Play • ${movie.streams.size} Sunucu Seçeneği • 1080p TR")
                     if (!movie.year.isNullOrBlank()) {
                         addProperty("releaseInfo", movie.year)
                     }
@@ -339,6 +347,137 @@ class GitHubPublisher {
                 client.newCall(putRequest).execute().close()
             } catch (_: Exception) { }
         }
+    }
+
+    private fun updateMetaAndStreamsOnGitHub(
+        githubToken: String,
+        repoOwner: String,
+        repoName: String,
+        scrapedMovies: List<ScrapedMovie>
+    ) {
+        scrapedMovies.forEach { movie ->
+            val cleanId = movie.tmdbId.replace("tmdb:", "").replace("movie/", "").replace("tv/", "")
+            val idStr = if (movie.tmdbId.startsWith("tt") || movie.tmdbId.startsWith("playrepo:")) movie.tmdbId else cleanId
+            val safeId = idStr.replace(":", "_")
+
+            // 1. Meta JSON
+            val metaWrapper = JsonObject().apply {
+                val m = JsonObject().apply {
+                    addProperty("id", idStr)
+                    addProperty("type", "movie")
+                    addProperty("name", movie.title)
+                    addProperty("poster", movie.poster.ifBlank { "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png" })
+                    addProperty("background", movie.poster.ifBlank { "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png" })
+                    addProperty("logo", "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png")
+                    addProperty("description", if (!movie.description.isNullOrBlank()) movie.description else "Play • ${movie.streams.size} Sunucu Seçeneği • 1080p TR")
+                    if (!movie.year.isNullOrBlank()) {
+                        addProperty("releaseInfo", movie.year)
+                    }
+                    val genreArr = JsonArray()
+                    movie.genres.forEach { genreArr.add(it) }
+                    add("genres", genreArr)
+
+                    val bh = JsonObject().apply {
+                        addProperty("defaultVideoId", idStr)
+                        addProperty("hasScheduledVideos", false)
+                    }
+                    add("behaviorHints", bh)
+
+                    val videos = JsonArray().apply {
+                        val v = JsonObject().apply {
+                            addProperty("id", idStr)
+                            addProperty("title", movie.title)
+                            if (!movie.year.isNullOrBlank()) {
+                                addProperty("released", "${movie.year}-01-01T00:00:00.000Z")
+                            }
+                        }
+                        add(v)
+                    }
+                    add("videos", videos)
+                }
+                add("meta", m)
+            }
+
+            // 2. Stream JSON
+            val streamWrapper = JsonObject().apply {
+                val sArr = JsonArray()
+                movie.streams.forEachIndexed { idx, st ->
+                    val so = JsonObject().apply {
+                        addProperty("name", "Play")
+                        val cleanTitle = if (st.title.contains("•")) {
+                            val parts = st.title.split("•")
+                            val suffix = parts.drop(2).joinToString(" • ").trim()
+                            if (suffix.isNotBlank()) "Play • Sunucu ${idx + 1} • $suffix" else "Play • Sunucu ${idx + 1}"
+                        } else {
+                            "Play • Sunucu ${idx + 1}"
+                        }
+                        addProperty("title", cleanTitle)
+                        addProperty("url", st.url)
+                        val bh = JsonObject().apply {
+                            addProperty("notSupported", false)
+                            val proxyHeaders = JsonObject().apply {
+                                val reqObj = JsonObject().apply {
+                                    addProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
+                                    addProperty("Referer", st.referer?.ifBlank { st.url } ?: st.url)
+                                }
+                                add("request", reqObj)
+                            }
+                            add("proxyHeaders", proxyHeaders)
+                        }
+                        add("behaviorHints", bh)
+                    }
+                    sArr.add(so)
+                }
+                add("streams", sArr)
+            }
+
+            uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/meta/movie/$safeId.json", gson.toJson(metaWrapper))
+            uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/stream/movie/$safeId.json", gson.toJson(streamWrapper))
+        }
+    }
+
+    private fun uploadFileToGitHub(
+        githubToken: String,
+        repoOwner: String,
+        repoName: String,
+        filePath: String,
+        contentJson: String
+    ) {
+        try {
+            val apiUrl = "https://api.github.com/repos/$repoOwner/$repoName/contents/$filePath"
+            val getRequest = Request.Builder()
+                .url(apiUrl)
+                .header("Authorization", "Bearer $githubToken")
+                .header("Accept", "application/vnd.github.v3+json")
+                .build()
+
+            var sha: String? = null
+            client.newCall(getRequest).execute().use { response ->
+                if (response.isSuccessful) {
+                    val bodyString = response.body?.string().orEmpty()
+                    val jsonObj = gson.fromJson(bodyString, JsonObject::class.java)
+                    sha = jsonObj.get("sha")?.asString
+                }
+            }
+
+            val encodedContent = Base64.encodeToString(contentJson.toByteArray(Charsets.UTF_8), Base64.NO_WRAP)
+            val putBody = JsonObject().apply {
+                addProperty("message", "Sync $filePath")
+                addProperty("content", encodedContent)
+                if (sha != null) {
+                    addProperty("sha", sha)
+                }
+            }
+
+            val putRequest = Request.Builder()
+                .url(apiUrl)
+                .header("Authorization", "Bearer $githubToken")
+                .header("Accept", "application/vnd.github.v3+json")
+                .put(putBody.toString().toRequestBody("application/json".toMediaType()))
+                .build()
+
+            client.newCall(putRequest).execute().close()
+        } catch (_: Exception) { }
     }
 
     suspend fun publishToGitHub(

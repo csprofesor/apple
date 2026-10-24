@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "tmdb:780281",
+    "type": "movie",
+    "name": "Alpha 2026 Hint Filmi",
+    "poster": "https://www.hintfilmizle.com/wp-content/uploads/2026/07/Alpha-2026.jpg",
+    "background": "https://www.hintfilmizle.com/wp-content/uploads/2026/07/Alpha-2026.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Play • 1 Sunucu Seçeneği • 1080p TR",
+    "genres": [
+      "Popüler",
+      "Aksiyon & Macera"
+    ],
+    "releaseInfo": "2024",
+    "behaviorHints": {
+      "defaultVideoId": "tmdb:780281",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tmdb:780281",
+        "title": "Alpha 2026 Hint Filmi",
+        "released": "2024-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}

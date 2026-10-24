@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "tmdb:600999",
+    "type": "movie",
+    "name": "Raja Shivaji",
+    "poster": "https://www.hintfilmizle.com/wp-content/uploads/2026/03/Raja-Shivaji-2026-izle-Full.jpg",
+    "background": "https://www.hintfilmizle.com/wp-content/uploads/2026/03/Raja-Shivaji-2026-izle-Full.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Play • 1 Sunucu Seçeneği • 1080p TR",
+    "genres": [
+      "Popüler",
+      "Aksiyon & Macera"
+    ],
+    "releaseInfo": "2024",
+    "behaviorHints": {
+      "defaultVideoId": "tmdb:600999",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tmdb:600999",
+        "title": "Raja Shivaji",
+        "released": "2024-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}

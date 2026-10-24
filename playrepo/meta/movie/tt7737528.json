@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "tt7737528",
+    "type": "movie",
+    "name": "Kate",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTliYmJjYzQtOTU1Mi00NDE1LTgxZTEtYmQwOTk1NTZlOTBjXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMTliYmJjYzQtOTU1Mi00NDE1LTgxZTEtYmQwOTk1NTZlOTBjXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Play • 1 Sunucu Seçeneği • 1080p TR",
+    "genres": [
+      "Popüler",
+      "Aksiyon & Macera"
+    ],
+    "releaseInfo": "2021",
+    "behaviorHints": {
+      "defaultVideoId": "tt7737528",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt7737528",
+        "title": "Kate",
+        "released": "2021-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}

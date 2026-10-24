@@ -576,7 +576,7 @@ class SiteScraperEngine {
                                 id = id,
                                 title = name,
                                 poster = if (poster.isNotBlank()) poster else fallbackPoster,
-                                description = if (desc.isNotBlank()) desc else "PlayRepo • 1080p TR",
+                                description = if (desc.isNotBlank()) desc else "Play • 1080p TR",
                                 year = releaseYear
                             )
                         }
@@ -625,7 +625,7 @@ class SiteScraperEngine {
             id = fallbackId,
             title = cleanTitle,
             poster = fallbackPoster,
-            description = if (scrapedDesc.isNotBlank()) scrapedDesc else "PlayRepo • Film Yayın Kaynağı",
+            description = if (scrapedDesc.isNotBlank()) scrapedDesc else "Play • Film Yayın Kaynağı",
             year = year
         )
     }

@@ -13,6 +13,11 @@
     "movie",
     "series"
   ],
+  "idPrefixes": [
+    "tt",
+    "tmdb",
+    "playrepo"
+  ],
   "catalogs": [
     {
       "type": "movie",
