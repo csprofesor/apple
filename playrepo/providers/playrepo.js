@@ -177,9 +177,24 @@ async function getCatalog(type, id, extra) {
     }
 }
 
-async function getMeta(type, id) {
+async function getMeta(arg1, arg2) {
     try {
-        const idStr = id ? id.toString() : "";
+        let mediaType = "movie";
+        let idStr = "";
+
+        if (typeof arg1 === "object" && arg1 !== null) {
+            idStr = (arg1.id || arg1.tmdbId || "").toString();
+            mediaType = arg1.type || arg1.mediaType || "movie";
+        } else if (arg1 === "movie" || arg1 === "series" || arg1 === "tv") {
+            mediaType = arg1;
+            idStr = arg2 ? arg2.toString() : "";
+        } else {
+            idStr = arg1 ? arg1.toString() : "";
+            mediaType = arg2 || "movie";
+        }
+
+        if (!idStr) return { meta: null };
+
         const cleanId = idStr.replace(/^tmdb:/, "").replace(/^movie\//, "").replace(/^tv\//, "");
         const safeId = idStr.replace(/:/g, "_");
 

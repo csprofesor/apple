@@ -1,1 +1,22 @@
+<<<<<<< HEAD
 {"streams":[{"name":"Play","title":"Play • Sunucu 1 • 1080p  •  [TR Dublaj]","url":"https://ok6-31.vkuser.net/video.m3u8?cmd\u003dvideoPlayerCdn\u0026expires\u003d1792962563989\u0026srcIp\u003d85.107.102.169\u0026pr\u003d10\u0026srcAg\u003dSAFARI_MAC\u0026ch\u003d1676822812\u0026ms\u003d95.142.206.35\u0026type\u003d2\u0026sig\u003dpFEl_Ljw3Po\u0026ct\u003d8\u0026urls\u003d178.237.23.39%3B176.112.172.39\u0026clientType\u003d0\u0026zs\u003d65\u0026id\u003d595386894921","behaviorHints":{"notSupported":false,"proxyHeaders":{"request":{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36","Referer":"https://odnoklassniki.ru/videoembed/1388478204489?nochat\u003d1"}}}}]}
+=======
+{
+  "streams": [
+    {
+      "name": "Play",
+      "title": "Play • Sunucu 1 • 1080p  •  [TR Dublaj]",
+      "url": "https://ok6-31.vkuser.net/video.m3u8?cmd=videoPlayerCdn&expires=1792962563989&srcIp=85.107.102.169&pr=10&srcAg=SAFARI_MAC&ch=1676822812&ms=95.142.206.35&type=2&sig=pFEl_Ljw3Po&ct=8&urls=178.237.23.39%3B176.112.172.39&clientType=0&zs=65&id=595386894921",
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://odnoklassniki.ru/videoembed/1388478204489?nochat=1"
+          }
+        }
+      }
+    }
+  ]
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

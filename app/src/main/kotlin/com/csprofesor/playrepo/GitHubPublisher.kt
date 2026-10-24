@@ -386,109 +386,114 @@ class GitHubPublisher {
         return false
     }
 
-    private fun updateMetaAndStreamsOnGitHub(
+    private suspend fun updateMetaAndStreamsOnGitHub(
         githubToken: String,
         repoOwner: String,
         repoName: String,
         scrapedMovies: List<ScrapedMovie>
-    ) {
-        scrapedMovies.forEach { movie ->
-            val cleanId = movie.tmdbId.replace("tmdb:", "").replace("movie/", "").replace("tv/", "")
-            val idStr = if (movie.tmdbId.startsWith("tt") || movie.tmdbId.startsWith("playrepo:")) movie.tmdbId else cleanId
-            val safeId = idStr.replace(":", "_")
+    ) = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+        scrapedMovies.chunked(4).forEach { chunk ->
+            val jobs = chunk.map { movie ->
+                kotlinx.coroutines.async {
+                    val cleanId = movie.tmdbId.replace("tmdb:", "").replace("movie/", "").replace("tv/", "")
+                    val idStr = if (movie.tmdbId.startsWith("tt") || movie.tmdbId.startsWith("playrepo:")) movie.tmdbId else cleanId
+                    val safeId = idStr.replace(":", "_")
 
-            // 1. Meta JSON
-            val metaWrapper = JsonObject().apply {
-                val m = JsonObject().apply {
-                    addProperty("id", idStr)
-                    addProperty("type", "movie")
-                    addProperty("name", movie.title)
-                    addProperty("poster", movie.poster.ifBlank { "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png" })
-                    addProperty("background", movie.poster.ifBlank { "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png" })
-                    addProperty("logo", "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png")
-                    addProperty("description", if (!movie.description.isNullOrBlank()) movie.description else "Play • ${movie.streams.size} Sunucu Seçeneği • 1080p TR")
-                    if (!movie.year.isNullOrBlank()) {
-                        addProperty("releaseInfo", movie.year)
-                    }
-                    if (!movie.imdbRating.isNullOrBlank()) {
-                        addProperty("imdbRating", movie.imdbRating)
-                    }
-                    if (!movie.runtime.isNullOrBlank()) {
-                        addProperty("runtime", movie.runtime)
-                    }
-                    if (!movie.director.isNullOrBlank()) {
-                        val dirArr = JsonArray().apply { add(movie.director) }
-                        add("director", dirArr)
-                    }
-                    if (!movie.cast.isNullOrEmpty()) {
-                        val castArr = JsonArray()
-                        movie.cast.forEach { castArr.add(it) }
-                        add("cast", castArr)
-                    }
-                    val genreArr = JsonArray()
-                    movie.genres.forEach { genreArr.add(it) }
-                    add("genres", genreArr)
-
-                    val bh = JsonObject().apply {
-                        addProperty("defaultVideoId", idStr)
-                        addProperty("hasScheduledVideos", false)
-                    }
-                    add("behaviorHints", bh)
-
-                    val videos = JsonArray().apply {
-                        val v = JsonObject().apply {
+                    // 1. Meta JSON
+                    val metaWrapper = JsonObject().apply {
+                        val m = JsonObject().apply {
                             addProperty("id", idStr)
-                            addProperty("title", movie.title)
+                            addProperty("type", "movie")
+                            addProperty("name", movie.title)
+                            addProperty("poster", movie.poster.ifBlank { "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png" })
+                            addProperty("background", movie.poster.ifBlank { "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png" })
+                            addProperty("logo", "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png")
+                            addProperty("description", if (!movie.description.isNullOrBlank()) movie.description else "Play • ${movie.streams.size} Sunucu Seçeneği • 1080p TR")
                             if (!movie.year.isNullOrBlank()) {
-                                addProperty("released", "${movie.year}-01-01T00:00:00.000Z")
+                                addProperty("releaseInfo", movie.year)
                             }
-                        }
-                        add(v)
-                    }
-                    add("videos", videos)
-                }
-                add("meta", m)
-            }
+                            if (!movie.imdbRating.isNullOrBlank()) {
+                                addProperty("imdbRating", movie.imdbRating)
+                            }
+                            if (!movie.runtime.isNullOrBlank()) {
+                                addProperty("runtime", movie.runtime)
+                            }
+                            if (!movie.director.isNullOrBlank()) {
+                                val dirArr = JsonArray().apply { add(movie.director) }
+                                add("director", dirArr)
+                            }
+                            if (!movie.cast.isNullOrEmpty()) {
+                                val castArr = JsonArray()
+                                movie.cast.forEach { castArr.add(it) }
+                                add("cast", castArr)
+                            }
+                            val genreArr = JsonArray()
+                            movie.genres.forEach { genreArr.add(it) }
+                            add("genres", genreArr)
 
-            // 2. Stream JSON
-            val streamWrapper = JsonObject().apply {
-                val sArr = JsonArray()
-                movie.streams.forEachIndexed { idx, st ->
-                    val so = JsonObject().apply {
-                        addProperty("name", "Play")
-                        val cleanTitle = if (st.title.contains("•")) {
-                            val parts = st.title.split("•")
-                            val suffix = parts.drop(2).joinToString(" • ").trim()
-                            if (suffix.isNotBlank()) "Play • Sunucu ${idx + 1} • $suffix" else "Play • Sunucu ${idx + 1}"
-                        } else {
-                            "Play • Sunucu ${idx + 1}"
-                        }
-                        addProperty("title", cleanTitle)
-                        addProperty("url", st.url)
-                        val bh = JsonObject().apply {
-                            addProperty("notSupported", false)
-                            val proxyHeaders = JsonObject().apply {
-                                val reqObj = JsonObject().apply {
-                                    addProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
-                                    addProperty("Referer", st.referer?.ifBlank { st.url } ?: st.url)
+                            val bh = JsonObject().apply {
+                                addProperty("defaultVideoId", idStr)
+                                addProperty("hasScheduledVideos", false)
+                            }
+                            add("behaviorHints", bh)
+
+                            val videos = JsonArray().apply {
+                                val v = JsonObject().apply {
+                                    addProperty("id", idStr)
+                                    addProperty("title", movie.title)
+                                    if (!movie.year.isNullOrBlank()) {
+                                        addProperty("released", "${movie.year}-01-01T00:00:00.000Z")
+                                    }
                                 }
-                                add("request", reqObj)
+                                add(v)
                             }
-                            add("proxyHeaders", proxyHeaders)
+                            add("videos", videos)
                         }
-                        add("behaviorHints", bh)
+                        add("meta", m)
                     }
-                    sArr.add(so)
-                }
-                add("streams", sArr)
-            }
 
-            uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/meta/movie/$safeId.json", gson.toJson(metaWrapper))
-            uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/stream/movie/$safeId.json", gson.toJson(streamWrapper))
-            if (idStr != safeId) {
-                uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/meta/movie/$idStr.json", gson.toJson(metaWrapper))
-                uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/stream/movie/$idStr.json", gson.toJson(streamWrapper))
+                    // 2. Stream JSON
+                    val streamWrapper = JsonObject().apply {
+                        val sArr = JsonArray()
+                        movie.streams.forEachIndexed { idx, st ->
+                            val so = JsonObject().apply {
+                                addProperty("name", "Play")
+                                val cleanTitle = if (st.title.contains("•")) {
+                                    val parts = st.title.split("•")
+                                    val suffix = parts.drop(2).joinToString(" • ").trim()
+                                    if (suffix.isNotBlank()) "Play • Sunucu ${idx + 1} • $suffix" else "Play • Sunucu ${idx + 1}"
+                                } else {
+                                    "Play • Sunucu ${idx + 1}"
+                                }
+                                addProperty("title", cleanTitle)
+                                addProperty("url", st.url)
+                                val bh = JsonObject().apply {
+                                    addProperty("notSupported", false)
+                                    val proxyHeaders = JsonObject().apply {
+                                        val reqObj = JsonObject().apply {
+                                            addProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
+                                            addProperty("Referer", st.referer?.ifBlank { st.url } ?: st.url)
+                                        }
+                                        add("request", reqObj)
+                                    }
+                                    add("proxyHeaders", proxyHeaders)
+                                }
+                                add("behaviorHints", bh)
+                            }
+                            sArr.add(so)
+                        }
+                        add("streams", sArr)
+                    }
+
+                    uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/meta/movie/$safeId.json", gson.toJson(metaWrapper))
+                    uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/stream/movie/$safeId.json", gson.toJson(streamWrapper))
+                    if (idStr != safeId) {
+                        uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/meta/movie/$idStr.json", gson.toJson(metaWrapper))
+                        uploadFileToGitHub(githubToken, repoOwner, repoName, "playrepo/stream/movie/$idStr.json", gson.toJson(streamWrapper))
+                    }
+                }
             }
+            jobs.forEach { it.await() }
         }
     }
 

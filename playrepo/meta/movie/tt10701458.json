@@ -1,1 +1,30 @@
+<<<<<<< HEAD
 {"meta":{"id":"tt10701458","type":"movie","name":"Castle Freak","poster":"https://m.media-amazon.com/images/M/MV5BMzRjOWRhYTEtZWQ1Mi00ZWE3LWIxMTQtYzU4NWIwNzY0YTdmXkEyXkFqcGc@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BMzRjOWRhYTEtZWQ1Mi00ZWE3LWIxMTQtYzU4NWIwNzY0YTdmXkEyXkFqcGc@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Film Hakkında Teknik Bilgiler Yayın Tarihi: 04.12.2020 Süre: 106 dakika IMDB Puanı: 4.348/10 Yapım Ülkesi: Albania, United States of America","releaseInfo":"2020","runtime":"106 dakika","cast":["Chris Galust","Clair Catherine","Elisha Pratt","Emily Sweet","Genti Kame","Jake Horowitz"],"genres":["Korku \u0026 Gerilim"],"behaviorHints":{"defaultVideoId":"tt10701458","hasScheduledVideos":false},"videos":[{"id":"tt10701458","title":"Castle Freak","released":"2020-01-01T00:00:00.000Z"}]}}
+=======
+{
+  "meta": {
+    "id": "tt10701458",
+    "type": "movie",
+    "name": "Castle Freak",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMzRjOWRhYTEtZWQ1Mi00ZWE3LWIxMTQtYzU4NWIwNzY0YTdmXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMzRjOWRhYTEtZWQ1Mi00ZWE3LWIxMTQtYzU4NWIwNzY0YTdmXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Film Hakkında Teknik Bilgiler Yayın Tarihi: 04.12.2020 Süre: 106 dakika IMDB Puanı: 4.348/10 Yapım Ülkesi: Albania, United States of America",
+    "genres": [
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt10701458",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt10701458",
+        "title": "Castle Freak",
+        "released": "2020-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2020"
+  }
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

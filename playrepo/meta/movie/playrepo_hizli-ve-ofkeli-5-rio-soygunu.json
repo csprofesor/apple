@@ -1,1 +1,27 @@
-{"meta":{"id":"playrepo:hizli-ve-ofkeli-5-rio-soygunu","type":"movie","name":"Hızlı ve Öfkeli 5: Rio Soygunu","poster":"https://filmkovasi.co/wp-content/uploads/2026/04/oG4bxAtNP8ikDYkH5PoHdCE0muN-1.jpg","background":"https://filmkovasi.co/wp-content/uploads/2026/04/oG4bxAtNP8ikDYkH5PoHdCE0muN-1.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Eski polis Brian O\u0027Conner ve geçmişte, paçasını kurtardığı Dom Toretto, tamamen özgür olabilmek için bir kez daha takım olurlar. Ancak özgürlük kolay","releaseInfo":"2011","director":["Justin Lin"],"cast":["Don Omar","Gal Gadot","Jordana Brewster","Ludacris","Matt Schulze","Paul Walker"],"genres":["Aksiyon \u0026 Macera","Korku \u0026 Gerilim"],"behaviorHints":{"defaultVideoId":"playrepo:hizli-ve-ofkeli-5-rio-soygunu","hasScheduledVideos":false},"videos":[{"id":"playrepo:hizli-ve-ofkeli-5-rio-soygunu","title":"Hızlı ve Öfkeli 5: Rio Soygunu","released":"2011-01-01T00:00:00.000Z"}]}}
+{
+  "meta": {
+    "id": "playrepo:hizli-ve-ofkeli-5-rio-soygunu",
+    "type": "movie",
+    "name": "Hızlı ve Öfkeli 5: Rio Soygunu",
+    "poster": "https://filmkovasi.co/wp-content/uploads/2026/04/oG4bxAtNP8ikDYkH5PoHdCE0muN-1.jpg",
+    "background": "https://filmkovasi.co/wp-content/uploads/2026/04/oG4bxAtNP8ikDYkH5PoHdCE0muN-1.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Eski polis Brian O'Conner ve geçmişte, paçasını kurtardığı Dom Toretto, tamamen özgür olabilmek için bir kez daha takım olurlar. Ancak özgürlük kolay",
+    "genres": [
+      "Aksiyon & Macera",
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "playrepo:hizli-ve-ofkeli-5-rio-soygunu",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo:hizli-ve-ofkeli-5-rio-soygunu",
+        "title": "Hızlı ve Öfkeli 5: Rio Soygunu",
+        "released": "2011-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2011"
+  }
+}

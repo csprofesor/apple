@@ -1,1 +1,31 @@
+<<<<<<< HEAD
 {"meta":{"id":"tt15313118","type":"movie","name":"Murder Motel","poster":"https://m.media-amazon.com/images/M/MV5BMGJmMzdjMjQtODQ5Mi00M2IzLTg5ZjQtMjJhODQzMTUxYWE2XkEyXkFqcGc@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BMGJmMzdjMjQtODQ5Mi00M2IzLTg5ZjQtMjJhODQzMTUxYWE2XkEyXkFqcGc@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Dayana, Kader Moteli\u0027nin sahibi olan eski polis memuru Elias ile istismarcı bir evlilik yaşamaktadır. 21 yaşındaki Heraldo, bir işi berbat edip kaçarken","releaseInfo":"2023","cast":["Bertrand de Courville","David Santos","Fábio Assunção","Fabíola Líper","Iago Xavier","Isabela Catão"],"genres":["Dram \u0026 Romantik","Korku \u0026 Gerilim"],"behaviorHints":{"defaultVideoId":"tt15313118","hasScheduledVideos":false},"videos":[{"id":"tt15313118","title":"Murder Motel","released":"2023-01-01T00:00:00.000Z"}]}}
+=======
+{
+  "meta": {
+    "id": "tt15313118",
+    "type": "movie",
+    "name": "Murder Motel",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMGJmMzdjMjQtODQ5Mi00M2IzLTg5ZjQtMjJhODQzMTUxYWE2XkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMGJmMzdjMjQtODQ5Mi00M2IzLTg5ZjQtMjJhODQzMTUxYWE2XkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Dayana, Kader Moteli'nin sahibi olan eski polis memuru Elias ile istismarcı bir evlilik yaşamaktadır. 21 yaşındaki Heraldo, bir işi berbat edip kaçarken",
+    "genres": [
+      "Dram & Romantik",
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt15313118",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt15313118",
+        "title": "Murder Motel",
+        "released": "2023-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2023"
+  }
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

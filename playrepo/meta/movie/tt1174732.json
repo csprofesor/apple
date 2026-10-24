@@ -1,1 +1,31 @@
+<<<<<<< HEAD
 {"meta":{"id":"tt1174732","type":"movie","name":"An Education","poster":"https://m.media-amazon.com/images/M/MV5BMTg4NjgzOTc0MF5BMl5BanBnXkFtZTcwOTc2OTE3Mg@@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BMTg4NjgzOTc0MF5BMl5BanBnXkFtZTcwOTc2OTE3Mg@@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Ünlü bir söz yazarı olan Hee-Soo ( Kim Sun-Young ) yalnızdır ve bir türlü şarkı yazmak için ilham bulamamaktadır. Bir gün asansörde genç bir erkekle","releaseInfo":"2009","cast":["Kim Da-bin","Min Ji-Hyuk","Nam Tae-boo","Oh Cho-hee","김선영","김지훈"],"genres":["Dram \u0026 Romantik","Komedi"],"behaviorHints":{"defaultVideoId":"tt1174732","hasScheduledVideos":false},"videos":[{"id":"tt1174732","title":"An Education","released":"2009-01-01T00:00:00.000Z"}]}}
+=======
+{
+  "meta": {
+    "id": "tt1174732",
+    "type": "movie",
+    "name": "An Education",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTg4NjgzOTc0MF5BMl5BanBnXkFtZTcwOTc2OTE3Mg@@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMTg4NjgzOTc0MF5BMl5BanBnXkFtZTcwOTc2OTE3Mg@@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Ünlü bir söz yazarı olan Hee-Soo ( Kim Sun-Young ) yalnızdır ve bir türlü şarkı yazmak için ilham bulamamaktadır. Bir gün asansörde genç bir erkekle",
+    "genres": [
+      "Dram & Romantik",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt1174732",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt1174732",
+        "title": "An Education",
+        "released": "2009-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2009"
+  }
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

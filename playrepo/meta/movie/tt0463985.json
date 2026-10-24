@@ -1,1 +1,28 @@
-{"meta":{"id":"tt0463985","type":"movie","name":"The Fast and the Furious: Tokyo Drift","poster":"https://m.media-amazon.com/images/M/MV5BZGNmMDQxNTQtODMzNS00Y2IzLWFiYjMtZmI5YzdmYmE5YmUxXkEyXkFqcGc@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BZGNmMDQxNTQtODMzNS00Y2IzLWFiYjMtZmI5YzdmYmE5YmUxXkEyXkFqcGc@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Sean Boswell, yaşadığı topluma yabancılaşmış bir sokak yarışçısıdır. Yarışlara katılmak, Sean için mutsuz ev ortamından geçici kaçış sağlar ve çevresinde","releaseInfo":"2006","director":["Justin Lin"],"cast":["Brian Goodman","Brian Tee","Jason Tobin","Leonardo Nam","Lucas Black","Nathalie Kelley"],"genres":["Aksiyon \u0026 Macera","Dram \u0026 Romantik","Korku \u0026 Gerilim"],"behaviorHints":{"defaultVideoId":"tt0463985","hasScheduledVideos":false},"videos":[{"id":"tt0463985","title":"The Fast and the Furious: Tokyo Drift","released":"2006-01-01T00:00:00.000Z"}]}}
+{
+  "meta": {
+    "id": "tt0463985",
+    "type": "movie",
+    "name": "The Fast and the Furious: Tokyo Drift",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZGNmMDQxNTQtODMzNS00Y2IzLWFiYjMtZmI5YzdmYmE5YmUxXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BZGNmMDQxNTQtODMzNS00Y2IzLWFiYjMtZmI5YzdmYmE5YmUxXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Sean Boswell, yaşadığı topluma yabancılaşmış bir sokak yarışçısıdır. Yarışlara katılmak, Sean için mutsuz ev ortamından geçici kaçış sağlar ve çevresinde",
+    "genres": [
+      "Aksiyon & Macera",
+      "Dram & Romantik",
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt0463985",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0463985",
+        "title": "The Fast and the Furious: Tokyo Drift",
+        "released": "2006-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2006"
+  }
+}

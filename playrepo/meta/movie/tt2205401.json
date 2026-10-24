@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "tt2205401",
+    "type": "movie",
+    "name": "Addicted",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNjMzMTUyNzU3Nl5BMl5BanBnXkFtZTgwNjM5MjAwMjE@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BNjMzMTUyNzU3Nl5BMl5BanBnXkFtZTgwNjM5MjAwMjE@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Zoe, iyi bir işi, iyi bir kariyeri, harika bir kocası, iki tane canından çok sevdiği çocuğu ve her zaman yanında olan bir annesi ile mükemmel bir hayatı",
+    "genres": [
+      "Dram & Romantik",
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt2205401",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt2205401",
+        "title": "Addicted",
+        "released": "2014-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2014"
+  }
+}

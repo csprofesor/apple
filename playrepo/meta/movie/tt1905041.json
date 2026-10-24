@@ -1,1 +1,27 @@
-{"meta":{"id":"tt1905041","type":"movie","name":"Fast \u0026 Furious 6","poster":"https://m.media-amazon.com/images/M/MV5BMTM3NTg2NDQzOF5BMl5BanBnXkFtZTcwNjc2NzQzOQ@@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BMTM3NTg2NDQzOF5BMl5BanBnXkFtZTcwNjc2NzQzOQ@@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Dom ve Brian’ın birlikte hareket ederek çok nüfuzlu bir kişinin imparatorluğunu yıktıklarından bu yana kahramanlarımız tüm dünyaya yayılmıştır. Bu arada Hobbs","releaseInfo":"2013","director":["Justin Lin"],"cast":["Dwayne Johnson","Gal Gadot","Jordana Brewster","Ludacris","Luke Evans","Michelle Rodriguez"],"genres":["Aksiyon \u0026 Macera","Korku \u0026 Gerilim"],"behaviorHints":{"defaultVideoId":"tt1905041","hasScheduledVideos":false},"videos":[{"id":"tt1905041","title":"Fast \u0026 Furious 6","released":"2013-01-01T00:00:00.000Z"}]}}
+{
+  "meta": {
+    "id": "tt1905041",
+    "type": "movie",
+    "name": "Fast & Furious 6",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTM3NTg2NDQzOF5BMl5BanBnXkFtZTcwNjc2NzQzOQ@@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMTM3NTg2NDQzOF5BMl5BanBnXkFtZTcwNjc2NzQzOQ@@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Dom ve Brian’ın birlikte hareket ederek çok nüfuzlu bir kişinin imparatorluğunu yıktıklarından bu yana kahramanlarımız tüm dünyaya yayılmıştır. Bu arada Hobbs",
+    "genres": [
+      "Aksiyon & Macera",
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt1905041",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt1905041",
+        "title": "Fast & Furious 6",
+        "released": "2013-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2013"
+  }
+}

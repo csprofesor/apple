@@ -1,1 +1,27 @@
-{"meta":{"id":"tt1013752","type":"movie","name":"Fast \u0026 Furious","poster":"https://m.media-amazon.com/images/M/MV5BM2Y1YzhkNzUtMzhmZC00OTFkLWJjZDktMWYzZmQ0Y2Y5ODcwXkEyXkFqcGc@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BM2Y1YzhkNzUtMzhmZC00OTFkLWJjZDktMWYzZmQ0Y2Y5ODcwXkEyXkFqcGc@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Eski dolandırıcı Domile ile ajan Brian arasındaki eskilerden beri devam eden husumet yeniden alevlenir. Ancak ortak düşmanlarıyla mücadele etmek zorunda","releaseInfo":"2009","director":["Justin Lin"],"cast":["Gal Gadot","Jack Conley","John Ortiz","Jordana Brewster","Laz Alonso","Liza Lapira"],"genres":["Aksiyon \u0026 Macera","Korku \u0026 Gerilim"],"behaviorHints":{"defaultVideoId":"tt1013752","hasScheduledVideos":false},"videos":[{"id":"tt1013752","title":"Fast \u0026 Furious","released":"2009-01-01T00:00:00.000Z"}]}}
+{
+  "meta": {
+    "id": "tt1013752",
+    "type": "movie",
+    "name": "Fast & Furious",
+    "poster": "https://m.media-amazon.com/images/M/MV5BM2Y1YzhkNzUtMzhmZC00OTFkLWJjZDktMWYzZmQ0Y2Y5ODcwXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BM2Y1YzhkNzUtMzhmZC00OTFkLWJjZDktMWYzZmQ0Y2Y5ODcwXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Eski dolandırıcı Domile ile ajan Brian arasındaki eskilerden beri devam eden husumet yeniden alevlenir. Ancak ortak düşmanlarıyla mücadele etmek zorunda",
+    "genres": [
+      "Aksiyon & Macera",
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt1013752",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt1013752",
+        "title": "Fast & Furious",
+        "released": "2009-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2009"
+  }
+}

@@ -1,1 +1,30 @@
+<<<<<<< HEAD
 {"meta":{"id":"playrepo:sonsuz-ask","type":"movie","name":"Sonsuz Aşk","poster":"https://filmkovasi.co/wp-content/uploads/2026/04/qipoCERWOWOs4Cfnm6dxIKn38La.jpg","background":"https://filmkovasi.co/wp-content/uploads/2026/04/qipoCERWOWOs4Cfnm6dxIKn38La.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"1981 yapımı Franco Zeffirelli filmi Endless Love\u0027ın yeniden uyarlaması olan yapıtta iki gencin sınırları zorlayan bir aşk hikayesine tanık oluyoruz. David","releaseInfo":"2014","cast":["Alex Pettyfer","Anna Enger Ritch","Bruce Greenwood","Dayo Okeniyi","Emma Rigby","Fabianne Therese"],"genres":["Dram \u0026 Romantik"],"behaviorHints":{"defaultVideoId":"playrepo:sonsuz-ask","hasScheduledVideos":false},"videos":[{"id":"playrepo:sonsuz-ask","title":"Sonsuz Aşk","released":"2014-01-01T00:00:00.000Z"}]}}
+=======
+{
+  "meta": {
+    "id": "playrepo:sonsuz-ask",
+    "type": "movie",
+    "name": "Sonsuz Aşk",
+    "poster": "https://filmkovasi.co/wp-content/uploads/2026/04/qipoCERWOWOs4Cfnm6dxIKn38La.jpg",
+    "background": "https://filmkovasi.co/wp-content/uploads/2026/04/qipoCERWOWOs4Cfnm6dxIKn38La.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "1981 yapımı Franco Zeffirelli filmi Endless Love'ın yeniden uyarlaması olan yapıtta iki gencin sınırları zorlayan bir aşk hikayesine tanık oluyoruz. David",
+    "genres": [
+      "Dram & Romantik"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "playrepo:sonsuz-ask",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo:sonsuz-ask",
+        "title": "Sonsuz Aşk",
+        "released": "2014-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2014"
+  }
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

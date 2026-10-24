@@ -1,1 +1,18 @@
-{"streams":[{"name":"Play","title":"Play • Sunucu 1 • 1080p  •  [TR Dublaj]","url":"https://ok6-31.vkuser.net/video.m3u8?cmd\u003dvideoPlayerCdn\u0026expires\u003d1792962494087\u0026srcIp\u003d85.107.102.169\u0026pr\u003d10\u0026srcAg\u003dGECKO\u0026ch\u003d1676822812\u0026ms\u003d95.142.206.35\u0026type\u003d2\u0026sig\u003dCw3SDcS2fYk\u0026ct\u003d8\u0026urls\u003d176.112.172.39%3B95.163.35.41\u0026clientType\u003d0\u0026zs\u003d65\u0026id\u003d624002796105","behaviorHints":{"notSupported":false,"proxyHeaders":{"request":{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36","Referer":"https://odnoklassniki.ru/videoembed/1469026470473?nochat\u003d1"}}}}]}
+{
+  "streams": [
+    {
+      "name": "Play",
+      "title": "Play • Sunucu 1 • 1080p  •  [TR Dublaj]",
+      "url": "https://ok6-31.vkuser.net/video.m3u8?cmd=videoPlayerCdn&expires=1792962494087&srcIp=85.107.102.169&pr=10&srcAg=GECKO&ch=1676822812&ms=95.142.206.35&type=2&sig=Cw3SDcS2fYk&ct=8&urls=176.112.172.39%3B95.163.35.41&clientType=0&zs=65&id=624002796105",
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://odnoklassniki.ru/videoembed/1469026470473?nochat=1"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,1 +1,27 @@
-{"meta":{"id":"tt0322259","type":"movie","name":"2 Fast 2 Furious","poster":"https://m.media-amazon.com/images/M/MV5BOTQzYzEwNWMtOTAwYy00YWYwLWE1NTEtZTkxOGQxZTM0M2VhXkEyXkFqcGc@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BOTQzYzEwNWMtOTAwYy00YWYwLWE1NTEtZTkxOGQxZTM0M2VhXkEyXkFqcGc@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Emekliye ayrılan Brian O’Connor, kendisini baştan çıkaran sokak yarışları ve yeraltı dünyasının kirli işlerine bulaşmadan duramaz. Eski dostu Roman Pearce ile","releaseInfo":"2003","cast":["Cole Hauser","Devon Aoki","Eva Mendes","James Remar","Ludacris","Mark Boone Junior"],"genres":["Aksiyon \u0026 Macera","Korku \u0026 Gerilim"],"behaviorHints":{"defaultVideoId":"tt0322259","hasScheduledVideos":false},"videos":[{"id":"tt0322259","title":"2 Fast 2 Furious","released":"2003-01-01T00:00:00.000Z"}]}}
+{
+  "meta": {
+    "id": "tt0322259",
+    "type": "movie",
+    "name": "2 Fast 2 Furious",
+    "poster": "https://m.media-amazon.com/images/M/MV5BOTQzYzEwNWMtOTAwYy00YWYwLWE1NTEtZTkxOGQxZTM0M2VhXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BOTQzYzEwNWMtOTAwYy00YWYwLWE1NTEtZTkxOGQxZTM0M2VhXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Emekliye ayrılan Brian O’Connor, kendisini baştan çıkaran sokak yarışları ve yeraltı dünyasının kirli işlerine bulaşmadan duramaz. Eski dostu Roman Pearce ile",
+    "genres": [
+      "Aksiyon & Macera",
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt0322259",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0322259",
+        "title": "2 Fast 2 Furious",
+        "released": "2003-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2003"
+  }
+}

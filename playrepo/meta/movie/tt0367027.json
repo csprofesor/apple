@@ -1,1 +1,31 @@
+<<<<<<< HEAD
 {"meta":{"id":"tt0367027","type":"movie","name":"Shortbus","poster":"https://m.media-amazon.com/images/M/MV5BOTcwMzFiYzktYTZmMi00ZjEzLWE0Y2ItNjBhMmQ1ZmI3NzZhXkEyXkFqcGc@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BOTcwMzFiYzktYTZmMi00ZjEzLWE0Y2ItNjBhMmQ1ZmI3NzZhXkEyXkFqcGc@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Bir çok New York\u0027lu, exclusive club olan Shortbus\u0027a sex yaşamlarındaki problemlere çözüm bulabilmek amacıyla gelmektedir. Rob ve Sophia çok mutlu bir çifttir","releaseInfo":"2006","director":["John Cameron Mitchell"],"cast":["Adam Hardman","Alan Mandell","Jay Brannan","Lindsay Beamish","Paul Dawson","Peter Stickles"],"genres":["Dram \u0026 Romantik","Komedi"],"behaviorHints":{"defaultVideoId":"tt0367027","hasScheduledVideos":false},"videos":[{"id":"tt0367027","title":"Shortbus","released":"2006-01-01T00:00:00.000Z"}]}}
+=======
+{
+  "meta": {
+    "id": "tt0367027",
+    "type": "movie",
+    "name": "Shortbus",
+    "poster": "https://m.media-amazon.com/images/M/MV5BOTcwMzFiYzktYTZmMi00ZjEzLWE0Y2ItNjBhMmQ1ZmI3NzZhXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BOTcwMzFiYzktYTZmMi00ZjEzLWE0Y2ItNjBhMmQ1ZmI3NzZhXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Bir çok New York'lu, exclusive club olan Shortbus'a sex yaşamlarındaki problemlere çözüm bulabilmek amacıyla gelmektedir. Rob ve Sophia çok mutlu bir çifttir",
+    "genres": [
+      "Dram & Romantik",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt0367027",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0367027",
+        "title": "Shortbus",
+        "released": "2006-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2006"
+  }
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

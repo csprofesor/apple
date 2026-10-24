@@ -1,1 +1,18 @@
-{"streams":[{"name":"Play","title":"Play • Sunucu 1 • 1080p  •  [TR Dublaj]","url":"https://cdn59.my.mail.ru/v/73007287.mp4?slave[]\u003ds%3Ahttp%3A%2F%2F10.146.243.4%3A9090%2Fvideo4%2F73007287-v\u0026p\u003df\u0026video_key\u003d724c54d05b7b1348583dfa823ce82b875d6426b4\u0026expire_at\u003d1792890000\u0026touch\u003d1631041271\u0026reg\u003d76\u0026sign\u003d58ffcaa06b953570624ffd98a65a975d7bde18ec","behaviorHints":{"notSupported":false,"proxyHeaders":{"request":{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36","Referer":"https://my.mail.ru/video/embed/7750209215083316509"}}}}]}
+{
+  "streams": [
+    {
+      "name": "Play",
+      "title": "Play • Sunucu 1 • 1080p  •  [TR Dublaj]",
+      "url": "https://cdn59.my.mail.ru/v/73007287.mp4?slave[]=s%3Ahttp%3A%2F%2F10.146.243.4%3A9090%2Fvideo4%2F73007287-v&p=f&video_key=724c54d05b7b1348583dfa823ce82b875d6426b4&expire_at=1792890000&touch=1631041271&reg=76&sign=58ffcaa06b953570624ffd98a65a975d7bde18ec",
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://my.mail.ru/video/embed/7750209215083316509"
+          }
+        }
+      }
+    }
+  ]
+}

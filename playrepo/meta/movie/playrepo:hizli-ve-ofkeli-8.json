@@ -1,1 +1,27 @@
-{"meta":{"id":"playrepo:hizli-ve-ofkeli-8","type":"movie","name":"Hızlı ve Öfkeli 8","poster":"https://filmkovasi.co/wp-content/uploads/2026/04/80v4HQwREdesIvnnpTfvoCXQJ4T-1.jpg","background":"https://filmkovasi.co/wp-content/uploads/2026/04/80v4HQwREdesIvnnpTfvoCXQJ4T-1.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Ekip artık sakinleşmiştir ve suçtan uzak bir hayat yaşamak istemektedir. Dom ve Letty evlenip balayına giderlerken, Brian ile Mia da emekli olmaya karar","releaseInfo":"2017","cast":["Charlize Theron","Dwayne Johnson","Jason Statham","Kurt Russell","Ludacris","Luke Evans"],"genres":["Aksiyon \u0026 Macera","Korku \u0026 Gerilim"],"behaviorHints":{"defaultVideoId":"playrepo:hizli-ve-ofkeli-8","hasScheduledVideos":false},"videos":[{"id":"playrepo:hizli-ve-ofkeli-8","title":"Hızlı ve Öfkeli 8","released":"2017-01-01T00:00:00.000Z"}]}}
+{
+  "meta": {
+    "id": "playrepo:hizli-ve-ofkeli-8",
+    "type": "movie",
+    "name": "Hızlı ve Öfkeli 8",
+    "poster": "https://filmkovasi.co/wp-content/uploads/2026/04/80v4HQwREdesIvnnpTfvoCXQJ4T-1.jpg",
+    "background": "https://filmkovasi.co/wp-content/uploads/2026/04/80v4HQwREdesIvnnpTfvoCXQJ4T-1.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Ekip artık sakinleşmiştir ve suçtan uzak bir hayat yaşamak istemektedir. Dom ve Letty evlenip balayına giderlerken, Brian ile Mia da emekli olmaya karar",
+    "genres": [
+      "Aksiyon & Macera",
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "playrepo:hizli-ve-ofkeli-8",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo:hizli-ve-ofkeli-8",
+        "title": "Hızlı ve Öfkeli 8",
+        "released": "2017-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2017"
+  }
+}

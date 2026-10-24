@@ -1,1 +1,18 @@
-{"streams":[{"name":"Play","title":"Play • Sunucu 1 • 1080p  •  [TR Dublaj]","url":"https://vd1.okcdn.ru/expires/1792962471921/clientType/0/srcIp/85.107.102.169/type/2/mid/1353963276934/id/626134878854/ms/176.112.172.39/zs/65/srcAg/CHROME/urls/95.163.35.41/oq/0/pr/10/ct/28/sig/0pk12wbWds8/ondemand/hls4_626134878854.CIaVgPSzJ0CGz-zj5RBQCg04TX4jxETR.m3u8","behaviorHints":{"notSupported":false,"proxyHeaders":{"request":{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36","Referer":"https://odnoklassniki.ru/videoembed/1353963276934?nochat\u003d1"}}}}]}
+{
+  "streams": [
+    {
+      "name": "Play",
+      "title": "Play • Sunucu 1 • 1080p  •  [TR Dublaj]",
+      "url": "https://vd1.okcdn.ru/expires/1792962471921/clientType/0/srcIp/85.107.102.169/type/2/mid/1353963276934/id/626134878854/ms/176.112.172.39/zs/65/srcAg/CHROME/urls/95.163.35.41/oq/0/pr/10/ct/28/sig/0pk12wbWds8/ondemand/hls4_626134878854.CIaVgPSzJ0CGz-zj5RBQCg04TX4jxETR.m3u8",
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://odnoklassniki.ru/videoembed/1353963276934?nochat=1"
+          }
+        }
+      }
+    }
+  ]
+}

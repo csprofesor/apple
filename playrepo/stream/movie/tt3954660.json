@@ -1,1 +1,22 @@
+<<<<<<< HEAD
 {"streams":[{"name":"Play","title":"Play • Sunucu 1 • 1080p  •  [TR Dublaj]","url":"https://cdn61.my.mail.ru/v/68816004.mp4?slave[]\u003ds%3Ahttp%3A%2F%2F10.146.243.3%3A9091%2Fvideo4%2F68816004-v\u0026p\u003df\u0026video_key\u003d724c54d05b7b1348583dfa823ce82b875d6426b4\u0026expire_at\u003d1792890000\u0026touch\u003d1573794438\u0026reg\u003d76\u0026sign\u003dc3e65017bf6490792e858adc3c680b2bb40fc355","behaviorHints":{"notSupported":false,"proxyHeaders":{"request":{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36","Referer":"https://my.mail.ru/video/embed/9197363450076987405"}}}}]}
+=======
+{
+  "streams": [
+    {
+      "name": "Play",
+      "title": "Play • Sunucu 1 • 1080p  •  [TR Dublaj]",
+      "url": "https://cdn61.my.mail.ru/v/68816004.mp4?slave[]=s%3Ahttp%3A%2F%2F10.146.243.3%3A9091%2Fvideo4%2F68816004-v&p=f&video_key=724c54d05b7b1348583dfa823ce82b875d6426b4&expire_at=1792890000&touch=1573794438&reg=76&sign=c3e65017bf6490792e858adc3c680b2bb40fc355",
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://my.mail.ru/video/embed/9197363450076987405"
+          }
+        }
+      }
+    }
+  ]
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

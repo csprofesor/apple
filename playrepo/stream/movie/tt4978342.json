@@ -1,1 +1,22 @@
+<<<<<<< HEAD
 {"streams":[{"name":"Play","title":"Play • Sunucu 1 • 1080p  •  [TR Dublaj]","url":"https://vd196.okcdn.ru/expires/1792962597679/clientType/0/srcIp/85.107.102.169/type/2/mid/9528533060201/id/8627819383401/ms/95.163.35.41/zs/65/srcAg/CHROME/urls/178.237.23.39/oq/0/pr/10/ct/28/sig/lMcXvEl3Qtg/ondemand/hls4_8627819383401.COmU0MaolQJA6Yz9sr4aUAqo7fH5AvW5Gg.m3u8","behaviorHints":{"notSupported":false,"proxyHeaders":{"request":{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36","Referer":"https://odnoklassniki.ru/videoembed/9528533060201?nochat\u003d1"}}}}]}
+=======
+{
+  "streams": [
+    {
+      "name": "Play",
+      "title": "Play • Sunucu 1 • 1080p  •  [TR Dublaj]",
+      "url": "https://vd196.okcdn.ru/expires/1792962597679/clientType/0/srcIp/85.107.102.169/type/2/mid/9528533060201/id/8627819383401/ms/95.163.35.41/zs/65/srcAg/CHROME/urls/178.237.23.39/oq/0/pr/10/ct/28/sig/lMcXvEl3Qtg/ondemand/hls4_8627819383401.COmU0MaolQJA6Yz9sr4aUAqo7fH5AvW5Gg.m3u8",
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://odnoklassniki.ru/videoembed/9528533060201?nochat=1"
+          }
+        }
+      }
+    }
+  ]
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

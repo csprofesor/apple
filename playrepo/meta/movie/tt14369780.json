@@ -1,1 +1,30 @@
+<<<<<<< HEAD
 {"meta":{"id":"tt14369780","type":"movie","name":"Lady Chatterley\u0027s Lover","poster":"https://m.media-amazon.com/images/M/MV5BMDM4MjI3ZjEtMzhkYS00OWUyLTk0NTItODM0NTEwNjk2ZDkzXkEyXkFqcGc@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BMDM4MjI3ZjEtMzhkYS00OWUyLTk0NTItODM0NTEwNjk2ZDkzXkEyXkFqcGc@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Evliliğinde mutsuz olan aristokrat Lady Chatterley, kocasının şehir dışındaki malikânesinde bekçilik yapan bir adamla tutku dolu bir ilişki yaşamaya başlar.","releaseInfo":"2022","director":["Laure de Clermont-Tonnerre"],"cast":["Anthony Brophy","Ella Hunt","Emma Corrin","Eugene O\u0027Hare","Faye Marsay","Jack O\u0027Connell"],"genres":["Dram \u0026 Romantik"],"behaviorHints":{"defaultVideoId":"tt14369780","hasScheduledVideos":false},"videos":[{"id":"tt14369780","title":"Lady Chatterley\u0027s Lover","released":"2022-01-01T00:00:00.000Z"}]}}
+=======
+{
+  "meta": {
+    "id": "tt14369780",
+    "type": "movie",
+    "name": "Lady Chatterley's Lover",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMDM4MjI3ZjEtMzhkYS00OWUyLTk0NTItODM0NTEwNjk2ZDkzXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMDM4MjI3ZjEtMzhkYS00OWUyLTk0NTItODM0NTEwNjk2ZDkzXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Evliliğinde mutsuz olan aristokrat Lady Chatterley, kocasının şehir dışındaki malikânesinde bekçilik yapan bir adamla tutku dolu bir ilişki yaşamaya başlar.",
+    "genres": [
+      "Dram & Romantik"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt14369780",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt14369780",
+        "title": "Lady Chatterley's Lover",
+        "released": "2022-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2022"
+  }
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

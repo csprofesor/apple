@@ -1,1 +1,31 @@
+<<<<<<< HEAD
 {"meta":{"id":"tt0256103","type":"movie","name":"Intimacy","poster":"https://m.media-amazon.com/images/M/MV5BMzE3ZjQ1OTMtY2QyNS00ZmUxLTgzMjktMDc4Yzk4Y2YyZmRkXkEyXkFqcGc@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BMzE3ZjQ1OTMtY2QyNS00ZmUxLTgzMjktMDc4Yzk4Y2YyZmRkXkEyXkFqcGc@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Jay, kötü giden bir evliliğin ardından karısını terk eden ve barmenlik yaparak yaşamını sürdüren yalnız bir adamdır. Jay bir gün tek başına yaşadığı evinde","releaseInfo":"2001","cast":["Alastair Galbraith","Fraser Ayres","Kerry Fox","Marianne Faithfull","Mark Rylance","Michael Fitzgerald"],"genres":["Dram \u0026 Romantik","Bilim Kurgu \u0026 Fantastik"],"behaviorHints":{"defaultVideoId":"tt0256103","hasScheduledVideos":false},"videos":[{"id":"tt0256103","title":"Intimacy","released":"2001-01-01T00:00:00.000Z"}]}}
+=======
+{
+  "meta": {
+    "id": "tt0256103",
+    "type": "movie",
+    "name": "Intimacy",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMzE3ZjQ1OTMtY2QyNS00ZmUxLTgzMjktMDc4Yzk4Y2YyZmRkXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMzE3ZjQ1OTMtY2QyNS00ZmUxLTgzMjktMDc4Yzk4Y2YyZmRkXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Jay, kötü giden bir evliliğin ardından karısını terk eden ve barmenlik yaparak yaşamını sürdüren yalnız bir adamdır. Jay bir gün tek başına yaşadığı evinde",
+    "genres": [
+      "Dram & Romantik",
+      "Bilim Kurgu & Fantastik"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt0256103",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0256103",
+        "title": "Intimacy",
+        "released": "2001-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2001"
+  }
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

@@ -1,1 +1,30 @@
+<<<<<<< HEAD
 {"meta":{"id":"tt2048770","type":"movie","name":"I\u0027ll Follow You Down","poster":"https://m.media-amazon.com/images/M/MV5BMTY0MDE1NTQxNl5BMl5BanBnXkFtZTgwMTI0MTM5MTE@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BMTY0MDE1NTQxNl5BMl5BanBnXkFtZTgwMTI0MTM5MTE@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"İki ebeveyn, kızlarının trajik bir araba kazası geçirmesinin ardından ondan endişe verici bir telefon alınca zamana karşı bir yarışa girer.","releaseInfo":"2013","cast":["Matthew Rhys","Megan McDonnell","Paul Tylak","Rosamund Pike","Stephen Jones","Tadhg Murphy"],"genres":["Korku \u0026 Gerilim"],"behaviorHints":{"defaultVideoId":"tt2048770","hasScheduledVideos":false},"videos":[{"id":"tt2048770","title":"I\u0027ll Follow You Down","released":"2013-01-01T00:00:00.000Z"}]}}
+=======
+{
+  "meta": {
+    "id": "tt2048770",
+    "type": "movie",
+    "name": "I'll Follow You Down",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTY0MDE1NTQxNl5BMl5BanBnXkFtZTgwMTI0MTM5MTE@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMTY0MDE1NTQxNl5BMl5BanBnXkFtZTgwMTI0MTM5MTE@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "İki ebeveyn, kızlarının trajik bir araba kazası geçirmesinin ardından ondan endişe verici bir telefon alınca zamana karşı bir yarışa girer.",
+    "genres": [
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt2048770",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt2048770",
+        "title": "I'll Follow You Down",
+        "released": "2013-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2013"
+  }
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

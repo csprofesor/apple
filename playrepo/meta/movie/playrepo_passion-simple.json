@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "id": "playrepo:passion-simple",
+    "type": "movie",
+    "name": "Passion simple",
+    "poster": "https://filmkovasi.co/wp-content/uploads/2026/04/fQYhFqF4QQpG2PMDcIjitgFZN7q-1.jpg",
+    "background": "https://filmkovasi.co/wp-content/uploads/2026/04/fQYhFqF4QQpG2PMDcIjitgFZN7q-1.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Film Hakkında Teknik Bilgiler Yayın Tarihi: 14.01.2021 Süre: 99 dakika IMDB Puanı: 5.727/10 Yapım Ülkesi: Belgium, France",
+    "genres": [
+      "Dram & Romantik"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "playrepo:passion-simple",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo:passion-simple",
+        "title": "Passion simple",
+        "released": "2021-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2021"
+  }
+}

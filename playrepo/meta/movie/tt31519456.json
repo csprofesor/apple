@@ -1,1 +1,31 @@
+<<<<<<< HEAD
 {"meta":{"id":"tt31519456","type":"movie","name":"La Dolce Villa","poster":"https://m.media-amazon.com/images/M/MV5BNjJmM2VjODktY2UwMC00N2FiLThmOWEtOGFhZmM2MjI0MGVjXkEyXkFqcGc@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BNjJmM2VjODktY2UwMC00N2FiLThmOWEtOGFhZmM2MjI0MGVjXkEyXkFqcGc@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Kızı Toskana\u0027daki harap bir villayı almaya karar verdiğinde, onu vazgeçirmek için İtalya\u0027nın yolunu tutan Eric bunun yerine güzellik, romantizm ve yeni bir","releaseInfo":"2025","cast":["Giselle LeBleu Gant","Giuseppe Futia","Lucia Ricalzone","Luisa De Santis","Maia Reficco","Nunzia Schiano"],"genres":["Komedi","Dram \u0026 Romantik"],"behaviorHints":{"defaultVideoId":"tt31519456","hasScheduledVideos":false},"videos":[{"id":"tt31519456","title":"La Dolce Villa","released":"2025-01-01T00:00:00.000Z"}]}}
+=======
+{
+  "meta": {
+    "id": "tt31519456",
+    "type": "movie",
+    "name": "La Dolce Villa",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNjJmM2VjODktY2UwMC00N2FiLThmOWEtOGFhZmM2MjI0MGVjXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BNjJmM2VjODktY2UwMC00N2FiLThmOWEtOGFhZmM2MjI0MGVjXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Kızı Toskana'daki harap bir villayı almaya karar verdiğinde, onu vazgeçirmek için İtalya'nın yolunu tutan Eric bunun yerine güzellik, romantizm ve yeni bir",
+    "genres": [
+      "Komedi",
+      "Dram & Romantik"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt31519456",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt31519456",
+        "title": "La Dolce Villa",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2025"
+  }
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

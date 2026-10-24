@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "tt0290673",
+    "type": "movie",
+    "name": "Irreversible",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZTE2MWM1NTgtMGVjMy00ZGU2LWE4YTUtNTRlNWRhZWE2NmM0XkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BZTE2MWM1NTgtMGVjMy00ZGU2LWE4YTUtNTRlNWRhZWE2NmM0XkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "1998 Cannes Film Festivali ödüllü Seul Contre Nous'un sansasyonel yönetmeni Gaspar Noé'den, gösterildiği hemen her yerde yoğun tartışmalara ve ağır tepkilere",
+    "genres": [
+      "Dram & Romantik",
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt0290673",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0290673",
+        "title": "Irreversible",
+        "released": "2002-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2002"
+  }
+}

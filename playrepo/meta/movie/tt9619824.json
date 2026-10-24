@@ -1,1 +1,30 @@
+<<<<<<< HEAD
 {"meta":{"id":"tt9619824","type":"movie","name":"Final Destination: Bloodlines","poster":"https://m.media-amazon.com/images/M/MV5BMzc3OWFhZWItMTE2Yy00N2NmLTg1YTktNGVlNDY0ODQ5YjNlXkEyXkFqcGc@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BMzc3OWFhZWItMTE2Yy00N2NmLTg1YTktNGVlNDY0ODQ5YjNlXkEyXkFqcGc@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Eğer \"ölümün\" planlarını bozarsanız işler çok karmaşık bir hâl alabilir. Sürekli tekrar eden şiddetli bir kâbusla boğuşan üniversite öğrencisi Stefanie, bu","releaseInfo":"2025","cast":["Alex Zahara","Andrew Tinpo Lee","Anna Lore","April Telek","Kaitlyn Santa Juana","Owen Patrick Joyner"],"genres":["Korku \u0026 Gerilim"],"behaviorHints":{"defaultVideoId":"tt9619824","hasScheduledVideos":false},"videos":[{"id":"tt9619824","title":"Final Destination: Bloodlines","released":"2025-01-01T00:00:00.000Z"}]}}
+=======
+{
+  "meta": {
+    "id": "tt9619824",
+    "type": "movie",
+    "name": "Final Destination: Bloodlines",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMzc3OWFhZWItMTE2Yy00N2NmLTg1YTktNGVlNDY0ODQ5YjNlXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMzc3OWFhZWItMTE2Yy00N2NmLTg1YTktNGVlNDY0ODQ5YjNlXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Eğer \"ölümün\" planlarını bozarsanız işler çok karmaşık bir hâl alabilir. Sürekli tekrar eden şiddetli bir kâbusla boğuşan üniversite öğrencisi Stefanie, bu",
+    "genres": [
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt9619824",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt9619824",
+        "title": "Final Destination: Bloodlines",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2025"
+  }
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

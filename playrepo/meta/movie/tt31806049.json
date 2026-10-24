@@ -1,1 +1,27 @@
-{"meta":{"id":"tt31806049","type":"movie","name":"Brick","poster":"https://m.media-amazon.com/images/M/MV5BMGRjZTI5NmEtNWQzNi00ZDUxLWFmZmQtOGFiZmNkZGY1MDc5XkEyXkFqcGc@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BMGRjZTI5NmEtNWQzNi00ZDUxLWFmZmQtOGFiZmNkZGY1MDc5XkEyXkFqcGc@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Apartmanlarının etrafı bir gecede gizemli bir tuğla duvarla çevrilen Tim ve Olivia, oradan canlı çıkabilmek için temkinli komşularıyla birlik olmak zorunda","releaseInfo":"2025","cast":["Alexander Beyer","Axel Werner","Daniele Rizzo","Frederick Lau","Josef Berousek","Matthias Schweighöfer"],"genres":["Bilim Kurgu \u0026 Fantastik","Korku \u0026 Gerilim"],"behaviorHints":{"defaultVideoId":"tt31806049","hasScheduledVideos":false},"videos":[{"id":"tt31806049","title":"Brick","released":"2025-01-01T00:00:00.000Z"}]}}
+{
+  "meta": {
+    "id": "tt31806049",
+    "type": "movie",
+    "name": "Brick",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMGRjZTI5NmEtNWQzNi00ZDUxLWFmZmQtOGFiZmNkZGY1MDc5XkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMGRjZTI5NmEtNWQzNi00ZDUxLWFmZmQtOGFiZmNkZGY1MDc5XkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Apartmanlarının etrafı bir gecede gizemli bir tuğla duvarla çevrilen Tim ve Olivia, oradan canlı çıkabilmek için temkinli komşularıyla birlik olmak zorunda",
+    "genres": [
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt31806049",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt31806049",
+        "title": "Brick",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2025"
+  }
+}

@@ -1,1 +1,31 @@
+<<<<<<< HEAD
 {"meta":{"id":"tt31184028","type":"movie","name":"Together","poster":"https://m.media-amazon.com/images/M/MV5BOWI1Mzg0OWUtNDYxYy00Mzk3LTgxMjMtYWYxZjJhMjI4NDcyXkEyXkFqcGc@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BOWI1Mzg0OWUtNDYxYy00Mzk3LTgxMjMtYWYxZjJhMjI4NDcyXkEyXkFqcGc@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Romantik dramayı kara komedi ve body horror öğeleriyle harmanlayan Birlikte (Together), 10 yıla yaklaşan yakın ilişkilerinde yeni bir sayfa açmak amacıyla","releaseInfo":"2025","cast":["Alison Brie","Aljin Abella","Damon Herriman","Dave Franco","Francesca Waters","Jack Kenny"],"genres":["Korku \u0026 Gerilim","Dram \u0026 Romantik"],"behaviorHints":{"defaultVideoId":"tt31184028","hasScheduledVideos":false},"videos":[{"id":"tt31184028","title":"Together","released":"2025-01-01T00:00:00.000Z"}]}}
+=======
+{
+  "meta": {
+    "id": "tt31184028",
+    "type": "movie",
+    "name": "Together",
+    "poster": "https://m.media-amazon.com/images/M/MV5BOWI1Mzg0OWUtNDYxYy00Mzk3LTgxMjMtYWYxZjJhMjI4NDcyXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BOWI1Mzg0OWUtNDYxYy00Mzk3LTgxMjMtYWYxZjJhMjI4NDcyXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Romantik dramayı kara komedi ve body horror öğeleriyle harmanlayan Birlikte (Together), 10 yıla yaklaşan yakın ilişkilerinde yeni bir sayfa açmak amacıyla",
+    "genres": [
+      "Korku & Gerilim",
+      "Dram & Romantik"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt31184028",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt31184028",
+        "title": "Together",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2025"
+  }
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

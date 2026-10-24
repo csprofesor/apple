@@ -1,0 +1,18 @@
+{
+  "streams": [
+    {
+      "name": "Play",
+      "title": "Play • Sunucu 1 • 1080p  •  [TR Dublaj]",
+      "url": "https://cdn64.my.mail.ru/v/76506107.mp4?slave[]=s%3Ahttp%3A%2F%2F10.146.243.3%3A9091%2Fvideo4%2F76506107-v&p=f&video_key=724c54d05b7b1348583dfa823ce82b875d6426b4&expire_at=1792890000&touch=1684145755&reg=76&sign=d2ad9645b6123f46d8ac48741711ca7892d200ef",
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://my.mail.ru/video/embed/7706774030430244812"
+          }
+        }
+      }
+    }
+  ]
+}

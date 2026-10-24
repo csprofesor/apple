@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "id": "playrepo:olesiye",
+    "type": "movie",
+    "name": "Ölesiye",
+    "poster": "https://filmkovasi.co/wp-content/uploads/2026/04/alf3JOPP7EYP0iO24gwe5YfRnqo.jpg",
+    "background": "https://filmkovasi.co/wp-content/uploads/2026/04/alf3JOPP7EYP0iO24gwe5YfRnqo.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Bir parlamento üyesi olan Dr. Fleming, oğlunun nişanlısı Anna'ya tutkulu bir şekilde aşık olur. Tamamen takıntılı bir şekilde, hayatının geri kalanını her",
+    "genres": [
+      "Dram & Romantik"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "playrepo:olesiye",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo:olesiye",
+        "title": "Ölesiye",
+        "released": "1992-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "1992"
+  }
+}

@@ -1,1 +1,30 @@
+<<<<<<< HEAD
 {"meta":{"id":"tt1245112","type":"movie","name":"[Rec]²","poster":"https://m.media-amazon.com/images/M/MV5BMTI4MjQ1MDE1MV5BMl5BanBnXkFtZTcwNzIxMDk0Mw@@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BMTI4MjQ1MDE1MV5BMl5BanBnXkFtZTcwNzIxMDk0Mw@@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Emekli deniz komutanı Albay Dale Murphy tarafından yapılan programın katılımcıları Batı Wirginia\u0027nın uzak bir köşesinde yaşam savaşı vermektedir. Ama doğuştan","releaseInfo":"2009","director":["Joe Lynch"],"cast":["Aleksa Palladino","Daniella Alonso","Erica Leerhsen","Henry Rollins","Kimberly Caldwell","Matthew Currie Holmes"],"genres":["Korku \u0026 Gerilim"],"behaviorHints":{"defaultVideoId":"tt1245112","hasScheduledVideos":false},"videos":[{"id":"tt1245112","title":"[Rec]²","released":"2009-01-01T00:00:00.000Z"}]}}
+=======
+{
+  "meta": {
+    "id": "tt1245112",
+    "type": "movie",
+    "name": "[Rec]²",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTI4MjQ1MDE1MV5BMl5BanBnXkFtZTcwNzIxMDk0Mw@@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMTI4MjQ1MDE1MV5BMl5BanBnXkFtZTcwNzIxMDk0Mw@@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Emekli deniz komutanı Albay Dale Murphy tarafından yapılan programın katılımcıları Batı Wirginia'nın uzak bir köşesinde yaşam savaşı vermektedir. Ama doğuştan",
+    "genres": [
+      "Korku & Gerilim"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt1245112",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt1245112",
+        "title": "[Rec]²",
+        "released": "2009-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2009"
+  }
+}
+>>>>>>> 1c333ef3 (feat(meta): publish complete static meta and streams for all 80 movies and handle polymorphic getMeta)

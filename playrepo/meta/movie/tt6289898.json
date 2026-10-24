@@ -1,1 +1,26 @@
-{"meta":{"id":"tt6289898","type":"movie","name":"Yurigokoro","poster":"https://m.media-amazon.com/images/M/MV5BYzEyMTRiODItZTkwNi00YjYxLTkyY2YtODlkN2Y1NTEzMmEzXkEyXkFqcGc@._V1_SX250.jpg","background":"https://m.media-amazon.com/images/M/MV5BYzEyMTRiODItZTkwNi00YjYxLTkyY2YtODlkN2Y1NTEzMmEzXkEyXkFqcGc@._V1_SX250.jpg","logo":"https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png","description":"Ryosuke\u0027nin babasının kanserin son aşamasında olduğunu öğrendiğinden kısa bir süre sonra babası hayata gözlerini yummuştur. Babasının çalışma odasında","releaseInfo":"2017","cast":["Yuriko Yoshitaka","佐津川愛美","木村多江","松坂桃李","松山ケンイチ","清原果耶"],"genres":["Popüler"],"behaviorHints":{"defaultVideoId":"tt6289898","hasScheduledVideos":false},"videos":[{"id":"tt6289898","title":"Yurigokoro","released":"2017-01-01T00:00:00.000Z"}]}}
+{
+  "meta": {
+    "id": "tt6289898",
+    "type": "movie",
+    "name": "Yurigokoro",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYzEyMTRiODItZTkwNi00YjYxLTkyY2YtODlkN2Y1NTEzMmEzXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BYzEyMTRiODItZTkwNi00YjYxLTkyY2YtODlkN2Y1NTEzMmEzXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Ryosuke'nin babasının kanserin son aşamasında olduğunu öğrendiğinden kısa bir süre sonra babası hayata gözlerini yummuştur. Babasının çalışma odasında",
+    "genres": [
+      "Popüler"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt6289898",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt6289898",
+        "title": "Yurigokoro",
+        "released": "2017-01-01T00:00:00.000Z"
+      }
+    ],
+    "releaseInfo": "2017"
+  }
+}
