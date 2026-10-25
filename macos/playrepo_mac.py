@@ -137,12 +137,21 @@ class ScraperEngine:
         disallowed = [
             "/kategori/", "/tur/", "/filmizle/", "/yil/", "/category/", "/genre/",
             "/koleksiyon/", "/forum", "/iletisim", "/page/", "page=", "orderby=",
-            "/tag/", "#", "javascript:", ".jpg", ".png", ".css", ".js", "/login",
-            "/uye", "/takvim", "/trendler", "/seri-filmler", "/istek"
+            "/tag/", "/etiket/", "#", "javascript:", ".jpg", ".png", ".css", ".js",
+            ".svg", ".webp", ".ico", "/login", "/uye", "/takvim", "/trendler",
+            "/seri-filmler", "/istek", "/dmca", "/gizlilik", "/privacy", "/contact"
         ]
         if any(d in lower for d in disallowed):
             return False
-        return any(k in lower for k in ["/film/", "-izle", "/dizi/", "/filmler/"])
+
+        path = lower[len(site_base):].strip("/")
+        if not path:
+            return False
+
+        matches_kw = any(k in lower for k in ["/film/", "-izle", "/dizi/", "/filmler/", "/movie/", "/watch/", "/izle/", "/sinema/", "/video/", "/title/", "/bolum/", "/episode/"])
+        is_hyphenated_slug = "-" in path and "/page" not in path and "?" not in path
+
+        return matches_kw or is_hyphenated_slug
 
     def is_valid_catalog_url(self, url: str, site_base: str) -> bool:
         if not url.startswith(site_base):
@@ -291,10 +300,19 @@ class ScraperEngine:
             if bc_m:
                 return bc_m.group(1)
 
-        nested_m = re.search(r'<iframe\s+[^>]*src=["\']([^"\']+)["\']', html, re.I)
-        if nested_m:
+        # Generic JSON sources / variable matching (JWPlayer, VideoJS, Plyr, etc.)
+        json_stream_m = re.search(r'["\']?(?:file|src|url|hls|stream)["\']?\s*:\s*["\'](https?://[^"\']+\.(?:m3u8|mp4)[^"\']*)["\']', html, re.I)
+        if json_stream_m:
+            return json_stream_m.group(1)
+
+        # Direct .m3u8 or .mp4 anywhere in scripts / HTML
+        any_stream_m = re.search(r'https?://[^\s"\'<>]+\.(?:m3u8|mp4)[^\s"\'<>]*', html, re.I)
+        if any_stream_m and not any(k in any_stream_m.group(0) for k in ["/thumb", "/preview", ".jpg", ".png"]):
+            return any_stream_m.group(0)
+
+        for nested_m in re.finditer(r'<iframe\s+[^>]*src=["\']([^"\']+)["\']', html, re.I):
             nested_src = urllib.parse.urljoin(embed_url, nested_m.group(1).strip())
-            if nested_src != embed_url:
+            if nested_src != embed_url and not any(nested_src.endswith(ext) for ext in [".jpg", ".png", ".css", ".js"]):
                 res = self.unpack_embed_stream(nested_src, referer=embed_url, depth=depth + 1)
                 if res:
                     return res
@@ -357,14 +375,21 @@ class ScraperEngine:
                 return "[TR Dublaj]"
             return default_lang
 
-        for m in re.finditer(r'<[^>]+data-(?:frame|player|embed|video|url)=["\']([^"\']+)["\'][^>]*>(.*?)</[^>]+>', html, re.I | re.DOTALL):
+        for m in re.finditer(r'<[^>]+data-(?:frame|player|embed|video|url|link|file|src|source|href|target|stream|hls|mp4)=["\']([^"\']+)["\'][^>]*>(.*?)</[^>]+>', html, re.I | re.DOTALL):
             c_url = urllib.parse.urljoin(movie_url, m.group(1).strip())
             c_lang = get_lang(m.group(2) + " " + c_url)
             candidate_embeds.append((c_url, c_lang))
 
-        for m in re.finditer(r'<iframe\s+[^>]*src=["\']([^"\']+)["\'][^>]*>', html, re.I):
+        for m in re.finditer(r'<iframe\s+[^>]*(?:src|data-src|data-frame)=["\']([^"\']+)["\'][^>]*>', html, re.I):
             c_url = urllib.parse.urljoin(movie_url, m.group(1).strip())
             candidate_embeds.append((c_url, default_lang))
+
+        for s_m in re.finditer(r'<script[^>]*>(.*?)</script>', html, re.I | re.DOTALL):
+            s_code = s_m.group(1)
+            for m in re.finditer(r'<iframe[^>]+src=["\']([^"\']+)["\']', s_code, re.I):
+                candidate_embeds.append((urllib.parse.urljoin(movie_url, m.group(1).strip()), default_lang))
+            for m in re.finditer(r'(?:playerUrl|embedUrl|videoUrl|iframeUrl|streamUrl|fileUrl|src|source)\s*=\s*["\'](https?://[^"\']+)["\']', s_code, re.I):
+                candidate_embeds.append((m.group(1).strip(), default_lang))
 
         for m in re.finditer(r'["\'](https?://[^\s"\'<>]+\.(?:m3u8|mp4)[^\s"\'<>]*)["\']', html, re.I):
             candidate_embeds.append((m.group(1).strip(), default_lang))

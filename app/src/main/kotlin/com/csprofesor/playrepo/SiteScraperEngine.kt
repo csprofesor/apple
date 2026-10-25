@@ -215,16 +215,28 @@ class SiteScraperEngine {
             lower.contains("/koleksiyon/") || lower.contains("/forum") ||
             lower.contains("/iletisim") || lower.contains("/page/") ||
             lower.contains("page=") || lower.contains("orderby=") ||
-            lower.contains("/tag/") || lower.contains("#") ||
+            lower.contains("/tag/") || lower.contains("/etiket/") || lower.contains("#") ||
             lower.contains("javascript:") || lower.endsWith(".jpg") ||
             lower.endsWith(".png") || lower.endsWith(".css") || lower.endsWith(".js") ||
+            lower.endsWith(".svg") || lower.endsWith(".webp") || lower.endsWith(".ico") ||
             lower.contains("/login") || lower.contains("/uye") || lower.contains("/takvim") ||
-            lower.contains("/trendler") || lower.contains("/seri-filmler") || lower.contains("/istek")
+            lower.contains("/trendler") || lower.contains("/istek") || lower.contains("/dmca") ||
+            lower.contains("/gizlilik") || lower.contains("/privacy") || lower.contains("/contact")
         ) {
             return false
         }
 
-        return lower.contains("/film/") || lower.contains("-izle") || lower.contains("/dizi/") || lower.contains("/filmler/")
+        val path = lower.removePrefix(siteBase.lowercase()).trim('/')
+        if (path.isBlank()) return false
+
+        val matchesKeyword = lower.contains("/film/") || lower.contains("-izle") || lower.contains("/dizi/") ||
+               lower.contains("/filmler/") || lower.contains("/movie/") || lower.contains("/watch/") ||
+               lower.contains("/izle/") || lower.contains("/sinema/") || lower.contains("/video/") ||
+               lower.contains("/title/") || lower.contains("/bolum/") || lower.contains("/episode/")
+
+        val isHyphenatedSlug = path.contains("-") && !path.contains("/page") && !path.contains("?")
+
+        return matchesKeyword || isHyphenatedSlug
     }
 
     private fun isValidCatalogPageUrl(url: String, siteBase: String): Boolean {
@@ -454,17 +466,13 @@ class SiteScraperEngine {
                 addCandidate(el.attr("data-litespeed-src"), lang)
             }
 
-            // 3. data-player / data-embed / data-video / data-url / data-link / data-file / data-src
-            doc.select("[data-player], [data-embed], [data-video], [data-url], [data-link], [data-file], [data-src], [data-source]").forEach { el ->
+            // 3. data-* attributes used by streaming CMS themes
+            doc.select("[data-player], [data-embed], [data-video], [data-url], [data-link], [data-file], [data-src], [data-source], [data-href], [data-target], [data-content], [data-iframe], [data-stream], [data-video-url], [data-hls], [data-mp4]").forEach { el ->
                 val lang = detectLangFromContext(el.text(), el.attr("data-lang"), el.attr("data-dil"), el.attr("data-audio"), el.attr("title"), el.parent()?.text())
-                addCandidate(el.attr("data-player"), lang)
-                addCandidate(el.attr("data-embed"), lang)
-                addCandidate(el.attr("data-video"), lang)
-                addCandidate(el.attr("data-url"), lang)
-                addCandidate(el.attr("data-link"), lang)
-                addCandidate(el.attr("data-file"), lang)
-                addCandidate(el.attr("data-src"), lang)
-                addCandidate(el.attr("data-source"), lang)
+                listOf("data-player", "data-embed", "data-video", "data-url", "data-link", "data-file", "data-src", "data-source", "data-href", "data-target", "data-content", "data-iframe", "data-stream", "data-video-url", "data-hls", "data-mp4").forEach { attr ->
+                    val v = el.attr(attr)
+                    if (v.isNotBlank()) addCandidate(v, lang)
+                }
             }
 
             // 4. Server Tab Selectors (.keremiya_part, .part-list, .sources, .nav-tabs, .tab-content, .dil-secenekleri, etc.)
@@ -535,6 +543,21 @@ class SiteScraperEngine {
             val m3u8Regex = Regex("""https?://[^\s"'`<>]+?\.(?:m3u8|mp4)[^\s"'`<>]*""", RegexOption.IGNORE_CASE)
             m3u8Regex.findAll(html).forEach { match ->
                 addCandidate(match.value)
+            }
+
+            // 8b. Scan inline script tags for embedded player URLs or iframe HTML
+            doc.select("script:not([src])").forEach { scriptEl ->
+                val sHtml = scriptEl.data()
+                if (sHtml.contains("http") || sHtml.contains("//")) {
+                    val iframeInJs = Regex("""<iframe[^>]+src=["']([^"']+)["']""", RegexOption.IGNORE_CASE)
+                    iframeInJs.findAll(sHtml).forEach { m ->
+                        addCandidate(m.groupValues[1])
+                    }
+                    val playerVarRegex = Regex("""(?:playerUrl|embedUrl|videoUrl|iframeUrl|streamUrl|fileUrl|src|source)\s*=\s*["']([^"']+)["']""", RegexOption.IGNORE_CASE)
+                    playerVarRegex.findAll(sHtml).forEach { m ->
+                        addCandidate(m.groupValues[1])
+                    }
+                }
             }
 
             // 9. Inspect internal player iframes to discover nested video hosts
@@ -701,20 +724,24 @@ class SiteScraperEngine {
     private fun isInternalPlayerUrl(url: String, siteBase: String): Boolean {
         val lower = url.lowercase()
         val isSameHost = url.startsWith(siteBase) || (siteBase.contains("://") && url.contains(siteBase.substringAfter("://").substringBefore("/")))
-        return (isSameHost && (lower.contains("/player") || lower.contains("/embed") || lower.contains("/video/") || lower.contains("play.php") || lower.contains("part="))) ||
-               lower.contains("player.hintfilmizle.com") || lower.contains("fplayer") || lower.contains("rapidrame") || lower.contains("trplayer")
+        return (isSameHost && (lower.contains("/player") || lower.contains("/embed") || lower.contains("/video/") || lower.contains("play.php") || lower.contains("part=") || lower.contains("/v/") || lower.contains("/e/") || lower.contains("watch") || lower.contains("stream"))) ||
+               lower.contains("player") || lower.contains("embed") || lower.contains("fplayer") || lower.contains("rapidrame") || lower.contains("trplayer")
     }
 
     private fun isKnownVideoHost(url: String): Boolean {
         val lower = url.lowercase()
         return lower.contains("vidmoly") || lower.contains("vidhide") || lower.contains("filelions") ||
-               lower.contains("streamwish") || lower.contains("voe.sx") || lower.contains("voe-unblock") || lower.contains("voe.to") ||
+               lower.contains("streamwish") || lower.contains("voe.sx") || lower.contains("voe-unblock") || lower.contains("voe.to") || lower.contains("voe.") ||
                lower.contains("streamtape") || lower.contains("streamta.pe") || lower.contains("dood") || lower.contains("ds2play") ||
                lower.contains("ok.ru") || lower.contains("odnoklassniki") || lower.contains("vkuser.net") || lower.contains("my.mail.ru") ||
                lower.contains("bitchute") || lower.contains("mixdrop") || lower.contains("sibnet.ru") ||
                lower.contains("vidsrc") || lower.contains("vixsrc") || lower.contains("vixcloud") || lower.contains("videa.hu") ||
                lower.contains("vk.com") || lower.contains("vkvideo.ru") || lower.contains("dailymotion.com") ||
-               lower.contains("dropload") || lower.contains("vtube") || lower.contains("streamruby") || lower.contains("supervideo")
+               lower.contains("dropload") || lower.contains("vtube") || lower.contains("streamruby") || lower.contains("supervideo") ||
+               lower.contains("turbovid") || lower.contains("playm4u") || lower.contains("rapid-cloud") || lower.contains("megacloud") ||
+               lower.contains("rabbitstream") || lower.contains("closeload") || lower.contains("streamlare") || lower.contains("streamhub") ||
+               lower.contains("upstream") || lower.contains("hexupload") || lower.contains("embed") || lower.contains("player") ||
+               lower.contains("/e/") || lower.contains("/v/") || lower.contains(".m3u8") || lower.contains(".mp4")
     }
 
     private object JsPackerUnpacker {
@@ -1009,15 +1036,33 @@ class SiteScraperEngine {
                     return mp4Match.groupValues[1]
                 }
 
-                // 13. Nested iframe discovery (1 level deep)
-                if (depth < 1) {
+                // 13. Generic JSON source variables (JWPlayer, VideoJS, Plyr, etc.)
+                val jsonSourceRegex = Regex("""["']?(?:file|src|url|hls|stream)["']?\s*:\s*["'](https?://[^"']+\.(?:m3u8|mp4)[^"']*)["']""", RegexOption.IGNORE_CASE)
+                val jsonMatch = jsonSourceRegex.find(html)
+                if (jsonMatch != null) {
+                    return jsonMatch.groupValues[1]
+                }
+
+                // 14. Nested iframe discovery (up to 2 levels deep for modern multi-layered embed players)
+                if (depth < 2) {
                     val doc = Jsoup.parse(html, embedUrl)
-                    val nestedIframe = doc.selectFirst("iframe[src], iframe[data-src]")
-                    val nestedSrc = nestedIframe?.absUrl("src")?.ifBlank { nestedIframe.attr("src") }
-                    if (!nestedSrc.isNullOrBlank() && nestedSrc != embedUrl && isKnownVideoHost(nestedSrc)) {
-                        val nestedRes = unpackEmbedStreamUrl(nestedSrc, embedUrl, depth = depth + 1)
-                        if (nestedRes.isNotBlank()) return nestedRes
+                    doc.select("iframe[src], iframe[data-src], iframe[data-frame]").forEach { nestedIframe ->
+                        val nestedSrc = nestedIframe.absUrl("src")
+                            .ifBlank { nestedIframe.attr("src") }
+                            .ifBlank { nestedIframe.attr("data-src") }
+                            .ifBlank { nestedIframe.attr("data-frame") }
+                        if (!nestedSrc.isNullOrBlank() && nestedSrc != embedUrl && !nestedSrc.endsWith(".jpg") && !nestedSrc.endsWith(".png") && !nestedSrc.endsWith(".css") && !nestedSrc.endsWith(".js")) {
+                            val nestedRes = unpackEmbedStreamUrl(nestedSrc, embedUrl, depth = depth + 1)
+                            if (nestedRes.isNotBlank()) return nestedRes
+                        }
                     }
+                }
+
+                // 15. Any direct .m3u8 or .mp4 stream anywhere in page scripts/HTML
+                val anyStreamRegex = Regex("""https?://[^\s"'`<>]+?\.(?:m3u8|mp4)[^\s"'`<>]*""", RegexOption.IGNORE_CASE)
+                val streamMatch = anyStreamRegex.find(html)
+                if (streamMatch != null && !streamMatch.value.contains("/thumb") && !streamMatch.value.contains("/preview")) {
+                    return streamMatch.value
                 }
             }
         } catch (_: Exception) { }

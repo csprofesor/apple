@@ -139,10 +139,22 @@ async function unpackLiveStreamUrl(rawUrl, referer) {
             return u.startsWith("//") ? `https:${u}` : u;
         }
 
-        // 9. Direct mp4 regex
+        // 9. Generic JSON source variable matching (JWPlayer, VideoJS, Plyr)
+        const jsonMatch = html.match(/["']?(?:file|src|url|hls|stream)["']?\s*:\s*["'](https?:\/\/[^"']+\.(?:m3u8|mp4)[^"']*)["']/i);
+        if (jsonMatch && jsonMatch[1]) {
+            return jsonMatch[1];
+        }
+
+        // 10. Direct mp4 regex
         const mp4Match = html.match(/["'](https?:\/\/[^"']+\.mp4[^"']*)["']/i);
         if (mp4Match && mp4Match[1]) {
             return mp4Match[1];
+        }
+
+        // 11. Generic m3u8 regex
+        const anyM3u8 = html.match(/https?:\/\/[^\s"'`<>]+?\.(?:m3u8|mp4)[^\s"'`<>]*/i);
+        if (anyM3u8 && anyM3u8[0] && !anyM3u8[0].includes("/thumb") && !anyM3u8[0].includes("/preview")) {
+            return anyM3u8[0];
         }
     } catch (e) {
         console.error("unpackLiveStreamUrl error:", e);
