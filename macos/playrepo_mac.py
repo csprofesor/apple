@@ -1377,9 +1377,14 @@ def run_app():
     server_thread.start()
 
     url = f"http://127.0.0.1:{port}"
-    chrome_path = "/Applications/Google Chrome.app"
-    if os.path.exists(chrome_path):
-        subprocess.run(["open", "-a", "Google Chrome", url])
+    chrome_bin = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    if os.path.exists(chrome_bin):
+        subprocess.Popen([
+            chrome_bin,
+            f"--app={url}",
+            "--window-size=1150,880"
+        ])
+        subprocess.run(["osascript", "-e", 'tell application "Google Chrome" to activate'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     else:
         subprocess.run(["open", url])
 
