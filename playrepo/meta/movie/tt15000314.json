@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "tt15000314",
+    "type": "movie",
+    "name": "Green Snake",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNWExYTk0YmMtZGMxZS00NzI5LTlhM2EtZmJlYjQ4NzQ1NzE2XkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BNWExYTk0YmMtZGMxZS00NzI5LTlhM2EtZmJlYjQ4NzQ1NzE2XkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Xiao Qing, karanlık ve kasvetli bir şehirde, gölgelerin arasında yolunu bulmaya çalışırken, kederle karışık bir cesaretle ilerliyor. Kız kardeşini, acımasız Fah...",
+    "releaseInfo": "2021",
+    "genres": [
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Aksiyon & Macera",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt15000314",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt15000314",
+        "title": "Green Snake",
+        "released": "2021-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}

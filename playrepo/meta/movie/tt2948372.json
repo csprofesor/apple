@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "tt2948372",
+    "type": "movie",
+    "name": "Soul",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZTZkYjA5MDEtMjY1ZC00ODk5LThjOTUtZDYxODEzYWNjMTU2XkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BZTZkYjA5MDEtMjY1ZC00ODk5LThjOTUtZDYxODEzYWNjMTU2XkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Joe Gardner, cazın büyülü notaları arasında kaybolmuş bir hayatın ortasında, sonunda hayalini kurduğu şansı yakalar. Kentin ritmini belirleyen o ünlü caz kulübü...",
+    "releaseInfo": "2020",
+    "genres": [
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Aksiyon & Macera",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt2948372",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt2948372",
+        "title": "Soul",
+        "released": "2020-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
