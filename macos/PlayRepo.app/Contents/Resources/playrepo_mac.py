@@ -1052,6 +1052,83 @@ class GitHubAtomicPublisher:
             return True
         return False
 
+    def clear_all_published_movies(self) -> bool:
+        if not self.token:
+            self.log("✗ [ERROR] GitHub Token girilmemiş!")
+            return False
+
+        self.log("[TOPLU SİLME] Eklentideki ve depodaki tüm filmler sıfırlanıyor...")
+
+        empty_catalog = json.dumps({"metas": []}, ensure_ascii=False, indent=2)
+        empty_streams = json.dumps({}, ensure_ascii=False, indent=2)
+
+        files_to_commit = {
+            "data/catalog.json": empty_catalog,
+            "data/streams.json": empty_streams,
+            "playrepo/catalog/movie/playrepo-popular.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-catalog-movies.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-aksiyon.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-komedi.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-dram.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-korku.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json": empty_catalog
+        }
+
+        ref_data = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/ref/heads/{DEFAULT_BRANCH}", token=self.token)
+        latest_commit_sha = ref_data.get("object", {}).get("sha")
+        if not latest_commit_sha:
+            return False
+
+        commit_data = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/commits/{latest_commit_sha}", token=self.token)
+        base_tree_sha = commit_data.get("tree", {}).get("sha")
+
+        tree_items = [
+            {"path": path, "mode": "100644", "type": "blob", "content": content}
+            for path, content in files_to_commit.items()
+        ]
+
+        # Mevcut ağacı recursive çekip playrepo/meta ve playrepo/stream altındaki tüm dosyaları sha: None yaparak sil
+        try:
+            full_tree = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/trees/{base_tree_sha}?recursive=1", token=self.token)
+            for item in full_tree.get("tree", []):
+                p = item.get("path", "")
+                if p.startswith("playrepo/meta/") or p.startswith("playrepo/stream/"):
+                    if item.get("type") == "blob":
+                        tree_items.append({"path": p, "mode": "100644", "type": "blob", "sha": None})
+        except Exception:
+            pass
+
+        tree_res = http_json(
+            f"https://api.github.com/repos/{self.owner}/{self.repo}/git/trees",
+            method="POST",
+            data={"base_tree": base_tree_sha, "tree": tree_items},
+            token=self.token
+        )
+        new_tree_sha = tree_res.get("sha")
+        if not new_tree_sha:
+            return False
+
+        new_commit_res = http_json(
+            f"https://api.github.com/repos/{self.owner}/{self.repo}/git/commits",
+            method="POST",
+            data={"message": "PlayRepo: Tüm yayınlanmış filmleri sıfırla", "tree": new_tree_sha, "parents": [latest_commit_sha]},
+            token=self.token
+        )
+        new_commit_sha = new_commit_res.get("sha")
+        if not new_commit_sha:
+            return False
+
+        update_ref = http_json(
+            f"https://api.github.com/repos/{self.owner}/{self.repo}/git/refs/heads/{DEFAULT_BRANCH}",
+            method="PATCH",
+            data={"sha": new_commit_sha, "force": True},
+            token=self.token
+        )
+        if "object" in update_ref or update_ref.get("ref"):
+            self.log("✓ [TEMİZLENDİ] Tüm filmler ve akışlar eklentiden başarıyla sıfırlandı!")
+            return True
+        return False
+
 # -------------------------------------------------------------
 # Global State & WebApp Engine
 # -------------------------------------------------------------
@@ -1311,7 +1388,10 @@ HTML_PAGE = """<!DOCTYPE html>
   <div class="card" style="padding: 20px 24px;">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
       <div class="card-title" style="margin-bottom:0">🎬 EKLENTİDE YAYINLANAN FİLMLER & DİZİLER (<span id="pub-count">0</span>)</div>
-      <button class="btn-gray" style="padding: 6px 14px; font-size: 12px;" onclick="loadPublishedMovies()">🔄 Listeyi Yenile</button>
+      <div class="row" style="gap: 8px;">
+        <button class="btn-gray" style="padding: 6px 14px; font-size: 12px;" onclick="loadPublishedMovies()">🔄 Listeyi Yenile</button>
+        <button class="btn-red" style="padding: 6px 14px; font-size: 12px; background: #dc2626;" onclick="clearAllPublishedMovies()">💥 Tüm Filmleri Sıfırla (Toplu Sil)</button>
+      </div>
     </div>
     <div style="margin-bottom: 12px;">
       <input type="text" id="movie-search" placeholder="🔍 Yayındaki filmlerde veya dizilerde ara..." oninput="filterPublishedMovies()" style="padding: 10px 14px; font-size: 13px;" />
@@ -1534,7 +1614,7 @@ HTML_PAGE = """<!DOCTYPE html>
 
     async function deleteMovie(id, name) {
       if (!confirm(`"${name}" filmini eklentiden ve depodan silmek istediğinize emin misiniz?`)) return;
-      document.getElementById('terminal').innerText += `\\n[İŞLEM] "${name}" siliniyor...\\n`;
+      document.getElementById('terminal').innerText += `\n[İŞLEM] "${name}" siliniyor...\n`;
       const res = await fetch('/api/delete-movie', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -1546,6 +1626,23 @@ HTML_PAGE = """<!DOCTYPE html>
         await loadPublishedMovies();
       } else {
         alert('Silme sırasında hata oluştu: ' + (data.message || ''));
+      }
+    }
+
+    async function clearAllPublishedMovies() {
+      const count = allPublishedMovies.length;
+      if (!confirm(`DİKKAT: Nuvio'da ve GitHub'da yayınlanmış olan ${count} adet filmin ve akışlarının TAMAMI SİLİNECEK!\n\nEmin misiniz?`)) return;
+      document.getElementById('terminal').innerText += `\n[İŞLEM] Tüm yayınlanmış filmler sıfırlanıyor...\n`;
+      const res = await fetch('/api/clear-all-movies', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'}
+      });
+      const data = await res.json();
+      if (data.status === 'ok') {
+        alert('Tüm filmler ve kategoriler başarıyla sıfırlandı!');
+        await loadPublishedMovies();
+      } else {
+        alert('Sıfırlama sırasında hata oluştu: ' + (data.message || ''));
       }
     }
 
@@ -1615,6 +1712,15 @@ class RequestHandler(BaseHTTPRequestHandler):
                 self._send_json({"status": "ok" if success else "error"})
             else:
                 self._send_json({"status": "error", "message": "Geçersiz ID veya Token eksik"})
+        elif self.path == "/api/clear-all-movies":
+            cfg = load_config()
+            token = cfg.get("github_token", "").strip()
+            if token:
+                pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
+                success = pub.clear_all_published_movies()
+                self._send_json({"status": "ok" if success else "error"})
+            else:
+                self._send_json({"status": "error", "message": "GitHub Token eksik"})
         elif self.path == "/api/save-config":
             body = self._read_json()
             cfg = load_config()
