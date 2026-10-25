@@ -1571,6 +1571,7 @@ HTML_PAGE = """<!DOCTYPE html>
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
     }
+    .dock-btn * { pointer-events: none; }
     .dock-btn svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform 0.2s; }
     .dock-btn span { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; }
     .dock-btn:hover { color: #f8fafc; background: rgba(255, 255, 255, 0.05); }
@@ -2030,7 +2031,7 @@ HTML_PAGE = """<!DOCTYPE html>
         const res = await fetch('/api/logs');
         const data = await res.json();
         const term = document.getElementById('terminal');
-        term.innerText = data.logs.join('\n');
+        term.innerText = data.logs.join(String.fromCharCode(10));
         term.scrollTop = term.scrollHeight;
 
         const badge = document.getElementById('status-badge');
@@ -2139,7 +2140,7 @@ HTML_PAGE = """<!DOCTYPE html>
 
     async function clearAllPublishedMovies() {
       const count = allPublishedMovies.length;
-      if (!confirm(`DİKKAT: Nuvio'da yayınlanmış ${count} adet filmin ve dizinin TAMAMI SİLİNECEK!\n\nEmin misiniz?`)) return;
+      if (!confirm("DIKKAT: Nuvio yayinindaki " + count + " adet filmin ve dizinin TAMAMI SILINECEK! Onayliyor musunuz?")) return;
       showToast('Tüm yayınlar sıfırlanıyor...');
       const res = await fetch('/api/clear-all-movies', {
         method: 'POST',
@@ -2204,7 +2205,7 @@ HTML_PAGE = """<!DOCTYPE html>
     }
 
     async function clearAllProcessedUrls() {
-      if (!confirm('Taranmış tüm linkler önbelleği sıfırlanacak! Sitelerdeki filmler sıfırdan yeniden taranabilecek.\n\nOnaylıyor musunuz?')) return;
+      if (!confirm('Taranmis tum linkler onbellegi sifirlanacak! Sitelerdeki filmler sifirdan yeniden taranabilecek. Onayliyor musunuz?')) return;
       await fetch('/api/clear-processed-urls', { method: 'POST' });
       showToast('Tarama hafızası başarıyla temizlendi!');
       await loadProcessedUrls();
