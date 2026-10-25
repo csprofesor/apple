@@ -319,6 +319,19 @@ class ScraperEngine:
 
         return ""
 
+    def is_stream_alive(self, url: str, referer: str = None) -> bool:
+        cmd = ["curl", "-s", "-I", "--max-time", "3", "-A", random.choice(USER_AGENTS)]
+        if referer:
+            cmd += ["-H", f"Referer: {referer}"]
+        cmd.append(url)
+        try:
+            res = subprocess.run(cmd, capture_output=True, text=True, errors="ignore")
+            first_line = (res.stdout or "").splitlines()[0] if res.stdout else ""
+            status = int(first_line.split()[1]) if len(first_line.split()) > 1 and first_line.split()[1].isdigit() else 200
+            return status < 400 or status == 416
+        except Exception:
+            return True
+
     def scrape_movie_page(self, movie_url: str, initial_cats: set, tmdb_api_key: str = None) -> dict:
         html = http_get(movie_url, referer=movie_url)
         if not html:
@@ -407,6 +420,29 @@ class ScraperEngine:
                         for df_m in re.finditer(r'data-frame=["\']([^"\']+)["\']', alt_html, re.I):
                             candidate_embeds.append((urllib.parse.urljoin(alt_url, df_m.group(1).strip()), alt_lang))
 
+        # Extract subtitles (.vtt / .srt)
+        subtitles = []
+        for tr_m in re.finditer(r'<track\s+[^>]*kind=["\'](?:subtitles|captions)["\'][^>]*>', html, re.I):
+            tr_tag = tr_m.group(0)
+            src_m = re.search(r'src=["\']([^"\']+)["\']', tr_tag, re.I)
+            lang_m = re.search(r'(?:srclang|label)=["\']([^"\']+)["\']', tr_tag, re.I)
+            if src_m:
+                s_url = urllib.parse.urljoin(movie_url, src_m.group(1).strip())
+                s_lang = lang_m.group(1).strip() if lang_m else "Turkish"
+                subtitles.append({"id": s_lang.lower(), "url": s_url, "lang": s_lang})
+
+        for vtt_m in re.finditer(r'https?://[^\s"\'<>]+\.(?:vtt|srt)[^\s"\'<>]*', html, re.I):
+            u = vtt_m.group(0)
+            if not any(s["url"] == u for s in subtitles):
+                subtitles.append({"id": "tr", "url": u, "lang": "Turkish"})
+
+        # Series / Season / Episode detection
+        is_series = "/dizi/" in movie_url.lower() or "/series/" in movie_url.lower() or ("sezon" in html.lower() and "bölüm" in html.lower())
+        season_m = re.search(r'(?:sezon|season)[-\s_]*(\d+)', movie_url, re.I) or re.search(r'(\d+)\s*\.\s*(?:sezon|season)', raw_title, re.I)
+        episode_m = re.search(r'(?:bolum|bölüm|episode)[-\s_]*(\d+)', movie_url, re.I) or re.search(r'(\d+)\s*\.\s*(?:bolum|bölüm|episode)', raw_title, re.I)
+        season_num = int(season_m.group(1)) if season_m else None
+        episode_num = int(episode_m.group(1)) if episode_m else None
+
         resolved_streams = []
         seen_urls = set()
 
@@ -417,7 +453,7 @@ class ScraperEngine:
             if direct_url and direct_url not in seen_urls:
                 seen_urls.add(direct_url)
                 is_m3u8 = ".m3u8" in direct_url.lower()
-                resolved_streams.append({
+                st_item = {
                     "name": "Play",
                     "title": f"Play • 1080p • {cand_lang}",
                     "url": direct_url,
@@ -428,17 +464,24 @@ class ScraperEngine:
                         "User-Agent": random.choice(USER_AGENTS),
                         "Referer": cand_url
                     }
-                })
+                }
+                if subtitles:
+                    st_item["subtitles"] = subtitles
+                resolved_streams.append(st_item)
 
         if not resolved_streams:
             return None
 
-        resolved_streams.sort(key=lambda s: 1 if s["format"] == "m3u8" else 0, reverse=True)
+        # Filter dead links via fast HEAD check
+        alive_streams = [s for s in resolved_streams if self.is_stream_alive(s["url"], s.get("referer"))]
+        valid_streams = alive_streams if alive_streams else resolved_streams
+
+        valid_streams.sort(key=lambda s: 1 if s["format"] == "m3u8" else 0, reverse=True)
 
         dub_c = 0
         sub_c = 0
         oth_c = 0
-        for st in resolved_streams:
+        for st in valid_streams:
             if "Dublaj" in st["title"]:
                 dub_c += 1
                 st["title"] = f"Play • Dublaj {dub_c} • 1080p • [TR Dublaj]"
@@ -462,7 +505,10 @@ class ScraperEngine:
             "imdbRating": imdb_rating,
             "runtime": runtime,
             "genres": list(genres),
-            "streams": resolved_streams
+            "streams": valid_streams,
+            "type": "series" if is_series else "movie",
+            "season": season_num,
+            "episode": episode_num
         }
 
     def resolve_meta(self, title: str, poster: str, desc: str, year: str, tmdb_key: str = None):
@@ -546,9 +592,14 @@ class GitHubAtomicPublisher:
             hyphen_id = m_id.replace(":", "-").replace("_", "-")
             safe_id = m_id.replace(":", "_")
 
+            m_type = m.get("type", "movie")
+            s_num = m.get("season")
+            e_num = m.get("episode")
+            vid_id = f"{m_id}:{s_num}:{e_num}" if (m_type == "series" and s_num and e_num) else m_id
+
             cat_item = {
                 "id": m_id,
-                "type": "movie",
+                "type": m_type,
                 "name": m["title"],
                 "poster": m["poster"],
                 "background": m["poster"],
@@ -567,10 +618,20 @@ class GitHubAtomicPublisher:
             streams_map[hyphen_id] = m["streams"]
             streams_map[safe_id] = m["streams"]
 
+            vid_obj = {
+                "id": vid_id,
+                "title": m["title"],
+                "released": f"{m['year']}-01-01T00:00:00.000Z" if m.get("year") else None
+            }
+            if s_num:
+                vid_obj["season"] = s_num
+            if e_num:
+                vid_obj["episode"] = e_num
+
             detail_meta = {
                 "meta": {
                     "id": m_id,
-                    "type": "movie",
+                    "type": m_type,
                     "name": m["title"],
                     "poster": m["poster"],
                     "background": m["poster"],
@@ -579,16 +640,10 @@ class GitHubAtomicPublisher:
                     "releaseInfo": m["year"],
                     "genres": m["genres"],
                     "behaviorHints": {
-                        "defaultVideoId": m_id,
+                        "defaultVideoId": vid_id,
                         "hasScheduledVideos": False
                     },
-                    "videos": [
-                        {
-                            "id": m_id,
-                            "title": m["title"],
-                            "released": f"{m['year']}-01-01T00:00:00.000Z" if m.get("year") else None
-                        }
-                    ]
+                    "videos": [vid_obj]
                 }
             }
             if m.get("imdbRating"):
@@ -607,6 +662,11 @@ class GitHubAtomicPublisher:
                 if did:
                     files_to_commit[f"playrepo/meta/movie/{did}.json"] = m_json_str
                     files_to_commit[f"playrepo/stream/movie/{did}.json"] = s_json_str
+                    if m_type == "series":
+                        files_to_commit[f"playrepo/meta/series/{did}.json"] = m_json_str
+                        if s_num and e_num:
+                            files_to_commit[f"playrepo/stream/series/{did}:{s_num}:{e_num}.json"] = s_json_str
+                            files_to_commit[f"playrepo/stream/series/{did}-{s_num}-{e_num}.json"] = s_json_str
 
         all_metas = list(meta_dict.values())
         files_to_commit["data/catalog.json"] = json.dumps({"metas": all_metas}, ensure_ascii=False, indent=2)
@@ -1201,6 +1261,18 @@ class RequestHandler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         pass
 
+def run_cli_crawl(site_url: str, max_pages: int = 20, token: str = None):
+    print(f"🎬 [PlayRepo CLI] Taranıyor: {site_url} (Max sayfa: {max_pages})...")
+    engine = ScraperEngine(log_callback=print)
+    movies = engine.crawl_site(site_url, max_pages=max_pages)
+    if movies:
+        print(f"✓ [PlayRepo CLI] {len(movies)} film ve detayları çözüldü. GitHub'a aktarılıyor...")
+        eff_token = token or os.getenv("GITHUB_TOKEN", "")
+        pub = GitHubAtomicPublisher(token=eff_token, log_callback=print)
+        pub.publish_movies(movies)
+    else:
+        print("✗ [PlayRepo CLI] Film bulunamadı veya akışlar çözülemedi.")
+
 def run_app():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind(('127.0.0.1', 0))
@@ -1225,4 +1297,13 @@ def run_app():
         server.shutdown()
 
 if __name__ == "__main__":
-    run_app()
+    if "--crawl" in sys.argv:
+        import argparse
+        parser = argparse.ArgumentParser(description="PlayRepo Headless Scraper")
+        parser.add_argument("--crawl", type=str, required=True, help="Site URL to crawl")
+        parser.add_argument("--max-pages", type=int, default=20)
+        parser.add_argument("--token", type=str, default=os.getenv("GITHUB_TOKEN", ""))
+        args = parser.parse_args()
+        run_cli_crawl(args.crawl, args.max_pages, args.token)
+    else:
+        run_app()

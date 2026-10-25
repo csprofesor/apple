@@ -1,5 +1,11 @@
 package com.csprofesor.playrepo
 
+data class SubtitleItem(
+    val id: String = "tr",
+    val url: String,
+    val lang: String = "Turkish"
+)
+
 data class StreamItem(
     val name: String = "Play",
     val title: String,
@@ -7,7 +13,8 @@ data class StreamItem(
     val quality: Int = 1080,
     val format: String = "m3u8",
     val referer: String? = null,
-    val headers: Map<String, String>? = null
+    val headers: Map<String, String>? = null,
+    val subtitles: List<SubtitleItem>? = null
 )
 
 data class ScrapedMovie(
@@ -21,5 +28,8 @@ data class ScrapedMovie(
     val imdbRating: String? = null,
     val runtime: String? = null,
     val director: String? = null,
-    val cast: List<String>? = null
+    val cast: List<String>? = null,
+    val type: String = "movie",
+    val season: Int? = null,
+    val episode: Int? = null
 )

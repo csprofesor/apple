@@ -434,11 +434,12 @@ async function getStreams(arg1, arg2, arg3, arg4) {
         const safeId = idStr.replace(/:/g, "_");
         const hyphenId = idStr.replace(/:/g, "-").replace(/_/g, "-");
 
-        // 1. Try static stream file published by APK first
+        // 1. Try static stream file published by APK first (movie or series)
         const possibleStaticIds = [encodeURIComponent(idStr), encodeURIComponent(hyphenId), encodeURIComponent(safeId), encodeURIComponent(cleanId)];
+        const folderType = (mediaType === "series" || idStr.includes(":")) ? "series" : "movie";
         for (const pid of possibleStaticIds) {
             try {
-                const staticStreamUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/stream/movie/${pid}.json?t=${Date.now()}`;
+                const staticStreamUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/stream/${folderType}/${pid}.json?t=${Date.now()}`;
                 const ssRes = await fetch(staticStreamUrl, {
                     headers: { "User-Agent": UA, "Accept": "application/json" }
                 });

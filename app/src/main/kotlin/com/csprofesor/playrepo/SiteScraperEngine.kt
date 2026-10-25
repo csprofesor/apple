@@ -647,6 +647,31 @@ class SiteScraperEngine {
                 } catch (_: Exception) {}
             }
 
+            // Extract external subtitles (.vtt / .srt)
+            val extractedSubtitles = mutableListOf<SubtitleItem>()
+            doc.select("track[kind=subtitles], track[kind=captions]").forEach { tr ->
+                val src = tr.absUrl("src").ifBlank { tr.attr("src") }
+                val srclang = tr.attr("srclang").ifBlank { tr.attr("label") }.ifBlank { "Turkish" }
+                if (src.isNotBlank() && (src.contains(".vtt") || src.contains(".srt"))) {
+                    extractedSubtitles.add(SubtitleItem(id = srclang.lowercase(), url = src, lang = srclang))
+                }
+            }
+            val vttRegex = Regex("""https?://[^\s"'`<>]+?\.(?:vtt|srt)[^\s"'`<>]*""", RegexOption.IGNORE_CASE)
+            vttRegex.findAll(html).forEach { m ->
+                val u = m.value
+                if (extractedSubtitles.none { it.url == u }) {
+                    extractedSubtitles.add(SubtitleItem(id = "tr", url = u, lang = "Turkish"))
+                }
+            }
+
+            // Detect Series / Season / Episode
+            val isSeries = movieUrl.contains("/dizi/") || movieUrl.contains("/series/") ||
+                           (html.contains("sezon", true) && html.contains("bölüm", true))
+            val seasonNum = Regex("""(?:sezon|season)[-\s_]*(\d+)""", RegexOption.IGNORE_CASE).find(movieUrl)?.groupValues?.get(1)?.toIntOrNull()
+                ?: Regex("""(\d+)\s*\.\s*(?:sezon|season)""", RegexOption.IGNORE_CASE).find(rawTitle)?.groupValues?.get(1)?.toIntOrNull()
+            val episodeNum = Regex("""(?:bolum|bölüm|episode)[-\s_]*(\d+)""", RegexOption.IGNORE_CASE).find(movieUrl)?.groupValues?.get(1)?.toIntOrNull()
+                ?: Regex("""(\d+)\s*\.\s*(?:bolum|bölüm|episode)""", RegexOption.IGNORE_CASE).find(rawTitle)?.groupValues?.get(1)?.toIntOrNull()
+
             val resolvedStreams = mutableListOf<StreamItem>()
 
             candidateEmbeds.forEach { cand ->
@@ -668,7 +693,8 @@ class SiteScraperEngine {
                                 headers = mapOf(
                                     "User-Agent" to ua,
                                     "Referer" to ref
-                                )
+                                ),
+                                subtitles = if (extractedSubtitles.isNotEmpty()) extractedSubtitles else null
                             )
                         )
                     }
@@ -679,8 +705,12 @@ class SiteScraperEngine {
                 return@withContext null
             }
 
+            // Stream health check: filter dead links
+            val aliveStreams = resolvedStreams.filter { st -> isStreamAlive(st.url, st.referer) }
+            val validStreams = if (aliveStreams.isNotEmpty()) aliveStreams else resolvedStreams
+
             // Prioritize instant-start HLS (.m3u8) streams first so playback starts in <1 second
-            val sortedStreams = resolvedStreams.sortedWith(
+            val sortedStreams = validStreams.sortedWith(
                 compareByDescending<StreamItem> { it.format == "m3u8" || it.url.contains(".m3u8") }
                     .thenByDescending { it.quality }
             )
@@ -716,8 +746,35 @@ class SiteScraperEngine {
                 imdbRating = imdbRating,
                 runtime = runtime,
                 director = director,
-                cast = if (castList.isNotEmpty()) castList else null
+                cast = if (castList.isNotEmpty()) castList else null,
+                type = if (isSeries) "series" else "movie",
+                season = seasonNum,
+                episode = episodeNum
             )
+        }
+    }
+
+    private fun isStreamAlive(url: String, referer: String? = null): Boolean {
+        return try {
+            val req = Request.Builder()
+                .url(url)
+                .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
+                .apply { if (!referer.isNullOrBlank()) header("Referer", referer) }
+                .header("Range", "bytes=0-1024")
+                .head()
+                .build()
+
+            client.newBuilder()
+                .connectTimeout(2500, TimeUnit.MILLISECONDS)
+                .readTimeout(2500, TimeUnit.MILLISECONDS)
+                .build()
+                .newCall(req)
+                .execute()
+                .use { resp ->
+                    resp.code in 200..399 || resp.code == 416
+                }
+        } catch (_: Exception) {
+            true // On timeout/refused HEAD, preserve stream conservatively
         }
     }
 

@@ -87,6 +87,15 @@ class GitHubPublisher {
                 for (id in distinctIds) {
                     filesToCommit["playrepo/meta/movie/$id.json"] = metaJson
                     filesToCommit["playrepo/stream/movie/$id.json"] = streamJson
+                    if (movie.type == "series") {
+                        filesToCommit["playrepo/meta/series/$id.json"] = metaJson
+                        if (movie.season != null && movie.episode != null) {
+                            val epId = "$id:${movie.season}:${movie.episode}"
+                            val safeEpId = epId.replace(":", "-")
+                            filesToCommit["playrepo/stream/series/$epId.json"] = streamJson
+                            filesToCommit["playrepo/stream/series/$safeEpId.json"] = streamJson
+                        }
+                    }
                 }
             }
 
@@ -276,7 +285,7 @@ class GitHubPublisher {
 
             val catObj = JsonObject().apply {
                 addProperty("id", idStr)
-                addProperty("type", "movie")
+                addProperty("type", movie.type)
                 addProperty("name", movie.title)
                 addProperty("poster", movie.poster.ifBlank { LOGO_URL })
                 addProperty("background", movie.poster.ifBlank { LOGO_URL })
@@ -350,7 +359,7 @@ class GitHubPublisher {
         val metaWrapper = JsonObject().apply {
             val m = JsonObject().apply {
                 addProperty("id", idStr)
-                addProperty("type", "movie")
+                addProperty("type", movie.type)
                 addProperty("name", movie.title)
                 addProperty("poster", movie.poster.ifBlank { LOGO_URL })
                 addProperty("background", movie.poster.ifBlank { LOGO_URL })
@@ -378,16 +387,22 @@ class GitHubPublisher {
                 movie.genres.forEach { genreArr.add(it) }
                 add("genres", genreArr)
 
+                val defaultVid = if (movie.type == "series" && movie.season != null && movie.episode != null) {
+                    "$idStr:${movie.season}:${movie.episode}"
+                } else idStr
+
                 val bh = JsonObject().apply {
-                    addProperty("defaultVideoId", idStr)
+                    addProperty("defaultVideoId", defaultVid)
                     addProperty("hasScheduledVideos", false)
                 }
                 add("behaviorHints", bh)
 
                 val videos = JsonArray().apply {
                     val v = JsonObject().apply {
-                        addProperty("id", idStr)
+                        addProperty("id", defaultVid)
                         addProperty("title", movie.title)
+                        if (movie.season != null) addProperty("season", movie.season)
+                        if (movie.episode != null) addProperty("episode", movie.episode)
                         if (!movie.year.isNullOrBlank()) {
                             addProperty("released", "${movie.year}-01-01T00:00:00.000Z")
                         }
@@ -434,6 +449,19 @@ class GitHubPublisher {
                         add("proxyHeaders", proxyHeaders)
                     }
                     add("behaviorHints", bh)
+
+                    if (!st.subtitles.isNullOrEmpty()) {
+                        val subArr = JsonArray()
+                        st.subtitles.forEach { sub ->
+                            val subObj = JsonObject().apply {
+                                addProperty("id", sub.id)
+                                addProperty("url", sub.url)
+                                addProperty("lang", sub.lang)
+                            }
+                            subArr.add(subObj)
+                        }
+                        add("subtitles", subArr)
+                    }
                 }
                 sArr.add(so)
             }

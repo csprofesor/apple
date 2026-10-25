@@ -1,0 +1,43 @@
+name: PlayRepo Auto Sync
+
+on:
+  schedule:
+    # Her gün Türkiye saatiyle sabah 06:00'da (UTC 03:00) otomatik çalışır
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: 'Taranacak Film Sitesi veya Kategori URL'
+        required: false
+        default: 'https://www.hintfilmizle.com/film-izle/'
+      max_pages:
+        description: 'Taranacak Maksimum Sayfa Sayısı'
+        required: false
+        default: '15'
+
+jobs:
+  crawl_and_sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Depoyu İndir
+        uses: actions/checkout@v4
+
+      - name: Python 3.11 Kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Bağımlılıkları Kur
+        run: |
+          pip install beautifulsoup4
+
+      - name: Filmleri ve Detayları Tara, GitHub'a Yükle
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          SITE="${{ github.event.inputs.site_url || 'https://www.hintfilmizle.com/film-izle/' }}"
+          PAGES="${{ github.event.inputs.max_pages || '15' }}"
+          python macos/playrepo_mac.py --crawl "$SITE" --max-pages "$PAGES" --token "$GITHUB_TOKEN"
