@@ -16,6 +16,8 @@ import random
 import urllib.parse
 import subprocess
 import threading
+import tempfile
+import shutil
 from datetime import datetime
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import socket
@@ -332,6 +334,42 @@ class ScraperEngine:
         except Exception:
             return True
 
+    def simulate_browser_render(self, url: str) -> str:
+        """
+        Executes client-side JavaScript using headless Chrome/Chromium simulation,
+        returning the fully populated DOM with dynamically injected video players/iframes.
+        """
+        chrome_candidates = [
+            "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+            "/Applications/Chromium.app/Contents/MacOS/Chromium",
+            "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
+            "google-chrome",
+            "chromium"
+        ]
+        chrome_bin = next((b for b in chrome_candidates if shutil.which(b) or os.path.exists(b)), None)
+        if not chrome_bin:
+            return ""
+
+        temp_dir = tempfile.mkdtemp(prefix="playrepo_sim_")
+        try:
+            cmd = [
+                chrome_bin,
+                "--headless=new",
+                "--dump-dom",
+                "--disable-gpu",
+                "--no-sandbox",
+                "--disable-dev-shm-usage",
+                f"--user-data-dir={temp_dir}",
+                "--timeout=8000",
+                url
+            ]
+            res = subprocess.run(cmd, capture_output=True, text=True, errors="ignore", timeout=12)
+            return res.stdout or ""
+        except Exception:
+            return ""
+        finally:
+            shutil.rmtree(temp_dir, ignore_errors=True)
+
     def scrape_movie_page(self, movie_url: str, initial_cats: set, tmdb_api_key: str = None) -> dict:
         html = http_get(movie_url, referer=movie_url)
         if not html:
@@ -420,6 +458,26 @@ class ScraperEngine:
                         for df_m in re.finditer(r'data-frame=["\']([^"\']+)["\']', alt_html, re.I):
                             candidate_embeds.append((urllib.parse.urljoin(alt_url, df_m.group(1).strip()), alt_lang))
 
+        # WordPress / DooPlay player AJAX simulation for dynamic source tabs
+        parsed_origin = urllib.parse.urlsplit(movie_url)
+        site_base = f"{parsed_origin.scheme}://{parsed_origin.netloc}"
+        for opt_m in re.finditer(r'data-post=["\'](\d+)["\'][^>]*data-nume=["\']([^"\']+)["\']', html, re.I):
+            post_id, nume = opt_m.group(1), opt_m.group(2)
+            try:
+                ajax_cmd = [
+                    "curl", "-s", "-X", "POST", f"{site_base}/wp-admin/admin-ajax.php",
+                    "-d", f"action=doo_player_ajax&post={post_id}&nume={nume}&type=movie",
+                    "-H", f"Referer: {movie_url}",
+                    "-H", "X-Requested-With: XMLHttpRequest",
+                    "-A", random.choice(USER_AGENTS)
+                ]
+                ajax_res = subprocess.run(ajax_cmd, capture_output=True, text=True, timeout=5)
+                if ajax_res.stdout:
+                    for if_m in re.finditer(r'<iframe\s+[^>]*src=["\']([^"\']+)["\']', ajax_res.stdout, re.I):
+                        candidate_embeds.append((urllib.parse.urljoin(movie_url, if_m.group(1).strip()), default_lang))
+            except Exception:
+                pass
+
         # Extract subtitles (.vtt / .srt)
         subtitles = []
         for tr_m in re.finditer(r'<track\s+[^>]*kind=["\'](?:subtitles|captions)["\'][^>]*>', html, re.I):
@@ -468,6 +526,41 @@ class ScraperEngine:
                 if subtitles:
                     st_item["subtitles"] = subtitles
                 resolved_streams.append(st_item)
+
+        if not resolved_streams:
+            # Fallback: Headless Browser DOM Simulation for dynamic JS players
+            sim_html = self.simulate_browser_render(movie_url)
+            if sim_html:
+                sim_cands = []
+                for if_m in re.finditer(r'<iframe\s+[^>]*(?:src|data-src|data-frame)=["\']([^"\']+)["\'][^>]*>', sim_html, re.I):
+                    sim_cands.append(urllib.parse.urljoin(movie_url, if_m.group(1).strip()))
+                for v_m in re.finditer(r'<video[^>]+src=["\']([^"\']+)["\']', sim_html, re.I):
+                    sim_cands.append(urllib.parse.urljoin(movie_url, v_m.group(1).strip()))
+                for m_m in re.finditer(r'["\'](https?://[^\s"\'<>]+\.(?:m3u8|mp4)[^\s"\'<>]*)["\']', sim_html, re.I):
+                    sim_cands.append(m_m.group(1).strip())
+
+                for c_url in sim_cands:
+                    if c_url in seen_urls:
+                        continue
+                    d_url = self.unpack_embed_stream(c_url, referer=movie_url)
+                    if d_url and d_url not in seen_urls:
+                        seen_urls.add(d_url)
+                        is_m3u8 = ".m3u8" in d_url.lower()
+                        st_item = {
+                            "name": "Play",
+                            "title": f"Play • 1080p • {default_lang}",
+                            "url": d_url,
+                            "quality": 1080,
+                            "format": "m3u8" if is_m3u8 else "mp4",
+                            "referer": c_url,
+                            "headers": {
+                                "User-Agent": random.choice(USER_AGENTS),
+                                "Referer": c_url
+                            }
+                        }
+                        if subtitles:
+                            st_item["subtitles"] = subtitles
+                        resolved_streams.append(st_item)
 
         if not resolved_streams:
             return None

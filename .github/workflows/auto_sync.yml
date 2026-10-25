@@ -41,3 +41,4 @@ jobs:
           SITE="${{ github.event.inputs.site_url || 'https://www.hintfilmizle.com/film-izle/' }}"
           PAGES="${{ github.event.inputs.max_pages || '15' }}"
           python macos/playrepo_mac.py --crawl "$SITE" --max-pages "$PAGES" --token "$GITHUB_TOKEN"
+

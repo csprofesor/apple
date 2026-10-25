@@ -591,6 +591,41 @@ class SiteScraperEngine {
                 } catch (_: Exception) {}
             }
 
+            // 9b. DooPlay / Toroplay / WP-Player AJAX simulation for dynamic source tabs
+            doc.select("[data-post][data-nume], .playex[data-post], .dooplay_player_option[data-post]").forEach { el ->
+                val postId = el.attr("data-post")
+                val nume = el.attr("data-nume")
+                val type = el.attr("data-type").ifBlank { "movie" }
+                if (postId.isNotBlank() && nume.isNotBlank()) {
+                    try {
+                        val ajaxUrl = "$siteBase/wp-admin/admin-ajax.php"
+                        val formBody = okhttp3.FormBody.Builder()
+                            .add("action", "doo_player_ajax")
+                            .add("post", postId)
+                            .add("nume", nume)
+                            .add("type", type)
+                            .build()
+                        val aReq = Request.Builder()
+                            .url(ajaxUrl)
+                            .post(formBody)
+                            .header("User-Agent", getRandomUserAgent())
+                            .header("Referer", movieUrl)
+                            .header("X-Requested-With", "XMLHttpRequest")
+                            .build()
+                        client.newCall(aReq).execute().use { aResp ->
+                            if (aResp.isSuccessful) {
+                                val aHtml = aResp.body?.string().orEmpty()
+                                val ifMatch = Regex("""<iframe[^>]+src=["']([^"']+)["']""", RegexOption.IGNORE_CASE).find(aHtml)
+                                if (ifMatch != null) {
+                                    val lang = detectLangFromContext(el.text(), el.attr("data-lang"), ifMatch.groupValues[1])
+                                    addCandidate(ifMatch.groupValues[1], lang)
+                                }
+                            }
+                        }
+                    } catch (_: Exception) {}
+                }
+            }
+
             // 10. Scan and fetch alternate language pages (e.g. Dublaj page links to Altyazılı, or vice versa)
             val alternatePageLinks = mutableListOf<Pair<String, String>>()
             doc.select("a[href]").forEach { a ->
