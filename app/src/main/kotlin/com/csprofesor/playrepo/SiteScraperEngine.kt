@@ -1128,11 +1128,20 @@ class SiteScraperEngine {
                                     return hls.replace("&amp;", "&").replace("\\u0026", "&")
                                 }
 
-                                val metaObj = when (val m = flashvars.opt("metadata")) {
+                                val m = flashvars.opt("metadata")
+                                val metaObj = when (m) {
                                     is org.json.JSONObject -> m
-                                    is String -> org.json.JSONObject(m)
+                                    is String -> try { org.json.JSONObject(m) } catch (_: Exception) { null }
+                                    null -> null
                                     else -> null
                                 }
+                                val ondemandHls = metaObj?.optString("ondemandHls").orEmpty().ifBlank {
+                                    flashvars.optString("ondemandHls")
+                                }
+                                if (ondemandHls.isNotBlank()) {
+                                    return ondemandHls.replace("&amp;", "&").replace("\\u0026", "&")
+                                }
+
                                 val videos = metaObj?.optJSONArray("videos")
                                 if (videos != null && videos.length() > 0) {
                                     var bestUrl = ""

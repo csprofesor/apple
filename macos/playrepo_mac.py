@@ -433,9 +433,21 @@ class ScraperEngine:
             if ok_m:
                 try:
                     ok_data = json.loads(ok_m.group(1).replace("&quot;", '"'))
-                    hls = ok_data.get("flashvars", {}).get("metadata", {}).get("hlsManifestUrl")
+                    fv = ok_data.get("flashvars", {})
+                    meta = fv.get("metadata", {})
+                    if isinstance(meta, str):
+                        try:
+                            meta = json.loads(meta)
+                        except Exception:
+                            meta = {}
+                    hls = meta.get("ondemandHls") or meta.get("hlsManifestUrl") or fv.get("ondemandHls") or fv.get("hlsManifestUrl")
                     if hls:
                         return hls
+                    videos = meta.get("videos", [])
+                    if videos and isinstance(videos, list):
+                        last_v = videos[-1].get("url")
+                        if last_v:
+                            return last_v
                 except Exception:
                     pass
 

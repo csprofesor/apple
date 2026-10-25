@@ -291,6 +291,16 @@ class MainActivity : AppCompatActivity() {
         binding.pageDashboard.root.visibility = if (pageNumber == 1) View.VISIBLE else View.GONE
         binding.pageSites.root.visibility = if (pageNumber == 2) View.VISIBLE else View.GONE
         binding.pageSingle.root.visibility = if (pageNumber == 3) View.VISIBLE else View.GONE
+
+        val targetMenuId = when (pageNumber) {
+            1 -> R.id.nav_dashboard
+            2 -> R.id.nav_sites
+            3 -> R.id.nav_single
+            else -> R.id.nav_dashboard
+        }
+        if (binding.bottomNav.selectedItemId != targetMenuId) {
+            binding.bottomNav.selectedItemId = targetMenuId
+        }
     }
 
     private fun setControlsEnabled(enabled: Boolean) {
