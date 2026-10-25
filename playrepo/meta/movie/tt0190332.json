@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "tt0190332",
+    "type": "movie",
+    "name": "Crouching Tiger, Hidden Dragon",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMzRmMTU2OWEtZjI0Ni00MGRhLThjOTItZTJiNmM4MDk0ZWU2XkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMzRmMTU2OWEtZjI0Ni00MGRhLThjOTItZTJiNmM4MDk0ZWU2XkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Gökyüzünün maviliğine karışan kılıcın adı Yeşil Kader&#039;dir ve bu efsanevi silah, Li Mu Bai&#039;nin ellerinde bir efsane olmuştur. Ancak şimdi, bilge savaşçı Li, bu b...",
+    "releaseInfo": "2000",
+    "genres": [
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Aksiyon & Macera",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt0190332",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0190332",
+        "title": "Crouching Tiger, Hidden Dragon",
+        "released": "2000-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
