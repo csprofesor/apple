@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "tt0102492",
+    "type": "movie",
+    "name": "My Girl",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNmI5M2EzZDUtZTBkZS00YWFmLWFhZTMtNjc3YTllZDBhODQ4XkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BNmI5M2EzZDUtZTBkZS00YWFmLWFhZTMtNjc3YTllZDBhODQ4XkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Vada, hayatın masumiyetinde kaybolmuş on bir yaşında bir kız çocuğu; hüzünle yoğrulmuş bir dünyaya adım atmak üzeredir. Babası Harry&#039;nin, kasabanın yeni kozmeti...",
+    "releaseInfo": "1991",
+    "genres": [
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Aksiyon & Macera",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt0102492",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0102492",
+        "title": "My Girl",
+        "released": "1991-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
