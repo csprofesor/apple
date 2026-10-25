@@ -299,6 +299,72 @@ class ScraperEngine:
 
         return movie_categories
 
+    def search_specific_movie_across_sites(self, query: str, sites: list) -> dict:
+        """
+        Kullanıcının girdiği film adını kayıtlı tüm sitelerin arama motorlarında (?s=, /search/, /ara?)
+        hedefli olarak arar ve ilgili filmin doğrudan detay sayfalarını bulur.
+        """
+        q_norm = query.strip()
+        q_slug = re.sub(r'[^a-zA-Z0-9çğıöşüÇĞİÖŞÜ]+', '-', q_norm).strip('-').lower()
+        q_enc = urllib.parse.quote_plus(q_norm)
+        tokens = [t.lower() for t in re.split(r'[\s\-_\.:]+', q_norm) if len(t) >= 2]
+
+        found_links = {}
+
+        for site_url in sites:
+            if not self.check_alive():
+                break
+
+            site_base = site_url
+            if "://" in site_url:
+                parts = site_url.split("/")
+                site_base = f"{parts[0]}//{parts[2]}"
+
+            search_endpoints = [
+                f"{site_base}/?s={q_enc}",
+                f"{site_base}/search/{q_enc}/",
+                f"{site_base}/arama/{q_enc}/",
+                f"{site_base}/ara?q={q_enc}",
+                f"{site_base}/{q_slug}-izle/",
+                f"{site_base}/{q_slug}/",
+                f"{site_base}/film/{q_slug}/"
+            ]
+
+            self.log(f"🔎 [{site_base}] '{q_norm}' aranıyor...")
+
+            site_found = 0
+            for ep_url in search_endpoints:
+                if not self.check_alive() or site_found >= 3:
+                    break
+                try:
+                    html = http_get(ep_url, timeout=7)
+                    if not html or "cf-chl-opt" in html:
+                        continue
+
+                    # Doğrudan film sayfasına mı yönlendi / geldik?
+                    if self.is_valid_movie_url(ep_url, site_base) and any(tok in ep_url.lower() for tok in tokens):
+                        found_links[ep_url] = {"Popüler"}
+                        site_found += 1
+                        break
+
+                    # Arama sonuç listesindeki film bağlantılarını filtrele
+                    for href, text in re.findall(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', html, re.I | re.DOTALL):
+                        abs_url = urllib.parse.urljoin(ep_url, href.strip())
+                        clean_text = re.sub(r'<[^>]+>', '', text).strip()
+                        combined = f"{abs_url.lower()} {clean_text.lower()}"
+
+                        if self.is_valid_movie_url(abs_url, site_base):
+                            if all(tok in combined for tok in tokens) or (tokens and tokens[0] in combined):
+                                if abs_url not in found_links:
+                                    cat = self.detect_category(abs_url, clean_text)
+                                    found_links[abs_url] = {cat}
+                                    site_found += 1
+                                    self.log(f"  🎯 Eşleşen film bulundu: {clean_text or abs_url}")
+                except Exception:
+                    pass
+
+        return found_links
+
     def unpack_embed_stream(self, embed_url: str, referer: str, depth: int = 0) -> str:
         if depth > 3 or not embed_url or embed_url.startswith(("about:", "javascript:")):
             return ""
@@ -1338,9 +1404,21 @@ HTML_PAGE = """<!DOCTYPE html>
     </div>
   </header>
 
-  <!-- 1. YENİ SİTE EKLEME (EN BELİRGİN KUTU) -->
+  <!-- 1. HEDEFLİ TEK FİLM ARAMA & EKLEME (ÖZEL KURTARMA KUTUSU) -->
+  <div class="card" style="border: 1px solid #3b82f6; background: #0c1322; padding: 18px 22px;">
+    <div class="card-title" style="color: #60a5fa;">🎯 TEK BİR FİLMİ BUL VE YENİDEN EKLE (Örn: Bozuk Filmi Kurtar)</div>
+    <div style="font-size: 13px; color: var(--dim); margin-bottom: 10px;">
+      İçeriği bozulan veya eksik olan bir filmin adını ya da doğrudan linkini girin; kayıtlı tüm sitelerde o film hedeflenerek aranır, taze çalışan akışları çözülür ve Nuvio'ya tek başına eklenir:
+    </div>
+    <div class="row">
+      <input type="text" id="target-movie-input" placeholder="Örn: Inception, Matrix, Testere veya doğrudan film sayfası linki" style="padding: 12px 16px; font-size: 14px;" />
+      <button class="btn-blue" style="padding: 12px 22px; font-size: 13px; font-weight: 700;" onclick="findAndAddSpecificMovie()">🎯 FİLMİ BUL VE YENİDEN EKLE</button>
+    </div>
+  </div>
+
+  <!-- 2. YENİ SİTE EKLEME -->
   <div class="card highlight">
-    <div class="card-title">🌐 1. YENİ FİLM SİTESİ VEYA KATEGORİ ADRESİ EKLE</div>
+    <div class="card-title">🌐 2. YENİ FİLM SİTESİ VEYA KATEGORİ ADRESİ EKLE</div>
     <div class="row">
       <input type="text" id="new-site-input" placeholder="Örn: https://www.hintfilmizle.com/film-izle/ veya taranacak site linki" />
       <button class="btn-green" onclick="addSite()">➕ SİTEYİ LİSTEYE EKLE</button>
@@ -1504,6 +1582,32 @@ HTML_PAGE = """<!DOCTYPE html>
       });
       alert('Ayarlar başarıyla kaydedildi!');
       await loadConfig();
+    }
+
+    async function findAndAddSpecificMovie() {
+      const inp = document.getElementById('target-movie-input');
+      const query = inp.value.trim();
+      if (!query) {
+        alert('Lütfen aramak istediğiniz filmin adını ya da doğrudan film linkini girin!');
+        return;
+      }
+      document.getElementById('btn-run').style.display = 'none';
+      document.getElementById('btn-stop').style.display = 'inline-flex';
+      document.getElementById('status-badge').innerText = 'ARANIYOR';
+      document.getElementById('status-badge').style.background = '#1e3a8a';
+      document.getElementById('status-badge').style.color = '#93c5fd';
+
+      const res = await fetch('/api/search-and-add-movie', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ query })
+      });
+      const data = await res.json();
+      if (data.status === 'started') {
+        inp.value = '';
+      } else {
+        alert('İşlem başlatılamadı: ' + (data.message || ''));
+      }
     }
 
     async function startMasterUpdate() {
@@ -1935,6 +2039,59 @@ class RequestHandler(BaseHTTPRequestHandler):
             ENGINE_INSTANCE.resume()
             append_global_log("[DEVAM EDİYOR] Tarama kaldığı yerden devam ediyor...")
             self._send_json({"status": "ok"})
+        elif self.path == "/api/search-and-add-movie":
+            body = self._read_json()
+            query = body.get("query", "").strip()
+            cfg = load_config()
+            sites = cfg.get("saved_sites", [])
+            token = cfg.get("github_token", "").strip()
+            tmdb = cfg.get("tmdb_key", "").strip()
+
+            if not query:
+                self._send_json({"status": "error", "message": "Film adı boş olamaz"})
+                return
+
+            ENGINE_INSTANCE.is_running = True
+            ENGINE_INSTANCE.is_paused = False
+
+            def single_worker():
+                append_global_log(f"🎯 [HEDEFLİ ARAMA BAŞLADI] '{query}' kayıtlı {len(sites)} sitede aranıyor...")
+                pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
+                
+                # Doğrudan URL mi verildi yoksa film adı mı?
+                if query.startswith("http://") or query.startswith("https://"):
+                    found_dict = {query: {"Popüler"}}
+                else:
+                    found_dict = ENGINE_INSTANCE.search_specific_movie_across_sites(query, sites)
+
+                if not found_dict:
+                    append_global_log(f"✗ [BULUNAMADI] '{query}' için kayıtlı sitelerde aktif film linki bulunamadı.")
+                    return
+
+                append_global_log(f"✓ '{query}' için {len(found_dict)} olası kaynak bulundu. Video akışları ve detaylar çözülüyor...")
+                resolved_list = []
+
+                for m_url, cats in found_dict.items():
+                    if not ENGINE_INSTANCE.check_alive():
+                        break
+                    append_global_log(f"  ⚡ Çözülüyor: {m_url}...")
+                    m_data = ENGINE_INSTANCE.scrape_movie_page(m_url, cats, tmdb_api_key=tmdb)
+                    if m_data and m_data.get("streams"):
+                        resolved_list.append(m_data)
+                        c_str = ", ".join(m_data["genres"])
+                        append_global_log(f"  ✓ {m_data['title']} ({len(m_data['streams'])} Sunucu • [{c_str}])")
+                        # İlk çalışan kaynağı çözünce hemen Nuvio'ya aktar
+                        append_global_log(f"🚀 [NUVIO AKTARIM] {m_data['title']} Nuvio'ya tek başına ekleniyor...")
+                        pub.publish_movies([m_data])
+                        append_global_log(f"🎉 [BAŞARILI] '{m_data['title']}' başarıyla kurtarıldı ve Nuvio'ya yüklendi!")
+                        break
+
+                if not resolved_list:
+                    append_global_log(f"✗ [BAŞARISIZ] '{query}' bulundu fakat çalışan video akışı (m3u8/mp4) çözülemedi.")
+
+            CURRENT_WORKER = threading.Thread(target=single_worker, daemon=True)
+            CURRENT_WORKER.start()
+            self._send_json({"status": "started"})
         elif self.path == "/api/start-all":
             cfg = load_config()
             sites = cfg.get("saved_sites", [])
