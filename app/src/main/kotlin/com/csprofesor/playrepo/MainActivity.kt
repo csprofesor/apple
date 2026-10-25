@@ -56,7 +56,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (savedSitesList.isEmpty()) {
+            savedSitesList.add("https://filmdozu.com/")
+            savedSitesList.add("https://ufilmizle.com/")
+            savedSitesList.add("https://fullfilmizle.fit/")
             savedSitesList.add("https://www.hintfilmizle.com/film-izle/")
+            savedSitesList.add("https://filmarsivi.org/")
             saveSitesListToPrefs()
         }
 
@@ -92,7 +96,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.pageSites.btnResetSites.setOnClickListener {
             savedSitesList.clear()
+            savedSitesList.add("https://filmdozu.com/")
+            savedSitesList.add("https://ufilmizle.com/")
+            savedSitesList.add("https://fullfilmizle.fit/")
             savedSitesList.add("https://www.hintfilmizle.com/film-izle/")
+            savedSitesList.add("https://filmarsivi.org/")
             saveSitesListToPrefs()
             updateSavedSitesUI()
             appendLog("[SITE LIST RESET] List reset to default.")

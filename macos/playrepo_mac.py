@@ -1012,7 +1012,11 @@ def load_config():
         "tmdb_key": "",
         "max_pages": 20,
         "saved_sites": [
-            "https://www.hintfilmizle.com/film-izle/"
+            "https://filmdozu.com/",
+            "https://ufilmizle.com/",
+            "https://fullfilmizle.fit/",
+            "https://www.hintfilmizle.com/film-izle/",
+            "https://filmarsivi.org/"
         ]
     }
     if os.path.exists(CONFIG_FILE):
@@ -1545,7 +1549,13 @@ class RequestHandler(BaseHTTPRequestHandler):
             self._send_json({"status": "ok"})
         elif self.path == "/api/reset-sites":
             cfg = load_config()
-            cfg["saved_sites"] = ["https://www.hintfilmizle.com/film-izle/"]
+            cfg["saved_sites"] = [
+                "https://filmdozu.com/",
+                "https://ufilmizle.com/",
+                "https://fullfilmizle.fit/",
+                "https://www.hintfilmizle.com/film-izle/",
+                "https://filmarsivi.org/"
+            ]
             save_config(cfg)
             append_global_log("[SIFIRLANDI] Site listesi varsayılana sıfırlandı.")
             self._send_json({"status": "ok"})
