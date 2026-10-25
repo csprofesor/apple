@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "tt0049010",
+    "type": "movie",
+    "name": "Bigger Than Life",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZGFiZjQxNzMtNWUzMi00Nzk3LWIyYzItN2YzNDliYTNkYTdkXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BZGFiZjQxNzMtNWUzMi00Nzk3LWIyYzItN2YzNDliYTNkYTdkXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Brady ve Sam&#039;in enerjik dünyasında, telefon şakalarının neşesi ve tehlikesi iç içe geçer. Sınıfın dışına taşan bu macera, ikilinin her geçen gün artan popülarit...",
+    "releaseInfo": "1956",
+    "genres": [
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Aksiyon & Macera",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt0049010",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0049010",
+        "title": "Bigger Than Life",
+        "released": "1956-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
