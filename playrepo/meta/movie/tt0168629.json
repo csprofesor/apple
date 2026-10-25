@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "tt0168629",
+    "type": "movie",
+    "name": "Dancer in the Dark",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMDg3NWFlYWEtZjQ3Ny00Y2ZjLWI3ZWYtN2ZmMDA4MThkZTg2XkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMDg3NWFlYWEtZjQ3Ny00Y2ZjLWI3ZWYtN2ZmMDA4MThkZTg2XkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Çek göçmeni Selma Jezkova, 10 yaşındaki oğlu Gene ile bir karavanı yuva bellemiş, zorlu yaşam koşullarına aldırmadan hayata tutunmaya çalışmaktadır. Ancak Selma...",
+    "releaseInfo": "2000",
+    "genres": [
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Aksiyon & Macera",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt0168629",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0168629",
+        "title": "Dancer in the Dark",
+        "released": "2000-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
