@@ -268,19 +268,22 @@ async function getMeta(arg1, arg2) {
 
         // 1. Try static meta file published by APK first (checking all safe variations)
         const possibleStaticIds = [encodeURIComponent(idStr), encodeURIComponent(hyphenId), encodeURIComponent(safeId), encodeURIComponent(cleanId)];
-        for (const pid of possibleStaticIds) {
-            try {
-                const staticMetaUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/meta/movie/${pid}.json?t=${Date.now()}`;
-                const smRes = await fetch(staticMetaUrl, {
-                    headers: { "User-Agent": UA, "Accept": "application/json" }
-                });
-                if (smRes.ok) {
-                    const smData = await smRes.json();
-                    if (smData && smData.meta) {
-                        return smData;
+        const targetTypes = mediaType === "series" ? ["series", "movie"] : ["movie", "series"];
+        for (const t of targetTypes) {
+            for (const pid of possibleStaticIds) {
+                try {
+                    const staticMetaUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/meta/${t}/${pid}.json?t=${Date.now()}`;
+                    const smRes = await fetch(staticMetaUrl, {
+                        headers: { "User-Agent": UA, "Accept": "application/json" }
+                    });
+                    if (smRes.ok) {
+                        const smData = await smRes.json();
+                        if (smData && smData.meta) {
+                            return smData;
+                        }
                     }
-                }
-            } catch (_) {}
+                } catch (_) {}
+            }
         }
 
         // 2. Search local catalog (Contains site's official Turkish description, genres, and poster)
@@ -356,7 +359,8 @@ async function getMeta(arg1, arg2) {
         // 3. Fallback: Cinemeta if not found in catalog yet
         if (idStr.startsWith("tt")) {
             try {
-                const cmRes = await fetch(`https://v3-cinemeta.strem.io/meta/movie/${idStr}.json`, {
+                const cType = mediaType === "series" ? "series" : "movie";
+                const cmRes = await fetch(`https://v3-cinemeta.strem.io/meta/${cType}/${idStr}.json`, {
                     headers: { "User-Agent": UA }
                 });
                 if (cmRes.ok) {
