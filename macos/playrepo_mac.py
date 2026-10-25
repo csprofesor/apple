@@ -1189,7 +1189,7 @@ def run_app():
     url = f"http://127.0.0.1:{port}"
     chrome_path = "/Applications/Google Chrome.app"
     if os.path.exists(chrome_path):
-        subprocess.run(["open", "-na", "Google Chrome", "--args", f"--app={url}"])
+        subprocess.run(["open", "-a", "Google Chrome", url])
     else:
         subprocess.run(["open", url])
 
