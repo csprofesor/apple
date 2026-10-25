@@ -112,6 +112,31 @@ class ScraperEngine:
     def __init__(self, log_callback=None):
         self.log_callback = log_callback or (lambda s: None)
         self.is_running = True
+        self.is_paused = False
+        self.pause_cond = threading.Condition()
+
+    def check_alive(self) -> bool:
+        """Pauses execution if paused, returns False immediately if stopped."""
+        with self.pause_cond:
+            while self.is_paused and self.is_running:
+                self.pause_cond.wait(timeout=0.4)
+        return self.is_running
+
+    def pause(self):
+        with self.pause_cond:
+            self.is_paused = True
+            self.pause_cond.notify_all()
+
+    def resume(self):
+        with self.pause_cond:
+            self.is_paused = False
+            self.pause_cond.notify_all()
+
+    def stop(self):
+        with self.pause_cond:
+            self.is_running = False
+            self.is_paused = False
+            self.pause_cond.notify_all()
 
     def log(self, msg: str):
         self.log_callback(msg)
@@ -191,7 +216,7 @@ class ScraperEngine:
         ]
         sitemap_found_count = 0
         for sm_url in sitemap_candidates:
-            if not self.is_running:
+            if not self.check_alive():
                 break
             try:
                 sm_content = http_get(sm_url, timeout=5)
@@ -233,7 +258,7 @@ class ScraperEngine:
                     page_category_map[abs_url] = cat
 
         page_count = 0
-        while queue and page_count < max_pages and self.is_running:
+        while queue and page_count < max_pages and self.check_alive():
             curr_url = queue.pop(0)
             if curr_url in visited:
                 continue
@@ -566,6 +591,8 @@ class ScraperEngine:
         seen_urls = set()
 
         for cand_url, cand_lang in candidate_embeds:
+            if not self.check_alive():
+                break
             if not cand_url or cand_url in seen_urls:
                 continue
             direct_url = self.unpack_embed_stream(cand_url, referer=movie_url)
@@ -1227,6 +1254,8 @@ HTML_PAGE = """<!DOCTYPE html>
     </div>
     <div class="row">
       <button class="btn-gray" onclick="clearLogs()">🧹 Logları Temizle</button>
+      <button id="btn-pause" class="btn-gray" onclick="pauseCrawler()" style="display:none; background:#d97706; color:#fff;">⏸ Duraklat</button>
+      <button id="btn-resume" class="btn-green" onclick="resumeCrawler()" style="display:none">▶ Devam Et</button>
       <button id="btn-stop" class="btn-red" onclick="stopCrawler()" style="display:none">⏹ Durdur</button>
       <button id="btn-run" class="btn-blue" onclick="startMasterUpdate()">⚡ TÜM SİTELERİ GÜNCELLE VE YÜKLE</button>
     </div>
@@ -1373,6 +1402,8 @@ HTML_PAGE = """<!DOCTYPE html>
 
     async function startMasterUpdate() {
       document.getElementById('btn-run').style.display = 'none';
+      document.getElementById('btn-pause').style.display = 'inline-flex';
+      document.getElementById('btn-resume').style.display = 'none';
       document.getElementById('btn-stop').style.display = 'inline-flex';
       document.getElementById('status-badge').innerText = 'ÇALIŞIYOR';
       document.getElementById('status-badge').style.background = '#065f46';
@@ -1381,9 +1412,29 @@ HTML_PAGE = """<!DOCTYPE html>
       await fetch('/api/start-all', { method: 'POST' });
     }
 
+    async function pauseCrawler() {
+      await fetch('/api/pause', { method: 'POST' });
+      document.getElementById('btn-pause').style.display = 'none';
+      document.getElementById('btn-resume').style.display = 'inline-flex';
+      document.getElementById('status-badge').innerText = 'DURAKLATILDI';
+      document.getElementById('status-badge').style.background = '#78350f';
+      document.getElementById('status-badge').style.color = '#fde68a';
+    }
+
+    async function resumeCrawler() {
+      await fetch('/api/resume', { method: 'POST' });
+      document.getElementById('btn-resume').style.display = 'none';
+      document.getElementById('btn-pause').style.display = 'inline-flex';
+      document.getElementById('status-badge').innerText = 'ÇALIŞIYOR';
+      document.getElementById('status-badge').style.background = '#065f46';
+      document.getElementById('status-badge').style.color = '#34d399';
+    }
+
     async function stopCrawler() {
       await fetch('/api/stop', { method: 'POST' });
       document.getElementById('btn-run').style.display = 'inline-flex';
+      document.getElementById('btn-pause').style.display = 'none';
+      document.getElementById('btn-resume').style.display = 'none';
       document.getElementById('btn-stop').style.display = 'none';
       document.getElementById('status-badge').innerText = 'DURDURULDU';
       document.getElementById('status-badge').style.background = '#7f1d1d';
@@ -1405,10 +1456,28 @@ HTML_PAGE = """<!DOCTYPE html>
 
         if (!data.is_running) {
           document.getElementById('btn-run').style.display = 'inline-flex';
+          document.getElementById('btn-pause').style.display = 'none';
+          document.getElementById('btn-resume').style.display = 'none';
           document.getElementById('btn-stop').style.display = 'none';
           document.getElementById('status-badge').innerText = 'HAZIR';
           document.getElementById('status-badge').style.background = '#1e293b';
           document.getElementById('status-badge').style.color = '#94a3b8';
+        } else if (data.is_paused) {
+          document.getElementById('btn-run').style.display = 'none';
+          document.getElementById('btn-pause').style.display = 'none';
+          document.getElementById('btn-resume').style.display = 'inline-flex';
+          document.getElementById('btn-stop').style.display = 'inline-flex';
+          document.getElementById('status-badge').innerText = 'DURAKLATILDI';
+          document.getElementById('status-badge').style.background = '#78350f';
+          document.getElementById('status-badge').style.color = '#fde68a';
+        } else {
+          document.getElementById('btn-run').style.display = 'none';
+          document.getElementById('btn-pause').style.display = 'inline-flex';
+          document.getElementById('btn-resume').style.display = 'none';
+          document.getElementById('btn-stop').style.display = 'inline-flex';
+          document.getElementById('status-badge').innerText = 'ÇALIŞIYOR';
+          document.getElementById('status-badge').style.background = '#065f46';
+          document.getElementById('status-badge').style.color = '#34d399';
         }
       } catch (e) {}
       setTimeout(pollLogs, 1000);
@@ -1518,9 +1587,11 @@ class RequestHandler(BaseHTTPRequestHandler):
         elif self.path == "/api/config":
             self._send_json(load_config())
         elif self.path == "/api/logs":
+            is_active = CURRENT_WORKER is not None and CURRENT_WORKER.is_alive()
             self._send_json({
                 "logs": LOG_BUFFER,
-                "is_running": ENGINE_INSTANCE.is_running and CURRENT_WORKER is not None and CURRENT_WORKER.is_alive()
+                "is_running": ENGINE_INSTANCE.is_running and is_active,
+                "is_paused": ENGINE_INSTANCE.is_paused and is_active
             })
         elif self.path == "/api/published-movies":
             cat_url = f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/{DEFAULT_BRANCH}/data/catalog.json?t={int(time.time())}"
@@ -1587,8 +1658,16 @@ class RequestHandler(BaseHTTPRequestHandler):
             LOG_BUFFER.clear()
             self._send_json({"status": "ok"})
         elif self.path == "/api/stop":
-            ENGINE_INSTANCE.is_running = False
-            append_global_log("[DURDURULDU] İşlem durduruldu.")
+            ENGINE_INSTANCE.stop()
+            append_global_log("[DURDURULDU] İşlem tamamen durduruldu.")
+            self._send_json({"status": "ok"})
+        elif self.path == "/api/pause":
+            ENGINE_INSTANCE.pause()
+            append_global_log("[DURAKLATILDI] Tarama geçici olarak duraklatıldı.")
+            self._send_json({"status": "ok"})
+        elif self.path == "/api/resume":
+            ENGINE_INSTANCE.resume()
+            append_global_log("[DEVAM EDİYOR] Tarama kaldığı yerden devam ediyor...")
             self._send_json({"status": "ok"})
         elif self.path == "/api/start-all":
             cfg = load_config()
@@ -1598,12 +1677,13 @@ class RequestHandler(BaseHTTPRequestHandler):
             tmdb = cfg.get("tmdb_key", "").strip()
 
             ENGINE_INSTANCE.is_running = True
+            ENGINE_INSTANCE.is_paused = False
 
             def worker():
                 append_global_log(f"[GÜNCELLEME BAŞLADI] Toplam {len(sites)} kayıtlı sitenin tamamı taranıyor...")
                 all_scraped = []
                 for s_idx, site_url in enumerate(sites):
-                    if not ENGINE_INSTANCE.is_running:
+                    if not ENGINE_INSTANCE.check_alive():
                         break
                     append_global_log(f"--- [SİTE {s_idx + 1}/{len(sites)}] Taranıyor: {site_url} ---")
                     movie_dict = ENGINE_INSTANCE.discover_movie_links(site_url, max_pages=max_p)
@@ -1613,7 +1693,7 @@ class RequestHandler(BaseHTTPRequestHandler):
                     batch_buffer = []
 
                     for m_idx, (m_url, cats) in enumerate(movie_dict.items()):
-                        if not ENGINE_INSTANCE.is_running:
+                        if not ENGINE_INSTANCE.check_alive():
                             break
                         short = m_url.rstrip("/").split("/")[-1]
                         append_global_log(f"[{m_idx + 1}/{len(movie_dict)}] Çözülüyor: {short}...")
@@ -1633,12 +1713,15 @@ class RequestHandler(BaseHTTPRequestHandler):
                             append_global_log(f"  ↷ {short} (Aktif akış yok, atlandı)")
 
                     # Kalan filmleri hemen aktar
-                    if batch_buffer and ENGINE_INSTANCE.is_running:
+                    if batch_buffer and ENGINE_INSTANCE.check_alive():
                         append_global_log(f"⚡ [ANLIK YÜKLEME] Kalan {len(batch_buffer)} film Nuvio/GitHub'a aktarılıyor...")
                         pub.publish_movies(batch_buffer)
                         batch_buffer.clear()
 
-                append_global_log("✓ [BİTTİ] Tüm tarama ve anlık yükleme tamamlandı.")
+                if ENGINE_INSTANCE.is_running:
+                    append_global_log("✓ [BİTTİ] Tüm tarama ve anlık yükleme tamamlandı.")
+                else:
+                    append_global_log("⏹ [SONLANDI] Tarama kullanıcı tarafından durduruldu.")
 
             CURRENT_WORKER = threading.Thread(target=worker, daemon=True)
             CURRENT_WORKER.start()
