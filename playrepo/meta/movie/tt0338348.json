@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "tt0338348",
+    "type": "movie",
+    "name": "The Polar Express",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTM1NTU0NTE4MV5BMl5BanBnXkFtZTcwMTQ0MjEzMw@@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMTM1NTU0NTE4MV5BMl5BanBnXkFtZTcwMTQ0MjEzMw@@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Kar taneleri geceyi dans ederek doldururken, şüpheci bir çocuk, yüreğinin derinliklerinde saklı kalan inanç kırıntılarını keşfetmek üzere yola çıkar. Noel Baba&#039;...",
+    "releaseInfo": "2004",
+    "genres": [
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Aksiyon & Macera",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt0338348",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0338348",
+        "title": "The Polar Express",
+        "released": "2004-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
