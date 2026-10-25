@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "playrepo-two-one",
+    "type": "movie",
+    "name": "Two/One",
+    "poster": "https://filmdozu.com/assets/img/7928.jpg",
+    "background": "https://filmdozu.com/assets/img/7928.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Kaden, Kanada&#039;nın soğuk, sessiz dağlarında yankılanan kayıp aşkının anılarına sarılırken, rüzgarın keskin çığlığına karışan düşünceleriyle mücadele eden bir kay...",
+    "releaseInfo": "2020",
+    "genres": [
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Aksiyon & Macera",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-two-one",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-two-one",
+        "title": "Two/One",
+        "released": "2020-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
