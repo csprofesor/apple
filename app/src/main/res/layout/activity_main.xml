@@ -30,14 +30,22 @@
 
     </FrameLayout>
 
+    <!-- Divider line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#1E293B" />
+
     <!-- Bottom Navigation Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#111111"
-        app:itemIconTint="#FFFFFF"
-        app:itemTextColor="#FFFFFF"
+        android:layout_height="64dp"
+        android:background="#090D16"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:itemRippleColor="#1E293B"
+        app:elevation="8dp"
         app:menu="@menu/bottom_nav_menu" />
 
 </LinearLayout>

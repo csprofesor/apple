@@ -1335,88 +1335,143 @@ HTML_PAGE = """<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root {
-      --bg: #000000;
-      --card-bg: #0d0f17;
-      --border: #23283b;
+      --bg: #07090e;
+      --card-bg: rgba(15, 20, 32, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover-border: rgba(59, 130, 246, 0.4);
       --accent: #2563eb;
       --accent-hover: #1d4ed8;
+      --accent-gradient: linear-gradient(135deg, #2563eb, #38bdf8);
       --emerald: #059669;
-      --emerald-hover: #047857;
+      --emerald-gradient: linear-gradient(135deg, #059669, #34d399);
+      --amber: #d97706;
       --red: #dc2626;
-      --text: #ffffff;
+      --text: #f8fafc;
       --dim: #94a3b8;
+      --muted: #64748b;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background-color: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-      padding: 24px 32px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      padding-bottom: 96px;
       line-height: 1.5;
       user-select: none;
+      overflow-x: hidden;
+      min-height: 100vh;
     }
+
+    /* Fixed Glass Header */
     header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7, 9, 14, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 14px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 18px;
-      margin-bottom: 24px;
     }
-    .brand { display: flex; align-items: baseline; gap: 12px; }
-    .brand h1 { font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
-    .brand span { font-size: 13px; font-weight: 600; color: #60a5fa; background: #172554; padding: 4px 10px; border-radius: 6px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand h1 { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+    .brand span.badge-os { font-size: 11px; font-weight: 700; color: #38bdf8; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.25); padding: 3px 8px; border-radius: 6px; }
     
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+
+    /* Main App Container */
+    .app-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 28px;
+    }
+
+    /* Tab Panes */
+    .view-pane {
+      display: none;
+      animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .view-pane.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards */
     .card {
       background: var(--card-bg);
-      border: 2px solid var(--border);
-      border-radius: 14px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
       padding: 20px 24px;
-      margin-bottom: 22px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: border-color 0.2s;
     }
-    .card.highlight {
-      border: 2px solid #3b82f6;
-      background: #090b10;
-    }
+    .card:hover { border-color: var(--card-hover-border); }
     .card-title {
       font-size: 13px;
       font-weight: 800;
       color: #60a5fa;
       letter-spacing: 0.8px;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: space-between;
     }
 
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .kpi-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .kpi-label { font-size: 11px; font-weight: 700; color: var(--dim); text-transform: uppercase; letter-spacing: 0.5px; }
+    .kpi-value { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .kpi-sub { font-size: 11px; color: var(--muted); }
+
+    /* Inputs & Buttons */
     .row { display: flex; gap: 12px; align-items: center; }
     .col { display: flex; flex-direction: column; gap: 6px; }
 
     input[type="text"], input[type="password"], input[type="number"] {
       width: 100%;
-      background: #141722;
-      border: 2px solid #3b82f6;
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       color: #ffffff;
-      padding: 14px 16px;
-      font-size: 15px;
+      padding: 12px 16px;
+      font-size: 14px;
       font-weight: 600;
-      border-radius: 8px;
+      border-radius: 10px;
       outline: none;
       transition: all 0.2s;
     }
     input:focus {
-      border-color: #60a5fa;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
-      background: #191e2b;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+      background: #141f36;
     }
 
     button {
-      padding: 13px 24px;
-      font-size: 14px;
+      padding: 11px 20px;
+      font-size: 13px;
       font-weight: 700;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       border: none;
       color: #fff;
@@ -1426,176 +1481,393 @@ HTML_PAGE = """<!DOCTYPE html>
       white-space: nowrap;
       transition: all 0.15s ease-in-out;
     }
-    button:active { transform: scale(0.98); }
+    button:active { transform: scale(0.97); }
     .btn-blue { background: var(--accent); }
     .btn-blue:hover { background: var(--accent-hover); }
+    .btn-gradient { background: var(--accent-gradient); box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35); }
+    .btn-gradient:hover { filter: brightness(1.1); }
     .btn-green { background: var(--emerald); }
-    .btn-green:hover { background: var(--emerald-hover); }
+    .btn-green:hover { background: #047857; }
     .btn-red { background: var(--red); }
     .btn-red:hover { background: #b91c1c; }
-    .btn-gray { background: #1e2433; border: 1px solid var(--border); color: #cbd5e1; }
-    .btn-gray:hover { background: #272f42; }
-
-    /* Sites List */
-    .site-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #11141e;
-      border: 1px solid var(--border);
-      padding: 12px 18px;
-      border-radius: 8px;
-      margin-bottom: 8px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-    .site-item span { color: #f1f5f9; word-break: break-all; }
-    .site-item button { padding: 6px 14px; font-size: 12px; }
+    .btn-gray { background: #1e293b; border: 1px solid var(--card-border); color: #cbd5e1; }
+    .btn-gray:hover { background: #334155; color: #fff; }
 
     /* Terminal Console */
     #terminal {
-      background: #040507;
-      border: 2px solid var(--border);
-      border-radius: 10px;
-      padding: 16px;
-      font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
+      background: #030712;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
       font-size: 12.5px;
       color: #34d399;
-      height: 250px;
+      height: 380px;
       overflow-y: auto;
       line-height: 1.6;
       white-space: pre-wrap;
     }
 
+    /* Badges */
     .badge {
-      background: #1e293b;
-      color: #94a3b8;
-      font-size: 12px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
+    .badge-ready { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .badge-running { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-paused { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-stopped { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+
+    /* Item Cards */
+    .media-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid var(--card-border);
+      padding: 12px 18px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      transition: all 0.15s;
+    }
+    .media-item:hover {
+      background: rgba(30, 41, 59, 0.6);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    /* Fixed Bottom Dock Bar */
+    .bottom-dock {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      background: rgba(9, 13, 22, 0.9);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      z-index: 1000;
+      padding: 0 20px;
+    }
+    .dock-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 24px;
+      border-radius: 12px;
+      background: transparent;
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .dock-btn svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform 0.2s; }
+    .dock-btn span { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; }
+    .dock-btn:hover { color: #f8fafc; background: rgba(255, 255, 255, 0.05); }
+    .dock-btn.active {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.25);
+    }
+    .dock-btn.active svg { transform: translateY(-1px); stroke: #38bdf8; }
+    .dock-badge {
+      position: absolute;
+      top: 4px;
+      right: 18px;
+      background: #ef4444;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 10px;
+      min-width: 16px;
+      text-align: center;
+    }
+
+    /* Toast Notification */
+    #toast {
+      position: fixed;
+      bottom: 88px;
+      right: 28px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid #3b82f6;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 2000;
+    }
+    #toast.show { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
+  <!-- TOP HEADER -->
   <header>
     <div class="brand">
       <h1>🎬 PlayRepo Pro</h1>
-      <span>macOS Edition</span>
+      <span class="badge-os">macOS Edition</span>
+      <span id="status-badge" class="badge badge-ready">HAZIR</span>
     </div>
-    <div class="row">
+    <div class="header-actions">
       <button class="btn-gray" onclick="clearLogs()">🧹 Logları Temizle</button>
       <button id="btn-pause" class="btn-gray" onclick="pauseCrawler()" style="display:none; background:#d97706; color:#fff;">⏸ Duraklat</button>
       <button id="btn-resume" class="btn-green" onclick="resumeCrawler()" style="display:none">▶ Devam Et</button>
       <button id="btn-stop" class="btn-red" onclick="stopCrawler()" style="display:none">⏹ Durdur</button>
-      <button id="btn-run" class="btn-blue" onclick="startMasterUpdate()">⚡ TÜM SİTELERİ GÜNCELLE VE YÜKLE</button>
+      <button id="btn-run" class="btn-gradient" onclick="startMasterUpdate()">⚡ TÜM SİTELERİ TARA & NUVIO'YA YÜKLE</button>
     </div>
   </header>
 
-  <!-- 1. HEDEFLİ TEK FİLM ARAMA & EKLEME (ÖZEL KURTARMA KUTUSU) -->
-  <div class="card" style="border: 1px solid #3b82f6; background: #0c1322; padding: 18px 22px;">
-    <div class="card-title" style="color: #60a5fa;">🎯 TEK BİR FİLMİ BUL VE YENİDEN EKLE (Örn: Bozuk Filmi Kurtar)</div>
-    <div style="font-size: 13px; color: var(--dim); margin-bottom: 10px;">
-      İçeriği bozulan veya eksik olan bir filmin adını ya da doğrudan linkini girin; kayıtlı tüm sitelerde o film hedeflenerek aranır, taze çalışan akışları çözülür ve Nuvio'ya tek başına eklenir:
-    </div>
-    <div class="row">
-      <input type="text" id="target-movie-input" placeholder="Örn: Inception, Matrix, Testere veya doğrudan film sayfası linki" style="padding: 12px 16px; font-size: 14px;" />
-      <button class="btn-blue" style="padding: 12px 22px; font-size: 13px; font-weight: 700;" onclick="findAndAddSpecificMovie()">🎯 FİLMİ BUL VE YENİDEN EKLE</button>
-    </div>
-  </div>
+  <div class="app-container">
 
-  <!-- 2. YENİ SİTE EKLEME -->
-  <div class="card highlight">
-    <div class="card-title">🌐 2. YENİ FİLM SİTESİ VEYA KATEGORİ ADRESİ EKLE</div>
-    <div class="row">
-      <input type="text" id="new-site-input" placeholder="Örn: https://www.hintfilmizle.com/film-izle/ veya taranacak site linki" />
-      <button class="btn-green" onclick="addSite()">➕ SİTEYİ LİSTEYE EKLE</button>
-    </div>
-  </div>
-
-  <!-- 2. KAYITLI SİTELER & AYARLAR KONTROLLERİ -->
-  <div class="row" style="align-items: flex-start; margin-bottom: 22px;">
-    
-    <!-- Sol: Kayıtlı Siteler -->
-    <div class="card" style="flex: 1.3; margin-bottom: 0;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <div class="card-title" style="margin-bottom:0">📋 TARANACAK KAYITLI SİTELER (<span id="site-count">0</span>)</div>
-        <button class="btn-gray" style="padding: 5px 12px; font-size: 11px;" onclick="resetSites()">🔄 Sıfırla</button>
-      </div>
-      <div id="sites-list" style="max-height: 160px; overflow-y: auto;"></div>
-    </div>
-
-    <!-- Sağ: Sayfa Limiti & Token -->
-    <div class="card" style="flex: 1; margin-bottom: 0;">
-      <div class="card-title">⚙️ AYARLAR</div>
-      <div class="col" style="margin-bottom: 12px;">
-        <label style="font-size:12px; font-weight:700; color:var(--dim)">SAYFA LİMİTİ (SİTE BAŞI):</label>
-        <input type="number" id="max-pages-input" value="20" style="padding: 10px;" />
-      </div>
-      <div class="col" style="margin-bottom: 14px;">
-        <label style="font-size:12px; font-weight:700; color:var(--dim)">GİTHUB TOKEN (PAT):</label>
-        <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxx" style="padding: 10px;" />
-      </div>
-      <button class="btn-gray" style="width:100%; justify-content:center;" onclick="saveSettings()">💾 Ayarları Kaydet</button>
-    </div>
-
-  </div>
-
-  <!-- 3. CANLI TERMİNAL -->
-  <div class="card" style="padding: 16px 20px;">
-    <div class="card-title" style="display: flex; justify-content: space-between;">
-      <span>💻 CANLI TERMİNAL / İŞLEM ÇIKTISI</span>
-      <span id="status-badge" class="badge">HAZIR</span>
-    </div>
-    <div id="terminal"></div>
-  </div>
-
-  <!-- 4. FİLM VE DİZİ YÖNETİMİ (SEKMELİ ARAYÜZ) -->
-  <div class="card" style="padding: 20px 24px;">
-    <!-- Sekme Başlıkları -->
-    <div style="display: flex; gap: 10px; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 12px;">
-      <button id="tab-btn-current" class="btn-blue" style="padding: 8px 18px; font-size: 13px;" onclick="switchTab('current')">🎬 Nuvio Güncel Yayın (<span id="pub-count">0</span>)</button>
-      <button id="tab-btn-history" class="btn-gray" style="padding: 8px 18px; font-size: 13px;" onclick="switchTab('history')">📜 Eskiden Çözülen Filmler Arşivi (<span id="his-count">0</span>)</button>
-    </div>
-
-    <!-- SEKME 1: GÜNCEL YAYINDAKİLER -->
-    <div id="tab-pane-current">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-        <div style="font-size: 13px; color: var(--dim)">Nuvio eklentisinde şu anda aktif olarak izlenebilen filmler:</div>
-        <div class="row" style="gap: 8px;">
-          <button class="btn-gray" style="padding: 6px 14px; font-size: 12px;" onclick="loadPublishedMovies()">🔄 Listeyi Yenile</button>
-          <button class="btn-red" style="padding: 6px 14px; font-size: 12px; background: #dc2626;" onclick="clearAllPublishedMovies()">💥 Güncel Listeyi Toplu Sil</button>
+    <!-- TAB 1: TARAMA & KONTROL (DASHBOARD) -->
+    <div id="view-dashboard" class="view-pane active">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-label">Nuvio Yayındaki İçerik</span>
+          <span id="kpi-published" class="kpi-value">0</span>
+          <span class="kpi-sub">Aktif film ve dizi kataloğu</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Tarama Hafızası (Önbellek)</span>
+          <span id="kpi-memory" class="kpi-value">0</span>
+          <span class="kpi-sub">Taranmış linkler (tekrar taranmaz)</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Kayıtlı Siteler</span>
+          <span id="kpi-sites" class="kpi-value">0</span>
+          <span class="kpi-sub">DiziBOX, DiziMom, FilmDozu vb.</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Motor Durumu</span>
+          <span id="kpi-status-text" class="kpi-value" style="font-size:18px; color:#38bdf8;">BEKLEMEDE</span>
+          <span class="kpi-sub">Sistem v2.8 Pro Hazır</span>
         </div>
       </div>
-      <div style="margin-bottom: 12px;">
-        <input type="text" id="movie-search" placeholder="🔍 Güncel yayındaki filmlerde veya dizilerde ara..." oninput="filterPublishedMovies()" style="padding: 10px 14px; font-size: 13px;" />
-      </div>
-      <div id="movies-container" style="max-height: 380px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
-        <div style="color: var(--dim); font-size: 13px; padding: 10px;">Filmler yükleniyor...</div>
+
+      <div class="card" style="padding: 16px 20px;">
+        <div class="card-title">
+          <span>💻 CANLI TERMİNAL / İŞLEM ÇIKTISI</span>
+          <button class="btn-gray" style="padding: 4px 10px; font-size: 11px;" onclick="copyLogs()">📋 Logları Kopyala</button>
+        </div>
+        <div id="terminal"></div>
       </div>
     </div>
 
-    <!-- SEKME 2: ESKİDEN ÇÖZÜLENLER ARŞİVİ -->
-    <div id="tab-pane-history" style="display:none">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-        <div style="font-size: 13px; color: var(--dim)">Daha önceki tüm taramalarda çözülmüş geçmiş film/dizi arşivi (Buradan istediğinizi silebilir veya tüm arşivi boşaltabilirsiniz):</div>
-        <div class="row" style="gap: 8px;">
-          <button class="btn-gray" style="padding: 6px 14px; font-size: 12px;" onclick="loadHistoryMovies()">🔄 Arşivi Yenile</button>
-          <button class="btn-red" style="padding: 6px 14px; font-size: 12px; background: #991b1b;" onclick="clearAllHistoryMovies()">💥 Eski Arşivi Toplu Sil</button>
+    <!-- TAB 2: NUVIO KATALOĞU (YAYINDAKİ FİLMLER & DİZİLER) -->
+    <div id="view-catalog" class="view-pane">
+      <div class="card">
+        <div class="card-title">
+          <span>🎬 NUVİO GÜNCEL YAYIN KATALOĞU (<span id="pub-count">0</span>)</span>
+          <div class="row" style="gap: 8px;">
+            <button class="btn-gray" style="padding: 6px 14px; font-size: 12px;" onclick="loadPublishedMovies()">🔄 Yenile</button>
+            <button class="btn-red" style="padding: 6px 14px; font-size: 12px;" onclick="clearAllPublishedMovies()">💥 Güncel Listeyi Toplu Sil</button>
+          </div>
+        </div>
+        <div style="font-size: 13px; color: var(--dim); margin-bottom: 14px;">
+          Nuvio eklentinizde şu anda izlenebilen güncel film ve diziler. Buradan istediğinizi silebilir veya tüm listeyi sıfırlayabilirsiniz:
+        </div>
+        <div style="margin-bottom: 14px;">
+          <input type="text" id="movie-search" placeholder="🔍 Güncel yayındaki filmlerde veya dizilerde ara..." oninput="filterPublishedMovies()" />
+        </div>
+        <div id="movies-container" style="max-height: 520px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
+          <div style="color: var(--dim); font-size: 13px; padding: 10px;">Filmler yükleniyor...</div>
         </div>
       </div>
-      <div style="margin-bottom: 12px;">
-        <input type="text" id="history-search" placeholder="🔍 Eski arşivdeki filmlerde ara..." oninput="filterHistoryMovies()" style="padding: 10px 14px; font-size: 13px;" />
-      </div>
-      <div id="history-container" style="max-height: 380px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
-        <div style="color: var(--dim); font-size: 13px; padding: 10px;">Arşiv yükleniyor...</div>
+    </div>
+
+    <!-- TAB 3: ÖZEL KURTARMA (TEK FİLM / DİZİ EKLE) -->
+    <div id="view-single" class="view-pane">
+      <div class="card" style="border: 1px solid #3b82f6; background: rgba(12, 19, 34, 0.85); padding: 24px;">
+        <div class="card-title" style="color: #60a5fa; font-size: 14px;">🎯 TEK BİR FİLM VEYA DİZİYİ BUL VE YENİDEN EKLE</div>
+        <div style="font-size: 13px; color: var(--dim); margin-bottom: 16px; line-height: 1.6;">
+          İçeriği bozulan, akışları çalışmayan veya eksik olan bir film veya dizinin adını ya da doğrudan site sayfasının linkini girin.<br>
+          PlayRepo kayıtlı tüm siteleri tek tek kontrol ederek o içeriğin taze çalışan 1080p video kaynaklarını çözer ve anında Nuvio'ya aktarır.
+        </div>
+        <div class="row" style="margin-bottom: 16px;">
+          <input type="text" id="target-movie-input" placeholder="Örn: Inception, Matrix, Testere veya https://diziboxizle.com/nails/ linki" style="font-size: 15px; padding: 14px;" />
+          <button class="btn-gradient" style="padding: 14px 24px; font-size: 14px; font-weight: 800;" onclick="findAndAddSpecificMovie()">🎯 BUL VE YENİDEN EKLE</button>
+        </div>
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 16px;">
+          <div style="font-size: 12px; font-weight: 700; color: #38bdf8; text-transform: uppercase; margin-bottom: 8px;">Nasıl Çalışır?</div>
+          <div style="font-size: 12px; color: var(--dim); line-height: 1.6;">
+            1. Hedef film adı girildiğinde tüm kayıtlı sitelerin sitemap ve arama motorları taranır.<br>
+            2. TMDB veya Cinemeta üzerinden film/dizi afişi, türü ve Türkçe açıklaması bulunur.<br>
+            3. OK.ru, Vidmoly veya HLS video kaynakları ayıklanıp GitHub'a push edilir ve Nuvio'da hemen görünür.
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- TAB 4: TARAMA HAFIZASI (ÖNBELLEK VE ARŞİV) -->
+    <div id="view-memory" class="view-pane">
+      <div class="card">
+        <div class="card-title">
+          <span>💾 TARAMA HAFIZASI & ÖNBELLEK YÖNETİMİ</span>
+          <div class="row" style="gap: 8px;">
+            <button class="btn-gray" style="padding: 6px 14px; font-size: 12px;" onclick="loadProcessedUrls(); loadHistoryMovies();">🔄 Yenile</button>
+            <button class="btn-red" style="padding: 6px 14px; font-size: 12px;" onclick="clearAllProcessedUrls()">💥 Tüm Hafızayı Temizle</button>
+          </div>
+        </div>
+        <div style="font-size: 13px; color: var(--dim); margin-bottom: 16px;">
+          PlayRepo daha önce tarayıp çözdüğü film ve dizi linklerini hafızaya kaydeder. Böylece bilgisayarı kapatıp ertesi gün açtığınızda daha önce taranmış olan filmler atlanır ve sadece <b>yeni eklenen filmler</b> taranır. Buradan dilediğiniz bir filmi hafızadan çıkarıp yeniden taranmasını sağlayabilirsiniz.
+        </div>
+        
+        <!-- Sekmeler -->
+        <div style="display: flex; gap: 8px; margin-bottom: 14px;">
+          <button id="mem-tab-urls" class="btn-blue" style="padding: 7px 16px; font-size: 12px;" onclick="switchMemTab('urls')">🔗 Taranmış Linkler Hafızası (<span id="mem-url-count">0</span>)</button>
+          <button id="mem-tab-his" class="btn-gray" style="padding: 7px 16px; font-size: 12px;" onclick="switchMemTab('his')">📜 Eski Çözülenler Arşivi (<span id="his-count">0</span>)</button>
+        </div>
+
+        <!-- Alt Bölüm 1: Linkler Hafızası -->
+        <div id="mem-pane-urls">
+          <input type="text" id="memory-search" placeholder="🔍 Taranmış linklerde ara..." oninput="filterProcessedUrls()" style="margin-bottom: 12px;" />
+          <div id="memory-container" style="max-height: 480px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
+            <div style="color: var(--dim); font-size: 13px; padding: 10px;">Hafıza yükleniyor...</div>
+          </div>
+        </div>
+
+        <!-- Alt Bölüm 2: Eski Arşiv Metadata -->
+        <div id="mem-pane-his" style="display:none;">
+          <input type="text" id="history-search" placeholder="🔍 Eski arşivde ara..." oninput="filterHistoryMovies()" style="margin-bottom: 12px;" />
+          <div id="history-container" style="max-height: 480px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
+            <div style="color: var(--dim); font-size: 13px; padding: 10px;">Arşiv yükleniyor...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: SİTELER & AYARLAR -->
+    <div id="view-settings" class="view-pane">
+      
+      <!-- Kayıtlı Siteler -->
+      <div class="card">
+        <div class="card-title">
+          <span>🌐 TARANACAK KAYITLI SİTELER (<span id="site-count">0</span>)</span>
+          <button class="btn-gray" style="padding: 5px 12px; font-size: 11px;" onclick="resetSites()">🔄 En İyi Siteleri Sıfırla / Yükle</button>
+        </div>
+        <div class="row" style="margin-bottom: 14px;">
+          <input type="text" id="new-site-input" placeholder="Örn: https://diziboxizle.com/ veya https://ddizimom.net/" />
+          <button class="btn-green" onclick="addSite()">➕ SİTE EKLE</button>
+        </div>
+        <div id="sites-list" style="max-height: 240px; overflow-y: auto; margin-bottom: 8px;"></div>
+      </div>
+
+      <!-- Ayarlar -->
+      <div class="card">
+        <div class="card-title">⚙️ MOTOR & GİTHUB AYARLARI</div>
+        <div class="col" style="margin-bottom: 12px;">
+          <label style="font-size:12px; font-weight:700; color:var(--dim)">SİTE BAŞINA SAYFA LİMİTİ (1 - 100):</label>
+          <input type="number" id="max-pages-input" value="20" />
+        </div>
+        <div class="col" style="margin-bottom: 14px;">
+          <label style="font-size:12px; font-weight:700; color:var(--dim)">GİTHUB KİŞİSEL ERİŞİM TOKENİ (PAT):</label>
+          <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
+        </div>
+        <button class="btn-gradient" style="width: 100%; justify-content: center;" onclick="saveSettings()">💾 Ayarları Kaydet</button>
+      </div>
+
+      <!-- Nuvio Eklenti Linki -->
+      <div class="card" style="border: 1px solid rgba(56, 189, 248, 0.3); background: rgba(12, 19, 34, 0.7);">
+        <div class="card-title" style="color: #38bdf8;">📲 NUVİO EKLENTİ BAĞLANTISI (MANIFEST)</div>
+        <div style="font-size: 13px; color: var(--dim); margin-bottom: 10px;">
+          Nuvio uygulamanıza (Apple TV, Mac, iOS veya Android) ekleyeceğiniz resmi eklenti linkiniz:
+        </div>
+        <div class="row">
+          <input type="text" id="manifest-url-input" readonly value="https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/manifest.json" style="background:#090d16; color:#38bdf8;" />
+          <button class="btn-blue" onclick="copyManifestUrl()">📋 Linki Kopyala</button>
+        </div>
+      </div>
+
+    </div>
+
   </div>
+
+  <!-- FIXED BOTTOM DOCK NAVIGATION -->
+  <nav class="bottom-dock">
+    <button id="dock-btn-dashboard" class="dock-btn active" onclick="switchNav('dashboard')">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <span>Tarama</span>
+    </button>
+    <button id="dock-btn-catalog" class="dock-btn" onclick="switchNav('catalog')">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+      <span>Nuvio</span>
+      <span id="dock-badge-catalog" class="dock-badge">0</span>
+    </button>
+    <button id="dock-btn-single" class="dock-btn" onclick="switchNav('single')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+      <span>Özel Kurtar</span>
+    </button>
+    <button id="dock-btn-memory" class="dock-btn" onclick="switchNav('memory')">
+      <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      <span>Hafıza</span>
+      <span id="dock-badge-memory" class="dock-badge" style="background:#3b82f6;">0</span>
+    </button>
+    <button id="dock-btn-settings" class="dock-btn" onclick="switchNav('settings')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span>Ayarlar</span>
+    </button>
+  </nav>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast"></div>
 
   <script>
     let currentConfig = { saved_sites: [], max_pages: 20, github_token: "", tmdb_key: "" };
+    let allPublishedMovies = [];
+    let allHistoryMovies = [];
+    let allProcessedUrls = [];
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.innerText = msg;
+      t.className = 'show';
+      setTimeout(() => { t.className = ''; }, 2600);
+    }
+
+    function switchNav(view) {
+      document.querySelectorAll('.view-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.dock-btn').forEach(el => el.classList.remove('active'));
+
+      const targetPane = document.getElementById('view-' + view);
+      const targetBtn = document.getElementById('dock-btn-' + view);
+      if (targetPane) targetPane.classList.add('active');
+      if (targetBtn) targetBtn.classList.add('active');
+
+      if (view === 'catalog') loadPublishedMovies();
+      if (view === 'memory') { loadProcessedUrls(); loadHistoryMovies(); }
+      if (view === 'settings') loadConfig();
+    }
+
+    function switchMemTab(tab) {
+      if (tab === 'urls') {
+        document.getElementById('mem-pane-urls').style.display = 'block';
+        document.getElementById('mem-pane-his').style.display = 'none';
+        document.getElementById('mem-tab-urls').className = 'btn-blue';
+        document.getElementById('mem-tab-his').className = 'btn-gray';
+      } else {
+        document.getElementById('mem-pane-urls').style.display = 'none';
+        document.getElementById('mem-pane-his').style.display = 'block';
+        document.getElementById('mem-tab-urls').className = 'btn-gray';
+        document.getElementById('mem-tab-his').className = 'btn-blue';
+      }
+    }
 
     async function loadConfig() {
       try {
@@ -1614,16 +1886,17 @@ HTML_PAGE = """<!DOCTYPE html>
       list.innerHTML = "";
       const sites = currentConfig.saved_sites || [];
       document.getElementById('site-count').innerText = sites.length;
+      document.getElementById('kpi-sites').innerText = sites.length;
       if (sites.length === 0) {
-        list.innerHTML = "<div style='color:#64748b; font-size:13px; padding:10px;'>Kayıtlı site bulunmuyor. Yukarıdan site ekleyin.</div>";
+        list.innerHTML = "<div style='color:#64748b; font-size:13px; padding:10px;'>Kayıtlı site bulunmuyor.</div>";
         return;
       }
       sites.forEach((site, idx) => {
         const item = document.createElement('div');
-        item.className = 'site-item';
+        item.className = 'media-item';
         item.innerHTML = `
-          <span>🌐 ${site}</span>
-          <button class="btn-red" onclick="deleteSite(${idx})">🗑️ Sil</button>
+          <span style="font-weight:600; font-size:13.5px; color:#f1f5f9; word-break:break-all;">🌐 ${site}</span>
+          <button class="btn-red" style="padding:5px 12px; font-size:11px;" onclick="deleteSite(${idx})">🗑️ Sil</button>
         `;
         list.appendChild(item);
       });
@@ -1642,6 +1915,7 @@ HTML_PAGE = """<!DOCTYPE html>
         body: JSON.stringify({ url })
       });
       inp.value = "";
+      showToast('Yeni site başarıyla eklendi!');
       await loadConfig();
     }
 
@@ -1651,12 +1925,14 @@ HTML_PAGE = """<!DOCTYPE html>
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ index: idx })
       });
+      showToast('Site listeden kaldırıldı!');
       await loadConfig();
     }
 
     async function resetSites() {
-      if (confirm('Site listesi varsayılana sıfırlansın mı?')) {
+      if (confirm('Site listesi en iyi aktif dizi & film sitelerine sıfırlansın mı?')) {
         await fetch('/api/reset-sites', { method: 'POST' });
+        showToast('Site listesi varsayılana sıfırlandı!');
         await loadConfig();
       }
     }
@@ -1669,22 +1945,33 @@ HTML_PAGE = """<!DOCTYPE html>
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ max_pages: maxPages, github_token: token })
       });
-      alert('Ayarlar başarıyla kaydedildi!');
+      showToast('Ayarlar başarıyla kaydedildi!');
       await loadConfig();
+    }
+
+    function copyManifestUrl() {
+      const input = document.getElementById('manifest-url-input');
+      input.select();
+      navigator.clipboard.writeText(input.value);
+      showToast('Nuvio eklenti linki panoya kopyalandı!');
+    }
+
+    function copyLogs() {
+      const t = document.getElementById('terminal').innerText;
+      navigator.clipboard.writeText(t);
+      showToast('Loglar panoya kopyalandı!');
     }
 
     async function findAndAddSpecificMovie() {
       const inp = document.getElementById('target-movie-input');
       const query = inp.value.trim();
       if (!query) {
-        alert('Lütfen aramak istediğiniz filmin adını ya da doğrudan film linkini girin!');
+        alert('Lütfen aramak istediğiniz film/dizi adını ya da doğrudan linkini girin!');
         return;
       }
+      switchNav('dashboard');
       document.getElementById('btn-run').style.display = 'none';
       document.getElementById('btn-stop').style.display = 'inline-flex';
-      document.getElementById('status-badge').innerText = 'ARANIYOR';
-      document.getElementById('status-badge').style.background = '#1e3a8a';
-      document.getElementById('status-badge').style.color = '#93c5fd';
 
       const res = await fetch('/api/search-and-add-movie', {
         method: 'POST',
@@ -1694,6 +1981,7 @@ HTML_PAGE = """<!DOCTYPE html>
       const data = await res.json();
       if (data.status === 'started') {
         inp.value = '';
+        showToast('Hedef içerik araması başlatıldı!');
       } else {
         alert('İşlem başlatılamadı: ' + (data.message || ''));
       }
@@ -1704,10 +1992,7 @@ HTML_PAGE = """<!DOCTYPE html>
       document.getElementById('btn-pause').style.display = 'inline-flex';
       document.getElementById('btn-resume').style.display = 'none';
       document.getElementById('btn-stop').style.display = 'inline-flex';
-      document.getElementById('status-badge').innerText = 'ÇALIŞIYOR';
-      document.getElementById('status-badge').style.background = '#065f46';
-      document.getElementById('status-badge').style.color = '#34d399';
-
+      showToast('Tüm siteler taranmaya başlandı...');
       await fetch('/api/start-all', { method: 'POST' });
     }
 
@@ -1715,18 +2000,14 @@ HTML_PAGE = """<!DOCTYPE html>
       await fetch('/api/pause', { method: 'POST' });
       document.getElementById('btn-pause').style.display = 'none';
       document.getElementById('btn-resume').style.display = 'inline-flex';
-      document.getElementById('status-badge').innerText = 'DURAKLATILDI';
-      document.getElementById('status-badge').style.background = '#78350f';
-      document.getElementById('status-badge').style.color = '#fde68a';
+      showToast('Tarama duraklatıldı.');
     }
 
     async function resumeCrawler() {
       await fetch('/api/resume', { method: 'POST' });
       document.getElementById('btn-resume').style.display = 'none';
       document.getElementById('btn-pause').style.display = 'inline-flex';
-      document.getElementById('status-badge').innerText = 'ÇALIŞIYOR';
-      document.getElementById('status-badge').style.background = '#065f46';
-      document.getElementById('status-badge').style.color = '#34d399';
+      showToast('Tarama devam ediyor...');
     }
 
     async function stopCrawler() {
@@ -1735,14 +2016,13 @@ HTML_PAGE = """<!DOCTYPE html>
       document.getElementById('btn-pause').style.display = 'none';
       document.getElementById('btn-resume').style.display = 'none';
       document.getElementById('btn-stop').style.display = 'none';
-      document.getElementById('status-badge').innerText = 'DURDURULDU';
-      document.getElementById('status-badge').style.background = '#7f1d1d';
-      document.getElementById('status-badge').style.color = '#f87171';
+      showToast('Tarama durduruldu.');
     }
 
     async function clearLogs() {
       await fetch('/api/clear-logs', { method: 'POST' });
       document.getElementById('terminal').innerText = "";
+      showToast('Loglar temizlendi.');
     }
 
     async function pollLogs() {
@@ -1750,46 +2030,53 @@ HTML_PAGE = """<!DOCTYPE html>
         const res = await fetch('/api/logs');
         const data = await res.json();
         const term = document.getElementById('terminal');
-        term.innerText = data.logs.join('\\n');
+        term.innerText = data.logs.join('\n');
         term.scrollTop = term.scrollHeight;
+
+        const badge = document.getElementById('status-badge');
+        const kpiText = document.getElementById('kpi-status-text');
 
         if (!data.is_running) {
           document.getElementById('btn-run').style.display = 'inline-flex';
           document.getElementById('btn-pause').style.display = 'none';
           document.getElementById('btn-resume').style.display = 'none';
           document.getElementById('btn-stop').style.display = 'none';
-          document.getElementById('status-badge').innerText = 'HAZIR';
-          document.getElementById('status-badge').style.background = '#1e293b';
-          document.getElementById('status-badge').style.color = '#94a3b8';
+          badge.innerText = 'HAZIR';
+          badge.className = 'badge badge-ready';
+          kpiText.innerText = 'BEKLEMEDE';
+          kpiText.style.color = '#60a5fa';
         } else if (data.is_paused) {
           document.getElementById('btn-run').style.display = 'none';
           document.getElementById('btn-pause').style.display = 'none';
           document.getElementById('btn-resume').style.display = 'inline-flex';
           document.getElementById('btn-stop').style.display = 'inline-flex';
-          document.getElementById('status-badge').innerText = 'DURAKLATILDI';
-          document.getElementById('status-badge').style.background = '#78350f';
-          document.getElementById('status-badge').style.color = '#fde68a';
+          badge.innerText = 'DURAKLATILDI';
+          badge.className = 'badge badge-paused';
+          kpiText.innerText = 'DURAKLATILDI';
+          kpiText.style.color = '#fbbf24';
         } else {
           document.getElementById('btn-run').style.display = 'none';
           document.getElementById('btn-pause').style.display = 'inline-flex';
           document.getElementById('btn-resume').style.display = 'none';
           document.getElementById('btn-stop').style.display = 'inline-flex';
-          document.getElementById('status-badge').innerText = 'ÇALIŞIYOR';
-          document.getElementById('status-badge').style.background = '#065f46';
-          document.getElementById('status-badge').style.color = '#34d399';
+          badge.innerText = 'ÇALIŞIYOR';
+          badge.className = 'badge badge-running';
+          kpiText.innerText = 'ÇÖZÜLÜYOR...';
+          kpiText.style.color = '#34d399';
         }
       } catch (e) {}
       setTimeout(pollLogs, 1000);
     }
-
-    let allPublishedMovies = [];
 
     async function loadPublishedMovies() {
       try {
         const res = await fetch('/api/published-movies');
         const data = await res.json();
         allPublishedMovies = data.movies || [];
-        document.getElementById('pub-count').innerText = allPublishedMovies.length;
+        const count = allPublishedMovies.length;
+        document.getElementById('pub-count').innerText = count;
+        document.getElementById('kpi-published').innerText = count;
+        document.getElementById('dock-badge-catalog').innerText = count;
         renderPublishedMovies(allPublishedMovies);
       } catch (e) {
         console.error(e);
@@ -1805,17 +2092,22 @@ HTML_PAGE = """<!DOCTYPE html>
       }
       movies.forEach(m => {
         const item = document.createElement('div');
-        item.style.cssText = "display: flex; justify-content: space-between; align-items: center; background: #11141e; border: 1px solid var(--border); padding: 10px 16px; border-radius: 8px;";
+        item.className = 'media-item';
         const genres = (m.genres || []).slice(0, 3).join(', ');
+        const isSeries = m.type === 'series';
         item.innerHTML = `
-          <div style="display: flex; align-items: center; gap: 12px; overflow: hidden;">
-            <img src="${m.poster || ''}" onerror="this.src='${currentConfig.logo || ''}'" style="width: 38px; height: 52px; object-fit: cover; border-radius: 4px; background: #1e2433;" />
-            <div style="display: flex; flex-direction: column; overflow: hidden;">
-              <span style="font-weight: 700; font-size: 14px; color: #fff; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">${m.name} <span style="font-size:12px; color:var(--dim);">(${m.releaseInfo || m.year || ''})</span></span>
-              <span style="font-size: 11px; color: #60a5fa;">${genres || 'Genel'} • <span style="color:#94a3b8;">${m.type === 'series' ? 'Dizi' : 'Film'}</span></span>
+          <div style="display:flex; align-items:center; gap:14px; overflow:hidden;">
+            <img src="${m.poster || ''}" onerror="this.src='${currentConfig.logo || 'https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png'}'" style="width:42px; height:58px; object-fit:cover; border-radius:6px; background:#1e293b;" />
+            <div style="display:flex; flex-direction:column; overflow:hidden;">
+              <span style="font-weight:700; font-size:14.5px; color:#fff; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;">
+                ${m.name} <span style="font-size:12px; color:var(--dim); font-weight:500;">(${m.releaseInfo || m.year || ''})</span>
+              </span>
+              <span style="font-size:11.5px; color:#60a5fa; margin-top:2px;">
+                <span style="background:${isSeries ? 'rgba(168, 85, 247, 0.2)' : 'rgba(59, 130, 246, 0.2)'}; color:${isSeries ? '#c084fc' : '#60a5fa'}; padding:2px 6px; border-radius:4px; font-weight:700;">${isSeries ? 'Dizi' : 'Film'}</span> • ${genres || 'Genel'}
+              </span>
             </div>
           </div>
-          <button class="btn-red" style="padding: 6px 14px; font-size: 12px;" onclick="deleteMovie('${m.id}', '${m.name.replace(/'/g, "\\'")}')">🗑️ Sil</button>
+          <button class="btn-red" style="padding:6px 14px; font-size:12px;" onclick="deleteMovie('${m.id}', '${m.name.replace(/'/g, "\'")}')">🗑️ Sil</button>
         `;
         cont.appendChild(item);
       });
@@ -1823,17 +2115,14 @@ HTML_PAGE = """<!DOCTYPE html>
 
     function filterPublishedMovies() {
       const q = document.getElementById('movie-search').value.toLowerCase().trim();
-      if (!q) {
-        renderPublishedMovies(allPublishedMovies);
-        return;
-      }
+      if (!q) { renderPublishedMovies(allPublishedMovies); return; }
       const filtered = allPublishedMovies.filter(m => (m.name || '').toLowerCase().includes(q) || (m.genres || []).some(g => g.toLowerCase().includes(q)));
       renderPublishedMovies(filtered);
     }
 
     async function deleteMovie(id, name) {
-      if (!confirm(`"${name}" filmini eklentiden ve depodan silmek istediğinize emin misiniz?`)) return;
-      document.getElementById('terminal').innerText += `\n[İŞLEM] "${name}" siliniyor...\n`;
+      if (!confirm(`"${name}" içeriğini Nuvio eklentisinden silmek istediğinize emin misiniz?`)) return;
+      showToast(`"${name}" siliniyor...`);
       const res = await fetch('/api/delete-movie', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -1841,46 +2130,84 @@ HTML_PAGE = """<!DOCTYPE html>
       });
       const data = await res.json();
       if (data.status === 'ok') {
-        alert(`"${name}" başarıyla silindi!`);
+        showToast(`"${name}" başarıyla silindi!`);
         await loadPublishedMovies();
       } else {
-        alert('Silme sırasında hata oluştu: ' + (data.message || ''));
+        alert('Silme hatası: ' + (data.message || ''));
       }
     }
 
     async function clearAllPublishedMovies() {
       const count = allPublishedMovies.length;
-      if (!confirm(`DİKKAT: Nuvio'da ve GitHub'da yayınlanmış olan ${count} adet filmin ve akışlarının TAMAMI SİLİNECEK!\n\nEmin misiniz?`)) return;
-      document.getElementById('terminal').innerText += `\n[İŞLEM] Tüm yayınlanmış filmler sıfırlanıyor...\n`;
+      if (!confirm(`DİKKAT: Nuvio'da yayınlanmış ${count} adet filmin ve dizinin TAMAMI SİLİNECEK!\n\nEmin misiniz?`)) return;
+      showToast('Tüm yayınlar sıfırlanıyor...');
       const res = await fetch('/api/clear-all-movies', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'}
       });
       const data = await res.json();
       if (data.status === 'ok') {
-        alert('Tüm filmler ve kategoriler başarıyla sıfırlandı!');
+        showToast('Tüm filmler başarıyla sıfırlandı!');
         await loadPublishedMovies();
       } else {
-        alert('Sıfırlama sırasında hata oluştu: ' + (data.message || ''));
+        alert('Hata: ' + (data.message || ''));
       }
     }
 
-    let allHistoryMovies = [];
-
-    function switchTab(tab) {
-      if (tab === 'current') {
-        document.getElementById('tab-pane-current').style.display = 'block';
-        document.getElementById('tab-pane-history').style.display = 'none';
-        document.getElementById('tab-btn-current').className = 'btn-blue';
-        document.getElementById('tab-btn-history').className = 'btn-gray';
-        loadPublishedMovies();
-      } else {
-        document.getElementById('tab-pane-current').style.display = 'none';
-        document.getElementById('tab-pane-history').style.display = 'block';
-        document.getElementById('tab-btn-current').className = 'btn-gray';
-        document.getElementById('tab-btn-history').className = 'btn-blue';
-        loadHistoryMovies();
+    async function loadProcessedUrls() {
+      try {
+        const res = await fetch('/api/processed-urls');
+        const data = await res.json();
+        allProcessedUrls = data.urls || [];
+        const count = allProcessedUrls.length;
+        document.getElementById('mem-url-count').innerText = count;
+        document.getElementById('kpi-memory').innerText = count;
+        document.getElementById('dock-badge-memory').innerText = count;
+        renderProcessedUrls(allProcessedUrls);
+      } catch (e) {
+        console.error(e);
       }
+    }
+
+    function renderProcessedUrls(urls) {
+      const cont = document.getElementById('memory-container');
+      cont.innerHTML = "";
+      if (urls.length === 0) {
+        cont.innerHTML = "<div style='color:#64748b; font-size:13px; padding:10px;'>Önbellekte kayıtlı taranmış link bulunmuyor.</div>";
+        return;
+      }
+      urls.forEach(u => {
+        const item = document.createElement('div');
+        item.className = 'media-item';
+        item.innerHTML = `
+          <span style="font-size:12.5px; color:#cbd5e1; word-break:break-all; font-family:monospace;">🔗 ${u}</span>
+          <button class="btn-gray" style="padding:4px 10px; font-size:11px;" onclick="deleteProcessedUrl('${u.replace(/'/g, "\'")}')">🗑️ Hafızadan Çıkar</button>
+        `;
+        cont.appendChild(item);
+      });
+    }
+
+    function filterProcessedUrls() {
+      const q = document.getElementById('memory-search').value.toLowerCase().trim();
+      if (!q) { renderProcessedUrls(allProcessedUrls); return; }
+      renderProcessedUrls(allProcessedUrls.filter(u => u.toLowerCase().includes(q)));
+    }
+
+    async function deleteProcessedUrl(url) {
+      await fetch('/api/delete-processed-url', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ url })
+      });
+      showToast('Link hafızadan çıkarıldı! Tekrar taranabilir.');
+      await loadProcessedUrls();
+    }
+
+    async function clearAllProcessedUrls() {
+      if (!confirm('Taranmış tüm linkler önbelleği sıfırlanacak! Sitelerdeki filmler sıfırdan yeniden taranabilecek.\n\nOnaylıyor musunuz?')) return;
+      await fetch('/api/clear-processed-urls', { method: 'POST' });
+      showToast('Tarama hafızası başarıyla temizlendi!');
+      await loadProcessedUrls();
     }
 
     async function loadHistoryMovies() {
@@ -1904,17 +2231,13 @@ HTML_PAGE = """<!DOCTYPE html>
       }
       movies.forEach(m => {
         const item = document.createElement('div');
-        item.style.cssText = "display: flex; justify-content: space-between; align-items: center; background: #11141e; border: 1px solid var(--border); padding: 10px 16px; border-radius: 8px;";
-        const genres = (m.genres || []).slice(0, 3).join(', ');
+        item.className = 'media-item';
         item.innerHTML = `
-          <div style="display: flex; align-items: center; gap: 12px; overflow: hidden;">
-            <img src="${m.poster || ''}" onerror="this.src='${currentConfig.logo || ''}'" style="width: 38px; height: 52px; object-fit: cover; border-radius: 4px; background: #1e2433;" />
-            <div style="display: flex; flex-direction: column; overflow: hidden;">
-              <span style="font-weight: 700; font-size: 14px; color: #fff; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">${m.name} <span style="font-size:12px; color:var(--dim);">(${m.releaseInfo || m.year || ''})</span></span>
-              <span style="font-size: 11px; color: #60a5fa;">${genres || 'Genel'} • <span style="color:#94a3b8;">${m.type === 'series' ? 'Dizi' : 'Film'}</span> • <span style="color:#a855f7;">ID: ${m.id}</span></span>
-            </div>
+          <div style="display:flex; align-items:center; gap:10px; overflow:hidden;">
+            <span style="font-weight:700; font-size:13.5px; color:#fff; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;">${m.name}</span>
+            <span style="font-size:11px; color:#a855f7;">ID: ${m.id}</span>
           </div>
-          <button class="btn-red" style="padding: 6px 14px; font-size: 12px;" onclick="deleteHistoryMovie('${m.id}', '${m.name.replace(/'/g, "\\'")}')">🗑️ Sil</button>
+          <button class="btn-red" style="padding:4px 10px; font-size:11px;" onclick="deleteHistoryMovie('${m.id}', '${m.name.replace(/'/g, "\'")}')">🗑️ Sil</button>
         `;
         cont.appendChild(item);
       });
@@ -1922,56 +2245,41 @@ HTML_PAGE = """<!DOCTYPE html>
 
     function filterHistoryMovies() {
       const q = document.getElementById('history-search').value.toLowerCase().trim();
-      if (!q) {
-        renderHistoryMovies(allHistoryMovies);
-        return;
-      }
-      const filtered = allHistoryMovies.filter(m => (m.name || '').toLowerCase().includes(q) || (m.genres || []).some(g => g.toLowerCase().includes(q)) || (m.id || '').toLowerCase().includes(q));
-      renderHistoryMovies(filtered);
+      if (!q) { renderHistoryMovies(allHistoryMovies); return; }
+      renderHistoryMovies(allHistoryMovies.filter(m => (m.name || '').toLowerCase().includes(q) || (m.id || '').toLowerCase().includes(q)));
     }
 
     async function deleteHistoryMovie(id, name) {
-      if (!confirm(`"${name}" filmini eski arşivden silmek istediğinize emin misiniz?`)) return;
-      const res = await fetch('/api/delete-history-movie', {
+      if (!confirm(`"${name}" kaydını eski arşivden silmek istiyor musunuz?`)) return;
+      await fetch('/api/delete-history-movie', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ id })
       });
-      const data = await res.json();
-      if (data.status === 'ok') {
-        alert(`"${name}" arşivden silindi!`);
-        await loadHistoryMovies();
-      } else {
-        alert('Hata: ' + (data.message || ''));
-      }
+      showToast('Kayıt arşivden silindi!');
+      await loadHistoryMovies();
     }
 
-    async function clearAllHistoryMovies() {
-      const count = allHistoryMovies.length;
-      if (!confirm(`DİKKAT: Eski arşivdeki ${count} adet filmin TAMAMI SİLİNECEK!\n\nEmin misiniz?`)) return;
-      const res = await fetch('/api/clear-history-movies', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'}
-      });
-      const data = await res.json();
-      if (data.status === 'ok') {
-        alert('Eski arşiv başarıyla sıfırlandı!');
-        await loadHistoryMovies();
-      } else {
-        alert('Hata: ' + (data.message || ''));
-      }
-    }
+    // Keyboard shortcuts (1, 2, 3, 4, 5)
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === '1') switchNav('dashboard');
+      if (e.key === '2') switchNav('catalog');
+      if (e.key === '3') switchNav('single');
+      if (e.key === '4') switchNav('memory');
+      if (e.key === '5') switchNav('settings');
+    });
 
     window.onload = () => {
       loadConfig();
       loadPublishedMovies();
+      loadProcessedUrls();
       loadHistoryMovies();
       pollLogs();
     };
   </script>
 </body>
-</html>
-"""
+</html>"""
 
 # -------------------------------------------------------------
 # Web Server Request Handler
@@ -2023,6 +2331,9 @@ class RequestHandler(BaseHTTPRequestHandler):
                 except Exception:
                     pass
             self._send_json({"movies": []})
+        elif self.path == "/api/processed-urls":
+            urls = sorted(list(load_processed_urls()))
+            self._send_json({"urls": urls, "count": len(urls)})
         else:
             self.send_response(404)
             self.end_headers()
@@ -2101,9 +2412,26 @@ class RequestHandler(BaseHTTPRequestHandler):
                 save_config(cfg)
                 append_global_log(f"[SİTE SİLİNDİ] {removed}")
             self._send_json({"status": "ok"})
+        elif self.path == "/api/delete-processed-url":
+            body = self._read_json()
+            u = body.get("url", "").strip()
+            urls = load_processed_urls()
+            if u in urls:
+                urls.remove(u)
+                save_processed_urls(urls)
+                append_global_log(f"[HAFIZADAN ÇIKARILDI] {u}")
+            self._send_json({"status": "ok"})
+        elif self.path == "/api/clear-processed-urls":
+            save_processed_urls(set())
+            append_global_log("[HAFIZA TEMİZLENDİ] Taranmış linkler önbelleği sıfırlandı.")
+            self._send_json({"status": "ok"})
         elif self.path == "/api/reset-sites":
             cfg = load_config()
             cfg["saved_sites"] = [
+                "https://diziboxizle.com/",
+                "https://ddizimom.net/",
+                "https://dizirex.com/",
+                "https://fullhdfilmizlebox.vip/",
                 "https://filmdozu.com/",
                 "https://ufilmizle.com/",
                 "https://fullfilmizle.fit/",
@@ -2111,7 +2439,7 @@ class RequestHandler(BaseHTTPRequestHandler):
                 "https://filmarsivi.org/"
             ]
             save_config(cfg)
-            append_global_log("[SIFIRLANDI] Site listesi varsayılana sıfırlandı.")
+            append_global_log("[SIFIRLANDI] Site listesi en iyi aktif dizi & film sitelerine sıfırlandı.")
             self._send_json({"status": "ok"})
         elif self.path == "/api/clear-logs":
             LOG_BUFFER.clear()
