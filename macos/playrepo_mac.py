@@ -1230,6 +1230,7 @@ def load_config():
         "tmdb_key": "",
         "max_pages": 20,
         "saved_sites": [
+            "https://fullhdfilmizlebox.vip/",
             "https://filmdozu.com/",
             "https://ufilmizle.com/",
             "https://fullfilmizle.fit/",
