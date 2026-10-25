@@ -180,6 +180,48 @@ class ScraperEngine:
         visited = set()
         page_category_map = {site_url: "Popüler"}
 
+        # Otomatik Sitemap ve RSS / Feed Keşfi (Doğrudan indeks çekme)
+        sitemap_candidates = [
+            f"{site_base}/sitemap.xml",
+            f"{site_base}/sitemap_index.xml",
+            f"{site_base}/post-sitemap.xml",
+            f"{site_base}/film-sitemap.xml",
+            f"{site_base}/feed",
+            f"{site_base}/rss"
+        ]
+        sitemap_found_count = 0
+        for sm_url in sitemap_candidates:
+            if not self.is_running:
+                break
+            try:
+                sm_content = http_get(sm_url, timeout=5)
+                if sm_content and ("<urlset" in sm_content or "<sitemapindex" in sm_content or "<rss" in sm_content):
+                    self.log(f"⚡ [Sitemap Keşfi] {sm_url} üzerinden doğrudan indeks taranıyor...")
+                    locs = re.findall(r'<loc>(https?://[^<]+)</loc>', sm_content, re.I) or re.findall(r'<link>(https?://[^<]+)</link>', sm_content, re.I)
+                    for loc in locs:
+                        loc = loc.strip()
+                        if self.is_valid_movie_url(loc, site_base):
+                            cats = movie_categories.setdefault(loc, set())
+                            cat_from_url = self.detect_category(loc, "")
+                            cats.add(cat_from_url)
+                            sitemap_found_count += 1
+                        elif sm_url.endswith("_index.xml") and loc.endswith(".xml") and "post" in loc:
+                            # Alt sitemap tespiti
+                            sub_content = http_get(loc, timeout=5)
+                            if sub_content:
+                                sub_locs = re.findall(r'<loc>(https?://[^<]+)</loc>', sub_content, re.I)
+                                for sloc in sub_locs:
+                                    sloc = sloc.strip()
+                                    if self.is_valid_movie_url(sloc, site_base):
+                                        cats = movie_categories.setdefault(sloc, set())
+                                        cats.add(self.detect_category(sloc, ""))
+                                        sitemap_found_count += 1
+                    if sitemap_found_count > 0:
+                        self.log(f"✓ [Sitemap Başarılı] {sitemap_found_count} film bağlantısı doğrudan haritadan alındı!")
+                        break
+            except Exception:
+                pass
+
         home_html = http_get(site_url)
         for href, text in re.findall(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', home_html, re.I | re.DOTALL):
             abs_url = urllib.parse.urljoin(site_url, href.strip())

@@ -122,6 +122,49 @@ class SiteScraperEngine {
         val pageCategoryMap = mutableMapOf<String, String>()
 
         // 1. Discover categories directly from the site
+        // Otomatik Sitemap ve RSS / Feed Keşfi (Doğrudan indeks çekme)
+        val sitemapCandidates = listOf(
+            "$siteBase/sitemap.xml",
+            "$siteBase/sitemap_index.xml",
+            "$siteBase/post-sitemap.xml",
+            "$siteBase/film-sitemap.xml",
+            "$siteBase/feed",
+            "$siteBase/rss"
+        )
+        var sitemapFoundCount = 0
+        for (smUrl in sitemapCandidates) {
+            try {
+                val smReq = Request.Builder()
+                    .url(smUrl)
+                    .header("User-Agent", getRandomUserAgent())
+                    .header("Accept", "text/xml,application/xml,text/html;q=0.9,*/*;q=0.8")
+                    .build()
+                client.newCall(smReq).execute().use { resp ->
+                    if (resp.isSuccessful) {
+                        val body = resp.body?.string().orEmpty()
+                        if (body.contains("<urlset", true) || body.contains("<sitemapindex", true) || body.contains("<rss", true)) {
+                            onPageProgress(0, movieCategoriesMap.size, "⚡ Sitemap keşfedildi: $smUrl")
+                            val locRegex = Regex("""<loc>(https?://[^<]+)</loc>""", RegexOption.IGNORE_CASE)
+                            val linkRegex = Regex("""<link>(https?://[^<]+)</link>""", RegexOption.IGNORE_CASE)
+                            val allFound = (locRegex.findAll(body) + linkRegex.findAll(body)).map { it.groupValues[1].trim() }
+                            for (loc in allFound) {
+                                if (isValidMovieUrl(loc, siteBase)) {
+                                    val cats = movieCategoriesMap.getOrPut(loc) { mutableSetOf() }
+                                    val c = detectCategoryFromUrlOrText(loc, "") ?: "Popüler"
+                                    cats.add(c)
+                                    sitemapFoundCount++
+                                }
+                            }
+                            if (sitemapFoundCount > 0) {
+                                onPageProgress(0, movieCategoriesMap.size, "✓ Sitemap üzerinden $sitemapFoundCount film doğrudan alındı!")
+                            }
+                        }
+                    }
+                }
+                if (sitemapFoundCount > 0) break
+            } catch (_: Exception) {}
+        }
+
         val detectedCategories = discoverSiteCategories(siteUrl, siteBase)
         detectedCategories.forEach { (catName, urls) ->
             urls.take(3).forEach { catUrl ->
