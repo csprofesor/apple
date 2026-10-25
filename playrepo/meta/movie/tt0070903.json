@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "tt0070903",
+    "type": "movie",
+    "name": "The Way We Were",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMmMwOGM2NDUtM2FjYy00MTZlLWIwY2UtNjM0NzRlZTUwNzg0XkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMmMwOGM2NDUtM2FjYy00MTZlLWIwY2UtNjM0NzRlZTUwNzg0XkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Göz alıcı bir kararlılıkla yaşamın karmaşasına meydan okuyan Katie Morosky, idealizminin ateşiyle yanıp tutuşan bir karakter. İkinci Dünya Savaşı’nın ardından A...",
+    "releaseInfo": "1973",
+    "genres": [
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Aksiyon & Macera",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt0070903",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0070903",
+        "title": "The Way We Were",
+        "released": "1973-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
