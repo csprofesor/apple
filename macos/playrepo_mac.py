@@ -23,6 +23,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import socket
 
 CONFIG_FILE = os.path.expanduser("~/.playrepo_config.json")
+PROCESSED_MOVIES_FILE = os.path.expanduser("~/.playrepo_processed_urls.json")
 REPO_OWNER = "csprofesor"
 REPO_NAME = "apple"
 DEFAULT_BRANCH = "main"
@@ -1192,6 +1193,11 @@ class GitHubAtomicPublisher:
         )
         if "object" in update_ref or update_ref.get("ref"):
             self.log("✓ [TEMİZLENDİ] Tüm filmler ve akışlar eklentiden başarıyla sıfırlandı!")
+            try:
+                if os.path.exists(PROCESSED_MOVIES_FILE):
+                    os.remove(PROCESSED_MOVIES_FILE)
+            except Exception:
+                pass
             return True
         return False
 
@@ -1227,6 +1233,61 @@ def save_config(cfg):
             json.dump(cfg, f, ensure_ascii=False, indent=2)
     except Exception:
         pass
+
+def load_processed_urls() -> set:
+    if os.path.exists(PROCESSED_MOVIES_FILE):
+        try:
+            with open(PROCESSED_MOVIES_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, list):
+                    return set(data)
+        except Exception:
+            pass
+    return set()
+
+def save_processed_urls(urls_set: set):
+    try:
+        with open(PROCESSED_MOVIES_FILE, "w", encoding="utf-8") as f:
+            json.dump(list(urls_set), f, ensure_ascii=False, indent=2)
+    except Exception:
+        pass
+
+def get_already_published_identifiers() -> tuple:
+    """
+    Returns (set of published movie names normalized, set of published IDs, set of processed urls)
+    so the scraper never re-crawls or re-solves a movie that already exists in Nuvio.
+    """
+    names = set()
+    ids = set()
+    urls = load_processed_urls()
+
+    # 1. Check local catalog file
+    local_cat = os.path.join(WORKSPACE_DIR, "data", "catalog.json")
+    if os.path.exists(local_cat):
+        try:
+            with open(local_cat, "r", encoding="utf-8") as f:
+                d = json.load(f)
+                metas = d.get("metas", []) if isinstance(d, dict) else d
+                for m in metas:
+                    if isinstance(m, dict):
+                        if m.get("id"): ids.add(str(m["id"]).lower())
+                        if m.get("name"): names.add(str(m["name"]).strip().lower())
+        except Exception:
+            pass
+
+    # 2. Check remote GitHub catalog
+    try:
+        cat_url = f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/{DEFAULT_BRANCH}/data/catalog.json?t={int(time.time())}"
+        cat_json = http_json(cat_url, timeout=5)
+        if isinstance(cat_json, dict) and "metas" in cat_json:
+            for m in cat_json.get("metas", []):
+                if isinstance(m, dict):
+                    if m.get("id"): ids.add(str(m["id"]).lower())
+                    if m.get("name"): names.add(str(m["name"]).strip().lower())
+    except Exception:
+        pass
+
+    return names, ids, urls
 
 def append_global_log(msg):
     ts = datetime.now().strftime("%H:%M:%S")
@@ -2104,6 +2165,9 @@ class RequestHandler(BaseHTTPRequestHandler):
 
             def worker():
                 append_global_log(f"[GÜNCELLEME BAŞLADI] Toplam {len(sites)} kayıtlı sitenin tamamı taranıyor...")
+                pub_names, pub_ids, processed_urls = get_already_published_identifiers()
+                append_global_log(f"📋 [HAFIZA KONTROLÜ] Önceden taranıp Nuvio'ya eklenmiş {len(pub_names | pub_ids | processed_urls)} içerik tespit edildi. Bu filmler tekrar taranmayacak, doğrudan atlanacak!")
+
                 all_scraped = []
                 for s_idx, site_url in enumerate(sites):
                     if not ENGINE_INSTANCE.check_alive():
@@ -2119,9 +2183,36 @@ class RequestHandler(BaseHTTPRequestHandler):
                         if not ENGINE_INSTANCE.check_alive():
                             break
                         short = m_url.rstrip("/").split("/")[-1]
+
+                        # URL daha önce işlendiyse doğrudan atla
+                        if m_url in processed_urls:
+                            append_global_log(f"  ⏭ {short} (Daha önceden zaten eklenmiş, atlandı)")
+                            continue
+
+                        # URL'deki film adı bilinen yayınlanmış bir ada uyuyorsa atla
+                        slug_cand = short.replace("-izle", "").replace("-", " ").strip().lower()
+                        if slug_cand in pub_names:
+                            append_global_log(f"  ⏭ {short} (Nuvio'da zaten mevcut: {slug_cand}, atlandı)")
+                            processed_urls.add(m_url)
+                            continue
+
                         append_global_log(f"[{m_idx + 1}/{len(movie_dict)}] Çözülüyor: {short}...")
                         m_data = ENGINE_INSTANCE.scrape_movie_page(m_url, cats, tmdb_api_key=tmdb)
+                        
+                        # İşlendi olarak kaydet
+                        processed_urls.add(m_url)
+                        save_processed_urls(processed_urls)
+
                         if m_data and m_data.get("streams"):
+                            # Film adı veya ID'si yayında varsa atla
+                            m_title_norm = m_data['title'].strip().lower()
+                            m_id_norm = m_data['tmdbId'].strip().lower()
+                            if m_title_norm in pub_names or m_id_norm in pub_ids:
+                                append_global_log(f"  ⏭ {m_data['title']} (Nuvio'da zaten mevcut, atlandı)")
+                                continue
+
+                            pub_names.add(m_title_norm)
+                            pub_ids.add(m_id_norm)
                             batch_buffer.append(m_data)
                             s_count = len(m_data["streams"])
                             c_str = ", ".join(m_data["genres"])
