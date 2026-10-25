@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "tt1517268",
+    "type": "movie",
+    "name": "Barbie",
+    "poster": "https://images.metahub.space/poster/small/tt1517268/img",
+    "background": "https://images.metahub.space/poster/small/tt1517268/img",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Kadim zamanların büyülü dünyasında, saçları güneşin ışığını kıskandıran Rapunzel, Gothel isimli kıskanç bir cadının esiri olarak yaşamaktaydı. Cam duvarlarla çe...",
+    "releaseInfo": "2023",
+    "genres": [
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Aksiyon & Macera",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt1517268",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt1517268",
+        "title": "Barbie",
+        "released": "2023-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
