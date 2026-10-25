@@ -900,6 +900,107 @@ class GitHubAtomicPublisher:
             self.log(f"✗ [ERROR] Dal güncellenemedi: {update_ref.get('message')}")
             return False
 
+    def delete_movie(self, movie_id: str) -> bool:
+        if not self.token:
+            self.log("✗ [ERROR] GitHub Token girilmemiş!")
+            return False
+
+        self.log(f"[GITHUB SİLME] {movie_id} filmi depodan ve eklentiden siliniyor...")
+
+        cat_url = f"https://raw.githubusercontent.com/{self.owner}/{self.repo}/{DEFAULT_BRANCH}/data/catalog.json?t={int(time.time())}"
+        cat_json = http_json(cat_url)
+        metas = cat_json.get("metas", []) if isinstance(cat_json, dict) else []
+        meta_dict = {m.get("id"): m for m in metas if isinstance(m, dict) and m.get("id")}
+
+        str_url = f"https://raw.githubusercontent.com/{self.owner}/{self.repo}/{DEFAULT_BRANCH}/data/streams.json?t={int(time.time())}"
+        str_json = http_json(str_url)
+        streams_map = str_json if isinstance(str_json, dict) else {}
+
+        hyphen_id = movie_id.replace(":", "-").replace("_", "-")
+        safe_id = movie_id.replace(":", "_")
+        clean_id = movie_id.replace("playrepo-", "").replace("playrepo:", "").replace("tmdb-", "").replace("tmdb:", "")
+        del_ids = {movie_id, hyphen_id, safe_id, clean_id}
+
+        keys_to_del = [k for k in meta_dict.keys() if any(d in k for d in del_ids)]
+        for k in keys_to_del:
+            meta_dict.pop(k, None)
+        for d in del_ids:
+            streams_map.pop(d, None)
+
+        all_metas = list(meta_dict.values())
+        files_to_commit = {
+            "data/catalog.json": json.dumps({"metas": all_metas}, ensure_ascii=False, indent=2),
+            "data/streams.json": json.dumps(streams_map, ensure_ascii=False, indent=2)
+        }
+
+        def has_genre(item, *genres):
+            g_list = [g.lower() for g in item.get("genres", [])]
+            return any(any(tgt in g for tgt in genres) for g in g_list)
+
+        cat_configs = {
+            "playrepo/catalog/movie/playrepo-popular.json": lambda x: True,
+            "playrepo/catalog/movie/playrepo-catalog-movies.json": lambda x: True,
+            "playrepo/catalog/movie/playrepo-aksiyon.json": lambda x: has_genre(x, "aksiyon", "macera"),
+            "playrepo/catalog/movie/playrepo-komedi.json": lambda x: has_genre(x, "komedi", "mizah"),
+            "playrepo/catalog/movie/playrepo-dram.json": lambda x: has_genre(x, "dram", "romantik"),
+            "playrepo/catalog/movie/playrepo-korku.json": lambda x: has_genre(x, "korku", "gerilim"),
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json": lambda x: has_genre(x, "bilim", "kurgu", "fantastik")
+        }
+
+        for path, pred in cat_configs.items():
+            filtered = [m for m in all_metas if pred(m)]
+            files_to_commit[path] = json.dumps({"metas": filtered}, ensure_ascii=False, indent=2)
+
+        ref_data = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/ref/heads/{DEFAULT_BRANCH}", token=self.token)
+        latest_commit_sha = ref_data.get("object", {}).get("sha")
+        if not latest_commit_sha:
+            return False
+
+        commit_data = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/commits/{latest_commit_sha}", token=self.token)
+        base_tree_sha = commit_data.get("tree", {}).get("sha")
+
+        tree_items = [
+            {"path": path, "mode": "100644", "type": "blob", "content": content}
+            for path, content in files_to_commit.items()
+        ]
+        # Silinen meta ve stream dosyalarını Git ağacından kaldır (sha: null)
+        for did in del_ids:
+            if did:
+                tree_items.append({"path": f"playrepo/meta/movie/{did}.json", "mode": "100644", "type": "blob", "sha": None})
+                tree_items.append({"path": f"playrepo/stream/movie/{did}.json", "mode": "100644", "type": "blob", "sha": None})
+                tree_items.append({"path": f"playrepo/meta/series/{did}.json", "mode": "100644", "type": "blob", "sha": None})
+
+        tree_res = http_json(
+            f"https://api.github.com/repos/{self.owner}/{self.repo}/git/trees",
+            method="POST",
+            data={"base_tree": base_tree_sha, "tree": tree_items},
+            token=self.token
+        )
+        new_tree_sha = tree_res.get("sha")
+        if not new_tree_sha:
+            return False
+
+        new_commit_res = http_json(
+            f"https://api.github.com/repos/{self.owner}/{self.repo}/git/commits",
+            method="POST",
+            data={"message": f"PlayRepo: {movie_id} filmini kaldır", "tree": new_tree_sha, "parents": [latest_commit_sha]},
+            token=self.token
+        )
+        new_commit_sha = new_commit_res.get("sha")
+        if not new_commit_sha:
+            return False
+
+        update_ref = http_json(
+            f"https://api.github.com/repos/{self.owner}/{self.repo}/git/refs/heads/{DEFAULT_BRANCH}",
+            method="PATCH",
+            data={"sha": new_commit_sha, "force": True},
+            token=self.token
+        )
+        if "object" in update_ref or update_ref.get("ref"):
+            self.log(f"✓ [SİLİNDİ] {movie_id} eklentiden ve depodan tamamen kaldırıldı!")
+            return True
+        return False
+
 # -------------------------------------------------------------
 # Global State & WebApp Engine
 # -------------------------------------------------------------
@@ -1149,6 +1250,20 @@ HTML_PAGE = """<!DOCTYPE html>
     <div id="terminal"></div>
   </div>
 
+  <!-- 4. YAYINLANMIŞ FİLMLER VE DİZİLER (LİSTE VE SİLME YÖNETİMİ) -->
+  <div class="card" style="padding: 20px 24px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+      <div class="card-title" style="margin-bottom:0">🎬 EKLENTİDE YAYINLANAN FİLMLER & DİZİLER (<span id="pub-count">0</span>)</div>
+      <button class="btn-gray" style="padding: 6px 14px; font-size: 12px;" onclick="loadPublishedMovies()">🔄 Listeyi Yenile</button>
+    </div>
+    <div style="margin-bottom: 12px;">
+      <input type="text" id="movie-search" placeholder="🔍 Yayındaki filmlerde veya dizilerde ara..." oninput="filterPublishedMovies()" style="padding: 10px 14px; font-size: 13px;" />
+    </div>
+    <div id="movies-container" style="max-height: 380px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
+      <div style="color: var(--dim); font-size: 13px; padding: 10px;">Filmler yükleniyor...</div>
+    </div>
+  </div>
+
   <script>
     let currentConfig = { saved_sites: [], max_pages: 20, github_token: "", tmdb_key: "" };
 
@@ -1271,8 +1386,75 @@ HTML_PAGE = """<!DOCTYPE html>
       setTimeout(pollLogs, 1000);
     }
 
+    let allPublishedMovies = [];
+
+    async function loadPublishedMovies() {
+      try {
+        const res = await fetch('/api/published-movies');
+        const data = await res.json();
+        allPublishedMovies = data.movies || [];
+        document.getElementById('pub-count').innerText = allPublishedMovies.length;
+        renderPublishedMovies(allPublishedMovies);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function renderPublishedMovies(movies) {
+      const cont = document.getElementById('movies-container');
+      cont.innerHTML = "";
+      if (movies.length === 0) {
+        cont.innerHTML = "<div style='color:#64748b; font-size:13px; padding:10px;'>Henüz yayınlanmış film/dizi bulunmuyor.</div>";
+        return;
+      }
+      movies.forEach(m => {
+        const item = document.createElement('div');
+        item.style.cssText = "display: flex; justify-content: space-between; align-items: center; background: #11141e; border: 1px solid var(--border); padding: 10px 16px; border-radius: 8px;";
+        const genres = (m.genres || []).slice(0, 3).join(', ');
+        item.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 12px; overflow: hidden;">
+            <img src="${m.poster || ''}" onerror="this.src='${currentConfig.logo || ''}'" style="width: 38px; height: 52px; object-fit: cover; border-radius: 4px; background: #1e2433;" />
+            <div style="display: flex; flex-direction: column; overflow: hidden;">
+              <span style="font-weight: 700; font-size: 14px; color: #fff; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">${m.name} <span style="font-size:12px; color:var(--dim);">(${m.releaseInfo || m.year || ''})</span></span>
+              <span style="font-size: 11px; color: #60a5fa;">${genres || 'Genel'} • <span style="color:#94a3b8;">${m.type === 'series' ? 'Dizi' : 'Film'}</span></span>
+            </div>
+          </div>
+          <button class="btn-red" style="padding: 6px 14px; font-size: 12px;" onclick="deleteMovie('${m.id}', '${m.name.replace(/'/g, "\\'")}')">🗑️ Sil</button>
+        `;
+        cont.appendChild(item);
+      });
+    }
+
+    function filterPublishedMovies() {
+      const q = document.getElementById('movie-search').value.toLowerCase().trim();
+      if (!q) {
+        renderPublishedMovies(allPublishedMovies);
+        return;
+      }
+      const filtered = allPublishedMovies.filter(m => (m.name || '').toLowerCase().includes(q) || (m.genres || []).some(g => g.toLowerCase().includes(q)));
+      renderPublishedMovies(filtered);
+    }
+
+    async function deleteMovie(id, name) {
+      if (!confirm(`"${name}" filmini eklentiden ve depodan silmek istediğinize emin misiniz?`)) return;
+      document.getElementById('terminal').innerText += `\\n[İŞLEM] "${name}" siliniyor...\\n`;
+      const res = await fetch('/api/delete-movie', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ id })
+      });
+      const data = await res.json();
+      if (data.status === 'ok') {
+        alert(`"${name}" başarıyla silindi!`);
+        await loadPublishedMovies();
+      } else {
+        alert('Silme sırasında hata oluştu: ' + (data.message || ''));
+      }
+    }
+
     window.onload = () => {
       loadConfig();
+      loadPublishedMovies();
       pollLogs();
     };
   </script>
@@ -1312,13 +1494,29 @@ class RequestHandler(BaseHTTPRequestHandler):
                 "logs": LOG_BUFFER,
                 "is_running": ENGINE_INSTANCE.is_running and CURRENT_WORKER is not None and CURRENT_WORKER.is_alive()
             })
+        elif self.path == "/api/published-movies":
+            cat_url = f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/{DEFAULT_BRANCH}/data/catalog.json?t={int(time.time())}"
+            cat_json = http_json(cat_url)
+            metas = cat_json.get("metas", []) if isinstance(cat_json, dict) else []
+            self._send_json({"movies": metas})
         else:
             self.send_response(404)
             self.end_headers()
 
     def do_POST(self):
         global CURRENT_WORKER
-        if self.path == "/api/save-config":
+        if self.path == "/api/delete-movie":
+            body = self._read_json()
+            movie_id = body.get("id", "").strip()
+            cfg = load_config()
+            token = cfg.get("github_token", "").strip()
+            if movie_id and token:
+                pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
+                success = pub.delete_movie(movie_id)
+                self._send_json({"status": "ok" if success else "error"})
+            else:
+                self._send_json({"status": "error", "message": "Geçersiz ID veya Token eksik"})
+        elif self.path == "/api/save-config":
             body = self._read_json()
             cfg = load_config()
             cfg.update(body)
@@ -1377,6 +1575,9 @@ class RequestHandler(BaseHTTPRequestHandler):
                     movie_dict = ENGINE_INSTANCE.discover_movie_links(site_url, max_pages=max_p)
                     append_global_log(f"✓ {site_url} üzerinde {len(movie_dict)} film bulundu. Video akışları çözülüyor...")
 
+                    pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
+                    batch_buffer = []
+
                     for m_idx, (m_url, cats) in enumerate(movie_dict.items()):
                         if not ENGINE_INSTANCE.is_running:
                             break
@@ -1384,19 +1585,26 @@ class RequestHandler(BaseHTTPRequestHandler):
                         append_global_log(f"[{m_idx + 1}/{len(movie_dict)}] Çözülüyor: {short}...")
                         m_data = ENGINE_INSTANCE.scrape_movie_page(m_url, cats, tmdb_api_key=tmdb)
                         if m_data and m_data.get("streams"):
-                            all_scraped.append(m_data)
+                            batch_buffer.append(m_data)
                             s_count = len(m_data["streams"])
                             c_str = ", ".join(m_data["genres"])
                             append_global_log(f"  ✓ {m_data['title']} ({s_count} Sunucu • [{c_str}])")
+
+                            # Her 3 film çözüldüğünde beklemeden anında GitHub ve Nuvio'ya aktar!
+                            if len(batch_buffer) >= 3:
+                                append_global_log(f"⚡ [ANLIK YÜKLEME] Çözülen {len(batch_buffer)} film anında Nuvio/GitHub'a yükleniyor...")
+                                pub.publish_movies(batch_buffer)
+                                batch_buffer.clear()
                         else:
                             append_global_log(f"  ↷ {short} (Aktif akış yok, atlandı)")
 
-                if all_scraped and ENGINE_INSTANCE.is_running:
-                    append_global_log(f"[YÜKLENİYOR] Toplam {len(all_scraped)} çözülmüş film GitHub'a aktarılıyor...")
-                    pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
-                    pub.publish_movies(all_scraped)
-                elif not all_scraped:
-                    append_global_log("[UYARI] Hiçbir film çözülemedi veya işlem durduruldu.")
+                    # Kalan filmleri hemen aktar
+                    if batch_buffer and ENGINE_INSTANCE.is_running:
+                        append_global_log(f"⚡ [ANLIK YÜKLEME] Kalan {len(batch_buffer)} film Nuvio/GitHub'a aktarılıyor...")
+                        pub.publish_movies(batch_buffer)
+                        batch_buffer.clear()
+
+                append_global_log("✓ [BİTTİ] Tüm tarama ve anlık yükleme tamamlandı.")
 
             CURRENT_WORKER = threading.Thread(target=worker, daemon=True)
             CURRENT_WORKER.start()
