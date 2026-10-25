@@ -488,6 +488,14 @@ class SiteScraperEngine {
                 }
             }
 
+            // 4b. Inline onclick="loadSource('...')" buttons (common in Filmdozu etc.)
+            val loadSourceRegex = Regex("""(?:loadSource|loadPlayer|changeSource|setSource|playVideo|loadEmbed)\s*\(\s*["']([^"']+)["']""", RegexOption.IGNORE_CASE)
+            loadSourceRegex.findAll(html).forEach { m ->
+                val u = m.groupValues[1].replace("&amp;", "&").trim()
+                val lang = detectLangFromContext(u)
+                addCandidate(u, lang)
+            }
+
             // 5. External video host links
             doc.select("a[href]").forEach { a ->
                 val href = a.absUrl("href").ifBlank { a.attr("href") }

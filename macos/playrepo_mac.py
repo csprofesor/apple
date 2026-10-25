@@ -203,6 +203,14 @@ class ScraperEngine:
             if not html:
                 continue
 
+            if "Just a moment..." in html or "Bir dakika lütfen..." in html or "cf-chl-opt" in html or "challenges.cloudflare.com" in html:
+                self.log(f"⚠️ [Cloudflare Koruması] {curr_url} adresinde Cloudflare bot doğrulaması tespit edildi! Tarayıcı simülasyonu deneniyor...")
+                sim_h = self.simulate_browser_render(curr_url)
+                if sim_h and "cf-chl-opt" not in sim_h:
+                    html = sim_h
+                else:
+                    self.log(f"✗ [Cloudflare Engeli] {curr_url} Cloudflare Turnstile tarafından korunduğu için taranamadı. Lütfen alternatif bir site (örn: https://filmdozu.com/ veya https://ufilmizle.com/) deneyin.")
+
             new_in_page = 0
             for href in re.findall(r'href=["\']([^"\']+)["\']', html, re.I):
                 abs_url = urllib.parse.urljoin(curr_url, href.strip())
@@ -430,6 +438,10 @@ class ScraperEngine:
             c_url = urllib.parse.urljoin(movie_url, m.group(1).strip())
             c_lang = get_lang(m.group(2) + " " + c_url)
             candidate_embeds.append((c_url, c_lang))
+
+        for m in re.finditer(r'(?:loadSource|loadPlayer|changeSource|setSource|playVideo|loadEmbed)\s*\(\s*["\']([^"\']+)["\']', html, re.I):
+            c_url = urllib.parse.urljoin(movie_url, m.group(1).replace("&amp;", "&").strip())
+            candidate_embeds.append((c_url, default_lang))
 
         for m in re.finditer(r'<iframe\s+[^>]*(?:src|data-src|data-frame)=["\']([^"\']+)["\'][^>]*>', html, re.I):
             c_url = urllib.parse.urljoin(movie_url, m.group(1).strip())
@@ -1357,12 +1369,20 @@ class RequestHandler(BaseHTTPRequestHandler):
 def run_cli_crawl(site_url: str, max_pages: int = 20, token: str = None):
     print(f"🎬 [PlayRepo CLI] Taranıyor: {site_url} (Max sayfa: {max_pages})...")
     engine = ScraperEngine(log_callback=print)
-    movies = engine.crawl_site(site_url, max_pages=max_pages)
-    if movies:
-        print(f"✓ [PlayRepo CLI] {len(movies)} film ve detayları çözüldü. GitHub'a aktarılıyor...")
+    movie_dict = engine.discover_movie_links(site_url, max_pages=max_pages)
+    all_scraped = []
+    for m_idx, (m_url, cats) in enumerate(movie_dict.items()):
+        short = m_url.rstrip("/").split("/")[-1]
+        print(f"[{m_idx + 1}/{len(movie_dict)}] Çözülüyor: {short}...")
+        m_data = engine.scrape_movie_page(m_url, cats)
+        if m_data and m_data.get("streams"):
+            all_scraped.append(m_data)
+            print(f"  ✓ {m_data['title']} ({len(m_data['streams'])} Sunucu)")
+    if all_scraped:
+        print(f"✓ [PlayRepo CLI] {len(all_scraped)} film ve detayları çözüldü. GitHub'a aktarılıyor...")
         eff_token = token or os.getenv("GITHUB_TOKEN", "")
         pub = GitHubAtomicPublisher(token=eff_token, log_callback=print)
-        pub.publish_movies(movies)
+        pub.publish_movies(all_scraped)
     else:
         print("✗ [PlayRepo CLI] Film bulunamadı veya akışlar çözülemedi.")
 
