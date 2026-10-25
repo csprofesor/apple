@@ -163,13 +163,11 @@ async function getCatalog(type, id, extra) {
                 if (catRes.ok) {
                     const catData = await catRes.json();
                     let metas = Array.isArray(catData) ? catData : (catData.metas || []);
-                    if (metas.length > 0) {
-                        if (extra && extra.search) {
-                            const query = extra.search.toLowerCase();
-                            metas = metas.filter(m => m.name && m.name.toLowerCase().includes(query));
-                        }
-                        return { metas: metas };
+                    if (extra && extra.search) {
+                        const query = extra.search.toLowerCase();
+                        metas = metas.filter(m => m.name && m.name.toLowerCase().includes(query));
                     }
+                    return { metas: metas };
                 }
             } catch (_) {}
         }

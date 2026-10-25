@@ -1,7 +1,7 @@
 {
   "id": "playRepo",
   "name": "Play",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Play • Tek kaynaktan yüksek hızlı Türkçe film ve dizi akış sağlayıcısı.",
   "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
   "resources": [
@@ -103,7 +103,7 @@
       "id": "play-main",
       "name": "Play",
       "description": "Nuvio için optimize edilmiş Play akış sağlayıcısı.",
-      "version": "1.0.0",
+      "version": "1.0.2",
       "author": "csprofesor",
       "supportedTypes": [
         "movie",
