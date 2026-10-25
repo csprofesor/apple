@@ -96,6 +96,50 @@
           "isRequired": false
         }
       ]
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-animasyon",
+      "name": "Play • Animasyon & Çizgi Dizi",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-belgesel",
+      "name": "Play • Belgesel & Tarih",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-suc",
+      "name": "Play • Suç, Polisiye & Gizem",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-popular",
+      "name": "Play • Popüler Diziler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
     }
   ],
   "scrapers": [

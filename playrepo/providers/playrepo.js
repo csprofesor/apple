@@ -222,6 +222,23 @@ async function getCatalog(type, id, extra) {
                 const lg = g.toLowerCase();
                 return lg.includes("bilim") || lg.includes("kurgu") || lg.includes("fantastik");
             }));
+        } else if (id === "playrepo-animasyon") {
+            metas = metas.filter(m => m.genres && m.genres.some(g => {
+                const lg = g.toLowerCase();
+                return lg.includes("animasyon") || lg.includes("çizgi") || lg.includes("anime") || lg.includes("animation");
+            }));
+        } else if (id === "playrepo-belgesel") {
+            metas = metas.filter(m => m.genres && m.genres.some(g => {
+                const lg = g.toLowerCase();
+                return lg.includes("belgesel") || lg.includes("tarih") || lg.includes("biyografi") || lg.includes("documentary") || lg.includes("history");
+            }));
+        } else if (id === "playrepo-suc") {
+            metas = metas.filter(m => m.genres && m.genres.some(g => {
+                const lg = g.toLowerCase();
+                return lg.includes("suç") || lg.includes("suc") || lg.includes("polisiye") || lg.includes("gizem") || lg.includes("crime") || lg.includes("mystery");
+            }));
+        } else if (id === "playrepo-series-popular") {
+            metas = metas.filter(m => m.type === "series");
         }
 
         if (extra && extra.genre) {

@@ -741,7 +741,7 @@ class ScraperEngine:
                 st["title"] = f"Play • Sunucu {oth_c} • 1080p • [TR]"
 
         meta_id, official_title, official_poster, official_desc, release_year, meta_genres = self.resolve_meta(
-            clean_title, poster, desc, year, tmdb_api_key
+            clean_title, poster, desc, year, tmdb_api_key, is_series=is_series
         )
 
         for g in meta_genres:
@@ -767,11 +767,15 @@ class ScraperEngine:
             "episode": episode_num
         }
 
-    def resolve_meta(self, title: str, poster: str, desc: str, year: str, tmdb_key: str = None):
+    def resolve_meta(self, title: str, poster: str, desc: str, year: str, tmdb_key: str = None, is_series: bool = False):
+        media_kind = "series" if is_series else "movie"
         try:
             q = urllib.parse.quote(title)
-            cm_res = http_json(f"https://v3-cinemeta.strem.io/catalog/movie/top/search={q}.json")
+            cm_res = http_json(f"https://v3-cinemeta.strem.io/catalog/{media_kind}/top/search={q}.json")
             metas = cm_res.get("metas", [])
+            if not metas and is_series:
+                cm_res = http_json(f"https://v3-cinemeta.strem.io/catalog/movie/top/search={q}.json")
+                metas = cm_res.get("metas", [])
             if metas:
                 m0 = metas[0]
                 m_id = m0.get("id")
@@ -780,7 +784,7 @@ class ScraperEngine:
                     extra_genres = m0.get("genres") or []
                     if not extra_genres:
                         try:
-                            detail_res = http_json(f"https://v3-cinemeta.strem.io/meta/movie/{m_id}.json")
+                            detail_res = http_json(f"https://v3-cinemeta.strem.io/meta/{m0.get('type', media_kind)}/{m_id}.json")
                             extra_genres = detail_res.get("meta", {}).get("genres") or []
                         except Exception:
                             pass
@@ -798,7 +802,8 @@ class ScraperEngine:
         if tmdb_key:
             try:
                 q = urllib.parse.quote(title)
-                tm_res = http_json(f"https://api.themoviedb.org/3/search/movie?api_key={tmdb_key}&query={q}&language=tr-TR")
+                endpoint = "tv" if is_series else "movie"
+                tm_res = http_json(f"https://api.themoviedb.org/3/search/{endpoint}?api_key={tmdb_key}&query={q}&language=tr-TR")
                 results = tm_res.get("results", [])
                 if results:
                     r0 = results[0]
@@ -806,12 +811,13 @@ class ScraperEngine:
                     if r_id:
                         p_path = r0.get("poster_path")
                         p_url = f"https://image.tmdb.org/t/p/w500{p_path}" if p_path else poster
+                        rel_date = r0.get("release_date") or r0.get("first_air_date") or year
                         return (
                             f"tmdb-{r_id}",
-                            r0.get("title") or title,
+                            r0.get("title") or r0.get("name") or title,
                             p_url,
                             r0.get("overview") or desc,
-                            (r0.get("release_date") or year)[:4],
+                            rel_date[:4] if rel_date else year,
                             []
                         )
             except Exception:
@@ -948,7 +954,11 @@ class GitHubAtomicPublisher:
             "playrepo/catalog/movie/playrepo-komedi.json": lambda x: has_genre(x, "komedi", "mizah"),
             "playrepo/catalog/movie/playrepo-dram.json": lambda x: has_genre(x, "dram", "romantik"),
             "playrepo/catalog/movie/playrepo-korku.json": lambda x: has_genre(x, "korku", "gerilim"),
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json": lambda x: has_genre(x, "bilim", "kurgu", "fantastik")
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json": lambda x: has_genre(x, "bilim", "kurgu", "fantastik"),
+            "playrepo/catalog/movie/playrepo-animasyon.json": lambda x: has_genre(x, "animasyon", "çizgi", "anime", "animation"),
+            "playrepo/catalog/movie/playrepo-belgesel.json": lambda x: has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history"),
+            "playrepo/catalog/movie/playrepo-suc.json": lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
+            "playrepo/catalog/series/playrepo-series-popular.json": lambda x: x.get("type") == "series"
         }
 
         for path, pred in cat_configs.items():
@@ -1062,7 +1072,11 @@ class GitHubAtomicPublisher:
             "playrepo/catalog/movie/playrepo-komedi.json": lambda x: has_genre(x, "komedi", "mizah"),
             "playrepo/catalog/movie/playrepo-dram.json": lambda x: has_genre(x, "dram", "romantik"),
             "playrepo/catalog/movie/playrepo-korku.json": lambda x: has_genre(x, "korku", "gerilim"),
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json": lambda x: has_genre(x, "bilim", "kurgu", "fantastik")
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json": lambda x: has_genre(x, "bilim", "kurgu", "fantastik"),
+            "playrepo/catalog/movie/playrepo-animasyon.json": lambda x: has_genre(x, "animasyon", "çizgi", "anime", "animation"),
+            "playrepo/catalog/movie/playrepo-belgesel.json": lambda x: has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history"),
+            "playrepo/catalog/movie/playrepo-suc.json": lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
+            "playrepo/catalog/series/playrepo-series-popular.json": lambda x: x.get("type") == "series"
         }
 
         for path, pred in cat_configs.items():
@@ -1138,7 +1152,11 @@ class GitHubAtomicPublisher:
             "playrepo/catalog/movie/playrepo-komedi.json": empty_catalog,
             "playrepo/catalog/movie/playrepo-dram.json": empty_catalog,
             "playrepo/catalog/movie/playrepo-korku.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json": empty_catalog
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-animasyon.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-belgesel.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-suc.json": empty_catalog,
+            "playrepo/catalog/series/playrepo-series-popular.json": empty_catalog
         }
 
         ref_data = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/ref/heads/{DEFAULT_BRANCH}", token=self.token)
