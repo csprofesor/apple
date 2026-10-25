@@ -1384,20 +1384,46 @@ HTML_PAGE = """<!DOCTYPE html>
     <div id="terminal"></div>
   </div>
 
-  <!-- 4. YAYINLANMIŞ FİLMLER VE DİZİLER (LİSTE VE SİLME YÖNETİMİ) -->
+  <!-- 4. FİLM VE DİZİ YÖNETİMİ (SEKMELİ ARAYÜZ) -->
   <div class="card" style="padding: 20px 24px;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-      <div class="card-title" style="margin-bottom:0">🎬 EKLENTİDE YAYINLANAN FİLMLER & DİZİLER (<span id="pub-count">0</span>)</div>
-      <div class="row" style="gap: 8px;">
-        <button class="btn-gray" style="padding: 6px 14px; font-size: 12px;" onclick="loadPublishedMovies()">🔄 Listeyi Yenile</button>
-        <button class="btn-red" style="padding: 6px 14px; font-size: 12px; background: #dc2626;" onclick="clearAllPublishedMovies()">💥 Tüm Filmleri Sıfırla (Toplu Sil)</button>
+    <!-- Sekme Başlıkları -->
+    <div style="display: flex; gap: 10px; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 12px;">
+      <button id="tab-btn-current" class="btn-blue" style="padding: 8px 18px; font-size: 13px;" onclick="switchTab('current')">🎬 Nuvio Güncel Yayın (<span id="pub-count">0</span>)</button>
+      <button id="tab-btn-history" class="btn-gray" style="padding: 8px 18px; font-size: 13px;" onclick="switchTab('history')">📜 Eskiden Çözülen Filmler Arşivi (<span id="his-count">0</span>)</button>
+    </div>
+
+    <!-- SEKME 1: GÜNCEL YAYINDAKİLER -->
+    <div id="tab-pane-current">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <div style="font-size: 13px; color: var(--dim)">Nuvio eklentisinde şu anda aktif olarak izlenebilen filmler:</div>
+        <div class="row" style="gap: 8px;">
+          <button class="btn-gray" style="padding: 6px 14px; font-size: 12px;" onclick="loadPublishedMovies()">🔄 Listeyi Yenile</button>
+          <button class="btn-red" style="padding: 6px 14px; font-size: 12px; background: #dc2626;" onclick="clearAllPublishedMovies()">💥 Güncel Listeyi Toplu Sil</button>
+        </div>
+      </div>
+      <div style="margin-bottom: 12px;">
+        <input type="text" id="movie-search" placeholder="🔍 Güncel yayındaki filmlerde veya dizilerde ara..." oninput="filterPublishedMovies()" style="padding: 10px 14px; font-size: 13px;" />
+      </div>
+      <div id="movies-container" style="max-height: 380px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
+        <div style="color: var(--dim); font-size: 13px; padding: 10px;">Filmler yükleniyor...</div>
       </div>
     </div>
-    <div style="margin-bottom: 12px;">
-      <input type="text" id="movie-search" placeholder="🔍 Yayındaki filmlerde veya dizilerde ara..." oninput="filterPublishedMovies()" style="padding: 10px 14px; font-size: 13px;" />
-    </div>
-    <div id="movies-container" style="max-height: 380px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
-      <div style="color: var(--dim); font-size: 13px; padding: 10px;">Filmler yükleniyor...</div>
+
+    <!-- SEKME 2: ESKİDEN ÇÖZÜLENLER ARŞİVİ -->
+    <div id="tab-pane-history" style="display:none">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <div style="font-size: 13px; color: var(--dim)">Daha önceki tüm taramalarda çözülmüş geçmiş film/dizi arşivi (Buradan istediğinizi silebilir veya tüm arşivi boşaltabilirsiniz):</div>
+        <div class="row" style="gap: 8px;">
+          <button class="btn-gray" style="padding: 6px 14px; font-size: 12px;" onclick="loadHistoryMovies()">🔄 Arşivi Yenile</button>
+          <button class="btn-red" style="padding: 6px 14px; font-size: 12px; background: #991b1b;" onclick="clearAllHistoryMovies()">💥 Eski Arşivi Toplu Sil</button>
+        </div>
+      </div>
+      <div style="margin-bottom: 12px;">
+        <input type="text" id="history-search" placeholder="🔍 Eski arşivdeki filmlerde ara..." oninput="filterHistoryMovies()" style="padding: 10px 14px; font-size: 13px;" />
+      </div>
+      <div id="history-container" style="max-height: 380px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;">
+        <div style="color: var(--dim); font-size: 13px; padding: 10px;">Arşiv yükleniyor...</div>
+      </div>
     </div>
   </div>
 
@@ -1646,9 +1672,107 @@ HTML_PAGE = """<!DOCTYPE html>
       }
     }
 
+    let allHistoryMovies = [];
+
+    function switchTab(tab) {
+      if (tab === 'current') {
+        document.getElementById('tab-pane-current').style.display = 'block';
+        document.getElementById('tab-pane-history').style.display = 'none';
+        document.getElementById('tab-btn-current').className = 'btn-blue';
+        document.getElementById('tab-btn-history').className = 'btn-gray';
+        loadPublishedMovies();
+      } else {
+        document.getElementById('tab-pane-current').style.display = 'none';
+        document.getElementById('tab-pane-history').style.display = 'block';
+        document.getElementById('tab-btn-current').className = 'btn-gray';
+        document.getElementById('tab-btn-history').className = 'btn-blue';
+        loadHistoryMovies();
+      }
+    }
+
+    async function loadHistoryMovies() {
+      try {
+        const res = await fetch('/api/history-movies');
+        const data = await res.json();
+        allHistoryMovies = data.movies || [];
+        document.getElementById('his-count').innerText = allHistoryMovies.length;
+        renderHistoryMovies(allHistoryMovies);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function renderHistoryMovies(movies) {
+      const cont = document.getElementById('history-container');
+      cont.innerHTML = "";
+      if (movies.length === 0) {
+        cont.innerHTML = "<div style='color:#64748b; font-size:13px; padding:10px;'>Eski arşivde kayıtlı film bulunmuyor.</div>";
+        return;
+      }
+      movies.forEach(m => {
+        const item = document.createElement('div');
+        item.style.cssText = "display: flex; justify-content: space-between; align-items: center; background: #11141e; border: 1px solid var(--border); padding: 10px 16px; border-radius: 8px;";
+        const genres = (m.genres || []).slice(0, 3).join(', ');
+        item.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 12px; overflow: hidden;">
+            <img src="${m.poster || ''}" onerror="this.src='${currentConfig.logo || ''}'" style="width: 38px; height: 52px; object-fit: cover; border-radius: 4px; background: #1e2433;" />
+            <div style="display: flex; flex-direction: column; overflow: hidden;">
+              <span style="font-weight: 700; font-size: 14px; color: #fff; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">${m.name} <span style="font-size:12px; color:var(--dim);">(${m.releaseInfo || m.year || ''})</span></span>
+              <span style="font-size: 11px; color: #60a5fa;">${genres || 'Genel'} • <span style="color:#94a3b8;">${m.type === 'series' ? 'Dizi' : 'Film'}</span> • <span style="color:#a855f7;">ID: ${m.id}</span></span>
+            </div>
+          </div>
+          <button class="btn-red" style="padding: 6px 14px; font-size: 12px;" onclick="deleteHistoryMovie('${m.id}', '${m.name.replace(/'/g, "\\'")}')">🗑️ Sil</button>
+        `;
+        cont.appendChild(item);
+      });
+    }
+
+    function filterHistoryMovies() {
+      const q = document.getElementById('history-search').value.toLowerCase().trim();
+      if (!q) {
+        renderHistoryMovies(allHistoryMovies);
+        return;
+      }
+      const filtered = allHistoryMovies.filter(m => (m.name || '').toLowerCase().includes(q) || (m.genres || []).some(g => g.toLowerCase().includes(q)) || (m.id || '').toLowerCase().includes(q));
+      renderHistoryMovies(filtered);
+    }
+
+    async function deleteHistoryMovie(id, name) {
+      if (!confirm(`"${name}" filmini eski arşivden silmek istediğinize emin misiniz?`)) return;
+      const res = await fetch('/api/delete-history-movie', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ id })
+      });
+      const data = await res.json();
+      if (data.status === 'ok') {
+        alert(`"${name}" arşivden silindi!`);
+        await loadHistoryMovies();
+      } else {
+        alert('Hata: ' + (data.message || ''));
+      }
+    }
+
+    async function clearAllHistoryMovies() {
+      const count = allHistoryMovies.length;
+      if (!confirm(`DİKKAT: Eski arşivdeki ${count} adet filmin TAMAMI SİLİNECEK!\n\nEmin misiniz?`)) return;
+      const res = await fetch('/api/clear-history-movies', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'}
+      });
+      const data = await res.json();
+      if (data.status === 'ok') {
+        alert('Eski arşiv başarıyla sıfırlandı!');
+        await loadHistoryMovies();
+      } else {
+        alert('Hata: ' + (data.message || ''));
+      }
+    }
+
     window.onload = () => {
       loadConfig();
       loadPublishedMovies();
+      loadHistoryMovies();
       pollLogs();
     };
   </script>
@@ -1695,6 +1819,17 @@ class RequestHandler(BaseHTTPRequestHandler):
             cat_json = http_json(cat_url)
             metas = cat_json.get("metas", []) if isinstance(cat_json, dict) else []
             self._send_json({"movies": metas})
+        elif self.path == "/api/history-movies":
+            his_path = os.path.join(WORKSPACE_DIR, "data", "history_catalog.json")
+            if os.path.exists(his_path):
+                try:
+                    with open(his_path, "r", encoding="utf-8") as f:
+                        d = json.load(f)
+                        self._send_json({"movies": d.get("metas", [])})
+                        return
+                except Exception:
+                    pass
+            self._send_json({"movies": []})
         else:
             self.send_response(404)
             self.end_headers()
@@ -1721,6 +1856,31 @@ class RequestHandler(BaseHTTPRequestHandler):
                 self._send_json({"status": "ok" if success else "error"})
             else:
                 self._send_json({"status": "error", "message": "GitHub Token eksik"})
+        elif self.path == "/api/clear-history-movies":
+            his_path = os.path.join(WORKSPACE_DIR, "data", "history_catalog.json")
+            try:
+                with open(his_path, "w", encoding="utf-8") as f:
+                    json.dump({"metas": []}, f, indent=2)
+                self._send_json({"status": "ok"})
+            except Exception as e:
+                self._send_json({"status": "error", "message": str(e)})
+        elif self.path == "/api/delete-history-movie":
+            body = self._read_json()
+            movie_id = body.get("id", "").strip()
+            his_path = os.path.join(WORKSPACE_DIR, "data", "history_catalog.json")
+            if os.path.exists(his_path) and movie_id:
+                try:
+                    with open(his_path, "r", encoding="utf-8") as f:
+                        d = json.load(f)
+                    metas = [m for m in d.get("metas", []) if m.get("id") != movie_id]
+                    with open(his_path, "w", encoding="utf-8") as f:
+                        json.dump({"metas": metas}, f, ensure_ascii=False, indent=2)
+                    self._send_json({"status": "ok"})
+                    return
+                except Exception as e:
+                    self._send_json({"status": "error", "message": str(e)})
+                    return
+            self._send_json({"status": "error", "message": "Bulunamadı"})
         elif self.path == "/api/save-config":
             body = self._read_json()
             cfg = load_config()
