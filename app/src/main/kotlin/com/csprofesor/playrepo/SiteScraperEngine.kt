@@ -760,11 +760,14 @@ class SiteScraperEngine {
             }
 
             // Detect Series / Season / Episode
-            val isSeries = movieUrl.contains("/dizi/") || movieUrl.contains("/series/") ||
+            val comboMatch = Regex("""(\d+)[-\s_]*(?:sezon|season)[-\s_]*(\d+)[-\s_]*(?:bolum|bölüm|episode)""", RegexOption.IGNORE_CASE).find(movieUrl)
+            val isSeries = comboMatch != null || movieUrl.contains("/dizi/", true) || movieUrl.contains("/series/", true) || movieUrl.contains("sezon", true) ||
                            (html.contains("sezon", true) && html.contains("bölüm", true))
-            val seasonNum = Regex("""(?:sezon|season)[-\s_]*(\d+)""", RegexOption.IGNORE_CASE).find(movieUrl)?.groupValues?.get(1)?.toIntOrNull()
+            val seasonNum = comboMatch?.groupValues?.get(1)?.toIntOrNull()
+                ?: Regex("""(?:sezon|season)[-\s_]*(\d+)""", RegexOption.IGNORE_CASE).find(movieUrl)?.groupValues?.get(1)?.toIntOrNull()
                 ?: Regex("""(\d+)\s*\.\s*(?:sezon|season)""", RegexOption.IGNORE_CASE).find(rawTitle)?.groupValues?.get(1)?.toIntOrNull()
-            val episodeNum = Regex("""(?:bolum|bölüm|episode)[-\s_]*(\d+)""", RegexOption.IGNORE_CASE).find(movieUrl)?.groupValues?.get(1)?.toIntOrNull()
+            val episodeNum = comboMatch?.groupValues?.get(2)?.toIntOrNull()
+                ?: Regex("""(?:bolum|bölüm|episode)[-\s_]*(\d+)""", RegexOption.IGNORE_CASE).find(movieUrl)?.groupValues?.get(1)?.toIntOrNull()
                 ?: Regex("""(\d+)\s*\.\s*(?:bolum|bölüm|episode)""", RegexOption.IGNORE_CASE).find(rawTitle)?.groupValues?.get(1)?.toIntOrNull()
 
             val resolvedStreams = mutableListOf<StreamItem>()

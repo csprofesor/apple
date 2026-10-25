@@ -648,11 +648,17 @@ class ScraperEngine:
                 subtitles.append({"id": "tr", "url": u, "lang": "Turkish"})
 
         # Series / Season / Episode detection
-        is_series = "/dizi/" in movie_url.lower() or "/series/" in movie_url.lower() or ("sezon" in html.lower() and "bölüm" in html.lower())
-        season_m = re.search(r'(?:sezon|season)[-\s_]*(\d+)', movie_url, re.I) or re.search(r'(\d+)\s*\.\s*(?:sezon|season)', raw_title, re.I)
-        episode_m = re.search(r'(?:bolum|bölüm|episode)[-\s_]*(\d+)', movie_url, re.I) or re.search(r'(\d+)\s*\.\s*(?:bolum|bölüm|episode)', raw_title, re.I)
-        season_num = int(season_m.group(1)) if season_m else None
-        episode_num = int(episode_m.group(1)) if episode_m else None
+        combo_m = re.search(r'(\d+)[-\s_]*(?:sezon|season)[-\s_]*(\d+)[-\s_]*(?:bolum|bölüm|episode)', movie_url, re.I)
+        if combo_m:
+            is_series = True
+            season_num = int(combo_m.group(1))
+            episode_num = int(combo_m.group(2))
+        else:
+            is_series = "/dizi/" in movie_url.lower() or "/series/" in movie_url.lower() or "sezon" in movie_url.lower() or ("sezon" in html.lower() and "bölüm" in html.lower())
+            season_m = re.search(r'(?:sezon|season)[-\s_]*(\d+)', movie_url, re.I) or re.search(r'(\d+)\s*\.\s*(?:sezon|season)', raw_title, re.I)
+            episode_m = re.search(r'(?:bolum|bölüm|episode)[-\s_]*(\d+)', movie_url, re.I) or re.search(r'(\d+)\s*\.\s*(?:bolum|bölüm|episode)', raw_title, re.I)
+            season_num = int(season_m.group(1)) if season_m else None
+            episode_num = int(episode_m.group(1)) if episode_m else None
 
         resolved_streams = []
         seen_urls = set()
@@ -1230,6 +1236,9 @@ def load_config():
         "tmdb_key": "",
         "max_pages": 20,
         "saved_sites": [
+            "https://diziboxizle.com/",
+            "https://ddizimom.net/",
+            "https://dizirex.com/",
             "https://fullhdfilmizlebox.vip/",
             "https://filmdozu.com/",
             "https://ufilmizle.com/",

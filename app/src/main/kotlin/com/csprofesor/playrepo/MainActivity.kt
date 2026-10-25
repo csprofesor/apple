@@ -56,6 +56,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (savedSitesList.isEmpty()) {
+            savedSitesList.add("https://diziboxizle.com/")
+            savedSitesList.add("https://ddizimom.net/")
+            savedSitesList.add("https://fullhdfilmizlebox.vip/")
             savedSitesList.add("https://filmdozu.com/")
             savedSitesList.add("https://ufilmizle.com/")
             savedSitesList.add("https://fullfilmizle.fit/")
@@ -96,6 +99,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.pageSites.btnResetSites.setOnClickListener {
             savedSitesList.clear()
+            savedSitesList.add("https://diziboxizle.com/")
+            savedSitesList.add("https://ddizimom.net/")
+            savedSitesList.add("https://fullhdfilmizlebox.vip/")
             savedSitesList.add("https://filmdozu.com/")
             savedSitesList.add("https://ufilmizle.com/")
             savedSitesList.add("https://fullfilmizle.fit/")
