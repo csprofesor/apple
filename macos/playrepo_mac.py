@@ -118,15 +118,15 @@ class ScraperEngine:
 
     def detect_category(self, url: str, text: str) -> str:
         lower = f"{url.lower()} {text.lower()}"
-        if any(k in lower for k in ["korku", "gerilim", "horror", "thriller"]):
+        if any(k in lower for k in ["korku", "gerilim", "horror", "thriller", "slasher"]):
             return "Korku & Gerilim"
-        if any(k in lower for k in ["aksiyon", "macera", "action", "adventure"]):
+        if any(k in lower for k in ["aksiyon", "macera", "action", "adventure", "dövüş", "dovus", "savaş", "savas", "western", "kovboy"]):
             return "Aksiyon & Macera"
-        if any(k in lower for k in ["komedi", "mizah", "comedy"]):
+        if any(k in lower for k in ["komedi", "mizah", "comedy", "parodi", "kara mizah", "animasyon", "animation", "aile", "family"]):
             return "Komedi"
-        if any(k in lower for k in ["dram", "romantik", "drama", "romance"]):
+        if any(k in lower for k in ["dram", "drama", "romantik", "romance", "aşk", "ask", "duygusal", "melodram", "biyografi", "biography", "tarih", "history"]):
             return "Dram & Romantik"
-        if any(k in lower for k in ["bilim", "kurgu", "fantastik", "sci-fi", "scifi", "fantasy"]):
+        if any(k in lower for k in ["bilim", "kurgu", "fantastik", "sci-fi", "scifi", "fantasy", "uzay", "süper kahraman", "distopya", "gizem", "mystery", "suç", "suc", "polisiye", "crime"]):
             return "Bilim Kurgu & Fantastik"
         return "Popüler"
 
@@ -458,12 +458,19 @@ class ScraperEngine:
         time_m = re.search(r'(\d{2,3})\s*(?:dk|dakika|min)', html, re.I)
         runtime = f"{time_m.group(1)} dk" if time_m else None
 
-        genres = set(initial_cats) if initial_cats else {"Popüler"}
+        genres = set(initial_cats) if initial_cats else set()
         for href, text in re.findall(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', html, re.I | re.DOTALL):
-            if any(k in href.lower() for k in ["/kategori/", "/tur/", "/filmizle/", "/genre/"]):
+            if any(k in href.lower() for k in ["/kategori/", "/tur/", "/filmizle/", "/genre/", "/filmler/"]):
                 cat = self.detect_category(href, re.sub(r'<[^>]+>', '', text).strip())
                 if cat != "Popüler":
                     genres.add(cat)
+
+        # "Tür: Aksiyon, Dram" gibi metin bloklarını tara
+        for m in re.finditer(r'(?:Tür(?:ü|ler)?|Kategori|Genres?)\s*[:：]\s*([^<\n\r]+)', html, re.I):
+            clean_block = re.sub(r'<[^>]+>', '', m.group(1)).strip()
+            cat = self.detect_category("", clean_block)
+            if cat != "Popüler":
+                genres.add(cat)
 
         candidate_embeds = []
         default_lang = "[TR Altyazılı]" if "altyaz" in raw_title.lower() or "altyaz" in movie_url.lower() else "[TR Dublaj]"
@@ -639,9 +646,17 @@ class ScraperEngine:
                 oth_c += 1
                 st["title"] = f"Play • Sunucu {oth_c} • 1080p • [TR]"
 
-        meta_id, official_title, official_poster, official_desc, release_year = self.resolve_meta(
+        meta_id, official_title, official_poster, official_desc, release_year, meta_genres = self.resolve_meta(
             clean_title, poster, desc, year, tmdb_api_key
         )
+
+        for g in meta_genres:
+            cat = self.detect_category("", g)
+            if cat != "Popüler":
+                genres.add(cat)
+
+        if not genres:
+            genres.add("Popüler")
 
         return {
             "tmdbId": meta_id,
@@ -668,12 +683,20 @@ class ScraperEngine:
                 m_id = m0.get("id")
                 if m_id and m_id.startswith("tt"):
                     turkish_desc = desc if desc and desc != "Play • 1080p TR" else (m0.get("description") or "Play • 1080p TR")
+                    extra_genres = m0.get("genres") or []
+                    if not extra_genres:
+                        try:
+                            detail_res = http_json(f"https://v3-cinemeta.strem.io/meta/movie/{m_id}.json")
+                            extra_genres = detail_res.get("meta", {}).get("genres") or []
+                        except Exception:
+                            pass
                     return (
                         m_id,
                         m0.get("name") or title,
                         m0.get("poster") or poster,
                         turkish_desc,
-                        m0.get("releaseInfo") or year
+                        m0.get("releaseInfo") or year,
+                        extra_genres
                     )
         except Exception:
             pass
@@ -694,14 +717,15 @@ class ScraperEngine:
                             r0.get("title") or title,
                             p_url,
                             r0.get("overview") or desc,
-                            (r0.get("release_date") or year)[:4]
+                            (r0.get("release_date") or year)[:4],
+                            []
                         )
             except Exception:
                 pass
 
         slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
         safe_id = f"playrepo-{slug}" if slug else f"playrepo-film-{abs(hash(title))}"
-        return (safe_id, title, poster, desc, year)
+        return (safe_id, title, poster, desc, year, [])
 
 # -------------------------------------------------------------
 # GitHub Atomic Git Data API Publisher

@@ -57,11 +57,11 @@ class SiteScraperEngine {
     fun detectCategoryFromUrlOrText(url: String, text: String): String? {
         val lower = "${url.lowercase()} ${text.lowercase()}"
         return when {
-            lower.contains("korku") || lower.contains("gerilim") || lower.contains("horror") || lower.contains("thriller") -> "Korku & Gerilim"
-            lower.contains("aksiyon") || lower.contains("macera") || lower.contains("action") || lower.contains("adventure") -> "Aksiyon & Macera"
-            lower.contains("komedi") || lower.contains("mizah") || lower.contains("comedy") -> "Komedi"
-            lower.contains("dram") || lower.contains("romantik") || lower.contains("drama") || lower.contains("romance") -> "Dram & Romantik"
-            lower.contains("bilim") || lower.contains("kurgu") || lower.contains("fantastik") || lower.contains("sci-fi") || lower.contains("scifi") || lower.contains("fantasy") -> "Bilim Kurgu & Fantastik"
+            lower.contains("korku") || lower.contains("gerilim") || lower.contains("horror") || lower.contains("thriller") || lower.contains("slasher") -> "Korku & Gerilim"
+            lower.contains("aksiyon") || lower.contains("macera") || lower.contains("action") || lower.contains("adventure") || lower.contains("dövüş") || lower.contains("dovus") || lower.contains("savaş") || lower.contains("savas") || lower.contains("western") || lower.contains("kovboy") -> "Aksiyon & Macera"
+            lower.contains("komedi") || lower.contains("mizah") || lower.contains("comedy") || lower.contains("parodi") || lower.contains("kara mizah") || lower.contains("animasyon") || lower.contains("animation") || lower.contains("aile") || lower.contains("family") -> "Komedi"
+            lower.contains("dram") || lower.contains("romantik") || lower.contains("drama") || lower.contains("romance") || lower.contains("aşk") || lower.contains("ask") || lower.contains("duygusal") || lower.contains("melodram") || lower.contains("biyografi") || lower.contains("biography") || lower.contains("tarih") || lower.contains("history") -> "Dram & Romantik"
+            lower.contains("bilim") || lower.contains("kurgu") || lower.contains("fantastik") || lower.contains("sci-fi") || lower.contains("scifi") || lower.contains("fantasy") || lower.contains("uzay") || lower.contains("süper kahraman") || lower.contains("distopya") || lower.contains("gizem") || lower.contains("mystery") || lower.contains("suç") || lower.contains("suc") || lower.contains("polisiye") || lower.contains("crime") -> "Bilim Kurgu & Fantastik"
             else -> null
         }
     }
@@ -429,17 +429,26 @@ class SiteScraperEngine {
             val genreSet = mutableSetOf<String>()
 
             // Extract ONLY from explicit category links within the movie details block
-            doc.select("article, .film-bilgileri, #filmbilgileri, .info, .detaylar, .entry-content, .content")
+            doc.select("article, .film-bilgileri, #filmbilgileri, .info, .detaylar, .entry-content, .content, .genres, .kategori")
                 .select("a[href]").forEach { el ->
                     val href = el.absUrl("href").lowercase()
                     val txt = el.text().trim()
-                    if (isValidCatalogPageUrl(href, siteBase) || href.contains("/tur/") || href.contains("/filmizle/") || href.contains("/kategori/") || href.contains("/genre/")) {
+                    if (isValidCatalogPageUrl(href, siteBase) || href.contains("/tur/") || href.contains("/filmizle/") || href.contains("/kategori/") || href.contains("/genre/") || href.contains("/filmler/")) {
                         val cat = detectCategoryFromUrlOrText(href, txt)
                         if (cat != null) {
                             genreSet.add(cat)
                         }
                     }
                 }
+
+            // Metin bloklarındaki "Tür: Aksiyon, Dram" ifadelerini tara
+            Regex("""(?:Tür(?:ü|ler)?|Kategori|Genres?)\s*[:：]\s*([^<\n\r]+)""", RegexOption.IGNORE_CASE).findAll(html).forEach { m ->
+                val line = m.groupValues[1]
+                val cat = detectCategoryFromUrlOrText("", line)
+                if (cat != null) {
+                    genreSet.add(cat)
+                }
+            }
 
             // Fallback to initial discovery category only if movie details didn't specify one
             if (genreSet.isEmpty() && !initialCategories.isNullOrEmpty()) {
