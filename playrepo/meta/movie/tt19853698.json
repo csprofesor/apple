@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "tt19853698",
+    "type": "movie",
+    "name": "Música",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYTVhZjM3YWMtMjc1MC00MjY5LWJhYzItNWI4MjZhOTU3MTQyXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BYTVhZjM3YWMtMjc1MC00MjY5LWJhYzItNWI4MjZhOTU3MTQyXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Newark, New Jersey&#039;nin sokaklarında, gözleri kapalıyken bile renklerin dansını görebilen genç bir yaratıcı, hayatın karmaşık labirentinde yolunu bulmaya çalışıy...",
+    "releaseInfo": "2024",
+    "genres": [
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Aksiyon & Macera",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt19853698",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt19853698",
+        "title": "Música",
+        "released": "2024-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}

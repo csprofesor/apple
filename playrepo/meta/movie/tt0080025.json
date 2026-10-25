@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "tt0080025",
+    "type": "movie",
+    "name": "Time After Time",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMjZiYWI0Y2EtMzUyMS00ZDQ1LTkyOTAtNjJiZTU2ZmNlNzUxXkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMjZiYWI0Y2EtMzUyMS00ZDQ1LTkyOTAtNjJiZTU2ZmNlNzUxXkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Zihinlerin karmaşasında, hayal dünyasıyla gerçeklik arasındaki ince çizgi bulanıklaşır. &quot;Into The Mind&quot;, akıl hocaları ve öğrencilerinin paylaştığı derin deneyi...",
+    "releaseInfo": "1979",
+    "genres": [
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Aksiyon & Macera",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt0080025",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0080025",
+        "title": "Time After Time",
+        "released": "1979-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
