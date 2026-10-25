@@ -344,7 +344,7 @@ class SiteScraperEngine {
             // Extract description / plot
             val scrapedDesc = doc.selectFirst("meta[property=og:description]")?.attr("content")?.trim()
                 ?: doc.selectFirst("meta[name=description]")?.attr("content")?.trim()
-                ?: doc.selectFirst(".film-ozeti, .entry-content p, .ozet, .story")?.text()?.trim()
+                ?: doc.selectFirst(".film-ozeti, .entry-content p, .ozet, .story, .film-content, .movie-summary, .summary, .description, #film-ozet, .content-text, [itemprop=description], .post-content, .wp-content p")?.text()?.trim()
                 ?: ""
 
             // Extract release year
@@ -1065,14 +1065,14 @@ class SiteScraperEngine {
                         val name = firstMeta.get("name")?.asString ?: cleanTitle
                         val poster = firstMeta.get("poster")?.asString ?: fallbackPoster
                         val releaseYear = firstMeta.get("releaseInfo")?.asString ?: year
-                        val desc = firstMeta.get("description")?.asString ?: scrapedDesc
+                        val desc = if (scrapedDesc.isNotBlank()) scrapedDesc else (firstMeta.get("description")?.asString ?: "Play • 1080p TR")
 
                         if (!id.isNullOrBlank()) {
                             return MetaResolution(
                                 id = id,
                                 title = name,
                                 poster = if (poster.isNotBlank()) poster else fallbackPoster,
-                                description = if (desc.isNotBlank()) desc else "Play • 1080p TR",
+                                description = desc,
                                 year = releaseYear
                             )
                         }
@@ -1098,7 +1098,7 @@ class SiteScraperEngine {
                             val officialTitle = firstMovie.get("title")?.asString ?: firstMovie.get("original_title")?.asString ?: cleanTitle
                             val posterPath = firstMovie.get("poster_path")?.asString
                             val posterUrl = if (!posterPath.isNullOrBlank()) "https://image.tmdb.org/t/p/w500$posterPath" else fallbackPoster
-                            val overview = firstMovie.get("overview")?.asString ?: scrapedDesc
+                            val overview = if (scrapedDesc.isNotBlank()) scrapedDesc else (firstMovie.get("overview")?.asString ?: "Play • 1080p TR")
                             val releaseDate = firstMovie.get("release_date")?.asString?.take(4) ?: year
 
                             if (!id.isNullOrBlank()) {

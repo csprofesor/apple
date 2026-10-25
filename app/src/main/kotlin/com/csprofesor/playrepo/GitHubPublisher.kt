@@ -78,17 +78,16 @@ class GitHubPublisher {
                 val idStr = normalizeMovieId(movie.tmdbId)
                 val hyphenId = idStr.replace(":", "-").replace("_", "-")
                 val safeId = idStr.replace(":", "_")
+                val cleanId = idStr.removePrefix("playrepo-").removePrefix("tmdb-").removePrefix("movie/").removePrefix("tv/")
 
                 val metaJson = buildMetaJson(movie, idStr)
                 val streamJson = buildStreamJson(movie)
 
-                filesToCommit["playrepo/meta/movie/$idStr.json"] = metaJson
-                filesToCommit["playrepo/meta/movie/$hyphenId.json"] = metaJson
-                filesToCommit["playrepo/meta/movie/$safeId.json"] = metaJson
-
-                filesToCommit["playrepo/stream/movie/$idStr.json"] = streamJson
-                filesToCommit["playrepo/stream/movie/$hyphenId.json"] = streamJson
-                filesToCommit["playrepo/stream/movie/$safeId.json"] = streamJson
+                val distinctIds = linkedSetOf(idStr, hyphenId, safeId, cleanId).filter { it.isNotBlank() }
+                for (id in distinctIds) {
+                    filesToCommit["playrepo/meta/movie/$id.json"] = metaJson
+                    filesToCommit["playrepo/stream/movie/$id.json"] = streamJson
+                }
             }
 
             // 5. Commit all files atomically in ONE commit via Git Data API
@@ -468,44 +467,36 @@ class GitHubPublisher {
                 j.getAsJsonObject("object")?.get("sha")?.asString
             } ?: return false
 
-            // 2. Create blobs for each file to avoid GitHub's 100KB tree payload limit
-            val blobUrl = "https://api.github.com/repos/$repoOwner/$repoName/git/blobs"
+            // 2. Get base tree SHA from the latest commit (REQUIRED by Git Trees API)
+            val commitGetUrl = "https://api.github.com/repos/$repoOwner/$repoName/git/commits/$parentSha"
+            val commitGetReq = Request.Builder()
+                .url(commitGetUrl)
+                .header("Authorization", authHeader)
+                .header("Accept", "application/vnd.github.v3+json")
+                .build()
+
+            val baseTreeSha = client.newCall(commitGetReq).execute().use { resp ->
+                if (!resp.isSuccessful) return false
+                val j = gson.fromJson(resp.body?.string(), JsonObject::class.java)
+                j.getAsJsonObject("tree")?.get("sha")?.asString
+            } ?: return false
+
+            // 3. Build Git tree with inline content (GitHub automatically creates blobs atomically in 1 request)
             val treeArray = JsonArray()
-
             files.forEach { (path, content) ->
-                val blobPayload = JsonObject().apply {
+                val item = JsonObject().apply {
+                    addProperty("path", path)
+                    addProperty("mode", "100644")
+                    addProperty("type", "blob")
                     addProperty("content", content)
-                    addProperty("encoding", "utf-8")
                 }
-                val blobReq = Request.Builder()
-                    .url(blobUrl)
-                    .header("Authorization", authHeader)
-                    .header("Accept", "application/vnd.github.v3+json")
-                    .post(blobPayload.toString().toRequestBody("application/json".toMediaType()))
-                    .build()
-
-                val blobSha = client.newCall(blobReq).execute().use { bResp ->
-                    if (bResp.isSuccessful) {
-                        val bj = gson.fromJson(bResp.body?.string(), JsonObject::class.java)
-                        bj.get("sha")?.asString
-                    } else null
-                }
-
-                if (blobSha != null) {
-                    val item = JsonObject().apply {
-                        addProperty("path", path)
-                        addProperty("mode", "100644")
-                        addProperty("type", "blob")
-                        addProperty("sha", blobSha)
-                    }
-                    treeArray.add(item)
-                }
+                treeArray.add(item)
             }
 
             if (treeArray.size() == 0) return false
 
             val treeBody = JsonObject().apply {
-                addProperty("base_tree", parentSha)
+                addProperty("base_tree", baseTreeSha)
                 add("tree", treeArray)
             }
 
@@ -522,7 +513,7 @@ class GitHubPublisher {
                 j.get("sha")?.asString
             } ?: return false
 
-            // 3. Post new commit
+            // 4. Post new commit referencing newTreeSha
             val commitUrl = "https://api.github.com/repos/$repoOwner/$repoName/git/commits"
             val commitBody = JsonObject().apply {
                 addProperty("message", commitMessage)
@@ -544,7 +535,7 @@ class GitHubPublisher {
                 j.get("sha")?.asString
             } ?: return false
 
-            // 4. Update branch ref
+            // 5. Update branch ref to the new commit
             val updateRefBody = JsonObject().apply {
                 addProperty("sha", newCommitSha)
                 addProperty("force", true)

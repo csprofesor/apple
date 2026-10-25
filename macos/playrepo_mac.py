@@ -329,7 +329,8 @@ class ScraperEngine:
 
         desc_m = re.search(r'<meta\s+property=["\']og:description["\']\s+content=["\'](.*?)["\']', html, re.I) or \
                  re.search(r'<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']', html, re.I) or \
-                 re.search(r'class=["\'][^"\']*(?:film-ozeti|ozet|story)[^"\']*["\'][^>]*>(.*?)</div>', html, re.I | re.DOTALL)
+                 re.search(r'class=["\'][^"\']*(?:film-ozeti|ozet|story|summary|film-content|entry-content)[^"\']*["\'][^>]*>(.*?)</div>', html, re.I | re.DOTALL) or \
+                 re.search(r'class=["\'][^"\']*(?:film-ozeti|ozet|story|summary|film-content|entry-content)[^"\']*["\'][^>]*>(.*?)</p>', html, re.I | re.DOTALL)
         desc = re.sub(r'<[^>]+>', '', desc_m.group(1)).strip() if desc_m else "Play • 1080p TR"
 
         imdb_m = re.search(r'class=["\'][^"\']*(?:imdb-puan|imdb|puan|rating)[^"\']*["\'][^>]*>([0-9.,]+)<', html, re.I)
@@ -448,11 +449,12 @@ class ScraperEngine:
                 m0 = metas[0]
                 m_id = m0.get("id")
                 if m_id and m_id.startswith("tt"):
+                    turkish_desc = desc if desc and desc != "Play • 1080p TR" else (m0.get("description") or "Play • 1080p TR")
                     return (
                         m_id,
                         m0.get("name") or title,
                         m0.get("poster") or poster,
-                        m0.get("description") or desc,
+                        turkish_desc,
                         m0.get("releaseInfo") or year
                     )
         except Exception:
@@ -574,13 +576,12 @@ class GitHubAtomicPublisher:
             m_json_str = json.dumps(detail_meta, ensure_ascii=False, indent=2)
             s_json_str = json.dumps(stream_obj, ensure_ascii=False, indent=2)
 
-            files_to_commit[f"playrepo/meta/movie/{m_id}.json"] = m_json_str
-            files_to_commit[f"playrepo/meta/movie/{hyphen_id}.json"] = m_json_str
-            files_to_commit[f"playrepo/meta/movie/{safe_id}.json"] = m_json_str
-
-            files_to_commit[f"playrepo/stream/movie/{m_id}.json"] = s_json_str
-            files_to_commit[f"playrepo/stream/movie/{hyphen_id}.json"] = s_json_str
-            files_to_commit[f"playrepo/stream/movie/{safe_id}.json"] = s_json_str
+            clean_id = m_id.replace("playrepo-", "").replace("playrepo:", "").replace("tmdb-", "").replace("tmdb:", "")
+            distinct_ids = {m_id, hyphen_id, safe_id, clean_id}
+            for did in distinct_ids:
+                if did:
+                    files_to_commit[f"playrepo/meta/movie/{did}.json"] = m_json_str
+                    files_to_commit[f"playrepo/stream/movie/{did}.json"] = s_json_str
 
         all_metas = list(meta_dict.values())
         files_to_commit["data/catalog.json"] = json.dumps({"metas": all_metas}, ensure_ascii=False, indent=2)
@@ -615,22 +616,16 @@ class GitHubAtomicPublisher:
         commit_data = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/commits/{latest_commit_sha}", token=self.token)
         base_tree_sha = commit_data.get("tree", {}).get("sha")
 
-        tree_items = []
-        for path, content in files_to_commit.items():
-            blob_res = http_json(
-                f"https://api.github.com/repos/{self.owner}/{self.repo}/git/blobs",
-                method="POST",
-                data={"content": content, "encoding": "utf-8"},
-                token=self.token
-            )
-            blob_sha = blob_res.get("sha")
-            if blob_sha:
-                tree_items.append({
-                    "path": path,
-                    "mode": "100644",
-                    "type": "blob",
-                    "sha": blob_sha
-                })
+        # GitHub Git Trees API creates blobs automatically from inline content in 1 request
+        tree_items = [
+            {
+                "path": path,
+                "mode": "100644",
+                "type": "blob",
+                "content": content
+            }
+            for path, content in files_to_commit.items()
+        ]
 
         tree_res = http_json(
             f"https://api.github.com/repos/{self.owner}/{self.repo}/git/trees",
