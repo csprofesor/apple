@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "tt0094336",
+    "type": "movie",
+    "name": "Withnail and I",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNmFlOGIyNTMtNjBhYy00NTRiLTg3YWEtMThhOWM5ODU4Y2M2XkEyXkFqcGc@._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BNmFlOGIyNTMtNjBhYy00NTRiLTg3YWEtMThhOWM5ODU4Y2M2XkEyXkFqcGc@._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Withnail ve Marwood, Londra&#039;nın gri sokaklarında kaybolmuş iki ruh, hayatlarının enkazında sürükleniyor. Kendi küçük dünyalarında, alkol ve umutsuzlukla baş etm...",
+    "releaseInfo": "1987",
+    "genres": [
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Dram & Romantik",
+      "Aksiyon & Macera",
+      "Korku & Gerilim",
+      "Komedi"
+    ],
+    "behaviorHints": {
+      "defaultVideoId": "tt0094336",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0094336",
+        "title": "Withnail and I",
+        "released": "1987-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
