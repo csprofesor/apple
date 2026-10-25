@@ -29,6 +29,14 @@ REPO_NAME = "apple"
 DEFAULT_BRANCH = "main"
 LOGO_URL = "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png"
 
+WORKSPACE_DIR = os.environ.get("PLAYREPO_WORKSPACE", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if not os.path.exists(os.path.join(WORKSPACE_DIR, "data")):
+    if os.path.exists("/Users/gokturksahan/apple/data"):
+        WORKSPACE_DIR = "/Users/gokturksahan/apple"
+    else:
+        WORKSPACE_DIR = os.path.expanduser("~/.playrepo_workspace")
+        os.makedirs(os.path.join(WORKSPACE_DIR, "data"), exist_ok=True)
+
 USER_AGENTS = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -433,9 +441,21 @@ class ScraperEngine:
             if ok_m:
                 try:
                     ok_data = json.loads(ok_m.group(1).replace("&quot;", '"'))
-                    hls = ok_data.get("flashvars", {}).get("metadata", {}).get("hlsManifestUrl")
+                    fv = ok_data.get("flashvars", {})
+                    meta = fv.get("metadata", {})
+                    if isinstance(meta, str):
+                        try:
+                            meta = json.loads(meta)
+                        except Exception:
+                            meta = {}
+                    hls = meta.get("ondemandHls") or meta.get("hlsManifestUrl") or fv.get("ondemandHls") or fv.get("hlsManifestUrl")
                     if hls:
                         return hls
+                    videos = meta.get("videos", [])
+                    if videos and isinstance(videos, list):
+                        last_v = videos[-1].get("url")
+                        if last_v:
+                            return last_v
                 except Exception:
                     pass
 
@@ -2521,78 +2541,86 @@ class RequestHandler(BaseHTTPRequestHandler):
             ENGINE_INSTANCE.is_paused = False
 
             def worker():
-                append_global_log(f"[GÜNCELLEME BAŞLADI] Toplam {len(sites)} kayıtlı sitenin tamamı taranıyor...")
-                pub_names, pub_ids, processed_urls = get_already_published_identifiers()
-                append_global_log(f"📋 [HAFIZA KONTROLÜ] Önceden taranıp Nuvio'ya eklenmiş {len(pub_names | pub_ids | processed_urls)} içerik tespit edildi. Bu filmler tekrar taranmayacak, doğrudan atlanacak!")
+                try:
+                    append_global_log(f"[GÜNCELLEME BAŞLADI] Toplam {len(sites)} kayıtlı sitenin tamamı taranıyor...")
+                    pub_names, pub_ids, processed_urls = get_already_published_identifiers()
+                    append_global_log(f"📋 [HAFIZA KONTROLÜ] Önceden taranıp Nuvio'ya eklenmiş {len(pub_names | pub_ids | processed_urls)} içerik tespit edildi. Bu filmler tekrar taranmayacak, doğrudan atlanacak!")
 
-                all_scraped = []
-                for s_idx, site_url in enumerate(sites):
-                    if not ENGINE_INSTANCE.check_alive():
-                        break
-                    append_global_log(f"--- [SİTE {s_idx + 1}/{len(sites)}] Taranıyor: {site_url} ---")
-                    movie_dict = ENGINE_INSTANCE.discover_movie_links(site_url, max_pages=max_p)
-                    append_global_log(f"✓ {site_url} üzerinde {len(movie_dict)} film bulundu. Video akışları çözülüyor...")
-
-                    pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
-                    batch_buffer = []
-
-                    for m_idx, (m_url, cats) in enumerate(movie_dict.items()):
+                    all_scraped = []
+                    for s_idx, site_url in enumerate(sites):
                         if not ENGINE_INSTANCE.check_alive():
                             break
-                        short = m_url.rstrip("/").split("/")[-1]
+                        append_global_log(f"--- [SİTE {s_idx + 1}/{len(sites)}] Taranıyor: {site_url} ---")
+                        movie_dict = ENGINE_INSTANCE.discover_movie_links(site_url, max_pages=max_p)
+                        append_global_log(f"✓ {site_url} üzerinde {len(movie_dict)} film bulundu. Video akışları çözülüyor...")
 
-                        # URL daha önce işlendiyse doğrudan atla
-                        if m_url in processed_urls:
-                            append_global_log(f"  ⏭ {short} (Daha önceden zaten eklenmiş, atlandı)")
-                            continue
+                        pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
+                        batch_buffer = []
 
-                        # URL'deki film adı bilinen yayınlanmış bir ada uyuyorsa atla
-                        slug_cand = short.replace("-izle", "").replace("-", " ").strip().lower()
-                        if slug_cand in pub_names:
-                            append_global_log(f"  ⏭ {short} (Nuvio'da zaten mevcut: {slug_cand}, atlandı)")
-                            processed_urls.add(m_url)
-                            continue
+                        for m_idx, (m_url, cats) in enumerate(movie_dict.items()):
+                            if not ENGINE_INSTANCE.check_alive():
+                                break
+                            short = m_url.rstrip("/").split("/")[-1]
 
-                        append_global_log(f"[{m_idx + 1}/{len(movie_dict)}] Çözülüyor: {short}...")
-                        m_data = ENGINE_INSTANCE.scrape_movie_page(m_url, cats, tmdb_api_key=tmdb)
-                        
-                        # İşlendi olarak kaydet
-                        processed_urls.add(m_url)
-                        save_processed_urls(processed_urls)
-
-                        if m_data and m_data.get("streams"):
-                            # Film adı veya ID'si yayında varsa atla
-                            m_title_norm = m_data['title'].strip().lower()
-                            m_id_norm = m_data['tmdbId'].strip().lower()
-                            if m_title_norm in pub_names or m_id_norm in pub_ids:
-                                append_global_log(f"  ⏭ {m_data['title']} (Nuvio'da zaten mevcut, atlandı)")
+                            # URL daha önce işlendiyse doğrudan atla
+                            if m_url in processed_urls:
+                                append_global_log(f"  ⏭ {short} (Daha önceden zaten eklenmiş, atlandı)")
                                 continue
 
-                            pub_names.add(m_title_norm)
-                            pub_ids.add(m_id_norm)
-                            batch_buffer.append(m_data)
-                            s_count = len(m_data["streams"])
-                            c_str = ", ".join(m_data["genres"])
-                            append_global_log(f"  ✓ {m_data['title']} ({s_count} Sunucu • [{c_str}])")
+                            # URL'deki film adı bilinen yayınlanmış bir ada uyuyorsa atla
+                            slug_cand = short.replace("-izle", "").replace("-", " ").strip().lower()
+                            if slug_cand in pub_names:
+                                append_global_log(f"  ⏭ {short} (Nuvio'da zaten mevcut: {slug_cand}, atlandı)")
+                                processed_urls.add(m_url)
+                                continue
 
-                            # Her 3 film çözüldüğünde beklemeden anında GitHub ve Nuvio'ya aktar!
-                            if len(batch_buffer) >= 3:
-                                append_global_log(f"⚡ [ANLIK YÜKLEME] Çözülen {len(batch_buffer)} film anında Nuvio/GitHub'a yükleniyor...")
-                                pub.publish_movies(batch_buffer)
-                                batch_buffer.clear()
-                        else:
-                            append_global_log(f"  ↷ {short} (Aktif akış yok, atlandı)")
+                            append_global_log(f"[{m_idx + 1}/{len(movie_dict)}] Çözülüyor: {short}...")
+                            m_data = ENGINE_INSTANCE.scrape_movie_page(m_url, cats, tmdb_api_key=tmdb)
+                            
+                            # İşlendi olarak kaydet
+                            processed_urls.add(m_url)
+                            save_processed_urls(processed_urls)
 
-                    # Kalan filmleri hemen aktar
-                    if batch_buffer and ENGINE_INSTANCE.check_alive():
-                        append_global_log(f"⚡ [ANLIK YÜKLEME] Kalan {len(batch_buffer)} film Nuvio/GitHub'a aktarılıyor...")
-                        pub.publish_movies(batch_buffer)
-                        batch_buffer.clear()
+                            if m_data and m_data.get("streams"):
+                                # Film adı veya ID'si yayında varsa atla
+                                m_title_norm = m_data['title'].strip().lower()
+                                m_id_norm = m_data['tmdbId'].strip().lower()
+                                if m_title_norm in pub_names or m_id_norm in pub_ids:
+                                    append_global_log(f"  ⏭ {m_data['title']} (Nuvio'da zaten mevcut, atlandı)")
+                                    continue
 
-                if ENGINE_INSTANCE.is_running:
-                    append_global_log("✓ [BİTTİ] Tüm tarama ve anlık yükleme tamamlandı.")
-                else:
-                    append_global_log("⏹ [SONLANDI] Tarama kullanıcı tarafından durduruldu.")
+                                pub_names.add(m_title_norm)
+                                pub_ids.add(m_id_norm)
+                                batch_buffer.append(m_data)
+                                s_count = len(m_data["streams"])
+                                c_str = ", ".join(m_data["genres"])
+                                append_global_log(f"  ✓ {m_data['title']} ({s_count} Sunucu • [{c_str}])")
+
+                                # Her 3 film çözüldüğünde beklemeden anında GitHub ve Nuvio'ya aktar!
+                                if len(batch_buffer) >= 3:
+                                    append_global_log(f"⚡ [ANLIK YÜKLEME] Çözülen {len(batch_buffer)} film anında Nuvio/GitHub'a yükleniyor...")
+                                    pub.publish_movies(batch_buffer)
+                                    batch_buffer.clear()
+                            else:
+                                append_global_log(f"  ↷ {short} (Aktif akış yok, atlandı)")
+
+                        # Kalan filmleri hemen aktar
+                        if batch_buffer and ENGINE_INSTANCE.check_alive():
+                            append_global_log(f"⚡ [ANLIK YÜKLEME] Kalan {len(batch_buffer)} film Nuvio/GitHub'a aktarılıyor...")
+                            pub.publish_movies(batch_buffer)
+                            batch_buffer.clear()
+
+                    if ENGINE_INSTANCE.is_running:
+                        append_global_log("✓ [BİTTİ] Tüm tarama ve anlık yükleme tamamlandı.")
+                    else:
+                        append_global_log("⏹ [SONLANDI] Tarama kullanıcı tarafından durduruldu.")
+                except Exception as e:
+                    import traceback
+                    append_global_log(f"💥 [BEKLENMEDİK HATA] {str(e)}")
+                    append_global_log(traceback.format_exc())
+                finally:
+                    ENGINE_INSTANCE.is_running = False
+                    ENGINE_INSTANCE.is_paused = False
 
             CURRENT_WORKER = threading.Thread(target=worker, daemon=True)
             CURRENT_WORKER.start()
@@ -2642,11 +2670,10 @@ def open_browser_window(url: str):
                 chrome_bin,
                 f"--app={url}",
                 f"--user-data-dir={profile_dir}",
-                "--window-size=1150,880",
+                "--window-size=1180,880",
                 "--no-first-run",
                 "--no-default-browser-check"
             ])
-            subprocess.run(["osascript", "-e", 'tell application "Google Chrome" to activate'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             return
         except Exception:
             pass
