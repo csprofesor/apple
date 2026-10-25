@@ -1366,33 +1366,73 @@ def run_cli_crawl(site_url: str, max_pages: int = 20, token: str = None):
     else:
         print("✗ [PlayRepo CLI] Film bulunamadı veya akışlar çözülemedi.")
 
+ACTIVE_PORT_FILE = "/tmp/playrepo_active.port"
+
+def is_server_alive(port: int) -> bool:
+    try:
+        with socket.create_connection(('127.0.0.1', port), timeout=0.8):
+            return True
+    except Exception:
+        return False
+
+def open_browser_window(url: str):
+    chrome_bin = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    profile_dir = "/tmp/playrepo_desktop_profile"
+    if os.path.exists(chrome_bin):
+        try:
+            subprocess.Popen([
+                chrome_bin,
+                f"--app={url}",
+                f"--user-data-dir={profile_dir}",
+                "--window-size=1150,880",
+                "--no-first-run",
+                "--no-default-browser-check"
+            ])
+            subprocess.run(["osascript", "-e", 'tell application "Google Chrome" to activate'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            return
+        except Exception:
+            pass
+    subprocess.run(["open", url])
+
 def run_app():
+    if os.path.exists(ACTIVE_PORT_FILE):
+        try:
+            with open(ACTIVE_PORT_FILE, "r") as f:
+                saved_port = int(f.read().strip())
+            if is_server_alive(saved_port):
+                open_browser_window(f"http://127.0.0.1:{saved_port}")
+                sys.exit(0)
+        except Exception:
+            pass
+
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind(('127.0.0.1', 0))
     port = sock.getsockname()[1]
     sock.close()
+
+    try:
+        with open(ACTIVE_PORT_FILE, "w") as f:
+            f.write(str(port))
+    except Exception:
+        pass
 
     server = HTTPServer(('127.0.0.1', port), RequestHandler)
     server_thread = threading.Thread(target=server.serve_forever, daemon=True)
     server_thread.start()
 
     url = f"http://127.0.0.1:{port}"
-    chrome_bin = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-    if os.path.exists(chrome_bin):
-        subprocess.Popen([
-            chrome_bin,
-            f"--app={url}",
-            "--window-size=1150,880"
-        ])
-        subprocess.run(["osascript", "-e", 'tell application "Google Chrome" to activate'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    else:
-        subprocess.run(["open", url])
+    open_browser_window(url)
 
     try:
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
         server.shutdown()
+        if os.path.exists(ACTIVE_PORT_FILE):
+            try:
+                os.remove(ACTIVE_PORT_FILE)
+            except Exception:
+                pass
 
 if __name__ == "__main__":
     if "--crawl" in sys.argv:
