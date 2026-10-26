@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-vice-golge-adam",
+    "type": "movie",
+    "name": "Vice: Gölge Adam",
+    "poster": "https://filmdozu.com/assets/img/8163.jpg",
+    "background": "https://filmdozu.com/assets/img/8163.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Karanlık koridorların ardında, güç ve hırsın şekillendirdiği bir yaşamın izlerini sürüyoruz. Dick Cheney&#039;nin gölgesinde yaşanan entrikalar, 11 Eylül&#039;ün dumanlar...",
+    "releaseInfo": "2018",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-vice-golge-adam",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-vice-golge-adam",
+        "title": "Vice: Gölge Adam",
+        "released": "2018-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
