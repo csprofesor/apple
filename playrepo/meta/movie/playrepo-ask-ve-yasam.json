@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "playrepo-ask-ve-yasam",
+    "type": "movie",
+    "name": "Aşk ve Yaşam",
+    "poster": "https://filmdozu.com/assets/img/11201.jpg",
+    "background": "https://filmdozu.com/assets/img/11201.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Bay Dashwood&#039;un ölümünün ardından, karanlık bir bulut gibi çöken miras meselesi, ailenin üzerinde bir gölge bırakır. Yasaların soğuk adaleti, tüm serveti ilk ev...",
+    "releaseInfo": "1995",
+    "genres": [
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-ask-ve-yasam",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-ask-ve-yasam",
+        "title": "Aşk ve Yaşam",
+        "released": "1995-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
