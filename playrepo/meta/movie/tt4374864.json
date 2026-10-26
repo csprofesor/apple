@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "tt4374864",
+    "type": "movie",
+    "name": "Los Angeles Overnight",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTk0ZDFiY2UtMTViMS00NDA1LThjMTktZjcxNmRhNjQzYjE0XkEyXkFqcGc%40._V1_.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMTk0ZDFiY2UtMTViMS00NDA1LThjMTktZjcxNmRhNjQzYjE0XkEyXkFqcGc%40._V1_.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Los Angeles&#039;ın sisli sokaklarında, 1950&#039;lerin karanlık gölgeleri arasında bir liderlik savaşı patlak verir. Mickey Cohen&#039;in hapse atılmasıyla suç dünyası başsız...",
+    "releaseInfo": "2018",
+    "genres": [
+      "Dram & Romantik",
+      "Korku & Gerilim",
+      "Suç, Polisiye & Gizem"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "tt4374864",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt4374864",
+        "title": "Los Angeles Overnight",
+        "released": "2018-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
