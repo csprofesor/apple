@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "tt0066765",
+    "type": "movie",
+    "name": "Monty Python's and Now for Something Completely Different",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZjEzYjIzMzYtODE3NC00ZjM5LWE0NWItM2Q4YTY2NWRlOWNjXkEyXkFqcGc%40._V1_.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BZjEzYjIzMzYtODE3NC00ZjM5LWE0NWItM2Q4YTY2NWRlOWNjXkEyXkFqcGc%40._V1_.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "İngiliz mizahının en ince detaylarına kadar işlendiği, skeçlerin bir araya gelerek oluşturduğu bu yapım, izleyiciyi kahkahalara boğacak türden. Birbiriyle ustal...",
+    "releaseInfo": "1972",
+    "genres": [
+      "Komedi"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "tt0066765",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0066765",
+        "title": "Monty Python's and Now for Something Completely Different",
+        "released": "1972-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
