@@ -163,30 +163,107 @@ async function unpackLiveStreamUrl(rawUrl, referer) {
     return "";
 }
 
+function hasGenreCheck(m, ...keywords) {
+    if (!m || !m.genres || !Array.isArray(m.genres)) return false;
+    const lowerGenres = m.genres.map(g => (g || "").toString().toLowerCase());
+    return lowerGenres.some(g => keywords.some(kw => g.includes(kw)));
+}
+
+function getDisjointMetasForCatalog(allMetas, catalogId) {
+    const allMovies = allMetas.filter(m => m.type !== "series");
+    const allSeries = allMetas.filter(m => m.type === "series");
+
+    if (catalogId === "playrepo-popular") {
+        return allMovies.slice(0, 60);
+    }
+    if (catalogId === "playrepo-catalog-movies") {
+        return allMovies;
+    }
+    if (catalogId === "playrepo-series-popular") {
+        return allSeries;
+    }
+
+    const movieConfigs = [
+        { id: "playrepo-animasyon", check: (m) => hasGenreCheck(m, "animasyon", "çizgi", "anime", "animation") },
+        { id: "playrepo-belgesel", check: (m) => hasGenreCheck(m, "belgesel", "tarih", "biyografi", "documentary", "history") },
+        { id: "playrepo-korku", check: (m) => hasGenreCheck(m, "korku", "gerilim", "horror", "thriller") },
+        { id: "playrepo-bilimkurgu", check: (m) => hasGenreCheck(m, "bilim", "kurgu", "fantastik", "sci-fi", "fantasy") },
+        { id: "playrepo-komedi", check: (m) => hasGenreCheck(m, "komedi", "mizah", "comedy") },
+        { id: "playrepo-suc", check: (m) => hasGenreCheck(m, "suç", "suc", "polisiye", "gizem", "crime", "mystery") },
+        { id: "playrepo-aksiyon", check: (m) => hasGenreCheck(m, "aksiyon", "macera", "action", "adventure") },
+        { id: "playrepo-dram", check: (m) => hasGenreCheck(m, "dram", "romantik", "drama", "romance") }
+    ];
+
+    const assignedMovieIds = new Set();
+    for (const cat of movieConfigs) {
+        const catList = [];
+        for (const m of allMovies) {
+            const mId = m.id;
+            if (mId && !assignedMovieIds.has(mId) && cat.check(m)) {
+                catList.push(m);
+                assignedMovieIds.add(mId);
+            }
+        }
+        if (cat.id === catalogId) {
+            return catList;
+        }
+    }
+
+    const seriesConfigs = [
+        { id: "playrepo-series-bilimkurgu", check: (m) => hasGenreCheck(m, "bilim", "kurgu", "fantastik") },
+        { id: "playrepo-series-korku", check: (m) => hasGenreCheck(m, "korku", "gerilim") },
+        { id: "playrepo-series-komedi", check: (m) => hasGenreCheck(m, "komedi", "mizah") },
+        { id: "playrepo-series-suc", check: (m) => hasGenreCheck(m, "suç", "suc", "polisiye", "gizem", "crime", "mystery") },
+        { id: "playrepo-series-aksiyon", check: (m) => hasGenreCheck(m, "aksiyon", "macera") },
+        { id: "playrepo-series-dram", check: (m) => hasGenreCheck(m, "dram", "romantik") }
+    ];
+
+    const assignedSeriesIds = new Set();
+    for (const cat of seriesConfigs) {
+        const catList = [];
+        for (const s of allSeries) {
+            const sId = s.id;
+            if (sId && !assignedSeriesIds.has(sId) && cat.check(s)) {
+                catList.push(s);
+                assignedSeriesIds.add(sId);
+            }
+        }
+        if (cat.id === catalogId) {
+            return catList;
+        }
+    }
+
+    return allMovies;
+}
+
 async function getCatalog(type, id, extra) {
     try {
         // 1. Try static category catalog file first (supporting both movie and series directories)
-        if (id && id.startsWith("playrepo-") && id !== "playrepo-catalog-movies") {
+        if (id && id.startsWith("playrepo-")) {
             try {
                 const catFolder = (type === "series" || id.includes("series")) ? "series" : "movie";
                 const catFileUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/catalog/${catFolder}/${id}.json?t=${Date.now()}`;
                 const catRes = await fetch(catFileUrl, {
-                    headers: { "User-Agent": UA, "Accept": "application/json" }
+                    headers: {
+                        "User-Agent": UA,
+                        "Accept": "application/json",
+                        "Cache-Control": "no-cache, no-store, must-revalidate",
+                        "Pragma": "no-cache"
+                    }
                 });
                 if (catRes.ok) {
                     const catData = await catRes.json();
                     let metas = Array.isArray(catData) ? catData : (catData.metas || []);
-                    if (metas && metas.length > 0) {
-                        metas.forEach(m => {
-                            if (m.poster && m.poster.includes("@")) m.poster = m.poster.replace(/@/g, "%40");
-                            if (m.background && m.background.includes("@")) m.background = m.background.replace(/@/g, "%40");
-                        });
-                        if (extra && extra.search) {
-                            const query = extra.search.toLowerCase();
-                            metas = metas.filter(m => m.name && m.name.toLowerCase().includes(query));
-                        }
-                        return { metas: metas };
+                    metas.forEach(m => {
+                        if (m.poster && m.poster.includes("@")) m.poster = m.poster.replace(/@/g, "%40");
+                        if (m.background && m.background.includes("@")) m.background = m.background.replace(/@/g, "%40");
+                    });
+                    if (extra && extra.search) {
+                        const query = extra.search.toLowerCase();
+                        metas = metas.filter(m => m.name && m.name.toLowerCase().includes(query));
                     }
+                    // Return catalog contents directly even if empty (e.g. after user cleared content)
+                    return { metas: metas };
                 }
             } catch (_) {}
         }
@@ -194,59 +271,18 @@ async function getCatalog(type, id, extra) {
         const response = await fetch(`${CATALOG_URL}?t=${Date.now()}`, {
             headers: {
                 "User-Agent": UA,
-                "Accept": "application/json"
+                "Accept": "application/json",
+                "Cache-Control": "no-cache, no-store, must-revalidate",
+                "Pragma": "no-cache"
             }
         });
 
         if (!response.ok) return { metas: [] };
 
         const catalogData = await response.json();
-        let metas = Array.isArray(catalogData) ? catalogData : (catalogData.metas || []);
+        let allMetas = Array.isArray(catalogData) ? catalogData : (catalogData.metas || []);
 
-        // Filter by Catalog ID (for dedicated Nuvio home screen category rows)
-        if (id === "playrepo-aksiyon") {
-            metas = metas.filter(m => m.genres && m.genres.some(g => {
-                const lg = g.toLowerCase();
-                return lg.includes("aksiyon") || lg.includes("macera");
-            }));
-        } else if (id === "playrepo-komedi") {
-            metas = metas.filter(m => m.genres && m.genres.some(g => {
-                const lg = g.toLowerCase();
-                return lg.includes("komedi") || lg.includes("mizah");
-            }));
-        } else if (id === "playrepo-dram") {
-            metas = metas.filter(m => m.genres && m.genres.some(g => {
-                const lg = g.toLowerCase();
-                return lg.includes("dram") || lg.includes("romantik");
-            }));
-        } else if (id === "playrepo-korku") {
-            metas = metas.filter(m => m.genres && m.genres.some(g => {
-                const lg = g.toLowerCase();
-                return lg.includes("korku") || lg.includes("gerilim");
-            }));
-        } else if (id === "playrepo-bilimkurgu") {
-            metas = metas.filter(m => m.genres && m.genres.some(g => {
-                const lg = g.toLowerCase();
-                return lg.includes("bilim") || lg.includes("kurgu") || lg.includes("fantastik");
-            }));
-        } else if (id === "playrepo-animasyon") {
-            metas = metas.filter(m => m.genres && m.genres.some(g => {
-                const lg = g.toLowerCase();
-                return lg.includes("animasyon") || lg.includes("çizgi") || lg.includes("anime") || lg.includes("animation");
-            }));
-        } else if (id === "playrepo-belgesel") {
-            metas = metas.filter(m => m.genres && m.genres.some(g => {
-                const lg = g.toLowerCase();
-                return lg.includes("belgesel") || lg.includes("tarih") || lg.includes("biyografi") || lg.includes("documentary") || lg.includes("history");
-            }));
-        } else if (id === "playrepo-suc") {
-            metas = metas.filter(m => m.genres && m.genres.some(g => {
-                const lg = g.toLowerCase();
-                return lg.includes("suç") || lg.includes("suc") || lg.includes("polisiye") || lg.includes("gizem") || lg.includes("crime") || lg.includes("mystery");
-            }));
-        } else if (id === "playrepo-series-popular") {
-            metas = metas.filter(m => m.type === "series");
-        }
+        let metas = getDisjointMetasForCatalog(allMetas, id);
 
         if (extra && extra.genre) {
             const requestedGenre = extra.genre.toLowerCase();
@@ -486,13 +522,33 @@ async function getStreams(arg1, arg2, arg3, arg4) {
                             const bHls = (b.format === "m3u8" || (b.url && b.url.includes(".m3u8"))) ? 1 : 0;
                             return bHls - aHls;
                         });
-                        return sorted.map((st, idx) => {
+                        let dubC = 0, subC = 0, othC = 0;
+                        return sorted.filter(st => st && st.url && st.url.length > 5 && !st.url.startsWith("about:")).map((st) => {
                             const ref = (st.behaviorHints && st.behaviorHints.proxyHeaders && st.behaviorHints.proxyHeaders.request && st.behaviorHints.proxyHeaders.request.Referer) || st.referer || st.url;
                             const isM3u8 = (st.url && st.url.includes(".m3u8")) || st.format === "m3u8";
+                            const rawTitle = st.title || "";
+                            let formattedTitle = "";
+                            if (rawTitle.includes("Dublaj")) {
+                                dubC++;
+                                formattedTitle = `Play • Dublaj ${dubC} • 1080p • [TR Dublaj]`;
+                            } else if (rawTitle.includes("Altyaz")) {
+                                subC++;
+                                formattedTitle = `Play • Altyazı ${subC} • 1080p • [TR Altyazılı]`;
+                            } else if (rawTitle.includes("Sunucu")) {
+                                othC++;
+                                formattedTitle = `Play • Sunucu ${othC} • 1080p • [TR]`;
+                            } else if (rawTitle.length > 5 && rawTitle !== "Play" && rawTitle !== "PlayRepo") {
+                                formattedTitle = rawTitle.replace(/^PlayRepo/i, "Play");
+                                if (!formattedTitle.startsWith("Play •")) formattedTitle = `Play • ${formattedTitle}`;
+                            } else {
+                                othC++;
+                                formattedTitle = `Play • Sunucu ${othC} • 1080p • [TR]`;
+                            }
                             return {
                                 ...st,
+                                name: formattedTitle,
+                                title: formattedTitle,
                                 format: isM3u8 ? "m3u8" : "mp4",
-                                title: st.title || `Play • Sunucu ${idx + 1}`,
                                 behaviorHints: {
                                     notSupported: false,
                                     proxyHeaders: {
@@ -517,7 +573,9 @@ async function getStreams(arg1, arg2, arg3, arg4) {
         const response = await fetch(`${STREAMS_URL}?t=${Date.now()}`, {
             headers: {
                 "User-Agent": UA,
-                "Accept": "application/json"
+                "Accept": "application/json",
+                "Cache-Control": "no-cache, no-store, must-revalidate",
+                "Pragma": "no-cache"
             }
         });
 
@@ -559,12 +617,8 @@ async function getStreams(arg1, arg2, arg3, arg4) {
             }
 
             const isM3u8 = finalLower.includes(".m3u8");
-            const rawTitle = s.title || `Play • ${s.quality || '1080p'}`;
-            const maskedTitle = rawTitle.replace(/^PlayRepo/i, "Play");
-
             return {
-                name: "Play",
-                title: maskedTitle,
+                rawTitle: s.title || "",
                 url: directUrl,
                 quality: s.quality || 1080,
                 provider: "play",
@@ -592,7 +646,38 @@ async function getStreams(arg1, arg2, arg3, arg4) {
             const bHls = (b.format === "m3u8" || (b.url && b.url.includes(".m3u8"))) ? 1 : 0;
             return bHls - aHls;
         });
-        return validStreams;
+
+        let dubC = 0, subC = 0, othC = 0;
+        return validStreams.map(s => {
+            const rawTitle = s.rawTitle || "";
+            let formattedTitle = "";
+            if (rawTitle.includes("Dublaj")) {
+                dubC++;
+                formattedTitle = `Play • Dublaj ${dubC} • 1080p • [TR Dublaj]`;
+            } else if (rawTitle.includes("Altyaz")) {
+                subC++;
+                formattedTitle = `Play • Altyazı ${subC} • 1080p • [TR Altyazılı]`;
+            } else if (rawTitle.includes("Sunucu")) {
+                othC++;
+                formattedTitle = `Play • Sunucu ${othC} • 1080p • [TR]`;
+            } else if (rawTitle.length > 5 && rawTitle !== "Play" && rawTitle !== "PlayRepo") {
+                formattedTitle = rawTitle.replace(/^PlayRepo/i, "Play");
+                if (!formattedTitle.startsWith("Play •")) formattedTitle = `Play • ${formattedTitle}`;
+            } else {
+                othC++;
+                formattedTitle = `Play • Sunucu ${othC} • 1080p • [TR]`;
+            }
+            return {
+                name: formattedTitle,
+                title: formattedTitle,
+                url: s.url,
+                quality: s.quality || 1080,
+                provider: "play",
+                format: s.format,
+                behaviorHints: s.behaviorHints,
+                headers: s.headers
+            };
+        });
     } catch (e) {
         console.error("Play getStreams error:", e);
         return [];

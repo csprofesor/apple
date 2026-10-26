@@ -244,15 +244,13 @@ class GitHubPublisher {
                 val otherCount = java.util.concurrent.atomic.AtomicInteger(0)
 
                 val renumbered = sorted.map { st ->
-                    val isDub = st.title.contains("Dublaj")
-                    val isSub = st.title.contains("Altyaz")
-                    val label = when {
-                        isDub -> "Dublaj ${dubCount.incrementAndGet()}"
-                        isSub -> "Altyazı ${subCount.incrementAndGet()}"
-                        else -> "Sunucu ${otherCount.incrementAndGet()}"
+                    val isDub = st.title.contains("Dublaj", true)
+                    val isSub = st.title.contains("Altyaz", true)
+                    val formattedTitle = when {
+                        isDub -> "Play • Dublaj ${dubCount.incrementAndGet()} • 1080p • [TR Dublaj]"
+                        isSub -> "Play • Altyazı ${subCount.incrementAndGet()} • 1080p • [TR Altyazılı]"
+                        else -> "Play • Sunucu ${otherCount.incrementAndGet()} • 1080p • [TR]"
                     }
-                    val parts = st.title.split("•")
-                    val suffix = if (parts.size > 2) parts.drop(2).joinToString(" • ").trim() else if (isDub) "1080p • [TR Dublaj]" else "1080p • [TR Altyazılı]"
                     val ref = st.referer?.ifBlank { st.url } ?: st.url
                     val isM3u8 = st.format == "m3u8" || st.url.contains(".m3u8")
                     val bh = StreamBehaviorHints(
@@ -265,8 +263,8 @@ class GitHubPublisher {
                         )
                     )
                     st.copy(
-                        name = "Play",
-                        title = "Play • $label • $suffix",
+                        name = formattedTitle,
+                        title = formattedTitle,
                         format = if (isM3u8) "m3u8" else "mp4",
                         headers = mapOf(
                             "User-Agent" to "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -541,10 +539,17 @@ class GitHubPublisher {
             movie.streams.forEachIndexed { idx, st ->
                 val ref = st.referer?.ifBlank { st.url } ?: st.url
                 val isM3u8 = st.format == "m3u8" || st.url.contains(".m3u8")
-                val cleanTitle = if (st.title.isNotBlank()) st.title else "Play • Sunucu ${idx + 1}"
+                val isDub = st.title.contains("Dublaj", true)
+                val isSub = st.title.contains("Altyaz", true)
+                val cleanTitle = when {
+                    st.title.contains("•") && !st.title.equals("Play", true) -> st.title
+                    isDub -> "Play • Dublaj ${idx + 1} • 1080p • [TR Dublaj]"
+                    isSub -> "Play • Altyazı ${idx + 1} • 1080p • [TR Altyazılı]"
+                    else -> "Play • Sunucu ${idx + 1} • 1080p • [TR]"
+                }
 
                 val so = JsonObject().apply {
-                    addProperty("name", "Play")
+                    addProperty("name", cleanTitle)
                     addProperty("title", cleanTitle)
                     addProperty("url", st.url)
                     addProperty("quality", st.quality)
@@ -765,4 +770,47 @@ class GitHubPublisher {
         repoName: String = DEFAULT_REPO,
         scrapedMovie: ScrapedMovie
     ): Result<String> = publishBatchToGitHub(githubToken, repoOwner, repoName, listOf(scrapedMovie))
+
+    suspend fun resetAllPublishedMovies(
+        githubToken: String = BuildConfig.GITHUB_TOKEN,
+        repoOwner: String = DEFAULT_OWNER,
+        repoName: String = DEFAULT_REPO
+    ): Result<Boolean> = withContext(Dispatchers.IO) {
+        try {
+            val emptyCatalog = gson.toJson(JsonObject().apply { add("metas", JsonArray()) })
+            val emptyStreams = "{}"
+
+            val filesToCommit = mapOf(
+                "data/catalog.json" to emptyCatalog,
+                "data/streams.json" to emptyStreams,
+                "playrepo/catalog/movie/playrepo-popular.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-catalog-movies.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-aksiyon.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-komedi.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-dram.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-korku.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-bilimkurgu.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-animasyon.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-belgesel.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-suc.json" to emptyCatalog,
+                "playrepo/catalog/series/playrepo-series-popular.json" to emptyCatalog,
+                "playrepo/catalog/series/playrepo-series-dram.json" to emptyCatalog,
+                "playrepo/catalog/series/playrepo-series-aksiyon.json" to emptyCatalog,
+                "playrepo/catalog/series/playrepo-series-komedi.json" to emptyCatalog,
+                "playrepo/catalog/series/playrepo-series-suc.json" to emptyCatalog,
+                "playrepo/catalog/series/playrepo-series-bilimkurgu.json" to emptyCatalog
+            )
+
+            val success = commitBatchUsingGitDataApi(
+                githubToken = githubToken,
+                repoOwner = repoOwner,
+                repoName = repoName,
+                commitMessage = "PlayRepo: Tüm yayınlanmış filmleri sıfırla",
+                files = filesToCommit
+            )
+            if (success) Result.success(true) else Result.failure(Exception("GitHub API commit başarısız oldu."))
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
 }

@@ -945,15 +945,13 @@ class SiteScraperEngine {
             val otherCount = java.util.concurrent.atomic.AtomicInteger(0)
 
             val prioritizedStreams = sortedStreams.map { st ->
-                val isDub = st.title.contains("Dublaj")
-                val isSub = st.title.contains("Altyaz")
-                val label = when {
-                    isDub -> "Dublaj ${dubCount.incrementAndGet()}"
-                    isSub -> "Altyazı ${subCount.incrementAndGet()}"
-                    else -> "Sunucu ${otherCount.incrementAndGet()}"
+                val isDub = st.title.contains("Dublaj", true)
+                val isSub = st.title.contains("Altyaz", true)
+                val formattedTitle = when {
+                    isDub -> "Play • Dublaj ${dubCount.incrementAndGet()} • 1080p • [TR Dublaj]"
+                    isSub -> "Play • Altyazı ${subCount.incrementAndGet()} • 1080p • [TR Altyazılı]"
+                    else -> "Play • Sunucu ${otherCount.incrementAndGet()} • 1080p • [TR]"
                 }
-                val parts = st.title.split("•")
-                val suffix = if (parts.size > 2) parts.drop(2).joinToString(" • ").trim() else if (isDub) "$qualityTag • [TR Dublaj]" else "$qualityTag • [TR Altyazılı]"
                 val ref = st.referer?.ifBlank { st.url } ?: st.url
                 val bh = StreamBehaviorHints(
                     notSupported = false,
@@ -965,7 +963,8 @@ class SiteScraperEngine {
                     )
                 )
                 st.copy(
-                    title = "Play • $label • $suffix",
+                    name = formattedTitle,
+                    title = formattedTitle,
                     behaviorHints = bh
                 )
             }

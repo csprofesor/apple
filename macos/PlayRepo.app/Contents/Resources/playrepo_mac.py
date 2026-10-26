@@ -565,15 +565,23 @@ class ScraperEngine:
         return ""
 
     def is_stream_alive(self, url: str, referer: str = None) -> bool:
-        cmd = ["curl", "-s", "-I", "--max-time", "3", "-A", random.choice(USER_AGENTS)]
-        if referer:
-            cmd += ["-H", f"Referer: {referer}"]
+        if not url or url.startswith(("about:", "javascript:")):
+            return False
+        ua = random.choice(USER_AGENTS)
+        ref = referer or url
+        cmd = ["curl", "-s", "-o", "/dev/null", "-w", "%{http_code}", "-r", "0-1024", "--max-time", "2.5", "-A", ua]
+        if ref:
+            cmd += ["-H", f"Referer: {ref}"]
         cmd.append(url)
         try:
             res = subprocess.run(cmd, capture_output=True, text=True, errors="ignore")
-            first_line = (res.stdout or "").splitlines()[0] if res.stdout else ""
-            status = int(first_line.split()[1]) if len(first_line.split()) > 1 and first_line.split()[1].isdigit() else 200
-            return status < 400 or status == 416
+            code_str = (res.stdout or "").strip()
+            if code_str in ("200", "206", "301", "302", "303", "307", "308"):
+                return True
+            if code_str in ("404", "410", "500", "502", "503", "000", ""):
+                return False
+            # 403 or other codes: conservative check
+            return True
         except Exception:
             return True
 
@@ -847,15 +855,32 @@ class ScraperEngine:
         sub_c = 0
         oth_c = 0
         for st in valid_streams:
-            if "Dublaj" in st["title"]:
+            st_ref = st.get("referer") or st["url"]
+            st["behaviorHints"] = {
+                "notSupported": False,
+                "proxyHeaders": {
+                    "request": {
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+                        "Referer": st_ref
+                    }
+                }
+            }
+            st["headers"] = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+                "Referer": st_ref
+            }
+            raw_t = st.get("title", "")
+            if "Dublaj" in raw_t:
                 dub_c += 1
-                st["title"] = f"Play • Dublaj {dub_c} • 1080p • [TR Dublaj]"
-            elif "Altyaz" in st["title"]:
+                formatted_title = f"Play • Dublaj {dub_c} • 1080p • [TR Dublaj]"
+            elif "Altyaz" in raw_t:
                 sub_c += 1
-                st["title"] = f"Play • Altyazı {sub_c} • 1080p • [TR Altyazılı]"
+                formatted_title = f"Play • Altyazı {sub_c} • 1080p • [TR Altyazılı]"
             else:
                 oth_c += 1
-                st["title"] = f"Play • Sunucu {oth_c} • 1080p • [TR]"
+                formatted_title = f"Play • Sunucu {oth_c} • 1080p • [TR]"
+            st["name"] = formatted_title
+            st["title"] = formatted_title
 
         meta_id, official_title, official_poster, official_desc, release_year, meta_genres, resolved_type = self.resolve_meta(
             clean_title, poster, desc, year, tmdb_api_key, is_series=is_series
@@ -1151,30 +1176,55 @@ class GitHubAtomicPublisher:
             g_list = [g.lower() for g in item.get("genres", [])]
             return any(any(tgt in g for tgt in genres) for g in g_list)
 
-        cat_configs = {
-            # Film Katalogları (Nuvio için type == 'movie')
-            "playrepo/catalog/movie/playrepo-popular.json": lambda x: True,
-            "playrepo/catalog/movie/playrepo-catalog-movies.json": lambda x: x.get("type", "movie") == "movie",
-            "playrepo/catalog/movie/playrepo-aksiyon.json": lambda x: has_genre(x, "aksiyon", "macera"),
-            "playrepo/catalog/movie/playrepo-komedi.json": lambda x: has_genre(x, "komedi", "mizah"),
-            "playrepo/catalog/movie/playrepo-dram.json": lambda x: has_genre(x, "dram", "romantik"),
-            "playrepo/catalog/movie/playrepo-korku.json": lambda x: has_genre(x, "korku", "gerilim"),
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json": lambda x: has_genre(x, "bilim", "kurgu", "fantastik"),
-            "playrepo/catalog/movie/playrepo-animasyon.json": lambda x: has_genre(x, "animasyon", "çizgi", "anime", "animation"),
-            "playrepo/catalog/movie/playrepo-belgesel.json": lambda x: has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history"),
-            "playrepo/catalog/movie/playrepo-suc.json": lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
-            # Dizi Katalogları (Nuvio için type == 'series')
-            "playrepo/catalog/series/playrepo-series-popular.json": lambda x: x.get("type") == "series",
-            "playrepo/catalog/series/playrepo-series-dram.json": lambda x: x.get("type") == "series" and has_genre(x, "dram", "romantik"),
-            "playrepo/catalog/series/playrepo-series-aksiyon.json": lambda x: x.get("type") == "series" and has_genre(x, "aksiyon", "macera"),
-            "playrepo/catalog/series/playrepo-series-komedi.json": lambda x: x.get("type") == "series" and has_genre(x, "komedi", "mizah"),
-            "playrepo/catalog/series/playrepo-series-suc.json": lambda x: x.get("type") == "series" and has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
-            "playrepo/catalog/series/playrepo-series-bilimkurgu.json": lambda x: x.get("type") == "series" and has_genre(x, "bilim", "kurgu", "fantastik")
-        }
+        # 1. Popüler & Tüm Filmler
+        all_movies = [m for m in all_metas if m.get("type", "movie") != "series"]
+        files_to_commit["playrepo/catalog/movie/playrepo-popular.json"] = json.dumps({"metas": all_movies[:60]}, ensure_ascii=False, indent=2)
+        files_to_commit["playrepo/catalog/movie/playrepo-catalog-movies.json"] = json.dumps({"metas": all_movies}, ensure_ascii=False, indent=2)
 
-        for path, pred in cat_configs.items():
-            filtered = [m for m in all_metas if pred(m)]
-            files_to_commit[path] = json.dumps({"metas": filtered}, ensure_ascii=False, indent=2)
+        # 2. Özel Film Tür Kategorileri - BİR KATEGORİYE EKLENEN FİLM DİĞERLERİNE ASLA EKLENMEZ!
+        movie_genre_configs = [
+            ("playrepo/catalog/movie/playrepo-animasyon.json", lambda x: has_genre(x, "animasyon", "çizgi", "anime", "animation")),
+            ("playrepo/catalog/movie/playrepo-belgesel.json", lambda x: has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history")),
+            ("playrepo/catalog/movie/playrepo-korku.json", lambda x: has_genre(x, "korku", "gerilim", "horror", "thriller")),
+            ("playrepo/catalog/movie/playrepo-bilimkurgu.json", lambda x: has_genre(x, "bilim", "kurgu", "fantastik", "sci-fi", "fantasy")),
+            ("playrepo/catalog/movie/playrepo-komedi.json", lambda x: has_genre(x, "komedi", "mizah", "comedy")),
+            ("playrepo/catalog/movie/playrepo-suc.json", lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery")),
+            ("playrepo/catalog/movie/playrepo-aksiyon.json", lambda x: has_genre(x, "aksiyon", "macera", "action", "adventure")),
+            ("playrepo/catalog/movie/playrepo-dram.json", lambda x: has_genre(x, "dram", "romantik", "drama", "romance")),
+        ]
+
+        assigned_movie_ids = set()
+        for path, pred in movie_genre_configs:
+            cat_movies = []
+            for m in all_movies:
+                m_id = m.get("id")
+                if m_id and m_id not in assigned_movie_ids and pred(m):
+                    cat_movies.append(m)
+                    assigned_movie_ids.add(m_id)
+            files_to_commit[path] = json.dumps({"metas": cat_movies}, ensure_ascii=False, indent=2)
+
+        # 3. Dizi Kategorileri - DİZİLER DE BİRBİRİNİ TEKRARLAMAZ
+        all_series = [s for s in all_metas if s.get("type") == "series"]
+        files_to_commit["playrepo/catalog/series/playrepo-series-popular.json"] = json.dumps({"metas": all_series}, ensure_ascii=False, indent=2)
+
+        series_genre_configs = [
+            ("playrepo/catalog/series/playrepo-series-bilimkurgu.json", lambda x: has_genre(x, "bilim", "kurgu", "fantastik")),
+            ("playrepo/catalog/series/playrepo-series-korku.json", lambda x: has_genre(x, "korku", "gerilim")),
+            ("playrepo/catalog/series/playrepo-series-komedi.json", lambda x: has_genre(x, "komedi", "mizah")),
+            ("playrepo/catalog/series/playrepo-series-suc.json", lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem")),
+            ("playrepo/catalog/series/playrepo-series-aksiyon.json", lambda x: has_genre(x, "aksiyon", "macera")),
+            ("playrepo/catalog/series/playrepo-series-dram.json", lambda x: has_genre(x, "dram", "romantik")),
+        ]
+
+        assigned_series_ids = set()
+        for path, pred in series_genre_configs:
+            cat_series = []
+            for s in all_series:
+                s_id = s.get("id")
+                if s_id and s_id not in assigned_series_ids and pred(s):
+                    cat_series.append(s)
+                    assigned_series_ids.add(s_id)
+            files_to_commit[path] = json.dumps({"metas": cat_series}, ensure_ascii=False, indent=2)
 
         self.log(f"[GITHUB] Toplam {len(files_to_commit)} dosya tek bir atomik commit olarak GitHub'a aktarılıyor...")
 
@@ -1299,28 +1349,55 @@ class GitHubAtomicPublisher:
             g_list = [g.lower() for g in item.get("genres", [])]
             return any(any(tgt in g for tgt in genres) for g in g_list)
 
-        cat_configs = {
-            "playrepo/catalog/movie/playrepo-popular.json": lambda x: x.get("type", "movie") == "movie",
-            "playrepo/catalog/movie/playrepo-catalog-movies.json": lambda x: x.get("type", "movie") == "movie",
-            "playrepo/catalog/movie/playrepo-aksiyon.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "aksiyon", "macera"),
-            "playrepo/catalog/movie/playrepo-komedi.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "komedi", "mizah"),
-            "playrepo/catalog/movie/playrepo-dram.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "dram", "romantik"),
-            "playrepo/catalog/movie/playrepo-korku.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "korku", "gerilim"),
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "bilim", "kurgu", "fantastik"),
-            "playrepo/catalog/movie/playrepo-animasyon.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "animasyon", "çizgi", "anime", "animation"),
-            "playrepo/catalog/movie/playrepo-belgesel.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history"),
-            "playrepo/catalog/movie/playrepo-suc.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
-            "playrepo/catalog/series/playrepo-series-popular.json": lambda x: x.get("type") == "series",
-            "playrepo/catalog/series/playrepo-series-dram.json": lambda x: x.get("type") == "series" and has_genre(x, "dram", "romantik"),
-            "playrepo/catalog/series/playrepo-series-aksiyon.json": lambda x: x.get("type") == "series" and has_genre(x, "aksiyon", "macera"),
-            "playrepo/catalog/series/playrepo-series-komedi.json": lambda x: x.get("type") == "series" and has_genre(x, "komedi", "mizah"),
-            "playrepo/catalog/series/playrepo-series-suc.json": lambda x: x.get("type") == "series" and has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
-            "playrepo/catalog/series/playrepo-series-bilimkurgu.json": lambda x: x.get("type") == "series" and has_genre(x, "bilim", "kurgu", "fantastik")
-        }
+        # 1. Popüler & Tüm Filmler
+        all_movies = [m for m in all_metas if m.get("type", "movie") != "series"]
+        files_to_commit["playrepo/catalog/movie/playrepo-popular.json"] = json.dumps({"metas": all_movies[:60]}, ensure_ascii=False, indent=2)
+        files_to_commit["playrepo/catalog/movie/playrepo-catalog-movies.json"] = json.dumps({"metas": all_movies}, ensure_ascii=False, indent=2)
 
-        for path, pred in cat_configs.items():
-            filtered = [m for m in all_metas if pred(m)]
-            files_to_commit[path] = json.dumps({"metas": filtered}, ensure_ascii=False, indent=2)
+        # 2. Özel Film Tür Kategorileri - BİR KATEGORİYE EKLENEN FİLM DİĞERLERİNE ASLA EKLENMEZ!
+        movie_genre_configs = [
+            ("playrepo/catalog/movie/playrepo-animasyon.json", lambda x: has_genre(x, "animasyon", "çizgi", "anime", "animation")),
+            ("playrepo/catalog/movie/playrepo-belgesel.json", lambda x: has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history")),
+            ("playrepo/catalog/movie/playrepo-korku.json", lambda x: has_genre(x, "korku", "gerilim", "horror", "thriller")),
+            ("playrepo/catalog/movie/playrepo-bilimkurgu.json", lambda x: has_genre(x, "bilim", "kurgu", "fantastik", "sci-fi", "fantasy")),
+            ("playrepo/catalog/movie/playrepo-komedi.json", lambda x: has_genre(x, "komedi", "mizah", "comedy")),
+            ("playrepo/catalog/movie/playrepo-suc.json", lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery")),
+            ("playrepo/catalog/movie/playrepo-aksiyon.json", lambda x: has_genre(x, "aksiyon", "macera", "action", "adventure")),
+            ("playrepo/catalog/movie/playrepo-dram.json", lambda x: has_genre(x, "dram", "romantik", "drama", "romance")),
+        ]
+
+        assigned_movie_ids = set()
+        for path, pred in movie_genre_configs:
+            cat_movies = []
+            for m in all_movies:
+                m_id = m.get("id")
+                if m_id and m_id not in assigned_movie_ids and pred(m):
+                    cat_movies.append(m)
+                    assigned_movie_ids.add(m_id)
+            files_to_commit[path] = json.dumps({"metas": cat_movies}, ensure_ascii=False, indent=2)
+
+        # 3. Dizi Kategorileri - DİZİLER DE BİRBİRİNİ TEKRARLAMAZ
+        all_series = [s for s in all_metas if s.get("type") == "series"]
+        files_to_commit["playrepo/catalog/series/playrepo-series-popular.json"] = json.dumps({"metas": all_series}, ensure_ascii=False, indent=2)
+
+        series_genre_configs = [
+            ("playrepo/catalog/series/playrepo-series-bilimkurgu.json", lambda x: has_genre(x, "bilim", "kurgu", "fantastik")),
+            ("playrepo/catalog/series/playrepo-series-korku.json", lambda x: has_genre(x, "korku", "gerilim")),
+            ("playrepo/catalog/series/playrepo-series-komedi.json", lambda x: has_genre(x, "komedi", "mizah")),
+            ("playrepo/catalog/series/playrepo-series-suc.json", lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem")),
+            ("playrepo/catalog/series/playrepo-series-aksiyon.json", lambda x: has_genre(x, "aksiyon", "macera")),
+            ("playrepo/catalog/series/playrepo-series-dram.json", lambda x: has_genre(x, "dram", "romantik")),
+        ]
+
+        assigned_series_ids = set()
+        for path, pred in series_genre_configs:
+            cat_series = []
+            for s in all_series:
+                s_id = s.get("id")
+                if s_id and s_id not in assigned_series_ids and pred(s):
+                    cat_series.append(s)
+                    assigned_series_ids.add(s_id)
+            files_to_commit[path] = json.dumps({"metas": cat_series}, ensure_ascii=False, indent=2)
 
         ref_data = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/ref/heads/{DEFAULT_BRANCH}", token=self.token)
         latest_commit_sha = ref_data.get("object", {}).get("sha")

@@ -869,15 +869,18 @@ class ScraperEngine:
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
                 "Referer": st_ref
             }
-            if "Dublaj" in st["title"]:
+            raw_t = st.get("title", "")
+            if "Dublaj" in raw_t:
                 dub_c += 1
-                st["title"] = f"Play • Dublaj {dub_c} • 1080p • [TR Dublaj]"
-            elif "Altyaz" in st["title"]:
+                formatted_title = f"Play • Dublaj {dub_c} • 1080p • [TR Dublaj]"
+            elif "Altyaz" in raw_t:
                 sub_c += 1
-                st["title"] = f"Play • Altyazı {sub_c} • 1080p • [TR Altyazılı]"
+                formatted_title = f"Play • Altyazı {sub_c} • 1080p • [TR Altyazılı]"
             else:
                 oth_c += 1
-                st["title"] = f"Play • Sunucu {oth_c} • 1080p • [TR]"
+                formatted_title = f"Play • Sunucu {oth_c} • 1080p • [TR]"
+            st["name"] = formatted_title
+            st["title"] = formatted_title
 
         meta_id, official_title, official_poster, official_desc, release_year, meta_genres, resolved_type = self.resolve_meta(
             clean_title, poster, desc, year, tmdb_api_key, is_series=is_series
