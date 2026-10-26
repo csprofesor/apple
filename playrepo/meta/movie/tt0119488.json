@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "id": "tt0119488",
+    "type": "series",
+    "name": "L.A. Confidential",
+    "poster": "https://m.media-amazon.com/images/M/MV5BODdiMjY1OGYtNDk0NC00NGQ1LWI4MDItOTJhMTM0YjE1YTAzXkEyXkFqcGc@._V1_.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BODdiMjY1OGYtNDk0NC00NGQ1LWI4MDItOTJhMTM0YjE1YTAzXkEyXkFqcGc@._V1_.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Suits L.A. 1. sezon 1. bölüm izle arayanlar için, yoğun iş temposu içinde güç dengelerinin ve kişisel sınırların zorlandığı, profesyonel rekabetin duygusal",
+    "releaseInfo": "1997",
+    "genres": [
+      "Suç, Polisiye & Gizem",
+      "Dram & Romantik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "tt0119488:1:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0119488:1:1",
+        "title": "L.A. Confidential",
+        "released": "1997-01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
