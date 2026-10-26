@@ -75,6 +75,19 @@ async function unpackLiveStreamUrl(rawUrl, referer) {
         if (!response.ok) return "";
         let html = await response.text();
 
+        // Pilavyer / DiziMom player (window.__PLAYER__)
+        if (lower.includes("pilavyer") || lower.includes("/s.php") || html.includes("window.__PLAYER__")) {
+            const playerMatch = html.match(/window\.__PLAYER__\s*=\s*(\{.*?\});/);
+            if (playerMatch && playerMatch[1]) {
+                try {
+                    const playerData = JSON.parse(playerMatch[1]);
+                    if (playerData && playerData.stream) {
+                        return playerData.stream.replace(/\\\//g, "/");
+                    }
+                } catch (_) {}
+            }
+        }
+
         // Dean Edwards unpack
         if (html.includes("eval(function(p,a,c,k,e,d)")) {
             html += "\n" + unpackPackerJs(html);
@@ -96,8 +109,8 @@ async function unpackLiveStreamUrl(rawUrl, referer) {
         }
 
         // 4. VOE regex
-        const voeMatch = html.match(/'hls'\s*:\s*['"](https?:\/\/[^'"]+)['"]/i) ||
-                         html.match(/["']hls["']\s*:\s*["'](https?:\/\/[^"']+)["']/i);
+        const voeMatch = html.match(/'hls'\s*:\s*['"](https?:\/\/[^'"]+\.m3u8[^'"]*)["']/i) ||
+                         html.match(/["']hls["']\s*:\s*["'](https?:\/\/[^"']+\.m3u8[^"']*)["']/i);
         if (voeMatch && voeMatch[1]) {
             return voeMatch[1];
         }
@@ -522,21 +535,23 @@ async function resolveAndCapStreams(rawStreams) {
                                 lowerDirect.includes("/e/") ||
                                 lowerDirect.includes("srcip=") ||
                                 lowerDirect.includes("okcdn.ru") ||
+                                lowerDirect.includes("pilavyer") ||
+                                lowerDirect.includes("/s.php") ||
                                 (!lowerDirect.includes(".m3u8") && !lowerDirect.includes(".mp4"));
 
         if (needsLiveUnpack) {
-            const targetUrl = (refererUrl.includes("/embed") || refererUrl.includes("/videoembed") || refererUrl.includes("/e/") || lowerDirect.includes("srcip=")) ? refererUrl : directUrl;
+            const targetUrl = (refererUrl.includes("/embed") || refererUrl.includes("/videoembed") || refererUrl.includes("/e/") || refererUrl.includes("/s.php") || lowerDirect.includes("srcip=")) ? refererUrl : directUrl;
             const unpacked = await unpackLiveStreamUrl(targetUrl, refererUrl);
             if (unpacked) directUrl = unpacked;
         }
 
         if (!directUrl) return null;
         const finalLower = directUrl.toLowerCase();
-        if (!finalLower.includes(".m3u8") && !finalLower.includes(".mp4") && !finalLower.includes("/manifest")) {
+        if (!finalLower.includes(".m3u8") && !finalLower.includes(".mp4") && !finalLower.includes("stream.php") && !finalLower.includes("/manifest")) {
             return null;
         }
 
-        const isM3u8 = finalLower.includes(".m3u8");
+        const isM3u8 = finalLower.includes(".m3u8") || finalLower.includes("stream.php") || finalLower.includes("/hls");
         return {
             rawTitle: s.title || s.name || "",
             url: directUrl,

@@ -458,6 +458,18 @@ class ScraperEngine:
         if not html:
             return ""
 
+        # Pilavyer desteği (pilavyerplay, /assets/js/s.php, /e/s.php veya window.__PLAYER__)
+        if "pilavyer" in lower or "/s.php" in lower or "window.__PLAYER__" in html:
+            player_m = re.search(r'window\.__PLAYER__\s*=\s*(\{.*?\});', html)
+            if player_m:
+                try:
+                    p_data = json.loads(player_m.group(1))
+                    stream_link = p_data.get("stream")
+                    if stream_link:
+                        return stream_link.replace(r"\/", "/")
+                except Exception:
+                    pass
+
         if "eval(function(p,a,c,k,e,d)" in html:
             html += "\n" + unpack_packer_js(html)
 
@@ -467,7 +479,7 @@ class ScraperEngine:
         if m3u8_m:
             return m3u8_m.group(1)
 
-        voe_m = re.search(r"['\"]hls['\"]\s*:\s*['\"](https?://[^'\"]+)['\"]", html, re.I)
+        voe_m = re.search(r"['\"]hls['\"]\s*:\s*['\"](https?://[^'\"]+\.m3u8[^'\"]*)['\"]", html, re.I)
         if voe_m:
             return voe_m.group(1)
 
@@ -576,7 +588,7 @@ class ScraperEngine:
             return False
         ua = random.choice(USER_AGENTS)
         ref = referer or url
-        cmd = ["curl", "-s", "-L", "-o", "/dev/null", "-w", "%{http_code}", "-r", "0-1024", "--max-time", "3", "-A", ua]
+        cmd = ["curl", "-s", "-L", "-o", "/dev/null", "-w", "%{http_code}", "-r", "0-1024", "--max-time", "5", "-A", ua]
         if ref:
             cmd += ["-H", f"Referer: {ref}"]
         cmd.append(url)
@@ -709,14 +721,29 @@ class ScraperEngine:
                 return
             u_clean = u.strip().replace("&amp;", "&")
             u_low = u_clean.lower()
-            # Ignore YouTube trailers, ads, asset files
-            if any(k in u_low for k in ["youtube.com", "youtu.be", "doubleclick", "googleads", "/assets/", ".jpg", ".png", ".gif", ".css", ".js"]):
+            # Ignore YouTube trailers, ads, asset files (keep /assets/js/s.php valid for Pilavyer)
+            if any(k in u_low for k in ["youtube.com", "youtu.be", "doubleclick", "googleads", ".jpg", ".png", ".gif", ".css", ".svg", ".webp", ".ico"]):
+                return
+            if u_low.endswith(".js") and not ("s.php" in u_low or "embed" in u_low):
                 return
             # Ignore generic category, tag, or archive listing pages
             if any(k in u_low for k in ["/dublaj/", "/altyazili/", "/kategori/", "/genre/", "/trend", "/kesfet", "/tag/", "/filmler/"]):
                 return
             if not any(c[0] == u_clean for c in candidate_embeds):
                 candidate_embeds.append((u_clean, lang))
+
+        # 0. Pilavyer / DiziMom player detection (data-pv="OPAK_SLUG" in HTML or templates)
+        pv_matches = re.findall(r'data-pv=["\']([^"\']+)["\']', html)
+        if pv_matches:
+            pilav_base = "https://pilavyerplay.top"
+            core_script_m = re.search(r'["\'](https?://[^"\'\s]*/(?:assets/js/core|e/c)\.js[^"\'\s]*)["\']', html, re.I)
+            if core_script_m:
+                parsed_c = urllib.parse.urlsplit(core_script_m.group(1))
+                pilav_base = f"{parsed_c.scheme}://{parsed_c.netloc}"
+            
+            for pv_slug in pv_matches:
+                pv_url = f"{pilav_base}/assets/js/s.php?s={urllib.parse.quote(pv_slug)}"
+                add_candidate(pv_url, default_lang)
 
         # 1. Player switch functions (loadSource, loadPlayer, etc.) with local button language detection
         for m in re.finditer(r'(?:loadSource|loadPlayer|changeSource|setSource|playVideo|loadEmbed)\s*\(\s*["\']([^"\']+)["\']', clean_player_html, re.I):
@@ -789,7 +816,7 @@ class ScraperEngine:
             direct_url = self.unpack_embed_stream(cand_url, referer=movie_url)
             if direct_url and direct_url not in seen_urls:
                 seen_urls.add(direct_url)
-                is_m3u8 = ".m3u8" in direct_url.lower()
+                is_m3u8 = ".m3u8" in direct_url.lower() or "stream.php" in direct_url.lower() or "/hls" in direct_url.lower()
                 st_item = {
                     "name": "Play",
                     "title": f"Play • 1080p • {cand_lang}",
@@ -824,7 +851,7 @@ class ScraperEngine:
                     d_url = self.unpack_embed_stream(c_url, referer=movie_url)
                     if d_url and d_url not in seen_urls:
                         seen_urls.add(d_url)
-                        is_m3u8 = ".m3u8" in d_url.lower()
+                        is_m3u8 = ".m3u8" in d_url.lower() or "stream.php" in d_url.lower() or "/hls" in d_url.lower()
                         st_item = {
                             "name": "Play",
                             "title": f"Play • 1080p • {default_lang}",

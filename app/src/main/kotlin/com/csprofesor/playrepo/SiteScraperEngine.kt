@@ -577,7 +577,7 @@ class SiteScraperEngine {
                 if (trimmed.contains("youtube.com") || trimmed.contains("youtu.be")) return
                 if (trimmed.contains("/dublaj/") || trimmed.contains("/altyazili/") || trimmed.contains("/kategori/") || trimmed.contains("/genre/") || trimmed.contains("/tag/")) return
                 if (trimmed.endsWith(".jpg") || trimmed.endsWith(".png") || trimmed.endsWith(".webp") ||
-                    trimmed.endsWith(".css") || trimmed.endsWith(".js") || trimmed.endsWith(".svg")) return
+                    trimmed.endsWith(".css") || (trimmed.endsWith(".js") && !trimmed.contains("s.php")) || trimmed.endsWith(".svg")) return
 
                 val full = if (trimmed.startsWith("//")) {
                     "https:$trimmed"
@@ -592,6 +592,23 @@ class SiteScraperEngine {
                 val finalLang = langOverride ?: detectLangFromContext(full)
                 if (candidateEmbeds.none { it.url == full }) {
                     candidateEmbeds.add(CandidateEmbed(full, finalLang))
+                }
+            }
+
+            // 0. Pilavyer / DiziMom player detection (data-pv="OPAK_SLUG" in raw HTML or templates)
+            val pvMatches = Regex("""data-pv=["']([^"']+)["']""").findAll(html).map { it.groupValues[1] }.toList()
+            if (pvMatches.isNotEmpty()) {
+                var pilavBase = "https://pilavyerplay.top"
+                val coreScriptMatch = Regex("""["'](https?://[^"'\s]*/(?:assets/js/core|e/c)\.js[^"'\s]*)["']""", RegexOption.IGNORE_CASE).find(html)
+                if (coreScriptMatch != null) {
+                    try {
+                        val parsedUri = java.net.URI(coreScriptMatch.groupValues[1])
+                        pilavBase = "${parsedUri.scheme}://${parsedUri.authority}"
+                    } catch (_: Exception) {}
+                }
+                pvMatches.forEach { slug ->
+                    val pvUrl = "$pilavBase/assets/js/s.php?s=${java.net.URLEncoder.encode(slug, "UTF-8")}"
+                    addCandidate(pvUrl, pageDefaultLang)
                 }
             }
 
@@ -900,8 +917,8 @@ class SiteScraperEngine {
                 val directStreamUrl = unpackEmbedStreamUrl(cand.url, movieUrl)
                 if (directStreamUrl.isNotBlank() && resolvedStreams.none { it.url == directStreamUrl }) {
                     val lowerUrl = directStreamUrl.lowercase()
-                    if (lowerUrl.contains(".m3u8") || lowerUrl.contains(".mp4") || lowerUrl.contains("/manifest")) {
-                        val isM3u8 = lowerUrl.contains(".m3u8")
+                    if (lowerUrl.contains(".m3u8") || lowerUrl.contains(".mp4") || lowerUrl.contains("stream.php") || lowerUrl.contains("/manifest")) {
+                        val isM3u8 = lowerUrl.contains(".m3u8") || lowerUrl.contains("stream.php") || lowerUrl.contains("/hls")
                         val ua = getRandomUserAgent()
                         val ref = cand.url.ifBlank { directStreamUrl }
                         val bh = StreamBehaviorHints(
@@ -1296,6 +1313,21 @@ class SiteScraperEngine {
                     html = "$html\n$unpacked"
                 }
 
+                // Pilavyer desteği (pilavyerplay, /assets/js/s.php, /e/s.php veya window.__PLAYER__)
+                if (lowerEmbed.contains("pilavyer") || lowerEmbed.contains("/s.php") || html.contains("window.__PLAYER__")) {
+                    val playerRegex = Regex("""window\.__PLAYER__\s*=\s*(\{.*?\});""")
+                    val pMatch = playerRegex.find(html)
+                    if (pMatch != null) {
+                        try {
+                            val pObj = gson.fromJson(pMatch.groupValues[1], JsonObject::class.java)
+                            val stream = pObj.get("stream")?.asString
+                            if (!stream.isNullOrBlank()) {
+                                return stream.replace("\\/", "/")
+                            }
+                        } catch (_: Exception) {}
+                    }
+                }
+
                 // 3. Vidmoly (m3u8 master playlist)
                 if (lowerEmbed.contains("vidmoly")) {
                     val vmMatch = Regex("""["'](https?://[^"']+\.m3u8[^"']*)["']""").find(html)
@@ -1304,8 +1336,8 @@ class SiteScraperEngine {
 
                 // 4. VOE (HLS)
                 if (lowerEmbed.contains("voe")) {
-                    val voeMatch = Regex("""'hls'\s*:\s*['"](https?://[^'"]+)['"]""", RegexOption.IGNORE_CASE).find(html)
-                        ?: Regex("""["']hls["']\s*:\s*["'](https?://[^"']+)["']""", RegexOption.IGNORE_CASE).find(html)
+                    val voeMatch = Regex("""'hls'\s*:\s*['"](https?://[^'"]+\.m3u8[^'"]*)['"]""", RegexOption.IGNORE_CASE).find(html)
+                        ?: Regex("""["']hls["']\s*:\s*["'](https?://[^"']+\.m3u8[^"']*)["']""", RegexOption.IGNORE_CASE).find(html)
                     if (voeMatch != null) return voeMatch.groupValues[1]
                 }
 
