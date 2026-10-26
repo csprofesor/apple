@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-kirli-gecmis",
+    "type": "movie",
+    "name": "Kirli Geçmiş",
+    "poster": "https://filmdozu.com/assets/img/10710.jpg",
+    "background": "https://filmdozu.com/assets/img/10710.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Savaşın tozu henüz yere çökmemişken, Albay Morsman Carver (Liam Neeson) için çatışma bitmemiştir. Tek bir hedefi vardır: Gideon&#039;u (Pierce Brosnan) bulup yok etm...",
+    "releaseInfo": "2006",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-kirli-gecmis",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-kirli-gecmis",
+        "title": "Kirli Geçmiş",
+        "released": "2006-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
