@@ -1,0 +1,46 @@
+{
+  "streams": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://prx-1476-ant.vmpx.online/hls2/03/01997/vu45m4qgvwoc_n/master.m3u8?t=9owTlJVj-6bMOTEVz5OcbqNxREGA3RAR13UQqJu-vZI=&s=1793047993&e=43200&v=&srv=box-c-o-l-6&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-vu45m4qgvwoc.html?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-vu45m4qgvwoc.html?autoplay=1&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-vu45m4qgvwoc.html?autoplay=1&rel=0"
+          }
+        }
+      }
+    },
+    {
+      "name": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "title": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "url": "https://prx-1590-for.vmnow.online/hls2/03/01904/5cwlfcjt8vxb_n/master.m3u8?t=VGIved9dwMMRN52ulPaGeDLCghuxcRy9zNnZB7AdXVE=&s=1793047994&e=43200&v=&srv=rck12&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-5cwlfcjt8vxb.html?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-5cwlfcjt8vxb.html?autoplay=1&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-5cwlfcjt8vxb.html?autoplay=1&rel=0"
+          }
+        }
+      }
+    }
+  ]
+}
