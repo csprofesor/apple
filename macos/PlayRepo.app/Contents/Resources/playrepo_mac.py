@@ -2341,6 +2341,11 @@ HTML_PAGE = """<!DOCTYPE html>
         const genres = (m.genres || []).slice(0, 3).join(', ');
         const isSeries = m.type === 'series';
         const validPoster = (m.poster && !m.poster.includes('metahub.space')) ? m.poster : 'https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png';
+        const sCount = (m.streams && m.streams.length > 0) ? m.streams.length : (m.stream_count || 0);
+        const streamBadge = sCount > 0 
+          ? `<span style="background:rgba(16, 185, 129, 0.2); color:#34d399; padding:2px 7px; border-radius:4px; font-weight:700; font-size:11px;">🟢 ${sCount} Akış Yayında</span>`
+          : `<span style="background:rgba(239, 68, 68, 0.2); color:#f87171; padding:2px 7px; border-radius:4px; font-weight:700; font-size:11px;">🔴 Akış Yok</span>`;
+
         item.innerHTML = `
           <div style="display:flex; align-items:center; gap:14px; overflow:hidden;">
             <img src="${validPoster}" referrerpolicy="no-referrer" onerror="this.src='https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png'" style="width:48px; height:68px; object-fit:cover; border-radius:8px; background:#1e293b; flex-shrink:0; box-shadow:0 4px 10px rgba(0,0,0,0.5);" />
@@ -2351,14 +2356,31 @@ HTML_PAGE = """<!DOCTYPE html>
               <div style="display:flex; align-items:center; gap:8px; margin-top:4px; flex-wrap:wrap;">
                 <span style="background:${isSeries ? 'rgba(168, 85, 247, 0.25)' : 'rgba(59, 130, 246, 0.25)'}; color:${isSeries ? '#c084fc' : '#60a5fa'}; padding:2px 7px; border-radius:4px; font-weight:700; font-size:11px;">${isSeries ? '🎬 Dizi' : '🎥 Film'}</span>
                 ${m.imdbRating ? `<span style="background:rgba(234,179,8,0.2); color:#facc15; padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px;">⭐ ${m.imdbRating}</span>` : ''}
+                ${streamBadge}
                 <span style="font-size:11.5px; color:#94a3b8;">${genres || 'Genel'}</span>
               </div>
             </div>
           </div>
-          <button class="btn-red" style="padding:6px 14px; font-size:12px;" onclick="deleteMovie('${m.id}')">🗑️ Sil</button>
+          <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
+            ${sCount > 0 ? `<button class="btn-blue" style="padding:6px 12px; font-size:12px;" onclick="viewMovieStreams('${m.id}')">▶️ Akışlar (${sCount})</button>` : ''}
+            <button class="btn-red" style="padding:6px 12px; font-size:12px;" onclick="deleteMovie('${m.id}')">🗑️ Sil</button>
+          </div>
         `;
         cont.appendChild(item);
       });
+    }
+
+    function viewMovieStreams(id) {
+      const m = allPublishedMovies.find(x => x.id === id);
+      if (!m || !m.streams || m.streams.length === 0) {
+        alert("Bu filme ait hazır video akışı bulunamadı.");
+        return;
+      }
+      const streamList = m.streams.map((s, idx) => `${idx + 1}. ${s.name || s.title || 'Kaynak'} [${s.quality || '1080p'}] -> ${s.url}`).join("\n\n");
+      const firstStream = m.streams[0].url;
+      if (confirm(`🎬 "${m.name}" - Yayındaki Video Akışları (${m.streams.length} Kaynak):\n\n${streamList}\n\nİlk kaynağı tarayıcıda açıp test etmek istiyor musunuz?`)) {
+        window.open(firstStream, '_blank');
+      }
     }
 
     function filterPublishedMovies() {
@@ -2802,6 +2824,23 @@ class RequestHandler(BaseHTTPRequestHandler):
                         metas = []
                 else:
                     metas = []
+            # 3. Enrich metas with active streams from data/streams.json
+            local_str = os.path.join(WORKSPACE_DIR, "data", "streams.json")
+            streams_map = {}
+            if os.path.exists(local_str):
+                try:
+                    with open(local_str, "r", encoding="utf-8") as f:
+                        streams_map = json.load(f)
+                except Exception:
+                    pass
+
+            for m in (metas or []):
+                if isinstance(m, dict):
+                    m_id = m.get("id", "")
+                    s_list = streams_map.get(m_id) or streams_map.get(m_id.replace(":", "-")) or []
+                    m["streams"] = s_list
+                    m["stream_count"] = len(s_list)
+
             self._send_json({"movies": metas or []})
         elif self.path == "/api/history-movies":
             his_path = os.path.join(WORKSPACE_DIR, "data", "history_catalog.json")
