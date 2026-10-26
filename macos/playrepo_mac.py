@@ -1804,7 +1804,17 @@ HTML_PAGE = """<!DOCTYPE html>
 
         <!-- Alt Bölüm 1: Linkler Hafızası -->
         <div id="mem-pane-urls">
-          <input type="text" id="memory-search" placeholder="🔍 Taranmış linklerde ara..." oninput="filterProcessedUrls()" style="margin-bottom: 12px;" />
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; gap: 8px; flex-wrap:wrap;">
+            <input type="text" id="memory-search" placeholder="🔍 Taranmış linklerde ara..." oninput="filterProcessedUrls()" style="flex:1; min-width:200px;" />
+            <button class="btn-green" style="padding: 9px 16px; font-size: 12px; white-space:nowrap;" onclick="publishAllProcessedUrls()">⚡ Tüm Linkleri Çöz ve Nuvio'ya Gönder</button>
+            <button class="btn-blue" id="btn-publish-selected-urls" style="display:none; padding: 9px 16px; font-size: 12px; white-space:nowrap;" onclick="publishSelectedProcessedUrls()">🚀 Seçilenleri Nuvio'ya Gönder (<span id="sel-url-count">0</span>)</button>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; font-size:12px; color:var(--dim); margin-bottom:8px; padding:0 4px;">
+            <label style="display:flex; align-items:center; gap:6px; cursor:pointer; user-select:none;">
+              <input type="checkbox" id="select-all-urls-checkbox" onchange="toggleSelectAllUrls(this.checked)" /> <span>Tümünü Seç</span>
+            </label>
+            <span id="url-selection-info" style="color:#64748b;">0 link seçili</span>
+          </div>
           <div id="memory-container" style="max-height: 480px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
             <div style="color: var(--dim); font-size: 13px; padding: 10px;">Hafıza yükleniyor...</div>
           </div>
@@ -2240,22 +2250,161 @@ HTML_PAGE = """<!DOCTYPE html>
       }
     }
 
+    let selectedProcessedUrls = new Set();
+
     function renderProcessedUrls(urls) {
       const cont = document.getElementById('memory-container');
       cont.innerHTML = "";
       if (urls.length === 0) {
         cont.innerHTML = "<div style='color:#64748b; font-size:13px; padding:10px;'>Önbellekte kayıtlı taranmış link bulunmuyor.</div>";
+        updateSelectedUrlsState();
         return;
       }
       urls.forEach(u => {
         const item = document.createElement('div');
         item.className = 'media-item';
+        item.style.display = 'flex';
+        item.style.alignItems = 'center';
+        item.style.justifyContent = 'space-between';
+        item.style.gap = '10px';
+        const isChecked = selectedProcessedUrls.has(u) ? "checked" : "";
+        const escU = u.replace(/'/g, "\\'");
         item.innerHTML = `
-          <span style="font-size:12.5px; color:#cbd5e1; word-break:break-all; font-family:monospace;">🔗 ${u}</span>
-          <button class="btn-gray" style="padding:4px 10px; font-size:11px;" onclick="deleteProcessedUrl('${u.replace(/'/g, "\'")}')">🗑️ Hafızadan Çıkar</button>
+          <div style="display:flex; align-items:center; gap:10px; overflow:hidden; flex:1;">
+            <input type="checkbox" class="url-select-box" value="${escU}" ${isChecked} onchange="toggleSingleUrlSelect('${escU}', this.checked)" />
+            <span style="font-size:12.5px; color:#cbd5e1; word-break:break-all; font-family:monospace;">🔗 ${u}</span>
+          </div>
+          <div style="display:flex; gap:6px; flex-shrink:0;">
+            <button class="btn-green" style="padding:4px 10px; font-size:11px;" onclick="publishSingleProcessedUrl('${escU}')">🚀 Nuvio'ya Gönder</button>
+            <button class="btn-gray" style="padding:4px 10px; font-size:11px;" onclick="deleteProcessedUrl('${escU}')">🗑️ Sil</button>
+          </div>
         `;
         cont.appendChild(item);
       });
+      updateSelectedUrlsState();
+    }
+
+    function toggleSingleUrlSelect(url, isChecked) {
+      if (isChecked) {
+        selectedProcessedUrls.add(url);
+      } else {
+        selectedProcessedUrls.delete(url);
+      }
+      updateSelectedUrlsState();
+    }
+
+    function toggleSelectAllUrls(checked) {
+      const q = document.getElementById('memory-search').value.toLowerCase().trim();
+      const currentList = q ? allProcessedUrls.filter(u => u.toLowerCase().includes(q)) : allProcessedUrls;
+      if (checked) {
+        currentList.forEach(u => selectedProcessedUrls.add(u));
+      } else {
+        currentList.forEach(u => selectedProcessedUrls.delete(u));
+      }
+      renderProcessedUrls(currentList);
+    }
+
+    function updateSelectedUrlsState() {
+      const count = selectedProcessedUrls.size;
+      const btn = document.getElementById('btn-publish-selected-urls');
+      const counter = document.getElementById('sel-url-count');
+      const info = document.getElementById('url-selection-info');
+      const chkAll = document.getElementById('select-all-urls-checkbox');
+      if (counter) counter.innerText = count;
+      if (info) info.innerText = count > 0 ? `${count} link seçildi` : '0 link seçili';
+      if (btn) {
+        btn.style.display = count > 0 ? 'inline-flex' : 'none';
+      }
+      if (chkAll && allProcessedUrls.length > 0) {
+        chkAll.checked = count > 0 && count === allProcessedUrls.length;
+      }
+    }
+
+    async function publishSingleProcessedUrl(url) {
+      switchNav('dashboard');
+      document.getElementById('btn-run').style.display = 'none';
+      document.getElementById('btn-pause').style.display = 'inline-flex';
+      document.getElementById('btn-resume').style.display = 'none';
+      document.getElementById('btn-stop').style.display = 'inline-flex';
+      showToast('Link çözülüp Nuvio\'ya aktarılıyor...');
+
+      try {
+        const res = await fetch('/api/publish-processed-url', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ url })
+        });
+        const data = await res.json();
+        if (data.status === 'started' || data.status === 'ok') {
+          showToast('Nuvio aktarım işlemi başlatıldı!');
+        } else {
+          alert('Hata: ' + (data.message || 'İşlem başlatılamadı'));
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    async function publishSelectedProcessedUrls() {
+      const urls = Array.from(selectedProcessedUrls);
+      if (urls.length === 0) {
+        alert('Lütfen Nuvio\'ya göndermek istediğiniz linkleri seçin!');
+        return;
+      }
+      if (!confirm(`Seçilen ${urls.length} adet film/dizi linki tek tek çözülüp Nuvio'ya aktarılacak. Onaylıyor musunuz?`)) return;
+
+      switchNav('dashboard');
+      document.getElementById('btn-run').style.display = 'none';
+      document.getElementById('btn-pause').style.display = 'inline-flex';
+      document.getElementById('btn-resume').style.display = 'none';
+      document.getElementById('btn-stop').style.display = 'inline-flex';
+      showToast(`${urls.length} link Nuvio'ya aktarılmaya başlandı...`);
+
+      try {
+        const res = await fetch('/api/publish-all-processed-urls', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ urls })
+        });
+        const data = await res.json();
+        if (data.status === 'started') {
+          selectedProcessedUrls.clear();
+          updateSelectedUrlsState();
+        } else {
+          alert('Hata: ' + (data.message || ''));
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    async function publishAllProcessedUrls() {
+      if (allProcessedUrls.length === 0) {
+        alert('Hafızada kayıtlı taranmış link bulunmuyor!');
+        return;
+      }
+      if (!confirm(`Hafızadaki toplam ${allProcessedUrls.length} adet taranmış film/dizi tek tek çözülüp anında Nuvio'ya aktarılacaktır. Başlatılsın mı?`)) return;
+
+      switchNav('dashboard');
+      document.getElementById('btn-run').style.display = 'none';
+      document.getElementById('btn-pause').style.display = 'inline-flex';
+      document.getElementById('btn-resume').style.display = 'none';
+      document.getElementById('btn-stop').style.display = 'inline-flex';
+      showToast('Tüm hafıza Nuvio\'ya aktarılmaya başlandı...');
+
+      try {
+        const res = await fetch('/api/publish-all-processed-urls', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({})
+        });
+        const data = await res.json();
+        if (data.status !== 'started') {
+          alert('Hata: ' + (data.message || ''));
+        }
+      } catch (e) {
+        console.error(e);
+      }
     }
 
     function filterProcessedUrls() {
@@ -2642,6 +2791,120 @@ class RequestHandler(BaseHTTPRequestHandler):
             save_processed_urls(set())
             append_global_log("[HAFIZA TEMİZLENDİ] Taranmış linkler önbelleği sıfırlandı.")
             self._send_json({"status": "ok"})
+        elif self.path == "/api/publish-processed-url":
+            body = self._read_json()
+            url = body.get("url", "").strip()
+            cfg = load_config()
+            token = cfg.get("github_token", "").strip()
+            tmdb = cfg.get("tmdb_key", "").strip()
+
+            if not url:
+                self._send_json({"status": "error", "message": "Link boş olamaz"})
+                return
+
+            if not token:
+                self._send_json({"status": "error", "message": "GitHub Token eksik! Ayarlar bölümünden kaydedin."})
+                return
+
+            ENGINE_INSTANCE.is_running = True
+            ENGINE_INSTANCE.is_paused = False
+
+            def single_url_worker():
+                try:
+                    append_global_log(f"🔗 [HAFIZADAN NUVIO'YA AKTARILIYOR] {url}...")
+                    pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
+                    cat = ENGINE_INSTANCE.detect_category(url, "")
+                    m_data = ENGINE_INSTANCE.scrape_movie_page(url, {cat}, tmdb_api_key=tmdb)
+                    if m_data and m_data.get("streams"):
+                        c_str = ", ".join(m_data.get("genres", ["Popüler"]))
+                        append_global_log(f"  ✓ {m_data['title']} ({len(m_data['streams'])} Sunucu • [{c_str}])")
+                        append_global_log(f"🚀 [NUVIO AKTARIM] {m_data['title']} hemen Nuvio & GitHub'a aktarılıyor...")
+                        if pub.publish_movies([m_data]):
+                            append_global_log(f"🎉 [BAŞARILI] '{m_data['title']}' Nuvio'da yayına alındı!")
+                        else:
+                            append_global_log(f"✗ [HATA] '{m_data['title']}' Nuvio'ya aktarılırken hata oluştu.")
+                    else:
+                        append_global_log(f"✗ [BAŞARISIZ] {url} için çalışan video akışı çözülemedi.")
+                except Exception as e:
+                    append_global_log(f"💥 [HATA] {str(e)}")
+                finally:
+                    ENGINE_INSTANCE.is_running = False
+                    ENGINE_INSTANCE.is_paused = False
+
+            CURRENT_WORKER = threading.Thread(target=single_url_worker, daemon=True)
+            CURRENT_WORKER.start()
+            self._send_json({"status": "started"})
+        elif self.path == "/api/publish-all-processed-urls":
+            body = self._read_json()
+            target_urls = body.get("urls")
+            if target_urls is None:
+                target_urls = sorted(list(load_processed_urls()))
+            else:
+                target_urls = [u.strip() for u in target_urls if u.strip()]
+
+            if not target_urls:
+                self._send_json({"status": "error", "message": "Hafızada taranmış link bulunamadı"})
+                return
+
+            cfg = load_config()
+            token = cfg.get("github_token", "").strip()
+            tmdb = cfg.get("tmdb_key", "").strip()
+
+            if not token:
+                self._send_json({"status": "error", "message": "GitHub Token eksik! Ayarlar bölümünden kaydedin."})
+                return
+
+            if ENGINE_INSTANCE.is_running and CURRENT_WORKER is not None and CURRENT_WORKER.is_alive():
+                self._send_json({"status": "error", "message": "Şu anda devam eden bir tarama var. Lütfen önce durdurun."})
+                return
+
+            ENGINE_INSTANCE.is_running = True
+            ENGINE_INSTANCE.is_paused = False
+
+            def bulk_urls_worker():
+                try:
+                    append_global_log(f"⚡ [HAFIZA TOPLU AKTARIMI] Toplam {len(target_urls)} adet taranmış link çözülüp Nuvio'ya gönderiliyor...")
+                    pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
+                    total = len(target_urls)
+                    resolved_count = 0
+
+                    for idx, url in enumerate(target_urls, 1):
+                        if not ENGINE_INSTANCE.check_alive():
+                            append_global_log("⏹️ [DURDURULDU] Hafıza aktarımı kullanıcı tarafından durduruldu.")
+                            break
+
+                        append_global_log(f"[{idx}/{total}] ⚡ Çözülüyor: {url}...")
+                        cat = ENGINE_INSTANCE.detect_category(url, "")
+                        m_data = ENGINE_INSTANCE.scrape_movie_page(url, {cat}, tmdb_api_key=tmdb)
+
+                        if not ENGINE_INSTANCE.check_alive():
+                            break
+
+                        if m_data and m_data.get("streams"):
+                            c_str = ", ".join(m_data.get("genres", ["Popüler"]))
+                            append_global_log(f"  ✓ {m_data['title']} ({len(m_data['streams'])} Sunucu • [{c_str}])")
+                            append_global_log(f"🚀 [ANLIK YÜKLEME] '{m_data['title']}' hemen Nuvio & GitHub'a aktarılıyor...")
+                            if pub.publish_movies([m_data]):
+                                resolved_count += 1
+                                append_global_log(f"🎉 [EKLENDİ] '{m_data['title']}' Nuvio'da yayında! (Toplam aktarılan: {resolved_count})")
+                        else:
+                            append_global_log(f"  ✗ {url} (Aktif video akışı bulunamadı)")
+
+                    if ENGINE_INSTANCE.is_running:
+                        append_global_log(f"🏁 [TAMAMLANDI] Hafıza aktarımı tamamlandı. {resolved_count}/{total} içerik Nuvio'ya aktarıldı.")
+                    else:
+                        append_global_log("⏹ [SONLANDI] İşlem kullanıcı tarafından durduruldu.")
+                except Exception as e:
+                    import traceback
+                    append_global_log(f"💥 [BEKLENMEDİK HATA] {str(e)}")
+                    append_global_log(traceback.format_exc())
+                finally:
+                    ENGINE_INSTANCE.is_running = False
+                    ENGINE_INSTANCE.is_paused = False
+
+            CURRENT_WORKER = threading.Thread(target=bulk_urls_worker, daemon=True)
+            CURRENT_WORKER.start()
+            self._send_json({"status": "started", "total": len(target_urls)})
         elif self.path == "/api/reset-sites":
             cfg = load_config()
             cfg["saved_sites"] = [
