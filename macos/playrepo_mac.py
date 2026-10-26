@@ -1778,6 +1778,9 @@ HTML_PAGE = """<!DOCTYPE html>
       user-select: none;
       -webkit-user-select: none;
     }
+    .dock-btn * {
+      pointer-events: none !important;
+    }
     .dock-btn:hover {
       color: #f8fafc;
       background: rgba(255, 255, 255, 0.08);
@@ -2081,15 +2084,18 @@ HTML_PAGE = """<!DOCTYPE html>
 
     function switchNav(view) {
       if (!view) return;
-      const allPanes = document.querySelectorAll('.view-pane');
-      for (let i = 0; i < allPanes.length; i++) {
-        allPanes[i].classList.remove('active');
-        allPanes[i].style.display = 'none';
-      }
-      const allBtns = document.querySelectorAll('.dock-btn');
-      for (let i = 0; i < allBtns.length; i++) {
-        allBtns[i].classList.remove('active');
-      }
+      const views = ['dashboard', 'catalog', 'single', 'memory', 'settings'];
+      views.forEach(v => {
+        const p = document.getElementById('view-' + v);
+        const b = document.getElementById('dock-btn-' + v);
+        if (p) {
+          p.classList.remove('active');
+          p.style.display = 'none';
+        }
+        if (b) {
+          b.classList.remove('active');
+        }
+      });
 
       const targetPane = document.getElementById('view-' + view);
       const targetBtn = document.getElementById('dock-btn-' + view);
@@ -2112,6 +2118,7 @@ HTML_PAGE = """<!DOCTYPE html>
         console.error('switchNav data error:', err);
       }
     }
+    window.switchNav = switchNav;
 
     function switchMemTab(tab) {
       if (tab === 'urls') {
@@ -2757,6 +2764,19 @@ HTML_PAGE = """<!DOCTYPE html>
       if (e.key === '3') switchNav('single');
       if (e.key === '4') switchNav('memory');
       if (e.key === '5') switchNav('settings');
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const views = ['dashboard', 'catalog', 'single', 'memory', 'settings'];
+      views.forEach(v => {
+        const btn = document.getElementById('dock-btn-' + v);
+        if (btn) {
+          btn.addEventListener('click', (e) => {
+            if (e) e.preventDefault();
+            switchNav(v);
+          });
+        }
+      });
     });
 
     window.onload = () => {
@@ -3420,6 +3440,7 @@ def run_cli_crawl(site_url: str, max_pages: int = 20, token: str = None):
         print("✗ [PlayRepo CLI] Film bulunamadı veya akışlar çözülemedi.")
 
 ACTIVE_PORT_FILE = "/tmp/playrepo_active.port"
+DEFAULT_PORT = 58580
 
 def is_server_alive(port: int) -> bool:
     try:
@@ -3449,8 +3470,8 @@ def open_browser_window(url: str):
     if os.path.exists(chrome_bin):
         try:
             # Kill any stale Chrome processes using this dedicated profile so Chrome cleanly opens the active port
-            subprocess.run(["pkill", "-f", "playrepo_desktop_profile"], capture_output=True)
-            time.sleep(0.2)
+            subprocess.run("pkill -9 -f playrepo_desktop_profile || true", shell=True, capture_output=True)
+            time.sleep(0.3)
             subprocess.Popen([
                 "open", "-n", "-a", "/Applications/Google Chrome.app",
                 "--args",
@@ -3466,20 +3487,26 @@ def open_browser_window(url: str):
     subprocess.run(["open", url])
 
 def run_app():
-    if os.path.exists(ACTIVE_PORT_FILE):
-        try:
-            with open(ACTIVE_PORT_FILE, "r") as f:
-                saved_port = int(f.read().strip())
-            if is_server_alive(saved_port):
-                open_browser_window(f"http://127.0.0.1:{saved_port}")
-                sys.exit(0)
-        except Exception:
-            pass
+    port = DEFAULT_PORT
 
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.bind(('127.0.0.1', 0))
-    port = sock.getsockname()[1]
-    sock.close()
+    if is_server_alive(port):
+        open_browser_window(f"http://127.0.0.1:{port}")
+        sys.exit(0)
+
+    server = None
+    try:
+        server = HTTPServer(('127.0.0.1', port), RequestHandler)
+    except OSError:
+        try:
+            subprocess.run(f"lsof -ti :{port} | xargs kill -9 || true", shell=True, capture_output=True)
+            time.sleep(0.4)
+            server = HTTPServer(('127.0.0.1', port), RequestHandler)
+        except Exception:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.bind(('127.0.0.1', 0))
+            port = sock.getsockname()[1]
+            sock.close()
+            server = HTTPServer(('127.0.0.1', port), RequestHandler)
 
     try:
         with open(ACTIVE_PORT_FILE, "w") as f:
@@ -3487,7 +3514,6 @@ def run_app():
     except Exception:
         pass
 
-    server = HTTPServer(('127.0.0.1', port), RequestHandler)
     server_thread = threading.Thread(target=server.serve_forever, daemon=True)
     server_thread.start()
 
