@@ -5311,5 +5311,28 @@
         }
       }
     }
+  ],
+  "playrepo-cennette-be-dakika": [
+    {
+      "name": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "title": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "url": "https://prx-1566-ant-r.vmpx.online/hls2/02/02199/g8k74fzew337_n/master.m3u8?t=TvbyfnfKi4pTnZsn0nZCEujNyO8MLkQ2rWWc5yeAF8A=&s=1793044183&e=43200&v=&srv=box-c-o-l-10&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-g8k74fzew337.html?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-g8k74fzew337.html?autoplay=0&amp;rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-g8k74fzew337.html?autoplay=0&amp;rel=0"
+          }
+        }
+      }
+    }
   ]
 }
