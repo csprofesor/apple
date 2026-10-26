@@ -1,0 +1,46 @@
+{
+  "streams": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://box-1103-o.vmbox.space/hls/,xqx2os45enokjiqbtf6cbpitup232qil2ygcsozefit6arqrb2w5isxpwlkq,.urlset/master.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-tgrchu0n59jf.html?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-tgrchu0n59jf.html?autoplay=1&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-tgrchu0n59jf.html?autoplay=1&rel=0"
+          }
+        }
+      }
+    },
+    {
+      "name": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "title": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "url": "https://vd296.okcdn.ru/video.m3u8?cmd=videoPlayerCdn&expires=1793134755906&srcIp=85.107.102.169&pr=10&srcAg=CHROME&ch=-536166974&ms=185.180.203.46&type=2&sig=kFbJxssrkKM&ct=8&urls=95.163.35.41&clientType=0&zs=65&id=8203166157555",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/5991737854545?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/5991737854545?autoplay=1&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://ok.ru/videoembed/5991737854545?autoplay=1&rel=0"
+          }
+        }
+      }
+    }
+  ]
+}
