@@ -569,21 +569,19 @@ class ScraperEngine:
             return False
         ua = random.choice(USER_AGENTS)
         ref = referer or url
-        cmd = ["curl", "-s", "-o", "/dev/null", "-w", "%{http_code}", "-r", "0-1024", "--max-time", "2.5", "-A", ua]
+        cmd = ["curl", "-s", "-L", "-o", "/dev/null", "-w", "%{http_code}", "-r", "0-1024", "--max-time", "3", "-A", ua]
         if ref:
             cmd += ["-H", f"Referer: {ref}"]
         cmd.append(url)
         try:
             res = subprocess.run(cmd, capture_output=True, text=True, errors="ignore")
             code_str = (res.stdout or "").strip()
-            if code_str in ("200", "206", "301", "302", "303", "307", "308"):
+            # Only 200/206 (or redirects) are real playable streams; 400, 401, 403, 404, 500, etc. mean dead/buffering
+            if code_str in ("200", "206"):
                 return True
-            if code_str in ("404", "410", "500", "502", "503", "000", ""):
-                return False
-            # 403 or other codes: conservative check
-            return True
+            return False
         except Exception:
-            return True
+            return False
 
     def simulate_browser_render(self, url: str) -> str:
         """
@@ -845,11 +843,39 @@ class ScraperEngine:
         if not resolved_streams:
             return None
 
-        # Filter dead links via fast HEAD check
+        # Filter dead links via fast HTTP range check - NEVER accept dead links
         alive_streams = [s for s in resolved_streams if self.is_stream_alive(s["url"], s.get("referer"))]
-        valid_streams = alive_streams if alive_streams else resolved_streams
+        if not alive_streams:
+            self.log(f"  ⚠️ Tüm çözülen linkler ölü veya oynatılamaz durumda, atlanıyor.")
+            return None
 
-        valid_streams.sort(key=lambda s: 1 if s["format"] == "m3u8" else 0, reverse=True)
+        alive_streams.sort(key=lambda s: 1 if s["format"] == "m3u8" else 0, reverse=True)
+
+        # Cap streams: Max 2 Dublaj, Max 2 Altyazı, Max 1 Sunucu (Maksimum 4-5 garantili, çalışan sunucu)
+        dub_list = []
+        sub_list = []
+        oth_list = []
+        seen_domains = set()
+
+        for s in alive_streams:
+            u_domain = urllib.parse.urlsplit(s["url"]).netloc.lower()
+            raw_t = s.get("title", "").lower()
+            if "dublaj" in raw_t:
+                if len(dub_list) < 2 and ("dub_" + u_domain) not in seen_domains:
+                    dub_list.append(s)
+                    if u_domain: seen_domains.add("dub_" + u_domain)
+            elif "altyaz" in raw_t:
+                if len(sub_list) < 2 and ("sub_" + u_domain) not in seen_domains:
+                    sub_list.append(s)
+                    if u_domain: seen_domains.add("sub_" + u_domain)
+            else:
+                if len(oth_list) < 1 and ("oth_" + u_domain) not in seen_domains:
+                    oth_list.append(s)
+                    if u_domain: seen_domains.add("oth_" + u_domain)
+
+        valid_streams = dub_list + sub_list + oth_list
+        if not valid_streams:
+            valid_streams = alive_streams[:3]
 
         dub_c = 0
         sub_c = 0

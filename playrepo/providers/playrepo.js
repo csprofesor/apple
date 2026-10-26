@@ -503,6 +503,115 @@ async function getMeta(arg1, arg2) {
     }
 }
 
+async function resolveAndCapStreams(rawStreams) {
+    if (!rawStreams || rawStreams.length === 0) return [];
+
+    const resolvedPromises = rawStreams.map(async (s) => {
+        if (!s || !s.url) return null;
+        const refererUrl = (s.behaviorHints && s.behaviorHints.proxyHeaders && s.behaviorHints.proxyHeaders.request && s.behaviorHints.proxyHeaders.request.Referer) || s.referer || s.url || "https://www.google.com";
+        let directUrl = s.url;
+        const lowerDirect = (directUrl || "").toLowerCase();
+
+        // If URL is an embed, dead/expired CDN token, or needs live extraction
+        const needsLiveUnpack = lowerDirect.includes("/embed") ||
+                                lowerDirect.includes("/videoembed") ||
+                                lowerDirect.includes("/e/") ||
+                                lowerDirect.includes("srcip=") ||
+                                lowerDirect.includes("okcdn.ru") ||
+                                (!lowerDirect.includes(".m3u8") && !lowerDirect.includes(".mp4"));
+
+        if (needsLiveUnpack) {
+            const targetUrl = (refererUrl.includes("/embed") || refererUrl.includes("/videoembed") || refererUrl.includes("/e/") || lowerDirect.includes("srcip=")) ? refererUrl : directUrl;
+            const unpacked = await unpackLiveStreamUrl(targetUrl, refererUrl);
+            if (unpacked) directUrl = unpacked;
+        }
+
+        if (!directUrl) return null;
+        const finalLower = directUrl.toLowerCase();
+        if (!finalLower.includes(".m3u8") && !finalLower.includes(".mp4") && !finalLower.includes("/manifest")) {
+            return null;
+        }
+
+        const isM3u8 = finalLower.includes(".m3u8");
+        return {
+            rawTitle: s.title || s.name || "",
+            url: directUrl,
+            quality: s.quality || 1080,
+            provider: "play",
+            format: isM3u8 ? "m3u8" : "mp4",
+            behaviorHints: {
+                notSupported: false,
+                proxyHeaders: {
+                    request: {
+                        "User-Agent": UA,
+                        "Referer": refererUrl
+                    }
+                }
+            },
+            headers: {
+                "User-Agent": UA,
+                "Referer": refererUrl
+            }
+        };
+    });
+
+    const resolved = (await Promise.all(resolvedPromises)).filter(s => s && s.url && s.url.length > 5);
+
+    // Deduplicate and cap: Max 2 Dublaj, Max 2 Altyazı, Max 1 Sunucu (Max 4-5 high quality servers)
+    const dubList = [];
+    const subList = [];
+    const othList = [];
+    const seenUrls = new Set();
+
+    // Sort HLS first for instant playback
+    resolved.sort((a, b) => {
+        const aHls = (a.format === "m3u8" || a.url.includes(".m3u8")) ? 1 : 0;
+        const bHls = (b.format === "m3u8" || b.url.includes(".m3u8")) ? 1 : 0;
+        return bHls - aHls;
+    });
+
+    for (const st of resolved) {
+        if (seenUrls.has(st.url)) continue;
+        seenUrls.add(st.url);
+
+        const title = st.rawTitle.toLowerCase();
+        if (title.includes("dublaj")) {
+            if (dubList.length < 2) dubList.push(st);
+        } else if (title.includes("altyaz")) {
+            if (subList.length < 2) subList.push(st);
+        } else {
+            if (othList.length < 1) othList.push(st);
+        }
+    }
+
+    let dubC = 0, subC = 0, othC = 0;
+    return [...dubList, ...subList, ...othList].map(s => {
+        const titleLower = s.rawTitle.toLowerCase();
+        let formattedTitle = "";
+        if (titleLower.includes("dublaj")) {
+            dubC++;
+            formattedTitle = `Play • Dublaj ${dubC} • 1080p • [TR Dublaj]`;
+        } else if (titleLower.includes("altyaz")) {
+            subC++;
+            formattedTitle = `Play • Altyazı ${subC} • 1080p • [TR Altyazılı]`;
+        } else {
+            othC++;
+            formattedTitle = `Play • Sunucu ${othC} • 1080p • [TR]`;
+        }
+
+        return {
+            name: formattedTitle,
+            title: formattedTitle,
+            url: s.url,
+            quality: s.quality || 1080,
+            provider: "play",
+            format: s.format,
+            behaviorHints: s.behaviorHints,
+            headers: s.headers
+        };
+    });
+}
+
 async function getStreams(arg1, arg2, arg3, arg4) {
     try {
         let idStr = "";
@@ -539,53 +648,10 @@ async function getStreams(arg1, arg2, arg3, arg4) {
                 if (ssRes.ok) {
                     const ssData = await ssRes.json();
                     if (ssData && ssData.streams && ssData.streams.length > 0) {
-                        const sorted = ssData.streams.sort((a, b) => {
-                            const aHls = (a.format === "m3u8" || (a.url && a.url.includes(".m3u8"))) ? 1 : 0;
-                            const bHls = (b.format === "m3u8" || (b.url && b.url.includes(".m3u8"))) ? 1 : 0;
-                            return bHls - aHls;
-                        });
-                        let dubC = 0, subC = 0, othC = 0;
-                        return sorted.filter(st => st && st.url && st.url.length > 5 && !st.url.startsWith("about:")).map((st) => {
-                            const ref = (st.behaviorHints && st.behaviorHints.proxyHeaders && st.behaviorHints.proxyHeaders.request && st.behaviorHints.proxyHeaders.request.Referer) || st.referer || st.url;
-                            const isM3u8 = (st.url && st.url.includes(".m3u8")) || st.format === "m3u8";
-                            const rawTitle = st.title || "";
-                            let formattedTitle = "";
-                            if (rawTitle.includes("Dublaj")) {
-                                dubC++;
-                                formattedTitle = `Play • Dublaj ${dubC} • 1080p • [TR Dublaj]`;
-                            } else if (rawTitle.includes("Altyaz")) {
-                                subC++;
-                                formattedTitle = `Play • Altyazı ${subC} • 1080p • [TR Altyazılı]`;
-                            } else if (rawTitle.includes("Sunucu")) {
-                                othC++;
-                                formattedTitle = `Play • Sunucu ${othC} • 1080p • [TR]`;
-                            } else if (rawTitle.length > 5 && rawTitle !== "Play" && rawTitle !== "PlayRepo") {
-                                formattedTitle = rawTitle.replace(/^PlayRepo/i, "Play");
-                                if (!formattedTitle.startsWith("Play •")) formattedTitle = `Play • ${formattedTitle}`;
-                            } else {
-                                othC++;
-                                formattedTitle = `Play • Sunucu ${othC} • 1080p • [TR]`;
-                            }
-                            return {
-                                ...st,
-                                name: formattedTitle,
-                                title: formattedTitle,
-                                format: isM3u8 ? "m3u8" : "mp4",
-                                behaviorHints: {
-                                    notSupported: false,
-                                    proxyHeaders: {
-                                        request: {
-                                            "User-Agent": UA,
-                                            "Referer": ref
-                                        }
-                                    }
-                                },
-                                headers: {
-                                    "User-Agent": UA,
-                                    "Referer": ref
-                                }
-                            };
-                        });
+                        const capped = await resolveAndCapStreams(ssData.streams);
+                        if (capped && capped.length > 0) {
+                            return capped;
+                        }
                     }
                 }
             } catch (_) {}
@@ -620,86 +686,7 @@ async function getStreams(arg1, arg2, arg3, arg4) {
 
         if (!itemStreams || itemStreams.length === 0) return [];
 
-        const resolvedPromises = itemStreams.map(async (s) => {
-            const refererUrl = s.referer || s.url || "https://www.google.com";
-            let directUrl = s.url;
-            const lowerDirect = (directUrl || "").toLowerCase();
-            const isDirect = (lowerDirect.includes(".m3u8") || lowerDirect.includes(".mp4")) && !lowerDirect.includes("/embed") && !lowerDirect.includes("/e/") && !lowerDirect.includes("srcip=");
-            if (!isDirect) {
-                const targetUrl = (refererUrl.includes("/embed") || refererUrl.includes("/videoembed") || refererUrl.includes("/e/") || s.url.includes("srcIp=")) ? refererUrl : s.url;
-                const unpacked = await unpackLiveStreamUrl(targetUrl, refererUrl);
-                if (unpacked) directUrl = unpacked;
-            }
-
-            if (!directUrl) return null;
-            const finalLower = directUrl.toLowerCase();
-
-            if (!finalLower.includes(".m3u8") && !finalLower.includes(".mp4") && !finalLower.includes("/manifest")) {
-                return null;
-            }
-
-            const isM3u8 = finalLower.includes(".m3u8");
-            return {
-                rawTitle: s.title || "",
-                url: directUrl,
-                quality: s.quality || 1080,
-                provider: "play",
-                format: isM3u8 ? "m3u8" : "mp4",
-                behaviorHints: {
-                    notSupported: false,
-                    proxyHeaders: {
-                        "request": {
-                            "User-Agent": UA,
-                            "Referer": refererUrl
-                        }
-                    }
-                },
-                headers: {
-                    "User-Agent": UA,
-                    "Referer": refererUrl
-                }
-            };
-        });
-
-        const resolvedStreams = await Promise.all(resolvedPromises);
-        const validStreams = resolvedStreams.filter(s => s !== null && s.url && s.url.length > 5);
-        validStreams.sort((a, b) => {
-            const aHls = (a.format === "m3u8" || (a.url && a.url.includes(".m3u8"))) ? 1 : 0;
-            const bHls = (b.format === "m3u8" || (b.url && b.url.includes(".m3u8"))) ? 1 : 0;
-            return bHls - aHls;
-        });
-
-        let dubC = 0, subC = 0, othC = 0;
-        return validStreams.map(s => {
-            const rawTitle = s.rawTitle || "";
-            let formattedTitle = "";
-            if (rawTitle.includes("Dublaj")) {
-                dubC++;
-                formattedTitle = `Play • Dublaj ${dubC} • 1080p • [TR Dublaj]`;
-            } else if (rawTitle.includes("Altyaz")) {
-                subC++;
-                formattedTitle = `Play • Altyazı ${subC} • 1080p • [TR Altyazılı]`;
-            } else if (rawTitle.includes("Sunucu")) {
-                othC++;
-                formattedTitle = `Play • Sunucu ${othC} • 1080p • [TR]`;
-            } else if (rawTitle.length > 5 && rawTitle !== "Play" && rawTitle !== "PlayRepo") {
-                formattedTitle = rawTitle.replace(/^PlayRepo/i, "Play");
-                if (!formattedTitle.startsWith("Play •")) formattedTitle = `Play • ${formattedTitle}`;
-            } else {
-                othC++;
-                formattedTitle = `Play • Sunucu ${othC} • 1080p • [TR]`;
-            }
-            return {
-                name: formattedTitle,
-                title: formattedTitle,
-                url: s.url,
-                quality: s.quality || 1080,
-                provider: "play",
-                format: s.format,
-                behaviorHints: s.behaviorHints,
-                headers: s.headers
-            };
-        });
+        return await resolveAndCapStreams(itemStreams);
     } catch (e) {
         console.error("Play getStreams error:", e);
         return [];

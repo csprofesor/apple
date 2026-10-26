@@ -930,21 +930,52 @@ class SiteScraperEngine {
                 return@withContext null
             }
 
-            // Stream health check: filter dead links
+            // Stream health check: filter dead links - NEVER allow dead streams
             val aliveStreams = resolvedStreams.filter { st -> isStreamAlive(st.url, st.referer) }
-            val validStreams = if (aliveStreams.isNotEmpty()) aliveStreams else resolvedStreams
+            if (aliveStreams.isEmpty()) {
+                return@withContext null
+            }
+
+            // Cap streams: Max 2 Dublaj, Max 2 Altyazı, Max 1 Sunucu (Maksimum 4-5 garantili, çalışan sunucu)
+            val dubList = mutableListOf<StreamItem>()
+            val subList = mutableListOf<StreamItem>()
+            val othList = mutableListOf<StreamItem>()
+            val seenDomains = mutableSetOf<String>()
 
             // Prioritize instant-start HLS (.m3u8) streams first so playback starts in <1 second
-            val sortedStreams = validStreams.sortedWith(
+            val sortedStreams = aliveStreams.sortedWith(
                 compareByDescending<StreamItem> { it.format == "m3u8" || it.url.contains(".m3u8") }
                     .thenByDescending { it.quality }
             )
+
+            sortedStreams.forEach { st ->
+                val domain = try { java.net.URI(st.url).host.orEmpty().lowercase() } catch (_: Exception) { "" }
+                val title = st.title.lowercase()
+                if (title.contains("dublaj")) {
+                    if (dubList.size < 2 && !seenDomains.contains("dub_$domain")) {
+                        dubList.add(st)
+                        if (domain.isNotBlank()) seenDomains.add("dub_$domain")
+                    }
+                } else if (title.contains("altyaz")) {
+                    if (subList.size < 2 && !seenDomains.contains("sub_$domain")) {
+                        subList.add(st)
+                        if (domain.isNotBlank()) seenDomains.add("sub_$domain")
+                    }
+                } else {
+                    if (othList.size < 1 && !seenDomains.contains("oth_$domain")) {
+                        othList.add(st)
+                        if (domain.isNotBlank()) seenDomains.add("oth_$domain")
+                    }
+                }
+            }
+
+            val validStreams = (dubList + subList + othList).ifEmpty { sortedStreams.take(3) }
 
             val dubCount = java.util.concurrent.atomic.AtomicInteger(0)
             val subCount = java.util.concurrent.atomic.AtomicInteger(0)
             val otherCount = java.util.concurrent.atomic.AtomicInteger(0)
 
-            val prioritizedStreams = sortedStreams.map { st ->
+            val prioritizedStreams = validStreams.map { st ->
                 val isDub = st.title.contains("Dublaj", true)
                 val isSub = st.title.contains("Altyaz", true)
                 val formattedTitle = when {
@@ -1046,7 +1077,7 @@ class SiteScraperEngine {
                 .newCall(req)
                 .execute()
                 .use { resp ->
-                    resp.code in 200..399 || resp.code == 416
+                    resp.code in 200..206 || resp.code == 416
                 }
         } catch (_: Exception) {
             false // If connection fails, times out or drops, reject dead stream!

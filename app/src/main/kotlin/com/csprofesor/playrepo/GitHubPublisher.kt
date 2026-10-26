@@ -239,11 +239,40 @@ class GitHubPublisher {
                         .thenByDescending { it.quality }
                 )
 
+                // Cap streams: Max 2 Dublaj, Max 2 Altyazı, Max 1 Sunucu (Max 4-5 high quality servers)
+                val dubList = mutableListOf<StreamItem>()
+                val subList = mutableListOf<StreamItem>()
+                val othList = mutableListOf<StreamItem>()
+                val seenDomains = mutableSetOf<String>()
+
+                sorted.forEach { st ->
+                    val domain = try { java.net.URI(st.url).host.orEmpty().lowercase() } catch (_: Exception) { "" }
+                    val title = st.title.lowercase()
+                    if (title.contains("dublaj")) {
+                        if (dubList.size < 2 && !seenDomains.contains("dub_$domain")) {
+                            dubList.add(st)
+                            if (domain.isNotBlank()) seenDomains.add("dub_$domain")
+                        }
+                    } else if (title.contains("altyaz")) {
+                        if (subList.size < 2 && !seenDomains.contains("sub_$domain")) {
+                            subList.add(st)
+                            if (domain.isNotBlank()) seenDomains.add("sub_$domain")
+                        }
+                    } else {
+                        if (othList.size < 1 && !seenDomains.contains("oth_$domain")) {
+                            othList.add(st)
+                            if (domain.isNotBlank()) seenDomains.add("oth_$domain")
+                        }
+                    }
+                }
+
+                val cappedStreams = (dubList + subList + othList).ifEmpty { sorted.take(3) }
+
                 val dubCount = java.util.concurrent.atomic.AtomicInteger(0)
                 val subCount = java.util.concurrent.atomic.AtomicInteger(0)
                 val otherCount = java.util.concurrent.atomic.AtomicInteger(0)
 
-                val renumbered = sorted.map { st ->
+                val renumbered = cappedStreams.map { st ->
                     val isDub = st.title.contains("Dublaj", true)
                     val isSub = st.title.contains("Altyaz", true)
                     val formattedTitle = when {
