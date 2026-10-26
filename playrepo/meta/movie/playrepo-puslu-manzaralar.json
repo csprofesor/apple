@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-puslu-manzaralar",
+    "type": "movie",
+    "name": "Puslu Manzaralar",
+    "poster": "https://filmdozu.com/assets/img/8216.jpg",
+    "background": "https://filmdozu.com/assets/img/8216.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Sislerin ardında kalan umut dolu bir serüven başlıyor. İki genç ruh, Almanya’da yaşadığını sandıkları babalarına kavuşma arzusuyla yola koyuluyor. Her adımların...",
+    "releaseInfo": "1988",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Belgesel & Tarih",
+      "Komedi",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Korku & Gerilim",
+      "Bilim Kurgu & Fantastik",
+      "Aksiyon & Macera"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-puslu-manzaralar",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-puslu-manzaralar",
+        "title": "Puslu Manzaralar",
+        "released": "1988-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
