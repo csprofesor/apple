@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "tt0112384",
+    "type": "movie",
+    "name": "Apollo 13",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMGZmNGY1OTAtNjFkYS00MjcyLWFlZjUtYzEyMDllZGZhMzM3XkEyXkFqcGc%40._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BMGZmNGY1OTAtNjFkYS00MjcyLWFlZjUtYzEyMDllZGZhMzM3XkEyXkFqcGc%40._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Uzayın derinliklerinde, Apollo 13 ekibinin kalbinde yankılanan tek bir ses: &quot;Houston, bir sorunumuz var.&quot; Jim Lovell, Jack Swigert ve Fred Haise, yıldızlar aras...",
+    "releaseInfo": "1995",
+    "genres": [
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Dram & Romantik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "tt0112384",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0112384",
+        "title": "Apollo 13",
+        "released": "1995-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
