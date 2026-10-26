@@ -165,21 +165,28 @@ async function unpackLiveStreamUrl(rawUrl, referer) {
 
 async function getCatalog(type, id, extra) {
     try {
-        // 1. Try static category catalog file first
+        // 1. Try static category catalog file first (supporting both movie and series directories)
         if (id && id.startsWith("playrepo-") && id !== "playrepo-catalog-movies") {
             try {
-                const catFileUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/catalog/movie/${id}.json?t=${Date.now()}`;
+                const catFolder = (type === "series" || id.includes("series")) ? "series" : "movie";
+                const catFileUrl = `https://raw.githubusercontent.com/csprofesor/apple/main/playrepo/catalog/${catFolder}/${id}.json?t=${Date.now()}`;
                 const catRes = await fetch(catFileUrl, {
                     headers: { "User-Agent": UA, "Accept": "application/json" }
                 });
                 if (catRes.ok) {
                     const catData = await catRes.json();
                     let metas = Array.isArray(catData) ? catData : (catData.metas || []);
-                    if (extra && extra.search) {
-                        const query = extra.search.toLowerCase();
-                        metas = metas.filter(m => m.name && m.name.toLowerCase().includes(query));
+                    if (metas && metas.length > 0) {
+                        metas.forEach(m => {
+                            if (m.poster && m.poster.includes("@")) m.poster = m.poster.replace(/@/g, "%40");
+                            if (m.background && m.background.includes("@")) m.background = m.background.replace(/@/g, "%40");
+                        });
+                        if (extra && extra.search) {
+                            const query = extra.search.toLowerCase();
+                            metas = metas.filter(m => m.name && m.name.toLowerCase().includes(query));
+                        }
+                        return { metas: metas };
                     }
-                    return { metas: metas };
                 }
             } catch (_) {}
         }
@@ -254,6 +261,11 @@ async function getCatalog(type, id, extra) {
             metas = metas.filter(m => m.name && m.name.toLowerCase().includes(query));
         }
 
+        metas.forEach(m => {
+            if (m.poster && m.poster.includes("@")) m.poster = m.poster.replace(/@/g, "%40");
+            if (m.background && m.background.includes("@")) m.background = m.background.replace(/@/g, "%40");
+        });
+
         return { metas: metas };
     } catch (e) {
         console.error("Play getCatalog error:", e);
@@ -296,6 +308,8 @@ async function getMeta(arg1, arg2) {
                     if (smRes.ok) {
                         const smData = await smRes.json();
                         if (smData && smData.meta) {
+                            if (smData.meta.poster && smData.meta.poster.includes("@")) smData.meta.poster = smData.meta.poster.replace(/@/g, "%40");
+                            if (smData.meta.background && smData.meta.background.includes("@")) smData.meta.background = smData.meta.background.replace(/@/g, "%40");
                             return smData;
                         }
                     }

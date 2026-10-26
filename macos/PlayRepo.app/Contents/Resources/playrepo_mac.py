@@ -729,7 +729,9 @@ class ScraperEngine:
             season_num = int(combo_m.group(1))
             episode_num = int(combo_m.group(2))
         else:
-            is_series = "/dizi/" in movie_url.lower() or "/series/" in movie_url.lower() or "sezon" in movie_url.lower() or ("sezon" in html.lower() and "bölüm" in html.lower())
+            is_series = ("/dizi/" in movie_url.lower() or "/series/" in movie_url.lower() or
+                         re.search(r'\b(?:sezon|bolum|bölüm|season|episode)\b', movie_url, re.I) is not None or
+                         re.search(r'\b\d+\s*\.\s*(?:sezon|bölüm)\b', raw_title, re.I) is not None)
             season_m = re.search(r'(?:sezon|season)[-\s_]*(\d+)', movie_url, re.I) or re.search(r'(\d+)\s*\.\s*(?:sezon|season)', raw_title, re.I)
             episode_m = re.search(r'(?:bolum|bölüm|episode)[-\s_]*(\d+)', movie_url, re.I) or re.search(r'(\d+)\s*\.\s*(?:bolum|bölüm|episode)', raw_title, re.I)
             season_num = int(season_m.group(1)) if season_m else None
@@ -924,21 +926,27 @@ class ScraperEngine:
         return (safe_id, title, poster, desc, year, [])
 
 def clean_poster_url(poster_url: str, imdb_id: str = None, fallback: str = "") -> str:
+    res = ""
     if poster_url and "metahub.space" not in poster_url and str(poster_url).startswith("http"):
-        return poster_url
-    if imdb_id and str(imdb_id).startswith("tt"):
+        res = poster_url
+    elif imdb_id and str(imdb_id).startswith("tt"):
         try:
             sug = http_json(f"https://v3.sg.media-imdb.com/suggestion/t/{imdb_id}.json")
             sug_items = sug.get("d", [])
             if sug_items and isinstance(sug_items, list):
                 cand = sug_items[0].get("i", {}).get("imageUrl")
                 if cand and cand.startswith("http"):
-                    return cand
+                    res = cand
         except Exception:
             pass
-    if fallback and "metahub.space" not in fallback and str(fallback).startswith("http"):
-        return fallback
-    return LOGO_URL
+    if not res and fallback and "metahub.space" not in fallback and str(fallback).startswith("http"):
+        res = fallback
+    if not res:
+        res = LOGO_URL
+
+    if "@" in res:
+        res = res.replace("@", "%40")
+    return res
 
 # -------------------------------------------------------------
 # GitHub Atomic Git Data API Publisher
@@ -1083,16 +1091,16 @@ class GitHubAtomicPublisher:
 
         cat_configs = {
             # Film Katalogları (Nuvio için type == 'movie')
-            "playrepo/catalog/movie/playrepo-popular.json": lambda x: x.get("type", "movie") == "movie",
+            "playrepo/catalog/movie/playrepo-popular.json": lambda x: True,
             "playrepo/catalog/movie/playrepo-catalog-movies.json": lambda x: x.get("type", "movie") == "movie",
-            "playrepo/catalog/movie/playrepo-aksiyon.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "aksiyon", "macera"),
-            "playrepo/catalog/movie/playrepo-komedi.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "komedi", "mizah"),
-            "playrepo/catalog/movie/playrepo-dram.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "dram", "romantik"),
-            "playrepo/catalog/movie/playrepo-korku.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "korku", "gerilim"),
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "bilim", "kurgu", "fantastik"),
-            "playrepo/catalog/movie/playrepo-animasyon.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "animasyon", "çizgi", "anime", "animation"),
-            "playrepo/catalog/movie/playrepo-belgesel.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history"),
-            "playrepo/catalog/movie/playrepo-suc.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
+            "playrepo/catalog/movie/playrepo-aksiyon.json": lambda x: has_genre(x, "aksiyon", "macera"),
+            "playrepo/catalog/movie/playrepo-komedi.json": lambda x: has_genre(x, "komedi", "mizah"),
+            "playrepo/catalog/movie/playrepo-dram.json": lambda x: has_genre(x, "dram", "romantik"),
+            "playrepo/catalog/movie/playrepo-korku.json": lambda x: has_genre(x, "korku", "gerilim"),
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json": lambda x: has_genre(x, "bilim", "kurgu", "fantastik"),
+            "playrepo/catalog/movie/playrepo-animasyon.json": lambda x: has_genre(x, "animasyon", "çizgi", "anime", "animation"),
+            "playrepo/catalog/movie/playrepo-belgesel.json": lambda x: has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history"),
+            "playrepo/catalog/movie/playrepo-suc.json": lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
             # Dizi Katalogları (Nuvio için type == 'series')
             "playrepo/catalog/series/playrepo-series-popular.json": lambda x: x.get("type") == "series",
             "playrepo/catalog/series/playrepo-series-dram.json": lambda x: x.get("type") == "series" and has_genre(x, "dram", "romantik"),
