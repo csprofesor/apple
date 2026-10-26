@@ -1797,6 +1797,7 @@ HTML_PAGE = """<!DOCTYPE html>
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; gap: 8px;">
             <input type="text" id="history-search" placeholder="🔍 Eski arşivde ara..." oninput="filterHistoryMovies()" style="flex:1;" />
             <button class="btn-green" style="padding: 9px 16px; font-size: 12px; white-space:nowrap;" onclick="publishAllHistoryMovies()">⚡ Geçmişi Toplu Nuvio'ya Gönder</button>
+            <button class="btn-red" style="padding: 9px 16px; font-size: 12px; white-space:nowrap;" onclick="clearAllHistoryMovies()">🗑️ Arşivi Tamamen Temizle</button>
           </div>
           <div id="history-container" style="max-height: 480px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
             <div style="color: var(--dim); font-size: 13px; padding: 10px;">Arşiv yükleniyor...</div>
@@ -2347,6 +2348,13 @@ HTML_PAGE = """<!DOCTYPE html>
       renderHistoryMovies(allHistoryMovies.filter(m => (m.name || '').toLowerCase().includes(q) || (m.id || '').toLowerCase().includes(q)));
     }
 
+    async function clearAllHistoryMovies() {
+      if (!confirm('Eski arşivdeki tüm kayıtlar temizlenecek. Onaylıyor musunuz?')) return;
+      await fetch('/api/clear-history-movies', { method: 'POST' });
+      showToast('Eski arşiv başarıyla temizlendi!');
+      await loadHistoryMovies();
+    }
+
     async function deleteHistoryMovie(id, name) {
       if (!confirm(`"${name}" kaydını eski arşivden silmek istiyor musunuz?`)) return;
       await fetch('/api/delete-history-movie', {
@@ -2549,6 +2557,16 @@ class RequestHandler(BaseHTTPRequestHandler):
                     self._send_json({"status": "error", "message": str(e)})
                     return
             self._send_json({"status": "error", "message": "Arşiv dosyası bulunamadı"})
+        elif self.path == "/api/clear-history-movies":
+            his_path = os.path.join(WORKSPACE_DIR, "data", "history_catalog.json")
+            try:
+                with open(his_path, "w", encoding="utf-8") as f:
+                    json.dump({"metas": []}, f, indent=2)
+                self._send_json({"status": "ok"})
+                return
+            except Exception as e:
+                self._send_json({"status": "error", "message": str(e)})
+                return
         elif self.path == "/api/delete-history-movie":
             body = self._read_json()
             movie_id = body.get("id", "").strip()
