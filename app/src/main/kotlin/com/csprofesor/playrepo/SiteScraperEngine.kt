@@ -30,21 +30,17 @@ class SiteScraperEngine {
             val tClean = target.replace(Regex("""[^a-zA-Z0-9]+"""), "").lowercase()
             val cClean = candidate.replace(Regex("""[^a-zA-Z0-9]+"""), "").lowercase()
             if (tClean == cClean) return true
-            if (tClean.length >= 4 && cClean.length >= 4) {
-                if (tClean.contains(cClean) || cClean.contains(tClean)) {
-                    val ratio = Math.min(tClean.length, cClean.length).toDouble() / Math.max(tClean.length, cClean.length).toDouble()
-                    if (ratio >= 0.75) return true
-                }
-            }
 
+            val stopwords = setOf("the", "a", "an", "and", "ve", "bir", "in", "of", "to", "for", "film", "filmi")
             val wordRegex = Regex("""\w{2,}""")
-            val tWords = wordRegex.findAll(target.lowercase()).map { it.value }.toSet()
-            val cWords = wordRegex.findAll(candidate.lowercase()).map { it.value }.toSet()
-            if (tWords.isEmpty() || cWords.isEmpty()) return false
+            val tWords = wordRegex.findAll(target.lowercase()).map { it.value }.filter { !stopwords.contains(it) }.toSet()
+            val cWords = wordRegex.findAll(candidate.lowercase()).map { it.value }.filter { !stopwords.contains(it) }.toSet()
+            if (tWords.isEmpty() || cWords.isEmpty()) return tClean == cClean
 
             val overlap = (tWords intersect cWords).size.toDouble()
             val tRatio = overlap / tWords.size.toDouble()
-            return tRatio >= 0.75 || (tWords.size >= 3 && tRatio >= 0.66)
+            val cRatio = overlap / cWords.size.toDouble()
+            return tRatio >= 0.7 && cRatio >= 0.7
         }
     }
 

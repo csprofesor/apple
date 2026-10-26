@@ -144,17 +144,19 @@ def is_similar_title(target: str, cand: str) -> bool:
     c_clean = re.sub(r'[^a-zA-Z0-9]+', '', cand).lower()
     if t_clean == c_clean:
         return True
-    if len(t_clean) >= 4 and len(c_clean) >= 4:
-        if t_clean in c_clean or c_clean in t_clean:
-            ratio = min(len(t_clean), len(c_clean)) / max(len(t_clean), len(c_clean))
-            if ratio >= 0.75:
-                return True
-    t_words = set(re.findall(r'\w{2,}', target.lower()))
-    c_words = set(re.findall(r'\w{2,}', cand.lower()))
+
+    stopwords = {"the", "a", "an", "and", "ve", "bir", "in", "of", "to", "for", "film", "filmi"}
+    t_words = {w for w in re.findall(r'\w{2,}', target.lower()) if w not in stopwords}
+    c_words = {w for w in re.findall(r'\w{2,}', cand.lower()) if w not in stopwords}
     if not t_words or not c_words:
-        return False
+        return t_clean == c_clean
+
     overlap = len(t_words & c_words)
-    return (overlap / len(t_words) >= 0.75) or (len(t_words) >= 3 and overlap / len(t_words) >= 0.66)
+    t_ratio = overlap / len(t_words)
+    c_ratio = overlap / len(c_words)
+
+    # Both sides must agree to prevent one-word titles matching completely different movies
+    return t_ratio >= 0.7 and c_ratio >= 0.7
 
 # -------------------------------------------------------------
 # Scraper Engine
@@ -1030,7 +1032,8 @@ class ScraperEngine:
             except Exception:
                 pass
 
-        slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+        t_norm = title.lower().replace("ç", "c").replace("ğ", "g").replace("ı", "i").replace("ö", "o").replace("ş", "s").replace("ü", "u")
+        slug = re.sub(r'[^a-z0-9]+', '-', t_norm).strip('-')
         safe_id = f"playrepo-{slug}" if slug else f"playrepo-film-{abs(hash(title))}"
         return (safe_id, title, clean_poster_url(poster), desc, year, [], media_kind)
 
