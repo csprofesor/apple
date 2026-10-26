@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-benim-komsum-bir-melek-st-vincent",
+    "type": "movie",
+    "name": "Benim Komşum Bir Melek - St. Vincent",
+    "poster": "https://filmdozu.com/assets/img/16763.jpg",
+    "background": "https://filmdozu.com/assets/img/16763.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Brooklyn&#039;in hareketli sokaklarında, bekar bir anne olan Maggie ve oğlu Oliver, yeni bir başlangıç arayışındadır. Ancak Maggie&#039;nin uzun çalışma saatleri, Oliver&#039;...",
+    "releaseInfo": "2014",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-benim-komsum-bir-melek-st-vincent",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-benim-komsum-bir-melek-st-vincent",
+        "title": "Benim Komşum Bir Melek - St. Vincent",
+        "released": "2014-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
