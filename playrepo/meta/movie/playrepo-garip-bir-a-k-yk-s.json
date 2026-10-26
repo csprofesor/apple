@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "playrepo-garip-bir-a-k-yk-s",
+    "type": "movie",
+    "name": "Garip Bir Aşk Öyküsü",
+    "poster": "https://filmdozu.com/assets/img/9690.jpg",
+    "background": "https://filmdozu.com/assets/img/9690.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Zack ve Miri&#039;nin yolu, çocukluklarından bu yana kesişirken, aralarındaki platonik bağ her geçen gün derinleşir. Ancak hayatın acımasız ekonomik gerçekleri, ikil...",
+    "releaseInfo": "2008",
+    "genres": [
+      "Aksiyon & Macera",
+      "Belgesel & Tarih",
+      "Komedi",
+      "Korku & Gerilim",
+      "Suç, Polisiye & Gizem",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Bilim Kurgu & Fantastik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-garip-bir-a-k-yk-s",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-garip-bir-a-k-yk-s",
+        "title": "Garip Bir Aşk Öyküsü",
+        "released": "2008-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}

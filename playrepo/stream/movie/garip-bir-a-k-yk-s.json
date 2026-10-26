@@ -1,0 +1,46 @@
+{
+  "streams": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://prx-1590-for.vmnow.online/hls2/03/02025/f54q90o7bc4r_n/master.m3u8?t=BVS-ThQlJkRFnf-smdLLnJ_Aopgj47_TjoOP2qSoz4g=&s=1793044619&e=43200&v=&srv=rck12&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-f54q90o7bc4r.html?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-f54q90o7bc4r.html?autoplay=0&amp;rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-f54q90o7bc4r.html?autoplay=0&amp;rel=0"
+          }
+        }
+      }
+    },
+    {
+      "name": "Play • Dublaj 2 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 2 • 1080p • [TR Dublaj]",
+      "url": "https://vd423.okcdn.ru/video.m3u8?cmd=videoPlayerCdn&expires=1793131021764&srcIp=85.107.102.169&pr=10&srcAg=CHROME_MAC&ch=-536166974&ms=178.237.23.39&type=2&sig=jmARurx1KcY&ct=8&urls=185.180.203.46&clientType=0&zs=65&id=8195665431280",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/3162772277841?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/3162772277841?autoplay=1&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://ok.ru/videoembed/3162772277841?autoplay=1&rel=0"
+          }
+        }
+      }
+    }
+  ]
+}
