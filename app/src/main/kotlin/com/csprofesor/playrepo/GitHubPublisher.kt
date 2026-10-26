@@ -30,6 +30,45 @@ class GitHubPublisher {
 
     private val gson = Gson()
 
+    fun cleanPosterUrl(posterUrl: String?, imdbId: String? = null, fallback: String = LOGO_URL): String {
+        var res = ""
+        if (!posterUrl.isNullOrBlank() && !posterUrl.contains("metahub.space") && posterUrl.startsWith("http")) {
+            res = posterUrl
+        } else if (!imdbId.isNullOrBlank() && imdbId.startsWith("tt")) {
+            try {
+                val req = Request.Builder()
+                    .url("https://v3.sg.media-imdb.com/suggestion/t/$imdbId.json")
+                    .header("User-Agent", "Mozilla/5.0")
+                    .build()
+                client.newCall(req).execute().use { resp ->
+                    if (resp.isSuccessful) {
+                        val body = resp.body?.string().orEmpty()
+                        val jsonObj = gson.fromJson(body, JsonObject::class.java)
+                        val dArr = jsonObj.getAsJsonArray("d")
+                        if (dArr != null && dArr.size() > 0) {
+                            val imgUrl = dArr.get(0).asJsonObject.getAsJsonObject("i")?.get("imageUrl")?.asString
+                            if (!imgUrl.isNullOrBlank() && imgUrl.startsWith("http")) {
+                                res = imgUrl
+                            }
+                        }
+                    }
+                }
+            } catch (_: Exception) {}
+        }
+
+        if (res.isBlank() && fallback.isNotBlank() && !fallback.contains("metahub.space") && fallback.startsWith("http")) {
+            res = fallback
+        }
+        if (res.isBlank()) {
+            res = LOGO_URL
+        }
+
+        if (res.contains("@")) {
+            res = res.replace("@", "%40")
+        }
+        return res
+    }
+
     suspend fun publishBatchToGitHub(
         githubToken: String = BuildConfig.GITHUB_TOKEN,
         repoOwner: String = DEFAULT_OWNER,
@@ -283,12 +322,13 @@ class GitHubPublisher {
             val genreJsonArray = JsonArray()
             movie.genres.forEach { genreJsonArray.add(it) }
 
+            val cleanPoster = cleanPosterUrl(movie.poster, idStr, LOGO_URL)
             val catObj = JsonObject().apply {
                 addProperty("id", idStr)
                 addProperty("type", movie.type)
                 addProperty("name", movie.title)
-                addProperty("poster", movie.poster.ifBlank { LOGO_URL })
-                addProperty("background", movie.poster.ifBlank { LOGO_URL })
+                addProperty("poster", cleanPoster)
+                addProperty("background", cleanPoster)
                 addProperty("logo", LOGO_URL)
                 addProperty("description", if (!movie.description.isNullOrBlank()) movie.description else "Play • ${movie.streams.size} Sunucu Seçeneği • 1080p TR")
                 if (!movie.year.isNullOrBlank()) {
@@ -315,6 +355,14 @@ class GitHubPublisher {
             }
         }
 
+        currentCatalogMetas.forEach { item ->
+            val p = item.get("poster")?.asString.orEmpty()
+            val id = item.get("id")?.asString.orEmpty()
+            val clean = cleanPosterUrl(p, id, LOGO_URL)
+            item.addProperty("poster", clean)
+            item.addProperty("background", clean)
+        }
+
         val finalWrapper = JsonObject().apply {
             val metasArray = JsonArray()
             currentCatalogMetas.forEach { metasArray.add(it) }
@@ -326,20 +374,31 @@ class GitHubPublisher {
 
     private fun prepareCategoryCatalogs(allMetas: List<JsonObject>): Map<String, String> {
         val categoryConfigs = listOf(
+            // Film Katalogları
             "playrepo/catalog/movie/playrepo-popular.json" to { _: JsonObject -> true },
-            "playrepo/catalog/movie/playrepo-catalog-movies.json" to { _: JsonObject -> true },
-            "playrepo/catalog/movie/playrepo-aksiyon.json" to { m: JsonObject -> hasGenre(m, "aksiyon", "macera") },
-            "playrepo/catalog/movie/playrepo-komedi.json" to { m: JsonObject -> hasGenre(m, "komedi", "mizah") },
-            "playrepo/catalog/movie/playrepo-dram.json" to { m: JsonObject -> hasGenre(m, "dram", "romantik") },
-            "playrepo/catalog/movie/playrepo-korku.json" to { m: JsonObject -> hasGenre(m, "korku", "gerilim") },
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json" to { m: JsonObject -> hasGenre(m, "bilim", "kurgu", "fantastik") }
+            "playrepo/catalog/movie/playrepo-catalog-movies.json" to { m: JsonObject -> m.get("type")?.asString != "series" },
+            "playrepo/catalog/movie/playrepo-aksiyon.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "aksiyon", "macera") },
+            "playrepo/catalog/movie/playrepo-komedi.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "komedi", "mizah") },
+            "playrepo/catalog/movie/playrepo-dram.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "dram", "romantik") },
+            "playrepo/catalog/movie/playrepo-korku.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "korku", "gerilim") },
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "bilim", "kurgu", "fantastik") },
+            "playrepo/catalog/movie/playrepo-animasyon.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "animasyon", "çizgi", "anime", "animation") },
+            "playrepo/catalog/movie/playrepo-belgesel.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "belgesel", "tarih", "biyografi", "documentary", "history") },
+            "playrepo/catalog/movie/playrepo-suc.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "suç", "suc", "polisiye", "gizem", "crime", "mystery") },
+            // Dizi Katalogları
+            "playrepo/catalog/series/playrepo-series-popular.json" to { m: JsonObject -> m.get("type")?.asString == "series" },
+            "playrepo/catalog/series/playrepo-series-dram.json" to { m: JsonObject -> m.get("type")?.asString == "series" && hasGenre(m, "dram", "romantik") },
+            "playrepo/catalog/series/playrepo-series-aksiyon.json" to { m: JsonObject -> m.get("type")?.asString == "series" && hasGenre(m, "aksiyon", "macera") },
+            "playrepo/catalog/series/playrepo-series-komedi.json" to { m: JsonObject -> m.get("type")?.asString == "series" && hasGenre(m, "komedi", "mizah") },
+            "playrepo/catalog/series/playrepo-series-suc.json" to { m: JsonObject -> m.get("type")?.asString == "series" && hasGenre(m, "suç", "suc", "polisiye", "gizem", "crime", "mystery") },
+            "playrepo/catalog/series/playrepo-series-bilimkurgu.json" to { m: JsonObject -> m.get("type")?.asString == "series" && hasGenre(m, "bilim", "kurgu", "fantastik") }
         )
 
         val result = mutableMapOf<String, String>()
         categoryConfigs.forEach { (filePath, predicate) ->
             val filtered = allMetas.filter { predicate(it) }
             val targetMetas = if (filePath.contains("popular") || filePath.contains("catalog-movies")) {
-                allMetas.take(60)
+                filtered.take(60)
             } else {
                 filtered
             }
@@ -356,13 +415,14 @@ class GitHubPublisher {
     }
 
     private fun buildMetaJson(movie: ScrapedMovie, idStr: String): String {
+        val cleanPoster = cleanPosterUrl(movie.poster, idStr, LOGO_URL)
         val metaWrapper = JsonObject().apply {
             val m = JsonObject().apply {
                 addProperty("id", idStr)
                 addProperty("type", movie.type)
                 addProperty("name", movie.title)
-                addProperty("poster", movie.poster.ifBlank { LOGO_URL })
-                addProperty("background", movie.poster.ifBlank { LOGO_URL })
+                addProperty("poster", cleanPoster)
+                addProperty("background", cleanPoster)
                 addProperty("logo", LOGO_URL)
                 addProperty("description", if (!movie.description.isNullOrBlank()) movie.description else "Play • ${movie.streams.size} Sunucu Seçeneği • 1080p TR")
                 if (!movie.year.isNullOrBlank()) {
@@ -401,8 +461,10 @@ class GitHubPublisher {
                     val v = JsonObject().apply {
                         addProperty("id", defaultVid)
                         addProperty("title", movie.title)
-                        if (movie.season != null) addProperty("season", movie.season)
-                        if (movie.episode != null) addProperty("episode", movie.episode)
+                        if (movie.type == "series") {
+                            if (movie.season != null) addProperty("season", movie.season)
+                            if (movie.episode != null) addProperty("episode", movie.episode)
+                        }
                         if (!movie.year.isNullOrBlank()) {
                             addProperty("released", "${movie.year}-01-01T00:00:00.000Z")
                         }

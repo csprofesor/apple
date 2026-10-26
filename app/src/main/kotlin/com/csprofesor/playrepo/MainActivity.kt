@@ -56,14 +56,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (savedSitesList.isEmpty()) {
+            savedSitesList.add("https://filmdozu.com/")
+            savedSitesList.add("https://fullfilmizle.fit/")
+            savedSitesList.add("https://ufilmizle.com/")
+            savedSitesList.add("https://filmarsivi.org/")
+            savedSitesList.add("https://www.hintfilmizle.com/film-izle/")
             savedSitesList.add("https://diziboxizle.com/")
             savedSitesList.add("https://ddizimom.net/")
-            savedSitesList.add("https://fullhdfilmizlebox.vip/")
-            savedSitesList.add("https://filmdozu.com/")
-            savedSitesList.add("https://ufilmizle.com/")
-            savedSitesList.add("https://fullfilmizle.fit/")
-            savedSitesList.add("https://www.hintfilmizle.com/film-izle/")
-            savedSitesList.add("https://filmarsivi.org/")
+            savedSitesList.add("https://dizirex.com/")
             saveSitesListToPrefs()
         }
 
@@ -99,14 +99,14 @@ class MainActivity : AppCompatActivity() {
 
         binding.pageSites.btnResetSites.setOnClickListener {
             savedSitesList.clear()
+            savedSitesList.add("https://filmdozu.com/")
+            savedSitesList.add("https://fullfilmizle.fit/")
+            savedSitesList.add("https://ufilmizle.com/")
+            savedSitesList.add("https://filmarsivi.org/")
+            savedSitesList.add("https://www.hintfilmizle.com/film-izle/")
             savedSitesList.add("https://diziboxizle.com/")
             savedSitesList.add("https://ddizimom.net/")
-            savedSitesList.add("https://fullhdfilmizlebox.vip/")
-            savedSitesList.add("https://filmdozu.com/")
-            savedSitesList.add("https://ufilmizle.com/")
-            savedSitesList.add("https://fullfilmizle.fit/")
-            savedSitesList.add("https://www.hintfilmizle.com/film-izle/")
-            savedSitesList.add("https://filmarsivi.org/")
+            savedSitesList.add("https://dizirex.com/")
             saveSitesListToPrefs()
             updateSavedSitesUI()
             appendLog("[SITE LIST RESET] List reset to default.")
@@ -178,10 +178,30 @@ class MainActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 try {
+                    val activeToken = prefs.getString("github_token", "")?.trim().orEmpty().ifBlank { BuildConfig.GITHUB_TOKEN }
+                    var publishedCount = 0
+
                     val siteMovies = scraperEngine.crawlEntireSite(
                         siteUrl = singleUrl,
                         maxPages = maxPages,
                         tmdbApiKey = tmdbApiKey,
+                        onMovieScraped = { movie ->
+                            if (activeToken.isNotBlank()) {
+                                withContext(Dispatchers.Main) {
+                                    appendLog("⚡ [ANLIK YÜKLEME] '${movie.title}' hemen Nuvio & GitHub'a aktarılıyor...")
+                                }
+                                val pubRes = githubPublisher.publishBatchToGitHub(githubToken = activeToken, scrapedMovies = listOf(movie))
+                                withContext(Dispatchers.Main) {
+                                    pubRes.onSuccess {
+                                        publishedCount++
+                                        binding.pageDashboard.tvStatTotalMovies.text = publishedCount.toString()
+                                        appendLog("🎉 [YAYINLANDI] '${movie.title}' Nuvio'da yayına alındı!")
+                                    }.onFailure { err ->
+                                        appendLog("⚠️ [YÜKLEME HATASI] '${movie.title}': ${err.message}")
+                                    }
+                                }
+                            }
+                        },
                         onStatusUpdate = { status ->
                             withContext(Dispatchers.Main) {
                                 appendLog(status)
@@ -190,21 +210,7 @@ class MainActivity : AppCompatActivity() {
                     )
 
                     if (siteMovies.isNotEmpty()) {
-                        val activeToken = prefs.getString("github_token", "")?.trim().orEmpty().ifBlank { BuildConfig.GITHUB_TOKEN }
-                        if (activeToken.isBlank()) {
-                            appendLog("✗ [ERROR] GitHub Token girilmemiş! Lütfen 'Tekli Tarama & Ayarlar' sayfasından GitHub Tokeninizi girin.")
-                            Toast.makeText(this@MainActivity, "GitHub Token eksik! Lütfen Ayarlar sayfasından girin.", Toast.LENGTH_LONG).show()
-                            return@launch
-                        }
-
-                        appendLog("[PUBLISHING] ${siteMovies.size} çözülmüş film GitHub'a yükleniyor...")
-                        val pubRes = githubPublisher.publishBatchToGitHub(githubToken = activeToken, scrapedMovies = siteMovies)
-                        pubRes.onSuccess { msg ->
-                            appendLog("[SUCCESS] $msg")
-                            binding.pageDashboard.tvStatTotalMovies.text = siteMovies.size.toString()
-                        }.onFailure { err ->
-                            appendLog("[ERROR] GitHub yükleme hatası: ${err.message}")
-                        }
+                        appendLog("[COMPLETED] Toplam ${siteMovies.size} içerik başarıyla işlendi ve Nuvio'ya aktarıldı.")
                     } else {
                         appendLog("[WARNING] Bu adresten film çekilemedi.")
                     }
@@ -231,6 +237,8 @@ class MainActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 val allBatchMovies = mutableListOf<ScrapedMovie>()
+                val activeToken = prefs.getString("github_token", "")?.trim().orEmpty().ifBlank { BuildConfig.GITHUB_TOKEN }
+                var totalPublishedCount = 0
 
                 try {
                     savedSitesList.forEachIndexed { siteIdx, siteUrl ->
@@ -245,6 +253,23 @@ class MainActivity : AppCompatActivity() {
                             siteUrl = siteUrl,
                             maxPages = maxPagesPerSite,
                             tmdbApiKey = tmdbApiKey,
+                            onMovieScraped = { movie ->
+                                if (activeToken.isNotBlank()) {
+                                    withContext(Dispatchers.Main) {
+                                        appendLog("⚡ [ANLIK YÜKLEME] '${movie.title}' hemen Nuvio & GitHub'a aktarılıyor...")
+                                    }
+                                    val pubResult = githubPublisher.publishBatchToGitHub(githubToken = activeToken, scrapedMovies = listOf(movie))
+                                    withContext(Dispatchers.Main) {
+                                        pubResult.onSuccess {
+                                            totalPublishedCount++
+                                            binding.pageDashboard.tvStatTotalMovies.text = totalPublishedCount.toString()
+                                            appendLog("🎉 [YAYINLANDI] '${movie.title}' Nuvio'da yayına alındı!")
+                                        }.onFailure { err ->
+                                            appendLog("⚠️ [YÜKLEME HATASI] '${movie.title}': ${err.message}")
+                                        }
+                                    }
+                                }
+                            },
                             onStatusUpdate = { statusMsg ->
                                 withContext(Dispatchers.Main) {
                                     appendLog(" -> $statusMsg")
@@ -257,25 +282,8 @@ class MainActivity : AppCompatActivity() {
 
                     if (allBatchMovies.isEmpty()) {
                         appendLog("[ERROR] Sitelerden film çekilemedi.")
-                        return@launch
-                    }
-
-                    val activeToken = prefs.getString("github_token", "")?.trim().orEmpty().ifBlank { BuildConfig.GITHUB_TOKEN }
-                    if (activeToken.isBlank()) {
-                        appendLog("✗ [ERROR] GitHub Token girilmemiş! Lütfen 'Tekli Tarama & Ayarlar' sayfasından GitHub Tokeninizi girin.")
-                        Toast.makeText(this@MainActivity, "GitHub Token eksik! Lütfen Ayarlar sayfasından girin.", Toast.LENGTH_LONG).show()
-                        return@launch
-                    }
-
-                    appendLog("[PUBLISHING] Toplam ${allBatchMovies.size} film çözüldü! GitHub deponuza (`csprofesor/apple`) gönderiliyor...")
-                    val pubResult = githubPublisher.publishBatchToGitHub(githubToken = activeToken, scrapedMovies = allBatchMovies)
-
-                    pubResult.onSuccess { msg ->
-                        appendLog("🎉 [SUCCESS] $msg")
-                        appendLog("[COMPLETED] Nuvio eklentiniz akıllı birleştirmeyle güncellendi!")
-                        binding.pageDashboard.tvStatTotalMovies.text = allBatchMovies.size.toString()
-                    }.onFailure { err ->
-                        appendLog("✗ [ERROR] GitHub Yükleme Hatası: ${err.message}")
+                    } else {
+                        appendLog("🎉 [BİTTİ] Toplam ${allBatchMovies.size} film çözüldü ve anlık olarak Nuvio'ya aktarıldı!")
                     }
 
                 } catch (e: Exception) {

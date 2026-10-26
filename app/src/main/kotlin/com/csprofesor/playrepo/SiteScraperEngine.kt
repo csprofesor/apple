@@ -22,6 +22,25 @@ import kotlin.random.Random
 
 class SiteScraperEngine {
 
+    companion object {
+        const val LOGO_URL = "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png"
+
+        fun isSimilarTitle(target: String, candidate: String): Boolean {
+            if (target.isBlank() || candidate.isBlank()) return false
+            val tClean = target.replace(Regex("""[^a-zA-Z0-9]+"""), "").lowercase()
+            val cClean = candidate.replace(Regex("""[^a-zA-Z0-9]+"""), "").lowercase()
+            if (tClean == cClean || tClean.contains(cClean) || cClean.contains(tClean)) return true
+
+            val wordRegex = Regex("""\w{2,}""")
+            val tWords = wordRegex.findAll(target.lowercase()).map { it.value }.toSet()
+            val cWords = wordRegex.findAll(candidate.lowercase()).map { it.value }.toSet()
+            if (tWords.isEmpty()) return false
+
+            val overlap = (tWords intersect cWords).size.toDouble() / tWords.size.toDouble()
+            return overlap >= 0.5
+        }
+    }
+
     private val cookieStore = ConcurrentHashMap<String, List<Cookie>>()
 
     private val cookieJar = object : CookieJar {
@@ -53,6 +72,45 @@ class SiteScraperEngine {
     )
 
     private fun getRandomUserAgent(): String = userAgents[Random.nextInt(userAgents.size)]
+
+    fun cleanPosterUrl(posterUrl: String?, imdbId: String? = null, fallback: String = LOGO_URL): String {
+        var res = ""
+        if (!posterUrl.isNullOrBlank() && !posterUrl.contains("metahub.space") && posterUrl.startsWith("http")) {
+            res = posterUrl
+        } else if (!imdbId.isNullOrBlank() && imdbId.startsWith("tt")) {
+            try {
+                val req = Request.Builder()
+                    .url("https://v3.sg.media-imdb.com/suggestion/t/$imdbId.json")
+                    .header("User-Agent", "Mozilla/5.0")
+                    .build()
+                client.newCall(req).execute().use { resp ->
+                    if (resp.isSuccessful) {
+                        val body = resp.body?.string().orEmpty()
+                        val jsonObj = gson.fromJson(body, JsonObject::class.java)
+                        val dArr = jsonObj.getAsJsonArray("d")
+                        if (dArr != null && dArr.size() > 0) {
+                            val imgUrl = dArr.get(0).asJsonObject.getAsJsonObject("i")?.get("imageUrl")?.asString
+                            if (!imgUrl.isNullOrBlank() && imgUrl.startsWith("http")) {
+                                res = imgUrl
+                            }
+                        }
+                    }
+                }
+            } catch (_: Exception) {}
+        }
+
+        if (res.isBlank() && fallback.isNotBlank() && !fallback.contains("metahub.space") && fallback.startsWith("http")) {
+            res = fallback
+        }
+        if (res.isBlank()) {
+            res = LOGO_URL
+        }
+
+        if (res.contains("@")) {
+            res = res.replace("@", "%40")
+        }
+        return res
+    }
 
     fun detectCategoryFromUrlOrText(url: String, text: String): String? {
         val lower = "${url.lowercase()} ${text.lowercase()}"
@@ -329,6 +387,7 @@ class SiteScraperEngine {
         siteUrl: String,
         maxPages: Int = 30,
         tmdbApiKey: String? = null,
+        onMovieScraped: (suspend (ScrapedMovie) -> Unit)? = null,
         onStatusUpdate: suspend (status: String) -> Unit
     ): List<ScrapedMovie> = withContext(Dispatchers.IO) {
         onStatusUpdate("Sitedeki kategoriler ve sayfalar tespit ediliyor...")
@@ -366,6 +425,7 @@ class SiteScraperEngine {
                                 results.add(movie)
                                 val catSummary = movie.genres.joinToString(", ")
                                 onStatusUpdate("[$currentIdx / ${allMovieUrls.size}] ✓ Çözüldü: ${movie.title} (${movie.streams.size} Sunucu) [$catSummary]")
+                                onMovieScraped?.invoke(movie)
                             } else {
                                 onStatusUpdate("[$currentIdx / ${allMovieUrls.size}] ↷ $shortName (Aktif akış yok, atlandı)")
                             }
@@ -802,15 +862,30 @@ class SiteScraperEngine {
             }
 
             // Detect Series / Season / Episode
-            val comboMatch = Regex("""(\d+)[-\s_]*(?:sezon|season)[-\s_]*(\d+)[-\s_]*(?:bolum|bölüm|episode)""", RegexOption.IGNORE_CASE).find(movieUrl)
-            val isSeries = comboMatch != null || movieUrl.contains("/dizi/", true) || movieUrl.contains("/series/", true) || movieUrl.contains("sezon", true) ||
-                           (html.contains("sezon", true) && html.contains("bölüm", true))
-            val seasonNum = comboMatch?.groupValues?.get(1)?.toIntOrNull()
-                ?: Regex("""(?:sezon|season)[-\s_]*(\d+)""", RegexOption.IGNORE_CASE).find(movieUrl)?.groupValues?.get(1)?.toIntOrNull()
-                ?: Regex("""(\d+)\s*\.\s*(?:sezon|season)""", RegexOption.IGNORE_CASE).find(rawTitle)?.groupValues?.get(1)?.toIntOrNull()
-            val episodeNum = comboMatch?.groupValues?.get(2)?.toIntOrNull()
-                ?: Regex("""(?:bolum|bölüm|episode)[-\s_]*(\d+)""", RegexOption.IGNORE_CASE).find(movieUrl)?.groupValues?.get(1)?.toIntOrNull()
-                ?: Regex("""(\d+)\s*\.\s*(?:bolum|bölüm|episode)""", RegexOption.IGNORE_CASE).find(rawTitle)?.groupValues?.get(1)?.toIntOrNull()
+            val combText = "$rawTitle $movieUrl"
+            val comboMatch = Regex("""(?:season|sezon)[-\s_.]*(\d+)[-\s_.]*(?:episode|bolum|bölüm)[-\s_.]*(\d+)""", RegexOption.IGNORE_CASE).find(combText)
+                ?: Regex("""(\d+)[-\s_.]*(?:season|sezon)[-\s_.]*(\d+)[-\s_.]*(?:episode|bolum|bölüm)""", RegexOption.IGNORE_CASE).find(combText)
+                ?: Regex("""\b[sS](\d+)[-\s_.]*[eE](\d+)\b""").find(combText)
+                ?: Regex("""\b(\d+)x(\d+)\b""").find(combText)
+
+            var sNum: Int? = null
+            var eNum: Int? = null
+
+            if (comboMatch != null) {
+                sNum = comboMatch.groupValues[1].toIntOrNull()
+                eNum = comboMatch.groupValues[2].toIntOrNull()
+            } else {
+                val sm = Regex("""(?:season|sezon)[-\s_.]*(\d+)""", RegexOption.IGNORE_CASE).find(combText)
+                    ?: Regex("""(\d+)[-\s_.]*(?:season|sezon)""", RegexOption.IGNORE_CASE).find(combText)
+                val em = Regex("""(?:episode|bolum|bölüm)[-\s_.]*(\d+)""", RegexOption.IGNORE_CASE).find(combText)
+                    ?: Regex("""(\d+)[-\s_.]*(?:episode|bolum|bölüm)""", RegexOption.IGNORE_CASE).find(combText)
+                if (sm != null) sNum = sm.groupValues[1].toIntOrNull()
+                if (em != null) eNum = em.groupValues[1].toIntOrNull()
+            }
+
+            val isSeries = (sNum != null || eNum != null || movieUrl.contains("/dizi/", true) || movieUrl.contains("/series/", true))
+            val seasonNum = sNum
+            val episodeNum = eNum
 
             val resolvedStreams = mutableListOf<StreamItem>()
 
@@ -872,8 +947,29 @@ class SiteScraperEngine {
                 st.copy(title = "Play • $label • $suffix")
             }
 
-            // Resolve official Metadata: Cinemeta (IMDb/Stremio standard) or TMDB or Scraped Page Info
-            val resolvedMeta = resolveMovieMetadata(cleanTitle, scrapedPoster, scrapedDesc, year, tmdbApiKey)
+            // Resolve official Metadata: Cinemeta (IMDb/Stremio standard) or TMDB with title similarity verification
+            val resolvedMeta = resolveMovieMetadata(
+                cleanTitle = cleanTitle,
+                scrapedPoster = scrapedPoster,
+                scrapedDesc = scrapedDesc,
+                year = year,
+                tmdbApiKey = tmdbApiKey,
+                isSeries = isSeries
+            )
+
+            var finalIsSeries = isSeries
+            var finalSeasonNum = seasonNum
+            var finalEpisodeNum = episodeNum
+
+            if (resolvedMeta.resolvedType == "movie") {
+                finalIsSeries = false
+                finalSeasonNum = null
+                finalEpisodeNum = null
+            } else if (resolvedMeta.resolvedType == "series") {
+                finalIsSeries = true
+                if (finalSeasonNum == null) finalSeasonNum = 1
+                if (finalEpisodeNum == null) finalEpisodeNum = 1
+            }
 
             // IMDb / Cinemeta onaylı türler teyit edilirse sitenin rastgele kategorilerini ez
             val verifiedGenres = mutableSetOf<String>()
@@ -903,9 +999,9 @@ class SiteScraperEngine {
                 runtime = runtime,
                 director = director,
                 cast = if (castList.isNotEmpty()) castList else null,
-                type = if (isSeries) "series" else "movie",
-                season = seasonNum,
-                episode = episodeNum
+                type = if (finalIsSeries) "series" else "movie",
+                season = finalSeasonNum,
+                episode = finalEpisodeNum
             )
         }
     }
@@ -1021,20 +1117,33 @@ class SiteScraperEngine {
         return ""
     }
 
-    private fun cleanMovieTitle(title: String): String {
-        return title
-            .replace(Regex("""\s*-\s*Full\s*HD\s*izle.*""", RegexOption.IGNORE_CASE), "")
-            .replace(Regex("""\s*-\s*Hintfilmizle.*""", RegexOption.IGNORE_CASE), "")
-            .replace(Regex("""\s*\|\s*Hintfilmizle.*""", RegexOption.IGNORE_CASE), "")
-            .replace(Regex("""\s*\|\s*Filmkovası.*""", RegexOption.IGNORE_CASE), "")
-            .replace(Regex("""\s*Türkçe\s*Dublaj.*""", RegexOption.IGNORE_CASE), "")
-            .replace(Regex("""\s*Türkçe\s*Altyazılı.*""", RegexOption.IGNORE_CASE), "")
-            .replace(Regex("""\s*Full\s*HD.*""", RegexOption.IGNORE_CASE), "")
-            .replace(Regex("""\s*1080p.*""", RegexOption.IGNORE_CASE), "")
-            .replace(Regex("""\s*izle.*""", RegexOption.IGNORE_CASE), "")
-            .replace(Regex("""\s*İzle.*""", RegexOption.IGNORE_CASE), "")
-            .replace(Regex("""\(\s*\d{4}\s*\)"""), "")
-            .trim(' ', '-', '–', ':', '|', '(')
+    fun cleanMovieTitle(title: String): String {
+        var clean = title
+        // Strip 4-digit years like (2024) or 2024
+        clean = clean.replace(Regex("""\(?\b(19\d{2}|20\d{2})\b\)?"""), "")
+
+        // Strip all season and episode phrases so search query to Cinemeta/TMDB is pure!
+        clean = clean.replace(Regex("""(?:season|sezon)[-\s_.]*\d+[-\s_.]*(?:episode|bolum|bölüm)[-\s_.]*\d+""", RegexOption.IGNORE_CASE), "")
+        clean = clean.replace(Regex("""\d+[-\s_.]*(?:season|sezon)[-\s_.]*\d+[-\s_.]*(?:episode|bolum|bölüm)""", RegexOption.IGNORE_CASE), "")
+        clean = clean.replace(Regex("""\b[sS]\d+[-\s_.]*[eE]\d+\b"""), "")
+        clean = clean.replace(Regex("""\b\d+x\d+\b"""), "")
+        clean = clean.replace(Regex("""(?:season|sezon)[-\s_.]*\d+""", RegexOption.IGNORE_CASE), "")
+        clean = clean.replace(Regex("""\d+[-\s_.]*(?:season|sezon)""", RegexOption.IGNORE_CASE), "")
+        clean = clean.replace(Regex("""(?:episode|bolum|bölüm)[-\s_.]*\d+""", RegexOption.IGNORE_CASE), "")
+        clean = clean.replace(Regex("""\d+[-\s_.]*(?:episode|bolum|bölüm)""", RegexOption.IGNORE_CASE), "")
+        clean = clean.replace(Regex("""\b(?:sezon|season|bölüm|bolum|episode|final|parça|part)\b""", RegexOption.IGNORE_CASE), "")
+
+        val buzzwords = listOf(
+            "türkçe dublaj", "türkçe altyazı", "turkce dublaj", "turkce altyazili", "turkce altyazi",
+            "dublaj", "altyazı", "altyazi", "izle", "full hd", "1080p", "720p", "4k",
+            "tek parça", "tek parca", "film kovası", "filmkovasi", "hintfilmizle", "dizibox",
+            "dizimag", "filmi", "dizisi", "full", "hd"
+        )
+        for (term in buzzwords) {
+            clean = clean.replace(Regex("""\b${Regex.escape(term)}\b""", RegexOption.IGNORE_CASE), "")
+        }
+        clean = clean.replace(Regex("""\s+"""), " ").trim(' ', '-', '–', ':', '|', '(', ')', '/', '.', '#')
+        return clean
     }
 
     /**
@@ -1292,23 +1401,27 @@ class SiteScraperEngine {
         return ""
     }
 
-    private data class MetaResolution(
+    data class MetaResolution(
         val id: String,
         val title: String,
         val poster: String,
         val description: String,
         val year: String,
-        val genres: List<String> = emptyList()
+        val genres: List<String> = emptyList(),
+        val resolvedType: String = "movie"
     )
 
-    private fun resolveMovieMetadata(
+    fun resolveMovieMetadata(
         cleanTitle: String,
         scrapedPoster: String,
         scrapedDesc: String,
         year: String,
-        tmdbApiKey: String?
+        tmdbApiKey: String?,
+        isSeries: Boolean = false
     ): MetaResolution {
-        val fallbackPoster = scrapedPoster.ifBlank { "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png" }
+        val cleanQ = cleanTitle.replace(Regex("""[/\\?&=#]+"""), " ").trim()
+        val mediaKind = if (isSeries) "series" else "movie"
+        val fallbackPoster = cleanPosterUrl(scrapedPoster, fallback = LOGO_URL)
         val slug = cleanTitle.lowercase()
             .replace("ç", "c").replace("ğ", "g").replace("ı", "i")
             .replace("ö", "o").replace("ş", "s").replace("ü", "u")
@@ -1317,86 +1430,200 @@ class SiteScraperEngine {
         val safeSlug = if (slug.isNotBlank()) slug else "film-" + Math.abs(cleanTitle.hashCode())
         val fallbackId = "playrepo-$safeSlug"
 
-        // 1. First attempt: Cinemeta (Stremio/Nuvio Universal Open API - NO API KEY REQUIRED)
+        // 1. Cinemeta (IMDb/Stremio Universal Catalog) with Title Similarity Verification
         try {
-            val encodedQuery = URLEncoder.encode(cleanTitle, "UTF-8")
-            val cinemetaUrl = "https://v3-cinemeta.strem.io/catalog/movie/top/search=$encodedQuery.json"
+            val encodedQuery = URLEncoder.encode(cleanQ, "UTF-8")
+            val cinemetaUrl = "https://v3-cinemeta.strem.io/catalog/$mediaKind/top/search=$encodedQuery.json"
             val request = Request.Builder().url(cinemetaUrl).header("User-Agent", getRandomUserAgent()).build()
+            var matchedMeta: JsonObject? = null
+            var matchedKind = mediaKind
+
             client.newCall(request).execute().use { response ->
                 if (response.isSuccessful) {
                     val body = response.body?.string().orEmpty()
                     val jsonObj = gson.fromJson(body, JsonObject::class.java)
                     val metas = jsonObj.getAsJsonArray("metas")
-                    if (metas != null && metas.size() > 0) {
-                        val firstMeta = metas.get(0).asJsonObject
-                        val id = firstMeta.get("id")?.asString
-                        val name = firstMeta.get("name")?.asString ?: cleanTitle
-                        val poster = firstMeta.get("poster")?.asString ?: fallbackPoster
-                        val releaseYear = firstMeta.get("releaseInfo")?.asString ?: year
-                        val desc = if (scrapedDesc.isNotBlank()) scrapedDesc else (firstMeta.get("description")?.asString ?: "Play • 1080p TR")
-                        val extraGenres = mutableListOf<String>()
-                        firstMeta.getAsJsonArray("genres")?.forEach { gElem ->
-                            val gStr = gElem.asString
-                            if (!gStr.isNullOrBlank()) extraGenres.add(gStr)
-                        }
-
-                        if (!id.isNullOrBlank()) {
-                            return MetaResolution(
-                                id = id,
-                                title = name,
-                                poster = if (poster.isNotBlank()) poster else fallbackPoster,
-                                description = desc,
-                                year = releaseYear,
-                                genres = extraGenres
-                            )
+                    if (metas != null) {
+                        for (i in 0 until metas.size()) {
+                            val m = metas.get(i).asJsonObject
+                            val name = m.get("name")?.asString.orEmpty()
+                            if (isSimilarTitle(cleanQ, name)) {
+                                matchedMeta = m
+                                break
+                            }
                         }
                     }
                 }
             }
+
+            // Alternatif kategori kontrolü (film arandıysa dizi, dizi arandıysa film kontrol et)
+            if (matchedMeta == null) {
+                val altKind = if (isSeries) "movie" else "series"
+                val altUrl = "https://v3-cinemeta.strem.io/catalog/$altKind/top/search=$encodedQuery.json"
+                val altReq = Request.Builder().url(altUrl).header("User-Agent", getRandomUserAgent()).build()
+                client.newCall(altReq).execute().use { response ->
+                    if (response.isSuccessful) {
+                        val body = response.body?.string().orEmpty()
+                        val jsonObj = gson.fromJson(body, JsonObject::class.java)
+                        val metas = jsonObj.getAsJsonArray("metas")
+                        if (metas != null) {
+                            for (i in 0 until metas.size()) {
+                                val m = metas.get(i).asJsonObject
+                                val name = m.get("name")?.asString.orEmpty()
+                                if (isSimilarTitle(cleanQ, name)) {
+                                    matchedMeta = m
+                                    matchedKind = altKind
+                                    break
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (matchedMeta != null) {
+                val m0 = matchedMeta!!
+                val id = m0.get("id")?.asString
+                if (!id.isNullOrBlank() && id.startsWith("tt")) {
+                    val resolvedType = m0.get("type")?.asString?.ifBlank { matchedKind } ?: matchedKind
+                    val name = m0.get("name")?.asString ?: cleanTitle
+                    val rawPoster = m0.get("poster")?.asString
+                    val poster = cleanPosterUrl(rawPoster, id, fallback = fallbackPoster)
+                    val releaseYear = m0.get("releaseInfo")?.asString ?: year
+                    val desc = if (scrapedDesc.isNotBlank() && scrapedDesc != "Play • 1080p TR") scrapedDesc else (m0.get("description")?.asString ?: "Play • 1080p TR")
+                    val extraGenres = mutableListOf<String>()
+                    m0.getAsJsonArray("genres")?.forEach { gElem ->
+                        val gStr = gElem.asString
+                        if (!gStr.isNullOrBlank()) extraGenres.add(gStr)
+                    }
+                    if (extraGenres.isEmpty()) {
+                        try {
+                            val detailReq = Request.Builder().url("https://v3-cinemeta.strem.io/meta/$resolvedType/$id.json").header("User-Agent", getRandomUserAgent()).build()
+                            client.newCall(detailReq).execute().use { dResp ->
+                                if (dResp.isSuccessful) {
+                                    val dBody = dResp.body?.string().orEmpty()
+                                    val dObj = gson.fromJson(dBody, JsonObject::class.java).getAsJsonObject("meta")
+                                    dObj?.getAsJsonArray("genres")?.forEach { gElem ->
+                                        val gStr = gElem.asString
+                                        if (!gStr.isNullOrBlank()) extraGenres.add(gStr)
+                                    }
+                                }
+                            }
+                        } catch (_: Exception) {}
+                    }
+
+                    return MetaResolution(
+                        id = id,
+                        title = name,
+                        poster = poster,
+                        description = desc,
+                        year = releaseYear,
+                        genres = extraGenres,
+                        resolvedType = resolvedType
+                    )
+                }
+            }
         } catch (_: Exception) { }
 
-        // 2. Second attempt: TMDB if user provided an API key
+        // 2. TMDB with Title Similarity Verification
         if (!tmdbApiKey.isNullOrBlank()) {
             try {
-                val encodedQuery = URLEncoder.encode(cleanTitle, "UTF-8")
-                val url = "https://api.themoviedb.org/3/search/movie?api_key=$tmdbApiKey&query=$encodedQuery&language=tr-TR"
+                val encodedQuery = URLEncoder.encode(cleanQ, "UTF-8")
+                val endpoint = if (isSeries) "tv" else "movie"
+                val url = "https://api.themoviedb.org/3/search/$endpoint?api_key=$tmdbApiKey&query=$encodedQuery&language=tr-TR"
                 val request = Request.Builder().url(url).header("User-Agent", getRandomUserAgent()).build()
+                var matchedMovie: JsonObject? = null
+                var matchedEp = endpoint
+
                 client.newCall(request).execute().use { response ->
                     if (response.isSuccessful) {
                         val body = response.body?.string().orEmpty()
                         val jsonObj = gson.fromJson(body, JsonObject::class.java)
                         val results = jsonObj.getAsJsonArray("results")
-                        if (results != null && results.size() > 0) {
-                            val firstMovie = results.get(0).asJsonObject
-                            val id = firstMovie.get("id")?.asString
-                            val officialTitle = firstMovie.get("title")?.asString ?: firstMovie.get("original_title")?.asString ?: cleanTitle
-                            val posterPath = firstMovie.get("poster_path")?.asString
-                            val posterUrl = if (!posterPath.isNullOrBlank()) "https://image.tmdb.org/t/p/w500$posterPath" else fallbackPoster
-                            val overview = if (scrapedDesc.isNotBlank()) scrapedDesc else (firstMovie.get("overview")?.asString ?: "Play • 1080p TR")
-                            val releaseDate = firstMovie.get("release_date")?.asString?.take(4) ?: year
-
-                            if (!id.isNullOrBlank()) {
-                                return MetaResolution(
-                                    id = "tmdb-$id",
-                                    title = officialTitle,
-                                    poster = posterUrl,
-                                    description = overview,
-                                    year = releaseDate
-                                )
+                        if (results != null) {
+                            for (i in 0 until results.size()) {
+                                val r = results.get(i).asJsonObject
+                                val candTitle = r.get("title")?.asString ?: r.get("name")?.asString.orEmpty()
+                                if (isSimilarTitle(cleanQ, candTitle)) {
+                                    matchedMovie = r
+                                    break
+                                }
                             }
                         }
                     }
                 }
-            } catch (_: Exception) { }
+
+                if (matchedMovie == null) {
+                    val altEp = if (isSeries) "movie" else "tv"
+                    val altUrl = "https://api.themoviedb.org/3/search/$altEp?api_key=$tmdbApiKey&query=$encodedQuery&language=tr-TR"
+                    val altReq = Request.Builder().url(altUrl).header("User-Agent", getRandomUserAgent()).build()
+                    client.newCall(altReq).execute().use { response ->
+                        if (response.isSuccessful) {
+                            val body = response.body?.string().orEmpty()
+                            val jsonObj = gson.fromJson(body, JsonObject::class.java)
+                            val results = jsonObj.getAsJsonArray("results")
+                            if (results != null) {
+                                for (i in 0 until results.size()) {
+                                    val r = results.get(i).asJsonObject
+                                    val candTitle = r.get("title")?.asString ?: r.get("name")?.asString.orEmpty()
+                                    if (isSimilarTitle(cleanQ, candTitle)) {
+                                        matchedMovie = r
+                                        matchedEp = altEp
+                                        break
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (matchedMovie != null) {
+                    val r0 = matchedMovie!!
+                    val id = r0.get("id")?.asString
+                    if (!id.isNullOrBlank()) {
+                        val resolvedType = if (matchedEp == "tv") "series" else "movie"
+                        val officialTitle = r0.get("title")?.asString ?: r0.get("name")?.asString ?: cleanTitle
+                        val posterPath = r0.get("poster_path")?.asString
+                        val posterUrl = if (!posterPath.isNullOrBlank()) "https://image.tmdb.org/t/p/w500$posterPath" else fallbackPoster
+                        val overview = if (scrapedDesc.isNotBlank() && scrapedDesc != "Play • 1080p TR") scrapedDesc else (r0.get("overview")?.asString ?: "Play • 1080p TR")
+                        val releaseDate = r0.get("release_date")?.asString?.take(4) ?: r0.get("first_air_date")?.asString?.take(4) ?: year
+                        val tmdbGenres = mutableListOf<String>()
+                        try {
+                            val detReq = Request.Builder().url("https://api.themoviedb.org/3/$matchedEp/$id?api_key=$tmdbApiKey&language=tr-TR").header("User-Agent", getRandomUserAgent()).build()
+                            client.newCall(detReq).execute().use { dResp ->
+                                if (dResp.isSuccessful) {
+                                    val dBody = dResp.body?.string().orEmpty()
+                                    val dObj = gson.fromJson(dBody, JsonObject::class.java)
+                                    dObj.getAsJsonArray("genres")?.forEach { gElem ->
+                                        val gName = gElem.asJsonObject.get("name")?.asString
+                                        if (!gName.isNullOrBlank()) tmdbGenres.add(gName)
+                                    }
+                                }
+                            }
+                        } catch (_: Exception) {}
+
+                        return MetaResolution(
+                            id = "tmdb-$id",
+                            title = officialTitle,
+                            poster = cleanPosterUrl(posterUrl, fallback = fallbackPoster),
+                            description = overview,
+                            year = releaseDate,
+                            genres = tmdbGenres,
+                            resolvedType = resolvedType
+                        )
+                    }
+                }
+            } catch (_: Exception) {}
         }
 
         // 3. Fallback: Use scraped movie page data (NEVER lose the movie's real poster or valid ID!)
         return MetaResolution(
             id = fallbackId,
             title = cleanTitle,
-            poster = fallbackPoster,
-            description = if (scrapedDesc.isNotBlank()) scrapedDesc else "Play • Film Yayın Kaynağı",
-            year = year
+            poster = cleanPosterUrl(scrapedPoster, fallback = fallbackPoster),
+            description = if (scrapedDesc.isNotBlank()) scrapedDesc else "Play • 1080p TR",
+            year = year,
+            resolvedType = mediaKind
         )
     }
 }
