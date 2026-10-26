@@ -3114,13 +3114,35 @@ def is_server_alive(port: int) -> bool:
 
 def open_browser_window(url: str):
     """
-    Opens the PlayRepo dashboard in the user's default browser using standard macOS LaunchServices.
-    This prevents cross-process injection/TCC alerts (e.g. 'PlayRepo servisinin Mac'inizdeki uygulamaları değiştirmesi engellendi').
+    Opens PlayRepo in a dedicated, distraction-free standalone desktop App-Mode window.
+    Ensures First Run sentinel exists so Google / Welcome tabs never pop up.
     """
-    try:
-        subprocess.run(["open", url], check=False)
-    except Exception:
-        pass
+    chrome_bin = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    profile_dir = "/tmp/playrepo_desktop_profile"
+    os.makedirs(profile_dir, exist_ok=True)
+    first_run_file = os.path.join(profile_dir, "First Run")
+    if not os.path.exists(first_run_file):
+        try:
+            with open(first_run_file, "w") as f:
+                f.write("")
+        except Exception:
+            pass
+
+    if os.path.exists(chrome_bin):
+        try:
+            subprocess.Popen([
+                "open", "-n", "-a", "/Applications/Google Chrome.app",
+                "--args",
+                f"--app={url}",
+                f"--user-data-dir={profile_dir}",
+                "--window-size=1180,880",
+                "--no-first-run",
+                "--no-default-browser-check"
+            ])
+            return
+        except Exception:
+            pass
+    subprocess.run(["open", url])
 
 def run_app():
     if os.path.exists(ACTIVE_PORT_FILE):
