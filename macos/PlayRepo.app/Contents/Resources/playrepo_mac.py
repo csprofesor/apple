@@ -1674,15 +1674,8 @@ HTML_PAGE = """<!DOCTYPE html>
       padding: 1px 6px;
       border-radius: 10px;
       min-width: 16px;
-      pointer-events: none;
-    }
-      color: #fff;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 1px 6px;
-      border-radius: 10px;
-      min-width: 16px;
       text-align: center;
+      pointer-events: none;
     }
 
     /* Toast Notification */
@@ -1907,25 +1900,25 @@ HTML_PAGE = """<!DOCTYPE html>
 
   <!-- FIXED BOTTOM DOCK NAVIGATION -->
   <nav class="bottom-dock">
-    <button type="button" id="dock-btn-dashboard" class="dock-btn active" onclick="switchNav('dashboard')" onmousedown="switchNav('dashboard')">
+    <button type="button" id="dock-btn-dashboard" class="dock-btn active" onclick="switchNav('dashboard')">
       <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       <span>Tarama</span>
     </button>
-    <button type="button" id="dock-btn-catalog" class="dock-btn" onclick="switchNav('catalog')" onmousedown="switchNav('catalog')">
+    <button type="button" id="dock-btn-catalog" class="dock-btn" onclick="switchNav('catalog')">
       <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
       <span>Nuvio</span>
       <span id="dock-badge-catalog" class="dock-badge">0</span>
     </button>
-    <button type="button" id="dock-btn-single" class="dock-btn" onclick="switchNav('single')" onmousedown="switchNav('single')">
+    <button type="button" id="dock-btn-single" class="dock-btn" onclick="switchNav('single')">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
       <span>Özel Kurtar</span>
     </button>
-    <button type="button" id="dock-btn-memory" class="dock-btn" onclick="switchNav('memory')" onmousedown="switchNav('memory')">
+    <button type="button" id="dock-btn-memory" class="dock-btn" onclick="switchNav('memory')">
       <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
       <span>Hafıza</span>
       <span id="dock-badge-memory" class="dock-badge" style="background:#3b82f6;">0</span>
     </button>
-    <button type="button" id="dock-btn-settings" class="dock-btn" onclick="switchNav('settings')" onmousedown="switchNav('settings')">
+    <button type="button" id="dock-btn-settings" class="dock-btn" onclick="switchNav('settings')">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
       <span>Ayarlar</span>
     </button>
@@ -1949,13 +1942,15 @@ HTML_PAGE = """<!DOCTYPE html>
 
     function switchNav(view) {
       if (!view) return;
-      document.querySelectorAll('.view-pane').forEach(el => {
-        el.classList.remove('active');
-        el.style.display = 'none';
-      });
-      document.querySelectorAll('.dock-btn').forEach(el => {
-        el.classList.remove('active');
-      });
+      const allPanes = document.querySelectorAll('.view-pane');
+      for (let i = 0; i < allPanes.length; i++) {
+        allPanes[i].classList.remove('active');
+        allPanes[i].style.display = 'none';
+      }
+      const allBtns = document.querySelectorAll('.dock-btn');
+      for (let i = 0; i < allBtns.length; i++) {
+        allBtns[i].classList.remove('active');
+      }
 
       const targetPane = document.getElementById('view-' + view);
       const targetBtn = document.getElementById('dock-btn-' + view);
@@ -1968,21 +1963,15 @@ HTML_PAGE = """<!DOCTYPE html>
         targetBtn.classList.add('active');
       }
 
-      if (view === 'catalog') loadPublishedMovies();
-      if (view === 'memory') { loadProcessedUrls(); loadHistoryMovies(); }
-      if (view === 'settings') loadConfig();
-    }
+      window.scrollTo(0, 0);
 
-    function bindNavigationEvents() {
-      ['dashboard', 'catalog', 'single', 'memory', 'settings'].forEach(v => {
-        const btn = document.getElementById('dock-btn-' + v);
-        if (btn) {
-          btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            switchNav(v);
-          });
-        }
-      });
+      try {
+        if (view === 'catalog') loadPublishedMovies();
+        else if (view === 'memory') { loadProcessedUrls(); loadHistoryMovies(); }
+        else if (view === 'settings') loadConfig();
+      } catch (err) {
+        console.error('switchNav data error:', err);
+      }
     }
 
     function switchMemTab(tab) {
@@ -2593,7 +2582,6 @@ HTML_PAGE = """<!DOCTYPE html>
     });
 
     window.onload = () => {
-      bindNavigationEvents();
       loadConfig();
       loadPublishedMovies();
       loadProcessedUrls();
