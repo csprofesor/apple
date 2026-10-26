@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "id": "tt5648882",
+    "type": "movie",
+    "name": "The Burial",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNDNjZDY4OTMtZjM1Ni00OGYwLWE2NDItYzk1ZWYzYTgyYWNiXkEyXkFqcGc%40._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BNDNjZDY4OTMtZjM1Ni00OGYwLWE2NDItYzk1ZWYzYTgyYWNiXkEyXkFqcGc%40._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Sibirya&#039;nın ıssız soğuklarında, bir grup Rus askeri, tarihin en karanlık figürlerinden birinin izlerini taşıyan bir yükle yola çıkar. Hitler&#039;in kalıntılarını St...",
+    "releaseInfo": "2023",
+    "genres": [
+      "Dram & Romantik",
+      "Belgesel & Tarih"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "tt5648882",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt5648882",
+        "title": "The Burial",
+        "released": "2023-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
