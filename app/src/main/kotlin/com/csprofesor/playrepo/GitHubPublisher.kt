@@ -386,10 +386,9 @@ class GitHubPublisher {
             }
 
             if (existingIndex >= 0) {
-                currentCatalogMetas[existingIndex] = catObj
-            } else {
-                currentCatalogMetas.add(0, catObj)
+                currentCatalogMetas.removeAt(existingIndex)
             }
+            currentCatalogMetas.add(0, catObj)
         }
 
         currentCatalogMetas.forEach { item ->

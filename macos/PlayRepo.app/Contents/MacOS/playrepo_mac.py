@@ -1138,7 +1138,7 @@ class GitHubAtomicPublisher:
                 except Exception:
                     cat_json = {}
         metas = cat_json.get("metas", []) if isinstance(cat_json, dict) else []
-        meta_dict = {m.get("id"): m for m in metas if isinstance(m, dict) and m.get("id")}
+        existing_metas = [m for m in metas if isinstance(m, dict) and m.get("id")]
 
         str_json = fetch_github_file("data/streams.json", token=self.token)
         if not isinstance(str_json, dict) or not str_json:
@@ -1151,10 +1151,15 @@ class GitHubAtomicPublisher:
                     str_json = {}
         streams_map = str_json if isinstance(str_json, dict) else {}
 
+        new_items = []
+        scraped_ids = set()
+
         for m in scraped_movies:
             m_id = m["tmdbId"]
             hyphen_id = m_id.replace(":", "-").replace("_", "-")
             safe_id = m_id.replace(":", "_")
+            clean_id = m_id.replace("playrepo-", "").replace("playrepo:", "").replace("tmdb-", "").replace("tmdb:", "")
+            scraped_ids.update({m_id, hyphen_id, safe_id, clean_id, f"movie/{clean_id}", f"tmdb:{clean_id}", f"playrepo:{clean_id}"})
 
             m_type = m.get("type", "movie")
             s_num = m.get("season")
@@ -1182,7 +1187,7 @@ class GitHubAtomicPublisher:
             if m.get("runtime"):
                 cat_item["runtime"] = m["runtime"]
 
-            meta_dict[m_id] = cat_item
+            new_items.append(cat_item)
             streams_map[m_id] = m["streams"]
             streams_map[hyphen_id] = m["streams"]
             streams_map[safe_id] = m["streams"]
@@ -1226,7 +1231,6 @@ class GitHubAtomicPublisher:
             m_json_str = json.dumps(detail_meta, ensure_ascii=False, indent=2)
             s_json_str = json.dumps(stream_obj, ensure_ascii=False, indent=2)
 
-            clean_id = m_id.replace("playrepo-", "").replace("playrepo:", "").replace("tmdb-", "").replace("tmdb:", "")
             distinct_ids = {m_id, hyphen_id, safe_id, clean_id}
             for did in distinct_ids:
                 if did:
@@ -1238,7 +1242,12 @@ class GitHubAtomicPublisher:
                             files_to_commit[f"playrepo/stream/series/{did}:{s_num}:{e_num}.json"] = s_json_str
                             files_to_commit[f"playrepo/stream/series/{did}-{s_num}-{e_num}.json"] = s_json_str
 
-        all_metas = list(meta_dict.values())
+        # Eski listeden güncellenen filmleri çıkarıp yeni tarananları EN BAŞA (İLK SIRAYA) yerleştiriyoruz
+        remaining_metas = [
+            m for m in existing_metas
+            if m.get("id") not in scraped_ids and m.get("id", "").replace("playrepo-", "").replace("tmdb-", "") not in scraped_ids
+        ]
+        all_metas = list(reversed(new_items)) + remaining_metas
         for item in all_metas:
             item["poster"] = clean_poster_url(item.get("poster"), item.get("id"), fallback=LOGO_URL)
             item["background"] = item["poster"]
