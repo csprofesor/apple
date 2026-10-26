@@ -473,6 +473,36 @@ class ScraperEngine:
                 except Exception:
                     pass
 
+        # FirePlayer (playerdkorea.xyz vb.)
+        if "playerdkorea" in lower or "fireplayer" in lower:
+            fp_m = re.search(r'FirePlayer\s*\(\s*["\']([^"\']+)["\']', html)
+            if fp_m:
+                v_hash = fp_m.group(1).strip()
+                try:
+                    parsed_fp = urllib.parse.urlsplit(embed_url)
+                    fp_base = f"{parsed_fp.scheme}://{parsed_fp.netloc}"
+                    api_cmd = [
+                        "curl", "-s", "-X", "POST", f"{fp_base}/player/index.php?data={v_hash}&do=getVideo",
+                        "-H", f"Referer: {embed_url}",
+                        "-H", "X-Requested-With: XMLHttpRequest",
+                        "-d", f"hash={v_hash}&r={referer or ''}",
+                        "-A", random.choice(USER_AGENTS)
+                    ]
+                    api_res = subprocess.run(api_cmd, capture_output=True, text=True, timeout=5)
+                    if api_res.stdout:
+                        j_data = json.loads(api_res.stdout)
+                        sec_link = j_data.get("securedLink") or j_data.get("videoSource")
+                        if sec_link:
+                            return sec_link.replace(r"\/", "/")
+                except Exception:
+                    pass
+
+        # VidMoly desteği
+        if "vidmoly" in lower:
+            vm_m = re.search(r'sources\s*:\s*\[\s*\{\s*file\s*:\s*["\'](https?://[^"\']+)["\']', html)
+            if vm_m:
+                return vm_m.group(1).strip()
+
         if "bitchute.com" in lower:
             bc_m = re.search(r'(https?://[^\s"\'<>]+\.bitchute\.com/[^\s"\'<>]+\.mp4)', html, re.I)
             if bc_m:
@@ -644,6 +674,23 @@ class ScraperEngine:
                             candidate_embeds.append((urllib.parse.urljoin(alt_url, if_m.group(1).strip()), alt_lang))
                         for df_m in re.finditer(r'data-frame=["\']([^"\']+)["\']', alt_html, re.I):
                             candidate_embeds.append((urllib.parse.urljoin(alt_url, df_m.group(1).strip()), alt_lang))
+
+        # Diziplus / WP post-page-numbers çoklu sunucu sekmeleri (/2/, /3/ gibi alternatif player linkleri)
+        for part_href, part_text in re.findall(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*class=["\'][^"\']*post-page-numbers[^"\']*["\'][^>]*>(.*?)</a>', html, re.I | re.DOTALL):
+            part_url = urllib.parse.urljoin(movie_url, part_href.strip())
+            p_html = http_get(part_url, referer=movie_url)
+            if p_html:
+                p_lang = get_lang(part_text + " " + p_html)
+                for if_m in re.finditer(r'<iframe\s+[^>]*(?:src|data-src|data-frame)=["\']([^"\']+)["\'][^>]*>', p_html, re.I):
+                    candidate_embeds.append((urllib.parse.urljoin(part_url, if_m.group(1).strip()), p_lang))
+                for df_m in re.finditer(r'data-(?:frame|player|video|src)=["\']([^"\']+)["\']', p_html, re.I):
+                    candidate_embeds.append((urllib.parse.urljoin(part_url, df_m.group(1).strip()), p_lang))
+
+        # DiziRex / DiziBox video-services sekmeleri (button data-frame, data-hhs, data-video)
+        for btn_m in re.finditer(r'<button[^>]+data-(?:frame|hhs|video|embed)=["\']([^"\']+)["\'][^>]*>(.*?)</button>', html, re.I | re.DOTALL):
+            b_url = urllib.parse.urljoin(movie_url, btn_m.group(1).strip())
+            b_lang = get_lang(btn_m.group(2) + " " + b_url)
+            candidate_embeds.append((b_url, b_lang))
 
         # WordPress / DooPlay player AJAX simulation for dynamic source tabs
         parsed_origin = urllib.parse.urlsplit(movie_url)

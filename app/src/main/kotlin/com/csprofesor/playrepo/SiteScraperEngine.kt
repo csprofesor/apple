@@ -712,6 +712,24 @@ class SiteScraperEngine {
 
             // 10. Scan and fetch alternate language pages (e.g. Dublaj page links to Altyazılı, or vice versa)
             val alternatePageLinks = mutableListOf<Pair<String, String>>()
+            
+            // Sub-pages / Multi-player tabs (DiziBOX /post-page-numbers/ or DiziRex alternatives)
+            doc.select("a.post-page-numbers[href], div.sources a[href]").forEach { a ->
+                val h = a.absUrl("href").trim()
+                if (h.isNotBlank() && h != movieUrl && alternatePageLinks.none { it.first == h }) {
+                    val lang = if (a.text().contains("dublaj", true)) "[TR Dublaj]" else "[TR Altyazılı]"
+                    alternatePageLinks.add(h to lang)
+                }
+            }
+
+            // DiziRex alternative buttons
+            doc.select("button[data-frame], button[data-hhs], button[data-video]").forEach { btn ->
+                val fUrl = btn.attr("data-frame").ifBlank { btn.attr("data-hhs").ifBlank { btn.attr("data-video") } }.trim()
+                if (fUrl.isNotBlank()) {
+                    addCandidate(fUrl, pageDefaultLang)
+                }
+            }
+
             doc.select("a[href]").forEach { a ->
                 val href = a.absUrl("href").trim()
                 val txt = a.text().trim()
