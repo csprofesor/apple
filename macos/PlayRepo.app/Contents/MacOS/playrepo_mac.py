@@ -137,6 +137,20 @@ def unpack_packer_js(packed: str) -> str:
 
     return re.sub(r"\b\w+\b", repl, payload).replace(r"\/", "/")
 
+def is_similar_title(target: str, cand: str) -> bool:
+    if not target or not cand:
+        return False
+    t_clean = re.sub(r'[^a-zA-Z0-9]+', '', target).lower()
+    c_clean = re.sub(r'[^a-zA-Z0-9]+', '', cand).lower()
+    if t_clean == c_clean or t_clean in c_clean or c_clean in t_clean:
+        return True
+    t_words = set(re.findall(r'\w{2,}', target.lower()))
+    c_words = set(re.findall(r'\w{2,}', cand.lower()))
+    if not t_words:
+        return False
+    overlap = len(t_words & c_words) / len(t_words)
+    return overlap >= 0.5
+
 # -------------------------------------------------------------
 # Scraper Engine
 # -------------------------------------------------------------
@@ -580,12 +594,44 @@ class ScraperEngine:
                   re.search(r'<title>(.*?)</title>', html, re.I)
         raw_title = re.sub(r'<[^>]+>', '', title_m.group(1)).strip() if title_m else movie_url.split("/")[-1].replace("-", " ")
 
-        clean_title = re.sub(r'\(?\b(19\d{2}|20\d{2})\b\)?', '', raw_title)
-        for term in ["türkçe dublaj", "türkçe altyazı", "turkce dublaj", "turkce altyazili", "izle", "full hd", "1080p", "4k", "tek parça", "film kovası", "hintfilmizle"]:
-            clean_title = re.sub(rf'\b{term}\b', '', clean_title, flags=re.I)
-        clean_title = re.sub(r'\s+', ' ', clean_title).strip(" -|:")
+        # Series / Season / Episode detection from raw_title and movie_url
+        comb_text = f"{raw_title} {movie_url}"
+        s_num, e_num = None, None
+        combo = (re.search(r'(?:season|sezon)[-\s_.]*(\d+)[-\s_.]*(?:episode|bolum|bölüm)[-\s_.]*(\d+)', comb_text, re.I) or
+                 re.search(r'(\d+)[-\s_.]*(?:season|sezon)[-\s_.]*(\d+)[-\s_.]*(?:episode|bolum|bölüm)', comb_text, re.I) or
+                 re.search(r'\b[sS](\d+)[-\s_.]*[eE](\d+)\b', comb_text) or
+                 re.search(r'\b(\d+)x(\d+)\b', comb_text))
+        if combo:
+            s_num = int(combo.group(1))
+            e_num = int(combo.group(2))
+        else:
+            sm = (re.search(r'(?:season|sezon)[-\s_.]*(\d+)', comb_text, re.I) or
+                  re.search(r'(\d+)[-\s_.]*(?:season|sezon)', comb_text, re.I))
+            em = (re.search(r'(?:episode|bolum|bölüm)[-\s_.]*(\d+)', comb_text, re.I) or
+                  re.search(r'(\d+)[-\s_.]*(?:episode|bolum|bölüm)', comb_text, re.I))
+            if sm: s_num = int(sm.group(1))
+            if em: e_num = int(em.group(1))
 
-        if not clean_title or clean_title.lower() in ("filmkovasi.co", "www.hintfilmizle.com"):
+        is_series = bool(s_num or e_num or "/dizi/" in movie_url.lower() or "/series/" in movie_url.lower())
+
+        clean_title = raw_title
+        clean_title = re.sub(r'\(?\b(19\d{2}|20\d{2})\b\)?', '', clean_title)
+        # Strip all season and episode phrases so search query to Cinemeta/TMDB is pure!
+        clean_title = re.sub(r'(?:season|sezon)[-\s_.]*\d+[-\s_.]*(?:episode|bolum|bölüm)[-\s_.]*\d+', '', clean_title, flags=re.I)
+        clean_title = re.sub(r'\d+[-\s_.]*(?:season|sezon)[-\s_.]*\d+[-\s_.]*(?:episode|bolum|bölüm)', '', clean_title, flags=re.I)
+        clean_title = re.sub(r'\b[sS]\d+[-\s_.]*[eE]\d+\b', '', clean_title)
+        clean_title = re.sub(r'\b\d+x\d+\b', '', clean_title)
+        clean_title = re.sub(r'(?:season|sezon)[-\s_.]*\d+', '', clean_title, flags=re.I)
+        clean_title = re.sub(r'\d+[-\s_.]*(?:season|sezon)', '', clean_title, flags=re.I)
+        clean_title = re.sub(r'(?:episode|bolum|bölüm)[-\s_.]*\d+', '', clean_title, flags=re.I)
+        clean_title = re.sub(r'\d+[-\s_.]*(?:episode|bolum|bölüm)', '', clean_title, flags=re.I)
+        clean_title = re.sub(r'\b(?:sezon|season|bölüm|bolum|episode|final|parça|part)\b', '', clean_title, flags=re.I)
+
+        for term in ["türkçe dublaj", "türkçe altyazı", "turkce dublaj", "turkce altyazili", "dublaj", "altyazı", "altyazi", "izle", "full hd", "1080p", "720p", "4k", "tek parça", "tek parca", "film kovası", "hintfilmizle", "dizibox", "dizimag", "filmi"]:
+            clean_title = re.sub(rf'\b{re.escape(term)}\b', '', clean_title, flags=re.I)
+        clean_title = re.sub(r'\s+', ' ', clean_title).strip(" -|/:.")
+
+        if not clean_title or clean_title.lower() in ("filmkovasi.co", "www.hintfilmizle.com", "diziboxizle.com"):
             return None
 
         year_m = re.search(r'\b(19\d{2}|20\d{2})\b', raw_title) or re.search(r'\b(19\d{2}|20\d{2})\b', html)
@@ -722,20 +768,8 @@ class ScraperEngine:
             if not any(s["url"] == u for s in subtitles):
                 subtitles.append({"id": "tr", "url": u, "lang": "Turkish"})
 
-        # Series / Season / Episode detection
-        combo_m = re.search(r'(\d+)[-\s_]*(?:sezon|season)[-\s_]*(\d+)[-\s_]*(?:bolum|bölüm|episode)', movie_url, re.I)
-        if combo_m:
-            is_series = True
-            season_num = int(combo_m.group(1))
-            episode_num = int(combo_m.group(2))
-        else:
-            is_series = ("/dizi/" in movie_url.lower() or "/series/" in movie_url.lower() or
-                         re.search(r'\b(?:sezon|bolum|bölüm|season|episode)\b', movie_url, re.I) is not None or
-                         re.search(r'\b\d+\s*\.\s*(?:sezon|bölüm)\b', raw_title, re.I) is not None)
-            season_m = re.search(r'(?:sezon|season)[-\s_]*(\d+)', movie_url, re.I) or re.search(r'(\d+)\s*\.\s*(?:sezon|season)', raw_title, re.I)
-            episode_m = re.search(r'(?:bolum|bölüm|episode)[-\s_]*(\d+)', movie_url, re.I) or re.search(r'(\d+)\s*\.\s*(?:bolum|bölüm|episode)', raw_title, re.I)
-            season_num = int(season_m.group(1)) if season_m else None
-            episode_num = int(episode_m.group(1)) if episode_m else None
+        season_num = s_num
+        episode_num = e_num
 
         resolved_streams = []
         seen_urls = set()
@@ -823,9 +857,18 @@ class ScraperEngine:
                 oth_c += 1
                 st["title"] = f"Play • Sunucu {oth_c} • 1080p • [TR]"
 
-        meta_id, official_title, official_poster, official_desc, release_year, meta_genres = self.resolve_meta(
+        meta_id, official_title, official_poster, official_desc, release_year, meta_genres, resolved_type = self.resolve_meta(
             clean_title, poster, desc, year, tmdb_api_key, is_series=is_series
         )
+
+        if resolved_type == "movie":
+            is_series = False
+            season_num = None
+            episode_num = None
+        elif resolved_type == "series":
+            is_series = True
+            season_num = season_num or 1
+            episode_num = episode_num or 1
 
         # IMDb / Cinemeta / TMDB doğrulamalı kategoriler
         verified_categories = set()
@@ -859,23 +902,29 @@ class ScraperEngine:
         }
 
     def resolve_meta(self, title: str, poster: str, desc: str, year: str, tmdb_key: str = None, is_series: bool = False):
+        clean_q = re.sub(r'[/\\?&=#]+', ' ', title).strip()
         media_kind = "series" if is_series else "movie"
         try:
-            q = urllib.parse.quote(title)
+            q = urllib.parse.quote(clean_q)
             cm_res = http_json(f"https://v3-cinemeta.strem.io/catalog/{media_kind}/top/search={q}.json")
             metas = cm_res.get("metas", [])
-            if not metas and is_series:
-                cm_res = http_json(f"https://v3-cinemeta.strem.io/catalog/movie/top/search={q}.json")
-                metas = cm_res.get("metas", [])
-            if metas:
-                m0 = metas[0]
+            matched = [m for m in metas if is_similar_title(clean_q, m.get("name"))]
+            if not matched:
+                alt_kind = "movie" if is_series else "series"
+                alt_res = http_json(f"https://v3-cinemeta.strem.io/catalog/{alt_kind}/top/search={q}.json")
+                alt_metas = alt_res.get("metas", [])
+                matched = [m for m in alt_metas if is_similar_title(clean_q, m.get("name"))]
+
+            if matched:
+                m0 = matched[0]
                 m_id = m0.get("id")
                 if m_id and m_id.startswith("tt"):
+                    resolved_type = m0.get("type") or media_kind
                     turkish_desc = desc if desc and desc != "Play • 1080p TR" else (m0.get("description") or "Play • 1080p TR")
                     extra_genres = m0.get("genres") or []
                     if not extra_genres:
                         try:
-                            detail_res = http_json(f"https://v3-cinemeta.strem.io/meta/{m0.get('type', media_kind)}/{m_id}.json")
+                            detail_res = http_json(f"https://v3-cinemeta.strem.io/meta/{resolved_type}/{m_id}.json")
                             extra_genres = detail_res.get("meta", {}).get("genres") or []
                         except Exception:
                             pass
@@ -886,21 +935,30 @@ class ScraperEngine:
                         m_poster,
                         turkish_desc,
                         m0.get("releaseInfo") or year,
-                        extra_genres
+                        extra_genres,
+                        resolved_type
                     )
         except Exception:
             pass
 
         if tmdb_key:
             try:
-                q = urllib.parse.quote(title)
+                q = urllib.parse.quote(clean_q)
                 endpoint = "tv" if is_series else "movie"
                 tm_res = http_json(f"https://api.themoviedb.org/3/search/{endpoint}?api_key={tmdb_key}&query={q}&language=tr-TR")
-                results = tm_res.get("results", [])
+                results = [r for r in tm_res.get("results", []) if is_similar_title(clean_q, r.get("title") or r.get("name"))]
+                if not results:
+                    alt_ep = "movie" if is_series else "tv"
+                    alt_tm = http_json(f"https://api.themoviedb.org/3/search/{alt_ep}?api_key={tmdb_key}&query={q}&language=tr-TR")
+                    results = [r for r in alt_tm.get("results", []) if is_similar_title(clean_q, r.get("title") or r.get("name"))]
+                    if results:
+                        endpoint = alt_ep
+
                 if results:
                     r0 = results[0]
                     r_id = r0.get("id")
                     if r_id:
+                        resolved_type = "series" if endpoint == "tv" else "movie"
                         p_path = r0.get("poster_path")
                         p_url = f"https://image.tmdb.org/t/p/w500{p_path}" if p_path else poster
                         rel_date = r0.get("release_date") or r0.get("first_air_date") or year
@@ -913,17 +971,18 @@ class ScraperEngine:
                         return (
                             f"tmdb-{r_id}",
                             r0.get("title") or r0.get("name") or title,
-                            p_url,
+                            clean_poster_url(p_url, fallback=poster),
                             r0.get("overview") or desc,
                             rel_date[:4] if rel_date else year,
-                            tmdb_genres
+                            tmdb_genres,
+                            resolved_type
                         )
             except Exception:
                 pass
 
         slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
         safe_id = f"playrepo-{slug}" if slug else f"playrepo-film-{abs(hash(title))}"
-        return (safe_id, title, poster, desc, year, [])
+        return (safe_id, title, clean_poster_url(poster), desc, year, [], media_kind)
 
 def clean_poster_url(poster_url: str, imdb_id: str = None, fallback: str = "") -> str:
     res = ""
@@ -1001,6 +1060,9 @@ class GitHubAtomicPublisher:
             m_type = m.get("type", "movie")
             s_num = m.get("season")
             e_num = m.get("episode")
+            if m_type == "movie":
+                s_num = None
+                e_num = None
             vid_id = f"{m_id}:{s_num}:{e_num}" if (m_type == "series" and s_num and e_num) else m_id
 
             clean_poster = clean_poster_url(m.get("poster"), m_id, fallback=LOGO_URL)
@@ -1031,9 +1093,9 @@ class GitHubAtomicPublisher:
                 "title": m["title"],
                 "released": f"{m['year']}-01-01T00:00:00.000Z" if m.get("year") else None
             }
-            if s_num:
+            if m_type == "series" and s_num:
                 vid_obj["season"] = s_num
-            if e_num:
+            if m_type == "series" and e_num:
                 vid_obj["episode"] = e_num
 
             detail_meta = {
@@ -1449,15 +1511,15 @@ def load_config():
         "tmdb_key": "",
         "max_pages": 20,
         "saved_sites": [
-            "https://diziboxizle.com/",
-            "https://ddizimom.net/",
-            "https://dizirex.com/",
             "https://fullhdfilmizlebox.vip/",
             "https://filmdozu.com/",
-            "https://ufilmizle.com/",
             "https://fullfilmizle.fit/",
+            "https://ufilmizle.com/",
+            "https://filmarsivi.org/",
             "https://www.hintfilmizle.com/film-izle/",
-            "https://filmarsivi.org/"
+            "https://diziboxizle.com/",
+            "https://ddizimom.net/",
+            "https://dizirex.com/"
         ]
     }
     if os.path.exists(CONFIG_FILE):
@@ -3256,15 +3318,15 @@ class RequestHandler(BaseHTTPRequestHandler):
         elif self.path == "/api/reset-sites":
             cfg = load_config()
             cfg["saved_sites"] = [
-                "https://diziboxizle.com/",
-                "https://ddizimom.net/",
-                "https://dizirex.com/",
                 "https://fullhdfilmizlebox.vip/",
                 "https://filmdozu.com/",
-                "https://ufilmizle.com/",
                 "https://fullfilmizle.fit/",
+                "https://ufilmizle.com/",
+                "https://filmarsivi.org/",
                 "https://www.hintfilmizle.com/film-izle/",
-                "https://filmarsivi.org/"
+                "https://diziboxizle.com/",
+                "https://ddizimom.net/",
+                "https://dizirex.com/"
             ]
             save_config(cfg)
             append_global_log("[SIFIRLANDI] Site listesi en iyi aktif dizi & film sitelerine sıfırlandı.")
