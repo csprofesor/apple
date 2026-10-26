@@ -1172,25 +1172,46 @@ class GitHubAtomicPublisher:
         files_to_commit["data/catalog.json"] = json.dumps({"metas": all_metas}, ensure_ascii=False, indent=2)
         files_to_commit["data/streams.json"] = json.dumps(streams_map, ensure_ascii=False, indent=2)
 
-        def has_genre(item, *genres):
-            g_list = [g.lower() for g in item.get("genres", [])]
-            return any(any(tgt in g for tgt in genres) for g in g_list)
+        def matches_cat(item, *keywords):
+            g_list = [str(g).lower() for g in item.get("genres", [])]
+            desc = str(item.get("description", "")).lower()
+            title = str(item.get("title", "") or item.get("name", "")).lower()
+            combined = " ".join(g_list) + " " + desc + " " + title
+            return any(kw in combined for kw in keywords)
 
         # 1. Popüler & Tüm Filmler
         all_movies = [m for m in all_metas if m.get("type", "movie") != "series"]
         files_to_commit["playrepo/catalog/movie/playrepo-popular.json"] = json.dumps({"metas": all_movies[:60]}, ensure_ascii=False, indent=2)
         files_to_commit["playrepo/catalog/movie/playrepo-catalog-movies.json"] = json.dumps({"metas": all_movies}, ensure_ascii=False, indent=2)
 
-        # 2. Özel Film Tür Kategorileri - BİR KATEGORİYE EKLENEN FİLM DİĞERLERİNE ASLA EKLENMEZ!
+        # 2. Özel Film Tür & Platform Kategorileri - BİR KATEGORİYE EKLENEN FİLM DİĞERLERİNE ASLA EKLENMEZ!
         movie_genre_configs = [
-            ("playrepo/catalog/movie/playrepo-animasyon.json", lambda x: has_genre(x, "animasyon", "çizgi", "anime", "animation")),
-            ("playrepo/catalog/movie/playrepo-belgesel.json", lambda x: has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history")),
-            ("playrepo/catalog/movie/playrepo-korku.json", lambda x: has_genre(x, "korku", "gerilim", "horror", "thriller")),
-            ("playrepo/catalog/movie/playrepo-bilimkurgu.json", lambda x: has_genre(x, "bilim", "kurgu", "fantastik", "sci-fi", "fantasy")),
-            ("playrepo/catalog/movie/playrepo-komedi.json", lambda x: has_genre(x, "komedi", "mizah", "comedy")),
-            ("playrepo/catalog/movie/playrepo-suc.json", lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery")),
-            ("playrepo/catalog/movie/playrepo-aksiyon.json", lambda x: has_genre(x, "aksiyon", "macera", "action", "adventure")),
-            ("playrepo/catalog/movie/playrepo-dram.json", lambda x: has_genre(x, "dram", "romantik", "drama", "romance")),
+            # Platformlar
+            ("playrepo/catalog/movie/playrepo-netflix.json", lambda x: matches_cat(x, "netflix")),
+            ("playrepo/catalog/movie/playrepo-disney.json", lambda x: matches_cat(x, "disney", "pixar", "marvel")),
+            ("playrepo/catalog/movie/playrepo-prime.json", lambda x: matches_cat(x, "prime video", "amazon prime")),
+            ("playrepo/catalog/movie/playrepo-apple.json", lambda x: matches_cat(x, "apple tv", "apple original")),
+            ("playrepo/catalog/movie/playrepo-hbo.json", lambda x: matches_cat(x, "hbo", "hbomax", "warner")),
+            ("playrepo/catalog/movie/playrepo-hulu.json", lambda x: matches_cat(x, "hulu")),
+            ("playrepo/catalog/movie/playrepo-mubi.json", lambda x: matches_cat(x, "mubi")),
+            ("playrepo/catalog/movie/playrepo-blutv.json", lambda x: matches_cat(x, "blutv")),
+            # Tek Tek Ayrılmış Türler
+            ("playrepo/catalog/movie/playrepo-belgesel.json", lambda x: matches_cat(x, "belgesel", "documentary")),
+            ("playrepo/catalog/movie/playrepo-bilimkurgu.json", lambda x: matches_cat(x, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction")),
+            ("playrepo/catalog/movie/playrepo-fantastik.json", lambda x: matches_cat(x, "fantastik", "fantasy")),
+            ("playrepo/catalog/movie/playrepo-animasyon.json", lambda x: matches_cat(x, "animasyon", "animation", "anime", "çizgi")),
+            ("playrepo/catalog/movie/playrepo-korku.json", lambda x: matches_cat(x, "korku", "horror")),
+            ("playrepo/catalog/movie/playrepo-gerilim.json", lambda x: matches_cat(x, "gerilim", "thriller")),
+            ("playrepo/catalog/movie/playrepo-gizem.json", lambda x: matches_cat(x, "gizem", "mystery")),
+            ("playrepo/catalog/movie/playrepo-suc.json", lambda x: matches_cat(x, "suç", "suc", "crime", "polisiye")),
+            ("playrepo/catalog/movie/playrepo-aksiyon.json", lambda x: matches_cat(x, "aksiyon", "action")),
+            ("playrepo/catalog/movie/playrepo-macera.json", lambda x: matches_cat(x, "macera", "adventure")),
+            ("playrepo/catalog/movie/playrepo-komedi.json", lambda x: matches_cat(x, "komedi", "comedy", "mizah")),
+            ("playrepo/catalog/movie/playrepo-romantik.json", lambda x: matches_cat(x, "romantik", "romance", "aşk")),
+            ("playrepo/catalog/movie/playrepo-tarih.json", lambda x: matches_cat(x, "tarih", "history", "biyografi", "biography")),
+            ("playrepo/catalog/movie/playrepo-savas.json", lambda x: matches_cat(x, "savaş", "savas", "war")),
+            ("playrepo/catalog/movie/playrepo-aile.json", lambda x: matches_cat(x, "aile", "family", "çocuk")),
+            ("playrepo/catalog/movie/playrepo-dram.json", lambda x: matches_cat(x, "dram", "drama")),
         ]
 
         assigned_movie_ids = set()
@@ -1208,12 +1229,16 @@ class GitHubAtomicPublisher:
         files_to_commit["playrepo/catalog/series/playrepo-series-popular.json"] = json.dumps({"metas": all_series}, ensure_ascii=False, indent=2)
 
         series_genre_configs = [
-            ("playrepo/catalog/series/playrepo-series-bilimkurgu.json", lambda x: has_genre(x, "bilim", "kurgu", "fantastik")),
-            ("playrepo/catalog/series/playrepo-series-korku.json", lambda x: has_genre(x, "korku", "gerilim")),
-            ("playrepo/catalog/series/playrepo-series-komedi.json", lambda x: has_genre(x, "komedi", "mizah")),
-            ("playrepo/catalog/series/playrepo-series-suc.json", lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem")),
-            ("playrepo/catalog/series/playrepo-series-aksiyon.json", lambda x: has_genre(x, "aksiyon", "macera")),
-            ("playrepo/catalog/series/playrepo-series-dram.json", lambda x: has_genre(x, "dram", "romantik")),
+            ("playrepo/catalog/series/playrepo-series-netflix.json", lambda x: matches_cat(x, "netflix")),
+            ("playrepo/catalog/series/playrepo-series-bilimkurgu.json", lambda x: matches_cat(x, "bilim kurgu", "bilim-kurgu", "sci-fi")),
+            ("playrepo/catalog/series/playrepo-series-fantastik.json", lambda x: matches_cat(x, "fantastik", "fantasy")),
+            ("playrepo/catalog/series/playrepo-series-korku.json", lambda x: matches_cat(x, "korku", "horror")),
+            ("playrepo/catalog/series/playrepo-series-gerilim.json", lambda x: matches_cat(x, "gerilim", "thriller")),
+            ("playrepo/catalog/series/playrepo-series-gizem.json", lambda x: matches_cat(x, "gizem", "mystery")),
+            ("playrepo/catalog/series/playrepo-series-suc.json", lambda x: matches_cat(x, "suç", "suc", "crime", "polisiye")),
+            ("playrepo/catalog/series/playrepo-series-aksiyon.json", lambda x: matches_cat(x, "aksiyon", "action")),
+            ("playrepo/catalog/series/playrepo-series-komedi.json", lambda x: matches_cat(x, "komedi", "comedy", "mizah")),
+            ("playrepo/catalog/series/playrepo-series-dram.json", lambda x: matches_cat(x, "dram", "drama")),
         ]
 
         assigned_series_ids = set()
@@ -1345,25 +1370,46 @@ class GitHubAtomicPublisher:
             "data/streams.json": json.dumps(streams_map, ensure_ascii=False, indent=2)
         }
 
-        def has_genre(item, *genres):
-            g_list = [g.lower() for g in item.get("genres", [])]
-            return any(any(tgt in g for tgt in genres) for g in g_list)
+        def matches_cat(item, *keywords):
+            g_list = [str(g).lower() for g in item.get("genres", [])]
+            desc = str(item.get("description", "")).lower()
+            title = str(item.get("title", "") or item.get("name", "")).lower()
+            combined = " ".join(g_list) + " " + desc + " " + title
+            return any(kw in combined for kw in keywords)
 
         # 1. Popüler & Tüm Filmler
         all_movies = [m for m in all_metas if m.get("type", "movie") != "series"]
         files_to_commit["playrepo/catalog/movie/playrepo-popular.json"] = json.dumps({"metas": all_movies[:60]}, ensure_ascii=False, indent=2)
         files_to_commit["playrepo/catalog/movie/playrepo-catalog-movies.json"] = json.dumps({"metas": all_movies}, ensure_ascii=False, indent=2)
 
-        # 2. Özel Film Tür Kategorileri - BİR KATEGORİYE EKLENEN FİLM DİĞERLERİNE ASLA EKLENMEZ!
+        # 2. Özel Film Tür & Platform Kategorileri - BİR KATEGORİYE EKLENEN FİLM DİĞERLERİNE ASLA EKLENMEZ!
         movie_genre_configs = [
-            ("playrepo/catalog/movie/playrepo-animasyon.json", lambda x: has_genre(x, "animasyon", "çizgi", "anime", "animation")),
-            ("playrepo/catalog/movie/playrepo-belgesel.json", lambda x: has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history")),
-            ("playrepo/catalog/movie/playrepo-korku.json", lambda x: has_genre(x, "korku", "gerilim", "horror", "thriller")),
-            ("playrepo/catalog/movie/playrepo-bilimkurgu.json", lambda x: has_genre(x, "bilim", "kurgu", "fantastik", "sci-fi", "fantasy")),
-            ("playrepo/catalog/movie/playrepo-komedi.json", lambda x: has_genre(x, "komedi", "mizah", "comedy")),
-            ("playrepo/catalog/movie/playrepo-suc.json", lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery")),
-            ("playrepo/catalog/movie/playrepo-aksiyon.json", lambda x: has_genre(x, "aksiyon", "macera", "action", "adventure")),
-            ("playrepo/catalog/movie/playrepo-dram.json", lambda x: has_genre(x, "dram", "romantik", "drama", "romance")),
+            # Platformlar
+            ("playrepo/catalog/movie/playrepo-netflix.json", lambda x: matches_cat(x, "netflix")),
+            ("playrepo/catalog/movie/playrepo-disney.json", lambda x: matches_cat(x, "disney", "pixar", "marvel")),
+            ("playrepo/catalog/movie/playrepo-prime.json", lambda x: matches_cat(x, "prime video", "amazon prime")),
+            ("playrepo/catalog/movie/playrepo-apple.json", lambda x: matches_cat(x, "apple tv", "apple original")),
+            ("playrepo/catalog/movie/playrepo-hbo.json", lambda x: matches_cat(x, "hbo", "hbomax", "warner")),
+            ("playrepo/catalog/movie/playrepo-hulu.json", lambda x: matches_cat(x, "hulu")),
+            ("playrepo/catalog/movie/playrepo-mubi.json", lambda x: matches_cat(x, "mubi")),
+            ("playrepo/catalog/movie/playrepo-blutv.json", lambda x: matches_cat(x, "blutv")),
+            # Tek Tek Ayrılmış Türler
+            ("playrepo/catalog/movie/playrepo-belgesel.json", lambda x: matches_cat(x, "belgesel", "documentary")),
+            ("playrepo/catalog/movie/playrepo-bilimkurgu.json", lambda x: matches_cat(x, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction")),
+            ("playrepo/catalog/movie/playrepo-fantastik.json", lambda x: matches_cat(x, "fantastik", "fantasy")),
+            ("playrepo/catalog/movie/playrepo-animasyon.json", lambda x: matches_cat(x, "animasyon", "animation", "anime", "çizgi")),
+            ("playrepo/catalog/movie/playrepo-korku.json", lambda x: matches_cat(x, "korku", "horror")),
+            ("playrepo/catalog/movie/playrepo-gerilim.json", lambda x: matches_cat(x, "gerilim", "thriller")),
+            ("playrepo/catalog/movie/playrepo-gizem.json", lambda x: matches_cat(x, "gizem", "mystery")),
+            ("playrepo/catalog/movie/playrepo-suc.json", lambda x: matches_cat(x, "suç", "suc", "crime", "polisiye")),
+            ("playrepo/catalog/movie/playrepo-aksiyon.json", lambda x: matches_cat(x, "aksiyon", "action")),
+            ("playrepo/catalog/movie/playrepo-macera.json", lambda x: matches_cat(x, "macera", "adventure")),
+            ("playrepo/catalog/movie/playrepo-komedi.json", lambda x: matches_cat(x, "komedi", "comedy", "mizah")),
+            ("playrepo/catalog/movie/playrepo-romantik.json", lambda x: matches_cat(x, "romantik", "romance", "aşk")),
+            ("playrepo/catalog/movie/playrepo-tarih.json", lambda x: matches_cat(x, "tarih", "history", "biyografi", "biography")),
+            ("playrepo/catalog/movie/playrepo-savas.json", lambda x: matches_cat(x, "savaş", "savas", "war")),
+            ("playrepo/catalog/movie/playrepo-aile.json", lambda x: matches_cat(x, "aile", "family", "çocuk")),
+            ("playrepo/catalog/movie/playrepo-dram.json", lambda x: matches_cat(x, "dram", "drama")),
         ]
 
         assigned_movie_ids = set()
@@ -1381,12 +1427,16 @@ class GitHubAtomicPublisher:
         files_to_commit["playrepo/catalog/series/playrepo-series-popular.json"] = json.dumps({"metas": all_series}, ensure_ascii=False, indent=2)
 
         series_genre_configs = [
-            ("playrepo/catalog/series/playrepo-series-bilimkurgu.json", lambda x: has_genre(x, "bilim", "kurgu", "fantastik")),
-            ("playrepo/catalog/series/playrepo-series-korku.json", lambda x: has_genre(x, "korku", "gerilim")),
-            ("playrepo/catalog/series/playrepo-series-komedi.json", lambda x: has_genre(x, "komedi", "mizah")),
-            ("playrepo/catalog/series/playrepo-series-suc.json", lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem")),
-            ("playrepo/catalog/series/playrepo-series-aksiyon.json", lambda x: has_genre(x, "aksiyon", "macera")),
-            ("playrepo/catalog/series/playrepo-series-dram.json", lambda x: has_genre(x, "dram", "romantik")),
+            ("playrepo/catalog/series/playrepo-series-netflix.json", lambda x: matches_cat(x, "netflix")),
+            ("playrepo/catalog/series/playrepo-series-bilimkurgu.json", lambda x: matches_cat(x, "bilim kurgu", "bilim-kurgu", "sci-fi")),
+            ("playrepo/catalog/series/playrepo-series-fantastik.json", lambda x: matches_cat(x, "fantastik", "fantasy")),
+            ("playrepo/catalog/series/playrepo-series-korku.json", lambda x: matches_cat(x, "korku", "horror")),
+            ("playrepo/catalog/series/playrepo-series-gerilim.json", lambda x: matches_cat(x, "gerilim", "thriller")),
+            ("playrepo/catalog/series/playrepo-series-gizem.json", lambda x: matches_cat(x, "gizem", "mystery")),
+            ("playrepo/catalog/series/playrepo-series-suc.json", lambda x: matches_cat(x, "suç", "suc", "crime", "polisiye")),
+            ("playrepo/catalog/series/playrepo-series-aksiyon.json", lambda x: matches_cat(x, "aksiyon", "action")),
+            ("playrepo/catalog/series/playrepo-series-komedi.json", lambda x: matches_cat(x, "komedi", "comedy", "mizah")),
+            ("playrepo/catalog/series/playrepo-series-dram.json", lambda x: matches_cat(x, "dram", "drama")),
         ]
 
         assigned_series_ids = set()
@@ -1483,20 +1533,41 @@ class GitHubAtomicPublisher:
             "data/streams.json": empty_streams,
             "playrepo/catalog/movie/playrepo-popular.json": empty_catalog,
             "playrepo/catalog/movie/playrepo-catalog-movies.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-aksiyon.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-komedi.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-dram.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-korku.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-animasyon.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-netflix.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-disney.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-prime.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-apple.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-hbo.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-hulu.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-mubi.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-blutv.json": empty_catalog,
             "playrepo/catalog/movie/playrepo-belgesel.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-fantastik.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-animasyon.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-korku.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-gerilim.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-gizem.json": empty_catalog,
             "playrepo/catalog/movie/playrepo-suc.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-aksiyon.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-macera.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-komedi.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-romantik.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-tarih.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-savas.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-aile.json": empty_catalog,
+            "playrepo/catalog/movie/playrepo-dram.json": empty_catalog,
             "playrepo/catalog/series/playrepo-series-popular.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-dram.json": empty_catalog,
+            "playrepo/catalog/series/playrepo-series-netflix.json": empty_catalog,
+            "playrepo/catalog/series/playrepo-series-bilimkurgu.json": empty_catalog,
+            "playrepo/catalog/series/playrepo-series-fantastik.json": empty_catalog,
+            "playrepo/catalog/series/playrepo-series-korku.json": empty_catalog,
+            "playrepo/catalog/series/playrepo-series-gerilim.json": empty_catalog,
+            "playrepo/catalog/series/playrepo-series-gizem.json": empty_catalog,
+            "playrepo/catalog/series/playrepo-series-suc.json": empty_catalog,
             "playrepo/catalog/series/playrepo-series-aksiyon.json": empty_catalog,
             "playrepo/catalog/series/playrepo-series-komedi.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-suc.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-bilimkurgu.json": empty_catalog
+            "playrepo/catalog/series/playrepo-series-dram.json": empty_catalog
         }
 
         ref_data = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/ref/heads/{DEFAULT_BRANCH}", token=self.token)

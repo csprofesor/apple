@@ -163,20 +163,20 @@ async function unpackLiveStreamUrl(rawUrl, referer) {
     return "";
 }
 
-function hasGenreCheck(m, ...keywords) {
-    if (!m || !m.genres || !Array.isArray(m.genres)) return false;
-    const lowerGenres = m.genres.map(g => (g || "").toString().toLowerCase());
-    return lowerGenres.some(g => keywords.some(kw => g.includes(kw)));
+function matchesCatCheck(m, ...keywords) {
+    if (!m) return false;
+    const genres = (m.genres || []).map(g => (g || "").toString().toLowerCase()).join(" ");
+    const desc = (m.description || "").toString().toLowerCase();
+    const name = (m.name || "").toString().toLowerCase();
+    const combined = `${genres} ${desc} ${name}`;
+    return keywords.some(kw => combined.includes(kw.toLowerCase()));
 }
 
 function getDisjointMetasForCatalog(allMetas, catalogId) {
     const allMovies = allMetas.filter(m => m.type !== "series");
     const allSeries = allMetas.filter(m => m.type === "series");
 
-    if (catalogId === "playrepo-popular") {
-        return allMovies.slice(0, 60);
-    }
-    if (catalogId === "playrepo-catalog-movies") {
+    if (catalogId === "playrepo-popular" || catalogId === "playrepo-catalog-movies") {
         return allMovies;
     }
     if (catalogId === "playrepo-series-popular") {
@@ -184,14 +184,32 @@ function getDisjointMetasForCatalog(allMetas, catalogId) {
     }
 
     const movieConfigs = [
-        { id: "playrepo-animasyon", check: (m) => hasGenreCheck(m, "animasyon", "çizgi", "anime", "animation") },
-        { id: "playrepo-belgesel", check: (m) => hasGenreCheck(m, "belgesel", "tarih", "biyografi", "documentary", "history") },
-        { id: "playrepo-korku", check: (m) => hasGenreCheck(m, "korku", "gerilim", "horror", "thriller") },
-        { id: "playrepo-bilimkurgu", check: (m) => hasGenreCheck(m, "bilim", "kurgu", "fantastik", "sci-fi", "fantasy") },
-        { id: "playrepo-komedi", check: (m) => hasGenreCheck(m, "komedi", "mizah", "comedy") },
-        { id: "playrepo-suc", check: (m) => hasGenreCheck(m, "suç", "suc", "polisiye", "gizem", "crime", "mystery") },
-        { id: "playrepo-aksiyon", check: (m) => hasGenreCheck(m, "aksiyon", "macera", "action", "adventure") },
-        { id: "playrepo-dram", check: (m) => hasGenreCheck(m, "dram", "romantik", "drama", "romance") }
+        // 1. Platformlar (Özel Uygulama Kategorileri)
+        { id: "playrepo-netflix", check: (m) => matchesCatCheck(m, "netflix") },
+        { id: "playrepo-disney", check: (m) => matchesCatCheck(m, "disney", "pixar", "marvel") },
+        { id: "playrepo-prime", check: (m) => matchesCatCheck(m, "prime video", "amazon prime") },
+        { id: "playrepo-apple", check: (m) => matchesCatCheck(m, "apple tv", "apple original") },
+        { id: "playrepo-hbo", check: (m) => matchesCatCheck(m, "hbo", "hbomax", "warner") },
+        { id: "playrepo-hulu", check: (m) => matchesCatCheck(m, "hulu") },
+        { id: "playrepo-mubi", check: (m) => matchesCatCheck(m, "mubi") },
+        { id: "playrepo-blutv", check: (m) => matchesCatCheck(m, "blutv") },
+        // 2. Tek Tek Ayrılmış Tür Kategorileri (Birleşik Değil, Her Biri Müstakil)
+        { id: "playrepo-belgesel", check: (m) => matchesCatCheck(m, "belgesel", "documentary") },
+        { id: "playrepo-bilimkurgu", check: (m) => matchesCatCheck(m, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction") },
+        { id: "playrepo-fantastik", check: (m) => matchesCatCheck(m, "fantastik", "fantasy") },
+        { id: "playrepo-animasyon", check: (m) => matchesCatCheck(m, "animasyon", "animation", "anime", "çizgi") },
+        { id: "playrepo-korku", check: (m) => matchesCatCheck(m, "korku", "horror") },
+        { id: "playrepo-gerilim", check: (m) => matchesCatCheck(m, "gerilim", "thriller") },
+        { id: "playrepo-gizem", check: (m) => matchesCatCheck(m, "gizem", "mystery") },
+        { id: "playrepo-suc", check: (m) => matchesCatCheck(m, "suç", "suc", "crime", "polisiye") },
+        { id: "playrepo-aksiyon", check: (m) => matchesCatCheck(m, "aksiyon", "action") },
+        { id: "playrepo-macera", check: (m) => matchesCatCheck(m, "macera", "adventure") },
+        { id: "playrepo-komedi", check: (m) => matchesCatCheck(m, "komedi", "comedy", "mizah") },
+        { id: "playrepo-romantik", check: (m) => matchesCatCheck(m, "romantik", "romance", "aşk") },
+        { id: "playrepo-tarih", check: (m) => matchesCatCheck(m, "tarih", "history", "biyografi", "biography") },
+        { id: "playrepo-savas", check: (m) => matchesCatCheck(m, "savaş", "savas", "war") },
+        { id: "playrepo-aile", check: (m) => matchesCatCheck(m, "aile", "family", "çocuk") },
+        { id: "playrepo-dram", check: (m) => matchesCatCheck(m, "dram", "drama") }
     ];
 
     const assignedMovieIds = new Set();
@@ -210,12 +228,16 @@ function getDisjointMetasForCatalog(allMetas, catalogId) {
     }
 
     const seriesConfigs = [
-        { id: "playrepo-series-bilimkurgu", check: (m) => hasGenreCheck(m, "bilim", "kurgu", "fantastik") },
-        { id: "playrepo-series-korku", check: (m) => hasGenreCheck(m, "korku", "gerilim") },
-        { id: "playrepo-series-komedi", check: (m) => hasGenreCheck(m, "komedi", "mizah") },
-        { id: "playrepo-series-suc", check: (m) => hasGenreCheck(m, "suç", "suc", "polisiye", "gizem", "crime", "mystery") },
-        { id: "playrepo-series-aksiyon", check: (m) => hasGenreCheck(m, "aksiyon", "macera") },
-        { id: "playrepo-series-dram", check: (m) => hasGenreCheck(m, "dram", "romantik") }
+        { id: "playrepo-series-netflix", check: (s) => matchesCatCheck(s, "netflix") },
+        { id: "playrepo-series-bilimkurgu", check: (s) => matchesCatCheck(s, "bilim kurgu", "bilim-kurgu", "sci-fi") },
+        { id: "playrepo-series-fantastik", check: (s) => matchesCatCheck(s, "fantastik", "fantasy") },
+        { id: "playrepo-series-korku", check: (s) => matchesCatCheck(s, "korku", "horror") },
+        { id: "playrepo-series-gerilim", check: (s) => matchesCatCheck(s, "gerilim", "thriller") },
+        { id: "playrepo-series-gizem", check: (s) => matchesCatCheck(s, "gizem", "mystery") },
+        { id: "playrepo-series-suc", check: (s) => matchesCatCheck(s, "suç", "suc", "crime", "polisiye") },
+        { id: "playrepo-series-aksiyon", check: (s) => matchesCatCheck(s, "aksiyon", "action") },
+        { id: "playrepo-series-komedi", check: (s) => matchesCatCheck(s, "komedi", "comedy", "mizah") },
+        { id: "playrepo-series-dram", check: (s) => matchesCatCheck(s, "dram", "drama") }
     ];
 
     const assignedSeriesIds = new Set();
@@ -233,7 +255,7 @@ function getDisjointMetasForCatalog(allMetas, catalogId) {
         }
     }
 
-    return allMovies;
+    return [];
 }
 
 async function getCatalog(type, id, extra) {

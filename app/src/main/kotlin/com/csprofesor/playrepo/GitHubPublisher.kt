@@ -401,16 +401,34 @@ class GitHubPublisher {
         }
         result["playrepo/catalog/movie/playrepo-catalog-movies.json"] = gson.toJson(allMoviesWrapper)
 
-        // 2. Film Tür Kategorileri - Her film sadece 1 kategoriye atanır
+        // 2. Özel Film Tür & Platform Kategorileri - Her film sadece 1 kategoriye atanır
         val movieGenreConfigs = listOf(
-            "playrepo/catalog/movie/playrepo-animasyon.json" to { m: JsonObject -> hasGenre(m, "animasyon", "çizgi", "anime", "animation") },
-            "playrepo/catalog/movie/playrepo-belgesel.json" to { m: JsonObject -> hasGenre(m, "belgesel", "tarih", "biyografi", "documentary", "history") },
-            "playrepo/catalog/movie/playrepo-korku.json" to { m: JsonObject -> hasGenre(m, "korku", "gerilim", "horror", "thriller") },
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json" to { m: JsonObject -> hasGenre(m, "bilim", "kurgu", "fantastik", "sci-fi", "fantasy") },
-            "playrepo/catalog/movie/playrepo-komedi.json" to { m: JsonObject -> hasGenre(m, "komedi", "mizah", "comedy") },
-            "playrepo/catalog/movie/playrepo-suc.json" to { m: JsonObject -> hasGenre(m, "suç", "suc", "polisiye", "gizem", "crime", "mystery") },
-            "playrepo/catalog/movie/playrepo-aksiyon.json" to { m: JsonObject -> hasGenre(m, "aksiyon", "macera", "action", "adventure") },
-            "playrepo/catalog/movie/playrepo-dram.json" to { m: JsonObject -> hasGenre(m, "dram", "romantik", "drama", "romance") }
+            // Platformlar
+            "playrepo/catalog/movie/playrepo-netflix.json" to { m: JsonObject -> matchesCategory(m, "netflix") },
+            "playrepo/catalog/movie/playrepo-disney.json" to { m: JsonObject -> matchesCategory(m, "disney", "pixar", "marvel") },
+            "playrepo/catalog/movie/playrepo-prime.json" to { m: JsonObject -> matchesCategory(m, "prime video", "amazon prime") },
+            "playrepo/catalog/movie/playrepo-apple.json" to { m: JsonObject -> matchesCategory(m, "apple tv", "apple original") },
+            "playrepo/catalog/movie/playrepo-hbo.json" to { m: JsonObject -> matchesCategory(m, "hbo", "hbomax", "warner") },
+            "playrepo/catalog/movie/playrepo-hulu.json" to { m: JsonObject -> matchesCategory(m, "hulu") },
+            "playrepo/catalog/movie/playrepo-mubi.json" to { m: JsonObject -> matchesCategory(m, "mubi") },
+            "playrepo/catalog/movie/playrepo-blutv.json" to { m: JsonObject -> matchesCategory(m, "blutv") },
+            // Tek Tek Ayrılmış Müstakil Türler
+            "playrepo/catalog/movie/playrepo-belgesel.json" to { m: JsonObject -> matchesCategory(m, "belgesel", "documentary") },
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json" to { m: JsonObject -> matchesCategory(m, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction") },
+            "playrepo/catalog/movie/playrepo-fantastik.json" to { m: JsonObject -> matchesCategory(m, "fantastik", "fantasy") },
+            "playrepo/catalog/movie/playrepo-animasyon.json" to { m: JsonObject -> matchesCategory(m, "animasyon", "animation", "anime", "çizgi") },
+            "playrepo/catalog/movie/playrepo-korku.json" to { m: JsonObject -> matchesCategory(m, "korku", "horror") },
+            "playrepo/catalog/movie/playrepo-gerilim.json" to { m: JsonObject -> matchesCategory(m, "gerilim", "thriller") },
+            "playrepo/catalog/movie/playrepo-gizem.json" to { m: JsonObject -> matchesCategory(m, "gizem", "mystery") },
+            "playrepo/catalog/movie/playrepo-suc.json" to { m: JsonObject -> matchesCategory(m, "suç", "suc", "crime", "polisiye") },
+            "playrepo/catalog/movie/playrepo-aksiyon.json" to { m: JsonObject -> matchesCategory(m, "aksiyon", "action") },
+            "playrepo/catalog/movie/playrepo-macera.json" to { m: JsonObject -> matchesCategory(m, "macera", "adventure") },
+            "playrepo/catalog/movie/playrepo-komedi.json" to { m: JsonObject -> matchesCategory(m, "komedi", "comedy", "mizah") },
+            "playrepo/catalog/movie/playrepo-romantik.json" to { m: JsonObject -> matchesCategory(m, "romantik", "romance", "aşk") },
+            "playrepo/catalog/movie/playrepo-tarih.json" to { m: JsonObject -> matchesCategory(m, "tarih", "history", "biyografi", "biography") },
+            "playrepo/catalog/movie/playrepo-savas.json" to { m: JsonObject -> matchesCategory(m, "savaş", "savas", "war") },
+            "playrepo/catalog/movie/playrepo-aile.json" to { m: JsonObject -> matchesCategory(m, "aile", "family", "çocuk") },
+            "playrepo/catalog/movie/playrepo-dram.json" to { m: JsonObject -> matchesCategory(m, "dram", "drama") }
         )
 
         val assignedMovieIds = mutableSetOf<String>()
@@ -440,12 +458,16 @@ class GitHubPublisher {
         result["playrepo/catalog/series/playrepo-series-popular.json"] = gson.toJson(seriesPopWrapper)
 
         val seriesGenreConfigs = listOf(
-            "playrepo/catalog/series/playrepo-series-bilimkurgu.json" to { m: JsonObject -> hasGenre(m, "bilim", "kurgu", "fantastik") },
-            "playrepo/catalog/series/playrepo-series-korku.json" to { m: JsonObject -> hasGenre(m, "korku", "gerilim") },
-            "playrepo/catalog/series/playrepo-series-komedi.json" to { m: JsonObject -> hasGenre(m, "komedi", "mizah") },
-            "playrepo/catalog/series/playrepo-series-suc.json" to { m: JsonObject -> hasGenre(m, "suç", "suc", "polisiye", "gizem", "crime", "mystery") },
-            "playrepo/catalog/series/playrepo-series-aksiyon.json" to { m: JsonObject -> hasGenre(m, "aksiyon", "macera") },
-            "playrepo/catalog/series/playrepo-series-dram.json" to { m: JsonObject -> hasGenre(m, "dram", "romantik") }
+            "playrepo/catalog/series/playrepo-series-netflix.json" to { s: JsonObject -> matchesCategory(s, "netflix") },
+            "playrepo/catalog/series/playrepo-series-bilimkurgu.json" to { s: JsonObject -> matchesCategory(s, "bilim kurgu", "sci-fi") },
+            "playrepo/catalog/series/playrepo-series-fantastik.json" to { s: JsonObject -> matchesCategory(s, "fantastik", "fantasy") },
+            "playrepo/catalog/series/playrepo-series-korku.json" to { s: JsonObject -> matchesCategory(s, "korku", "horror") },
+            "playrepo/catalog/series/playrepo-series-gerilim.json" to { s: JsonObject -> matchesCategory(s, "gerilim", "thriller") },
+            "playrepo/catalog/series/playrepo-series-gizem.json" to { s: JsonObject -> matchesCategory(s, "gizem", "mystery") },
+            "playrepo/catalog/series/playrepo-series-suc.json" to { s: JsonObject -> matchesCategory(s, "suç", "suc", "crime", "polisiye") },
+            "playrepo/catalog/series/playrepo-series-aksiyon.json" to { s: JsonObject -> matchesCategory(s, "aksiyon", "action") },
+            "playrepo/catalog/series/playrepo-series-komedi.json" to { s: JsonObject -> matchesCategory(s, "komedi", "comedy", "mizah") },
+            "playrepo/catalog/series/playrepo-series-dram.json" to { s: JsonObject -> matchesCategory(s, "dram", "drama") }
         )
 
         val assignedSeriesIds = mutableSetOf<String>()
@@ -753,6 +775,15 @@ class GitHubPublisher {
         }
     }
 
+    private fun matchesCategory(m: JsonObject, vararg keywords: String): Boolean {
+        val genresArr = m.getAsJsonArray("genres")
+        val genresText = genresArr?.joinToString(" ") { it.asString.lowercase() } ?: ""
+        val desc = m.get("description")?.asString?.lowercase() ?: ""
+        val name = m.get("name")?.asString?.lowercase() ?: ""
+        val combined = "$genresText $desc $name"
+        return keywords.any { kw -> combined.contains(kw.lowercase()) }
+    }
+
     private fun hasGenre(movieObj: JsonObject, vararg keywords: String): Boolean {
         val genresArr = movieObj.getAsJsonArray("genres") ?: return false
         for (g in genresArr) {
@@ -785,20 +816,41 @@ class GitHubPublisher {
                 "data/streams.json" to emptyStreams,
                 "playrepo/catalog/movie/playrepo-popular.json" to emptyCatalog,
                 "playrepo/catalog/movie/playrepo-catalog-movies.json" to emptyCatalog,
-                "playrepo/catalog/movie/playrepo-aksiyon.json" to emptyCatalog,
-                "playrepo/catalog/movie/playrepo-komedi.json" to emptyCatalog,
-                "playrepo/catalog/movie/playrepo-dram.json" to emptyCatalog,
-                "playrepo/catalog/movie/playrepo-korku.json" to emptyCatalog,
-                "playrepo/catalog/movie/playrepo-bilimkurgu.json" to emptyCatalog,
-                "playrepo/catalog/movie/playrepo-animasyon.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-netflix.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-disney.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-prime.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-apple.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-hbo.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-hulu.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-mubi.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-blutv.json" to emptyCatalog,
                 "playrepo/catalog/movie/playrepo-belgesel.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-bilimkurgu.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-fantastik.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-animasyon.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-korku.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-gerilim.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-gizem.json" to emptyCatalog,
                 "playrepo/catalog/movie/playrepo-suc.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-aksiyon.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-macera.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-komedi.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-romantik.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-tarih.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-savas.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-aile.json" to emptyCatalog,
+                "playrepo/catalog/movie/playrepo-dram.json" to emptyCatalog,
                 "playrepo/catalog/series/playrepo-series-popular.json" to emptyCatalog,
-                "playrepo/catalog/series/playrepo-series-dram.json" to emptyCatalog,
+                "playrepo/catalog/series/playrepo-series-netflix.json" to emptyCatalog,
+                "playrepo/catalog/series/playrepo-series-bilimkurgu.json" to emptyCatalog,
+                "playrepo/catalog/series/playrepo-series-fantastik.json" to emptyCatalog,
+                "playrepo/catalog/series/playrepo-series-korku.json" to emptyCatalog,
+                "playrepo/catalog/series/playrepo-series-gerilim.json" to emptyCatalog,
+                "playrepo/catalog/series/playrepo-series-gizem.json" to emptyCatalog,
+                "playrepo/catalog/series/playrepo-series-suc.json" to emptyCatalog,
                 "playrepo/catalog/series/playrepo-series-aksiyon.json" to emptyCatalog,
                 "playrepo/catalog/series/playrepo-series-komedi.json" to emptyCatalog,
-                "playrepo/catalog/series/playrepo-series-suc.json" to emptyCatalog,
-                "playrepo/catalog/series/playrepo-series-bilimkurgu.json" to emptyCatalog
+                "playrepo/catalog/series/playrepo-series-dram.json" to emptyCatalog
             )
 
             val success = commitBatchUsingGitDataApi(
