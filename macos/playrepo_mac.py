@@ -2726,7 +2726,6 @@ class RequestHandler(BaseHTTPRequestHandler):
 
                     all_scraped = []
                     pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
-                    batch_buffer = []
 
                     for s_idx, site_url in enumerate(sites):
                         if not ENGINE_INSTANCE.check_alive():
@@ -2769,24 +2768,15 @@ class RequestHandler(BaseHTTPRequestHandler):
 
                                 pub_names.add(m_title_norm)
                                 pub_ids.add(m_id_norm)
-                                batch_buffer.append(m_data)
                                 s_count = len(m_data["streams"])
                                 c_str = ", ".join(m_data["genres"])
                                 append_global_log(f"  ✓ {m_data['title']} ({s_count} Sunucu • [{c_str}])")
 
-                                # Her 3 film çözüldüğünde beklemeden anında GitHub ve Nuvio'ya aktar!
-                                if len(batch_buffer) >= 3:
-                                    append_global_log(f"⚡ [3 FİLM DOLDU • ANLIK YÜKLEME] Çözülen {len(batch_buffer)} film/dizi anında Nuvio & GitHub'a aktarılıyor...")
-                                    pub.publish_movies(batch_buffer)
-                                    batch_buffer.clear()
+                                # Çözülen her filmi beklemeden anında GitHub ve Nuvio'ya aktar!
+                                append_global_log(f"⚡ [ANLIK YÜKLEME] '{m_data['title']}' hemen Nuvio & GitHub'a aktarılıyor...")
+                                pub.publish_movies([m_data])
                             else:
                                 append_global_log(f"  ↷ {short} (Aktif akış yok, atlandı)")
-
-                    # Tarama bittiğinde veya durdurulduğunda arabellekte kalan son filmleri hemen aktar
-                    if batch_buffer and ENGINE_INSTANCE.check_alive():
-                        append_global_log(f"⚡ [SON KALANLARI YÜKLEME] Arabellekte kalan {len(batch_buffer)} film Nuvio & GitHub'a aktarılıyor...")
-                        pub.publish_movies(batch_buffer)
-                        batch_buffer.clear()
 
                     if ENGINE_INSTANCE.is_running:
                         append_global_log("✓ [BİTTİ] Tüm tarama ve anlık yükleme tamamlandı.")
