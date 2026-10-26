@@ -80,6 +80,29 @@ def http_json(url: str, method: str = "GET", data: dict = None, token: str = Non
     except Exception:
         return {}
 
+def fetch_github_file(path: str, token: str = None, timeout: int = 15) -> dict:
+    """
+    Fetches JSON file directly from GitHub Contents API bypassing Fastly CDN caching.
+    Uses Accept: application/vnd.github.v3.raw
+    Falls back to raw.githubusercontent.com only if API fails.
+    """
+    api_url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/{path}"
+    cmd = ["curl", "-s", "-L", "--max-time", str(timeout),
+           "-H", "Accept: application/vnd.github.v3.raw",
+           "-H", "User-Agent: PlayRepo-MacOS"]
+    if token:
+        cmd += ["-H", f"Authorization: token {token}"]
+    cmd.append(api_url)
+    try:
+        res = subprocess.run(cmd, capture_output=True, text=True, errors="ignore")
+        if res.stdout and res.stdout.strip().startswith(("{", "[")):
+            return json.loads(res.stdout)
+    except Exception:
+        pass
+
+    raw_url = f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/{DEFAULT_BRANCH}/{path}?t={int(time.time())}"
+    return http_json(raw_url, timeout=timeout)
+
 # -------------------------------------------------------------
 # Packer (Dean Edwards) Decoder
 # -------------------------------------------------------------
@@ -939,13 +962,27 @@ class GitHubAtomicPublisher:
 
         files_to_commit = {}
 
-        cat_url = f"https://raw.githubusercontent.com/{self.owner}/{self.repo}/{DEFAULT_BRANCH}/data/catalog.json?t={int(time.time())}"
-        cat_json = http_json(cat_url)
+        cat_json = fetch_github_file("data/catalog.json", token=self.token)
+        if not isinstance(cat_json, dict) or "metas" not in cat_json:
+            local_cat = os.path.join(WORKSPACE_DIR, "data", "catalog.json")
+            if os.path.exists(local_cat):
+                try:
+                    with open(local_cat, "r", encoding="utf-8") as f:
+                        cat_json = json.load(f)
+                except Exception:
+                    cat_json = {}
         metas = cat_json.get("metas", []) if isinstance(cat_json, dict) else []
         meta_dict = {m.get("id"): m for m in metas if isinstance(m, dict) and m.get("id")}
 
-        str_url = f"https://raw.githubusercontent.com/{self.owner}/{self.repo}/{DEFAULT_BRANCH}/data/streams.json?t={int(time.time())}"
-        str_json = http_json(str_url)
+        str_json = fetch_github_file("data/streams.json", token=self.token)
+        if not isinstance(str_json, dict) or not str_json:
+            local_str = os.path.join(WORKSPACE_DIR, "data", "streams.json")
+            if os.path.exists(local_str):
+                try:
+                    with open(local_str, "r", encoding="utf-8") as f:
+                        str_json = json.load(f)
+                except Exception:
+                    str_json = {}
         streams_map = str_json if isinstance(str_json, dict) else {}
 
         for m in scraped_movies:
@@ -968,7 +1005,8 @@ class GitHubAtomicPublisher:
                 "logo": LOGO_URL,
                 "description": m["description"],
                 "releaseInfo": m["year"],
-                "genres": m["genres"]
+                "genres": m["genres"],
+                "posterShape": "poster"
             }
             if m.get("imdbRating"):
                 cat_item["imdbRating"] = m["imdbRating"]
@@ -1001,6 +1039,7 @@ class GitHubAtomicPublisher:
                     "description": m["description"],
                     "releaseInfo": m["year"],
                     "genres": m["genres"],
+                    "posterShape": "poster",
                     "behaviorHints": {
                         "defaultVideoId": vid_id,
                         "hasScheduledVideos": False
@@ -1125,6 +1164,15 @@ class GitHubAtomicPublisher:
 
         if "object" in update_ref or update_ref.get("ref"):
             self.log(f"✓ [SUCCESS] Toplam {len(scraped_movies)} film, kategoriler ve detay sayfaları %100 eksiksiz yüklendi! (Commit: {new_commit_sha[:8]})")
+            # Yerel çalışma alanını anında güncelle (0ms gecikme, Fastly CDN baypas)
+            try:
+                for rel_path, content in files_to_commit.items():
+                    loc_path = os.path.join(WORKSPACE_DIR, rel_path)
+                    os.makedirs(os.path.dirname(loc_path), exist_ok=True)
+                    with open(loc_path, "w", encoding="utf-8") as f:
+                        f.write(content)
+            except Exception as e:
+                self.log(f"Yerel senkronizasyon uyarısı: {e}")
             return True
         else:
             self.log(f"✗ [ERROR] Dal güncellenemedi: {update_ref.get('message')}")
@@ -1137,13 +1185,27 @@ class GitHubAtomicPublisher:
 
         self.log(f"[GITHUB SİLME] {movie_id} filmi depodan ve eklentiden siliniyor...")
 
-        cat_url = f"https://raw.githubusercontent.com/{self.owner}/{self.repo}/{DEFAULT_BRANCH}/data/catalog.json?t={int(time.time())}"
-        cat_json = http_json(cat_url)
+        cat_json = fetch_github_file("data/catalog.json", token=self.token)
+        if not isinstance(cat_json, dict) or "metas" not in cat_json:
+            local_cat = os.path.join(WORKSPACE_DIR, "data", "catalog.json")
+            if os.path.exists(local_cat):
+                try:
+                    with open(local_cat, "r", encoding="utf-8") as f:
+                        cat_json = json.load(f)
+                except Exception:
+                    cat_json = {}
         metas = cat_json.get("metas", []) if isinstance(cat_json, dict) else []
         meta_dict = {m.get("id"): m for m in metas if isinstance(m, dict) and m.get("id")}
 
-        str_url = f"https://raw.githubusercontent.com/{self.owner}/{self.repo}/{DEFAULT_BRANCH}/data/streams.json?t={int(time.time())}"
-        str_json = http_json(str_url)
+        str_json = fetch_github_file("data/streams.json", token=self.token)
+        if not isinstance(str_json, dict) or not str_json:
+            local_str = os.path.join(WORKSPACE_DIR, "data", "streams.json")
+            if os.path.exists(local_str):
+                try:
+                    with open(local_str, "r", encoding="utf-8") as f:
+                        str_json = json.load(f)
+                except Exception:
+                    str_json = {}
         streams_map = str_json if isinstance(str_json, dict) else {}
 
         hyphen_id = movie_id.replace(":", "-").replace("_", "-")
@@ -1232,6 +1294,25 @@ class GitHubAtomicPublisher:
         )
         if "object" in update_ref or update_ref.get("ref"):
             self.log(f"✓ [SİLİNDİ] {movie_id} eklentiden ve depodan tamamen kaldırıldı!")
+            # Yerel çalışma alanını anında güncelle (0ms gecikme)
+            try:
+                for rel_path, content in files_to_commit.items():
+                    loc_path = os.path.join(WORKSPACE_DIR, rel_path)
+                    os.makedirs(os.path.dirname(loc_path), exist_ok=True)
+                    with open(loc_path, "w", encoding="utf-8") as f:
+                        f.write(content)
+                for did in del_ids:
+                    if did:
+                        for p in [
+                            os.path.join(WORKSPACE_DIR, f"playrepo/meta/movie/{did}.json"),
+                            os.path.join(WORKSPACE_DIR, f"playrepo/stream/movie/{did}.json"),
+                            os.path.join(WORKSPACE_DIR, f"playrepo/meta/series/{did}.json")
+                        ]:
+                            if os.path.exists(p):
+                                try: os.remove(p)
+                                except Exception: pass
+            except Exception:
+                pass
             return True
         return False
 
@@ -1313,11 +1394,26 @@ class GitHubAtomicPublisher:
         )
         if "object" in update_ref or update_ref.get("ref"):
             self.log("✓ [TEMİZLENDİ] Tüm filmler ve akışlar eklentiden başarıyla sıfırlandı!")
+            # Yerel çalışma alanını anında sıfırla (0ms gecikme, CDN baypas)
             try:
+                for rel_path, content in files_to_commit.items():
+                    loc_path = os.path.join(WORKSPACE_DIR, rel_path)
+                    os.makedirs(os.path.dirname(loc_path), exist_ok=True)
+                    with open(loc_path, "w", encoding="utf-8") as f:
+                        f.write(content)
+                for folder in ['movie', 'series']:
+                    for sub in ['meta', 'stream']:
+                        d = os.path.join(WORKSPACE_DIR, 'playrepo', sub, folder)
+                        if os.path.exists(d):
+                            for item in os.listdir(d):
+                                fp = os.path.join(d, item)
+                                if os.path.isfile(fp):
+                                    try: os.remove(fp)
+                                    except Exception: pass
                 if os.path.exists(PROCESSED_MOVIES_FILE):
                     os.remove(PROCESSED_MOVIES_FILE)
-            except Exception:
-                pass
+            except Exception as e:
+                self.log(f"Yerel temizleme uyarısı: {e}")
             return True
         return False
 
@@ -1399,10 +1495,9 @@ def get_already_published_identifiers() -> tuple:
         except Exception:
             pass
 
-    # 2. Check remote GitHub catalog
+    # 2. Check remote GitHub catalog (direct GitHub Contents API, uncached)
     try:
-        cat_url = f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/{DEFAULT_BRANCH}/data/catalog.json?t={int(time.time())}"
-        cat_json = http_json(cat_url, timeout=5)
+        cat_json = fetch_github_file("data/catalog.json", timeout=5)
         if isinstance(cat_json, dict) and "metas" in cat_json:
             for m in cat_json.get("metas", []):
                 if isinstance(m, dict):
@@ -1427,6 +1522,7 @@ HTML_PAGE = """<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer">
   <title>PlayRepo Pro • macOS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
@@ -2247,14 +2343,16 @@ HTML_PAGE = """<!DOCTYPE html>
         const validPoster = (m.poster && !m.poster.includes('metahub.space')) ? m.poster : 'https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png';
         item.innerHTML = `
           <div style="display:flex; align-items:center; gap:14px; overflow:hidden;">
-            <img src="${validPoster}" onerror="this.src='https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png'" style="width:42px; height:58px; object-fit:cover; border-radius:6px; background:#1e293b;" />
+            <img src="${validPoster}" referrerpolicy="no-referrer" onerror="this.src='https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png'" style="width:48px; height:68px; object-fit:cover; border-radius:8px; background:#1e293b; flex-shrink:0; box-shadow:0 4px 10px rgba(0,0,0,0.5);" />
             <div style="display:flex; flex-direction:column; overflow:hidden;">
               <span style="font-weight:700; font-size:14.5px; color:#fff; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;">
                 ${m.name} <span style="font-size:12px; color:var(--dim); font-weight:500;">(${m.releaseInfo || m.year || ''})</span>
               </span>
-              <span style="font-size:11.5px; color:#60a5fa; margin-top:2px;">
-                <span style="background:${isSeries ? 'rgba(168, 85, 247, 0.2)' : 'rgba(59, 130, 246, 0.2)'}; color:${isSeries ? '#c084fc' : '#60a5fa'}; padding:2px 6px; border-radius:4px; font-weight:700;">${isSeries ? 'Dizi' : 'Film'}</span> • ${genres || 'Genel'}
-              </span>
+              <div style="display:flex; align-items:center; gap:8px; margin-top:4px; flex-wrap:wrap;">
+                <span style="background:${isSeries ? 'rgba(168, 85, 247, 0.25)' : 'rgba(59, 130, 246, 0.25)'}; color:${isSeries ? '#c084fc' : '#60a5fa'}; padding:2px 7px; border-radius:4px; font-weight:700; font-size:11px;">${isSeries ? '🎬 Dizi' : '🎥 Film'}</span>
+                ${m.imdbRating ? `<span style="background:rgba(234,179,8,0.2); color:#facc15; padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px;">⭐ ${m.imdbRating}</span>` : ''}
+                <span style="font-size:11.5px; color:#94a3b8;">${genres || 'Genel'}</span>
+              </div>
             </div>
           </div>
           <button class="btn-red" style="padding:6px 14px; font-size:12px;" onclick="deleteMovie('${m.id}')">🗑️ Sil</button>
@@ -2527,16 +2625,22 @@ HTML_PAGE = """<!DOCTYPE html>
         const streamBadge = hasStreams 
           ? `<span style="font-size:11px; color:#10b981; background:rgba(16,185,129,0.12); padding:2px 6px; border-radius:4px;">${m.streams.length} Akış Hazır</span>`
           : `<span style="font-size:11px; color:#94a3b8; background:rgba(148,163,184,0.1); padding:2px 6px; border-radius:4px;">Akış Yok</span>`;
+        const validPoster = (m.poster && !m.poster.includes('metahub.space')) ? m.poster : 'https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png';
 
         item.innerHTML = `
-          <div style="display:flex; align-items:center; gap:10px; overflow:hidden;">
-            <span style="font-weight:700; font-size:13.5px; color:#fff; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;">${m.name}</span>
-            <span style="font-size:11px; color:#a855f7;">ID: ${m.id}</span>
-            ${streamBadge}
+          <div style="display:flex; align-items:center; gap:12px; overflow:hidden;">
+            <img src="${validPoster}" referrerpolicy="no-referrer" onerror="this.src='https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png'" style="width:40px; height:56px; object-fit:cover; border-radius:6px; background:#1e293b; flex-shrink:0;" />
+            <div style="display:flex; flex-direction:column; overflow:hidden;">
+              <span style="font-weight:700; font-size:13.5px; color:#fff; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;">${m.name}</span>
+              <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+                <span style="font-size:11px; color:#a855f7;">ID: ${m.id}</span>
+                ${streamBadge}
+              </div>
+            </div>
           </div>
           <div style="display:flex; gap:6px;">
-            <button class="btn-green" style="padding:4px 10px; font-size:11px;" onclick="publishSingleHistoryMovie('${m.id}')">🚀 Nuvio'ya Gönder</button>
-            <button class="btn-red" style="padding:4px 10px; font-size:11px;" onclick="deleteHistoryMovie('${m.id}')">🗑️ Sil</button>
+            <button class="btn-green" style="padding:5px 12px; font-size:11px;" onclick="publishSingleHistoryMovie('${m.id}')">🚀 Nuvio'ya Gönder</button>
+            <button class="btn-red" style="padding:5px 12px; font-size:11px;" onclick="deleteHistoryMovie('${m.id}')">🗑️ Sil</button>
           </div>
         `;
         cont.appendChild(item);
@@ -2672,10 +2776,33 @@ class RequestHandler(BaseHTTPRequestHandler):
                 "is_paused": ENGINE_INSTANCE.is_paused and is_active
             })
         elif self.path == "/api/published-movies":
-            cat_url = f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/{DEFAULT_BRANCH}/data/catalog.json?t={int(time.time())}"
-            cat_json = http_json(cat_url)
-            metas = cat_json.get("metas", []) if isinstance(cat_json, dict) else []
-            self._send_json({"movies": metas})
+            cfg = load_config()
+            token = cfg.get("github_token", "").strip()
+            # 1. Fetch real-time direct from GitHub Contents API (bypasses Fastly CDN)
+            cat_json = fetch_github_file("data/catalog.json", token=token)
+            metas = None
+            if isinstance(cat_json, dict) and "metas" in cat_json:
+                metas = cat_json.get("metas", [])
+                # Sync local workspace file immediately so local is always identical to remote
+                try:
+                    local_cat = os.path.join(WORKSPACE_DIR, "data", "catalog.json")
+                    with open(local_cat, "w", encoding="utf-8") as f:
+                        json.dump({"metas": metas}, f, indent=2, ensure_ascii=False)
+                except Exception:
+                    pass
+            # 2. Fallback to local file if GitHub API not reached
+            if metas is None:
+                local_cat = os.path.join(WORKSPACE_DIR, "data", "catalog.json")
+                if os.path.exists(local_cat):
+                    try:
+                        with open(local_cat, "r", encoding="utf-8") as f:
+                            d = json.load(f)
+                            metas = d.get("metas", [])
+                    except Exception:
+                        metas = []
+                else:
+                    metas = []
+            self._send_json({"movies": metas or []})
         elif self.path == "/api/history-movies":
             his_path = os.path.join(WORKSPACE_DIR, "data", "history_catalog.json")
             if os.path.exists(his_path):
@@ -2765,6 +2892,13 @@ class RequestHandler(BaseHTTPRequestHandler):
                         with open(his_path, "w", encoding="utf-8") as f:
                             json.dump({"metas": rem_metas}, f, indent=2, ensure_ascii=False)
                         append_global_log(f"🗑️ [ARŞİVDEN SİLİNDİ] '{m_item['title']}' Nuvio'ya yüklendiği için arşivden kaldırıldı.")
+                        # Hafızadan da sil (processed urls)
+                        t_url = target.get("url") or target.get("source_url")
+                        cur_urls = load_processed_urls()
+                        if t_url and t_url in cur_urls:
+                            cur_urls.remove(t_url)
+                            save_processed_urls(cur_urls)
+                            append_global_log(f"🗑️ [HAFIZADAN SİLİNDİ] {t_url} bağlantısı hafızadan temizlendi.")
                     self._send_json({"status": "ok" if success else "error"})
                     return
                 except Exception as e:
@@ -2810,6 +2944,16 @@ class RequestHandler(BaseHTTPRequestHandler):
                         with open(his_path, "w", encoding="utf-8") as f:
                             json.dump({"metas": []}, f, indent=2, ensure_ascii=False)
                         append_global_log("🗑️ [ARŞİV SIFIRLANDI] Tüm filmler Nuvio'ya aktarıldığı için arşiv hafızası temizlendi.")
+                        # Hafızadaki eşleşen linkleri de sil
+                        try:
+                            cur_urls = load_processed_urls()
+                            hist_urls = {m.get("url") or m.get("source_url") for m in raw_metas if (m.get("url") or m.get("source_url"))}
+                            rem_urls = {u for u in cur_urls if u not in hist_urls}
+                            if len(rem_urls) != len(cur_urls):
+                                save_processed_urls(rem_urls)
+                                append_global_log(f"🗑️ [HAFIZADAN SİLİNDİ] {len(cur_urls) - len(rem_urls)} adet taranmış link hafızadan çıkarıldı.")
+                        except Exception:
+                            pass
                     self._send_json({"status": "ok" if success else "error", "count": len(valid_movies)})
                     return
                 except Exception as e:
@@ -2918,6 +3062,16 @@ class RequestHandler(BaseHTTPRequestHandler):
                                 cur_urls.remove(url)
                                 save_processed_urls(cur_urls)
                                 append_global_log(f"🗑️ [HAFIZADAN SİLİNDİ] {url} Nuvio'ya yüklendiği için hafızadan çıkarıldı.")
+                            try:
+                                his_path = os.path.join(WORKSPACE_DIR, "data", "history_catalog.json")
+                                if os.path.exists(his_path):
+                                    with open(his_path, "r", encoding="utf-8") as f:
+                                        hd = json.load(f)
+                                    h_metas = [hm for hm in hd.get("metas", []) if hm.get("id") != m_data.get("tmdbId") and hm.get("url") != url]
+                                    with open(his_path, "w", encoding="utf-8") as f:
+                                        json.dump({"metas": h_metas}, f, indent=2, ensure_ascii=False)
+                            except Exception:
+                                pass
                         else:
                             append_global_log(f"✗ [HATA] '{m_data['title']}' Nuvio'ya aktarılırken hata oluştu.")
                     else:
@@ -2989,6 +3143,16 @@ class RequestHandler(BaseHTTPRequestHandler):
                                     cur_urls.remove(url)
                                     save_processed_urls(cur_urls)
                                     append_global_log(f"🗑️ [HAFIZADAN SİLİNDİ] {url}")
+                                try:
+                                    his_path = os.path.join(WORKSPACE_DIR, "data", "history_catalog.json")
+                                    if os.path.exists(his_path):
+                                        with open(his_path, "r", encoding="utf-8") as f:
+                                            hd = json.load(f)
+                                        h_metas = [hm for hm in hd.get("metas", []) if hm.get("id") != m_data.get("tmdbId") and hm.get("url") != url]
+                                        with open(his_path, "w", encoding="utf-8") as f:
+                                            json.dump({"metas": h_metas}, f, indent=2, ensure_ascii=False)
+                                except Exception:
+                                    pass
                         else:
                             append_global_log(f"  ✗ {url} (Aktif video akışı bulunamadı)")
 
