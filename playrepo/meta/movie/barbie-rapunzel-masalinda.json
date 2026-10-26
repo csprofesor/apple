@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-barbie-rapunzel-masalinda",
+    "type": "movie",
+    "name": "Barbie Rapunzel Masalında",
+    "poster": "https://filmdozu.com/assets/img/1752.jpg",
+    "background": "https://filmdozu.com/assets/img/1752.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Kadim zamanların büyülü dünyasında, saçları güneşin ışığını kıskandıran Rapunzel, Gothel isimli kıskanç bir cadının esiri olarak yaşamaktaydı. Cam duvarlarla çe...",
+    "releaseInfo": "2002",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-barbie-rapunzel-masalinda",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-barbie-rapunzel-masalinda",
+        "title": "Barbie Rapunzel Masalında",
+        "released": "2002-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
