@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-polis-arabasi",
+    "type": "movie",
+    "name": "Polis Arabası",
+    "poster": "https://filmdozu.com/assets/img/16589.jpg",
+    "background": "https://filmdozu.com/assets/img/16589.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Issız bir arazide oyun oynayan iki maceraperest çocuk, terk edilmiş bir polis arabasının anahtarlarını bulduklarında, masum bir merakla direksiyona geçerler. An...",
+    "releaseInfo": "2016",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-polis-arabasi",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-polis-arabasi",
+        "title": "Polis Arabası",
+        "released": "2016-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
