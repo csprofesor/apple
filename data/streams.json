@@ -6024,5 +6024,28 @@
         }
       }
     }
+  ],
+  "tt8638640": [
+    {
+      "name": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "title": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "url": "https://vd296.okcdn.ru/video.m3u8?cmd=videoPlayerCdn&expires=1793134616020&srcIp=85.107.102.169&pr=10&srcAg=CHROME&ch=1676822812&ms=185.180.203.46&type=2&sig=X31SH8qRoIE&ct=8&urls=178.237.23.39&clientType=0&zs=65&id=8198060051184",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/38340659899?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/38340659899?autoplay=1&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://ok.ru/videoembed/38340659899?autoplay=1&rel=0"
+          }
+        }
+      }
+    }
   ]
 }
