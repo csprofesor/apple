@@ -147,8 +147,28 @@ class SiteScraperEngine {
                             val locRegex = Regex("""<loc>(https?://[^<]+)</loc>""", RegexOption.IGNORE_CASE)
                             val linkRegex = Regex("""<link>(https?://[^<]+)</link>""", RegexOption.IGNORE_CASE)
                             val allFound = (locRegex.findAll(body) + linkRegex.findAll(body)).map { it.groupValues[1].trim() }
+                            var subSitemapsFetched = 0
                             for (loc in allFound) {
-                                if (isValidMovieUrl(loc, siteBase)) {
+                                if (loc.endsWith(".xml", true) || loc.contains("/sitemap", true)) {
+                                    if (subSitemapsFetched >= 3) continue
+                                    subSitemapsFetched++
+                                    try {
+                                        val subReq = Request.Builder().url(loc).header("User-Agent", getRandomUserAgent()).build()
+                                        client.newCall(subReq).execute().use { subResp ->
+                                            if (subResp.isSuccessful) {
+                                                val subBody = subResp.body?.string().orEmpty()
+                                                val subFound = locRegex.findAll(subBody).map { it.groupValues[1].trim() }
+                                                for (sloc in subFound) {
+                                                    if (isValidMovieUrl(sloc, siteBase)) {
+                                                        val cats = movieCategoriesMap.getOrPut(sloc) { mutableSetOf() }
+                                                        cats.add(detectCategoryFromUrlOrText(sloc, "") ?: "Popüler")
+                                                        sitemapFoundCount++
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    } catch (_: Exception) {}
+                                } else if (isValidMovieUrl(loc, siteBase)) {
                                     val cats = movieCategoriesMap.getOrPut(loc) { mutableSetOf() }
                                     val c = detectCategoryFromUrlOrText(loc, "") ?: "Popüler"
                                     cats.add(c)
@@ -264,7 +284,8 @@ class SiteScraperEngine {
             lower.endsWith(".svg") || lower.endsWith(".webp") || lower.endsWith(".ico") ||
             lower.contains("/login") || lower.contains("/uye") || lower.contains("/takvim") ||
             lower.contains("/trendler") || lower.contains("/istek") || lower.contains("/dmca") ||
-            lower.contains("/gizlilik") || lower.contains("/privacy") || lower.contains("/contact")
+            lower.contains("/gizlilik") || lower.contains("/privacy") || lower.contains("/contact") ||
+            lower.endsWith(".xml") || lower.endsWith(".rss") || lower.contains("sitemap")
         ) {
             return false
         }

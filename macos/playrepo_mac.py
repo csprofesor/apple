@@ -175,7 +175,8 @@ class ScraperEngine:
             "/koleksiyon/", "/forum", "/iletisim", "/page/", "page=", "orderby=",
             "/tag/", "/etiket/", "#", "javascript:", ".jpg", ".png", ".css", ".js",
             ".svg", ".webp", ".ico", "/login", "/uye", "/takvim", "/trendler",
-            "/seri-filmler", "/istek", "/dmca", "/gizlilik", "/privacy", "/contact"
+            "/seri-filmler", "/istek", "/dmca", "/gizlilik", "/privacy", "/contact",
+            ".xml", ".rss", "sitemap"
         ]
         if any(d in lower for d in disallowed):
             return False
@@ -232,24 +233,31 @@ class ScraperEngine:
                 if sm_content and ("<urlset" in sm_content or "<sitemapindex" in sm_content or "<rss" in sm_content):
                     self.log(f"⚡ [Sitemap Keşfi] {sm_url} üzerinden doğrudan indeks taranıyor...")
                     locs = re.findall(r'<loc>(https?://[^<]+)</loc>', sm_content, re.I) or re.findall(r'<link>(https?://[^<]+)</link>', sm_content, re.I)
+                    sub_sitemaps_fetched = 0
                     for loc in locs:
                         loc = loc.strip()
-                        if self.is_valid_movie_url(loc, site_base):
+                        if loc.endswith(".xml") or "/sitemap" in loc:
+                            # Alt sitemap tespiti (Örn: post-sitemap1.xml, en fazla 3 adet taranır)
+                            if sub_sitemaps_fetched >= 3:
+                                continue
+                            sub_sitemaps_fetched += 1
+                            try:
+                                sub_content = http_get(loc, timeout=3)
+                                if sub_content:
+                                    sub_locs = re.findall(r'<loc>(https?://[^<]+)</loc>', sub_content, re.I)
+                                    for sloc in sub_locs:
+                                        sloc = sloc.strip()
+                                        if self.is_valid_movie_url(sloc, site_base):
+                                            cats = movie_categories.setdefault(sloc, set())
+                                            cats.add(self.detect_category(sloc, ""))
+                                            sitemap_found_count += 1
+                            except Exception:
+                                pass
+                        elif self.is_valid_movie_url(loc, site_base):
                             cats = movie_categories.setdefault(loc, set())
                             cat_from_url = self.detect_category(loc, "")
                             cats.add(cat_from_url)
                             sitemap_found_count += 1
-                        elif sm_url.endswith("_index.xml") and loc.endswith(".xml") and "post" in loc:
-                            # Alt sitemap tespiti
-                            sub_content = http_get(loc, timeout=5)
-                            if sub_content:
-                                sub_locs = re.findall(r'<loc>(https?://[^<]+)</loc>', sub_content, re.I)
-                                for sloc in sub_locs:
-                                    sloc = sloc.strip()
-                                    if self.is_valid_movie_url(sloc, site_base):
-                                        cats = movie_categories.setdefault(sloc, set())
-                                        cats.add(self.detect_category(sloc, ""))
-                                        sitemap_found_count += 1
                     if sitemap_found_count > 0:
                         self.log(f"✓ [Sitemap Başarılı] {sitemap_found_count} film bağlantısı doğrudan haritadan alındı!")
                         break
@@ -2547,15 +2555,15 @@ class RequestHandler(BaseHTTPRequestHandler):
                     append_global_log(f"📋 [HAFIZA KONTROLÜ] Önceden taranıp Nuvio'ya eklenmiş {len(pub_names | pub_ids | processed_urls)} içerik tespit edildi. Bu filmler tekrar taranmayacak, doğrudan atlanacak!")
 
                     all_scraped = []
+                    pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
+                    batch_buffer = []
+
                     for s_idx, site_url in enumerate(sites):
                         if not ENGINE_INSTANCE.check_alive():
                             break
                         append_global_log(f"--- [SİTE {s_idx + 1}/{len(sites)}] Taranıyor: {site_url} ---")
                         movie_dict = ENGINE_INSTANCE.discover_movie_links(site_url, max_pages=max_p)
                         append_global_log(f"✓ {site_url} üzerinde {len(movie_dict)} film bulundu. Video akışları çözülüyor...")
-
-                        pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
-                        batch_buffer = []
 
                         for m_idx, (m_url, cats) in enumerate(movie_dict.items()):
                             if not ENGINE_INSTANCE.check_alive():
@@ -2598,17 +2606,17 @@ class RequestHandler(BaseHTTPRequestHandler):
 
                                 # Her 3 film çözüldüğünde beklemeden anında GitHub ve Nuvio'ya aktar!
                                 if len(batch_buffer) >= 3:
-                                    append_global_log(f"⚡ [ANLIK YÜKLEME] Çözülen {len(batch_buffer)} film anında Nuvio/GitHub'a yükleniyor...")
+                                    append_global_log(f"⚡ [3 FİLM DOLDU • ANLIK YÜKLEME] Çözülen {len(batch_buffer)} film/dizi anında Nuvio & GitHub'a aktarılıyor...")
                                     pub.publish_movies(batch_buffer)
                                     batch_buffer.clear()
                             else:
                                 append_global_log(f"  ↷ {short} (Aktif akış yok, atlandı)")
 
-                        # Kalan filmleri hemen aktar
-                        if batch_buffer and ENGINE_INSTANCE.check_alive():
-                            append_global_log(f"⚡ [ANLIK YÜKLEME] Kalan {len(batch_buffer)} film Nuvio/GitHub'a aktarılıyor...")
-                            pub.publish_movies(batch_buffer)
-                            batch_buffer.clear()
+                    # Tarama bittiğinde veya durdurulduğunda arabellekte kalan son filmleri hemen aktar
+                    if batch_buffer and ENGINE_INSTANCE.check_alive():
+                        append_global_log(f"⚡ [SON KALANLARI YÜKLEME] Arabellekte kalan {len(batch_buffer)} film Nuvio & GitHub'a aktarılıyor...")
+                        pub.publish_movies(batch_buffer)
+                        batch_buffer.clear()
 
                     if ENGINE_INSTANCE.is_running:
                         append_global_log("✓ [BİTTİ] Tüm tarama ve anlık yükleme tamamlandı.")
