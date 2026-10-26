@@ -23,21 +23,9 @@
       "type": "movie",
       "id": "playrepo-popular",
       "name": "Play • Popüler Filmler",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera",
-        "Komedi",
-        "Dram & Romantik",
-        "Korku & Gerilim",
-        "Bilim Kurgu & Fantastik"
-      ],
       "extra": [
         {
           "name": "search",
-          "isRequired": false
-        },
-        {
-          "name": "genre",
           "isRequired": false
         }
       ]
@@ -134,6 +122,61 @@
       "type": "series",
       "id": "playrepo-series-popular",
       "name": "Play • Popüler Diziler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-dram",
+      "name": "Play • Dram & Romantik Diziler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-aksiyon",
+      "name": "Play • Aksiyon & Macera Diziler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-komedi",
+      "name": "Play • Komedi Dizileri",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-suc",
+      "name": "Play • Suç & Polisiye Diziler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-bilimkurgu",
+      "name": "Play • Bilim Kurgu Dizileri",
       "extra": [
         {
           "name": "search",
