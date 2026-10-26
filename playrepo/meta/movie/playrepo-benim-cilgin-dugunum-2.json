@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-benim-cilgin-dugunum-2",
+    "type": "movie",
+    "name": "Benim Çılgın Düğünüm 2",
+    "poster": "https://filmdozu.com/assets/img/5040.jpg",
+    "background": "https://filmdozu.com/assets/img/5040.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Toula Portokalos’un hayatı, Yunan kültürünün neşesi ve karmaşasıyla bir kez daha harmanlanıyor. Yunan lokantasında geçen telaşlı günler, Ian ile yaşadığı inişli...",
+    "releaseInfo": "2016",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-benim-cilgin-dugunum-2",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-benim-cilgin-dugunum-2",
+        "title": "Benim Çılgın Düğünüm 2",
+        "released": "2016-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
