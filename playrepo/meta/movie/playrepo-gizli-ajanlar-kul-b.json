@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-gizli-ajanlar-kul-b",
+    "type": "movie",
+    "name": "Gizli Ajanlar Kulübü",
+    "poster": "https://filmdozu.com/assets/img/12773.jpg",
+    "background": "https://filmdozu.com/assets/img/12773.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Ray Chase, sıradan bir oyuncak dükkanında hayatını geçiren biri gibi görünse de, aslında karanlık ve gizemli bir dünyada ustalıkla dans eden bir gizli ajan. Eşi...",
+    "releaseInfo": "2016",
+    "genres": [
+      "Aksiyon & Macera",
+      "Belgesel & Tarih",
+      "Komedi",
+      "Korku & Gerilim",
+      "Popüler",
+      "Suç, Polisiye & Gizem",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Bilim Kurgu & Fantastik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-gizli-ajanlar-kul-b",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-gizli-ajanlar-kul-b",
+        "title": "Gizli Ajanlar Kulübü",
+        "released": "2016-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
