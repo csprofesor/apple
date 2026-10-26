@@ -1032,6 +1032,13 @@ def clean_poster_url(poster_url: str, imdb_id: str = None, fallback: str = "") -
         res = res.replace("@", "%40")
     return res
 
+def matches_cat(item, *keywords):
+    g_list = [str(g).lower() for g in item.get("genres", [])]
+    desc = str(item.get("description", "")).lower()
+    title = str(item.get("title", "") or item.get("name", "")).lower()
+    combined = " ".join(g_list) + " " + desc + " " + title
+    return any(kw in combined for kw in keywords)
+
 # -------------------------------------------------------------
 # GitHub Atomic Git Data API Publisher
 # -------------------------------------------------------------
