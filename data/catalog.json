@@ -630,6 +630,28 @@
         "Komedi"
       ],
       "posterShape": "poster"
+    },
+    {
+      "id": "playrepo-karanlikta-dans",
+      "type": "movie",
+      "name": "Karanlıkta Dans",
+      "poster": "https://filmdozu.com/assets/img/14298.jpg",
+      "background": "https://filmdozu.com/assets/img/14298.jpg",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Çek göçmeni Selma Jezkova, 10 yaşındaki oğlu Gene ile bir karavanı yuva bellemiş, zorlu yaşam koşullarına aldırmadan hayata tutunmaya çalışmaktadır. Ancak Selma...",
+      "releaseInfo": "2000",
+      "genres": [
+        "Popüler",
+        "Dram & Romantik",
+        "Animasyon & Çizgi Dizi",
+        "Suç, Polisiye & Gizem",
+        "Belgesel & Tarih",
+        "Aksiyon & Macera",
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster"
     }
   ]
 }
