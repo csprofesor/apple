@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-k-z-kafal-zebani",
+    "type": "movie",
+    "name": "Öküz Kafalı Zebani",
+    "poster": "https://filmdozu.com/assets/img/1012.jpg",
+    "background": "https://filmdozu.com/assets/img/1012.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Minami, yakuza dünyasının karmaşık labirentlerinde gezinirken, en yakın dostu ve ağabeyi gibi gördüğü Ozaki&#039;nin giderek artan deliliğiyle yüzleşir. Ozaki, etraf...",
+    "releaseInfo": "2003",
+    "genres": [
+      "Aksiyon & Macera",
+      "Belgesel & Tarih",
+      "Komedi",
+      "Korku & Gerilim",
+      "Popüler",
+      "Suç, Polisiye & Gizem",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Bilim Kurgu & Fantastik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-k-z-kafal-zebani",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-k-z-kafal-zebani",
+        "title": "Öküz Kafalı Zebani",
+        "released": "2003-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
