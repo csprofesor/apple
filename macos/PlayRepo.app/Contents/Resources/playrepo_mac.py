@@ -542,39 +542,10 @@ class ScraperEngine:
 
     def simulate_browser_render(self, url: str) -> str:
         """
-        Executes client-side JavaScript using headless Chrome/Chromium simulation,
-        returning the fully populated DOM with dynamically injected video players/iframes.
+        Safe stub: returns empty string to prevent unauthorized cross-app
+        automation alerts from macOS Gatekeeper / TCC. All scrapers use native HTTP and regex.
         """
-        chrome_candidates = [
-            "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-            "/Applications/Chromium.app/Contents/MacOS/Chromium",
-            "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
-            "google-chrome",
-            "chromium"
-        ]
-        chrome_bin = next((b for b in chrome_candidates if shutil.which(b) or os.path.exists(b)), None)
-        if not chrome_bin:
-            return ""
-
-        temp_dir = tempfile.mkdtemp(prefix="playrepo_sim_")
-        try:
-            cmd = [
-                chrome_bin,
-                "--headless=new",
-                "--dump-dom",
-                "--disable-gpu",
-                "--no-sandbox",
-                "--disable-dev-shm-usage",
-                f"--user-data-dir={temp_dir}",
-                "--timeout=8000",
-                url
-            ]
-            res = subprocess.run(cmd, capture_output=True, text=True, errors="ignore", timeout=12)
-            return res.stdout or ""
-        except Exception:
-            return ""
-        finally:
-            shutil.rmtree(temp_dir, ignore_errors=True)
+        return ""
 
     def scrape_movie_page(self, movie_url: str, initial_cats: set, tmdb_api_key: str = None) -> dict:
         html = http_get(movie_url, referer=movie_url)
@@ -2871,30 +2842,22 @@ ACTIVE_PORT_FILE = "/tmp/playrepo_active.port"
 
 def is_server_alive(port: int) -> bool:
     try:
-        with socket.create_connection(('127.0.0.1', port), timeout=0.8):
-            return True
+        import urllib.request
+        req = urllib.request.Request(f"http://127.0.0.1:{port}/api/config")
+        with urllib.request.urlopen(req, timeout=1.0) as resp:
+            return resp.status == 200
     except Exception:
         return False
 
 def open_browser_window(url: str):
-    chrome_bin = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-    profile_dir = "/tmp/playrepo_desktop_profile"
-    if os.path.exists(chrome_bin):
-        try:
-            # -n (yeni ayrı izole instance), -a (Google Chrome) ve --args ile mevcut açık sekmeleri/pencereleri tetiklemeden başlatır
-            subprocess.Popen([
-                "open", "-n", "-a", "/Applications/Google Chrome.app",
-                "--args",
-                f"--user-data-dir={profile_dir}",
-                f"--app={url}",
-                "--window-size=1180,880",
-                "--no-first-run",
-                "--no-default-browser-check"
-            ])
-            return
-        except Exception:
-            pass
-    subprocess.run(["open", url])
+    """
+    Opens the PlayRepo dashboard in the user's default browser using standard macOS LaunchServices.
+    This prevents cross-process injection/TCC alerts (e.g. 'PlayRepo servisinin Mac'inizdeki uygulamaları değiştirmesi engellendi').
+    """
+    try:
+        subprocess.run(["open", url], check=False)
+    except Exception:
+        pass
 
 def run_app():
     if os.path.exists(ACTIVE_PORT_FILE):
