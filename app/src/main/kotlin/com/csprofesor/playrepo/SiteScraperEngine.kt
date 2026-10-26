@@ -29,15 +29,22 @@ class SiteScraperEngine {
             if (target.isBlank() || candidate.isBlank()) return false
             val tClean = target.replace(Regex("""[^a-zA-Z0-9]+"""), "").lowercase()
             val cClean = candidate.replace(Regex("""[^a-zA-Z0-9]+"""), "").lowercase()
-            if (tClean == cClean || tClean.contains(cClean) || cClean.contains(tClean)) return true
+            if (tClean == cClean) return true
+            if (tClean.length >= 4 && cClean.length >= 4) {
+                if (tClean.contains(cClean) || cClean.contains(tClean)) {
+                    val ratio = Math.min(tClean.length, cClean.length).toDouble() / Math.max(tClean.length, cClean.length).toDouble()
+                    if (ratio >= 0.75) return true
+                }
+            }
 
             val wordRegex = Regex("""\w{2,}""")
             val tWords = wordRegex.findAll(target.lowercase()).map { it.value }.toSet()
             val cWords = wordRegex.findAll(candidate.lowercase()).map { it.value }.toSet()
-            if (tWords.isEmpty()) return false
+            if (tWords.isEmpty() || cWords.isEmpty()) return false
 
-            val overlap = (tWords intersect cWords).size.toDouble() / tWords.size.toDouble()
-            return overlap >= 0.5
+            val overlap = (tWords intersect cWords).size.toDouble()
+            val tRatio = overlap / tWords.size.toDouble()
+            return tRatio >= 0.75 || (tWords.size >= 3 && tRatio >= 0.66)
         }
     }
 
@@ -556,6 +563,9 @@ class SiteScraperEngine {
                 .filter { it.isNotBlank() && it.length in 2..30 }
                 .take(6)
 
+            // Remove similar movies, recommendations, sidebars, headers, footers and comments before extracting player embeds
+            doc.select(".similar-wrap, .similar-grid, .similar-card, .related, .recommendations, .sidebar, header, nav, footer, #comments, .comment-form-box").remove()
+
             data class CandidateEmbed(
                 val url: String,
                 val langTag: String
@@ -569,6 +579,7 @@ class SiteScraperEngine {
                 if (trimmed == movieUrl || trimmed == "$movieUrl/") return
                 if (trimmed.contains("about:blank") || trimmed.startsWith("javascript:")) return
                 if (trimmed.contains("youtube.com") || trimmed.contains("youtu.be")) return
+                if (trimmed.contains("/dublaj/") || trimmed.contains("/altyazili/") || trimmed.contains("/kategori/") || trimmed.contains("/genre/") || trimmed.contains("/tag/")) return
                 if (trimmed.endsWith(".jpg") || trimmed.endsWith(".png") || trimmed.endsWith(".webp") ||
                     trimmed.endsWith(".css") || trimmed.endsWith(".js") || trimmed.endsWith(".svg")) return
 
@@ -803,7 +814,7 @@ class SiteScraperEngine {
                         val baseSlug = movieUrl.trimEnd('/').substringAfterLast('/')
                             .replace("-turkce-dublaj", "").replace("-turkce-altyazili", "")
                             .replace("-dublaj", "").replace("-altyazili", "").replace("-izle", "")
-                        if (href.contains(baseSlug) || txt.contains("altyaz", true) || txt.contains("dublaj", true)) {
+                        if (baseSlug.length >= 3 && href.contains(baseSlug) && !href.endsWith("/dublaj/") && !href.endsWith("/altyazili/") && !href.contains("/kategori/")) {
                             if (alternatePageLinks.none { it.first == href }) {
                                 alternatePageLinks.add(href to linkLang)
                             }

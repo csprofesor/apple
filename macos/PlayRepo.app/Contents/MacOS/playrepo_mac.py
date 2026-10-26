@@ -142,14 +142,19 @@ def is_similar_title(target: str, cand: str) -> bool:
         return False
     t_clean = re.sub(r'[^a-zA-Z0-9]+', '', target).lower()
     c_clean = re.sub(r'[^a-zA-Z0-9]+', '', cand).lower()
-    if t_clean == c_clean or t_clean in c_clean or c_clean in t_clean:
+    if t_clean == c_clean:
         return True
+    if len(t_clean) >= 4 and len(c_clean) >= 4:
+        if t_clean in c_clean or c_clean in t_clean:
+            ratio = min(len(t_clean), len(c_clean)) / max(len(t_clean), len(c_clean))
+            if ratio >= 0.75:
+                return True
     t_words = set(re.findall(r'\w{2,}', target.lower()))
     c_words = set(re.findall(r'\w{2,}', cand.lower()))
-    if not t_words:
+    if not t_words or not c_words:
         return False
-    overlap = len(t_words & c_words) / len(t_words)
-    return overlap >= 0.5
+    overlap = len(t_words & c_words)
+    return (overlap / len(t_words) >= 0.75) or (len(t_words) >= 3 and overlap / len(t_words) >= 0.66)
 
 # -------------------------------------------------------------
 # Scraper Engine
@@ -414,7 +419,7 @@ class ScraperEngine:
                         combined = f"{abs_url.lower()} {clean_text.lower()}"
 
                         if self.is_valid_movie_url(abs_url, site_base):
-                            if all(tok in combined for tok in tokens) or (tokens and tokens[0] in combined):
+                            if all(tok in combined for tok in tokens):
                                 if abs_url not in found_links:
                                     cat = self.detect_category(abs_url, clean_text)
                                     found_links[abs_url] = {cat}
@@ -674,6 +679,18 @@ class ScraperEngine:
             if cat != "Popüler":
                 genres.add(cat)
 
+        # Clean HTML: remove similar movies, recommendations, sidebars, navigation bars, headers, footers, comments
+        clean_player_html = html
+        for block_pat in [
+            r'<div[^>]*class=["\'][^"\']*(?:similar|onerilen|benzer|related|recommend)[^"\']*["\'].*?</div>\s*</div>',
+            r'<nav\b.*?</nav>',
+            r'<header\b.*?</header>',
+            r'<footer\b.*?</footer>',
+            r'<aside\b.*?</aside>',
+            r'<div[^>]*class=["\'][^"\']*(?:sidebar|widget|menu|comments|yorumlar)[^"\']*["\'].*?</div>'
+        ]:
+            clean_player_html = re.sub(block_pat, '', clean_player_html, flags=re.I | re.DOTALL)
+
         candidate_embeds = []
         default_lang = "[TR Altyazılı]" if "altyaz" in raw_title.lower() or "altyaz" in movie_url.lower() else "[TR Dublaj]"
 
@@ -685,63 +702,45 @@ class ScraperEngine:
                 return "[TR Dublaj]"
             return default_lang
 
-        for m in re.finditer(r'<[^>]+data-(?:frame|player|embed|video|url|link|file|src|source|href|target|stream|hls|mp4)=["\']([^"\']+)["\'][^>]*>(.*?)</[^>]+>', html, re.I | re.DOTALL):
+        def add_candidate(u: str, lang: str):
+            if not u or u.startswith(("about:", "javascript:")):
+                return
+            u_clean = u.strip().replace("&amp;", "&")
+            u_low = u_clean.lower()
+            # Ignore YouTube trailers, ads, asset files
+            if any(k in u_low for k in ["youtube.com", "youtu.be", "doubleclick", "googleads", "/assets/", ".jpg", ".png", ".gif", ".css", ".js"]):
+                return
+            # Ignore generic category, tag, or archive listing pages
+            if any(k in u_low for k in ["/dublaj/", "/altyazili/", "/kategori/", "/genre/", "/trend", "/kesfet", "/tag/", "/filmler/"]):
+                return
+            if not any(c[0] == u_clean for c in candidate_embeds):
+                candidate_embeds.append((u_clean, lang))
+
+        # 1. Player switch functions (loadSource, loadPlayer, etc.) with local button language detection
+        for m in re.finditer(r'(?:loadSource|loadPlayer|changeSource|setSource|playVideo|loadEmbed)\s*\(\s*["\']([^"\']+)["\']', clean_player_html, re.I):
             c_url = urllib.parse.urljoin(movie_url, m.group(1).strip())
-            c_lang = get_lang(m.group(2) + " " + c_url)
-            candidate_embeds.append((c_url, c_lang))
+            match_start = m.start()
+            surrounding = clean_player_html[max(0, match_start - 250):min(len(clean_player_html), match_start + 250)]
+            c_lang = get_lang(surrounding)
+            add_candidate(c_url, c_lang)
 
-        for m in re.finditer(r'(?:loadSource|loadPlayer|changeSource|setSource|playVideo|loadEmbed)\s*\(\s*["\']([^"\']+)["\']', html, re.I):
-            c_url = urllib.parse.urljoin(movie_url, m.group(1).replace("&amp;", "&").strip())
-            candidate_embeds.append((c_url, default_lang))
-
-        for m in re.finditer(r'<iframe\s+[^>]*(?:src|data-src|data-frame)=["\']([^"\']+)["\'][^>]*>', html, re.I):
+        # 2. Main video player iframe(s) inside player box
+        for m in re.finditer(r'<iframe\s+[^>]*(?:src|data-src|data-frame)=["\']([^"\']+)["\'][^>]*>', clean_player_html, re.I):
             c_url = urllib.parse.urljoin(movie_url, m.group(1).strip())
-            candidate_embeds.append((c_url, default_lang))
+            surrounding = clean_player_html[max(0, m.start() - 200):min(len(clean_player_html), m.start() + 200)]
+            c_lang = get_lang(surrounding)
+            add_candidate(c_url, c_lang)
 
-        for s_m in re.finditer(r'<script[^>]*>(.*?)</script>', html, re.I | re.DOTALL):
-            s_code = s_m.group(1)
-            for m in re.finditer(r'<iframe[^>]+src=["\']([^"\']+)["\']', s_code, re.I):
-                candidate_embeds.append((urllib.parse.urljoin(movie_url, m.group(1).strip()), default_lang))
-            for m in re.finditer(r'(?:playerUrl|embedUrl|videoUrl|iframeUrl|streamUrl|fileUrl|src|source)\s*=\s*["\'](https?://[^"\']+)["\']', s_code, re.I):
-                candidate_embeds.append((m.group(1).strip(), default_lang))
-
-        for m in re.finditer(r'["\'](https?://[^\s"\'<>]+\.(?:m3u8|mp4)[^\s"\'<>]*)["\']', html, re.I):
-            candidate_embeds.append((m.group(1).strip(), default_lang))
-
-        for href, text in re.findall(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', html, re.I | re.DOTALL):
-            t_lower = text.lower()
-            if "altyaz" in t_lower or "dublaj" in t_lower:
-                alt_lang = "[TR Altyazılı]" if "altyaz" in t_lower else "[TR Dublaj]"
-                if alt_lang != default_lang:
-                    alt_url = urllib.parse.urljoin(movie_url, href.strip())
-                    alt_html = http_get(alt_url, referer=movie_url)
-                    if alt_html:
-                        for if_m in re.finditer(r'<iframe\s+[^>]*src=["\']([^"\']+)["\'][^>]*>', alt_html, re.I):
-                            candidate_embeds.append((urllib.parse.urljoin(alt_url, if_m.group(1).strip()), alt_lang))
-                        for df_m in re.finditer(r'data-frame=["\']([^"\']+)["\']', alt_html, re.I):
-                            candidate_embeds.append((urllib.parse.urljoin(alt_url, df_m.group(1).strip()), alt_lang))
-
-        # Diziplus / WP post-page-numbers çoklu sunucu sekmeleri (/2/, /3/ gibi alternatif player linkleri)
-        for part_href, part_text in re.findall(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*class=["\'][^"\']*post-page-numbers[^"\']*["\'][^>]*>(.*?)</a>', html, re.I | re.DOTALL):
-            part_url = urllib.parse.urljoin(movie_url, part_href.strip())
-            p_html = http_get(part_url, referer=movie_url)
-            if p_html:
-                p_lang = get_lang(part_text + " " + p_html)
-                for if_m in re.finditer(r'<iframe\s+[^>]*(?:src|data-src|data-frame)=["\']([^"\']+)["\'][^>]*>', p_html, re.I):
-                    candidate_embeds.append((urllib.parse.urljoin(part_url, if_m.group(1).strip()), p_lang))
-                for df_m in re.finditer(r'data-(?:frame|player|video|src)=["\']([^"\']+)["\']', p_html, re.I):
-                    candidate_embeds.append((urllib.parse.urljoin(part_url, df_m.group(1).strip()), p_lang))
-
-        # DiziRex / DiziBox video-services sekmeleri (button data-frame, data-hhs, data-video)
-        for btn_m in re.finditer(r'<button[^>]+data-(?:frame|hhs|video|embed)=["\']([^"\']+)["\'][^>]*>(.*?)</button>', html, re.I | re.DOTALL):
+        # 3. Source button data attributes specifically inside player area
+        for btn_m in re.finditer(r'<button[^>]+data-(?:frame|hhs|video|embed|src|player)=["\']([^"\']+)["\'][^>]*>(.*?)</button>', clean_player_html, re.I | re.DOTALL):
             b_url = urllib.parse.urljoin(movie_url, btn_m.group(1).strip())
             b_lang = get_lang(btn_m.group(2) + " " + b_url)
-            candidate_embeds.append((b_url, b_lang))
+            add_candidate(b_url, b_lang)
 
-        # WordPress / DooPlay player AJAX simulation for dynamic source tabs
+        # 4. WordPress / DooPlay player AJAX simulation for dynamic source tabs ONLY
         parsed_origin = urllib.parse.urlsplit(movie_url)
         site_base = f"{parsed_origin.scheme}://{parsed_origin.netloc}"
-        for opt_m in re.finditer(r'data-post=["\'](\d+)["\'][^>]*data-nume=["\']([^"\']+)["\']', html, re.I):
+        for opt_m in re.finditer(r'data-post=["\'](\d+)["\'][^>]*data-nume=["\']([^"\']+)["\']', clean_player_html, re.I):
             post_id, nume = opt_m.group(1), opt_m.group(2)
             try:
                 ajax_cmd = [
@@ -754,7 +753,7 @@ class ScraperEngine:
                 ajax_res = subprocess.run(ajax_cmd, capture_output=True, text=True, timeout=5)
                 if ajax_res.stdout:
                     for if_m in re.finditer(r'<iframe\s+[^>]*src=["\']([^"\']+)["\']', ajax_res.stdout, re.I):
-                        candidate_embeds.append((urllib.parse.urljoin(movie_url, if_m.group(1).strip()), default_lang))
+                        add_candidate(urllib.parse.urljoin(movie_url, if_m.group(1).strip()), default_lang)
             except Exception:
                 pass
 

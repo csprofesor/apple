@@ -508,6 +508,10 @@ async function resolveAndCapStreams(rawStreams) {
 
     const resolvedPromises = rawStreams.map(async (s) => {
         if (!s || !s.url) return null;
+        const lowUrl = s.url.toLowerCase();
+        if (lowUrl.includes("youtube.com") || lowUrl.includes("youtu.be") || lowUrl.includes("googleads")) {
+            return null;
+        }
         const refererUrl = (s.behaviorHints && s.behaviorHints.proxyHeaders && s.behaviorHints.proxyHeaders.request && s.behaviorHints.proxyHeaders.request.Referer) || s.referer || s.url || "https://www.google.com";
         let directUrl = s.url;
         const lowerDirect = (directUrl || "").toLowerCase();
