@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-tavuklar-firarda",
+    "type": "movie",
+    "name": "Tavuklar Firarda",
+    "poster": "https://filmdozu.com/assets/img/10593.jpg",
+    "background": "https://filmdozu.com/assets/img/10593.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Bayan Tweety&#039;nin çiftliğinde, baskıcı yönetiminin gölgesinde yaşayan tavuklar, her gün aynı korkuyla uyanıyorlar. Ancak, bu tüyler ürpertici düzenin içinde bir ...",
+    "releaseInfo": "2000",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-tavuklar-firarda",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-tavuklar-firarda",
+        "title": "Tavuklar Firarda",
+        "released": "2000-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
