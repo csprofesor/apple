@@ -854,10 +854,11 @@ class ScraperEngine:
                             extra_genres = detail_res.get("meta", {}).get("genres") or []
                         except Exception:
                             pass
+                    m_poster = clean_poster_url(m0.get("poster"), m_id, fallback=poster)
                     return (
                         m_id,
                         m0.get("name") or title,
-                        m0.get("poster") or poster,
+                        m_poster,
                         turkish_desc,
                         m0.get("releaseInfo") or year,
                         extra_genres
@@ -898,6 +899,23 @@ class ScraperEngine:
         slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
         safe_id = f"playrepo-{slug}" if slug else f"playrepo-film-{abs(hash(title))}"
         return (safe_id, title, poster, desc, year, [])
+
+def clean_poster_url(poster_url: str, imdb_id: str = None, fallback: str = "") -> str:
+    if poster_url and "metahub.space" not in poster_url and str(poster_url).startswith("http"):
+        return poster_url
+    if imdb_id and str(imdb_id).startswith("tt"):
+        try:
+            sug = http_json(f"https://v3.sg.media-imdb.com/suggestion/t/{imdb_id}.json")
+            sug_items = sug.get("d", [])
+            if sug_items and isinstance(sug_items, list):
+                cand = sug_items[0].get("i", {}).get("imageUrl")
+                if cand and cand.startswith("http"):
+                    return cand
+        except Exception:
+            pass
+    if fallback and "metahub.space" not in fallback and str(fallback).startswith("http"):
+        return fallback
+    return LOGO_URL
 
 # -------------------------------------------------------------
 # GitHub Atomic Git Data API Publisher
@@ -940,12 +958,13 @@ class GitHubAtomicPublisher:
             e_num = m.get("episode")
             vid_id = f"{m_id}:{s_num}:{e_num}" if (m_type == "series" and s_num and e_num) else m_id
 
+            clean_poster = clean_poster_url(m.get("poster"), m_id, fallback=LOGO_URL)
             cat_item = {
                 "id": m_id,
                 "type": m_type,
                 "name": m["title"],
-                "poster": m["poster"],
-                "background": m["poster"],
+                "poster": clean_poster,
+                "background": clean_poster,
                 "logo": LOGO_URL,
                 "description": m["description"],
                 "releaseInfo": m["year"],
@@ -976,8 +995,8 @@ class GitHubAtomicPublisher:
                     "id": m_id,
                     "type": m_type,
                     "name": m["title"],
-                    "poster": m["poster"],
-                    "background": m["poster"],
+                    "poster": clean_poster,
+                    "background": clean_poster,
                     "logo": LOGO_URL,
                     "description": m["description"],
                     "releaseInfo": m["year"],
@@ -1012,6 +1031,10 @@ class GitHubAtomicPublisher:
                             files_to_commit[f"playrepo/stream/series/{did}-{s_num}-{e_num}.json"] = s_json_str
 
         all_metas = list(meta_dict.values())
+        for item in all_metas:
+            item["poster"] = clean_poster_url(item.get("poster"), item.get("id"), fallback=LOGO_URL)
+            item["background"] = item["poster"]
+
         files_to_commit["data/catalog.json"] = json.dumps({"metas": all_metas}, ensure_ascii=False, indent=2)
         files_to_commit["data/streams.json"] = json.dumps(streams_map, ensure_ascii=False, indent=2)
 
@@ -1020,17 +1043,24 @@ class GitHubAtomicPublisher:
             return any(any(tgt in g for tgt in genres) for g in g_list)
 
         cat_configs = {
-            "playrepo/catalog/movie/playrepo-popular.json": lambda x: True,
-            "playrepo/catalog/movie/playrepo-catalog-movies.json": lambda x: True,
-            "playrepo/catalog/movie/playrepo-aksiyon.json": lambda x: has_genre(x, "aksiyon", "macera"),
-            "playrepo/catalog/movie/playrepo-komedi.json": lambda x: has_genre(x, "komedi", "mizah"),
-            "playrepo/catalog/movie/playrepo-dram.json": lambda x: has_genre(x, "dram", "romantik"),
-            "playrepo/catalog/movie/playrepo-korku.json": lambda x: has_genre(x, "korku", "gerilim"),
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json": lambda x: has_genre(x, "bilim", "kurgu", "fantastik"),
-            "playrepo/catalog/movie/playrepo-animasyon.json": lambda x: has_genre(x, "animasyon", "çizgi", "anime", "animation"),
-            "playrepo/catalog/movie/playrepo-belgesel.json": lambda x: has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history"),
-            "playrepo/catalog/movie/playrepo-suc.json": lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
-            "playrepo/catalog/series/playrepo-series-popular.json": lambda x: x.get("type") == "series"
+            # Film Katalogları (Nuvio için type == 'movie')
+            "playrepo/catalog/movie/playrepo-popular.json": lambda x: x.get("type", "movie") == "movie",
+            "playrepo/catalog/movie/playrepo-catalog-movies.json": lambda x: x.get("type", "movie") == "movie",
+            "playrepo/catalog/movie/playrepo-aksiyon.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "aksiyon", "macera"),
+            "playrepo/catalog/movie/playrepo-komedi.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "komedi", "mizah"),
+            "playrepo/catalog/movie/playrepo-dram.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "dram", "romantik"),
+            "playrepo/catalog/movie/playrepo-korku.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "korku", "gerilim"),
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "bilim", "kurgu", "fantastik"),
+            "playrepo/catalog/movie/playrepo-animasyon.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "animasyon", "çizgi", "anime", "animation"),
+            "playrepo/catalog/movie/playrepo-belgesel.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history"),
+            "playrepo/catalog/movie/playrepo-suc.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
+            # Dizi Katalogları (Nuvio için type == 'series')
+            "playrepo/catalog/series/playrepo-series-popular.json": lambda x: x.get("type") == "series",
+            "playrepo/catalog/series/playrepo-series-dram.json": lambda x: x.get("type") == "series" and has_genre(x, "dram", "romantik"),
+            "playrepo/catalog/series/playrepo-series-aksiyon.json": lambda x: x.get("type") == "series" and has_genre(x, "aksiyon", "macera"),
+            "playrepo/catalog/series/playrepo-series-komedi.json": lambda x: x.get("type") == "series" and has_genre(x, "komedi", "mizah"),
+            "playrepo/catalog/series/playrepo-series-suc.json": lambda x: x.get("type") == "series" and has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
+            "playrepo/catalog/series/playrepo-series-bilimkurgu.json": lambda x: x.get("type") == "series" and has_genre(x, "bilim", "kurgu", "fantastik")
         }
 
         for path, pred in cat_configs.items():
@@ -2214,9 +2244,10 @@ HTML_PAGE = """<!DOCTYPE html>
         item.className = 'media-item';
         const genres = (m.genres || []).slice(0, 3).join(', ');
         const isSeries = m.type === 'series';
+        const validPoster = (m.poster && !m.poster.includes('metahub.space')) ? m.poster : 'https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png';
         item.innerHTML = `
           <div style="display:flex; align-items:center; gap:14px; overflow:hidden;">
-            <img src="${m.poster || ''}" onerror="this.src='${currentConfig.logo || 'https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png'}'" style="width:42px; height:58px; object-fit:cover; border-radius:6px; background:#1e293b;" />
+            <img src="${validPoster}" onerror="this.src='https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png'" style="width:42px; height:58px; object-fit:cover; border-radius:6px; background:#1e293b;" />
             <div style="display:flex; flex-direction:column; overflow:hidden;">
               <span style="font-weight:700; font-size:14.5px; color:#fff; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;">
                 ${m.name} <span style="font-size:12px; color:var(--dim); font-weight:500;">(${m.releaseInfo || m.year || ''})</span>
@@ -2226,7 +2257,7 @@ HTML_PAGE = """<!DOCTYPE html>
               </span>
             </div>
           </div>
-          <button class="btn-red" style="padding:6px 14px; font-size:12px;" onclick="deleteMovie('${m.id}', '${m.name.replace(/'/g, "\'")}')">🗑️ Sil</button>
+          <button class="btn-red" style="padding:6px 14px; font-size:12px;" onclick="deleteMovie('${m.id}')">🗑️ Sil</button>
         `;
         cont.appendChild(item);
       });
@@ -2239,7 +2270,9 @@ HTML_PAGE = """<!DOCTYPE html>
       renderPublishedMovies(filtered);
     }
 
-    async function deleteMovie(id, name) {
+    async function deleteMovie(id) {
+      const target = allPublishedMovies.find(m => m.id === id);
+      const name = target ? (target.name || id) : id;
       if (!confirm(`"${name}" içeriğini Nuvio eklentisinden silmek istediğinize emin misiniz?`)) return;
       showToast(`"${name}" siliniyor...`);
       const res = await fetch('/api/delete-movie', {
@@ -2502,15 +2535,17 @@ HTML_PAGE = """<!DOCTYPE html>
             ${streamBadge}
           </div>
           <div style="display:flex; gap:6px;">
-            <button class="btn-green" style="padding:4px 10px; font-size:11px;" onclick="publishSingleHistoryMovie('${m.id}', '${m.name.replace(/'/g, "\\'")}')">🚀 Nuvio'ya Gönder</button>
-            <button class="btn-red" style="padding:4px 10px; font-size:11px;" onclick="deleteHistoryMovie('${m.id}', '${m.name.replace(/'/g, "\\'")}')">🗑️ Sil</button>
+            <button class="btn-green" style="padding:4px 10px; font-size:11px;" onclick="publishSingleHistoryMovie('${m.id}')">🚀 Nuvio'ya Gönder</button>
+            <button class="btn-red" style="padding:4px 10px; font-size:11px;" onclick="deleteHistoryMovie('${m.id}')">🗑️ Sil</button>
           </div>
         `;
         cont.appendChild(item);
       });
     }
 
-    async function publishSingleHistoryMovie(id, name) {
+    async function publishSingleHistoryMovie(id) {
+      const target = allHistoryMovies.find(m => m.id === id);
+      const name = target ? (target.name || id) : id;
       showToast(`"${name}" Nuvio'ya aktarılıyor...`);
       try {
         const res = await fetch('/api/publish-history-movie', {
@@ -2520,8 +2555,9 @@ HTML_PAGE = """<!DOCTYPE html>
         });
         const data = await res.json();
         if (data.status === 'ok') {
-          showToast(`✓ "${name}" Nuvio & GitHub'a başarıyla aktarıldı!`);
+          showToast(`✓ "${name}" Nuvio'ya aktarıldı ve arşivden çıkarıldı!`);
           await loadPublishedMovies();
+          await loadHistoryMovies();
         } else {
           showToast(`Hata: ${data.message || 'Yüklenemedi'}`);
         }
@@ -2537,8 +2573,9 @@ HTML_PAGE = """<!DOCTYPE html>
         const res = await fetch('/api/publish-all-history', { method: 'POST' });
         const data = await res.json();
         if (data.status === 'ok') {
-          showToast(`✓ ${data.count || ''} film başarıyla Nuvio'ya aktarıldı!`);
+          showToast(`✓ ${data.count || ''} film başarıyla Nuvio'ya aktarıldı ve arşivden çıkarıldı!`);
           await loadPublishedMovies();
+          await loadHistoryMovies();
         } else {
           showToast(`Hata: ${data.message || 'Yüklenemedi'}`);
         }
@@ -2560,7 +2597,9 @@ HTML_PAGE = """<!DOCTYPE html>
       await loadHistoryMovies();
     }
 
-    async function deleteHistoryMovie(id, name) {
+    async function deleteHistoryMovie(id) {
+      const target = allHistoryMovies.find(m => m.id === id);
+      const name = target ? (target.name || id) : id;
       if (!confirm(`"${name}" kaydını eski arşivden silmek istiyor musunuz?`)) return;
       await fetch('/api/delete-history-movie', {
         method: 'POST',
@@ -2721,6 +2760,11 @@ class RequestHandler(BaseHTTPRequestHandler):
                     pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
                     append_global_log(f"🚀 [ARŞİVDEN NUVIO'YA AKTARILIYOR] {m_item['title']}...")
                     success = pub.publish_movies([m_item])
+                    if success:
+                        rem_metas = [m for m in d.get("metas", []) if m.get("id") != movie_id]
+                        with open(his_path, "w", encoding="utf-8") as f:
+                            json.dump({"metas": rem_metas}, f, indent=2, ensure_ascii=False)
+                        append_global_log(f"🗑️ [ARŞİVDEN SİLİNDİ] '{m_item['title']}' Nuvio'ya yüklendiği için arşivden kaldırıldı.")
                     self._send_json({"status": "ok" if success else "error"})
                     return
                 except Exception as e:
@@ -2762,6 +2806,10 @@ class RequestHandler(BaseHTTPRequestHandler):
                     pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
                     append_global_log(f"⚡ [TOPLU ARŞİV AKTARIMI] Toplam {len(valid_movies)} film Nuvio & GitHub'a aktarılıyor...")
                     success = pub.publish_movies(valid_movies)
+                    if success:
+                        with open(his_path, "w", encoding="utf-8") as f:
+                            json.dump({"metas": []}, f, indent=2, ensure_ascii=False)
+                        append_global_log("🗑️ [ARŞİV SIFIRLANDI] Tüm filmler Nuvio'ya aktarıldığı için arşiv hafızası temizlendi.")
                     self._send_json({"status": "ok" if success else "error", "count": len(valid_movies)})
                     return
                 except Exception as e:
@@ -2865,6 +2913,11 @@ class RequestHandler(BaseHTTPRequestHandler):
                         append_global_log(f"🚀 [NUVIO AKTARIM] {m_data['title']} hemen Nuvio & GitHub'a aktarılıyor...")
                         if pub.publish_movies([m_data]):
                             append_global_log(f"🎉 [BAŞARILI] '{m_data['title']}' Nuvio'da yayına alındı!")
+                            cur_urls = load_processed_urls()
+                            if url in cur_urls:
+                                cur_urls.remove(url)
+                                save_processed_urls(cur_urls)
+                                append_global_log(f"🗑️ [HAFIZADAN SİLİNDİ] {url} Nuvio'ya yüklendiği için hafızadan çıkarıldı.")
                         else:
                             append_global_log(f"✗ [HATA] '{m_data['title']}' Nuvio'ya aktarılırken hata oluştu.")
                     else:
@@ -2931,6 +2984,11 @@ class RequestHandler(BaseHTTPRequestHandler):
                             if pub.publish_movies([m_data]):
                                 resolved_count += 1
                                 append_global_log(f"🎉 [EKLENDİ] '{m_data['title']}' Nuvio'da yayında! (Toplam aktarılan: {resolved_count})")
+                                cur_urls = load_processed_urls()
+                                if url in cur_urls:
+                                    cur_urls.remove(url)
+                                    save_processed_urls(cur_urls)
+                                    append_global_log(f"🗑️ [HAFIZADAN SİLİNDİ] {url}")
                         else:
                             append_global_log(f"  ✗ {url} (Aktif video akışı bulunamadı)")
 
