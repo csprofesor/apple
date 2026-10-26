@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-kaplan-ve-ejderha",
+    "type": "movie",
+    "name": "Kaplan Ve Ejderha",
+    "poster": "https://filmdozu.com/assets/img/16386.jpg",
+    "background": "https://filmdozu.com/assets/img/16386.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Gökyüzünün maviliğine karışan kılıcın adı Yeşil Kader&#039;dir ve bu efsanevi silah, Li Mu Bai&#039;nin ellerinde bir efsane olmuştur. Ancak şimdi, bilge savaşçı Li, bu b...",
+    "releaseInfo": "2001",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-kaplan-ve-ejderha",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-kaplan-ve-ejderha",
+        "title": "Kaplan Ve Ejderha",
+        "released": "2001-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
