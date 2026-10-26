@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "playrepo-asteriks-buyuk-savas",
+    "type": "movie",
+    "name": "Asteriks Büyük Savaş",
+    "poster": "https://filmdozu.com/assets/img/3443.jpg",
+    "background": "https://filmdozu.com/assets/img/3443.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Kelt ormanlarının derinliklerinde, cesur Galya köyü bir kez daha Roma&#039;nın açgözlü işgalleriyle yüzleşmek zorunda kalır. &quot;Asteriks Büyük Savaş&quot;, Asteriks ve onun...",
+    "releaseInfo": "1989",
+    "genres": [
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-asteriks-buyuk-savas",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-asteriks-buyuk-savas",
+        "title": "Asteriks Büyük Savaş",
+        "released": "1989-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
