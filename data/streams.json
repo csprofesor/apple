@@ -4960,5 +4960,49 @@
         }
       }
     }
+  ],
+  "tt3520216": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://prx-1546-ant.vmpx.online/hls2/02/02009/4eclb07ophaq_n/master.m3u8?t=AzIoxGg8s1epIk9kIx4u5ImrtUUqAQD9mUndXxcJ9Tk=&s=1793047760&e=43200&v=&srv=box-1417-e10&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-4eclb07ophaq.html?autoplay=0&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-4eclb07ophaq.html?autoplay=0&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-4eclb07ophaq.html?autoplay=0&rel=0"
+          }
+        }
+      }
+    },
+    {
+      "name": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "title": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "url": "https://prx-1546-ant.vmpx.online/hls2/02/02009/4eclb07ophaq_n/master.m3u8?t=xCFEj722EujyXluaQ7LnUHxDBJIzNXRXx9hUkKdjCxw=&s=1793047759&e=43200&v=&srv=box-1417-e10&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-4eclb07ophaq.html?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-4eclb07ophaq.html?autoplay=1&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-4eclb07ophaq.html?autoplay=1&rel=0"
+          }
+        }
+      }
+    }
   ]
 }
