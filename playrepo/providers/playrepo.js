@@ -493,6 +493,15 @@ async function getStreams(arg1, arg2, arg3, arg4) {
                                 ...st,
                                 format: isM3u8 ? "m3u8" : "mp4",
                                 title: st.title || `Play • Sunucu ${idx + 1}`,
+                                behaviorHints: {
+                                    notSupported: false,
+                                    proxyHeaders: {
+                                        request: {
+                                            "User-Agent": UA,
+                                            "Referer": ref
+                                        }
+                                    }
+                                },
                                 headers: {
                                     "User-Agent": UA,
                                     "Referer": ref
@@ -533,18 +542,23 @@ async function getStreams(arg1, arg2, arg3, arg4) {
 
         const resolvedPromises = itemStreams.map(async (s) => {
             const refererUrl = s.referer || s.url || "https://www.google.com";
-            const targetUrl = (refererUrl.includes("/embed") || refererUrl.includes("/videoembed") || refererUrl.includes("/e/") || s.url.includes("srcIp=")) ? refererUrl : s.url;
-            let directUrl = await unpackLiveStreamUrl(targetUrl, refererUrl);
-            if (!directUrl) directUrl = s.url;
+            let directUrl = s.url;
+            const lowerDirect = (directUrl || "").toLowerCase();
+            const isDirect = (lowerDirect.includes(".m3u8") || lowerDirect.includes(".mp4")) && !lowerDirect.includes("/embed") && !lowerDirect.includes("/e/") && !lowerDirect.includes("srcip=");
+            if (!isDirect) {
+                const targetUrl = (refererUrl.includes("/embed") || refererUrl.includes("/videoembed") || refererUrl.includes("/e/") || s.url.includes("srcIp=")) ? refererUrl : s.url;
+                const unpacked = await unpackLiveStreamUrl(targetUrl, refererUrl);
+                if (unpacked) directUrl = unpacked;
+            }
 
             if (!directUrl) return null;
-            const lowerDirect = directUrl.toLowerCase();
+            const finalLower = directUrl.toLowerCase();
 
-            if (!lowerDirect.includes(".m3u8") && !lowerDirect.includes(".mp4") && !lowerDirect.includes("/manifest")) {
+            if (!finalLower.includes(".m3u8") && !finalLower.includes(".mp4") && !finalLower.includes("/manifest")) {
                 return null;
             }
 
-            const isM3u8 = lowerDirect.includes(".m3u8");
+            const isM3u8 = finalLower.includes(".m3u8");
             const rawTitle = s.title || `Play • ${s.quality || '1080p'}`;
             const maskedTitle = rawTitle.replace(/^PlayRepo/i, "Play");
 

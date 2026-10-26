@@ -897,6 +897,15 @@ class SiteScraperEngine {
                         val isM3u8 = lowerUrl.contains(".m3u8")
                         val ua = getRandomUserAgent()
                         val ref = cand.url.ifBlank { directStreamUrl }
+                        val bh = StreamBehaviorHints(
+                            notSupported = false,
+                            proxyHeaders = StreamProxyHeaders(
+                                request = mapOf(
+                                    "User-Agent" to ua,
+                                    "Referer" to ref
+                                )
+                            )
+                        )
                         resolvedStreams.add(
                             StreamItem(
                                 name = "Play",
@@ -909,6 +918,7 @@ class SiteScraperEngine {
                                     "User-Agent" to ua,
                                     "Referer" to ref
                                 ),
+                                behaviorHints = bh,
                                 subtitles = if (extractedSubtitles.isNotEmpty()) extractedSubtitles else null
                             )
                         )
@@ -944,7 +954,20 @@ class SiteScraperEngine {
                 }
                 val parts = st.title.split("•")
                 val suffix = if (parts.size > 2) parts.drop(2).joinToString(" • ").trim() else if (isDub) "$qualityTag • [TR Dublaj]" else "$qualityTag • [TR Altyazılı]"
-                st.copy(title = "Play • $label • $suffix")
+                val ref = st.referer?.ifBlank { st.url } ?: st.url
+                val bh = StreamBehaviorHints(
+                    notSupported = false,
+                    proxyHeaders = StreamProxyHeaders(
+                        request = mapOf(
+                            "User-Agent" to "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+                            "Referer" to ref
+                        )
+                    )
+                )
+                st.copy(
+                    title = "Play • $label • $suffix",
+                    behaviorHints = bh
+                )
             }
 
             // Resolve official Metadata: Cinemeta (IMDb/Stremio standard) or TMDB with title similarity verification
@@ -1007,13 +1030,14 @@ class SiteScraperEngine {
     }
 
     private fun isStreamAlive(url: String, referer: String? = null): Boolean {
+        if (url.isBlank() || url.startsWith("about:") || url.startsWith("javascript:")) return false
         return try {
             val req = Request.Builder()
                 .url(url)
                 .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
                 .apply { if (!referer.isNullOrBlank()) header("Referer", referer) }
                 .header("Range", "bytes=0-1024")
-                .head()
+                .get()
                 .build()
 
             client.newBuilder()
@@ -1026,7 +1050,7 @@ class SiteScraperEngine {
                     resp.code in 200..399 || resp.code == 416
                 }
         } catch (_: Exception) {
-            true // On timeout/refused HEAD, preserve stream conservatively
+            false // If connection fails, times out or drops, reject dead stream!
         }
     }
 

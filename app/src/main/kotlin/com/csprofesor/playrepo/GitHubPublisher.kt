@@ -255,6 +255,15 @@ class GitHubPublisher {
                     val suffix = if (parts.size > 2) parts.drop(2).joinToString(" • ").trim() else if (isDub) "1080p • [TR Dublaj]" else "1080p • [TR Altyazılı]"
                     val ref = st.referer?.ifBlank { st.url } ?: st.url
                     val isM3u8 = st.format == "m3u8" || st.url.contains(".m3u8")
+                    val bh = StreamBehaviorHints(
+                        notSupported = false,
+                        proxyHeaders = StreamProxyHeaders(
+                            request = mapOf(
+                                "User-Agent" to "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+                                "Referer" to ref
+                            )
+                        )
+                    )
                     st.copy(
                         name = "Play",
                         title = "Play • $label • $suffix",
@@ -262,7 +271,8 @@ class GitHubPublisher {
                         headers = mapOf(
                             "User-Agent" to "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
                             "Referer" to ref
-                        )
+                        ),
+                        behaviorHints = bh
                     )
                 }
 
@@ -373,42 +383,89 @@ class GitHubPublisher {
     }
 
     private fun prepareCategoryCatalogs(allMetas: List<JsonObject>): Map<String, String> {
-        val categoryConfigs = listOf(
-            // Film Katalogları
-            "playrepo/catalog/movie/playrepo-popular.json" to { _: JsonObject -> true },
-            "playrepo/catalog/movie/playrepo-catalog-movies.json" to { m: JsonObject -> m.get("type")?.asString != "series" },
-            "playrepo/catalog/movie/playrepo-aksiyon.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "aksiyon", "macera") },
-            "playrepo/catalog/movie/playrepo-komedi.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "komedi", "mizah") },
-            "playrepo/catalog/movie/playrepo-dram.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "dram", "romantik") },
-            "playrepo/catalog/movie/playrepo-korku.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "korku", "gerilim") },
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "bilim", "kurgu", "fantastik") },
-            "playrepo/catalog/movie/playrepo-animasyon.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "animasyon", "çizgi", "anime", "animation") },
-            "playrepo/catalog/movie/playrepo-belgesel.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "belgesel", "tarih", "biyografi", "documentary", "history") },
-            "playrepo/catalog/movie/playrepo-suc.json" to { m: JsonObject -> m.get("type")?.asString != "series" && hasGenre(m, "suç", "suc", "polisiye", "gizem", "crime", "mystery") },
-            // Dizi Katalogları
-            "playrepo/catalog/series/playrepo-series-popular.json" to { m: JsonObject -> m.get("type")?.asString == "series" },
-            "playrepo/catalog/series/playrepo-series-dram.json" to { m: JsonObject -> m.get("type")?.asString == "series" && hasGenre(m, "dram", "romantik") },
-            "playrepo/catalog/series/playrepo-series-aksiyon.json" to { m: JsonObject -> m.get("type")?.asString == "series" && hasGenre(m, "aksiyon", "macera") },
-            "playrepo/catalog/series/playrepo-series-komedi.json" to { m: JsonObject -> m.get("type")?.asString == "series" && hasGenre(m, "komedi", "mizah") },
-            "playrepo/catalog/series/playrepo-series-suc.json" to { m: JsonObject -> m.get("type")?.asString == "series" && hasGenre(m, "suç", "suc", "polisiye", "gizem", "crime", "mystery") },
-            "playrepo/catalog/series/playrepo-series-bilimkurgu.json" to { m: JsonObject -> m.get("type")?.asString == "series" && hasGenre(m, "bilim", "kurgu", "fantastik") }
+        val result = mutableMapOf<String, String>()
+
+        val allMovies = allMetas.filter { it.get("type")?.asString != "series" }
+        val allSeries = allMetas.filter { it.get("type")?.asString == "series" }
+
+        // 1. Popüler & Tüm Filmler
+        val popWrapper = JsonObject().apply {
+            val metasArray = JsonArray()
+            allMovies.take(60).forEach { metasArray.add(it) }
+            add("metas", metasArray)
+        }
+        result["playrepo/catalog/movie/playrepo-popular.json"] = gson.toJson(popWrapper)
+
+        val allMoviesWrapper = JsonObject().apply {
+            val metasArray = JsonArray()
+            allMovies.forEach { metasArray.add(it) }
+            add("metas", metasArray)
+        }
+        result["playrepo/catalog/movie/playrepo-catalog-movies.json"] = gson.toJson(allMoviesWrapper)
+
+        // 2. Film Tür Kategorileri - Her film sadece 1 kategoriye atanır
+        val movieGenreConfigs = listOf(
+            "playrepo/catalog/movie/playrepo-animasyon.json" to { m: JsonObject -> hasGenre(m, "animasyon", "çizgi", "anime", "animation") },
+            "playrepo/catalog/movie/playrepo-belgesel.json" to { m: JsonObject -> hasGenre(m, "belgesel", "tarih", "biyografi", "documentary", "history") },
+            "playrepo/catalog/movie/playrepo-korku.json" to { m: JsonObject -> hasGenre(m, "korku", "gerilim", "horror", "thriller") },
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json" to { m: JsonObject -> hasGenre(m, "bilim", "kurgu", "fantastik", "sci-fi", "fantasy") },
+            "playrepo/catalog/movie/playrepo-komedi.json" to { m: JsonObject -> hasGenre(m, "komedi", "mizah", "comedy") },
+            "playrepo/catalog/movie/playrepo-suc.json" to { m: JsonObject -> hasGenre(m, "suç", "suc", "polisiye", "gizem", "crime", "mystery") },
+            "playrepo/catalog/movie/playrepo-aksiyon.json" to { m: JsonObject -> hasGenre(m, "aksiyon", "macera", "action", "adventure") },
+            "playrepo/catalog/movie/playrepo-dram.json" to { m: JsonObject -> hasGenre(m, "dram", "romantik", "drama", "romance") }
         )
 
-        val result = mutableMapOf<String, String>()
-        categoryConfigs.forEach { (filePath, predicate) ->
-            val filtered = allMetas.filter { predicate(it) }
-            val targetMetas = if (filePath.contains("popular") || filePath.contains("catalog-movies")) {
-                filtered.take(60)
-            } else {
-                filtered
+        val assignedMovieIds = mutableSetOf<String>()
+        movieGenreConfigs.forEach { (filePath, predicate) ->
+            val catMovies = mutableListOf<JsonObject>()
+            for (m in allMovies) {
+                val mId = m.get("id")?.asString
+                if (!mId.isNullOrEmpty() && !assignedMovieIds.contains(mId) && predicate(m)) {
+                    catMovies.add(m)
+                    assignedMovieIds.add(mId)
+                }
             }
-
-            val finalWrapper = JsonObject().apply {
+            val wrapper = JsonObject().apply {
                 val metasArray = JsonArray()
-                targetMetas.forEach { metasArray.add(it) }
+                catMovies.forEach { metasArray.add(it) }
                 add("metas", metasArray)
             }
-            result[filePath] = gson.toJson(finalWrapper)
+            result[filePath] = gson.toJson(wrapper)
+        }
+
+        // 3. Dizi Kategorileri - Diziler de birbirini tekrarlamaz
+        val seriesPopWrapper = JsonObject().apply {
+            val metasArray = JsonArray()
+            allSeries.forEach { metasArray.add(it) }
+            add("metas", metasArray)
+        }
+        result["playrepo/catalog/series/playrepo-series-popular.json"] = gson.toJson(seriesPopWrapper)
+
+        val seriesGenreConfigs = listOf(
+            "playrepo/catalog/series/playrepo-series-bilimkurgu.json" to { m: JsonObject -> hasGenre(m, "bilim", "kurgu", "fantastik") },
+            "playrepo/catalog/series/playrepo-series-korku.json" to { m: JsonObject -> hasGenre(m, "korku", "gerilim") },
+            "playrepo/catalog/series/playrepo-series-komedi.json" to { m: JsonObject -> hasGenre(m, "komedi", "mizah") },
+            "playrepo/catalog/series/playrepo-series-suc.json" to { m: JsonObject -> hasGenre(m, "suç", "suc", "polisiye", "gizem", "crime", "mystery") },
+            "playrepo/catalog/series/playrepo-series-aksiyon.json" to { m: JsonObject -> hasGenre(m, "aksiyon", "macera") },
+            "playrepo/catalog/series/playrepo-series-dram.json" to { m: JsonObject -> hasGenre(m, "dram", "romantik") }
+        )
+
+        val assignedSeriesIds = mutableSetOf<String>()
+        seriesGenreConfigs.forEach { (filePath, predicate) ->
+            val catSeries = mutableListOf<JsonObject>()
+            for (s in allSeries) {
+                val sId = s.get("id")?.asString
+                if (!sId.isNullOrEmpty() && !assignedSeriesIds.contains(sId) && predicate(s)) {
+                    catSeries.add(s)
+                    assignedSeriesIds.add(sId)
+                }
+            }
+            val wrapper = JsonObject().apply {
+                val metasArray = JsonArray()
+                catSeries.forEach { metasArray.add(it) }
+                add("metas", metasArray)
+            }
+            result[filePath] = gson.toJson(wrapper)
         }
 
         return result
