@@ -502,5 +502,19 @@
         "Referer": "https://ok.ru/videoembed/9090326858287"
       }
     }
+  ],
+  "tt1422136": [
+    {
+      "name": "Play",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://vd196.okcdn.ru/video.m3u8?cmd=videoPlayerCdn&expires=1793107293986&srcIp=37.154.49.45&pr=10&srcAg=CHROME&ch=1676822812&ms=95.163.35.41&type=2&sig=qsb8KnSangA&ct=8&urls=176.112.172.39&clientType=0&zs=65&id=7685747968559",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/9090309556783",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/9090309556783"
+      }
+    }
   ]
 }
