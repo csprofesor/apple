@@ -152,15 +152,21 @@ class ScraperEngine:
 
     def detect_category(self, url: str, text: str) -> str:
         lower = f"{url.lower()} {text.lower()}"
+        if any(k in lower for k in ["animasyon", "animation", "çizgi", "anime", "çizgi dizi", "çizgi film"]):
+            return "Animasyon & Çizgi Dizi"
+        if any(k in lower for k in ["belgesel", "documentary", "tarih", "history", "biyografi", "biography"]):
+            return "Belgesel & Tarih"
+        if any(k in lower for k in ["suç", "suc", "crime", "polisiye", "gizem", "mystery", "dedektif", "cinayet"]):
+            return "Suç, Polisiye & Gizem"
         if any(k in lower for k in ["korku", "gerilim", "horror", "thriller", "slasher"]):
             return "Korku & Gerilim"
         if any(k in lower for k in ["aksiyon", "macera", "action", "adventure", "dövüş", "dovus", "savaş", "savas", "western", "kovboy"]):
             return "Aksiyon & Macera"
-        if any(k in lower for k in ["komedi", "mizah", "comedy", "parodi", "kara mizah", "animasyon", "animation", "aile", "family"]):
+        if any(k in lower for k in ["komedi", "mizah", "comedy", "parodi", "kara mizah", "aile", "family"]):
             return "Komedi"
-        if any(k in lower for k in ["dram", "drama", "romantik", "romance", "aşk", "ask", "duygusal", "melodram", "biyografi", "biography", "tarih", "history"]):
+        if any(k in lower for k in ["dram", "drama", "romantik", "romance", "aşk", "ask", "duygusal", "melodram"]):
             return "Dram & Romantik"
-        if any(k in lower for k in ["bilim", "kurgu", "fantastik", "sci-fi", "scifi", "fantasy", "uzay", "süper kahraman", "distopya", "gizem", "mystery", "suç", "suc", "polisiye", "crime"]):
+        if any(k in lower for k in ["bilim", "kurgu", "fantastik", "sci-fi", "scifi", "fantasy", "uzay", "süper kahraman", "distopya"]):
             return "Bilim Kurgu & Fantastik"
         return "Popüler"
 
@@ -778,13 +784,21 @@ class ScraperEngine:
             clean_title, poster, desc, year, tmdb_api_key, is_series=is_series
         )
 
-        for g in meta_genres:
-            cat = self.detect_category("", g)
-            if cat != "Popüler":
-                genres.add(cat)
+        # IMDb / Cinemeta / TMDB doğrulamalı kategoriler
+        verified_categories = set()
+        if meta_genres:
+            for g in meta_genres:
+                cat = self.detect_category("", g)
+                if cat != "Popüler":
+                    verified_categories.add(cat)
 
-        if not genres:
-            genres.add("Popüler")
+        # Eğer IMDb/Cinemeta/TMDB'den teyitli kategori geldiyse, sitenin güvenilmez kategorilerini ezip resmi kategorileri kullan
+        if verified_categories:
+            genres = verified_categories
+        else:
+            # IMDb/TMDB eşleşmediyse fallback olarak sayfadaki kategoriyi kullan
+            if not genres:
+                genres.add("Popüler")
 
         return {
             "tmdbId": meta_id,
@@ -846,13 +860,19 @@ class ScraperEngine:
                         p_path = r0.get("poster_path")
                         p_url = f"https://image.tmdb.org/t/p/w500{p_path}" if p_path else poster
                         rel_date = r0.get("release_date") or r0.get("first_air_date") or year
+                        tmdb_genres = []
+                        try:
+                            det = http_json(f"https://api.themoviedb.org/3/{endpoint}/{r_id}?api_key={tmdb_key}&language=tr-TR")
+                            tmdb_genres = [g.get("name") for g in det.get("genres", []) if g.get("name")]
+                        except Exception:
+                            pass
                         return (
                             f"tmdb-{r_id}",
                             r0.get("title") or r0.get("name") or title,
                             p_url,
                             r0.get("overview") or desc,
                             rel_date[:4] if rel_date else year,
-                            []
+                            tmdb_genres
                         )
             except Exception:
                 pass
@@ -1774,7 +1794,10 @@ HTML_PAGE = """<!DOCTYPE html>
 
         <!-- Alt Bölüm 2: Eski Arşiv Metadata -->
         <div id="mem-pane-his" style="display:none;">
-          <input type="text" id="history-search" placeholder="🔍 Eski arşivde ara..." oninput="filterHistoryMovies()" style="margin-bottom: 12px;" />
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; gap: 8px;">
+            <input type="text" id="history-search" placeholder="🔍 Eski arşivde ara..." oninput="filterHistoryMovies()" style="flex:1;" />
+            <button class="btn-green" style="padding: 9px 16px; font-size: 12px; white-space:nowrap;" onclick="publishAllHistoryMovies()">⚡ Geçmişi Toplu Nuvio'ya Gönder</button>
+          </div>
           <div id="history-container" style="max-height: 480px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
             <div style="color: var(--dim); font-size: 13px; padding: 10px;">Arşiv yükleniyor...</div>
           </div>
@@ -2261,15 +2284,61 @@ HTML_PAGE = """<!DOCTYPE html>
       movies.forEach(m => {
         const item = document.createElement('div');
         item.className = 'media-item';
+        const hasStreams = m.streams && m.streams.length > 0;
+        const streamBadge = hasStreams 
+          ? `<span style="font-size:11px; color:#10b981; background:rgba(16,185,129,0.12); padding:2px 6px; border-radius:4px;">${m.streams.length} Akış Hazır</span>`
+          : `<span style="font-size:11px; color:#94a3b8; background:rgba(148,163,184,0.1); padding:2px 6px; border-radius:4px;">Akış Yok</span>`;
+
         item.innerHTML = `
           <div style="display:flex; align-items:center; gap:10px; overflow:hidden;">
             <span style="font-weight:700; font-size:13.5px; color:#fff; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;">${m.name}</span>
             <span style="font-size:11px; color:#a855f7;">ID: ${m.id}</span>
+            ${streamBadge}
           </div>
-          <button class="btn-red" style="padding:4px 10px; font-size:11px;" onclick="deleteHistoryMovie('${m.id}', '${m.name.replace(/'/g, "\'")}')">🗑️ Sil</button>
+          <div style="display:flex; gap:6px;">
+            <button class="btn-green" style="padding:4px 10px; font-size:11px;" onclick="publishSingleHistoryMovie('${m.id}', '${m.name.replace(/'/g, "\\'")}')">🚀 Nuvio'ya Gönder</button>
+            <button class="btn-red" style="padding:4px 10px; font-size:11px;" onclick="deleteHistoryMovie('${m.id}', '${m.name.replace(/'/g, "\\'")}')">🗑️ Sil</button>
+          </div>
         `;
         cont.appendChild(item);
       });
+    }
+
+    async function publishSingleHistoryMovie(id, name) {
+      showToast(`"${name}" Nuvio'ya aktarılıyor...`);
+      try {
+        const res = await fetch('/api/publish-history-movie', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ id })
+        });
+        const data = await res.json();
+        if (data.status === 'ok') {
+          showToast(`✓ "${name}" Nuvio & GitHub'a başarıyla aktarıldı!`);
+          await loadPublishedMovies();
+        } else {
+          showToast(`Hata: ${data.message || 'Yüklenemedi'}`);
+        }
+      } catch (e) {
+        showToast('Bağlantı hatası!');
+      }
+    }
+
+    async function publishAllHistoryMovies() {
+      if (!confirm('Eski arşivdeki çözülmüş tüm filmler toplu olarak Nuvio ve GitHub\\\'a aktarılacak. Onaylıyor musunuz?')) return;
+      showToast('⚡ Toplu Nuvio aktarımı başlatıldı...');
+      try {
+        const res = await fetch('/api/publish-all-history', { method: 'POST' });
+        const data = await res.json();
+        if (data.status === 'ok') {
+          showToast(`✓ ${data.count || ''} film başarıyla Nuvio\\\'ya aktarıldı!`);
+          await loadPublishedMovies();
+        } else {
+          showToast(`Hata: ${data.message || 'Yüklenemedi'}`);
+        }
+      } catch (e) {
+        showToast('Toplu yükleme sırasında hata oluştu!');
+      }
     }
 
     function filterHistoryMovies() {
@@ -2389,14 +2458,97 @@ class RequestHandler(BaseHTTPRequestHandler):
                 self._send_json({"status": "ok" if success else "error"})
             else:
                 self._send_json({"status": "error", "message": "GitHub Token eksik"})
-        elif self.path == "/api/clear-history-movies":
+        elif self.path == "/api/publish-history-movie":
+            body = self._read_json()
+            movie_id = body.get("id", "").strip()
+            cfg = load_config()
+            token = cfg.get("github_token", "").strip()
+            if not token:
+                self._send_json({"status": "error", "message": "GitHub Token eksik"})
+                return
+
             his_path = os.path.join(WORKSPACE_DIR, "data", "history_catalog.json")
-            try:
-                with open(his_path, "w", encoding="utf-8") as f:
-                    json.dump({"metas": []}, f, indent=2)
-                self._send_json({"status": "ok"})
-            except Exception as e:
-                self._send_json({"status": "error", "message": str(e)})
+            if os.path.exists(his_path) and movie_id:
+                try:
+                    with open(his_path, "r", encoding="utf-8") as f:
+                        d = json.load(f)
+                    target = next((m for m in d.get("metas", []) if m.get("id") == movie_id), None)
+                    if not target:
+                        self._send_json({"status": "error", "message": "Film arşivde bulunamadı"})
+                        return
+
+                    # Format for publish_movies
+                    streams = target.get("streams", [])
+                    if not streams:
+                        # Fallback dummy Play stream if streams missing
+                        streams = [{
+                            "name": "Play",
+                            "title": "Play • 1080p • [TR Dublaj]",
+                            "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                            "quality": 1080,
+                            "format": "mp4"
+                        }]
+
+                    m_item = {
+                        "tmdbId": target.get("id"),
+                        "title": target.get("name") or target.get("title"),
+                        "poster": target.get("poster") or target.get("background"),
+                        "description": target.get("description", "Play • Film"),
+                        "year": target.get("releaseInfo") or target.get("year", ""),
+                        "genres": target.get("genres", ["Popüler"]),
+                        "streams": streams,
+                        "type": target.get("type", "movie")
+                    }
+                    pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
+                    append_global_log(f"🚀 [ARŞİVDEN NUVIO'YA AKTARILIYOR] {m_item['title']}...")
+                    success = pub.publish_movies([m_item])
+                    self._send_json({"status": "ok" if success else "error"})
+                    return
+                except Exception as e:
+                    self._send_json({"status": "error", "message": str(e)})
+                    return
+            self._send_json({"status": "error", "message": "Geçersiz istek"})
+        elif self.path == "/api/publish-all-history":
+            cfg = load_config()
+            token = cfg.get("github_token", "").strip()
+            if not token:
+                self._send_json({"status": "error", "message": "GitHub Token eksik"})
+                return
+
+            his_path = os.path.join(WORKSPACE_DIR, "data", "history_catalog.json")
+            if os.path.exists(his_path):
+                try:
+                    with open(his_path, "r", encoding="utf-8") as f:
+                        d = json.load(f)
+                    raw_metas = d.get("metas", [])
+                    valid_movies = []
+                    for m in raw_metas:
+                        s_list = m.get("streams", [])
+                        if s_list:
+                            valid_movies.append({
+                                "tmdbId": m.get("id"),
+                                "title": m.get("name") or m.get("title"),
+                                "poster": m.get("poster") or m.get("background"),
+                                "description": m.get("description", "Play • Film"),
+                                "year": m.get("releaseInfo") or m.get("year", ""),
+                                "genres": m.get("genres", ["Popüler"]),
+                                "streams": s_list,
+                                "type": m.get("type", "movie")
+                            })
+
+                    if not valid_movies:
+                        self._send_json({"status": "error", "message": "Arşivde aktarılabilir akışlı film bulunamadı"})
+                        return
+
+                    pub = GitHubAtomicPublisher(token=token, log_callback=append_global_log)
+                    append_global_log(f"⚡ [TOPLU ARŞİV AKTARIMI] Toplam {len(valid_movies)} film Nuvio & GitHub'a aktarılıyor...")
+                    success = pub.publish_movies(valid_movies)
+                    self._send_json({"status": "ok" if success else "error", "count": len(valid_movies)})
+                    return
+                except Exception as e:
+                    self._send_json({"status": "error", "message": str(e)})
+                    return
+            self._send_json({"status": "error", "message": "Arşiv dosyası bulunamadı"})
         elif self.path == "/api/delete-history-movie":
             body = self._read_json()
             movie_id = body.get("id", "").strip()

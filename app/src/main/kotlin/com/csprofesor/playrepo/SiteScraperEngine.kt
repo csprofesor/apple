@@ -57,11 +57,14 @@ class SiteScraperEngine {
     fun detectCategoryFromUrlOrText(url: String, text: String): String? {
         val lower = "${url.lowercase()} ${text.lowercase()}"
         return when {
+            lower.contains("animasyon") || lower.contains("animation") || lower.contains("çizgi") || lower.contains("anime") || lower.contains("çizgi dizi") || lower.contains("çizgi film") -> "Animasyon & Çizgi Dizi"
+            lower.contains("belgesel") || lower.contains("documentary") || lower.contains("tarih") || lower.contains("history") || lower.contains("biyografi") || lower.contains("biography") -> "Belgesel & Tarih"
+            lower.contains("suç") || lower.contains("suc") || lower.contains("crime") || lower.contains("polisiye") || lower.contains("gizem") || lower.contains("mystery") || lower.contains("dedektif") || lower.contains("cinayet") -> "Suç, Polisiye & Gizem"
             lower.contains("korku") || lower.contains("gerilim") || lower.contains("horror") || lower.contains("thriller") || lower.contains("slasher") -> "Korku & Gerilim"
             lower.contains("aksiyon") || lower.contains("macera") || lower.contains("action") || lower.contains("adventure") || lower.contains("dövüş") || lower.contains("dovus") || lower.contains("savaş") || lower.contains("savas") || lower.contains("western") || lower.contains("kovboy") -> "Aksiyon & Macera"
-            lower.contains("komedi") || lower.contains("mizah") || lower.contains("comedy") || lower.contains("parodi") || lower.contains("kara mizah") || lower.contains("animasyon") || lower.contains("animation") || lower.contains("aile") || lower.contains("family") -> "Komedi"
-            lower.contains("dram") || lower.contains("romantik") || lower.contains("drama") || lower.contains("romance") || lower.contains("aşk") || lower.contains("ask") || lower.contains("duygusal") || lower.contains("melodram") || lower.contains("biyografi") || lower.contains("biography") || lower.contains("tarih") || lower.contains("history") -> "Dram & Romantik"
-            lower.contains("bilim") || lower.contains("kurgu") || lower.contains("fantastik") || lower.contains("sci-fi") || lower.contains("scifi") || lower.contains("fantasy") || lower.contains("uzay") || lower.contains("süper kahraman") || lower.contains("distopya") || lower.contains("gizem") || lower.contains("mystery") || lower.contains("suç") || lower.contains("suc") || lower.contains("polisiye") || lower.contains("crime") -> "Bilim Kurgu & Fantastik"
+            lower.contains("komedi") || lower.contains("mizah") || lower.contains("comedy") || lower.contains("parodi") || lower.contains("kara mizah") || lower.contains("aile") || lower.contains("family") -> "Komedi"
+            lower.contains("dram") || lower.contains("romantik") || lower.contains("drama") || lower.contains("romance") || lower.contains("aşk") || lower.contains("ask") || lower.contains("duygusal") || lower.contains("melodram") -> "Dram & Romantik"
+            lower.contains("bilim") || lower.contains("kurgu") || lower.contains("fantastik") || lower.contains("sci-fi") || lower.contains("scifi") || lower.contains("fantasy") || lower.contains("uzay") || lower.contains("süper kahraman") || lower.contains("distopya") -> "Bilim Kurgu & Fantastik"
             else -> null
         }
     }
@@ -854,12 +857,28 @@ class SiteScraperEngine {
             // Resolve official Metadata: Cinemeta (IMDb/Stremio standard) or TMDB or Scraped Page Info
             val resolvedMeta = resolveMovieMetadata(cleanTitle, scrapedPoster, scrapedDesc, year, tmdbApiKey)
 
+            // IMDb / Cinemeta onaylı türler teyit edilirse sitenin rastgele kategorilerini ez
+            val verifiedGenres = mutableSetOf<String>()
+            resolvedMeta.genres.forEach { g ->
+                val cat = detectCategoryFromUrlOrText("", g)
+                if (cat != null && cat != "Popüler") {
+                    verifiedGenres.add(cat)
+                }
+            }
+            val finalGenres = if (verifiedGenres.isNotEmpty()) {
+                verifiedGenres.toList()
+            } else if (genreSet.isNotEmpty()) {
+                genreSet.toList()
+            } else {
+                listOf("Popüler")
+            }
+
             ScrapedMovie(
                 tmdbId = resolvedMeta.id,
                 title = resolvedMeta.title,
                 poster = resolvedMeta.poster,
                 streams = prioritizedStreams,
-                genres = genreSet.toList(),
+                genres = finalGenres,
                 description = resolvedMeta.description,
                 year = resolvedMeta.year,
                 imdbRating = imdbRating,
@@ -1260,7 +1279,8 @@ class SiteScraperEngine {
         val title: String,
         val poster: String,
         val description: String,
-        val year: String
+        val year: String,
+        val genres: List<String> = emptyList()
     )
 
     private fun resolveMovieMetadata(
@@ -1296,6 +1316,11 @@ class SiteScraperEngine {
                         val poster = firstMeta.get("poster")?.asString ?: fallbackPoster
                         val releaseYear = firstMeta.get("releaseInfo")?.asString ?: year
                         val desc = if (scrapedDesc.isNotBlank()) scrapedDesc else (firstMeta.get("description")?.asString ?: "Play • 1080p TR")
+                        val extraGenres = mutableListOf<String>()
+                        firstMeta.getAsJsonArray("genres")?.forEach { gElem ->
+                            val gStr = gElem.asString
+                            if (!gStr.isNullOrBlank()) extraGenres.add(gStr)
+                        }
 
                         if (!id.isNullOrBlank()) {
                             return MetaResolution(
@@ -1303,7 +1328,8 @@ class SiteScraperEngine {
                                 title = name,
                                 poster = if (poster.isNotBlank()) poster else fallbackPoster,
                                 description = desc,
-                                year = releaseYear
+                                year = releaseYear,
+                                genres = extraGenres
                             )
                         }
                     }
