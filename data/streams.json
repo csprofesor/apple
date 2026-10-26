@@ -21,5 +21,28 @@
         }
       }
     }
+  ],
+  "playrepo-costa-concordia-bir-cruise-gemisi-faciasi": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=da7f7ce79d80c1df7a4bc6eeac22549e&token=eyJ2IjoiZGE3ZjdjZTc5ZDgwYzFkZjdhNGJjNmVlYWMyMjU0OWUiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNjYxMTY5LCJuIjoiNGQ2OTJiNmI0ZGRkIn0.04a7fc761fa76927047c5d19a2c01d68218de7eaa73bd2e131d7622b4275dd6a&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=OXFRDZh_hC4hNEszvRSe9g",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=OXFRDZh_hC4hNEszvRSe9g"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=OXFRDZh_hC4hNEszvRSe9g"
+          }
+        }
+      }
+    }
   ]
 }
