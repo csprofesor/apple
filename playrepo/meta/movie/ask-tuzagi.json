@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "playrepo-ask-tuzagi",
+    "type": "movie",
+    "name": "Aşk Tuzağı",
+    "poster": "https://filmdozu.com/assets/img/1123.jpg",
+    "background": "https://filmdozu.com/assets/img/1123.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Lilli&#039;nin hayatı, kız kardeşinin nişanlısıyla ilgili içini kemiren şüphelerle doludur. Ancak bu huzursuzluk, bir gün karşısına çıkan esrarengiz ve büyüleyici bi...",
+    "releaseInfo": "2025",
+    "genres": [
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-ask-tuzagi",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-ask-tuzagi",
+        "title": "Aşk Tuzağı",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
