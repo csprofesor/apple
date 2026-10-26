@@ -2364,7 +2364,7 @@ HTML_PAGE = """<!DOCTYPE html>
       document.getElementById('btn-pause').style.display = 'inline-flex';
       document.getElementById('btn-resume').style.display = 'none';
       document.getElementById('btn-stop').style.display = 'inline-flex';
-      showToast('Link çözülüp Nuvio\'ya aktarılıyor...');
+      showToast("Link çözülüp Nuvio'ya aktarılıyor...");
 
       try {
         const res = await fetch('/api/publish-processed-url', {
@@ -2386,7 +2386,7 @@ HTML_PAGE = """<!DOCTYPE html>
     async function publishSelectedProcessedUrls() {
       const urls = Array.from(selectedProcessedUrls);
       if (urls.length === 0) {
-        alert('Lütfen Nuvio\'ya göndermek istediğiniz linkleri seçin!');
+        alert("Lütfen Nuvio'ya göndermek istediğiniz linkleri seçin!");
         return;
       }
       if (!confirm(`Seçilen ${urls.length} adet film/dizi linki tek tek çözülüp Nuvio'ya aktarılacak. Onaylıyor musunuz?`)) return;
@@ -2428,7 +2428,7 @@ HTML_PAGE = """<!DOCTYPE html>
       document.getElementById('btn-pause').style.display = 'inline-flex';
       document.getElementById('btn-resume').style.display = 'none';
       document.getElementById('btn-stop').style.display = 'inline-flex';
-      showToast('Tüm hafıza Nuvio\'ya aktarılmaya başlandı...');
+      showToast("Tüm hafıza Nuvio'ya aktarılmaya başlandı...");
 
       try {
         const res = await fetch('/api/publish-all-processed-urls', {
@@ -2531,13 +2531,13 @@ HTML_PAGE = """<!DOCTYPE html>
     }
 
     async function publishAllHistoryMovies() {
-      if (!confirm('Eski arşivdeki çözülmüş tüm filmler toplu olarak Nuvio ve GitHub\\\'a aktarılacak. Onaylıyor musunuz?')) return;
+      if (!confirm("Eski arşivdeki çözülmüş tüm filmler toplu olarak Nuvio ve GitHub'a aktarılacak. Onaylıyor musunuz?")) return;
       showToast('⚡ Toplu Nuvio aktarımı başlatıldı...');
       try {
         const res = await fetch('/api/publish-all-history', { method: 'POST' });
         const data = await res.json();
         if (data.status === 'ok') {
-          showToast(`✓ ${data.count || ''} film başarıyla Nuvio\\\'ya aktarıldı!`);
+          showToast(`✓ ${data.count || ''} film başarıyla Nuvio'ya aktarıldı!`);
           await loadPublishedMovies();
         } else {
           showToast(`Hata: ${data.message || 'Yüklenemedi'}`);
