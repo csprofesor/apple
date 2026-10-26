@@ -3772,5 +3772,70 @@
         }
       }
     }
+  ],
+  "playrepo-kizil-prenses": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://prx-1590-for.vmnow.online/hls2/10/01989/qftnr21l3emb_n/master.m3u8?t=SPOe8lZ9w5zZZF80jzPeO2bw1S7eoQgPNI8dMvD_V-A=&s=1793047319&e=43200&v=&srv=rck12&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-qftnr21l3emb.html?autoplay=0&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-qftnr21l3emb.html?autoplay=0&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-qftnr21l3emb.html?autoplay=0&rel=0"
+          }
+        }
+      }
+    },
+    {
+      "name": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "title": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "url": "https://prx-1590-for.vmnow.online/hls2/10/01989/qftnr21l3emb_n/master.m3u8?t=2DwqWraMUXXUo97U6ljfZFczY9ljYeFsFf8DyLK96Dw=&s=1793047318&e=43200&v=&srv=rck12&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-qftnr21l3emb.html?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-qftnr21l3emb.html?autoplay=1&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-qftnr21l3emb.html?autoplay=1&rel=0"
+          }
+        }
+      }
+    },
+    {
+      "name": "Play • Altyazı 2 • 1080p • [TR Altyazılı]",
+      "title": "Play • Altyazı 2 • 1080p • [TR Altyazılı]",
+      "url": "https://vd423.okcdn.ru/video.m3u8?cmd=videoPlayerCdn&expires=1793133719235&srcIp=85.107.102.169&pr=10&srcAg=CHROME_MAC&ch=-536166974&ms=178.237.23.39&type=2&sig=VPTBaOJCUzM&ct=8&urls=176.112.172.39&clientType=0&zs=65&id=7692198152898",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/2447152974417?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/2447152974417?autoplay=1&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://ok.ru/videoembed/2447152974417?autoplay=1&rel=0"
+          }
+        }
+      }
+    }
   ]
 }
