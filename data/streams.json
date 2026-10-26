@@ -3319,5 +3319,28 @@
         }
       }
     }
+  ],
+  "playrepo-d-nyan-n-tarihi": [
+    {
+      "name": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "title": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "url": "https://vd296.okcdn.ru/video.m3u8?cmd=videoPlayerCdn&expires=1793129946458&srcIp=85.107.102.169&pr=10&srcAg=CHROME_MAC&ch=-536166974&ms=185.180.203.46&type=2&sig=jgwJpt3yn8s&ct=8&urls=178.237.23.39&clientType=0&zs=65&id=7707869645567",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/3603479530065?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/3603479530065?autoplay=0&amp;rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://ok.ru/videoembed/3603479530065?autoplay=0&amp;rel=0"
+          }
+        }
+      }
+    }
   ]
 }
