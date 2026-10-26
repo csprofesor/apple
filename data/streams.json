@@ -642,5 +642,67 @@
         "Referer": "https://vidmoly.net/embed-di2nlv4upvfp.html?autoplay=0&amp;rel=0"
       }
     }
+  ],
+  "tt0108074": [
+    {
+      "name": "Play",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://vd423.okcdn.ru/video.m3u8?cmd=videoPlayerCdn&expires=1793122925446&srcIp=85.107.102.169&pr=10&srcAg=CHROME&ch=-536166974&ms=178.237.23.39&type=2&sig=tllW_4i33Fw&ct=8&urls=95.163.35.41&clientType=0&zs=65&id=7707869645567",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/3603479530065?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/3603479530065?autoplay=0&amp;rel=0"
+      }
+    },
+    {
+      "name": "Play",
+      "title": "Play • Dublaj 2 • 1080p • [TR Dublaj]",
+      "url": "https://vd423.okcdn.ru/video.m3u8?cmd=videoPlayerCdn&expires=1793122925945&srcIp=85.107.102.169&pr=10&srcAg=CHROME&ch=-536166974&ms=178.237.23.39&type=2&sig=rM_udIR_qvM&ct=8&urls=95.163.35.41&clientType=0&zs=65&id=7707869645567",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/3603479530065?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/3603479530065?autoplay=1&rel=0"
+      }
+    },
+    {
+      "name": "Play",
+      "title": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "url": "https://prx-1317-ant.vmpx.online/hls2/04/01850/vixhhka5fz94_n/master.m3u8?t=c0tUw0F2-5swcdj9Ava_ib1CdTLc_m7dx7jFxatM3kk=&s=1793036527&e=43200&v=&srv=box-c-o-l-2&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-vixhhka5fz94.html?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-vixhhka5fz94.html?autoplay=0&amp;rel=0"
+      }
+    },
+    {
+      "name": "Play",
+      "title": "Play • Altyazı 2 • 1080p • [TR Altyazılı]",
+      "url": "https://prx-1566-ant-r.vmpx.online/hls2/01/02030/p80oo5yyroqn_n/master.m3u8?t=pBBx_BhC5lGnKiaA-f4_4IeENM59VgkGdeZUZ09LTRY=&s=1793036528&e=43200&v=&srv=s-box-u-4&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-p80oo5yyroqn.html?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-p80oo5yyroqn.html?autoplay=0&amp;rel=0"
+      }
+    },
+    {
+      "name": "Play",
+      "title": "Play • Altyazı 3 • 1080p • [TR Altyazılı]",
+      "url": "https://box-1103-o.vmbox.space/hls/,xqx2ood42jokjiqbtflsdpaw4fwvae6t7hyg4kd7kfgmtzboi4nyw6qjgvra,.urlset/master.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-ub0zocouv17s.html?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-ub0zocouv17s.html?autoplay=0&amp;rel=0"
+      }
+    }
   ]
 }
