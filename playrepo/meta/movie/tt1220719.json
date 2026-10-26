@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "tt1220719",
+    "type": "movie",
+    "name": "Ip Man",
+    "poster": "https://m.media-amazon.com/images/M/MV5BZmJjZDE0MmYtNzgwYy00NTg2LWE0NDYtNzA0YTA4MjA0NmYxXkEyXkFqcGc%40._V1_.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BZmJjZDE0MmYtNzgwYy00NTg2LWE0NDYtNzA0YTA4MjA0NmYxXkEyXkFqcGc%40._V1_.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Amerika&#039;nın geniş caddelerinde, uzak doğunun kadim ruhu yankılanıyor. Ip Man, bu kez Batı&#039;nın karmaşası içinde, dövüş sanatının özünü koruma mücadelesi veriyor....",
+    "releaseInfo": "2025",
+    "genres": [
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Dram & Romantik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "tt1220719",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt1220719",
+        "title": "Ip Man",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
