@@ -82,5 +82,19 @@
         "Referer": "https://ok.ru/videoembed/9717904837167"
       }
     }
+  ],
+  "tt29081720": [
+    {
+      "name": "Play",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://vd423.okcdn.ru/expires/1793105681477/clientType/0/srcIp/37.154.49.45/type/2/mid/9820777024047/id/8366558808623/ms/178.237.23.39/zs/65/srcAg/CHROME_MAC/urls/95.163.35.41/oq/0/pr/10/ct/28/sig/ugvQi88zgWU/ondemand/hls4_8366558808623.CK-UtJ_pnQJAr8b3ibERUAqEGtM0p4FkOw.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/9820777024047",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/9820777024047"
+      }
+    }
   ]
 }
