@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-usutuk-popolar",
+    "type": "movie",
+    "name": "Üşütük Popolar",
+    "poster": "https://filmdozu.com/assets/img/12612.jpg",
+    "background": "https://filmdozu.com/assets/img/12612.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Karayiplerin sıcak rüzgarlarından, buz gibi bir macera: Jamaica&#039;nın olimpiyat kızak takımı. Gerçek olaylardan beslenen bu hikaye, izleyiciyi hem güldüren hem de...",
+    "releaseInfo": "1993",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-usutuk-popolar",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-usutuk-popolar",
+        "title": "Üşütük Popolar",
+        "released": "1993-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
