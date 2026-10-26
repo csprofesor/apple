@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-derinlerde-dehset",
+    "type": "movie",
+    "name": "Derinlerde Dehşet",
+    "poster": "https://filmdozu.com/assets/img/9733.jpg",
+    "background": "https://filmdozu.com/assets/img/9733.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Derin denizlerin gizemli ve ürkütücü atmosferinde, &#039;Deepstar Six&#039; adlı araştırma üssünün cesur mürettebatı, okyanusun kalbinde nefes kesen bir maceraya atılır. ...",
+    "releaseInfo": "1989",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-derinlerde-dehset",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-derinlerde-dehset",
+        "title": "Derinlerde Dehşet",
+        "released": "1989-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
