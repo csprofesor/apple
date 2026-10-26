@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-mungo-golu",
+    "type": "movie",
+    "name": "Mungo Gölü",
+    "poster": "https://filmdozu.com/assets/img/1634.jpg",
+    "background": "https://filmdozu.com/assets/img/1634.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Alice Palmer’ın trajik sonu, Palmer ailesinin hayatını geri dönüşü olmayan bir şekilde değiştirmişti. Genç kızın cansız bedeni baraj gölünden çıkarıldığında, he...",
+    "releaseInfo": "2009",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-mungo-golu",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-mungo-golu",
+        "title": "Mungo Gölü",
+        "released": "2009-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
