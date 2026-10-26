@@ -2826,10 +2826,12 @@ def open_browser_window(url: str):
     profile_dir = "/tmp/playrepo_desktop_profile"
     if os.path.exists(chrome_bin):
         try:
+            # -n (yeni ayrı izole instance), -a (Google Chrome) ve --args ile mevcut açık sekmeleri/pencereleri tetiklemeden başlatır
             subprocess.Popen([
-                chrome_bin,
-                f"--app={url}",
+                "open", "-n", "-a", "/Applications/Google Chrome.app",
+                "--args",
                 f"--user-data-dir={profile_dir}",
+                f"--app={url}",
                 "--window-size=1180,880",
                 "--no-first-run",
                 "--no-default-browser-check"
