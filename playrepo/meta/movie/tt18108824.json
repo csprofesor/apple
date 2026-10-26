@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "id": "tt18108824",
+    "type": "movie",
+    "name": "The Friend",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNTNjODBhNTEtNzJkMC00ZjY1LTkyOWItNzA2NTYxZTY4ZTYwXkEyXkFqcGc%40._V1_.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BNTNjODBhNTEtNzJkMC00ZjY1LTkyOWItNzA2NTYxZTY4ZTYwXkEyXkFqcGc%40._V1_.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Bir yazarın hayatı, kaybettiği bir arkadaşının ona bıraktığı Danua ile beklenmedik bir dönüş yapar. Bu devasa köpek, yalnızca fiziksel varlığıyla değil, aynı za...",
+    "releaseInfo": "2025",
+    "genres": [
+      "Dram & Romantik",
+      "Komedi"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "tt18108824",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt18108824",
+        "title": "The Friend",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
