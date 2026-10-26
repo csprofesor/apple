@@ -2396,10 +2396,12 @@ HTML_PAGE = """<!DOCTYPE html>
         alert("Bu filme ait hazır video akışı bulunamadı.");
         return;
       }
-      const streamList = m.streams.map((s, idx) => `${idx + 1}. ${s.name || s.title || 'Kaynak'} [${s.quality || '1080p'}] -> ${s.url}`).join("\n\n");
+      const nl = String.fromCharCode(10);
+      const streamList = m.streams.map((s, idx) => (idx + 1) + ". " + (s.name || s.title || "Kaynak") + " [" + (s.quality || "1080p") + "] -> " + s.url).join(nl + nl);
       const firstStream = m.streams[0].url;
-      if (confirm(`🎬 "${m.name}" - Yayındaki Video Akışları (${m.streams.length} Kaynak):\n\n${streamList}\n\nİlk kaynağı tarayıcıda açıp test etmek istiyor musunuz?`)) {
-        window.open(firstStream, '_blank');
+      const confirmMsg = "🎬 " + m.name + " - Yayındaki Video Akışları (" + m.streams.length + " Kaynak):" + nl + nl + streamList + nl + nl + "İlk kaynağı tarayıcıda açıp test etmek istiyor musunuz?";
+      if (confirm(confirmMsg)) {
+        window.open(firstStream, "_blank");
       }
     }
 
