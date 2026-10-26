@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-evlilik-toreni",
+    "type": "movie",
+    "name": "Evlilik Töreni",
+    "poster": "https://filmdozu.com/assets/img/1222.jpg",
+    "background": "https://filmdozu.com/assets/img/1222.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Bir düğünün kalabalığında, bedava bir yemek peşinde olan Ranveer, göz alıcı Anushka&#039;yla yolları kesişir. Anushka&#039;nın parlak bir hayali vardır: kendi ayakları üz...",
+    "releaseInfo": "2010",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-evlilik-toreni",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-evlilik-toreni",
+        "title": "Evlilik Töreni",
+        "released": "2010-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
