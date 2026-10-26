@@ -7115,5 +7115,28 @@
         }
       }
     }
+  ],
+  "playrepo-237-nolu-oda": [
+    {
+      "name": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "title": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "url": "https://prx-1357-ant-v.vmget.online/hls2/04/02022/smf4k3u96sw3_n/master.m3u8?t=qfqmMAAr_NNW0V1WhBCLxrZINHEE9aL7HRuIvdTZQzA=&s=1793048715&e=43200&v=&srv=box-1404-z10&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-smf4k3u96sw3.html?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-smf4k3u96sw3.html?autoplay=1&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-smf4k3u96sw3.html?autoplay=1&rel=0"
+          }
+        }
+      }
+    }
   ]
 }
