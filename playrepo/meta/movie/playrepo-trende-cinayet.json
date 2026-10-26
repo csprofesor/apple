@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "playrepo-trende-cinayet",
+    "type": "movie",
+    "name": "Trende Cinayet",
+    "poster": "https://filmdozu.com/assets/img/4590.jpg",
+    "background": "https://filmdozu.com/assets/img/4590.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Yaşlı trenin camından dışarıya bakan Bayan Marple, gözlerinin önünde işlenen bir cinayetin sessiz tanığı olur. Yanından hızla geçen diğer trenden gelen o anlık ...",
+    "releaseInfo": "1961",
+    "genres": [
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-trende-cinayet",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-trende-cinayet",
+        "title": "Trende Cinayet",
+        "released": "1961-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
