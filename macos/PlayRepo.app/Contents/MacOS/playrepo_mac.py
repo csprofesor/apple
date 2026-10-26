@@ -3186,6 +3186,9 @@ def open_browser_window(url: str):
 
     if os.path.exists(chrome_bin):
         try:
+            # Kill any stale Chrome processes using this dedicated profile so Chrome cleanly opens the active port
+            subprocess.run(["pkill", "-f", "playrepo_desktop_profile"], capture_output=True)
+            time.sleep(0.2)
             subprocess.Popen([
                 "open", "-n", "-a", "/Applications/Google Chrome.app",
                 "--args",
