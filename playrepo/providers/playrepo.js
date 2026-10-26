@@ -529,15 +529,10 @@ async function resolveAndCapStreams(rawStreams) {
         let directUrl = s.url;
         const lowerDirect = (directUrl || "").toLowerCase();
 
-        // If URL is an embed, dead/expired CDN token, or needs live extraction
-        const needsLiveUnpack = lowerDirect.includes("/embed") ||
-                                lowerDirect.includes("/videoembed") ||
-                                lowerDirect.includes("/e/") ||
-                                lowerDirect.includes("srcip=") ||
-                                lowerDirect.includes("okcdn.ru") ||
-                                lowerDirect.includes("pilavyer") ||
-                                lowerDirect.includes("/s.php") ||
-                                (!lowerDirect.includes(".m3u8") && !lowerDirect.includes(".mp4"));
+        // Only unpack if it's an embed page or expired OK.ru link that needs client-side extraction
+        const isEmbedPage = lowerDirect.includes("/embed") || lowerDirect.includes("/videoembed") || lowerDirect.includes("/e/") || lowerDirect.includes("/s.php");
+        const isExpiredCdn = lowerDirect.includes("srcip=") || lowerDirect.includes("okcdn.ru");
+        const needsLiveUnpack = isEmbedPage || isExpiredCdn || (!lowerDirect.includes(".m3u8") && !lowerDirect.includes(".mp4") && !lowerDirect.includes("stream.php"));
 
         if (needsLiveUnpack) {
             const targetUrl = (refererUrl.includes("/embed") || refererUrl.includes("/videoembed") || refererUrl.includes("/e/") || refererUrl.includes("/s.php") || lowerDirect.includes("srcip=")) ? refererUrl : directUrl;
@@ -552,9 +547,14 @@ async function resolveAndCapStreams(rawStreams) {
         }
 
         const isM3u8 = finalLower.includes(".m3u8") || finalLower.includes("stream.php") || finalLower.includes("/hls");
+        let playUrl = directUrl;
+        if (isM3u8 && !finalLower.includes(".m3u8")) {
+            playUrl = playUrl.includes("?") ? `${playUrl}&ext=.m3u8` : `${playUrl}#.m3u8`;
+        }
+
         return {
             rawTitle: s.title || s.name || "",
-            url: directUrl,
+            url: playUrl,
             quality: s.quality || 1080,
             provider: "play",
             format: isM3u8 ? "m3u8" : "mp4",
@@ -619,7 +619,7 @@ async function resolveAndCapStreams(rawStreams) {
         }
 
         return {
-            name: formattedTitle,
+            name: "Play",
             title: formattedTitle,
             url: s.url,
             quality: s.quality || 1080,
@@ -630,6 +630,9 @@ async function resolveAndCapStreams(rawStreams) {
         };
     });
 }
+
+let cachedStreamsData = null;
+let cachedStreamsTime = 0;
 
 async function getStreams(arg1, arg2, arg3, arg4) {
     try {
@@ -655,7 +658,44 @@ async function getStreams(arg1, arg2, arg3, arg4) {
         const safeId = idStr.replace(/:/g, "_");
         const hyphenId = idStr.replace(/:/g, "-").replace(/_/g, "-");
 
-        // 1. Try static stream file published by APK first (movie or series)
+        // Fast-path: Check cached or fetched streams.json directly (single request, <50ms)
+        let allStreams = cachedStreamsData;
+        if (!allStreams || (Date.now() - cachedStreamsTime > 60000)) {
+            try {
+                const response = await fetch(`${STREAMS_URL}?t=${Date.now()}`, {
+                    headers: {
+                        "User-Agent": UA,
+                        "Accept": "application/json"
+                    }
+                });
+                if (response.ok) {
+                    allStreams = await response.json();
+                    cachedStreamsData = allStreams;
+                    cachedStreamsTime = Date.now();
+                }
+            } catch (_) {}
+        }
+
+        if (allStreams) {
+            const normTarget = idStr.toLowerCase().replace(/[:_]/g, "-");
+            let itemStreams = allStreams[idStr] || allStreams[hyphenId] || allStreams[safeId] || allStreams[cleanId] || allStreams[`movie/${cleanId}`] || allStreams[`tmdb:${cleanId}`] || allStreams[`playrepo:${cleanId}`];
+
+            if (!itemStreams || itemStreams.length === 0) {
+                for (const k of Object.keys(allStreams)) {
+                    const normK = k.toLowerCase().replace(/[:_]/g, "-");
+                    if (normK === normTarget || normK.endsWith(normTarget) || normTarget.endsWith(normK)) {
+                        itemStreams = allStreams[k];
+                        break;
+                    }
+                }
+            }
+
+            if (itemStreams && itemStreams.length > 0) {
+                return await resolveAndCapStreams(itemStreams);
+            }
+        }
+
+        // Fallback: Check individual static stream file only if not found in streams.json
         const possibleStaticIds = [encodeURIComponent(idStr), encodeURIComponent(hyphenId), encodeURIComponent(safeId), encodeURIComponent(cleanId)];
         const folderType = (mediaType === "series" || idStr.includes(":")) ? "series" : "movie";
         for (const pid of possibleStaticIds) {
@@ -676,36 +716,7 @@ async function getStreams(arg1, arg2, arg3, arg4) {
             } catch (_) {}
         }
 
-        // 2. Fetch streams.json
-        const response = await fetch(`${STREAMS_URL}?t=${Date.now()}`, {
-            headers: {
-                "User-Agent": UA,
-                "Accept": "application/json",
-                "Cache-Control": "no-cache, no-store, must-revalidate",
-                "Pragma": "no-cache"
-            }
-        });
-
-        if (!response.ok) return [];
-
-        const data = await response.json();
-        const normTarget = idStr.toLowerCase().replace(/[:_]/g, "-");
-
-        let itemStreams = data[idStr] || data[hyphenId] || data[safeId] || data[cleanId] || data[`movie/${cleanId}`] || data[`tmdb:${cleanId}`] || data[`playrepo:${cleanId}`] || [];
-
-        if (!itemStreams || itemStreams.length === 0) {
-            for (const k of Object.keys(data)) {
-                const normK = k.toLowerCase().replace(/[:_]/g, "-");
-                if (normK === normTarget || normK.endsWith(normTarget) || normTarget.endsWith(normK)) {
-                    itemStreams = data[k];
-                    break;
-                }
-            }
-        }
-
-        if (!itemStreams || itemStreams.length === 0) return [];
-
-        return await resolveAndCapStreams(itemStreams);
+        return [];
     } catch (e) {
         console.error("Play getStreams error:", e);
         return [];

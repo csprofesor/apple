@@ -472,7 +472,10 @@ class ScraperEngine:
                     p_data = json.loads(player_m.group(1))
                     stream_link = p_data.get("stream")
                     if stream_link:
-                        return stream_link.replace(r"\/", "/")
+                        s_link = stream_link.replace(r"\/", "/")
+                        if "stream.php" in s_link and ".m3u8" not in s_link:
+                            s_link = f"{s_link}&ext=.m3u8" if "?" in s_link else f"{s_link}#.m3u8"
+                        return s_link
                 except Exception:
                     pass
 
@@ -915,6 +918,9 @@ class ScraperEngine:
         sub_c = 0
         oth_c = 0
         for st in valid_streams:
+            st_url = st.get("url", "")
+            if "stream.php" in st_url and ".m3u8" not in st_url:
+                st["url"] = f"{st_url}&ext=.m3u8" if "?" in st_url else f"{st_url}#.m3u8"
             st_ref = st.get("referer") or st["url"]
             st["behaviorHints"] = {
                 "notSupported": False,

@@ -1322,7 +1322,11 @@ class SiteScraperEngine {
                             val pObj = gson.fromJson(pMatch.groupValues[1], JsonObject::class.java)
                             val stream = pObj.get("stream")?.asString
                             if (!stream.isNullOrBlank()) {
-                                return stream.replace("\\/", "/")
+                                var sUrl = stream.replace("\\/", "/")
+                                if (sUrl.contains("stream.php") && !sUrl.contains(".m3u8")) {
+                                    sUrl = if (sUrl.contains("?")) "$sUrl&ext=.m3u8" else "$sUrl#.m3u8"
+                                }
+                                return sUrl
                             }
                         } catch (_: Exception) {}
                     }
