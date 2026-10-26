@@ -3127,6 +3127,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             else:
                 self._send_json({"status": "error", "message": "Geçersiz ID veya Token eksik"})
         elif self.path == "/api/clear-all-movies":
+            ENGINE_INSTANCE.stop()
             cfg = load_config()
             token = cfg.get("github_token", "").strip()
             if token:
