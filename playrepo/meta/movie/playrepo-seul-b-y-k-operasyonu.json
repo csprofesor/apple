@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-seul-b-y-k-operasyonu",
+    "type": "movie",
+    "name": "Seul Büyük Operasyonu",
+    "poster": "https://filmdozu.com/assets/img/6612.jpg",
+    "background": "https://filmdozu.com/assets/img/6612.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Seul, 1988 yazının sıcak ve nemli günlerinde, Olimpiyat coşkusunun gölgesinde bambaşka bir gerilime sahne olur. Şehrin arka sokaklarında, her biri farklı yetene...",
+    "releaseInfo": "1988",
+    "genres": [
+      "Aksiyon & Macera",
+      "Belgesel & Tarih",
+      "Komedi",
+      "Korku & Gerilim",
+      "Popüler",
+      "Suç, Polisiye & Gizem",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Bilim Kurgu & Fantastik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-seul-b-y-k-operasyonu",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-seul-b-y-k-operasyonu",
+        "title": "Seul Büyük Operasyonu",
+        "released": "1988-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
