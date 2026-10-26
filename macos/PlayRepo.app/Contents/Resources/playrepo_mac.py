@@ -1448,40 +1448,6 @@ HTML_PAGE = """<!DOCTYPE html>
     
     .header-actions { display: flex; align-items: center; gap: 10px; }
 
-    .top-nav-tabs {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(15, 23, 42, 0.7);
-      padding: 4px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .nav-tab-btn {
-      background: transparent;
-      border: 1px solid transparent;
-      color: #94a3b8;
-      padding: 7px 14px;
-      font-size: 12px;
-      font-weight: 700;
-      border-radius: 8px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.15s ease-in-out;
-    }
-    .nav-tab-btn:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.08);
-    }
-    .nav-tab-btn.active {
-      color: #38bdf8;
-      background: rgba(56, 189, 248, 0.15);
-      border-color: rgba(56, 189, 248, 0.35);
-      box-shadow: 0 2px 8px rgba(56, 189, 248, 0.2);
-    }
-
     /* Main App Container */
     .app-container {
       max-width: 1200px;
@@ -1646,52 +1612,70 @@ HTML_PAGE = """<!DOCTYPE html>
       left: 0;
       right: 0;
       height: 72px;
-      background: rgba(9, 13, 22, 0.95);
-      backdrop-filter: blur(28px) saturate(180%);
-      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      background: #090d16;
       border-top: 1px solid rgba(255, 255, 255, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      z-index: 9999;
+      gap: 16px;
+      z-index: 99999;
       padding: 0 20px;
-      pointer-events: auto;
+      pointer-events: auto !important;
     }
     .dock-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
       gap: 4px;
-      padding: 8px 24px;
+      padding: 10px 24px !important;
       border-radius: 12px;
       background: transparent;
       color: #94a3b8;
-      cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer !important;
       position: relative;
       border: 1px solid transparent;
-      pointer-events: auto;
+      pointer-events: auto !important;
+      user-select: none;
+      -webkit-user-select: none;
     }
-    .dock-btn * { pointer-events: none; }
-    .dock-btn svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform 0.2s; }
-    .dock-btn span { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; }
-    .dock-btn:hover { color: #f8fafc; background: rgba(255, 255, 255, 0.08); }
+    .dock-btn:hover {
+      color: #f8fafc;
+      background: rgba(255, 255, 255, 0.08);
+    }
     .dock-btn.active {
-      color: #38bdf8;
-      background: rgba(56, 189, 248, 0.15);
-      border-color: rgba(56, 189, 248, 0.35);
+      color: #38bdf8 !important;
+      background: rgba(56, 189, 248, 0.15) !important;
+      border-color: rgba(56, 189, 248, 0.35) !important;
       box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
     }
-      box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.25);
+    .dock-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      pointer-events: none;
     }
-    .dock-btn.active svg { transform: translateY(-1px); stroke: #38bdf8; }
+    .dock-btn span {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      pointer-events: none;
+    }
     .dock-badge {
       position: absolute;
       top: 4px;
       right: 18px;
       background: #ef4444;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 10px;
+      min-width: 16px;
+      pointer-events: none;
+    }
       color: #fff;
       font-size: 10px;
       font-weight: 800;
@@ -1731,15 +1715,6 @@ HTML_PAGE = """<!DOCTYPE html>
       <h1>🎬 PlayRepo Pro</h1>
       <span class="badge-os">macOS Edition</span>
       <span id="status-badge" class="badge badge-ready">HAZIR</span>
-    </div>
-
-    <!-- TOP NAVIGATION TABS (Hızlı & Kolay Geçiş) -->
-    <div class="top-nav-tabs">
-      <button type="button" id="nav-tab-dashboard" class="nav-tab-btn active" onclick="switchNav('dashboard')">📊 Tarama</button>
-      <button type="button" id="nav-tab-catalog" class="nav-tab-btn" onclick="switchNav('catalog')">🎬 Nuvio Kataloğu</button>
-      <button type="button" id="nav-tab-single" class="nav-tab-btn" onclick="switchNav('single')">🎯 Özel Kurtar</button>
-      <button type="button" id="nav-tab-memory" class="nav-tab-btn" onclick="switchNav('memory')">💾 Hafıza & Arşiv</button>
-      <button type="button" id="nav-tab-settings" class="nav-tab-btn" onclick="switchNav('settings')">⚙️ Ayarlar</button>
     </div>
 
     <div class="header-actions">
@@ -1932,25 +1907,25 @@ HTML_PAGE = """<!DOCTYPE html>
 
   <!-- FIXED BOTTOM DOCK NAVIGATION -->
   <nav class="bottom-dock">
-    <button type="button" id="dock-btn-dashboard" class="dock-btn active" onclick="switchNav('dashboard')">
+    <button type="button" id="dock-btn-dashboard" class="dock-btn active" onclick="switchNav('dashboard')" onmousedown="switchNav('dashboard')">
       <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       <span>Tarama</span>
     </button>
-    <button type="button" id="dock-btn-catalog" class="dock-btn" onclick="switchNav('catalog')">
+    <button type="button" id="dock-btn-catalog" class="dock-btn" onclick="switchNav('catalog')" onmousedown="switchNav('catalog')">
       <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
       <span>Nuvio</span>
       <span id="dock-badge-catalog" class="dock-badge">0</span>
     </button>
-    <button type="button" id="dock-btn-single" class="dock-btn" onclick="switchNav('single')">
+    <button type="button" id="dock-btn-single" class="dock-btn" onclick="switchNav('single')" onmousedown="switchNav('single')">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
       <span>Özel Kurtar</span>
     </button>
-    <button type="button" id="dock-btn-memory" class="dock-btn" onclick="switchNav('memory')">
+    <button type="button" id="dock-btn-memory" class="dock-btn" onclick="switchNav('memory')" onmousedown="switchNav('memory')">
       <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
       <span>Hafıza</span>
       <span id="dock-badge-memory" class="dock-badge" style="background:#3b82f6;">0</span>
     </button>
-    <button type="button" id="dock-btn-settings" class="dock-btn" onclick="switchNav('settings')">
+    <button type="button" id="dock-btn-settings" class="dock-btn" onclick="switchNav('settings')" onmousedown="switchNav('settings')">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
       <span>Ayarlar</span>
     </button>
@@ -1973,17 +1948,25 @@ HTML_PAGE = """<!DOCTYPE html>
     }
 
     function switchNav(view) {
-      document.querySelectorAll('.view-pane').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.dock-btn').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.nav-tab-btn').forEach(el => el.classList.remove('active'));
+      if (!view) return;
+      document.querySelectorAll('.view-pane').forEach(el => {
+        el.classList.remove('active');
+        el.style.display = 'none';
+      });
+      document.querySelectorAll('.dock-btn').forEach(el => {
+        el.classList.remove('active');
+      });
 
       const targetPane = document.getElementById('view-' + view);
       const targetBtn = document.getElementById('dock-btn-' + view);
-      const targetNavTab = document.getElementById('nav-tab-' + view);
 
-      if (targetPane) targetPane.classList.add('active');
-      if (targetBtn) targetBtn.classList.add('active');
-      if (targetNavTab) targetNavTab.classList.add('active');
+      if (targetPane) {
+        targetPane.classList.add('active');
+        targetPane.style.display = 'block';
+      }
+      if (targetBtn) {
+        targetBtn.classList.add('active');
+      }
 
       if (view === 'catalog') loadPublishedMovies();
       if (view === 'memory') { loadProcessedUrls(); loadHistoryMovies(); }
@@ -1994,11 +1977,10 @@ HTML_PAGE = """<!DOCTYPE html>
       ['dashboard', 'catalog', 'single', 'memory', 'settings'].forEach(v => {
         const btn = document.getElementById('dock-btn-' + v);
         if (btn) {
-          btn.onclick = (e) => { e.preventDefault(); switchNav(v); };
-        }
-        const navBtn = document.getElementById('nav-tab-' + v);
-        if (navBtn) {
-          navBtn.onclick = (e) => { e.preventDefault(); switchNav(v); };
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchNav(v);
+          });
         }
       });
     }
