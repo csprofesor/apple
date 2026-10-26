@@ -1230,17 +1230,22 @@ class GitHubAtomicPublisher:
             return any(any(tgt in g for tgt in genres) for g in g_list)
 
         cat_configs = {
-            "playrepo/catalog/movie/playrepo-popular.json": lambda x: True,
-            "playrepo/catalog/movie/playrepo-catalog-movies.json": lambda x: True,
-            "playrepo/catalog/movie/playrepo-aksiyon.json": lambda x: has_genre(x, "aksiyon", "macera"),
-            "playrepo/catalog/movie/playrepo-komedi.json": lambda x: has_genre(x, "komedi", "mizah"),
-            "playrepo/catalog/movie/playrepo-dram.json": lambda x: has_genre(x, "dram", "romantik"),
-            "playrepo/catalog/movie/playrepo-korku.json": lambda x: has_genre(x, "korku", "gerilim"),
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json": lambda x: has_genre(x, "bilim", "kurgu", "fantastik"),
-            "playrepo/catalog/movie/playrepo-animasyon.json": lambda x: has_genre(x, "animasyon", "çizgi", "anime", "animation"),
-            "playrepo/catalog/movie/playrepo-belgesel.json": lambda x: has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history"),
-            "playrepo/catalog/movie/playrepo-suc.json": lambda x: has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
-            "playrepo/catalog/series/playrepo-series-popular.json": lambda x: x.get("type") == "series"
+            "playrepo/catalog/movie/playrepo-popular.json": lambda x: x.get("type", "movie") == "movie",
+            "playrepo/catalog/movie/playrepo-catalog-movies.json": lambda x: x.get("type", "movie") == "movie",
+            "playrepo/catalog/movie/playrepo-aksiyon.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "aksiyon", "macera"),
+            "playrepo/catalog/movie/playrepo-komedi.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "komedi", "mizah"),
+            "playrepo/catalog/movie/playrepo-dram.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "dram", "romantik"),
+            "playrepo/catalog/movie/playrepo-korku.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "korku", "gerilim"),
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "bilim", "kurgu", "fantastik"),
+            "playrepo/catalog/movie/playrepo-animasyon.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "animasyon", "çizgi", "anime", "animation"),
+            "playrepo/catalog/movie/playrepo-belgesel.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "belgesel", "tarih", "biyografi", "documentary", "history"),
+            "playrepo/catalog/movie/playrepo-suc.json": lambda x: x.get("type", "movie") == "movie" and has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
+            "playrepo/catalog/series/playrepo-series-popular.json": lambda x: x.get("type") == "series",
+            "playrepo/catalog/series/playrepo-series-dram.json": lambda x: x.get("type") == "series" and has_genre(x, "dram", "romantik"),
+            "playrepo/catalog/series/playrepo-series-aksiyon.json": lambda x: x.get("type") == "series" and has_genre(x, "aksiyon", "macera"),
+            "playrepo/catalog/series/playrepo-series-komedi.json": lambda x: x.get("type") == "series" and has_genre(x, "komedi", "mizah"),
+            "playrepo/catalog/series/playrepo-series-suc.json": lambda x: x.get("type") == "series" and has_genre(x, "suç", "suc", "polisiye", "gizem", "crime", "mystery"),
+            "playrepo/catalog/series/playrepo-series-bilimkurgu.json": lambda x: x.get("type") == "series" and has_genre(x, "bilim", "kurgu", "fantastik")
         }
 
         for path, pred in cat_configs.items():
@@ -1339,7 +1344,12 @@ class GitHubAtomicPublisher:
             "playrepo/catalog/movie/playrepo-animasyon.json": empty_catalog,
             "playrepo/catalog/movie/playrepo-belgesel.json": empty_catalog,
             "playrepo/catalog/movie/playrepo-suc.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-popular.json": empty_catalog
+            "playrepo/catalog/series/playrepo-series-popular.json": empty_catalog,
+            "playrepo/catalog/series/playrepo-series-dram.json": empty_catalog,
+            "playrepo/catalog/series/playrepo-series-aksiyon.json": empty_catalog,
+            "playrepo/catalog/series/playrepo-series-komedi.json": empty_catalog,
+            "playrepo/catalog/series/playrepo-series-suc.json": empty_catalog,
+            "playrepo/catalog/series/playrepo-series-bilimkurgu.json": empty_catalog
         }
 
         ref_data = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/ref/heads/{DEFAULT_BRANCH}", token=self.token)
@@ -1355,7 +1365,7 @@ class GitHubAtomicPublisher:
             for path, content in files_to_commit.items()
         ]
 
-        # Mevcut ağacı recursive çekip playrepo/meta ve playrepo/stream altındaki tüm dosyaları sha: None yaparak sil
+        # Mevcut ağacı recursive çekip meta ve stream dosyalarını sil, ve tüm katalog dosyalarını boşalt
         try:
             full_tree = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/trees/{base_tree_sha}?recursive=1", token=self.token)
             for item in full_tree.get("tree", []):
@@ -1363,6 +1373,9 @@ class GitHubAtomicPublisher:
                 if p.startswith("playrepo/meta/") or p.startswith("playrepo/stream/"):
                     if item.get("type") == "blob":
                         tree_items.append({"path": p, "mode": "100644", "type": "blob", "sha": None})
+                elif p.startswith("playrepo/catalog/") and p.endswith(".json"):
+                    if item.get("type") == "blob" and p not in files_to_commit:
+                        tree_items.append({"path": p, "mode": "100644", "type": "blob", "content": empty_catalog})
         except Exception:
             pass
 
