@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-ribaund",
+    "type": "movie",
+    "name": "Ribaund",
+    "poster": "https://filmdozu.com/assets/img/10193.jpg",
+    "background": "https://filmdozu.com/assets/img/10193.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Roy McCormick, basketbol sahasının tozunu yutmuş, hayatını bu tutkuya adamış bir koç. Ancak bu kez karşısında zorlu bir rakip var: çocuklardan oluşan bir kolej ...",
+    "releaseInfo": "2005",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-ribaund",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-ribaund",
+        "title": "Ribaund",
+        "released": "2005-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
