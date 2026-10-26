@@ -70,15 +70,21 @@ def http_json(url: str, method: str = "GET", data: dict = None, token: str = Non
     cmd += ["-H", "User-Agent: PlayRepo-MacOS"]
     if token:
         cmd += ["-H", f"Authorization: token {token}"]
+    input_str = None
     if data is not None:
         cmd += ["-H", "Content-Type: application/json"]
-        cmd += ["-d", json.dumps(data)]
+        cmd += ["--data-binary", "@-"]
+        input_str = json.dumps(data)
     cmd.append(url)
     try:
-        res = subprocess.run(cmd, capture_output=True, text=True, errors="ignore")
-        return json.loads(res.stdout) if res.stdout else {}
-    except Exception:
-        return {}
+        res = subprocess.run(cmd, input=input_str, capture_output=True, text=True, errors="ignore")
+        if res.stdout and res.stdout.strip().startswith(("{", "[")):
+            return json.loads(res.stdout)
+        elif res.stdout:
+            return {"message": res.stdout.strip()[:300]}
+        return {"message": res.stderr.strip() if res.stderr else "Boş yanıt alındı"}
+    except Exception as e:
+        return {"message": str(e)}
 
 def fetch_github_file(path: str, token: str = None, timeout: int = 15) -> dict:
     """
