@@ -1,0 +1,52 @@
+{
+  "streams": [
+    {
+      "name": "Play",
+      "title": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "url": "https://gate-2-an-p.vmnow.online/hls2/01/02030/p80oo5yyroqn_n/master.m3u8?t=JxyFXBqIIBvNMLNun6Iv7PO1sKyQKxpysREwVogEHak=&s=1793036418&e=43200&v=&srv=s-box-u-4&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-p80oo5yyroqn.html?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-p80oo5yyroqn.html?autoplay=0&amp;rel=0"
+      }
+    },
+    {
+      "name": "Play",
+      "title": "Play • Altyazı 2 • 1080p • [TR Altyazılı]",
+      "url": "https://vd1.okcdn.ru/video.m3u8?cmd=videoPlayerCdn&expires=1793122819638&srcIp=85.107.102.169&pr=10&srcAg=CHROME&ch=-536166974&ms=176.112.172.39&type=2&sig=6Maj6_pKLaw&ct=8&urls=95.163.35.41&clientType=0&zs=65&id=7379509774929",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/8694184217169?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/8694184217169?autoplay=0&amp;rel=0"
+      }
+    },
+    {
+      "name": "Play",
+      "title": "Play • Altyazı 3 • 1080p • [TR Altyazılı]",
+      "url": "https://vd196.okcdn.ru/video.m3u8?cmd=videoPlayerCdn&expires=1793122820144&srcIp=85.107.102.169&pr=10&srcAg=CHROME_MAC&ch=-536166974&ms=95.163.35.41&type=2&sig=EPvFY_YD4lU&ct=8&urls=178.237.23.39&clientType=0&zs=65&id=7705796872959",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/2827268328017?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/2827268328017?autoplay=0&amp;rel=0"
+      }
+    },
+    {
+      "name": "Play",
+      "title": "Play • Altyazı 4 • 1080p • [TR Altyazılı]",
+      "url": "https://ok6-30.vkuser.net/video.m3u8?cmd=videoPlayerCdn&expires=1793122820623&srcIp=85.107.102.169&pr=10&srcAg=CHROME&ch=-536166974&ms=95.142.206.34&type=2&sig=OvXWBLUnD6c&ct=8&urls=178.237.23.39%3B95.163.35.41&clientType=0&zs=65&id=7736707713725",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/961320192699?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/961320192699?autoplay=0&amp;rel=0"
+      }
+    }
+  ]
+}
