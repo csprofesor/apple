@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "playrepo-baskerviller-kopegi-efsanesi",
+    "type": "movie",
+    "name": "Baskerviller Köpeği Efsanesi",
+    "poster": "https://filmdozu.com/assets/img/3973.jpg",
+    "background": "https://filmdozu.com/assets/img/3973.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "19. yüzyılın sonlarında, Devonshire&#039;ın sisli ve gizemli kırsalında bir malikâne, geçmişin karanlık gölgeleriyle çevrilidir. Sir Henry Baskerville (Christopher L...",
+    "releaseInfo": "1959",
+    "genres": [
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-baskerviller-kopegi-efsanesi",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-baskerviller-kopegi-efsanesi",
+        "title": "Baskerviller Köpeği Efsanesi",
+        "released": "1959-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
