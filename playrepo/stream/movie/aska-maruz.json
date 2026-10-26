@@ -1,0 +1,46 @@
+{
+  "streams": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://prx-1357-ant-v.vmget.online/hls2/03/01576/4gbpiz5v6rsa_,n,l,.urlset/master.m3u8?t=7QKr7pXo5qtt9823DJfMKIcR8JJw3Xv98t44ebn4mVE=&s=1793048323&e=43200&v=&srv=box-1400-p10&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-4gbpiz5v6rsa.html?autoplay=0&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-4gbpiz5v6rsa.html?autoplay=0&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-4gbpiz5v6rsa.html?autoplay=0&rel=0"
+          }
+        }
+      }
+    },
+    {
+      "name": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "title": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "url": "https://prx-1357-ant-v.vmget.online/hls2/03/01576/4gbpiz5v6rsa_,n,l,.urlset/master.m3u8?t=QBrbq5usqOKlTs8hdAmo0zuzWmHrjAepdDAUyLgcrao=&s=1793048322&e=43200&v=&srv=box-1400-p10&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-4gbpiz5v6rsa.html?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-4gbpiz5v6rsa.html?autoplay=1&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-4gbpiz5v6rsa.html?autoplay=1&rel=0"
+          }
+        }
+      }
+    }
+  ]
+}
