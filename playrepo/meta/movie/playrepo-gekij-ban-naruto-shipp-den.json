@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-gekij-ban-naruto-shipp-den",
+    "type": "movie",
+    "name": "Gekijô-ban Naruto shippûden",
+    "poster": "https://filmdozu.com/assets/img/6158.jpg",
+    "background": "https://filmdozu.com/assets/img/6158.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Gizemin ve tehlikenin nefes kesici dansı, yıllar önce gerçekleşen büyük bir savaşı yeniden alevlendiriyor. Mouryou adlı şeytan, bir zamanlar dünyayı egemenliği ...",
+    "releaseInfo": "2007",
+    "genres": [
+      "Popüler",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Suç, Polisiye & Gizem",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-gekij-ban-naruto-shipp-den",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-gekij-ban-naruto-shipp-den",
+        "title": "Gekijô-ban Naruto shippûden",
+        "released": "2007-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
