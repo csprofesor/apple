@@ -622,5 +622,28 @@
         }
       }
     }
+  ],
+  "playrepo-i-mha-takimi": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://vd296.okcdn.ru/video.m3u8?cmd=videoPlayerCdn&expires=1793132639636&srcIp=85.107.102.169&pr=10&srcAg=CHROME&ch=-536166974&ms=185.180.203.46&type=2&sig=184jziFn6q0&ct=8&urls=176.112.172.39&clientType=0&zs=65&id=7707318225663",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/3488160614993?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/3488160614993?autoplay=1&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://ok.ru/videoembed/3488160614993?autoplay=1&rel=0"
+          }
+        }
+      }
+    }
   ]
 }
