@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-k-p-rdama",
+    "type": "movie",
+    "name": "Kıpırdama",
+    "poster": "https://filmdozu.com/assets/img/2721.jpg",
+    "background": "https://filmdozu.com/assets/img/2721.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Kendini doğanın kucağında bulmayı uman kederli bir kadın, ormanın derinliklerinde huzuru ararken beklenmedik bir tehlikeyle yüzleşir. Sessizliğin içinde, tanıma...",
+    "releaseInfo": "2024",
+    "genres": [
+      "Aksiyon & Macera",
+      "Belgesel & Tarih",
+      "Komedi",
+      "Korku & Gerilim",
+      "Popüler",
+      "Suç, Polisiye & Gizem",
+      "Dram & Romantik",
+      "Animasyon & Çizgi Dizi",
+      "Bilim Kurgu & Fantastik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-k-p-rdama",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-k-p-rdama",
+        "title": "Kıpırdama",
+        "released": "2024-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}

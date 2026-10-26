@@ -1,0 +1,88 @@
+{
+  "streams": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://vd196.okcdn.ru/video.m3u8?cmd=videoPlayerCdn&expires=1793129997509&srcIp=85.107.102.169&pr=10&srcAg=CHROME&ch=-536166974&ms=95.163.35.41&type=2&sig=NMxFO2oqre0&ct=8&urls=176.112.172.39&clientType=0&zs=65&id=7487197153873",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/8822942730833?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/8822942730833?autoplay=0&amp;rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://ok.ru/videoembed/8822942730833?autoplay=0&amp;rel=0"
+          }
+        }
+      }
+    },
+    {
+      "name": "Play • Dublaj 2 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 2 • 1080p • [TR Dublaj]",
+      "url": "https://vd1.okcdn.ru/video.m3u8?cmd=videoPlayerCdn&expires=1793129998566&srcIp=85.107.102.169&pr=10&srcAg=CHROME&ch=-536166974&ms=176.112.172.39&type=2&sig=KugZ5vqP_EQ&ct=8&urls=185.180.203.46&clientType=0&zs=65&id=7487202003537",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://ok.ru/videoembed/8822942861905?autoplay=1&rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://ok.ru/videoembed/8822942861905?autoplay=1&rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://ok.ru/videoembed/8822942861905?autoplay=1&rel=0"
+          }
+        }
+      }
+    },
+    {
+      "name": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "title": "Play • Altyazı 1 • 1080p • [TR Altyazılı]",
+      "url": "https://prx-1317-ant.vmpx.online/hls2/04/01850/vixhhka5fz94_n/master.m3u8?t=j3uNAyXuBbT101Jvi1oabUC7aB8hLgW8FfvEfKzE1Xg=&s=1793043600&e=43200&v=&srv=box-c-o-l-2&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-vixhhka5fz94.html?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-vixhhka5fz94.html?autoplay=0&amp;rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-vixhhka5fz94.html?autoplay=0&amp;rel=0"
+          }
+        }
+      }
+    },
+    {
+      "name": "Play • Altyazı 2 • 1080p • [TR Altyazılı]",
+      "title": "Play • Altyazı 2 • 1080p • [TR Altyazılı]",
+      "url": "https://prx-1559-ant.vmpx.online/hls2/01/02030/p80oo5yyroqn_n/master.m3u8?t=7mnp_mgZtknRkd1r_RUD-DWt178oIacudqQ0rEDg5Uk=&s=1793043602&e=43200&v=&srv=s-box-u-4&i=0.4&sp=0&asn=47331",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://vidmoly.net/embed-p80oo5yyroqn.html?autoplay=0&amp;rel=0",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://vidmoly.net/embed-p80oo5yyroqn.html?autoplay=0&amp;rel=0"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://vidmoly.net/embed-p80oo5yyroqn.html?autoplay=0&amp;rel=0"
+          }
+        }
+      }
+    }
+  ]
+}
