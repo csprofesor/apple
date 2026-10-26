@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "id": "tt0058529",
+    "type": "movie",
+    "name": "Robin and the 7 Hoods",
+    "poster": "https://m.media-amazon.com/images/M/MV5BOWRiODYwZmYtYTAwMy00YmYzLThkY2EtYjI3ODJiN2UwYzI0XkEyXkFqcGc%40._V1_SX250.jpg",
+    "background": "https://m.media-amazon.com/images/M/MV5BOWRiODYwZmYtYTAwMy00YmYzLThkY2EtYjI3ODJiN2UwYzI0XkEyXkFqcGc%40._V1_SX250.jpg",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Chicago, içki yasağının gölgesinde karanlık bir dönemin sahnesi. Şehrin güney yakası Big Jim&#039;in, kuzeyi ise Robbo&#039;nun (F. Sinatra) kontrolü altında. Ancak işler...",
+    "releaseInfo": "1964",
+    "genres": [
+      "Komedi",
+      "Suç, Polisiye & Gizem"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "tt0058529",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "tt0058529",
+        "title": "Robin and the 7 Hoods",
+        "released": "1964-01-01T00:00:00.000Z"
+      }
+    ]
+  }
+}
