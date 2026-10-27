@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-fildisi-kral",
+      "type": "movie",
+      "name": "Fildişi Kral",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lUvZ5DbcmPBFuTxLFEnSbsscpOe.webp?v=1785556342",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lUvZ5DbcmPBFuTxLFEnSbsscpOe.webp?v=1785556342",
+      "description": "Fildişi Kral (2025) full HD, Türkçe dublaj ve altyazılı izle. Gerçek olaylara dayanır, Fentanil (nam-ı diğer Fildişi Kral), hapishane çetelerinin elindedir. Okl...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "130 dk"
+    },
+    {
       "id": "playrepo-kayip-dunya",
       "type": "movie",
       "name": "Kayıp Dünya",
@@ -1207,23 +1224,6 @@
       ],
       "posterShape": "poster",
       "runtime": "108 dk"
-    },
-    {
-      "id": "playrepo-uykucu",
-      "type": "movie",
-      "name": "Uykucu",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fOAIBZQOyqktxjpedHZKTDJegkt.webp?v=1785165559",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fOAIBZQOyqktxjpedHZKTDJegkt.webp?v=1785165559",
-      "description": "Uykucu (2025) full HD, Türkçe dublaj ve altyazılı izle. Ferman, &quot;Masa&quot; adlı gizli örgüt adına eski ajanları ortadan kaldıran soğukkanlı bir tetikçidir. Bir göre...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "123 dk"
     }
   ]
 }
