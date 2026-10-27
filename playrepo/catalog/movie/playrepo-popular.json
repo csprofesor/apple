@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-gercek-sahtek-r",
+      "type": "movie",
+      "name": "Gerçek Sahtekâr",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uHavtqbnMDcwqVK9Y94ZQSWxtCw.webp?v=1785224356",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uHavtqbnMDcwqVK9Y94ZQSWxtCw.webp?v=1785224356",
+      "description": "Gerçek Sahtekâr (2025) full HD, Türkçe dublaj ve altyazılı izle. Gerçek olaylardan esinlenen bu dram filminde 1970&#039;lerin Roması&#039;nda gelecek vadeden bir ressam,....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "110 dk"
+    },
+    {
       "id": "playrepo-alacakli",
       "type": "movie",
       "name": "Alacaklı",
@@ -1023,21 +1040,6 @@
       ],
       "posterShape": "poster",
       "runtime": "104 dk"
-    },
-    {
-      "id": "playrepo-gecenin-kiyisi",
-      "type": "movie",
-      "name": "Gecenin Kıyısı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/KGCttSZur3PC2CjUS1eBfHDXOU.webp?v=1785126281",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/KGCttSZur3PC2CjUS1eBfHDXOU.webp?v=1785126281",
-      "description": "Gecenin Kıyısı (2025) full HD, Türkçe dublaj ve altyazılı izle. Gecenin Kıyısı, bir askeri darbenin hemen öncesinde, görevi ile ailesi arasında kalan iki kardeş...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "85 dk"
     }
   ]
 }
