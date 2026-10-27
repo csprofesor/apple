@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "id": "playrepo-arzular",
+    "type": "movie",
+    "name": "Arzular",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oBter8Y5p2ZFUwWgQ1T9pulGFTJ.webp?v=1785058581",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oBter8Y5p2ZFUwWgQ1T9pulGFTJ.webp?v=1785058581",
+    "description": "Arzular (2026) full HD, Türkçe dublaj ve altyazılı izle. Evli bir avukat kızının yüzme koçu ile yasak bir ilişkiye başlayınca, kavurucu bir aşk herkesin kontrol...",
+    "releaseInfo": "2026",
+    "genres": [
+      "Dram & Romantik",
+      "Komedi",
+      "Aksiyon & Macera",
+      "Popüler",
+      "Netflix",
+      "Belgesel & Tarih",
+      "Bilim Kurgu & Fantastik",
+      "Korku & Gerilim",
+      "Suç & Polisiye",
+      "Animasyon & Aile"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-arzular",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-arzular",
+        "title": "Arzular",
+        "name": "Arzular",
+        "released": "2026-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "97 dk"
+  }
+}
