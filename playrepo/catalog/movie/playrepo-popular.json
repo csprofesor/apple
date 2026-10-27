@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-ani-saldiri",
+      "type": "movie",
+      "name": "Ani Saldırı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hniERZojXCEc7Fp3yljZUigOAhm.webp?v=1785543147",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hniERZojXCEc7Fp3yljZUigOAhm.webp?v=1785543147",
+      "description": "Ani Saldırı (2026) full HD, Türkçe dublaj ve altyazılı izle. Yıkıcı bir kasırga bir sahil kasabasını vurduğunda mahsur kalan halk, hızla yükselen sularda gezine...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "84 dk"
+    },
+    {
       "id": "playrepo-karanligin-gozleri",
       "type": "movie",
       "name": "Karanlığın Gözleri",
@@ -1017,21 +1032,6 @@
       ],
       "posterShape": "poster",
       "runtime": "126 dk"
-    },
-    {
-      "id": "playrepo-metruk-adam",
-      "type": "movie",
-      "name": "Metruk Adam",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/j5FNYFaSXmD3T0WAYDAvguEPVOv.webp?v=1785138436",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/j5FNYFaSXmD3T0WAYDAvguEPVOv.webp?v=1785138436",
-      "description": "Metruk Adam (2025) full HD, Türkçe dublaj ve altyazılı izle. Ağabeyinin işlediği bir suç yüzünden yıllarca hapis yatan bir adam, kırgın hâlde ailesiyle yeniden....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "91 dk"
     }
   ]
 }
