@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "tt39105882",
+      "type": "movie",
+      "name": "D.I.S.C.O.",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMjI4NDc1YWItNjNhOC00ZjU2LTk2OTQtNTQzMDY0ZmExZDY3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMjI4NDc1YWItNjNhOC00ZjU2LTk2OTQtNTQzMDY0ZmExZDY3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "D.I.S.C.O. (2026) full HD, Türkçe dublaj ve altyazılı izle. D.I.S.C.O. istihbarat teşkilatının uzun zamandır gizlilikle yürüttüğü operasyon, Ajan Ertan yüzünd...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt39105882/img",
+      "runtime": "102 dk"
+    },
+    {
       "id": "playrepo-ugultulu-tepeler",
       "type": "movie",
       "name": "“Uğultulu Tepeler”",
@@ -1160,22 +1176,6 @@
         "Popüler"
       ],
       "posterShape": "poster"
-    },
-    {
-      "id": "playrepo-heartstopper-sonsuza-dek",
-      "type": "movie",
-      "name": "Heartstopper: Sonsuza Dek",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wG6yUcgv4xaj64KX7SSPEwBGXW0.webp?v=1785063200",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wG6yUcgv4xaj64KX7SSPEwBGXW0.webp?v=1785063200",
-      "description": "Heartstopper: Sonsuza Dek (2026) full HD, Türkçe dublaj ve altyazılı izle. Bu film, T.C. Aile ve Sosyal Hizmetler Bakanlığı Muzır Neşriyat Kurulunca küçükler iç...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler",
-        "Netflix"
-      ],
-      "posterShape": "poster",
-      "runtime": "110 dk"
     }
   ]
 }
