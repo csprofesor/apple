@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-monako-039-da-cinayet",
+      "type": "movie",
+      "name": "Monako&#039;da Cinayet",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tlyKdcUn2qIBXpnCLw1uEqsRz8w.webp?v=1785690535",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tlyKdcUn2qIBXpnCLw1uEqsRz8w.webp?v=1785690535",
+      "description": "Monako&#039;da Cinayet (2025) full HD, Türkçe dublaj ve altyazılı izle. Monako, 1999. Dünyanın en zengin adamlarından biri yaşadığı çatı katı dairesinde ölü bulunur....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Suç & Polisiye",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "90 dk"
+    },
+    {
       "id": "tt33312131",
       "type": "movie",
       "name": "Mantis",
@@ -1192,42 +1208,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=SJWRY4DzoAQ",
       "runtime": "149 dk"
-    },
-    {
-      "id": "tt17023012",
-      "type": "movie",
-      "name": "The Home",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZTEzZTFhODQtMDYxZi00YTdmLWIzN2UtYzMyODQxMmU2YzZmXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZTEzZTFhODQtMDYxZi00YTdmLWIzN2UtYzMyODQxMmU2YzZmXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "The Home (2025) full HD, Türkçe dublaj ve altyazılı izle. Karanlık bir geçmişe sahip olan Max, bir huzurevinde işe başladıktan kısa süre sonra kurumdaki sakinle...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt17023012/img",
-      "trailers": [
-        {
-          "source": "EVjvYF_geAU",
-          "type": "Trailer"
-        },
-        {
-          "source": "xRWYNpg5YRA",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "The Home",
-          "ytId": "EVjvYF_geAU"
-        },
-        {
-          "title": "The Home",
-          "ytId": "xRWYNpg5YRA"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=EVjvYF_geAU",
-      "runtime": "95 dk"
     }
   ]
 }
