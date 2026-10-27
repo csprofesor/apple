@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-primat",
+      "type": "movie",
+      "name": "Primat",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/d5C5Wsx4fnMRA0tj9BK1kTPcgQe.webp?v=1785224361",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/d5C5Wsx4fnMRA0tj9BK1kTPcgQe.webp?v=1785224361",
+      "description": "Primat (2026) full HD, Türkçe dublaj ve altyazılı izle. Üniversiteden eve dönen Lucy, evcil şempanze Ben de dâhil olmak üzere ailesiyle yeniden bir araya gelir....",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "92 dk"
+    },
+    {
       "id": "playrepo-gercek-sahtek-r",
       "type": "movie",
       "name": "Gerçek Sahtekâr",
@@ -1024,22 +1039,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=n6scQ_ds0x8",
       "runtime": "120 dk"
-    },
-    {
-      "id": "playrepo-gelin-takimi-2",
-      "type": "movie",
-      "name": "Gelin Takımı 2",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fsOyHRp06qUsls0SUsgM8eHaZdq.webp?v=1785126903",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fsOyHRp06qUsls0SUsgM8eHaZdq.webp?v=1785126903",
-      "description": "Gelin Takımı 2 (2025) full HD, Türkçe dublaj ve altyazılı izle. Gelin Takımı uzun süredir kendi hayatlarının telaşına kapılmış, yolları da kalpleri de ayrı düşm...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "104 dk"
     }
   ]
 }

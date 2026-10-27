@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-primat",
+      "type": "movie",
+      "name": "Primat",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/d5C5Wsx4fnMRA0tj9BK1kTPcgQe.webp?v=1785224361",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/d5C5Wsx4fnMRA0tj9BK1kTPcgQe.webp?v=1785224361",
+      "description": "Primat (2026) full HD, Türkçe dublaj ve altyazılı izle. Üniversiteden eve dönen Lucy, evcil şempanze Ben de dâhil olmak üzere ailesiyle yeniden bir araya gelir....",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "92 dk"
+    },
+    {
       "id": "playrepo-gercek-sahtek-r",
       "type": "movie",
       "name": "Gerçek Sahtekâr",
