@@ -10896,5 +10896,75 @@
         }
       }
     }
+  ],
+  "playrepo-gokdelen-tirmanisi-canli-etkinlik": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=0e2bedd4019444a9f1cb21b587f65432&token=eyJ2IjoiMGUyYmVkZDQwMTk0NDRhOWYxY2IyMWI1ODdmNjU0MzIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDM5LCJuIjoiYzQwYTdiZWJkNWQ3In0.1b16a5a480933160cdeeec16e941c182d6b125f14b9a24b530ff5ac0cd8dc5cf&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=WgcZC8NIxva5AmTOZrDgiA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=WgcZC8NIxva5AmTOZrDgiA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=0e2bedd4019444a9f1cb21b587f65432&sid=9b9a13ffc303d8d836bad4cc9bdb247b&token=eyJ2IjoiMGUyYmVkZDQwMTk0NDRhOWYxY2IyMWI1ODdmNjU0MzIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDM5LCJuIjoiYzQwYTdiZWJkNWQ3In0.1b16a5a480933160cdeeec16e941c182d6b125f14b9a24b530ff5ac0cd8dc5cf&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=0e2bedd4019444a9f1cb21b587f65432&sid=ed70d2acfec9e5d834bf4a8b0c4e5f67&token=eyJ2IjoiMGUyYmVkZDQwMTk0NDRhOWYxY2IyMWI1ODdmNjU0MzIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDM5LCJuIjoiYzQwYTdiZWJkNWQ3In0.1b16a5a480933160cdeeec16e941c182d6b125f14b9a24b530ff5ac0cd8dc5cf&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=WgcZC8NIxva5AmTOZrDgiA"
+          }
+        }
+      }
+    }
+  ],
+  "gokdelen-tirmanisi-canli-etkinlik": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=0e2bedd4019444a9f1cb21b587f65432&token=eyJ2IjoiMGUyYmVkZDQwMTk0NDRhOWYxY2IyMWI1ODdmNjU0MzIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDM5LCJuIjoiYzQwYTdiZWJkNWQ3In0.1b16a5a480933160cdeeec16e941c182d6b125f14b9a24b530ff5ac0cd8dc5cf&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=WgcZC8NIxva5AmTOZrDgiA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=WgcZC8NIxva5AmTOZrDgiA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=0e2bedd4019444a9f1cb21b587f65432&sid=9b9a13ffc303d8d836bad4cc9bdb247b&token=eyJ2IjoiMGUyYmVkZDQwMTk0NDRhOWYxY2IyMWI1ODdmNjU0MzIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDM5LCJuIjoiYzQwYTdiZWJkNWQ3In0.1b16a5a480933160cdeeec16e941c182d6b125f14b9a24b530ff5ac0cd8dc5cf&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=0e2bedd4019444a9f1cb21b587f65432&sid=ed70d2acfec9e5d834bf4a8b0c4e5f67&token=eyJ2IjoiMGUyYmVkZDQwMTk0NDRhOWYxY2IyMWI1ODdmNjU0MzIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDM5LCJuIjoiYzQwYTdiZWJkNWQ3In0.1b16a5a480933160cdeeec16e941c182d6b125f14b9a24b530ff5ac0cd8dc5cf&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=WgcZC8NIxva5AmTOZrDgiA"
+          }
+        }
+      }
+    }
   ]
 }
