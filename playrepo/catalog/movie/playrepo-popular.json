@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-astronot",
+      "type": "movie",
+      "name": "Astronot",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3C01kAcKGR6FwsUUSOvJ8N82pqr.webp?v=1785562890",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3C01kAcKGR6FwsUUSOvJ8N82pqr.webp?v=1785562890",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Astronot (2025) full HD, Türkçe dublaj ve altyazılı izle. Uzayın derinliklerinden dönen astronot Sam Walker, NASA’nın gözetiminde yüksek güvenlikli bir tesise y...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "90 dk"
+    },
+    {
       "id": "playrepo-sore-gelecekten-gelen-es",
       "type": "movie",
       "name": "Sore: Gelecekten Gelen Eş",
@@ -1259,29 +1282,6 @@
       ],
       "posterShape": "poster",
       "runtime": "123 dk"
-    },
-    {
-      "id": "playrepo-birlikte",
-      "type": "movie",
-      "name": "Birlikte",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/39Niij05MXfibXBsHiUU0Ml0POX.webp?v=1785539024",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/39Niij05MXfibXBsHiUU0Ml0POX.webp?v=1785539024",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Birlikte (2025) full HD, Türkçe dublaj ve altyazılı izle. Romantik dramayı kara komedi ve body horror öğeleriyle harmanlayan Birlikte (Together), 10 yıla yaklaş...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Suç, Polisiye & Gizem",
-        "Korku & Gerilim",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
