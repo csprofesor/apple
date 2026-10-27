@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-nando-i-ki-dunya-arasinda",
+      "type": "movie",
+      "name": "Nando İki Dünya Arasında",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jQEBI1EQWspRVPCYzhoRi30fadD.webp?v=1786555976",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jQEBI1EQWspRVPCYzhoRi30fadD.webp?v=1786555976",
+      "description": "Nando İki Dünya Arasında (2026) full HD, Türkçe dublaj ve altyazılı izle. Nando İki Dünya Arasında, Sintonia evreninden doğa...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster"
+    },
+    {
       "id": "playrepo-kocamin-avukatiyim",
       "type": "movie",
       "name": "Kocamın Avukatıyım",
@@ -1226,22 +1241,6 @@
       ],
       "posterShape": "poster",
       "runtime": "119 dk"
-    },
-    {
-      "id": "playrepo-evimdeki-yabanci",
-      "type": "movie",
-      "name": "Evimdeki Yabancı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1Xxr8zwRZDNeUD65O9m663P6A5K.webp?v=1785677607",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1Xxr8zwRZDNeUD65O9m663P6A5K.webp?v=1785677607",
-      "description": "Evimdeki Yabancı (2025) full HD, Türkçe dublaj ve altyazılı izle. Ali, kocası Jeff ve kızları Katie&#039;nin aile hayatı, Tom Truby&#039;nin gelişiyle altüst olur. Truby,...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "88 dk"
     }
   ]
 }
