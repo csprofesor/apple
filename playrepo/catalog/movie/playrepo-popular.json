@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-anakonda",
+      "type": "movie",
+      "name": "Anakonda",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/swxhEJsAWms6X1fDZ4HdbvYBSf9.webp?v=1785542325",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/swxhEJsAWms6X1fDZ4HdbvYBSf9.webp?v=1785542325",
+      "description": "Anakonda (2025) full HD, Türkçe dublaj ve altyazılı izle. Yıllardır en sevdikleri film olan Anakonda&#039;yı yeniden çekmenin hayalini kuran iki arkadaş Doug ve Grif...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "100 dk"
+    },
+    {
       "id": "playrepo-zootropolis-2",
       "type": "movie",
       "name": "Zootropolis 2",
@@ -1017,34 +1034,6 @@
       ],
       "posterShape": "poster",
       "runtime": "100 dk"
-    },
-    {
-      "id": "tt39162904",
-      "type": "movie",
-      "name": "Queen of Chess",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZDRjZTJlYmQtZjMzMC00Y2U3LThjOWYtNDEzYmI0OWUyZWFmXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZDRjZTJlYmQtZjMzMC00Y2U3LThjOWYtNDEzYmI0OWUyZWFmXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Queen of Chess (2026) full HD, Türkçe dublaj ve altyazılı izle. A Hungarian girl dreams of conquering international men’s chess. After a 15-year battle against....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt39162904/img",
-      "trailers": [
-        {
-          "source": "8pmJgtLKBXg",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Queen of Chess",
-          "ytId": "8pmJgtLKBXg"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=8pmJgtLKBXg",
-      "runtime": "93 dk"
     }
   ]
 }

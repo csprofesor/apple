@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "playrepo-anakonda",
+    "type": "movie",
+    "name": "Anakonda",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/swxhEJsAWms6X1fDZ4HdbvYBSf9.webp?v=1785542325",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/swxhEJsAWms6X1fDZ4HdbvYBSf9.webp?v=1785542325",
+    "description": "Anakonda (2025) full HD, Türkçe dublaj ve altyazılı izle. Yıllardır en sevdikleri film olan Anakonda&#039;yı yeniden çekmenin hayalini kuran iki arkadaş Doug ve Grif...",
+    "releaseInfo": "2025",
+    "genres": [
+      "Komedi",
+      "Korku & Gerilim",
+      "Popüler",
+      "Aksiyon & Macera"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-anakonda",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-anakonda",
+        "title": "Anakonda",
+        "name": "Anakonda",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "100 dk"
+  }
+}
