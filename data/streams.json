@@ -8232,5 +8232,51 @@
         }
       }
     }
+  ],
+  "playrepo-seytanin-agzi": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=b6c9b28e0cd27149c2ee750ab8b484f9&token=eyJ2IjoiYjZjOWIyOGUwY2QyNzE0OWMyZWU3NTBhYjhiNDg0ZjkiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzA2ODk2LCJuIjoiNThmMmMzZWJhMjg1In0.0900ba81b4d69322626094099c88805f471dc08ff49e8d5e34d54ebaa7a551fd&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=hlsdlPA0xlAsYsDS3A3hSw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=hlsdlPA0xlAsYsDS3A3hSw"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=hlsdlPA0xlAsYsDS3A3hSw"
+          }
+        }
+      }
+    }
+  ],
+  "seytanin-agzi": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=b6c9b28e0cd27149c2ee750ab8b484f9&token=eyJ2IjoiYjZjOWIyOGUwY2QyNzE0OWMyZWU3NTBhYjhiNDg0ZjkiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzA2ODk2LCJuIjoiNThmMmMzZWJhMjg1In0.0900ba81b4d69322626094099c88805f471dc08ff49e8d5e34d54ebaa7a551fd&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=hlsdlPA0xlAsYsDS3A3hSw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=hlsdlPA0xlAsYsDS3A3hSw"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=hlsdlPA0xlAsYsDS3A3hSw"
+          }
+        }
+      }
+    }
   ]
 }
