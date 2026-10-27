@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-mars-in-hayaletleri",
+      "type": "movie",
+      "name": "Mars’ın Hayaletleri",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1loG5dSesKgwakjOET0Ll27jKgI.webp?v=1785637221",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1loG5dSesKgwakjOET0Ll27jKgI.webp?v=1785637221",
+      "description": "Mars’ın Hayaletleri (2001) full HD, Türkçe dublaj ve altyazılı izle. 2000&#039; lerin başarılı yapıtı &quot;John Carpenter&#039;s Vampires&quot; ve &quot;The Thing&quot;, &quot;Halloween&quot; gibi ko...",
+      "releaseInfo": "2001",
+      "genres": [
+        "Korku & Gerilim",
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "98 dk"
+    },
+    {
       "id": "playrepo-f1",
       "type": "movie",
       "name": "F1",
@@ -1117,21 +1134,6 @@
       ],
       "posterShape": "poster",
       "runtime": "123 dk"
-    },
-    {
-      "id": "playrepo-kara-dul-maje",
-      "type": "movie",
-      "name": "Kara Dul Maje",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pOR4Aye28KLZ5Jogu8zc3yiqBpT.webp?v=1785618295",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pOR4Aye28KLZ5Jogu8zc3yiqBpT.webp?v=1785618295",
-      "description": "Kara Dul Maje (2025) full HD, Türkçe dublaj ve altyazılı izle. Gerçek olaylardan uyarlanan bu gerilim filminde ölü bulunan bir adam için açılan soruşturma, kusu...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "122 dk"
     }
   ]
 }
