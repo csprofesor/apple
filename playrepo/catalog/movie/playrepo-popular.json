@@ -1,6 +1,44 @@
 {
   "metas": [
     {
+      "id": "tt26342662",
+      "type": "movie",
+      "name": "M3GAN 2.0",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMzFmNjVjZWQtZjI5Zi00YThiLTg0ZWItZDdjYzhhZDE1NTE2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMzFmNjVjZWQtZjI5Zi00YThiLTg0ZWItZDdjYzhhZDE1NTE2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "M3GAN 2.0 (2025) full HD, Türkçe dublaj ve altyazılı izle. M3GAN geri döndü! Bu sefer yalnız değil. Efsanevi katil bebeğin kanlı katliamının üzerinden iki yıl g...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Aksiyon & Macera",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt26342662/img",
+      "trailers": [
+        {
+          "source": "1FeiTZMtwLA",
+          "type": "Trailer"
+        },
+        {
+          "source": "IYLHdEzsk1s",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "M3GAN 2.0",
+          "ytId": "1FeiTZMtwLA"
+        },
+        {
+          "title": "M3GAN 2.0",
+          "ytId": "IYLHdEzsk1s"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=1FeiTZMtwLA",
+      "runtime": "120 dk"
+    },
+    {
       "id": "tt31974129",
       "type": "movie",
       "name": "Man with No Past",
@@ -1160,22 +1198,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-dugunden-once-olum",
-      "type": "movie",
-      "name": "Düğünden Önce Ölüm",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vgLIWB6i15FOdhOCirPZ6Qw5Wvh.webp?v=1785630200",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vgLIWB6i15FOdhOCirPZ6Qw5Wvh.webp?v=1785630200",
-      "description": "Düğünden Önce Ölüm (2025) full HD, Türkçe dublaj ve altyazılı izle. Maja nişanlısını eve getirdiğinde, geleneksel ebeveynleri mandıralarındaki krizin ortasında....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "106 dk"
     }
   ]
 }
