@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt39162904",
+      "type": "movie",
+      "name": "Queen of Chess",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZDRjZTJlYmQtZjMzMC00Y2U3LThjOWYtNDEzYmI0OWUyZWFmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZDRjZTJlYmQtZjMzMC00Y2U3LThjOWYtNDEzYmI0OWUyZWFmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Queen of Chess (2026) full HD, Türkçe dublaj ve altyazılı izle. A Hungarian girl dreams of conquering international men’s chess. After a 15-year battle against....",
+      "releaseInfo": "2026",
+      "genres": [
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "93 dk"
+    },
+    {
       "id": "tt33362137",
       "type": "movie",
       "name": "Kutsal Damacana 5: Zombi",
@@ -1247,28 +1262,6 @@
       ],
       "posterShape": "poster",
       "runtime": "157 dk"
-    },
-    {
-      "id": "playrepo-tom-clancy-039-den-jack-ryan-hayalet-savas",
-      "type": "movie",
-      "name": "Tom Clancy&#039;den Jack Ryan: Hayalet Savaş",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dd31qJxOarrHyGZwYsCzOjobQzP.webp?v=1785104337",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dd31qJxOarrHyGZwYsCzOjobQzP.webp?v=1785104337",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Tom Clancy&#039;den Jack Ryan: Hayalet Savaş (2026) full HD, Türkçe dublaj ve altyazılı izle. Bu yeni filmde Jack Ryan, uluslararası gizli bir görevin ölümcül bir ko...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Suç, Polisiye & Gizem",
-        "Korku & Gerilim",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "107 dk"
     }
   ]
 }
