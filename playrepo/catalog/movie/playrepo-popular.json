@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-saklambac-2",
+      "type": "movie",
+      "name": "Saklambaç 2",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fx2cEuadZK28VHKkc0F1nFR96i0.webp?v=1785103998",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fx2cEuadZK28VHKkc0F1nFR96i0.webp?v=1785103998",
+      "description": "Saklambaç 2 (2026) full HD, Türkçe dublaj ve altyazılı izle. Le Domas ailesinin ölümcül saldırısından sağ kurtulan Grace, kabus dolu oyunun henüz bitmediğini fa...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Aksiyon & Macera",
+        "Animasyon & Aile",
+        "Dram & Romantik",
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Hulu",
+        "Popüler",
+        "Suç & Polisiye",
+        "Korku & Gerilim",
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "104 dk"
+    },
+    {
       "id": "playrepo-damat",
       "type": "movie",
       "name": "Damat",
@@ -1443,28 +1466,6 @@
       ],
       "posterShape": "poster",
       "runtime": "89 dk"
-    },
-    {
-      "id": "playrepo-yolcu",
-      "type": "movie",
-      "name": "Yolcu",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3pDfu71mrzSuFYyIfnKEjt8z4BC.webp?v=1785056644",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3pDfu71mrzSuFYyIfnKEjt8z4BC.webp?v=1785056644",
-      "description": "Yolcu (2026) full HD, Türkçe dublaj ve altyazılı izle. Genç çift, otoyolda meydana gelen korkunç bir kazaya tanık olduktan sonra, çok geçmeden kaza yerinden yal...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Aile",
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Suç & Polisiye",
-        "Korku & Gerilim",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "94 dk"
     }
   ]
 }
