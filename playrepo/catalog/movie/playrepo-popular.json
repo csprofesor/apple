@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-olaganustu-akilli-yaratiklar",
+      "type": "movie",
+      "name": "Olağanüstü Akıllı Yaratıklar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bVGHSe47W6oCQL1Q88pvRAet51A.webp?v=1785106302",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bVGHSe47W6oCQL1Q88pvRAet51A.webp?v=1785106302",
+      "description": "Olağanüstü Akıllı Yaratıklar (2026) full HD, Türkçe dublaj ve altyazılı izle. Çok satan romandan uyarlanan bu etkileyici dramada dul bir kadın, geceleri çalıştı...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "114 dk"
+    },
+    {
       "id": "playrepo-kurtulus-projesi",
       "type": "movie",
       "name": "Kurtuluş Projesi",
@@ -1447,29 +1469,6 @@
       ],
       "posterShape": "poster",
       "runtime": "119 dk"
-    },
-    {
-      "id": "playrepo-arzular",
-      "type": "movie",
-      "name": "Arzular",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oBter8Y5p2ZFUwWgQ1T9pulGFTJ.webp?v=1785058581",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oBter8Y5p2ZFUwWgQ1T9pulGFTJ.webp?v=1785058581",
-      "description": "Arzular (2026) full HD, Türkçe dublaj ve altyazılı izle. Evli bir avukat kızının yüzme koçu ile yasak bir ilişkiye başlayınca, kavurucu bir aşk herkesin kontrol...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Netflix",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "97 dk"
     }
   ]
 }
