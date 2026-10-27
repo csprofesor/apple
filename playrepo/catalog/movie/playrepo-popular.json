@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-downton-abbey-buyuk",
+      "type": "movie",
+      "name": "Downton Abbey: Büyük",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jvzPTf0nhsqAXodYT6ILKb99IA2.webp?v=1785550351",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jvzPTf0nhsqAXodYT6ILKb99IA2.webp?v=1785550351",
+      "description": "Downton Abbey: Büyük Final (2025) full HD, Türkçe dublaj ve altyazılı izle. Mary&#039;nin kendini bir skandalın ortasında bulması ve ailenin maddi sıkıntı yaşaması s...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "123 dk"
+    },
+    {
       "id": "tt32323252",
       "type": "movie",
       "name": "Christy",
@@ -1129,36 +1144,6 @@
       ],
       "posterShape": "poster",
       "runtime": "94 dk"
-    },
-    {
-      "id": "tt32642706",
-      "type": "movie",
-      "name": "The Rip",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNjIzMGY3MzMtNDVlMS00MGU1LTkyNTItMmI4Mzk0Mjg3OTBkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNjIzMGY3MzMtNDVlMS00MGU1LTkyNTItMmI4Mzk0Mjg3OTBkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "The Rip (2026) full HD, Türkçe dublaj ve altyazılı izle. Miamili bir polis ekibi harap bir evde milyonlarca dolarlık nakit para bulunca kimsenin kimseye güveni....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt32642706/img",
-      "trailers": [
-        {
-          "source": "yeR5bcbRPak",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "The Rip",
-          "ytId": "yeR5bcbRPak"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=yeR5bcbRPak",
-      "runtime": "115 dk"
     }
   ]
 }
