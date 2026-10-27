@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-polly-mcclusky-nin-zor-egitimi",
+      "type": "movie",
+      "name": "Polly McClusky’nin Zor Eğitimi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ytCi1wg6YHpYcFRWCO2jpzN31Kf.webp?v=1785664791",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ytCi1wg6YHpYcFRWCO2jpzN31Kf.webp?v=1785664791",
+      "description": "Polly McClusky’nin Zor Eğitimi (2025) full HD, Türkçe dublaj ve altyazılı izle. Yıllarca hapis yattıktan sonra Nate, içeride birlikte çalıştığı güçlü suç çetesi...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Suç & Polisiye",
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "120 dk"
+    },
+    {
       "id": "playrepo-5-eylul",
       "type": "movie",
       "name": "5 Eylül",
@@ -1109,35 +1126,6 @@
       ],
       "posterShape": "poster",
       "runtime": "99 dk"
-    },
-    {
-      "id": "tt30446847",
-      "type": "movie",
-      "name": "Jay Kelly",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMWRlNDM1NjktZDkyYi00Zjk0LWE5MTQtNWEyNzMwODY1Njc5XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMWRlNDM1NjktZDkyYi00Zjk0LWE5MTQtNWEyNzMwODY1Njc5XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Jay Kelly (2025) full HD, Türkçe dublaj ve altyazılı izle. Oscar adayı Noah Baumbach&#039;ın yönettiği bu filmde sinema yıldızı Jay Kelly, sadık menajeriyle birlikte...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt30446847/img",
-      "trailers": [
-        {
-          "source": "I8GbcVkqZwQ",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Jay Kelly",
-          "ytId": "I8GbcVkqZwQ"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=I8GbcVkqZwQ",
-      "runtime": "132 dk"
     }
   ]
 }
