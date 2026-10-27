@@ -67,5 +67,28 @@
         }
       }
     }
+  ],
+  "playrepo-kis-ortasi-tatili": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=0c62d8ad90bf66d6fb3019bb0c1b7cd7&token=eyJ2IjoiMGM2MmQ4YWQ5MGJmNjZkNmZiMzAxOWJiMGMxYjdjZDciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzAyNzE2LCJuIjoiMDk1YTBjZTUwYzRjIn0.13feebd8ee0e1037c75c729cf7885a6eb5767b0f47d03faa0e15857a23859e5c&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=pWqyBPjvx75FUI22lx8G8A",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=pWqyBPjvx75FUI22lx8G8A"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=pWqyBPjvx75FUI22lx8G8A"
+          }
+        }
+      }
+    }
   ]
 }
