@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-askin-fotografi",
+      "type": "movie",
+      "name": "Aşkın Fotoğrafı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8JqwRue6rKwj2j8Ous9zifmtwvW.webp?v=1785660993",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8JqwRue6rKwj2j8Ous9zifmtwvW.webp?v=1785660993",
+      "description": "Aşkın Fotoğrafı (2025) full HD, Türkçe dublaj ve altyazılı izle. Bekâr ve sevgilisi olacak gibi görünmeyen Pia, can dostu Jay ile Londra&#039;da başarısız bir fotoğr...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "runtime": "100 dk"
+    },
+    {
       "id": "tt43601331",
       "type": "movie",
       "name": "Plankton",
@@ -1091,23 +1106,6 @@
       ],
       "posterShape": "poster",
       "runtime": "116 dk"
-    },
-    {
-      "id": "playrepo-kalp-gozler",
-      "type": "movie",
-      "name": "Kalp Gözler",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vh5FIqfosYaLWxCmZfSPjgUWWfn.webp?v=1785640490",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vh5FIqfosYaLWxCmZfSPjgUWWfn.webp?v=1785640490",
-      "description": "Kalp Gözler (2025) full HD, Türkçe dublaj ve altyazılı izle. İki iş arkadaşı, Sevgililer Günü&#039;nde Seattle&#039;da bir katil tarafından bir sevgili sanılır. Katilden...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "97 dk"
     }
   ]
 }
