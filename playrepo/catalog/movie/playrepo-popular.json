@@ -1,6 +1,43 @@
 {
   "metas": [
     {
+      "id": "tt26452616",
+      "type": "movie",
+      "name": "Giant",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYmIwNWQ3YjktOWY4ZC00NjhlLTg2NGUtMjc0NTRkOTM0YWJjXkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYmIwNWQ3YjktOWY4ZC00NjhlLTg2NGUtMjc0NTRkOTM0YWJjXkEyXkFqcGc%40._V1_.jpg",
+      "description": "Giant (2026) full HD, Türkçe dublaj ve altyazılı izle. Follows Prince Naseem Hamed from his humble beginnings on the tough working-class streets of Sheffield an...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt26452616/img",
+      "trailers": [
+        {
+          "source": "cqg5PtgeNRc",
+          "type": "Trailer"
+        },
+        {
+          "source": "iUYO2kk1Fek",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Giant",
+          "ytId": "cqg5PtgeNRc"
+        },
+        {
+          "title": "Giant",
+          "ytId": "iUYO2kk1Fek"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=cqg5PtgeNRc",
+      "runtime": "110 dk"
+    },
+    {
       "id": "playrepo-primat",
       "type": "movie",
       "name": "Primat",
@@ -994,51 +1031,6 @@
       "posterShape": "poster",
       "logo": "https://live.metahub.space/logo/medium/tt36622181/img",
       "runtime": "85 dk"
-    },
-    {
-      "id": "tt32606470",
-      "type": "movie",
-      "name": "Humint",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZjliZDRkZTYtYTBkNi00NzAxLTg0YmQtODE0YjVmNWNjNjhiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZjliZDRkZTYtYTBkNi00NzAxLTg0YmQtODE0YjVmNWNjNjhiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Humint (2026) full HD, Türkçe dublaj ve altyazılı izle. Rusya&#039;da bir uyuşturucu çetesinin izini süren Güney Koreli bir ajan, Kuzey Koreli bir ajanla karşı karşı...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt32606470/img",
-      "trailers": [
-        {
-          "source": "n6scQ_ds0x8",
-          "type": "Trailer"
-        },
-        {
-          "source": "rMx42FkANjQ",
-          "type": "Trailer"
-        },
-        {
-          "source": "QYALCiGQEtk",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Humint",
-          "ytId": "n6scQ_ds0x8"
-        },
-        {
-          "title": "Humint",
-          "ytId": "rMx42FkANjQ"
-        },
-        {
-          "title": "Humint",
-          "ytId": "QYALCiGQEtk"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=n6scQ_ds0x8",
-      "runtime": "120 dk"
     }
   ]
 }
