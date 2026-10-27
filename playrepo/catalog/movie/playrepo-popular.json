@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-bin-babanin-oglu",
+      "type": "movie",
+      "name": "Bin Babanın Oğlu",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7jiOCYtxAzaac6OXruH59QcoEjM.webp?v=1785659010",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7jiOCYtxAzaac6OXruH59QcoEjM.webp?v=1785659010",
+      "description": "Bin Babanın Oğlu (2025) full HD, Türkçe dublaj ve altyazılı izle. Küçük bir köyde yaşayan ve bir oğul özlemi çeken yalnız bir balıkçı, uhrevi bir ışık gördükten...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "126 dk"
+    },
+    {
       "id": "playrepo-aciya-yer-yok",
       "type": "movie",
       "name": "Acıya Yer Yok",
@@ -1114,35 +1129,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=ZL7R8qyQXrc",
       "runtime": "110 dk"
-    },
-    {
-      "id": "tt32360696",
-      "type": "movie",
-      "name": "French Lover",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZjE0Y2M4N2EtODMxNi00NGUyLTk1YzMtYjI5OGY2N2MyNTEyXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZjE0Y2M4N2EtODMxNi00NGUyLTk1YzMtYjI5OGY2N2MyNTEyXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "French Lover (2025) full HD, Türkçe dublaj ve altyazılı izle. Paris&#039;te tanışan bezgin bir oyuncu ve şansı yaver gitmeyen bir garson arasında beklenmedik bir aşk...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt32360696/img",
-      "trailers": [
-        {
-          "source": "41jJ_1s8ZyY",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "French Lover",
-          "ytId": "41jJ_1s8ZyY"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=41jJ_1s8ZyY",
-      "runtime": "122 dk"
     }
   ]
 }
