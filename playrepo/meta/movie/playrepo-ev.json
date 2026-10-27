@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-ev",
+    "type": "movie",
+    "name": "Ev",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hcii55OmihROMGzACr8M6oUXYbi.webp?v=1786917313",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hcii55OmihROMGzACr8M6oUXYbi.webp?v=1786917313",
+    "description": "Ev (2025) full HD, Türkçe dublaj ve altyazılı izle. Hülya ve Mustafa çocuklarının hayatlarına devam etmesi için çadırda geçen hayatı düzenlemeye çalışmaktadır.....",
+    "releaseInfo": "2025",
+    "genres": [
+      "Dram & Romantik",
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-ev",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-ev",
+        "title": "Ev",
+        "name": "Ev",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "92 dk"
+  }
+}

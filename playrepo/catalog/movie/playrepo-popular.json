@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-ev",
+      "type": "movie",
+      "name": "Ev",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hcii55OmihROMGzACr8M6oUXYbi.webp?v=1786917313",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hcii55OmihROMGzACr8M6oUXYbi.webp?v=1786917313",
+      "description": "Ev (2025) full HD, Türkçe dublaj ve altyazılı izle. Hülya ve Mustafa çocuklarının hayatlarına devam etmesi için çadırda geçen hayatı düzenlemeye çalışmaktadır.....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "92 dk"
+    },
+    {
       "id": "playrepo-hezeyanlar-dogu-demirkol",
       "type": "movie",
       "name": "Hezeyanlar Doğu Demirkol",
@@ -1222,21 +1237,6 @@
       ],
       "posterShape": "poster",
       "runtime": "80 dk"
-    },
-    {
-      "id": "playrepo-bilinmeyen-numara-lisede-mesaj-skandali",
-      "type": "movie",
-      "name": "Bilinmeyen Numara: Lisede Mesaj Skandalı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fPLUMQFdjHZWe38lgxPSwuBi062.webp?v=1785680531",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fPLUMQFdjHZWe38lgxPSwuBi062.webp?v=1785680531",
-      "description": "Bilinmeyen Numara: Lisede Mesaj Skandalı (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir genç kız ve sevgilisinin telefonlarına müstehcen, hakaret dolu mes...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "94 dk"
     }
   ]
 }
