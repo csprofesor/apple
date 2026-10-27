@@ -7754,5 +7754,75 @@
         }
       }
     }
+  ],
+  "playrepo-askimiz-bu-gece-kaybolsa-bile": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=790ab6ca1b7b69c43fb984701395ad4c&token=eyJ2IjoiNzkwYWI2Y2ExYjdiNjljNDNmYjk4NDcwMTM5NWFkNGMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxMDk4LCJuIjoiMTllYjRkODE1OThiIn0.862c923593706636988a05d0d2d2bd65739061e82ec21bb63bf72f923f571186&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=ZAKc-qRTepcEjLcvJKbPHQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=ZAKc-qRTepcEjLcvJKbPHQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=790ab6ca1b7b69c43fb984701395ad4c&sid=413e2bcfbf000415285aa459ec0b9270&token=eyJ2IjoiNzkwYWI2Y2ExYjdiNjljNDNmYjk4NDcwMTM5NWFkNGMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxMDk4LCJuIjoiMTllYjRkODE1OThiIn0.862c923593706636988a05d0d2d2bd65739061e82ec21bb63bf72f923f571186&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=790ab6ca1b7b69c43fb984701395ad4c&sid=767e77ed1cb1176ec1067698fcf8185b&token=eyJ2IjoiNzkwYWI2Y2ExYjdiNjljNDNmYjk4NDcwMTM5NWFkNGMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxMDk4LCJuIjoiMTllYjRkODE1OThiIn0.862c923593706636988a05d0d2d2bd65739061e82ec21bb63bf72f923f571186&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=ZAKc-qRTepcEjLcvJKbPHQ"
+          }
+        }
+      }
+    }
+  ],
+  "askimiz-bu-gece-kaybolsa-bile": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=790ab6ca1b7b69c43fb984701395ad4c&token=eyJ2IjoiNzkwYWI2Y2ExYjdiNjljNDNmYjk4NDcwMTM5NWFkNGMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxMDk4LCJuIjoiMTllYjRkODE1OThiIn0.862c923593706636988a05d0d2d2bd65739061e82ec21bb63bf72f923f571186&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=ZAKc-qRTepcEjLcvJKbPHQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=ZAKc-qRTepcEjLcvJKbPHQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=790ab6ca1b7b69c43fb984701395ad4c&sid=413e2bcfbf000415285aa459ec0b9270&token=eyJ2IjoiNzkwYWI2Y2ExYjdiNjljNDNmYjk4NDcwMTM5NWFkNGMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxMDk4LCJuIjoiMTllYjRkODE1OThiIn0.862c923593706636988a05d0d2d2bd65739061e82ec21bb63bf72f923f571186&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=790ab6ca1b7b69c43fb984701395ad4c&sid=767e77ed1cb1176ec1067698fcf8185b&token=eyJ2IjoiNzkwYWI2Y2ExYjdiNjljNDNmYjk4NDcwMTM5NWFkNGMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxMDk4LCJuIjoiMTllYjRkODE1OThiIn0.862c923593706636988a05d0d2d2bd65739061e82ec21bb63bf72f923f571186&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=ZAKc-qRTepcEjLcvJKbPHQ"
+          }
+        }
+      }
+    }
   ]
 }
