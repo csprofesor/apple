@@ -243,23 +243,10 @@ function getDisjointMetasForCatalog(allMetas, catalogId) {
         return allSeries;
     }
 
-    // 1. Yerli Filmler & Netflix Yerli Özel Koleksiyonları
-    if (catalogId === "playrepo-blutv") {
-        return allMovies.filter(m => isYerliContent(m));
-    }
-    if (catalogId === "playrepo-netflix-yerli") {
-        return allMovies.filter(m => isYerliContent(m) && matchesCatCheck(m, "netflix"));
-    }
-
-    // 1b. Yerli Diziler & Netflix Yerli Dizi Özel Koleksiyonları
-    if (catalogId === "playrepo-series-blutv") {
-        return allSeries.filter(s => isYerliContent(s));
-    }
-    if (catalogId === "playrepo-series-netflix-yerli") {
-        return allSeries.filter(s => isYerliContent(s) && matchesCatCheck(s, "netflix"));
-    }
-
     const movieConfigs = [
+        // 1. Yerli Filmler & Netflix Yerli Özel Koleksiyonları (Yalnızca tek kategoriye girer)
+        { id: "playrepo-netflix-yerli", check: (m) => isYerliContent(m) && matchesCatCheck(m, "netflix") },
+        { id: "playrepo-blutv", check: (m) => isYerliContent(m) },
         // 2. Yabancı Platform Koleksiyonları (Yerli yapımlarla karışmaz)
         { id: "playrepo-netflix", check: (m) => !isYerliContent(m) && matchesCatCheck(m, "netflix") },
         { id: "playrepo-disney", check: (m) => !isYerliContent(m) && matchesCatCheck(m, "disney", "pixar", "marvel") },
@@ -295,6 +282,9 @@ function getDisjointMetasForCatalog(allMetas, catalogId) {
     }
 
     const seriesConfigs = [
+        // 1. Yerli Diziler & Netflix Yerli Dizi Özel Koleksiyonları (Yalnızca tek kategoriye girer)
+        { id: "playrepo-series-netflix-yerli", check: (s) => isYerliContent(s) && matchesCatCheck(s, "netflix") },
+        { id: "playrepo-series-blutv", check: (s) => isYerliContent(s) },
         // 2. Yabancı Dizi Platform Koleksiyonları (Yerli dizilerle karışmaz)
         { id: "playrepo-series-netflix", check: (s) => !isYerliContent(s) && matchesCatCheck(s, "netflix") },
         { id: "playrepo-series-disney", check: (s) => !isYerliContent(s) && matchesCatCheck(s, "disney", "pixar", "marvel", "star wars") },

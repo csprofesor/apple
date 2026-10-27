@@ -924,12 +924,30 @@ class ScraperEngine:
             src_m = re.search(r'src=["\']([^"\']+)["\']', tr_tag, re.I)
             if src_m:
                 s_url = urllib.parse.urljoin(movie_url, src_m.group(1).strip())
-                subtitles.append({"id": "tur", "url": s_url, "lang": "tur"})
+                subtitles.append({
+                    "id": "tur",
+                    "url": s_url,
+                    "lang": "tur",
+                    "language": "Turkish",
+                    "name": "Türkçe",
+                    "label": "Türkçe",
+                    "format": "vtt",
+                    "type": "text/vtt"
+                })
 
         for vtt_m in re.finditer(r'https?://[^\s"\'<>]+\.(?:vtt|srt)[^\s"\'<>]*', html, re.I):
             u = vtt_m.group(0)
             if not any(s["url"] == u for s in subtitles):
-                subtitles.append({"id": "tur", "url": u, "lang": "tur"})
+                subtitles.append({
+                    "id": "tur",
+                    "url": u,
+                    "lang": "tur",
+                    "language": "Turkish",
+                    "name": "Türkçe",
+                    "label": "Türkçe",
+                    "format": "vtt",
+                    "type": "text/vtt"
+                })
 
         season_num = s_num
         episode_num = e_num

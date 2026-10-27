@@ -1395,14 +1395,10 @@ class GitHubAtomicPublisher:
         result["playrepo/catalog/movie/playrepo-popular.json"] = json.dumps({"metas": all_movies[:60]}, ensure_ascii=False, indent=2)
         result["playrepo/catalog/movie/playrepo-catalog-movies.json"] = json.dumps({"metas": all_movies}, ensure_ascii=False, indent=2)
 
-        # 1. Yerli Filmler & Netflix Yerli Koleksiyonları
-        all_yerli_movies = [m for m in all_movies if cls.is_yerli_content(m)]
-        netflix_yerli_movies = [m for m in all_yerli_movies if cls.matches_cat(m, "netflix")]
-        
-        result["playrepo/catalog/movie/playrepo-blutv.json"] = json.dumps({"metas": all_yerli_movies}, ensure_ascii=False, indent=2)
-        result["playrepo/catalog/movie/playrepo-netflix-yerli.json"] = json.dumps({"metas": netflix_yerli_movies}, ensure_ascii=False, indent=2)
-
         movie_genre_configs = [
+            # 1. Yerli Filmler & Netflix Yerli Koleksiyonları (Sadece tek kategoriye girer)
+            ("playrepo/catalog/movie/playrepo-netflix-yerli.json", lambda x: cls.is_yerli_content(x) and cls.matches_cat(x, "netflix")),
+            ("playrepo/catalog/movie/playrepo-blutv.json", lambda x: cls.is_yerli_content(x)),
             # 2. Yabancı Platform Koleksiyonları (Yerli yapımlarla karışmaz)
             ("playrepo/catalog/movie/playrepo-netflix.json", lambda x: not cls.is_yerli_content(x) and cls.matches_cat(x, "netflix")),
             ("playrepo/catalog/movie/playrepo-disney.json", lambda x: not cls.is_yerli_content(x) and cls.matches_cat(x, "disney", "pixar", "marvel")),
@@ -1435,14 +1431,10 @@ class GitHubAtomicPublisher:
         all_series = [s for s in all_metas if s.get("type") == "series"]
         result["playrepo/catalog/series/playrepo-series-popular.json"] = json.dumps({"metas": all_series}, ensure_ascii=False, indent=2)
 
-        # 1. Yerli Diziler & Netflix Yerli Dizileri
-        all_yerli_series = [s for s in all_series if cls.is_yerli_content(s)]
-        netflix_yerli_series = [s for s in all_yerli_series if cls.matches_cat(s, "netflix")]
-
-        result["playrepo/catalog/series/playrepo-series-blutv.json"] = json.dumps({"metas": all_yerli_series}, ensure_ascii=False, indent=2)
-        result["playrepo/catalog/series/playrepo-series-netflix-yerli.json"] = json.dumps({"metas": netflix_yerli_series}, ensure_ascii=False, indent=2)
-
         series_genre_configs = [
+            # 1. Yerli Diziler & Netflix Yerli Dizileri (Sadece tek kategoriye girer)
+            ("playrepo/catalog/series/playrepo-series-netflix-yerli.json", lambda x: cls.is_yerli_content(x) and cls.matches_cat(x, "netflix")),
+            ("playrepo/catalog/series/playrepo-series-blutv.json", lambda x: cls.is_yerli_content(x)),
             # 2. Yabancı Dizi Platform Koleksiyonları (Yerli dizilerle karışmaz)
             ("playrepo/catalog/series/playrepo-series-netflix.json", lambda x: not cls.is_yerli_content(x) and cls.matches_cat(x, "netflix")),
             ("playrepo/catalog/series/playrepo-series-disney.json", lambda x: not cls.is_yerli_content(x) and cls.matches_cat(x, "disney", "pixar", "marvel", "star wars")),
