@@ -4882,5 +4882,75 @@
         }
       }
     }
+  ],
+  "playrepo-tom-clancy-039-den-jack-ryan-hayalet-savas": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=ff51e944207115a468f7f0b3e340435b&token=eyJ2IjoiZmY1MWU5NDQyMDcxMTVhNDY4ZjdmMGIzZTM0MDQzNWIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQwODMyLCJuIjoiNjI5Y2QxZjdlNTBjIn0.4e94873ec9fd24ad36273a911474fb256c871489ce4f76d2e2fa02abd98686ad&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=BNqexL6isAHXjwpAjS9Adg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=BNqexL6isAHXjwpAjS9Adg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=ff51e944207115a468f7f0b3e340435b&sid=1142dea0a79bc10330c9768337fb227a&token=eyJ2IjoiZmY1MWU5NDQyMDcxMTVhNDY4ZjdmMGIzZTM0MDQzNWIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQwODMyLCJuIjoiNjI5Y2QxZjdlNTBjIn0.4e94873ec9fd24ad36273a911474fb256c871489ce4f76d2e2fa02abd98686ad&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=ff51e944207115a468f7f0b3e340435b&sid=9869f08032c9089cd9b1e05b016077bb&token=eyJ2IjoiZmY1MWU5NDQyMDcxMTVhNDY4ZjdmMGIzZTM0MDQzNWIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQwODMyLCJuIjoiNjI5Y2QxZjdlNTBjIn0.4e94873ec9fd24ad36273a911474fb256c871489ce4f76d2e2fa02abd98686ad&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=BNqexL6isAHXjwpAjS9Adg"
+          }
+        }
+      }
+    }
+  ],
+  "tom-clancy-039-den-jack-ryan-hayalet-savas": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=ff51e944207115a468f7f0b3e340435b&token=eyJ2IjoiZmY1MWU5NDQyMDcxMTVhNDY4ZjdmMGIzZTM0MDQzNWIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQwODMyLCJuIjoiNjI5Y2QxZjdlNTBjIn0.4e94873ec9fd24ad36273a911474fb256c871489ce4f76d2e2fa02abd98686ad&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=BNqexL6isAHXjwpAjS9Adg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=BNqexL6isAHXjwpAjS9Adg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=ff51e944207115a468f7f0b3e340435b&sid=1142dea0a79bc10330c9768337fb227a&token=eyJ2IjoiZmY1MWU5NDQyMDcxMTVhNDY4ZjdmMGIzZTM0MDQzNWIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQwODMyLCJuIjoiNjI5Y2QxZjdlNTBjIn0.4e94873ec9fd24ad36273a911474fb256c871489ce4f76d2e2fa02abd98686ad&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=ff51e944207115a468f7f0b3e340435b&sid=9869f08032c9089cd9b1e05b016077bb&token=eyJ2IjoiZmY1MWU5NDQyMDcxMTVhNDY4ZjdmMGIzZTM0MDQzNWIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQwODMyLCJuIjoiNjI5Y2QxZjdlNTBjIn0.4e94873ec9fd24ad36273a911474fb256c871489ce4f76d2e2fa02abd98686ad&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=BNqexL6isAHXjwpAjS9Adg"
+          }
+        }
+      }
+    }
   ]
 }
