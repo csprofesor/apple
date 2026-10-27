@@ -1,6 +1,42 @@
 {
   "metas": [
     {
+      "id": "tt32985279",
+      "type": "movie",
+      "name": "Steve",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYmE4N2ZlNWQtMDRhNC00ZmYzLWI5ODMtODAzZjRiOTkxZGZhXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYmE4N2ZlNWQtMDRhNC00ZmYzLWI5ODMtODAzZjRiOTkxZGZhXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Steve (2025) full HD, Türkçe dublaj ve altyazılı izle. Yoğun bir gün geçiren bir çocuk ıslahevi müdürü, öğrencilerini hizaya sokmak için uğraşırken bir yandan d...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt32985279/img",
+      "trailers": [
+        {
+          "source": "Li7buIsBwRg",
+          "type": "Trailer"
+        },
+        {
+          "source": "5L8intrDcM0",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Steve",
+          "ytId": "Li7buIsBwRg"
+        },
+        {
+          "title": "Steve",
+          "ytId": "5L8intrDcM0"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=Li7buIsBwRg",
+      "runtime": "92 dk"
+    },
+    {
       "id": "playrepo-gunahk-rlar",
       "type": "movie",
       "name": "Günahkârlar",
@@ -1090,44 +1126,6 @@
       ],
       "posterShape": "poster",
       "runtime": "121 dk"
-    },
-    {
-      "id": "tt26342662",
-      "type": "movie",
-      "name": "M3GAN 2.0",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMzFmNjVjZWQtZjI5Zi00YThiLTg0ZWItZDdjYzhhZDE1NTE2XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMzFmNjVjZWQtZjI5Zi00YThiLTg0ZWItZDdjYzhhZDE1NTE2XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "M3GAN 2.0 (2025) full HD, Türkçe dublaj ve altyazılı izle. M3GAN geri döndü! Bu sefer yalnız değil. Efsanevi katil bebeğin kanlı katliamının üzerinden iki yıl g...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Aksiyon & Macera",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt26342662/img",
-      "trailers": [
-        {
-          "source": "1FeiTZMtwLA",
-          "type": "Trailer"
-        },
-        {
-          "source": "IYLHdEzsk1s",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "M3GAN 2.0",
-          "ytId": "1FeiTZMtwLA"
-        },
-        {
-          "title": "M3GAN 2.0",
-          "ytId": "IYLHdEzsk1s"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=1FeiTZMtwLA",
-      "runtime": "120 dk"
     }
   ]
 }

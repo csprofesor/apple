@@ -1,6 +1,42 @@
 {
   "metas": [
     {
+      "id": "tt32985279",
+      "type": "movie",
+      "name": "Steve",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYmE4N2ZlNWQtMDRhNC00ZmYzLWI5ODMtODAzZjRiOTkxZGZhXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYmE4N2ZlNWQtMDRhNC00ZmYzLWI5ODMtODAzZjRiOTkxZGZhXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Steve (2025) full HD, Türkçe dublaj ve altyazılı izle. Yoğun bir gün geçiren bir çocuk ıslahevi müdürü, öğrencilerini hizaya sokmak için uğraşırken bir yandan d...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt32985279/img",
+      "trailers": [
+        {
+          "source": "Li7buIsBwRg",
+          "type": "Trailer"
+        },
+        {
+          "source": "5L8intrDcM0",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Steve",
+          "ytId": "Li7buIsBwRg"
+        },
+        {
+          "title": "Steve",
+          "ytId": "5L8intrDcM0"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=Li7buIsBwRg",
+      "runtime": "92 dk"
+    },
+    {
       "id": "playrepo-sesimi-takip-et",
       "type": "movie",
       "name": "Sesimi Takip Et",
