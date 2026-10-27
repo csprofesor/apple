@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-kalp-bilir",
+      "type": "movie",
+      "name": "Kalp Bilir",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gcLh20gTCsYQIBS73sFzxKRa65m.webp?v=1785627866",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gcLh20gTCsYQIBS73sFzxKRa65m.webp?v=1785627866",
+      "description": "Kalp Bilir (2025) full HD, Türkçe dublaj ve altyazılı izle. Kalp nakli ameliyatının ardından kişiliğinin değiştiğini hisseden Manuel, donörünün hayatını araştır...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "89 dk"
+    },
+    {
       "id": "playrepo-sampanya-yuzunden",
       "type": "movie",
       "name": "Şampanya Yüzünden",
@@ -1041,36 +1056,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=p6k9Y-irvOE",
       "runtime": "174 dk"
-    },
-    {
-      "id": "tt29567402",
-      "type": "movie",
-      "name": "Rabbit Trap",
-      "poster": "https://m.media-amazon.com/images/M/MV5BODZiNmRjM2UtNjNhZi00MzBmLTlhYzMtNWFiMDBiZDlkNTcxXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BODZiNmRjM2UtNjNhZi00MzBmLTlhYzMtNWFiMDBiZDlkNTcxXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Rabbit Trap (2025) full HD, Türkçe dublaj ve altyazılı izle. Galler&#039;de ıssız bir eve taşınan bir müzisyen ve eşi, yaptıkları müzikle yerel eski halk büyülerini....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://live.metahub.space/logo/medium/tt29567402/img",
-      "trailers": [
-        {
-          "source": "Vj7UAYV6ihs",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Fragman",
-          "ytId": "Vj7UAYV6ihs"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=Vj7UAYV6ihs",
-      "runtime": "88 dk"
     }
   ]
 }
