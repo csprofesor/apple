@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-elveda-sabata",
+      "type": "movie",
+      "name": "Elveda Sabata",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dsiuTOlnSPM0WK6RD7jENzZAET6.webp?v=1785409073",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dsiuTOlnSPM0WK6RD7jENzZAET6.webp?v=1785409073",
+      "description": "Elveda Sabata (1970) full HD, Türkçe dublaj ve altyazılı izle. Meksika&#039;sının toprakları Avusturya Ordusu tarafından İmparator Maximillien adına işgal edilmiştir...",
+      "releaseInfo": "1970",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "105 dk"
+    },
+    {
       "id": "playrepo-i-yi-cocuklar-aglamaz",
       "type": "movie",
       "name": "İyi Çocuklar Ağlamaz",
@@ -1003,22 +1018,6 @@
       ],
       "posterShape": "poster",
       "runtime": "118 dk"
-    },
-    {
-      "id": "playrepo-kucuk-koyun-buyuk-gucu",
-      "type": "movie",
-      "name": "Küçük Köyün Büyük Gücü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8PK61ixYoSX3kXWyCMH4ats79k4.webp?v=1785129032",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8PK61ixYoSX3kXWyCMH4ats79k4.webp?v=1785129032",
-      "description": "Küçük Köyün Büyük Gücü (2026) full HD, Türkçe dublaj ve altyazılı izle. Halina maddi zorluklar nedeniyle düğününü iptal etmek zorunda kaldığında, arkadaşları ve...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "94 dk"
     }
   ]
 }
