@@ -1,6 +1,25 @@
 {
   "metas": [
     {
+      "id": "playrepo-zootropolis-2",
+      "type": "movie",
+      "name": "Zootropolis 2",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lgotja3xMoJZbynwHfcQcJAEMWH.webp?v=1785542136",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lgotja3xMoJZbynwHfcQcJAEMWH.webp?v=1785542136",
+      "description": "Zootropolis 2 (2025) full HD, Türkçe dublaj ve altyazılı izle. Dedektif Judy Hopps ve Nick Wilde, Zootropolis&#039;e gelen ve memeli metropolünü alt üst eden gizemli...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Korku & Gerilim",
+        "Disney+",
+        "Animasyon & Aile",
+        "Aksiyon & Macera",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "108 dk"
+    },
+    {
       "id": "tt14264694",
       "type": "movie",
       "name": "Worldbreaker",
@@ -1026,23 +1045,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=8pmJgtLKBXg",
       "runtime": "93 dk"
-    },
-    {
-      "id": "tt33362137",
-      "type": "movie",
-      "name": "Kutsal Damacana 5: Zombi",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYzE5ZDk5OGItODM1Mi00NmRhLWE5NGYtNWMxZGVlZDU3NTFmXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYzE5ZDk5OGItODM1Mi00NmRhLWE5NGYtNWMxZGVlZDU3NTFmXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Kutsal Damacana 5: Zombi! (2025) full HD, Türkçe dublaj ve altyazılı izle. Fikret, Asım ve Artin, ezeli düşmanları İblis’in kurduğu yeni ve tehlikeli bir planla...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://live.metahub.space/logo/medium/tt33362137/img",
-      "runtime": "96 dk"
     }
   ]
 }
