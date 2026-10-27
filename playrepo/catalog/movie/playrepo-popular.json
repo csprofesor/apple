@@ -1,6 +1,43 @@
 {
   "metas": [
     {
+      "id": "tt36463894",
+      "type": "movie",
+      "name": "Predator: Killer of Killers",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNjM2MjA4YzQtYjBkNS00YmU3LTllOTgtMDQzMjkzM2Q4MmM5XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNjM2MjA4YzQtYjBkNS00YmU3LTllOTgtMDQzMjkzM2Q4MmM5XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Predator: Killer of Killers (2025) full HD, Türkçe dublaj ve altyazılı izle. Bu orijinal animasyon antolojisi, insanlık tarihinin en dişli üç savaşçısının izind...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Animasyon & Aile",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt36463894/img",
+      "trailers": [
+        {
+          "source": "fbddYji1F8s",
+          "type": "Trailer"
+        },
+        {
+          "source": "eWzPKrNoSyM",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Predator: Killer of Killers",
+          "ytId": "fbddYji1F8s"
+        },
+        {
+          "title": "Predator: Killer of Killers",
+          "ytId": "eWzPKrNoSyM"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=fbddYji1F8s",
+      "runtime": "85 dk"
+    },
+    {
       "id": "playrepo-oyun-bulusmasi",
       "type": "movie",
       "name": "Oyun Buluşması",
@@ -1090,21 +1127,6 @@
       ],
       "posterShape": "poster",
       "runtime": "111 dk"
-    },
-    {
-      "id": "playrepo-ana-ogul-balayi",
-      "type": "movie",
-      "name": "Ana-Oğul Balayı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pz0wQh69Fc88xJgEBGCnr8RHmQj.webp?v=1785641291",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pz0wQh69Fc88xJgEBGCnr8RHmQj.webp?v=1785641291",
-      "description": "Ana-Oğul Balayı (2025) full HD, Türkçe dublaj ve altyazılı izle. Düğün gününde nişanlısı tarafından eski sevgilisi için terk edilen genç bir adam, planladığı ro...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "93 dk"
     }
   ]
 }
