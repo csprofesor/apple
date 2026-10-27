@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-olumcul-evlilik",
+      "type": "movie",
+      "name": "Ölümcül Evlilik",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nqfgAh16N1w5T5LVodFG30QhnKP.webp?v=1785613974",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nqfgAh16N1w5T5LVodFG30QhnKP.webp?v=1785613974",
+      "description": "Ölümcül Evlilik (2025) full HD, Türkçe dublaj ve altyazılı izle. Cinayet mi, yoksa nefsi müdafaa mı? İki ihtimali de ele alan bu belgesel, eşi ve eşinin babasıy...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Suç & Polisiye",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "102 dk"
+    },
+    {
       "id": "playrepo-kopenhag-039-da-bir-ask-hik-yesi",
       "type": "movie",
       "name": "Kopenhag&#039;da Bir Aşk Hikâyesi",
@@ -1141,34 +1157,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=7VBigr-JHB0",
       "runtime": "119 dk"
-    },
-    {
-      "id": "tt38350059",
-      "type": "movie",
-      "name": "Buen Camino",
-      "poster": "https://m.media-amazon.com/images/M/MV5BOGFhZTM0MTItNDY4YS00ZTdlLTk4MmItYjJlYmU1OTg2ZGZjXkEyXkFqcGc%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BOGFhZTM0MTItNDY4YS00ZTdlLTk4MmItYjJlYmU1OTg2ZGZjXkEyXkFqcGc%40._V1_.jpg",
-      "description": "Buen Camino (2025) full HD, Türkçe dublaj ve altyazılı izle. Checco, zengin bir koltuk üreticisinin konforlu bir yaşam süren tek çocuğu. Lüks villalarda, hizmet...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt38350059/img",
-      "trailers": [
-        {
-          "source": "fi10nVislwk",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Buen Camino",
-          "ytId": "fi10nVislwk"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=fi10nVislwk",
-      "runtime": "90 dk"
     }
   ]
 }
