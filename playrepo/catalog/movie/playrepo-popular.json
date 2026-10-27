@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "playrepo-ruyalar-diyarinda",
+      "type": "movie",
+      "name": "Rüyalar Diyarında",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cTuFz80FozP54Aob9TYl4mF1wKk.webp?v=1785642597",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cTuFz80FozP54Aob9TYl4mF1wKk.webp?v=1785642597",
+      "description": "Rüyalar Diyarında (2025) full HD, Türkçe dublaj ve altyazılı izle. Stevie ve erkek kardeşi Elliot, Sandman&#039;den onlara mükemmel bir aile bahşetmesini rica etmek....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Aksiyon & Macera",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "87 dk"
+    },
+    {
       "id": "playrepo-gecen-yaz-ne-yaptigini-biliyorum",
       "type": "movie",
       "name": "Geçen Yaz Ne Yaptığını Biliyorum",
@@ -1109,35 +1127,6 @@
       ],
       "posterShape": "poster",
       "runtime": "122 dk"
-    },
-    {
-      "id": "tt21191806",
-      "type": "movie",
-      "name": "Back in Action",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMWQ4YWYxYTAtZTlhNC00Nzc3LWE3OWUtZjY5MThlNWNiYTBiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMWQ4YWYxYTAtZTlhNC00Nzc3LWE3OWUtZjY5MThlNWNiYTBiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Back in Action (2025) full HD, Türkçe dublaj ve altyazılı izle. On beş yıl önce aile kurmak için CIA ajanlığını bırakıp ortadan kaybolan Matt ve Emily, kimlikle...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt21191806/img",
-      "trailers": [
-        {
-          "source": "MV2nYw6gL_w",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Back in Action",
-          "ytId": "MV2nYw6gL_w"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=MV2nYw6gL_w",
-      "runtime": "114 dk"
     }
   ]
 }
