@@ -128,12 +128,23 @@ class SiteScraperEngine {
     fun detectCategoryFromUrlOrText(url: String, text: String): String? {
         val lower = "${url.lowercase()} ${text.lowercase()}"
         return when {
-            lower.contains("animasyon") || lower.contains("animation") || lower.contains("çizgi") || lower.contains("anime") || lower.contains("çizgi dizi") || lower.contains("çizgi film") -> "Animasyon & Çizgi Dizi"
+            // 1. Platformlar / Koleksiyonlar (Öncelikli)
+            lower.contains("netflix") -> "Netflix"
+            lower.contains("disney") || lower.contains("pixar") || lower.contains("marvel") -> "Disney+"
+            lower.contains("prime video") || lower.contains("amazon prime") || (lower.contains("prime") && !lower.contains("primer")) -> "Prime Video"
+            lower.contains("apple tv") || lower.contains("appletv") || lower.contains("apple original") -> "Apple TV+"
+            lower.contains("hbo") || lower.contains("hbomax") -> "HBO Max"
+            lower.contains("hulu") -> "Hulu"
+            lower.contains("blutv") || lower.contains("gain") -> "BluTV & Yerli"
+            lower.contains("mubi") -> "Mubi & Kült"
+
+            // 2. Türler
+            lower.contains("animasyon") || lower.contains("animation") || lower.contains("çizgi") || lower.contains("anime") || lower.contains("çizgi dizi") || lower.contains("çizgi film") -> "Animasyon & Aile"
             lower.contains("belgesel") || lower.contains("documentary") || lower.contains("tarih") || lower.contains("history") || lower.contains("biyografi") || lower.contains("biography") -> "Belgesel & Tarih"
-            lower.contains("suç") || lower.contains("suc") || lower.contains("crime") || lower.contains("polisiye") || lower.contains("gizem") || lower.contains("mystery") || lower.contains("dedektif") || lower.contains("cinayet") -> "Suç, Polisiye & Gizem"
-            lower.contains("korku") || lower.contains("gerilim") || lower.contains("horror") || lower.contains("thriller") || lower.contains("slasher") -> "Korku & Gerilim"
+            lower.contains("suç") || lower.contains("suc") || lower.contains("crime") || lower.contains("polisiye") || lower.contains("dedektif") || lower.contains("cinayet") -> "Suç & Polisiye"
+            lower.contains("korku") || lower.contains("gerilim") || lower.contains("horror") || lower.contains("thriller") || lower.contains("slasher") || lower.contains("gizem") || lower.contains("mystery") -> "Korku & Gerilim"
             lower.contains("aksiyon") || lower.contains("macera") || lower.contains("action") || lower.contains("adventure") || lower.contains("dövüş") || lower.contains("dovus") || lower.contains("savaş") || lower.contains("savas") || lower.contains("western") || lower.contains("kovboy") -> "Aksiyon & Macera"
-            lower.contains("komedi") || lower.contains("mizah") || lower.contains("comedy") || lower.contains("parodi") || lower.contains("kara mizah") || lower.contains("aile") || lower.contains("family") -> "Komedi"
+            lower.contains("komedi") || lower.contains("mizah") || lower.contains("comedy") || lower.contains("parodi") || lower.contains("kara mizah") -> "Komedi"
             lower.contains("dram") || lower.contains("romantik") || lower.contains("drama") || lower.contains("romance") || lower.contains("aşk") || lower.contains("ask") || lower.contains("duygusal") || lower.contains("melodram") -> "Dram & Romantik"
             lower.contains("bilim") || lower.contains("kurgu") || lower.contains("fantastik") || lower.contains("sci-fi") || lower.contains("scifi") || lower.contains("fantasy") || lower.contains("uzay") || lower.contains("süper kahraman") || lower.contains("distopya") -> "Bilim Kurgu & Fantastik"
             else -> null
@@ -353,6 +364,7 @@ class SiteScraperEngine {
             lower.contains("/kategori/") || lower.contains("/tur/") ||
             lower.contains("/filmizle/") || lower.contains("/yil/") ||
             lower.contains("/category/") || lower.contains("/genre/") ||
+            lower.contains("/platform/") || lower.contains("/platformlar/") ||
             lower.contains("/koleksiyon/") || lower.contains("/forum") ||
             lower.contains("/iletisim") || lower.contains("/page/") ||
             lower.contains("page=") || lower.contains("orderby=") ||
@@ -389,6 +401,7 @@ class SiteScraperEngine {
 
         return lower.contains("/page/") || lower.contains("page=") || lower.contains("sayfa=") ||
                lower.contains("/kategori/") || lower.contains("/tur/") ||
+               lower.contains("/platform/") || lower.contains("/platformlar/") || lower.contains("/koleksiyon/") ||
                lower.contains("/filmizle/") || lower.contains("/yil/") ||
                lower.contains("/category/") || lower.contains("/genre/") ||
                lower.contains("altyazi") || lower.contains("dublaj") ||

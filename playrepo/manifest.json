@@ -1,7 +1,7 @@
 {
   "id": "playRepo",
   "name": "Play",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "Play • Tek kaynaktan yüksek hızlı Türkçe film ve dizi akış sağlayıcısı.",
   "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
   "resources": [
@@ -22,7 +22,7 @@
     {
       "type": "movie",
       "id": "playrepo-popular",
-      "name": "Play • Popüler Filmler",
+      "name": "Play • 🔥 Popüler Filmler",
       "extra": [
         {
           "name": "search",
@@ -33,7 +33,7 @@
     {
       "type": "movie",
       "id": "playrepo-netflix",
-      "name": "Play • Netflix",
+      "name": "Play • 🔴 Netflix Filmleri",
       "extra": [
         {
           "name": "search",
@@ -44,7 +44,7 @@
     {
       "type": "movie",
       "id": "playrepo-disney",
-      "name": "Play • Disney+",
+      "name": "Play • 🏰 Disney+ & Marvel",
       "extra": [
         {
           "name": "search",
@@ -55,7 +55,7 @@
     {
       "type": "movie",
       "id": "playrepo-prime",
-      "name": "Play • Prime Video",
+      "name": "Play • 📦 Prime Video",
       "extra": [
         {
           "name": "search",
@@ -66,7 +66,7 @@
     {
       "type": "movie",
       "id": "playrepo-apple",
-      "name": "Play • Apple TV+",
+      "name": "Play • 🍏 Apple TV+",
       "extra": [
         {
           "name": "search",
@@ -77,7 +77,7 @@
     {
       "type": "movie",
       "id": "playrepo-hbo",
-      "name": "Play • HBO Max",
+      "name": "Play • ⚡ HBO Max",
       "extra": [
         {
           "name": "search",
@@ -88,18 +88,7 @@
     {
       "type": "movie",
       "id": "playrepo-hulu",
-      "name": "Play • Hulu",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "movie",
-      "id": "playrepo-mubi",
-      "name": "Play • Mubi",
+      "name": "Play • 🟢 Hulu",
       "extra": [
         {
           "name": "search",
@@ -110,7 +99,7 @@
     {
       "type": "movie",
       "id": "playrepo-blutv",
-      "name": "Play • BluTV",
+      "name": "Play • 🇹🇷 BluTV & Yerli",
       "extra": [
         {
           "name": "search",
@@ -120,8 +109,8 @@
     },
     {
       "type": "movie",
-      "id": "playrepo-belgesel",
-      "name": "Play • Belgesel",
+      "id": "playrepo-mubi",
+      "name": "Play • 🎭 Mubi & Kült",
       "extra": [
         {
           "name": "search",
@@ -132,73 +121,7 @@
     {
       "type": "movie",
       "id": "playrepo-bilimkurgu",
-      "name": "Play • Bilim Kurgu",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "movie",
-      "id": "playrepo-fantastik",
-      "name": "Play • Fantastik",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "movie",
-      "id": "playrepo-animasyon",
-      "name": "Play • Animasyon",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "movie",
-      "id": "playrepo-korku",
-      "name": "Play • Korku",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "movie",
-      "id": "playrepo-gerilim",
-      "name": "Play • Gerilim",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "movie",
-      "id": "playrepo-gizem",
-      "name": "Play • Gizem",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "movie",
-      "id": "playrepo-suc",
-      "name": "Play • Suç",
+      "name": "Play • 🚀 Bilim Kurgu & Fantastik",
       "extra": [
         {
           "name": "search",
@@ -209,7 +132,7 @@
     {
       "type": "movie",
       "id": "playrepo-aksiyon",
-      "name": "Play • Aksiyon",
+      "name": "Play • 💥 Aksiyon & Macera",
       "extra": [
         {
           "name": "search",
@@ -219,8 +142,19 @@
     },
     {
       "type": "movie",
-      "id": "playrepo-macera",
-      "name": "Play • Macera",
+      "id": "playrepo-korku",
+      "name": "Play • 👻 Korku & Gerilim",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-animasyon",
+      "name": "Play • 🎨 Animasyon & Aile",
       "extra": [
         {
           "name": "search",
@@ -231,7 +165,7 @@
     {
       "type": "movie",
       "id": "playrepo-komedi",
-      "name": "Play • Komedi",
+      "name": "Play • 😂 Komedi",
       "extra": [
         {
           "name": "search",
@@ -241,41 +175,8 @@
     },
     {
       "type": "movie",
-      "id": "playrepo-romantik",
-      "name": "Play • Romantik",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "movie",
-      "id": "playrepo-tarih",
-      "name": "Play • Tarih",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "movie",
-      "id": "playrepo-savas",
-      "name": "Play • Savaş",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "movie",
-      "id": "playrepo-aile",
-      "name": "Play • Aile",
+      "id": "playrepo-suc",
+      "name": "Play • 🕵️ Suç & Polisiye",
       "extra": [
         {
           "name": "search",
@@ -286,7 +187,18 @@
     {
       "type": "movie",
       "id": "playrepo-dram",
-      "name": "Play • Dram",
+      "name": "Play • ❤️ Dram & Romantik",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-belgesel",
+      "name": "Play • 🌍 Belgesel & Tarih",
       "extra": [
         {
           "name": "search",
@@ -297,7 +209,7 @@
     {
       "type": "series",
       "id": "playrepo-series-popular",
-      "name": "Play • Popüler Diziler",
+      "name": "Play • 🔥 Popüler Diziler",
       "extra": [
         {
           "name": "search",
@@ -308,7 +220,73 @@
     {
       "type": "series",
       "id": "playrepo-series-netflix",
-      "name": "Play • Netflix Dizileri",
+      "name": "Play • 🔴 Netflix Dizileri",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-disney",
+      "name": "Play • 🏰 Disney+ Dizileri",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-prime",
+      "name": "Play • 📦 Prime Video Dizileri",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-apple",
+      "name": "Play • 🍏 Apple TV+ Dizileri",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-hbo",
+      "name": "Play • ⚡ HBO Max Dizileri",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-hulu",
+      "name": "Play • 🟢 Hulu Dizileri",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-blutv",
+      "name": "Play • 🇹🇷 BluTV & Yerli Diziler",
       "extra": [
         {
           "name": "search",
@@ -319,62 +297,7 @@
     {
       "type": "series",
       "id": "playrepo-series-bilimkurgu",
-      "name": "Play • Bilim Kurgu Dizileri",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "series",
-      "id": "playrepo-series-fantastik",
-      "name": "Play • Fantastik Diziler",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "series",
-      "id": "playrepo-series-korku",
-      "name": "Play • Korku Dizileri",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "series",
-      "id": "playrepo-series-gerilim",
-      "name": "Play • Gerilim Dizileri",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "series",
-      "id": "playrepo-series-gizem",
-      "name": "Play • Gizem Dizileri",
-      "extra": [
-        {
-          "name": "search",
-          "isRequired": false
-        }
-      ]
-    },
-    {
-      "type": "series",
-      "id": "playrepo-series-suc",
-      "name": "Play • Suç Dizileri",
+      "name": "Play • 🚀 Bilim Kurgu & Fantastik",
       "extra": [
         {
           "name": "search",
@@ -385,7 +308,29 @@
     {
       "type": "series",
       "id": "playrepo-series-aksiyon",
-      "name": "Play • Aksiyon Dizileri",
+      "name": "Play • 💥 Aksiyon & Macera",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-korku",
+      "name": "Play • 👻 Korku & Gerilim",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-animasyon",
+      "name": "Play • 🎨 Animasyon & Çizgi Dizi",
       "extra": [
         {
           "name": "search",
@@ -396,7 +341,18 @@
     {
       "type": "series",
       "id": "playrepo-series-komedi",
-      "name": "Play • Komedi Dizileri",
+      "name": "Play • 😂 Komedi",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-suc",
+      "name": "Play • 🕵️ Suç & Polisiye",
       "extra": [
         {
           "name": "search",
@@ -407,7 +363,18 @@
     {
       "type": "series",
       "id": "playrepo-series-dram",
-      "name": "Play • Dram Dizileri",
+      "name": "Play • ❤️ Dram & Romantik",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-belgesel",
+      "name": "Play • 🌍 Belgesel & Doğa",
       "extra": [
         {
           "name": "search",
@@ -421,7 +388,7 @@
       "id": "playRepo",
       "name": "Play",
       "description": "Nuvio için optimize edilmiş Play akış sağlayıcısı.",
-      "version": "1.1.5",
+      "version": "1.2.0",
       "author": "csprofesor",
       "supportedTypes": [
         "movie",

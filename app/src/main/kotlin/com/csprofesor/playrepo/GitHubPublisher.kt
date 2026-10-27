@@ -451,32 +451,24 @@ class GitHubPublisher {
 
         // 2. Özel Film Tür & Platform Kategorileri - Her film sadece 1 kategoriye atanır
         val movieGenreConfigs = listOf(
-            // Platformlar
+            // 1. Platform Koleksiyonları (Öncelikli - Birine Giren Diğerine Asla Girmez)
             "playrepo/catalog/movie/playrepo-netflix.json" to { m: JsonObject -> matchesCategory(m, "netflix") },
             "playrepo/catalog/movie/playrepo-disney.json" to { m: JsonObject -> matchesCategory(m, "disney", "pixar", "marvel") },
-            "playrepo/catalog/movie/playrepo-prime.json" to { m: JsonObject -> matchesCategory(m, "prime video", "amazon prime") },
-            "playrepo/catalog/movie/playrepo-apple.json" to { m: JsonObject -> matchesCategory(m, "apple tv", "apple original") },
-            "playrepo/catalog/movie/playrepo-hbo.json" to { m: JsonObject -> matchesCategory(m, "hbo", "hbomax", "warner") },
+            "playrepo/catalog/movie/playrepo-prime.json" to { m: JsonObject -> matchesCategory(m, "prime video", "amazon prime", "amazon") },
+            "playrepo/catalog/movie/playrepo-apple.json" to { m: JsonObject -> matchesCategory(m, "apple tv", "appletv", "apple original") },
+            "playrepo/catalog/movie/playrepo-hbo.json" to { m: JsonObject -> matchesCategory(m, "hbo", "hbomax", "max original", "warner") },
             "playrepo/catalog/movie/playrepo-hulu.json" to { m: JsonObject -> matchesCategory(m, "hulu") },
-            "playrepo/catalog/movie/playrepo-mubi.json" to { m: JsonObject -> matchesCategory(m, "mubi") },
-            "playrepo/catalog/movie/playrepo-blutv.json" to { m: JsonObject -> matchesCategory(m, "blutv") },
-            // Tek Tek Ayrılmış Müstakil Türler
-            "playrepo/catalog/movie/playrepo-belgesel.json" to { m: JsonObject -> matchesCategory(m, "belgesel", "documentary") },
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json" to { m: JsonObject -> matchesCategory(m, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction") },
-            "playrepo/catalog/movie/playrepo-fantastik.json" to { m: JsonObject -> matchesCategory(m, "fantastik", "fantasy") },
-            "playrepo/catalog/movie/playrepo-animasyon.json" to { m: JsonObject -> matchesCategory(m, "animasyon", "animation", "anime", "çizgi") },
-            "playrepo/catalog/movie/playrepo-korku.json" to { m: JsonObject -> matchesCategory(m, "korku", "horror") },
-            "playrepo/catalog/movie/playrepo-gerilim.json" to { m: JsonObject -> matchesCategory(m, "gerilim", "thriller") },
-            "playrepo/catalog/movie/playrepo-gizem.json" to { m: JsonObject -> matchesCategory(m, "gizem", "mystery") },
-            "playrepo/catalog/movie/playrepo-suc.json" to { m: JsonObject -> matchesCategory(m, "suç", "suc", "crime", "polisiye") },
-            "playrepo/catalog/movie/playrepo-aksiyon.json" to { m: JsonObject -> matchesCategory(m, "aksiyon", "action") },
-            "playrepo/catalog/movie/playrepo-macera.json" to { m: JsonObject -> matchesCategory(m, "macera", "adventure") },
+            "playrepo/catalog/movie/playrepo-blutv.json" to { m: JsonObject -> matchesCategory(m, "blutv", "gain", "yerli", "türk", "turk") },
+            "playrepo/catalog/movie/playrepo-mubi.json" to { m: JsonObject -> matchesCategory(m, "mubi", "arthouse", "festival") },
+            // 2. Birleştirilmiş Tür Koleksiyonları
+            "playrepo/catalog/movie/playrepo-bilimkurgu.json" to { m: JsonObject -> matchesCategory(m, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction", "fantastik", "fantasy") },
+            "playrepo/catalog/movie/playrepo-aksiyon.json" to { m: JsonObject -> matchesCategory(m, "aksiyon", "action", "macera", "adventure", "savaş", "savas", "war") },
+            "playrepo/catalog/movie/playrepo-korku.json" to { m: JsonObject -> matchesCategory(m, "korku", "horror", "gerilim", "thriller", "gizem", "mystery") },
+            "playrepo/catalog/movie/playrepo-animasyon.json" to { m: JsonObject -> matchesCategory(m, "animasyon", "animation", "anime", "çizgi", "aile", "family") },
             "playrepo/catalog/movie/playrepo-komedi.json" to { m: JsonObject -> matchesCategory(m, "komedi", "comedy", "mizah") },
-            "playrepo/catalog/movie/playrepo-romantik.json" to { m: JsonObject -> matchesCategory(m, "romantik", "romance", "aşk") },
-            "playrepo/catalog/movie/playrepo-tarih.json" to { m: JsonObject -> matchesCategory(m, "tarih", "history", "biyografi", "biography") },
-            "playrepo/catalog/movie/playrepo-savas.json" to { m: JsonObject -> matchesCategory(m, "savaş", "savas", "war") },
-            "playrepo/catalog/movie/playrepo-aile.json" to { m: JsonObject -> matchesCategory(m, "aile", "family", "çocuk") },
-            "playrepo/catalog/movie/playrepo-dram.json" to { m: JsonObject -> matchesCategory(m, "dram", "drama") }
+            "playrepo/catalog/movie/playrepo-suc.json" to { m: JsonObject -> matchesCategory(m, "suç", "suc", "crime", "polisiye", "dedektif") },
+            "playrepo/catalog/movie/playrepo-dram.json" to { m: JsonObject -> matchesCategory(m, "dram", "drama", "romantik", "romance", "aşk") },
+            "playrepo/catalog/movie/playrepo-belgesel.json" to { m: JsonObject -> matchesCategory(m, "belgesel", "documentary", "tarih", "history", "biyografi", "biography") }
         )
 
         val assignedMovieIds = mutableSetOf<String>()
@@ -506,16 +498,23 @@ class GitHubPublisher {
         result["playrepo/catalog/series/playrepo-series-popular.json"] = gson.toJson(seriesPopWrapper)
 
         val seriesGenreConfigs = listOf(
+            // 1. Dizi Platform Koleksiyonları (Öncelikli - Birine Giren Diğerine Asla Girmez)
             "playrepo/catalog/series/playrepo-series-netflix.json" to { s: JsonObject -> matchesCategory(s, "netflix") },
-            "playrepo/catalog/series/playrepo-series-bilimkurgu.json" to { s: JsonObject -> matchesCategory(s, "bilim kurgu", "sci-fi") },
-            "playrepo/catalog/series/playrepo-series-fantastik.json" to { s: JsonObject -> matchesCategory(s, "fantastik", "fantasy") },
-            "playrepo/catalog/series/playrepo-series-korku.json" to { s: JsonObject -> matchesCategory(s, "korku", "horror") },
-            "playrepo/catalog/series/playrepo-series-gerilim.json" to { s: JsonObject -> matchesCategory(s, "gerilim", "thriller") },
-            "playrepo/catalog/series/playrepo-series-gizem.json" to { s: JsonObject -> matchesCategory(s, "gizem", "mystery") },
-            "playrepo/catalog/series/playrepo-series-suc.json" to { s: JsonObject -> matchesCategory(s, "suç", "suc", "crime", "polisiye") },
-            "playrepo/catalog/series/playrepo-series-aksiyon.json" to { s: JsonObject -> matchesCategory(s, "aksiyon", "action") },
-            "playrepo/catalog/series/playrepo-series-komedi.json" to { s: JsonObject -> matchesCategory(s, "komedi", "comedy", "mizah") },
-            "playrepo/catalog/series/playrepo-series-dram.json" to { s: JsonObject -> matchesCategory(s, "dram", "drama") }
+            "playrepo/catalog/series/playrepo-series-disney.json" to { s: JsonObject -> matchesCategory(s, "disney", "pixar", "marvel", "star wars") },
+            "playrepo/catalog/series/playrepo-series-prime.json" to { s: JsonObject -> matchesCategory(s, "prime video", "amazon prime", "amazon") },
+            "playrepo/catalog/series/playrepo-series-apple.json" to { s: JsonObject -> matchesCategory(s, "apple tv", "appletv", "apple original") },
+            "playrepo/catalog/series/playrepo-series-hbo.json" to { s: JsonObject -> matchesCategory(s, "hbo", "hbomax", "max original", "warner") },
+            "playrepo/catalog/series/playrepo-series-hulu.json" to { s: JsonObject -> matchesCategory(s, "hulu", "fx") },
+            "playrepo/catalog/series/playrepo-series-blutv.json" to { s: JsonObject -> matchesCategory(s, "blutv", "gain", "yerli", "türk", "turk") },
+            // 2. Birleştirilmiş Dizi Tür Koleksiyonları
+            "playrepo/catalog/series/playrepo-series-bilimkurgu.json" to { s: JsonObject -> matchesCategory(s, "bilim kurgu", "bilim-kurgu", "sci-fi", "science fiction", "fantastik", "fantasy") },
+            "playrepo/catalog/series/playrepo-series-aksiyon.json" to { s: JsonObject -> matchesCategory(s, "aksiyon", "action", "macera", "adventure", "savaş", "savas") },
+            "playrepo/catalog/series/playrepo-series-korku.json" to { s: JsonObject -> matchesCategory(s, "korku", "horror", "gerilim", "thriller", "gizem", "mystery") },
+            "playrepo/catalog/series/playrepo-series-animasyon.json" to { s: JsonObject -> matchesCategory(s, "animasyon", "animation", "anime", "çizgi", "çizgi dizi") },
+            "playrepo/catalog/series/playrepo-series-komedi.json" to { s: JsonObject -> matchesCategory(s, "komedi", "comedy", "mizah", "sitcom") },
+            "playrepo/catalog/series/playrepo-series-suc.json" to { s: JsonObject -> matchesCategory(s, "suç", "suc", "crime", "polisiye", "dedektif") },
+            "playrepo/catalog/series/playrepo-series-dram.json" to { s: JsonObject -> matchesCategory(s, "dram", "drama", "romantik", "romance") },
+            "playrepo/catalog/series/playrepo-series-belgesel.json" to { s: JsonObject -> matchesCategory(s, "belgesel", "documentary", "tarih", "history", "biyografi", "doğa") }
         )
 
         val assignedSeriesIds = mutableSetOf<String>()
@@ -578,7 +577,7 @@ class GitHubPublisher {
 
                 val bh = JsonObject().apply {
                     addProperty("defaultVideoId", defaultVid)
-                    addProperty("hasScheduledVideos", false)
+                    addProperty("hasScheduledVideos", movie.type == "series" && movie.description?.contains("📅 YENİ BÖLÜM") == true)
                 }
                 add("behaviorHints", bh)
 
@@ -859,8 +858,17 @@ class GitHubPublisher {
         val genresText = genresArr?.joinToString(" ") { it.asString.lowercase() } ?: ""
         val desc = m.get("description")?.asString?.lowercase() ?: ""
         val name = m.get("name")?.asString?.lowercase() ?: ""
-        val combined = "$genresText $desc $name"
-        return keywords.any { kw -> combined.contains(kw.lowercase()) }
+        val platform = m.get("platform")?.asString?.lowercase() ?: ""
+
+        return keywords.any { kw ->
+            val k = kw.lowercase()
+            if (platform.contains(k) || name.contains(k) || genresText.contains(k)) return@any true
+            if (k in listOf("aile", "family", "war", "star", "max", "fx")) {
+                Regex("""\b${Regex.escape(k)}\b""", RegexOption.IGNORE_CASE).containsMatchIn(desc)
+            } else {
+                desc.contains(k)
+            }
+        }
     }
 
     private fun hasGenre(movieObj: JsonObject, vararg keywords: String): Boolean {

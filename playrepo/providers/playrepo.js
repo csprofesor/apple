@@ -178,11 +178,45 @@ async function unpackLiveStreamUrl(rawUrl, referer) {
 
 function matchesCatCheck(m, ...keywords) {
     if (!m) return false;
-    const genres = (m.genres || []).map(g => (g || "").toString().toLowerCase()).join(" ");
+    const genres = (m.genres || []).map(g => (g || "").toString().toLowerCase());
     const desc = (m.description || "").toString().toLowerCase();
     const name = (m.name || "").toString().toLowerCase();
-    const combined = `${genres} ${desc} ${name}`;
-    return keywords.some(kw => combined.includes(kw.toLowerCase()));
+    const platform = (m.platform || "").toString().toLowerCase();
+
+    return keywords.some(kw => {
+        const k = kw.toLowerCase();
+        if (platform.includes(k) || name.includes(k)) return true;
+        if (genres.some(g => g.includes(k))) return true;
+        // Avoid substring false positives for short words like "aile", "war", "star", "max" in description text
+        if (["aile", "family", "war", "star", "max", "fx"].includes(k)) {
+            return new RegExp(`\\b${k}\\b`, "i").test(desc);
+        }
+        return desc.includes(k);
+    });
+}
+
+function enrichWithUpcomingEpisode(meta) {
+    if (!meta) return meta;
+    if (meta.type === "series" && Array.isArray(meta.videos) && meta.videos.length > 0) {
+        const now = new Date();
+        const futureVideos = meta.videos.filter(v => v.released && new Date(v.released) > now);
+        if (futureVideos.length > 0) {
+            futureVideos.sort((a, b) => new Date(a.released) - new Date(b.released));
+            const nextEp = futureVideos[0];
+            const d = new Date(nextEp.released);
+            const dateStr = d.toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" });
+            const sNum = nextEp.season || 1;
+            const eNum = nextEp.episode || 1;
+            const epTitle = (nextEp.title && nextEp.title !== `${sNum}. Sezon ${eNum}. Bölüm`) ? ` ("${nextEp.title}")` : "";
+            const banner = `📅 YENİ BÖLÜM: Sezon ${sNum}, Bölüm ${eNum}${epTitle} • ${dateStr} tarihinde yayında!\n\n`;
+            if (meta.description && !meta.description.includes("📅 YENİ BÖLÜM")) {
+                meta.description = banner + meta.description;
+            }
+            if (!meta.behaviorHints) meta.behaviorHints = {};
+            meta.behaviorHints.hasScheduledVideos = true;
+        }
+    }
+    return meta;
 }
 
 function getDisjointMetasForCatalog(allMetas, catalogId) {
@@ -197,32 +231,24 @@ function getDisjointMetasForCatalog(allMetas, catalogId) {
     }
 
     const movieConfigs = [
-        // 1. Platformlar (Özel Uygulama Kategorileri)
+        // 1. Platform Koleksiyonları (Öncelikli Tek Kategori - Birine Giren Diğerine Asla Girmez)
         { id: "playrepo-netflix", check: (m) => matchesCatCheck(m, "netflix") },
         { id: "playrepo-disney", check: (m) => matchesCatCheck(m, "disney", "pixar", "marvel") },
-        { id: "playrepo-prime", check: (m) => matchesCatCheck(m, "prime video", "amazon prime") },
-        { id: "playrepo-apple", check: (m) => matchesCatCheck(m, "apple tv", "apple original") },
-        { id: "playrepo-hbo", check: (m) => matchesCatCheck(m, "hbo", "hbomax", "warner") },
+        { id: "playrepo-prime", check: (m) => matchesCatCheck(m, "prime video", "amazon prime", "amazon") },
+        { id: "playrepo-apple", check: (m) => matchesCatCheck(m, "apple tv", "appletv", "apple original") },
+        { id: "playrepo-hbo", check: (m) => matchesCatCheck(m, "hbo", "hbomax", "max original", "warner") },
         { id: "playrepo-hulu", check: (m) => matchesCatCheck(m, "hulu") },
-        { id: "playrepo-mubi", check: (m) => matchesCatCheck(m, "mubi") },
-        { id: "playrepo-blutv", check: (m) => matchesCatCheck(m, "blutv") },
-        // 2. Tek Tek Ayrılmış Tür Kategorileri (Birleşik Değil, Her Biri Müstakil)
-        { id: "playrepo-belgesel", check: (m) => matchesCatCheck(m, "belgesel", "documentary") },
-        { id: "playrepo-bilimkurgu", check: (m) => matchesCatCheck(m, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction") },
-        { id: "playrepo-fantastik", check: (m) => matchesCatCheck(m, "fantastik", "fantasy") },
-        { id: "playrepo-animasyon", check: (m) => matchesCatCheck(m, "animasyon", "animation", "anime", "çizgi") },
-        { id: "playrepo-korku", check: (m) => matchesCatCheck(m, "korku", "horror") },
-        { id: "playrepo-gerilim", check: (m) => matchesCatCheck(m, "gerilim", "thriller") },
-        { id: "playrepo-gizem", check: (m) => matchesCatCheck(m, "gizem", "mystery") },
-        { id: "playrepo-suc", check: (m) => matchesCatCheck(m, "suç", "suc", "crime", "polisiye") },
-        { id: "playrepo-aksiyon", check: (m) => matchesCatCheck(m, "aksiyon", "action") },
-        { id: "playrepo-macera", check: (m) => matchesCatCheck(m, "macera", "adventure") },
+        { id: "playrepo-blutv", check: (m) => matchesCatCheck(m, "blutv", "gain", "yerli", "türk", "turk") },
+        { id: "playrepo-mubi", check: (m) => matchesCatCheck(m, "mubi", "arthouse", "festival") },
+        // 2. Birleştirilmiş ve Derli Toplu Tür Koleksiyonları
+        { id: "playrepo-bilimkurgu", check: (m) => matchesCatCheck(m, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction", "fantastik", "fantasy") },
+        { id: "playrepo-aksiyon", check: (m) => matchesCatCheck(m, "aksiyon", "action", "macera", "adventure", "savaş", "savas", "war") },
+        { id: "playrepo-korku", check: (m) => matchesCatCheck(m, "korku", "horror", "gerilim", "thriller", "gizem", "mystery") },
+        { id: "playrepo-animasyon", check: (m) => matchesCatCheck(m, "animasyon", "animation", "anime", "çizgi", "aile", "family") },
         { id: "playrepo-komedi", check: (m) => matchesCatCheck(m, "komedi", "comedy", "mizah") },
-        { id: "playrepo-romantik", check: (m) => matchesCatCheck(m, "romantik", "romance", "aşk") },
-        { id: "playrepo-tarih", check: (m) => matchesCatCheck(m, "tarih", "history", "biyografi", "biography") },
-        { id: "playrepo-savas", check: (m) => matchesCatCheck(m, "savaş", "savas", "war") },
-        { id: "playrepo-aile", check: (m) => matchesCatCheck(m, "aile", "family", "çocuk") },
-        { id: "playrepo-dram", check: (m) => matchesCatCheck(m, "dram", "drama") }
+        { id: "playrepo-suc", check: (m) => matchesCatCheck(m, "suç", "suc", "crime", "polisiye", "dedektif") },
+        { id: "playrepo-dram", check: (m) => matchesCatCheck(m, "dram", "drama", "romantik", "romance", "aşk") },
+        { id: "playrepo-belgesel", check: (m) => matchesCatCheck(m, "belgesel", "documentary", "tarih", "history", "biyografi", "biography") }
     ];
 
     const assignedMovieIds = new Set();
@@ -241,16 +267,23 @@ function getDisjointMetasForCatalog(allMetas, catalogId) {
     }
 
     const seriesConfigs = [
+        // 1. Dizi Platform Koleksiyonları (Öncelikli Tek Kategori)
         { id: "playrepo-series-netflix", check: (s) => matchesCatCheck(s, "netflix") },
-        { id: "playrepo-series-bilimkurgu", check: (s) => matchesCatCheck(s, "bilim kurgu", "bilim-kurgu", "sci-fi") },
-        { id: "playrepo-series-fantastik", check: (s) => matchesCatCheck(s, "fantastik", "fantasy") },
-        { id: "playrepo-series-korku", check: (s) => matchesCatCheck(s, "korku", "horror") },
-        { id: "playrepo-series-gerilim", check: (s) => matchesCatCheck(s, "gerilim", "thriller") },
-        { id: "playrepo-series-gizem", check: (s) => matchesCatCheck(s, "gizem", "mystery") },
-        { id: "playrepo-series-suc", check: (s) => matchesCatCheck(s, "suç", "suc", "crime", "polisiye") },
-        { id: "playrepo-series-aksiyon", check: (s) => matchesCatCheck(s, "aksiyon", "action") },
-        { id: "playrepo-series-komedi", check: (s) => matchesCatCheck(s, "komedi", "comedy", "mizah") },
-        { id: "playrepo-series-dram", check: (s) => matchesCatCheck(s, "dram", "drama") }
+        { id: "playrepo-series-disney", check: (s) => matchesCatCheck(s, "disney", "pixar", "marvel", "star wars") },
+        { id: "playrepo-series-prime", check: (s) => matchesCatCheck(s, "prime video", "amazon prime", "amazon") },
+        { id: "playrepo-series-apple", check: (s) => matchesCatCheck(s, "apple tv", "appletv", "apple original") },
+        { id: "playrepo-series-hbo", check: (s) => matchesCatCheck(s, "hbo", "hbomax", "max original", "warner") },
+        { id: "playrepo-series-hulu", check: (s) => matchesCatCheck(s, "hulu", "fx") },
+        { id: "playrepo-series-blutv", check: (s) => matchesCatCheck(s, "blutv", "gain", "yerli", "türk", "turk") },
+        // 2. Birleştirilmiş Dizi Tür Koleksiyonları
+        { id: "playrepo-series-bilimkurgu", check: (s) => matchesCatCheck(s, "bilim kurgu", "bilim-kurgu", "sci-fi", "science fiction", "fantastik", "fantasy") },
+        { id: "playrepo-series-aksiyon", check: (s) => matchesCatCheck(s, "aksiyon", "action", "macera", "adventure", "savaş", "savas") },
+        { id: "playrepo-series-korku", check: (s) => matchesCatCheck(s, "korku", "horror", "gerilim", "thriller", "gizem", "mystery") },
+        { id: "playrepo-series-animasyon", check: (s) => matchesCatCheck(s, "animasyon", "animation", "anime", "çizgi", "çizgi dizi") },
+        { id: "playrepo-series-komedi", check: (s) => matchesCatCheck(s, "komedi", "comedy", "mizah", "sitcom") },
+        { id: "playrepo-series-suc", check: (s) => matchesCatCheck(s, "suç", "suc", "crime", "polisiye", "dedektif") },
+        { id: "playrepo-series-dram", check: (s) => matchesCatCheck(s, "dram", "drama", "romantik", "romance") },
+        { id: "playrepo-series-belgesel", check: (s) => matchesCatCheck(s, "belgesel", "documentary", "tarih", "history", "biyografi", "doğa") }
     ];
 
     const assignedSeriesIds = new Set();
@@ -381,7 +414,7 @@ async function getMeta(arg1, arg2) {
                         if (smData && smData.meta) {
                             if (smData.meta.poster && smData.meta.poster.includes("@")) smData.meta.poster = smData.meta.poster.replace(/@/g, "%40");
                             if (smData.meta.background && smData.meta.background.includes("@")) smData.meta.background = smData.meta.background.replace(/@/g, "%40");
-                            return smData;
+                            return { meta: enrichWithUpcomingEpisode(smData.meta) };
                         }
                     }
                 } catch (_) {}
@@ -459,7 +492,7 @@ async function getMeta(arg1, arg2) {
                         } catch (_) {}
                     }
 
-                    return { meta: metaObj };
+                    return { meta: enrichWithUpcomingEpisode(metaObj) };
                 }
             }
         } catch (_) {}
@@ -487,7 +520,7 @@ async function getMeta(arg1, arg2) {
                                 }
                             ];
                         }
-                        return { meta: m };
+                        return { meta: enrichWithUpcomingEpisode(m) };
                     }
                 }
             } catch (_) { }

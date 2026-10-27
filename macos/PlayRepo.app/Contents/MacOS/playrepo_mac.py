@@ -216,17 +216,36 @@ class ScraperEngine:
 
     def detect_category(self, url: str, text: str) -> str:
         lower = f"{url.lower()} {text.lower()}"
+        # 1. Platform Koleksiyonları (Öncelikli)
+        if "netflix" in lower:
+            return "Netflix"
+        if any(k in lower for k in ["disney", "pixar", "marvel"]):
+            return "Disney+"
+        if any(k in lower for k in ["prime video", "amazon prime", "prime"]):
+            return "Prime Video"
+        if any(k in lower for k in ["apple tv", "appletv", "apple original"]):
+            return "Apple TV+"
+        if any(k in lower for k in ["hbo", "hbomax"]):
+            return "HBO Max"
+        if "hulu" in lower:
+            return "Hulu"
+        if any(k in lower for k in ["blutv", "gain"]):
+            return "BluTV & Yerli"
+        if "mubi" in lower:
+            return "Mubi & Kült"
+
+        # 2. Tür Koleksiyonları
         if any(k in lower for k in ["animasyon", "animation", "çizgi", "anime", "çizgi dizi", "çizgi film"]):
-            return "Animasyon & Çizgi Dizi"
+            return "Animasyon & Aile"
         if any(k in lower for k in ["belgesel", "documentary", "tarih", "history", "biyografi", "biography"]):
             return "Belgesel & Tarih"
-        if any(k in lower for k in ["suç", "suc", "crime", "polisiye", "gizem", "mystery", "dedektif", "cinayet"]):
-            return "Suç, Polisiye & Gizem"
-        if any(k in lower for k in ["korku", "gerilim", "horror", "thriller", "slasher"]):
+        if any(k in lower for k in ["suç", "suc", "crime", "polisiye", "dedektif"]):
+            return "Suç & Polisiye"
+        if any(k in lower for k in ["korku", "gerilim", "horror", "thriller", "slasher", "gizem", "mystery"]):
             return "Korku & Gerilim"
         if any(k in lower for k in ["aksiyon", "macera", "action", "adventure", "dövüş", "dovus", "savaş", "savas", "western", "kovboy"]):
             return "Aksiyon & Macera"
-        if any(k in lower for k in ["komedi", "mizah", "comedy", "parodi", "kara mizah", "aile", "family"]):
+        if any(k in lower for k in ["komedi", "mizah", "comedy", "parodi", "kara mizah"]):
             return "Komedi"
         if any(k in lower for k in ["dram", "drama", "romantik", "romance", "aşk", "ask", "duygusal", "melodram"]):
             return "Dram & Romantik"
@@ -242,7 +261,7 @@ class ScraperEngine:
             return False
         disallowed = [
             "/kategori/", "/tur/", "/filmizle/", "/yil/", "/category/", "/genre/",
-            "/koleksiyon/", "/forum", "/iletisim", "/page/", "page=", "orderby=",
+            "/platform/", "/platformlar/", "/koleksiyon/", "/forum", "/iletisim", "/page/", "page=", "orderby=",
             "/tag/", "/etiket/", "#", "javascript:", ".jpg", ".png", ".css", ".js",
             ".svg", ".webp", ".ico", "/login", "/uye", "/takvim", "/trendler",
             "/seri-filmler", "/istek", "/dmca", "/gizlilik", "/privacy", "/contact",
@@ -272,6 +291,7 @@ class ScraperEngine:
             return False
         allowed = [
             "/page/", "page=", "sayfa=", "/kategori/", "/tur/", "/filmizle/",
+            "/platform/", "/platformlar/", "/koleksiyon/",
             "/yil/", "/category/", "/genre/", "altyazi", "dublaj",
             f"{site_base}/film/", f"{site_base}/film", f"{site_base}/film-izle/",
             f"{site_base}/filmler/", "orderby="
@@ -1059,13 +1079,27 @@ class ScraperEngine:
                 if m_id and m_id.startswith("tt"):
                     resolved_type = m0.get("type") or media_kind
                     turkish_desc = desc if desc and desc != "Play • 1080p TR" else (m0.get("description") or "Play • 1080p TR")
-                    extra_genres = m0.get("genres") or []
-                    if not extra_genres:
-                        try:
-                            detail_res = http_json(f"https://v3-cinemeta.strem.io/meta/{resolved_type}/{m_id}.json")
-                            extra_genres = detail_res.get("meta", {}).get("genres") or []
-                        except Exception:
-                            pass
+                    extra_genres = list(m0.get("genres") or [])
+                    try:
+                        detail_res = http_json(f"https://v3-cinemeta.strem.io/meta/{resolved_type}/{m_id}.json")
+                        d_meta = detail_res.get("meta", {})
+                        if not extra_genres:
+                            extra_genres = list(d_meta.get("genres") or [])
+                        # Diziler için yeni bölüm yayın tarihi kontrolü
+                        if resolved_type == "series":
+                            now_str = datetime.utcnow().isoformat()
+                            future_vids = [v for v in d_meta.get("videos", []) if v.get("released") and str(v.get("released")) > now_str]
+                            if future_vids:
+                                future_vids.sort(key=lambda v: str(v.get("released")))
+                                nxt = future_vids[0]
+                                s_n = nxt.get("season", 1)
+                                e_n = nxt.get("episode", 1)
+                                rel_d = str(nxt.get("released"))[:10]
+                                banner = f"📅 YENİ BÖLÜM: Sezon {s_n}, Bölüm {e_n} ({rel_d}) tarihinde yayında!\n\n"
+                                if "📅 YENİ BÖLÜM" not in turkish_desc:
+                                    turkish_desc = banner + turkish_desc
+                    except Exception:
+                        pass
                     m_poster = clean_poster_url(m0.get("poster"), m_id, fallback=poster)
                     return (
                         m_id,
@@ -1101,16 +1135,30 @@ class ScraperEngine:
                         p_url = f"https://image.tmdb.org/t/p/w500{p_path}" if p_path else poster
                         rel_date = r0.get("release_date") or r0.get("first_air_date") or year
                         tmdb_genres = []
+                        overview = r0.get("overview") or desc
                         try:
                             det = http_json(f"https://api.themoviedb.org/3/{endpoint}/{r_id}?api_key={tmdb_key}&language=tr-TR")
                             tmdb_genres = [g.get("name") for g in det.get("genres", []) if g.get("name")]
+                            networks = [n.get("name") for n in det.get("networks", []) if n.get("name")]
+                            for net in networks:
+                                if net not in tmdb_genres:
+                                    tmdb_genres.append(net)
+                            if endpoint == "tv":
+                                next_ep = det.get("next_episode_to_air")
+                                if next_ep:
+                                    s_n = next_ep.get("season_number", 1)
+                                    e_n = next_ep.get("episode_number", 1)
+                                    air_d = next_ep.get("air_date", "")
+                                    banner = f"📅 YENİ BÖLÜM: Sezon {s_n}, Bölüm {e_n} ({air_d}) tarihinde yayında!\n\n"
+                                    if "📅 YENİ BÖLÜM" not in overview:
+                                        overview = banner + overview
                         except Exception:
                             pass
                         return (
                             f"tmdb-{r_id}",
                             r0.get("title") or r0.get("name") or title,
                             clean_poster_url(p_url, fallback=poster),
-                            r0.get("overview") or desc,
+                            overview,
                             rel_date[:4] if rel_date else year,
                             tmdb_genres,
                             resolved_type
@@ -1165,6 +1213,96 @@ class GitHubAtomicPublisher:
 
     def log(self, msg: str):
         self.log_callback(msg)
+
+    @staticmethod
+    def matches_cat(item, *keywords):
+        g_list = [str(g).lower() for g in item.get("genres", [])]
+        desc = str(item.get("description", "")).lower()
+        title = str(item.get("title", "") or item.get("name", "")).lower()
+        platform = str(item.get("platform", "")).lower()
+        for kw in keywords:
+            k = kw.lower()
+            if k in platform or k in title or any(k in g for g in g_list):
+                return True
+            if k in ["aile", "family", "war", "star", "max", "fx"]:
+                if re.search(rf"\b{re.escape(k)}\b", desc, re.I):
+                    return True
+            elif k in desc:
+                return True
+        return False
+
+    @classmethod
+    def prepare_category_catalogs(cls, all_metas: list) -> dict:
+        result = {}
+        all_movies = [m for m in all_metas if m.get("type", "movie") != "series"]
+        result["playrepo/catalog/movie/playrepo-popular.json"] = json.dumps({"metas": all_movies[:60]}, ensure_ascii=False, indent=2)
+        result["playrepo/catalog/movie/playrepo-catalog-movies.json"] = json.dumps({"metas": all_movies}, ensure_ascii=False, indent=2)
+
+        movie_genre_configs = [
+            # 1. Platform Koleksiyonları (Öncelikli - Birine Giren Diğerine Asla Girmez)
+            ("playrepo/catalog/movie/playrepo-netflix.json", lambda x: cls.matches_cat(x, "netflix")),
+            ("playrepo/catalog/movie/playrepo-disney.json", lambda x: cls.matches_cat(x, "disney", "pixar", "marvel")),
+            ("playrepo/catalog/movie/playrepo-prime.json", lambda x: cls.matches_cat(x, "prime video", "amazon prime", "amazon")),
+            ("playrepo/catalog/movie/playrepo-apple.json", lambda x: cls.matches_cat(x, "apple tv", "appletv", "apple original")),
+            ("playrepo/catalog/movie/playrepo-hbo.json", lambda x: cls.matches_cat(x, "hbo", "hbomax", "max original", "warner")),
+            ("playrepo/catalog/movie/playrepo-hulu.json", lambda x: cls.matches_cat(x, "hulu")),
+            ("playrepo/catalog/movie/playrepo-blutv.json", lambda x: cls.matches_cat(x, "blutv", "gain", "yerli", "türk", "turk")),
+            ("playrepo/catalog/movie/playrepo-mubi.json", lambda x: cls.matches_cat(x, "mubi", "arthouse", "festival")),
+            # 2. Birleştirilmiş Tür Koleksiyonları
+            ("playrepo/catalog/movie/playrepo-bilimkurgu.json", lambda x: cls.matches_cat(x, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction", "fantastik", "fantasy")),
+            ("playrepo/catalog/movie/playrepo-aksiyon.json", lambda x: cls.matches_cat(x, "aksiyon", "action", "macera", "adventure", "savaş", "savas", "war")),
+            ("playrepo/catalog/movie/playrepo-korku.json", lambda x: cls.matches_cat(x, "korku", "horror", "gerilim", "thriller", "gizem", "mystery")),
+            ("playrepo/catalog/movie/playrepo-animasyon.json", lambda x: cls.matches_cat(x, "animasyon", "animation", "anime", "çizgi", "aile", "family")),
+            ("playrepo/catalog/movie/playrepo-komedi.json", lambda x: cls.matches_cat(x, "komedi", "comedy", "mizah")),
+            ("playrepo/catalog/movie/playrepo-suc.json", lambda x: cls.matches_cat(x, "suç", "suc", "crime", "polisiye", "dedektif")),
+            ("playrepo/catalog/movie/playrepo-dram.json", lambda x: cls.matches_cat(x, "dram", "drama", "romantik", "romance", "aşk")),
+            ("playrepo/catalog/movie/playrepo-belgesel.json", lambda x: cls.matches_cat(x, "belgesel", "documentary", "tarih", "history", "biyografi", "biography")),
+        ]
+
+        assigned_movie_ids = set()
+        for path, pred in movie_genre_configs:
+            cat_movies = []
+            for m in all_movies:
+                m_id = m.get("id")
+                if m_id and m_id not in assigned_movie_ids and pred(m):
+                    cat_movies.append(m)
+                    assigned_movie_ids.add(m_id)
+            result[path] = json.dumps({"metas": cat_movies}, ensure_ascii=False, indent=2)
+
+        all_series = [s for s in all_metas if s.get("type") == "series"]
+        result["playrepo/catalog/series/playrepo-series-popular.json"] = json.dumps({"metas": all_series}, ensure_ascii=False, indent=2)
+
+        series_genre_configs = [
+            # 1. Dizi Platform Koleksiyonları (Öncelikli - Birine Giren Diğerine Asla Girmez)
+            ("playrepo/catalog/series/playrepo-series-netflix.json", lambda x: cls.matches_cat(x, "netflix")),
+            ("playrepo/catalog/series/playrepo-series-disney.json", lambda x: cls.matches_cat(x, "disney", "pixar", "marvel", "star wars")),
+            ("playrepo/catalog/series/playrepo-series-prime.json", lambda x: cls.matches_cat(x, "prime video", "amazon prime", "amazon")),
+            ("playrepo/catalog/series/playrepo-series-apple.json", lambda x: cls.matches_cat(x, "apple tv", "appletv", "apple original")),
+            ("playrepo/catalog/series/playrepo-series-hbo.json", lambda x: cls.matches_cat(x, "hbo", "hbomax", "max original", "warner")),
+            ("playrepo/catalog/series/playrepo-series-hulu.json", lambda x: cls.matches_cat(x, "hulu", "fx")),
+            ("playrepo/catalog/series/playrepo-series-blutv.json", lambda x: cls.matches_cat(x, "blutv", "gain", "yerli", "türk", "turk")),
+            # 2. Birleştirilmiş Dizi Tür Koleksiyonları
+            ("playrepo/catalog/series/playrepo-series-bilimkurgu.json", lambda x: cls.matches_cat(x, "bilim kurgu", "bilim-kurgu", "sci-fi", "science fiction", "fantastik", "fantasy")),
+            ("playrepo/catalog/series/playrepo-series-aksiyon.json", lambda x: cls.matches_cat(x, "aksiyon", "action", "macera", "adventure", "savaş", "savas")),
+            ("playrepo/catalog/series/playrepo-series-korku.json", lambda x: cls.matches_cat(x, "korku", "horror", "gerilim", "thriller", "gizem", "mystery")),
+            ("playrepo/catalog/series/playrepo-series-animasyon.json", lambda x: cls.matches_cat(x, "animasyon", "animation", "anime", "çizgi", "çizgi dizi")),
+            ("playrepo/catalog/series/playrepo-series-komedi.json", lambda x: cls.matches_cat(x, "komedi", "comedy", "mizah", "sitcom")),
+            ("playrepo/catalog/series/playrepo-series-suc.json", lambda x: cls.matches_cat(x, "suç", "suc", "crime", "polisiye", "dedektif")),
+            ("playrepo/catalog/series/playrepo-series-dram.json", lambda x: cls.matches_cat(x, "dram", "drama", "romantik", "romance")),
+            ("playrepo/catalog/series/playrepo-series-belgesel.json", lambda x: cls.matches_cat(x, "belgesel", "documentary", "tarih", "history", "biyografi", "doğa")),
+        ]
+
+        assigned_series_ids = set()
+        for path, pred in series_genre_configs:
+            cat_series = []
+            for s in all_series:
+                s_id = s.get("id")
+                if s_id and s_id not in assigned_series_ids and pred(s):
+                    cat_series.append(s)
+                    assigned_series_ids.add(s_id)
+            result[path] = json.dumps({"metas": cat_series}, ensure_ascii=False, indent=2)
+
+        return result
 
     def publish_movies(self, scraped_movies: list) -> bool:
         if not self.token:
@@ -1295,7 +1433,7 @@ class GitHubAtomicPublisher:
                     "posterShape": "poster",
                     "behaviorHints": {
                         "defaultVideoId": vid_id,
-                        "hasScheduledVideos": False
+                        "hasScheduledVideos": bool(m_type == "series" and "📅 YENİ BÖLÜM" in m.get("description", ""))
                     },
                     "videos": all_videos
                 }
@@ -1334,84 +1472,7 @@ class GitHubAtomicPublisher:
         files_to_commit["data/catalog.json"] = json.dumps({"metas": all_metas}, ensure_ascii=False, indent=2)
         files_to_commit["data/streams.json"] = json.dumps(streams_map, ensure_ascii=False, indent=2)
 
-        def matches_cat(item, *keywords):
-            g_list = [str(g).lower() for g in item.get("genres", [])]
-            desc = str(item.get("description", "")).lower()
-            title = str(item.get("title", "") or item.get("name", "")).lower()
-            combined = " ".join(g_list) + " " + desc + " " + title
-            return any(kw in combined for kw in keywords)
-
-        # 1. Popüler & Tüm Filmler
-        all_movies = [m for m in all_metas if m.get("type", "movie") != "series"]
-        files_to_commit["playrepo/catalog/movie/playrepo-popular.json"] = json.dumps({"metas": all_movies[:60]}, ensure_ascii=False, indent=2)
-        files_to_commit["playrepo/catalog/movie/playrepo-catalog-movies.json"] = json.dumps({"metas": all_movies}, ensure_ascii=False, indent=2)
-
-        # 2. Özel Film Tür & Platform Kategorileri - BİR KATEGORİYE EKLENEN FİLM DİĞERLERİNE ASLA EKLENMEZ!
-        movie_genre_configs = [
-            # Platformlar
-            ("playrepo/catalog/movie/playrepo-netflix.json", lambda x: matches_cat(x, "netflix")),
-            ("playrepo/catalog/movie/playrepo-disney.json", lambda x: matches_cat(x, "disney", "pixar", "marvel")),
-            ("playrepo/catalog/movie/playrepo-prime.json", lambda x: matches_cat(x, "prime video", "amazon prime")),
-            ("playrepo/catalog/movie/playrepo-apple.json", lambda x: matches_cat(x, "apple tv", "apple original")),
-            ("playrepo/catalog/movie/playrepo-hbo.json", lambda x: matches_cat(x, "hbo", "hbomax", "warner")),
-            ("playrepo/catalog/movie/playrepo-hulu.json", lambda x: matches_cat(x, "hulu")),
-            ("playrepo/catalog/movie/playrepo-mubi.json", lambda x: matches_cat(x, "mubi")),
-            ("playrepo/catalog/movie/playrepo-blutv.json", lambda x: matches_cat(x, "blutv")),
-            # Tek Tek Ayrılmış Türler
-            ("playrepo/catalog/movie/playrepo-belgesel.json", lambda x: matches_cat(x, "belgesel", "documentary")),
-            ("playrepo/catalog/movie/playrepo-bilimkurgu.json", lambda x: matches_cat(x, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction")),
-            ("playrepo/catalog/movie/playrepo-fantastik.json", lambda x: matches_cat(x, "fantastik", "fantasy")),
-            ("playrepo/catalog/movie/playrepo-animasyon.json", lambda x: matches_cat(x, "animasyon", "animation", "anime", "çizgi")),
-            ("playrepo/catalog/movie/playrepo-korku.json", lambda x: matches_cat(x, "korku", "horror")),
-            ("playrepo/catalog/movie/playrepo-gerilim.json", lambda x: matches_cat(x, "gerilim", "thriller")),
-            ("playrepo/catalog/movie/playrepo-gizem.json", lambda x: matches_cat(x, "gizem", "mystery")),
-            ("playrepo/catalog/movie/playrepo-suc.json", lambda x: matches_cat(x, "suç", "suc", "crime", "polisiye")),
-            ("playrepo/catalog/movie/playrepo-aksiyon.json", lambda x: matches_cat(x, "aksiyon", "action")),
-            ("playrepo/catalog/movie/playrepo-macera.json", lambda x: matches_cat(x, "macera", "adventure")),
-            ("playrepo/catalog/movie/playrepo-komedi.json", lambda x: matches_cat(x, "komedi", "comedy", "mizah")),
-            ("playrepo/catalog/movie/playrepo-romantik.json", lambda x: matches_cat(x, "romantik", "romance", "aşk")),
-            ("playrepo/catalog/movie/playrepo-tarih.json", lambda x: matches_cat(x, "tarih", "history", "biyografi", "biography")),
-            ("playrepo/catalog/movie/playrepo-savas.json", lambda x: matches_cat(x, "savaş", "savas", "war")),
-            ("playrepo/catalog/movie/playrepo-aile.json", lambda x: matches_cat(x, "aile", "family", "çocuk")),
-            ("playrepo/catalog/movie/playrepo-dram.json", lambda x: matches_cat(x, "dram", "drama")),
-        ]
-
-        assigned_movie_ids = set()
-        for path, pred in movie_genre_configs:
-            cat_movies = []
-            for m in all_movies:
-                m_id = m.get("id")
-                if m_id and m_id not in assigned_movie_ids and pred(m):
-                    cat_movies.append(m)
-                    assigned_movie_ids.add(m_id)
-            files_to_commit[path] = json.dumps({"metas": cat_movies}, ensure_ascii=False, indent=2)
-
-        # 3. Dizi Kategorileri - DİZİLER DE BİRBİRİNİ TEKRARLAMAZ
-        all_series = [s for s in all_metas if s.get("type") == "series"]
-        files_to_commit["playrepo/catalog/series/playrepo-series-popular.json"] = json.dumps({"metas": all_series}, ensure_ascii=False, indent=2)
-
-        series_genre_configs = [
-            ("playrepo/catalog/series/playrepo-series-netflix.json", lambda x: matches_cat(x, "netflix")),
-            ("playrepo/catalog/series/playrepo-series-bilimkurgu.json", lambda x: matches_cat(x, "bilim kurgu", "bilim-kurgu", "sci-fi")),
-            ("playrepo/catalog/series/playrepo-series-fantastik.json", lambda x: matches_cat(x, "fantastik", "fantasy")),
-            ("playrepo/catalog/series/playrepo-series-korku.json", lambda x: matches_cat(x, "korku", "horror")),
-            ("playrepo/catalog/series/playrepo-series-gerilim.json", lambda x: matches_cat(x, "gerilim", "thriller")),
-            ("playrepo/catalog/series/playrepo-series-gizem.json", lambda x: matches_cat(x, "gizem", "mystery")),
-            ("playrepo/catalog/series/playrepo-series-suc.json", lambda x: matches_cat(x, "suç", "suc", "crime", "polisiye")),
-            ("playrepo/catalog/series/playrepo-series-aksiyon.json", lambda x: matches_cat(x, "aksiyon", "action")),
-            ("playrepo/catalog/series/playrepo-series-komedi.json", lambda x: matches_cat(x, "komedi", "comedy", "mizah")),
-            ("playrepo/catalog/series/playrepo-series-dram.json", lambda x: matches_cat(x, "dram", "drama")),
-        ]
-
-        assigned_series_ids = set()
-        for path, pred in series_genre_configs:
-            cat_series = []
-            for s in all_series:
-                s_id = s.get("id")
-                if s_id and s_id not in assigned_series_ids and pred(s):
-                    cat_series.append(s)
-                    assigned_series_ids.add(s_id)
-            files_to_commit[path] = json.dumps({"metas": cat_series}, ensure_ascii=False, indent=2)
+        files_to_commit.update(self.prepare_category_catalogs(all_metas))
 
         self.log(f"[GITHUB] Toplam {len(files_to_commit)} dosya tek bir atomik commit olarak GitHub'a aktarılıyor...")
 
@@ -1531,85 +1592,7 @@ class GitHubAtomicPublisher:
             "data/catalog.json": json.dumps({"metas": all_metas}, ensure_ascii=False, indent=2),
             "data/streams.json": json.dumps(streams_map, ensure_ascii=False, indent=2)
         }
-
-        def matches_cat(item, *keywords):
-            g_list = [str(g).lower() for g in item.get("genres", [])]
-            desc = str(item.get("description", "")).lower()
-            title = str(item.get("title", "") or item.get("name", "")).lower()
-            combined = " ".join(g_list) + " " + desc + " " + title
-            return any(kw in combined for kw in keywords)
-
-        # 1. Popüler & Tüm Filmler
-        all_movies = [m for m in all_metas if m.get("type", "movie") != "series"]
-        files_to_commit["playrepo/catalog/movie/playrepo-popular.json"] = json.dumps({"metas": all_movies[:60]}, ensure_ascii=False, indent=2)
-        files_to_commit["playrepo/catalog/movie/playrepo-catalog-movies.json"] = json.dumps({"metas": all_movies}, ensure_ascii=False, indent=2)
-
-        # 2. Özel Film Tür & Platform Kategorileri - BİR KATEGORİYE EKLENEN FİLM DİĞERLERİNE ASLA EKLENMEZ!
-        movie_genre_configs = [
-            # Platformlar
-            ("playrepo/catalog/movie/playrepo-netflix.json", lambda x: matches_cat(x, "netflix")),
-            ("playrepo/catalog/movie/playrepo-disney.json", lambda x: matches_cat(x, "disney", "pixar", "marvel")),
-            ("playrepo/catalog/movie/playrepo-prime.json", lambda x: matches_cat(x, "prime video", "amazon prime")),
-            ("playrepo/catalog/movie/playrepo-apple.json", lambda x: matches_cat(x, "apple tv", "apple original")),
-            ("playrepo/catalog/movie/playrepo-hbo.json", lambda x: matches_cat(x, "hbo", "hbomax", "warner")),
-            ("playrepo/catalog/movie/playrepo-hulu.json", lambda x: matches_cat(x, "hulu")),
-            ("playrepo/catalog/movie/playrepo-mubi.json", lambda x: matches_cat(x, "mubi")),
-            ("playrepo/catalog/movie/playrepo-blutv.json", lambda x: matches_cat(x, "blutv")),
-            # Tek Tek Ayrılmış Türler
-            ("playrepo/catalog/movie/playrepo-belgesel.json", lambda x: matches_cat(x, "belgesel", "documentary")),
-            ("playrepo/catalog/movie/playrepo-bilimkurgu.json", lambda x: matches_cat(x, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction")),
-            ("playrepo/catalog/movie/playrepo-fantastik.json", lambda x: matches_cat(x, "fantastik", "fantasy")),
-            ("playrepo/catalog/movie/playrepo-animasyon.json", lambda x: matches_cat(x, "animasyon", "animation", "anime", "çizgi")),
-            ("playrepo/catalog/movie/playrepo-korku.json", lambda x: matches_cat(x, "korku", "horror")),
-            ("playrepo/catalog/movie/playrepo-gerilim.json", lambda x: matches_cat(x, "gerilim", "thriller")),
-            ("playrepo/catalog/movie/playrepo-gizem.json", lambda x: matches_cat(x, "gizem", "mystery")),
-            ("playrepo/catalog/movie/playrepo-suc.json", lambda x: matches_cat(x, "suç", "suc", "crime", "polisiye")),
-            ("playrepo/catalog/movie/playrepo-aksiyon.json", lambda x: matches_cat(x, "aksiyon", "action")),
-            ("playrepo/catalog/movie/playrepo-macera.json", lambda x: matches_cat(x, "macera", "adventure")),
-            ("playrepo/catalog/movie/playrepo-komedi.json", lambda x: matches_cat(x, "komedi", "comedy", "mizah")),
-            ("playrepo/catalog/movie/playrepo-romantik.json", lambda x: matches_cat(x, "romantik", "romance", "aşk")),
-            ("playrepo/catalog/movie/playrepo-tarih.json", lambda x: matches_cat(x, "tarih", "history", "biyografi", "biography")),
-            ("playrepo/catalog/movie/playrepo-savas.json", lambda x: matches_cat(x, "savaş", "savas", "war")),
-            ("playrepo/catalog/movie/playrepo-aile.json", lambda x: matches_cat(x, "aile", "family", "çocuk")),
-            ("playrepo/catalog/movie/playrepo-dram.json", lambda x: matches_cat(x, "dram", "drama")),
-        ]
-
-        assigned_movie_ids = set()
-        for path, pred in movie_genre_configs:
-            cat_movies = []
-            for m in all_movies:
-                m_id = m.get("id")
-                if m_id and m_id not in assigned_movie_ids and pred(m):
-                    cat_movies.append(m)
-                    assigned_movie_ids.add(m_id)
-            files_to_commit[path] = json.dumps({"metas": cat_movies}, ensure_ascii=False, indent=2)
-
-        # 3. Dizi Kategorileri - DİZİLER DE BİRBİRİNİ TEKRARLAMAZ
-        all_series = [s for s in all_metas if s.get("type") == "series"]
-        files_to_commit["playrepo/catalog/series/playrepo-series-popular.json"] = json.dumps({"metas": all_series}, ensure_ascii=False, indent=2)
-
-        series_genre_configs = [
-            ("playrepo/catalog/series/playrepo-series-netflix.json", lambda x: matches_cat(x, "netflix")),
-            ("playrepo/catalog/series/playrepo-series-bilimkurgu.json", lambda x: matches_cat(x, "bilim kurgu", "bilim-kurgu", "sci-fi")),
-            ("playrepo/catalog/series/playrepo-series-fantastik.json", lambda x: matches_cat(x, "fantastik", "fantasy")),
-            ("playrepo/catalog/series/playrepo-series-korku.json", lambda x: matches_cat(x, "korku", "horror")),
-            ("playrepo/catalog/series/playrepo-series-gerilim.json", lambda x: matches_cat(x, "gerilim", "thriller")),
-            ("playrepo/catalog/series/playrepo-series-gizem.json", lambda x: matches_cat(x, "gizem", "mystery")),
-            ("playrepo/catalog/series/playrepo-series-suc.json", lambda x: matches_cat(x, "suç", "suc", "crime", "polisiye")),
-            ("playrepo/catalog/series/playrepo-series-aksiyon.json", lambda x: matches_cat(x, "aksiyon", "action")),
-            ("playrepo/catalog/series/playrepo-series-komedi.json", lambda x: matches_cat(x, "komedi", "comedy", "mizah")),
-            ("playrepo/catalog/series/playrepo-series-dram.json", lambda x: matches_cat(x, "dram", "drama")),
-        ]
-
-        assigned_series_ids = set()
-        for path, pred in series_genre_configs:
-            cat_series = []
-            for s in all_series:
-                s_id = s.get("id")
-                if s_id and s_id not in assigned_series_ids and pred(s):
-                    cat_series.append(s)
-                    assigned_series_ids.add(s_id)
-            files_to_commit[path] = json.dumps({"metas": cat_series}, ensure_ascii=False, indent=2)
+        files_to_commit.update(self.prepare_category_catalogs(all_metas))
 
         ref_data = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/ref/heads/{DEFAULT_BRANCH}", token=self.token)
         latest_commit_sha = ref_data.get("object", {}).get("sha")
@@ -1692,45 +1675,9 @@ class GitHubAtomicPublisher:
 
         files_to_commit = {
             "data/catalog.json": empty_catalog,
-            "data/streams.json": empty_streams,
-            "playrepo/catalog/movie/playrepo-popular.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-catalog-movies.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-netflix.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-disney.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-prime.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-apple.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-hbo.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-hulu.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-mubi.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-blutv.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-belgesel.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-bilimkurgu.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-fantastik.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-animasyon.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-korku.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-gerilim.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-gizem.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-suc.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-aksiyon.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-macera.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-komedi.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-romantik.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-tarih.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-savas.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-aile.json": empty_catalog,
-            "playrepo/catalog/movie/playrepo-dram.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-popular.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-netflix.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-bilimkurgu.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-fantastik.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-korku.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-gerilim.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-gizem.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-suc.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-aksiyon.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-komedi.json": empty_catalog,
-            "playrepo/catalog/series/playrepo-series-dram.json": empty_catalog
+            "data/streams.json": empty_streams
         }
+        files_to_commit.update(self.prepare_category_catalogs([]))
 
         # Nuvio'nun cihaz önbelleğini anında temizlemesi için manifest sürümünü artır
         manifest_data = fetch_github_file("playrepo/manifest.json", token=self.token)
