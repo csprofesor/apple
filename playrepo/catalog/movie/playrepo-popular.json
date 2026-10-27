@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-lanetliler",
+      "type": "movie",
+      "name": "Lanetliler",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zGT6zikFjC5wRROXbPIipKahZn8.webp?v=1785672249",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zGT6zikFjC5wRROXbPIipKahZn8.webp?v=1785672249",
+      "description": "Lanetliler (2025) full HD, Türkçe dublaj ve altyazılı izle. Yıl 1862, kış sert geçmekte. Amerika’da iç savaş amansızca sürerken kuzeyli Birlik Ordusu, gönüllü b...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "89 dk"
+    },
+    {
       "id": "tt38346012",
       "type": "movie",
       "name": "The Balloonist",
@@ -1111,23 +1127,6 @@
       ],
       "posterShape": "poster",
       "runtime": "170 dk"
-    },
-    {
-      "id": "playrepo-gece-elbet-coker",
-      "type": "movie",
-      "name": "Gece Elbet Çöker",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cVqQdzqo0ymSFJqU87bIiHV8bA7.webp?v=1785656991",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cVqQdzqo0ymSFJqU87bIiHV8bA7.webp?v=1785656991",
-      "description": "Gece Elbet Çöker (2025) full HD, Türkçe dublaj ve altyazılı izle. Ailesinin artık geçinemediği bir şehirde evden çıkarılmakla yüz yüze gelen bir kadın, çaresizl...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "108 dk"
     }
   ]
 }
