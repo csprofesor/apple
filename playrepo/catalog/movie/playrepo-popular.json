@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-kotu-etki",
+      "type": "movie",
+      "name": "Kötü Etki",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zXUxcXnBPHF1cD0IHi4KUpsNvF4.webp?v=1785653801",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zXUxcXnBPHF1cD0IHi4KUpsNvF4.webp?v=1785653801",
+      "description": "Kötü Etki (2025) full HD, Türkçe dublaj ve altyazılı izle. Eski bir hükümlü, zengin bir vârisi bir sapıktan korumak için işe alındığında yeni bir başlangıç yapa...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "106 dk"
+    },
+    {
       "id": "tt31281659",
       "type": "movie",
       "name": "Merv",
@@ -1208,21 +1224,6 @@
       ],
       "posterShape": "poster",
       "runtime": "107 dk"
-    },
-    {
-      "id": "playrepo-drop-kabul-et-veya-reddet",
-      "type": "movie",
-      "name": "Drop: Kabul Et veya Reddet",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/akBGSguhkAj1TXOdZUcL11e1hpH.webp?v=1785631650",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/akBGSguhkAj1TXOdZUcL11e1hpH.webp?v=1785631650",
-      "description": "Drop: Kabul Et veya Reddet (2025) full HD, Türkçe dublaj ve altyazılı izle. Yıllar sonra ilk randevusuna çıkan dul bir anne olan Violet, beklediğinden daha yakı...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "95 dk"
     }
   ]
 }
