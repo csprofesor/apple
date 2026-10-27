@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-durust-bir-hayat",
+      "type": "movie",
+      "name": "Dürüst Bir Hayat",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9anJSe71q4nwUI1GcbM1LCxMAAd.webp?v=1785624004",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9anJSe71q4nwUI1GcbM1LCxMAAd.webp?v=1785624004",
+      "description": "Dürüst Bir Hayat (2025) full HD, Türkçe dublaj ve altyazılı izle. İlham arayan alaycı bir hukuk öğrencisi bir grup anarşiste katılınca bir oyuncudan çok piyon h...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "122 dk"
+    },
+    {
       "id": "tt21191806",
       "type": "movie",
       "name": "Back in Action",
@@ -1064,22 +1080,6 @@
       ],
       "posterShape": "poster",
       "runtime": "133 dk"
-    },
-    {
-      "id": "playrepo-kucuk-am-lie",
-      "type": "movie",
-      "name": "Küçük Amélie",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2WCpiFmRqXyu5y7WoZjEa3CJbiI.webp?v=1785555592",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2WCpiFmRqXyu5y7WoZjEa3CJbiI.webp?v=1785555592",
-      "description": "Küçük Amélie (2025) full HD, Türkçe dublaj ve altyazılı izle. The world is a perplexing, peaceful mystery to Amélie until a miraculous encounter with chocolate....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Animasyon & Aile",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "77 dk"
     }
   ]
 }
