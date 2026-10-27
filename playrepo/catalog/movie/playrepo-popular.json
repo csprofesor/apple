@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-risqu",
+      "type": "movie",
+      "name": "Risqué",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/novE5UrqfLIFEMe5QBnjm18GG4E.webp?v=1785559450",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/novE5UrqfLIFEMe5QBnjm18GG4E.webp?v=1785559450",
+      "description": "Risqué (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir striptiz kulübünden kovulan intikamcı bir dansçı, yolsuz patronu ve onları küçümseyen adamları alt e...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Suç & Polisiye",
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "91 dk"
+    },
+    {
       "id": "playrepo-yerime-gec",
       "type": "movie",
       "name": "Yerime Geç",
@@ -1186,23 +1203,6 @@
       ],
       "posterShape": "poster",
       "runtime": "102 dk"
-    },
-    {
-      "id": "playrepo-kirmizi-hat",
-      "type": "movie",
-      "name": "Kırmızı Hat",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qbbx3NDw6FrtQSrKdxn9n72xJzO.webp?v=1785275799",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qbbx3NDw6FrtQSrKdxn9n72xJzO.webp?v=1785275799",
-      "description": "Kırmızı Hat (2026) full HD, Türkçe dublaj ve altyazılı izle. Acımasız bir telefon dolandırıcılığının kurbanı olan üç kadın, paralarını ve onurlarını çalan suç ö...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "135 dk"
     }
   ]
 }
