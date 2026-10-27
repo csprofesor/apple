@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt40224422",
+      "type": "movie",
+      "name": "Untold: The Shooting at Hawthorne Hill",
+      "poster": "https://image.tmdb.org/t/p/w500/6K0qTMozHAzzYVsWQrXxmqCC5wY.jpg",
+      "background": "https://image.tmdb.org/t/p/w500/6K0qTMozHAzzYVsWQrXxmqCC5wY.jpg",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Untold: The Shooting at Hawthorne Hill (2026) full HD, Türkçe dublaj ve altyazılı izle. A retired Olympic equestrian takes on a new dressage student at his idyl...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "73 dk"
+    },
+    {
       "id": "playrepo-oda-arkadaslari",
       "type": "movie",
       "name": "Oda Arkadaşları",
@@ -1257,29 +1272,6 @@
       ],
       "posterShape": "poster",
       "runtime": "113 dk"
-    },
-    {
-      "id": "playrepo-kis-ortasi-tatili",
-      "type": "movie",
-      "name": "Kış Ortası Tatili",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rLEDPOSZkmeBy47wzNTEXTj5ABj.webp?v=1785055430",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rLEDPOSZkmeBy47wzNTEXTj5ABj.webp?v=1785055430",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Kış Ortası Tatili (2026) full HD, Türkçe dublaj ve altyazılı izle. Amsterdam tatilinde Stella ve Gerry, ilişkilerinin dönüm noktasına geldiğini fark eder. Geçmi...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Suç, Polisiye & Gizem",
-        "Dram & Romantik",
-        "Komedi",
-        "Belgesel & Tarih",
-        "Animasyon & Çizgi Dizi",
-        "Popüler",
-        "Aksiyon & Macera",
-        "Bilim Kurgu & Fantastik",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "90 dk"
     }
   ]
 }
