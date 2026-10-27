@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-alacakli",
+      "type": "movie",
+      "name": "Alacaklı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dk68ykaNd3HdrDJyPJqEGsgvag7.webp?v=1785183049",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dk68ykaNd3HdrDJyPJqEGsgvag7.webp?v=1785183049",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Alacaklı (2026) full HD, Türkçe dublaj ve altyazılı izle. Ölümcül bir hastalıkla yüzleşen ve geçmişinin karanlık izlerinden kaçamayan eski bir borç tahsildarı,....",
+      "releaseInfo": "2026",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "134 dk"
+    },
+    {
       "id": "playrepo-gorev",
       "type": "movie",
       "name": "Görev",
@@ -1245,21 +1268,6 @@
       ],
       "posterShape": "poster",
       "runtime": "85 dk"
-    },
-    {
-      "id": "tt27953589",
-      "type": "movie",
-      "name": "Hedda",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYTYyN2VlZDctNTk4Ny00NDRkLWI0ZDAtMDVkNjhiZDE5MGJmXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYTYyN2VlZDctNTk4Ny00NDRkLWI0ZDAtMDVkNjhiZDE5MGJmXkEyXkFqcGc%40._V1_SX250.jpg",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Hedda (2025) full HD, Türkçe dublaj ve altyazılı izle. Henrik İbsen&#039;in sevilen oyunu Hedda Gabler, Hollywood&#039;un yükselen isimlerinden Nia DaCosta&#039;nın yönetmenli...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "runtime": "107 dk"
     }
   ]
 }
