@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-hallow-yolu",
+      "type": "movie",
+      "name": "Hallow Yolu",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yPU89i5KvCrfPkbgsUqYjRycPaY.webp?v=1785551358",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yPU89i5KvCrfPkbgsUqYjRycPaY.webp?v=1785551358",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Hallow Yolu (2025) full HD, Türkçe dublaj ve altyazılı izle. İki ebeveyn, kızlarının trajik bir araba kazası geçirmesinin ardından ondan endişe verici bir telef...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "80 dk"
+    },
+    {
       "id": "tt31176520",
       "type": "movie",
       "name": "Eddington",
@@ -1268,29 +1291,6 @@
       ],
       "posterShape": "poster",
       "runtime": "153 dk"
-    },
-    {
-      "id": "playrepo-cumhuriyet-039-in-kartallari",
-      "type": "movie",
-      "name": "Cumhuriyet&#039;in Kartalları",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/84DgFoFDppvf3i5MKZzOctx9HFz.webp?v=1785158819",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/84DgFoFDppvf3i5MKZzOctx9HFz.webp?v=1785158819",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Cumhuriyet&#039;in Kartalları (2025) full HD, Türkçe dublaj ve altyazılı izle. Mısır&#039;ın en sevilen aktörü George Fahmy, en yüksek makamlar tarafından sipariş edilen....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Suç, Polisiye & Gizem",
-        "Korku & Gerilim",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "128 dk"
     }
   ]
 }
