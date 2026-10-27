@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-araba-hirsizlari",
+      "type": "movie",
+      "name": "Araba Hırsızları",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/is9bmV6uYXu7LjZGJczxrjJDlv8.webp?v=1785627992",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/is9bmV6uYXu7LjZGJczxrjJDlv8.webp?v=1785627992",
+      "description": "Araba Hırsızları (2025) full HD, Türkçe dublaj ve altyazılı izle. Gündüz görünmezler. Lüks bir otelde valeler, garsonlar ve barmenler. Akşamsa Araba Hırsızları,...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "97 dk"
+    },
+    {
       "id": "playrepo-kaos-manson-vakasi",
       "type": "movie",
       "name": "Kaos: Manson Vakası",
@@ -1006,23 +1021,6 @@
       ],
       "posterShape": "poster",
       "runtime": "104 dk"
-    },
-    {
-      "id": "playrepo-canavarciklar",
-      "type": "movie",
-      "name": "Canavarcıklar",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zIFFlcvilrrbUlveEbIsFAtUfGT.webp?v=1785562381",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zIFFlcvilrrbUlveEbIsFAtUfGT.webp?v=1785562381",
-      "description": "Canavarcıklar (2025) full HD, Türkçe dublaj ve altyazılı izle. Grubbers Nubbin adlı küçük kasabanın çok yukarılarında, bir şato laboratuvarında, çılgın profesör...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Animasyon & Aile",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "91 dk"
     }
   ]
 }
