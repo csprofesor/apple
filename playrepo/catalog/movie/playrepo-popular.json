@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-kardes-takimi-2",
+      "type": "movie",
+      "name": "Kardeş Takımı 2",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/smQOXVWUDJobLhLnzdDBjwNSOST.webp?v=1785132025",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/smQOXVWUDJobLhLnzdDBjwNSOST.webp?v=1785132025",
+      "description": "Kardeş Takımı 2 (2025) full HD, Türkçe dublaj ve altyazılı izle. 4 kardeş, anne ve babalarının zorlu eğitimlerini başarıyla tamamlayarak gerçek birer ajan olmuş...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Aksiyon & Macera",
+        "Animasyon & Aile",
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler",
+        "Suç & Polisiye",
+        "Korku & Gerilim",
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "100 dk"
+    },
+    {
       "id": "playrepo-adalar",
       "type": "movie",
       "name": "Adalar",
@@ -1357,29 +1379,6 @@
       ],
       "posterShape": "poster",
       "runtime": "70 dk"
-    },
-    {
-      "id": "playrepo-hoplayanlar",
-      "type": "movie",
-      "name": "Hoplayanlar",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/u53UYu5XG2hNgWGvs3xGhAVzypl.webp?v=1785102410",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/u53UYu5XG2hNgWGvs3xGhAVzypl.webp?v=1785102410",
-      "description": "Hoplayanlar (2026) full HD, Türkçe dublaj ve altyazılı izle. Hayvansever Mabel, insan bilincini gerçeğe yakın robotik hayvanlara aktarmak için tasarlanmış akıll...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Aile",
-        "Disney+",
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Suç & Polisiye",
-        "Korku & Gerilim",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "105 dk"
     }
   ]
 }
