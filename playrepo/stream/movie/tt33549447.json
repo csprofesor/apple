@@ -1,0 +1,25 @@
+{
+  "streams": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=c30cbe2c0ed34954d32dda5eac734aa2&token=eyJ2IjoiYzMwY2JlMmMwZWQzNDk1NGQzMmRkYTVlYWM3MzRhYTIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzA3MTM2LCJuIjoiY2Q1YmY3ZDQxZTc3In0.7d24941ca511d682ce3d8a9f617e472a41f9c607acaf34b81a02cf59664ad2f4&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=oxBId2H00gru1DpZCRA8ZQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=oxBId2H00gru1DpZCRA8ZQ"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=oxBId2H00gru1DpZCRA8ZQ"
+          }
+        }
+      }
+    }
+  ]
+}
