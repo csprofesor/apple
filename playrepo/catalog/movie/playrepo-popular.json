@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-stockholmlu-asiklar",
+      "type": "movie",
+      "name": "Stockholmlu Aşıklar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/e8npsTfpBZa8T0TQqyZSwD9RNu2.webp?v=1785648848",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/e8npsTfpBZa8T0TQqyZSwD9RNu2.webp?v=1785648848",
+      "description": "Stockholmlu Aşıklar (2025) full HD, Türkçe dublaj ve altyazılı izle. Stockholmlü bir çift, Gotland adlı muhteşem adada evlenmeyi planlar. Ama ailelerinin dayatt...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-ejderhani-nasil-egitirsin",
       "type": "movie",
       "name": "Ejderhanı Nasıl Eğitirsin",
@@ -1146,22 +1162,6 @@
       ],
       "posterShape": "poster",
       "runtime": "96 dk"
-    },
-    {
-      "id": "playrepo-kusursuz-arkadas",
-      "type": "movie",
-      "name": "Kusursuz Arkadaş",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qA6MHDGDY0LyutjLUgFJRbPXLpW.webp?v=1785627984",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qA6MHDGDY0LyutjLUgFJRbPXLpW.webp?v=1785627984",
-      "description": "Kusursuz Arkadaş (2025) full HD, Türkçe dublaj ve altyazılı izle. Josh, sevgilisi gibi görünen ama aslında bir yapay zekâ robot olan Iris&#039;i uzak bir göl evine g...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "97 dk"
     }
   ]
 }
