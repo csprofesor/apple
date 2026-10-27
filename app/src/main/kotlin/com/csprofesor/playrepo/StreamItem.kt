@@ -41,5 +41,9 @@ data class ScrapedMovie(
     val cast: List<String>? = null,
     val type: String = "movie",
     val season: Int? = null,
-    val episode: Int? = null
+    val episode: Int? = null,
+    val logo: String? = null,
+    val trailers: List<Map<String, String>>? = null,
+    val trailerStreams: List<Map<String, String>>? = null,
+    val trailer: String? = null
 )

@@ -386,7 +386,18 @@ class GitHubPublisher {
                 addProperty("name", movie.title)
                 addProperty("poster", cleanPoster)
                 addProperty("background", cleanPoster)
-                addProperty("logo", LOGO_URL)
+                if (!movie.logo.isNullOrBlank()) {
+                    addProperty("logo", movie.logo)
+                }
+                if (!movie.trailers.isNullOrEmpty()) {
+                    add("trailers", gson.toJsonTree(movie.trailers))
+                }
+                if (!movie.trailerStreams.isNullOrEmpty()) {
+                    add("trailerStreams", gson.toJsonTree(movie.trailerStreams))
+                }
+                if (!movie.trailer.isNullOrBlank()) {
+                    addProperty("trailer", movie.trailer)
+                }
                 addProperty("description", if (!movie.description.isNullOrBlank()) movie.description else "Play • ${movie.streams.size} Sunucu Seçeneği • 1080p TR")
                 if (!movie.year.isNullOrBlank()) {
                     addProperty("releaseInfo", movie.year)
@@ -458,7 +469,7 @@ class GitHubPublisher {
             "playrepo/catalog/movie/playrepo-apple.json" to { m: JsonObject -> matchesCategory(m, "apple tv", "appletv", "apple original") },
             "playrepo/catalog/movie/playrepo-hbo.json" to { m: JsonObject -> matchesCategory(m, "hbo", "hbomax", "max original", "warner") },
             "playrepo/catalog/movie/playrepo-hulu.json" to { m: JsonObject -> matchesCategory(m, "hulu") },
-            "playrepo/catalog/movie/playrepo-blutv.json" to { m: JsonObject -> matchesCategory(m, "blutv", "gain", "yerli", "türk", "turk") },
+            "playrepo/catalog/movie/playrepo-blutv.json" to { m: JsonObject -> isYerliContent(m) },
             "playrepo/catalog/movie/playrepo-mubi.json" to { m: JsonObject -> matchesCategory(m, "mubi", "arthouse", "festival") },
             // 2. Birleştirilmiş Tür Koleksiyonları
             "playrepo/catalog/movie/playrepo-bilimkurgu.json" to { m: JsonObject -> matchesCategory(m, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction", "fantastik", "fantasy") },
@@ -505,7 +516,7 @@ class GitHubPublisher {
             "playrepo/catalog/series/playrepo-series-apple.json" to { s: JsonObject -> matchesCategory(s, "apple tv", "appletv", "apple original") },
             "playrepo/catalog/series/playrepo-series-hbo.json" to { s: JsonObject -> matchesCategory(s, "hbo", "hbomax", "max original", "warner") },
             "playrepo/catalog/series/playrepo-series-hulu.json" to { s: JsonObject -> matchesCategory(s, "hulu", "fx") },
-            "playrepo/catalog/series/playrepo-series-blutv.json" to { s: JsonObject -> matchesCategory(s, "blutv", "gain", "yerli", "türk", "turk") },
+            "playrepo/catalog/series/playrepo-series-blutv.json" to { s: JsonObject -> isYerliContent(s) },
             // 2. Birleştirilmiş Dizi Tür Koleksiyonları
             "playrepo/catalog/series/playrepo-series-bilimkurgu.json" to { s: JsonObject -> matchesCategory(s, "bilim kurgu", "bilim-kurgu", "sci-fi", "science fiction", "fantastik", "fantasy") },
             "playrepo/catalog/series/playrepo-series-aksiyon.json" to { s: JsonObject -> matchesCategory(s, "aksiyon", "action", "macera", "adventure", "savaş", "savas") },
@@ -547,7 +558,18 @@ class GitHubPublisher {
                 addProperty("name", movie.title)
                 addProperty("poster", cleanPoster)
                 addProperty("background", cleanPoster)
-                addProperty("logo", LOGO_URL)
+                if (!movie.logo.isNullOrBlank()) {
+                    addProperty("logo", movie.logo)
+                }
+                if (!movie.trailers.isNullOrEmpty()) {
+                    add("trailers", gson.toJsonTree(movie.trailers))
+                }
+                if (!movie.trailerStreams.isNullOrEmpty()) {
+                    add("trailerStreams", gson.toJsonTree(movie.trailerStreams))
+                }
+                if (!movie.trailer.isNullOrBlank()) {
+                    addProperty("trailer", movie.trailer)
+                }
                 addProperty("description", if (!movie.description.isNullOrBlank()) movie.description else "Play • ${movie.streams.size} Sunucu Seçeneği • 1080p TR")
                 if (!movie.year.isNullOrBlank()) {
                     addProperty("releaseInfo", movie.year)
@@ -869,6 +891,19 @@ class GitHubPublisher {
                 desc.contains(k)
             }
         }
+    }
+
+    private fun isYerliContent(m: JsonObject): Boolean {
+        val genresArr = m.getAsJsonArray("genres")
+        val genresText = genresArr?.joinToString(" ") { it.asString.lowercase() } ?: ""
+        val desc = m.get("description")?.asString?.lowercase() ?: ""
+        val name = m.get("name")?.asString?.lowercase() ?: ""
+        val platform = m.get("platform")?.asString?.lowercase() ?: ""
+
+        if (platform.contains("blutv") || platform.contains("gain") || platform.contains("exxen") || platform.contains("puhutv")) return true
+        if (genresText.contains("yerli") || genresText.contains("yerli film") || genresText.contains("yerli dizi") || genresText.contains("türk filmi") || genresText.contains("türk dizisi")) return true
+        val yerliTerms = listOf("blutv", "gain", "exxen", "yerli film", "yerli dizi", "yerli sinema", "türk filmi", "türk sineması", "türk dizisi", "türk yapımı")
+        return yerliTerms.any { desc.contains(it) || name.contains(it) }
     }
 
     private fun hasGenre(movieObj: JsonObject, vararg keywords: String): Boolean {

@@ -1005,17 +1005,16 @@ class ScraperEngine:
             raw_t = st.get("title", "").lower()
             if "dublaj" in raw_t:
                 dub_c += 1
+                stream_name = f"Play • TR Dublaj {dub_c}"
                 formatted_title = f"Play • Dublaj {dub_c} • 1080p • [TR Dublaj]"
-            elif "altyaz" in raw_t:
-                sub_c += 1
-                formatted_title = f"Play • Altyazı {sub_c} • 1080p • [TR Altyazılı]"
             else:
-                oth_c += 1
-                formatted_title = f"Play • Sunucu {oth_c} • 1080p • [TR]"
-            st["name"] = formatted_title
+                sub_c += 1
+                stream_name = f"Play • TR Altyazı {sub_c}"
+                formatted_title = f"Play • Altyazı {sub_c} • 1080p • [TR Altyazılı]"
+            st["name"] = stream_name
             st["title"] = formatted_title
 
-        meta_id, official_title, official_poster, official_desc, release_year, meta_genres, resolved_type = self.resolve_meta(
+        meta_id, official_title, official_poster, official_desc, release_year, meta_genres, resolved_type, meta_extras = self.resolve_meta(
             clean_title, poster, desc, year, tmdb_api_key, is_series=is_series
         )
 
@@ -1044,7 +1043,7 @@ class ScraperEngine:
             if not genres:
                 genres.add("Popüler")
 
-        return {
+        movie_item = {
             "tmdbId": meta_id,
             "title": official_title,
             "poster": official_poster,
@@ -1058,10 +1057,26 @@ class ScraperEngine:
             "season": season_num,
             "episode": episode_num
         }
+        if meta_extras.get("logo"):
+            movie_item["logo"] = meta_extras["logo"]
+        if meta_extras.get("trailers"):
+            movie_item["trailers"] = meta_extras["trailers"]
+        if meta_extras.get("trailerStreams"):
+            movie_item["trailerStreams"] = meta_extras["trailerStreams"]
+        if meta_extras.get("trailer"):
+            movie_item["trailer"] = meta_extras["trailer"]
+
+        return movie_item
 
     def resolve_meta(self, title: str, poster: str, desc: str, year: str, tmdb_key: str = None, is_series: bool = False):
         clean_q = re.sub(r'[/\\?&=#]+', ' ', title).strip()
         media_kind = "series" if is_series else "movie"
+        extra_data = {
+            "trailers": [],
+            "trailerStreams": [],
+            "trailer": None,
+            "logo": None
+        }
         try:
             q = urllib.parse.quote(clean_q)
             cm_res = http_json(f"https://v3-cinemeta.strem.io/catalog/{media_kind}/top/search={q}.json")
@@ -1085,6 +1100,22 @@ class ScraperEngine:
                         d_meta = detail_res.get("meta", {})
                         if not extra_genres:
                             extra_genres = list(d_meta.get("genres") or [])
+                        if d_meta.get("logo"):
+                            extra_data["logo"] = d_meta["logo"]
+                        if d_meta.get("trailers"):
+                            extra_data["trailers"] = d_meta["trailers"]
+                            tr_list = [t for t in d_meta["trailers"] if t.get("type") == "Trailer"] or d_meta["trailers"]
+                            if tr_list and tr_list[0].get("source"):
+                                extra_data["trailer"] = f"https://www.youtube.com/watch?v={tr_list[0]['source']}"
+                        if d_meta.get("trailerStreams"):
+                            extra_data["trailerStreams"] = d_meta["trailerStreams"]
+                        elif extra_data.get("trailer"):
+                            yt_m = re.search(r"v=([a-zA-Z0-9_-]+)", extra_data["trailer"])
+                            if yt_m:
+                                extra_data["trailerStreams"] = [{"title": "Fragman", "ytId": yt_m.group(1)}]
+                        if d_meta.get("trailer"):
+                            extra_data["trailer"] = d_meta["trailer"]
+
                         # Diziler için yeni bölüm yayın tarihi kontrolü
                         if resolved_type == "series":
                             now_str = datetime.utcnow().isoformat()
@@ -1108,7 +1139,8 @@ class ScraperEngine:
                         turkish_desc,
                         m0.get("releaseInfo") or year,
                         extra_genres,
-                        resolved_type
+                        resolved_type,
+                        extra_data
                     )
         except Exception:
             pass
@@ -1137,12 +1169,29 @@ class ScraperEngine:
                         tmdb_genres = []
                         overview = r0.get("overview") or desc
                         try:
-                            det = http_json(f"https://api.themoviedb.org/3/{endpoint}/{r_id}?api_key={tmdb_key}&language=tr-TR")
+                            det = http_json(f"https://api.themoviedb.org/3/{endpoint}/{r_id}?api_key={tmdb_key}&language=tr-TR&append_to_response=videos,images")
                             tmdb_genres = [g.get("name") for g in det.get("genres", []) if g.get("name")]
                             networks = [n.get("name") for n in det.get("networks", []) if n.get("name")]
                             for net in networks:
                                 if net not in tmdb_genres:
                                     tmdb_genres.append(net)
+
+                            # Video / Fragman kontrolü
+                            videos = det.get("videos", {}).get("results", [])
+                            trailers = [v for v in videos if v.get("site") == "YouTube" and v.get("type") in ["Trailer", "Teaser"]]
+                            if trailers:
+                                extra_data["trailers"] = [{"source": t.get("key"), "type": "Trailer"} for t in trailers]
+                                first_key = trailers[0].get("key")
+                                extra_data["trailer"] = f"https://www.youtube.com/watch?v={first_key}"
+                                extra_data["trailerStreams"] = [{"title": "Fragman", "ytId": first_key}]
+
+                            # Logo kontrolü
+                            logos = det.get("images", {}).get("logos", [])
+                            if logos:
+                                l_path = logos[0].get("file_path")
+                                if l_path:
+                                    extra_data["logo"] = f"https://image.tmdb.org/t/p/w500{l_path}"
+
                             if endpoint == "tv":
                                 next_ep = det.get("next_episode_to_air")
                                 if next_ep:
@@ -1161,7 +1210,8 @@ class ScraperEngine:
                             overview,
                             rel_date[:4] if rel_date else year,
                             tmdb_genres,
-                            resolved_type
+                            resolved_type,
+                            extra_data
                         )
             except Exception:
                 pass
@@ -1169,7 +1219,7 @@ class ScraperEngine:
         t_norm = title.lower().replace("ç", "c").replace("ğ", "g").replace("ı", "i").replace("ö", "o").replace("ş", "s").replace("ü", "u")
         slug = re.sub(r'[^a-z0-9]+', '-', t_norm).strip('-')
         safe_id = f"playrepo-{slug}" if slug else f"playrepo-film-{abs(hash(title))}"
-        return (safe_id, title, clean_poster_url(poster), desc, year, [], media_kind)
+        return (safe_id, title, clean_poster_url(poster), desc, year, [], media_kind, extra_data)
 
 def clean_poster_url(poster_url: str, imdb_id: str = None, fallback: str = "") -> str:
     res = ""
@@ -1231,6 +1281,20 @@ class GitHubAtomicPublisher:
                 return True
         return False
 
+    @staticmethod
+    def is_yerli_content(item):
+        g_list = [str(g).lower() for g in item.get("genres", [])]
+        desc = str(item.get("description", "")).lower()
+        title = str(item.get("title", "") or item.get("name", "")).lower()
+        platform = str(item.get("platform", "")).lower()
+
+        if any(p in platform for p in ["blutv", "gain", "exxen", "puhutv"]):
+            return True
+        if any(g in ["yerli", "yerli film", "yerli dizi", "türk filmi", "türk dizisi"] for g in g_list):
+            return True
+        yerli_terms = ["blutv", "gain", "exxen", "yerli film", "yerli dizi", "yerli sinema", "türk filmi", "türk sineması", "türk dizisi", "türk yapımı"]
+        return any(term in desc or term in title for term in yerli_terms)
+
     @classmethod
     def prepare_category_catalogs(cls, all_metas: list) -> dict:
         result = {}
@@ -1246,7 +1310,7 @@ class GitHubAtomicPublisher:
             ("playrepo/catalog/movie/playrepo-apple.json", lambda x: cls.matches_cat(x, "apple tv", "appletv", "apple original")),
             ("playrepo/catalog/movie/playrepo-hbo.json", lambda x: cls.matches_cat(x, "hbo", "hbomax", "max original", "warner")),
             ("playrepo/catalog/movie/playrepo-hulu.json", lambda x: cls.matches_cat(x, "hulu")),
-            ("playrepo/catalog/movie/playrepo-blutv.json", lambda x: cls.matches_cat(x, "blutv", "gain", "yerli", "türk", "turk")),
+            ("playrepo/catalog/movie/playrepo-blutv.json", lambda x: cls.is_yerli_content(x)),
             ("playrepo/catalog/movie/playrepo-mubi.json", lambda x: cls.matches_cat(x, "mubi", "arthouse", "festival")),
             # 2. Birleştirilmiş Tür Koleksiyonları
             ("playrepo/catalog/movie/playrepo-bilimkurgu.json", lambda x: cls.matches_cat(x, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction", "fantastik", "fantasy")),
@@ -1280,7 +1344,7 @@ class GitHubAtomicPublisher:
             ("playrepo/catalog/series/playrepo-series-apple.json", lambda x: cls.matches_cat(x, "apple tv", "appletv", "apple original")),
             ("playrepo/catalog/series/playrepo-series-hbo.json", lambda x: cls.matches_cat(x, "hbo", "hbomax", "max original", "warner")),
             ("playrepo/catalog/series/playrepo-series-hulu.json", lambda x: cls.matches_cat(x, "hulu", "fx")),
-            ("playrepo/catalog/series/playrepo-series-blutv.json", lambda x: cls.matches_cat(x, "blutv", "gain", "yerli", "türk", "turk")),
+            ("playrepo/catalog/series/playrepo-series-blutv.json", lambda x: cls.is_yerli_content(x)),
             # 2. Birleştirilmiş Dizi Tür Koleksiyonları
             ("playrepo/catalog/series/playrepo-series-bilimkurgu.json", lambda x: cls.matches_cat(x, "bilim kurgu", "bilim-kurgu", "sci-fi", "science fiction", "fantastik", "fantasy")),
             ("playrepo/catalog/series/playrepo-series-aksiyon.json", lambda x: cls.matches_cat(x, "aksiyon", "action", "macera", "adventure", "savaş", "savas")),
@@ -1361,12 +1425,19 @@ class GitHubAtomicPublisher:
                 "name": m["title"],
                 "poster": clean_poster,
                 "background": clean_poster,
-                "logo": LOGO_URL,
                 "description": m["description"],
                 "releaseInfo": m["year"],
                 "genres": m["genres"],
                 "posterShape": "poster"
             }
+            if m.get("logo"):
+                cat_item["logo"] = m["logo"]
+            if m.get("trailers"):
+                cat_item["trailers"] = m["trailers"]
+            if m.get("trailerStreams"):
+                cat_item["trailerStreams"] = m["trailerStreams"]
+            if m.get("trailer"):
+                cat_item["trailer"] = m["trailer"]
             if m.get("imdbRating"):
                 cat_item["imdbRating"] = m["imdbRating"]
             if m.get("runtime"):
@@ -1426,7 +1497,6 @@ class GitHubAtomicPublisher:
                     "name": m["title"],
                     "poster": clean_poster,
                     "background": clean_poster,
-                    "logo": LOGO_URL,
                     "description": m["description"],
                     "releaseInfo": m["year"],
                     "genres": m["genres"],
@@ -1438,6 +1508,14 @@ class GitHubAtomicPublisher:
                     "videos": all_videos
                 }
             }
+            if m.get("logo"):
+                detail_meta["meta"]["logo"] = m["logo"]
+            if m.get("trailers"):
+                detail_meta["meta"]["trailers"] = m["trailers"]
+            if m.get("trailerStreams"):
+                detail_meta["meta"]["trailerStreams"] = m["trailerStreams"]
+            if m.get("trailer"):
+                detail_meta["meta"]["trailer"] = m["trailer"]
             if m.get("imdbRating"):
                 detail_meta["meta"]["imdbRating"] = m["imdbRating"]
             if m.get("runtime"):

@@ -1029,11 +1029,16 @@ class SiteScraperEngine {
 
             val prioritizedStreams = validStreams.map { st ->
                 val isDub = st.title.contains("Dublaj", true)
-                val isSub = st.title.contains("Altyaz", true)
-                val formattedTitle = when {
-                    isDub -> "Play • Dublaj ${dubCount.incrementAndGet()} • 1080p • [TR Dublaj]"
-                    isSub -> "Play • Altyazı ${subCount.incrementAndGet()} • 1080p • [TR Altyazılı]"
-                    else -> "Play • Sunucu ${otherCount.incrementAndGet()} • 1080p • [TR]"
+                val streamName: String
+                val formattedTitle: String
+                if (isDub) {
+                    val count = dubCount.incrementAndGet()
+                    streamName = "Play • TR Dublaj $count"
+                    formattedTitle = "Play • Dublaj $count • 1080p • [TR Dublaj]"
+                } else {
+                    val count = subCount.incrementAndGet()
+                    streamName = "Play • TR Altyazı $count"
+                    formattedTitle = "Play • Altyazı $count • 1080p • [TR Altyazılı]"
                 }
                 val ref = st.referer?.ifBlank { st.url } ?: st.url
                 val bh = StreamBehaviorHints(
@@ -1046,7 +1051,7 @@ class SiteScraperEngine {
                     )
                 )
                 st.copy(
-                    name = formattedTitle,
+                    name = streamName,
                     title = formattedTitle,
                     behaviorHints = bh
                 )
@@ -1106,7 +1111,11 @@ class SiteScraperEngine {
                 cast = if (castList.isNotEmpty()) castList else null,
                 type = if (finalIsSeries) "series" else "movie",
                 season = finalSeasonNum,
-                episode = finalEpisodeNum
+                episode = finalEpisodeNum,
+                logo = resolvedMeta.logo,
+                trailers = resolvedMeta.trailers,
+                trailerStreams = resolvedMeta.trailerStreams,
+                trailer = resolvedMeta.trailer
             )
         }
     }
@@ -1533,7 +1542,11 @@ class SiteScraperEngine {
         val description: String,
         val year: String,
         val genres: List<String> = emptyList(),
-        val resolvedType: String = "movie"
+        val resolvedType: String = "movie",
+        val logo: String? = null,
+        val trailers: List<Map<String, String>>? = null,
+        val trailerStreams: List<Map<String, String>>? = null,
+        val trailer: String? = null
     )
 
     fun resolveMovieMetadata(
@@ -1623,21 +1636,64 @@ class SiteScraperEngine {
                         val gStr = gElem.asString
                         if (!gStr.isNullOrBlank()) extraGenres.add(gStr)
                     }
-                    if (extraGenres.isEmpty()) {
-                        try {
-                            val detailReq = Request.Builder().url("https://v3-cinemeta.strem.io/meta/$resolvedType/$id.json").header("User-Agent", getRandomUserAgent()).build()
-                            client.newCall(detailReq).execute().use { dResp ->
-                                if (dResp.isSuccessful) {
-                                    val dBody = dResp.body?.string().orEmpty()
-                                    val dObj = gson.fromJson(dBody, JsonObject::class.java).getAsJsonObject("meta")
-                                    dObj?.getAsJsonArray("genres")?.forEach { gElem ->
-                                        val gStr = gElem.asString
-                                        if (!gStr.isNullOrBlank()) extraGenres.add(gStr)
+                    var metaLogo: String? = null
+                    var metaTrailer: String? = null
+                    var metaTrailers: List<Map<String, String>>? = null
+                    var metaTrailerStreams: List<Map<String, String>>? = null
+                    try {
+                        val detailReq = Request.Builder().url("https://v3-cinemeta.strem.io/meta/$resolvedType/$id.json").header("User-Agent", getRandomUserAgent()).build()
+                        client.newCall(detailReq).execute().use { dResp ->
+                            if (dResp.isSuccessful) {
+                                val dBody = dResp.body?.string().orEmpty()
+                                val dObj = gson.fromJson(dBody, JsonObject::class.java).getAsJsonObject("meta")
+                                if (dObj != null) {
+                                    metaLogo = dObj.get("logo")?.asString
+                                    metaTrailer = dObj.get("trailer")?.asString
+                                    val trArray = dObj.getAsJsonArray("trailers")
+                                    if (trArray != null && trArray.size() > 0) {
+                                        val tList = mutableListOf<Map<String, String>>()
+                                        for (idx in 0 until trArray.size()) {
+                                            val tObj = trArray.get(idx).asJsonObject
+                                            val src = tObj.get("source")?.asString
+                                            val tType = tObj.get("type")?.asString ?: "Trailer"
+                                            if (!src.isNullOrBlank()) {
+                                                tList.add(mapOf("source" to src, "type" to tType))
+                                                if (metaTrailer.isNullOrBlank() && tType == "Trailer") {
+                                                    metaTrailer = "https://www.youtube.com/watch?v=$src"
+                                                }
+                                            }
+                                        }
+                                        if (tList.isNotEmpty()) metaTrailers = tList
+                                    }
+                                    val tsArray = dObj.getAsJsonArray("trailerStreams")
+                                    if (tsArray != null && tsArray.size() > 0) {
+                                        val tsList = mutableListOf<Map<String, String>>()
+                                        for (idx in 0 until tsArray.size()) {
+                                            val tsObj = tsArray.get(idx).asJsonObject
+                                            val ytId = tsObj.get("ytId")?.asString
+                                            val tTitle = tsObj.get("title")?.asString ?: "Fragman"
+                                            if (!ytId.isNullOrBlank()) {
+                                                tsList.add(mapOf("title" to tTitle, "ytId" to ytId))
+                                            }
+                                        }
+                                        if (tsList.isNotEmpty()) metaTrailerStreams = tsList
+                                    } else if (!metaTrailer.isNullOrBlank()) {
+                                        val ytMatch = Regex("""v=([a-zA-Z0-9_-]+)""").find(metaTrailer!!)
+                                        val yId = ytMatch?.groupValues?.get(1)
+                                        if (!yId.isNullOrBlank()) {
+                                            metaTrailerStreams = listOf(mapOf("title" to "Fragman", "ytId" to yId))
+                                        }
+                                    }
+                                    if (extraGenres.isEmpty()) {
+                                        dObj.getAsJsonArray("genres")?.forEach { gElem ->
+                                            val gStr = gElem.asString
+                                            if (!gStr.isNullOrBlank()) extraGenres.add(gStr)
+                                        }
                                     }
                                 }
                             }
-                        } catch (_: Exception) {}
-                    }
+                        }
+                    } catch (_: Exception) {}
 
                     return MetaResolution(
                         id = id,
@@ -1646,7 +1702,11 @@ class SiteScraperEngine {
                         description = desc,
                         year = releaseYear,
                         genres = extraGenres,
-                        resolvedType = resolvedType
+                        resolvedType = resolvedType,
+                        logo = metaLogo,
+                        trailers = metaTrailers,
+                        trailerStreams = metaTrailerStreams,
+                        trailer = metaTrailer
                     )
                 }
             }

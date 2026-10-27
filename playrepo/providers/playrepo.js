@@ -219,6 +219,19 @@ function enrichWithUpcomingEpisode(meta) {
     return meta;
 }
 
+function isYerliContent(m) {
+    if (!m) return false;
+    const genres = (m.genres || []).map(g => (g || "").toString().toLowerCase());
+    const desc = (m.description || "").toString().toLowerCase();
+    const name = (m.name || "").toString().toLowerCase();
+    const platform = (m.platform || "").toString().toLowerCase();
+
+    if (platform.includes("blutv") || platform.includes("gain") || platform.includes("exxen") || platform.includes("puhutv")) return true;
+    if (genres.some(g => g === "yerli" || g.includes("yerli film") || g.includes("yerli dizi") || g.includes("türk filmi") || g.includes("türk dizisi"))) return true;
+    const yerliTerms = ["blutv", "gain", "exxen", "yerli film", "yerli dizi", "yerli sinema", "türk filmi", "türk sineması", "türk dizisi", "türk yapımı"];
+    return yerliTerms.some(term => desc.includes(term) || name.includes(term));
+}
+
 function getDisjointMetasForCatalog(allMetas, catalogId) {
     const allMovies = allMetas.filter(m => m.type !== "series");
     const allSeries = allMetas.filter(m => m.type === "series");
@@ -238,7 +251,7 @@ function getDisjointMetasForCatalog(allMetas, catalogId) {
         { id: "playrepo-apple", check: (m) => matchesCatCheck(m, "apple tv", "appletv", "apple original") },
         { id: "playrepo-hbo", check: (m) => matchesCatCheck(m, "hbo", "hbomax", "max original", "warner") },
         { id: "playrepo-hulu", check: (m) => matchesCatCheck(m, "hulu") },
-        { id: "playrepo-blutv", check: (m) => matchesCatCheck(m, "blutv", "gain", "yerli", "türk", "turk") },
+        { id: "playrepo-blutv", check: (m) => isYerliContent(m) },
         { id: "playrepo-mubi", check: (m) => matchesCatCheck(m, "mubi", "arthouse", "festival") },
         // 2. Birleştirilmiş ve Derli Toplu Tür Koleksiyonları
         { id: "playrepo-bilimkurgu", check: (m) => matchesCatCheck(m, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction", "fantastik", "fantasy") },
@@ -274,7 +287,7 @@ function getDisjointMetasForCatalog(allMetas, catalogId) {
         { id: "playrepo-series-apple", check: (s) => matchesCatCheck(s, "apple tv", "appletv", "apple original") },
         { id: "playrepo-series-hbo", check: (s) => matchesCatCheck(s, "hbo", "hbomax", "max original", "warner") },
         { id: "playrepo-series-hulu", check: (s) => matchesCatCheck(s, "hulu", "fx") },
-        { id: "playrepo-series-blutv", check: (s) => matchesCatCheck(s, "blutv", "gain", "yerli", "türk", "turk") },
+        { id: "playrepo-series-blutv", check: (s) => isYerliContent(s) },
         // 2. Birleştirilmiş Dizi Tür Koleksiyonları
         { id: "playrepo-series-bilimkurgu", check: (s) => matchesCatCheck(s, "bilim kurgu", "bilim-kurgu", "sci-fi", "science fiction", "fantastik", "fantasy") },
         { id: "playrepo-series-aksiyon", check: (s) => matchesCatCheck(s, "aksiyon", "action", "macera", "adventure", "savaş", "savas") },
@@ -451,7 +464,7 @@ async function getMeta(arg1, arg2) {
                         name: found.name,
                         poster: found.poster || "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
                         background: found.background || found.poster || "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-                        logo: "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+                        logo: found.logo || undefined,
                         description: found.description || "Play • Film Yayın Kaynağı",
                         genres: found.genres || ["Popüler"],
                         releaseInfo: found.releaseInfo || "",
@@ -469,21 +482,56 @@ async function getMeta(arg1, arg2) {
                             }
                         ]
                     };
+                    if (found.trailers) metaObj.trailers = found.trailers;
+                    if (found.trailerStreams) metaObj.trailerStreams = found.trailerStreams;
+                    if (found.trailer) metaObj.trailer = found.trailer;
 
-                    // If it has IMDb ID, enrich with trailer/cast from Cinemeta but PRESERVE Turkish description and genres
-                    if (idStr.startsWith("tt")) {
+                    // Enrich with Cinemeta trailers/cast/director
+                    const targetImdb = idStr.startsWith("tt") ? idStr : (found.imdb_id || found.imdbId || "");
+                    let cmQueryId = targetImdb;
+                    if (!cmQueryId && found.name) {
                         try {
                             const cType = (found.type === "series" || mediaType === "series") ? "series" : "movie";
-                            const cmRes = await fetch(`https://v3-cinemeta.strem.io/meta/${cType}/${idStr}.json`, {
+                            const srRes = await fetch(`https://v3-cinemeta.strem.io/catalog/${cType}/top/search=${encodeURIComponent(found.name)}.json`, {
+                                headers: { "User-Agent": UA }
+                            });
+                            if (srRes.ok) {
+                                const srData = await srRes.json();
+                                if (srData && srData.metas && srData.metas.length > 0) {
+                                    cmQueryId = srData.metas[0].id;
+                                }
+                            }
+                        } catch (_) {}
+                    }
+
+                    if (cmQueryId && cmQueryId.startsWith("tt")) {
+                        try {
+                            const cType = (found.type === "series" || mediaType === "series") ? "series" : "movie";
+                            const cmRes = await fetch(`https://v3-cinemeta.strem.io/meta/${cType}/${cmQueryId}.json`, {
                                 headers: { "User-Agent": UA }
                             });
                             if (cmRes.ok) {
                                 const cmData = await cmRes.json();
                                 if (cmData && cmData.meta) {
+                                    if (cmData.meta.logo) metaObj.logo = cmData.meta.logo;
                                     if (cmData.meta.cast) metaObj.cast = cmData.meta.cast;
                                     if (cmData.meta.director) metaObj.director = cmData.meta.director;
-                                    if (cmData.meta.trailers) metaObj.trailers = cmData.meta.trailers;
-                                    if (cmData.meta.trailerStreams) metaObj.trailerStreams = cmData.meta.trailerStreams;
+                                    if (cmData.meta.trailers && cmData.meta.trailers.length > 0) {
+                                        metaObj.trailers = cmData.meta.trailers;
+                                        const firstTr = cmData.meta.trailers.find(t => t.type === "Trailer") || cmData.meta.trailers[0];
+                                        if (firstTr && firstTr.source) {
+                                            metaObj.trailer = `https://www.youtube.com/watch?v=${firstTr.source}`;
+                                        }
+                                    }
+                                    if (cmData.meta.trailerStreams && cmData.meta.trailerStreams.length > 0) {
+                                        metaObj.trailerStreams = cmData.meta.trailerStreams;
+                                    } else if (metaObj.trailer) {
+                                        const ytId = metaObj.trailer.split("v=")[1]?.split("&")[0];
+                                        if (ytId) {
+                                            metaObj.trailerStreams = [{ title: "Fragman", ytId: ytId }];
+                                        }
+                                    }
+                                    if (cmData.meta.trailer) metaObj.trailer = cmData.meta.trailer;
                                     if (cType === "series" && Array.isArray(cmData.meta.videos) && cmData.meta.videos.length > 0) {
                                         metaObj.videos = cmData.meta.videos;
                                     }
@@ -615,10 +663,9 @@ async function resolveAndCapStreams(rawStreams) {
 
     const resolved = (await Promise.all(resolvedPromises)).filter(s => s && s.url && s.url.length > 5);
 
-    // Deduplicate and cap: Max 2 Dublaj, Max 2 Altyazı, Max 1 Sunucu (Max 4-5 high quality servers)
+    // Deduplicate and cap: Max 2 Dublaj, Max 3 Altyazı
     const dubList = [];
     const subList = [];
-    const othList = [];
     const seenUrls = new Set();
 
     // Sort HLS first for instant playback
@@ -632,33 +679,32 @@ async function resolveAndCapStreams(rawStreams) {
         if (seenUrls.has(st.url)) continue;
         seenUrls.add(st.url);
 
-        const title = st.rawTitle.toLowerCase();
+        const title = (st.rawTitle || "").toLowerCase();
         if (title.includes("dublaj")) {
             if (dubList.length < 2) dubList.push(st);
-        } else if (title.includes("altyaz")) {
-            if (subList.length < 2) subList.push(st);
         } else {
-            if (othList.length < 1) othList.push(st);
+            // Dublaj olmayan her akış Türkçe Altyazılıdır
+            if (subList.length < 3) subList.push(st);
         }
     }
 
-    let dubC = 0, subC = 0, othC = 0;
-    return [...dubList, ...subList, ...othList].map(s => {
-        const titleLower = s.rawTitle.toLowerCase();
+    let dubC = 0, subC = 0;
+    return [...dubList, ...subList].map(s => {
+        const titleLower = (s.rawTitle || "").toLowerCase();
         let formattedTitle = "";
+        let streamName = "";
         if (titleLower.includes("dublaj")) {
             dubC++;
+            streamName = `Play • TR Dublaj ${dubC}`;
             formattedTitle = `Play • Dublaj ${dubC} • 1080p • [TR Dublaj]`;
-        } else if (titleLower.includes("altyaz")) {
-            subC++;
-            formattedTitle = `Play • Altyazı ${subC} • 1080p • [TR Altyazılı]`;
         } else {
-            othC++;
-            formattedTitle = `Play • Sunucu ${othC} • 1080p • [TR]`;
+            subC++;
+            streamName = `Play • TR Altyazı ${subC}`;
+            formattedTitle = `Play • Altyazı ${subC} • 1080p • [TR Altyazılı]`;
         }
 
         const streamItem = {
-            name: "Play",
+            name: streamName,
             title: formattedTitle,
             url: s.url,
             quality: s.quality || 1080,
