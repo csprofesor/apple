@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-onemsiz-biri-2",
+      "type": "movie",
+      "name": "Önemsiz Biri 2",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/82C04rTiXYZ7c8XZv91Nu53w82Y.webp?v=1785656986",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/82C04rTiXYZ7c8XZv91Nu53w82Y.webp?v=1785656986",
+      "description": "Önemsiz Biri 2 (2025) full HD, Türkçe dublaj ve altyazılı izle. Rus mafyasıyla istemeden giriştiği olayların üzerinden dört yıl geçmişken Hutch, hala suç örgütü...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "89 dk"
+    },
+    {
       "id": "playrepo-gidecek-yer-yok",
       "type": "movie",
       "name": "Gidecek Yer Yok",
@@ -1139,21 +1156,6 @@
       ],
       "posterShape": "poster",
       "runtime": "112 dk"
-    },
-    {
-      "id": "playrepo-son-durak-kan-bagi",
-      "type": "movie",
-      "name": "Son Durak: Kan Bağı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uIpJPDNFoeX0TVml9smPrs9KUVx.webp?v=1785635597",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uIpJPDNFoeX0TVml9smPrs9KUVx.webp?v=1785635597",
-      "description": "Son Durak: Kan Bağı (2025) full HD, Türkçe dublaj ve altyazılı izle. Eğer &quot;ölümün&quot; planlarını bozarsanız işler çok karmaşık bir hâl alabilir. Sürekli tekrar ede...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "110 dk"
     }
   ]
 }
