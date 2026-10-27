@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "tt43601331",
+      "type": "movie",
+      "name": "Plankton",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lsgT602GYV8ts97sKH1gWFtQs1k.webp?v=1785660787",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lsgT602GYV8ts97sKH1gWFtQs1k.webp?v=1785660787",
+      "description": "Plankton (Film) (2025) full HD, Türkçe dublaj ve altyazılı izle. Plankton&#039;ın duygusal bilgisayar eşiyle karmaşık aşk hayatı, eşi ona tavır alarak o olmadan düny...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Aksiyon & Macera",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "87 dk"
+    },
+    {
       "id": "playrepo-savas-ustune-savas",
       "type": "movie",
       "name": "Savaş Üstüne Savaş",
@@ -1090,40 +1108,6 @@
       ],
       "posterShape": "poster",
       "runtime": "97 dk"
-    },
-    {
-      "id": "tt15766876",
-      "type": "movie",
-      "name": "Holy Night: Demon Hunters",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZDZhYjUwMTUtNTcyZS00MWNkLWI3NGItMDZlZGNmMjQxYTQ2XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZDZhYjUwMTUtNTcyZS00MWNkLWI3NGItMDZlZGNmMjQxYTQ2XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Holy Night: Demon Hunters (2025) full HD, Türkçe dublaj ve altyazılı izle. Şeytana tapan bir suç şebekesi Seul&#039;ü kaosa sürüklediğinde, polis düzeni yeniden sağl...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Aksiyon & Macera",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "logo": "https://live.metahub.space/logo/medium/tt15766876/img",
-      "trailers": [
-        {
-          "source": "XRutVTZjTFg",
-          "type": "Trailer"
-        },
-        {
-          "source": "0l35oxLd1UI",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Fragman",
-          "ytId": "XRutVTZjTFg"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=XRutVTZjTFg",
-      "runtime": "92 dk"
     }
   ]
 }
