@@ -1,6 +1,44 @@
 {
   "metas": [
     {
+      "id": "tt2012616",
+      "type": "movie",
+      "name": "Motor City",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZGFmNTJkNzctNDc2Zi00ZWMxLWIzNzktNDQxMzU3ZGVkZTRjXkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZGFmNTJkNzctNDc2Zi00ZWMxLWIzNzktNDQxMzU3ZGVkZTRjXkEyXkFqcGc%40._V1_.jpg",
+      "description": "Motor City (2026) full HD, Türkçe dublaj ve altyazılı izle. In 1970s Detroit, John Miller falls for a local gangster&#039;s girl and lands in prison for a crime he d...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt2012616/img",
+      "trailers": [
+        {
+          "source": "t6RklhKu9os",
+          "type": "Trailer"
+        },
+        {
+          "source": "JHMPxTWI4sQ",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Motor City",
+          "ytId": "t6RklhKu9os"
+        },
+        {
+          "title": "Motor City",
+          "ytId": "JHMPxTWI4sQ"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=t6RklhKu9os",
+      "runtime": "103 dk"
+    },
+    {
       "id": "playrepo-aile-plani",
       "type": "movie",
       "name": "Aile Planı",
