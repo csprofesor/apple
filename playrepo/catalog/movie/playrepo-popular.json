@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-tatli-villa",
+      "type": "movie",
+      "name": "Tatlı Villa",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/s1ge9SG2zfJdMeZ69VMEbxeKuAE.webp?v=1785645921",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/s1ge9SG2zfJdMeZ69VMEbxeKuAE.webp?v=1785645921",
+      "description": "Tatlı Villa (2025) full HD, Türkçe dublaj ve altyazılı izle. Kızı Toskana&#039;daki harap bir villayı almaya karar verdiğinde, onu vazgeçirmek için İtalya&#039;nın yolunu...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "99 dk"
+    },
+    {
       "id": "tt30446847",
       "type": "movie",
       "name": "Jay Kelly",
@@ -1141,21 +1157,6 @@
       ],
       "posterShape": "poster",
       "runtime": "99 dk"
-    },
-    {
-      "id": "playrepo-onu-geri-getir",
-      "type": "movie",
-      "name": "Onu Geri Getir",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2IIKts2A9vnUdM9tTC76B8tDmuZ.webp?v=1785626245",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2IIKts2A9vnUdM9tTC76B8tDmuZ.webp?v=1785626245",
-      "description": "Onu Geri Getir (2025) full HD, Türkçe dublaj ve altyazılı izle. Yakın zamanda yetim kalan kardeşler, şefkatli bir kadın tarafından evlatlık alınırlar. Ancak onu...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "104 dk"
     }
   ]
 }
