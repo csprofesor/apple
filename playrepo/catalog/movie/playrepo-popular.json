@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "tt27552099",
+      "type": "movie",
+      "name": "Mike & Nick & Nick & Alice",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZDBiNjIyNjUtNWZlYy00MGU4LWFjNDUtMGExYTZlNmNhZTY4XkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZDBiNjIyNjUtNWZlYy00MGU4LWFjNDUtMGExYTZlNmNhZTY4XkEyXkFqcGc%40._V1_.jpg",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Mike &amp; Nick &amp; Nick &amp; Alice (2026) full HD, Türkçe dublaj ve altyazılı izle. İki arkadaş, organize suçun tehlikeli dünyasında yol alırken suç dünyasının derinlik...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Suç, Polisiye & Gizem",
+        "Aksiyon & Macera",
+        "Komedi"
+      ],
+      "posterShape": "poster",
+      "runtime": "107 dk"
+    },
+    {
       "id": "tt34691861",
       "type": "movie",
       "name": "Köstebekgiller: Ata Tohumu Muhafizlari",
@@ -1251,21 +1268,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "tt40224422",
-      "type": "movie",
-      "name": "Untold: The Shooting at Hawthorne Hill",
-      "poster": "https://image.tmdb.org/t/p/w500/6K0qTMozHAzzYVsWQrXxmqCC5wY.jpg",
-      "background": "https://image.tmdb.org/t/p/w500/6K0qTMozHAzzYVsWQrXxmqCC5wY.jpg",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Untold: The Shooting at Hawthorne Hill (2026) full HD, Türkçe dublaj ve altyazılı izle. A retired Olympic equestrian takes on a new dressage student at his idyl...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "73 dk"
     }
   ]
 }
