@@ -1,0 +1,71 @@
+{
+  "streams": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=7573b3221a5bb7f804f832ea3034b256&token=eyJ2IjoiNzU3M2IzMjIxYTViYjdmODA0ZjgzMmVhMzAzNGIyNTYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzM0Mzg3LCJuIjoiMWZkYWM0YTQ1ZjdlIn0.2d750a5ae0b437bdd743630c26b8233c20e28342d80f9cc1f0fd722dad6acb6a&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=ZuiIKHzb40NVKQsM4QD6_Q",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=ZuiIKHzb40NVKQsM4QD6_Q"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=7573b3221a5bb7f804f832ea3034b256&sid=a184177275feed609aa8e6c5c241029a&token=eyJ2IjoiNzU3M2IzMjIxYTViYjdmODA0ZjgzMmVhMzAzNGIyNTYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzM0Mzg3LCJuIjoiMWZkYWM0YTQ1ZjdlIn0.2d750a5ae0b437bdd743630c26b8233c20e28342d80f9cc1f0fd722dad6acb6a",
+          "lang": "Turkish - SubRip"
+        },
+        {
+          "id": "tr",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=7573b3221a5bb7f804f832ea3034b256&sid=af45af13d4c8bb2f81a76d5d436599bd&token=eyJ2IjoiNzU3M2IzMjIxYTViYjdmODA0ZjgzMmVhMzAzNGIyNTYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzM0Mzg3LCJuIjoiMWZkYWM0YTQ1ZjdlIn0.2d750a5ae0b437bdd743630c26b8233c20e28342d80f9cc1f0fd722dad6acb6a",
+          "lang": "Turkish - SubRip - Forced"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=ZuiIKHzb40NVKQsM4QD6_Q"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=7573b3221a5bb7f804f832ea3034b256&token=eyJ2IjoiNzU3M2IzMjIxYTViYjdmODA0ZjgzMmVhMzAzNGIyNTYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzM0Mzg3LCJuIjoiMWZkYWM0YTQ1ZjdlIn0.2d750a5ae0b437bdd743630c26b8233c20e28342d80f9cc1f0fd722dad6acb6a&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=ZuiIKHzb40NVKQsM4QD6_Q",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=ZuiIKHzb40NVKQsM4QD6_Q"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=7573b3221a5bb7f804f832ea3034b256&sid=a184177275feed609aa8e6c5c241029a&token=eyJ2IjoiNzU3M2IzMjIxYTViYjdmODA0ZjgzMmVhMzAzNGIyNTYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzM0Mzg3LCJuIjoiMWZkYWM0YTQ1ZjdlIn0.2d750a5ae0b437bdd743630c26b8233c20e28342d80f9cc1f0fd722dad6acb6a",
+          "lang": "Turkish - SubRip"
+        },
+        {
+          "id": "tr",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=7573b3221a5bb7f804f832ea3034b256&sid=af45af13d4c8bb2f81a76d5d436599bd&token=eyJ2IjoiNzU3M2IzMjIxYTViYjdmODA0ZjgzMmVhMzAzNGIyNTYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzM0Mzg3LCJuIjoiMWZkYWM0YTQ1ZjdlIn0.2d750a5ae0b437bdd743630c26b8233c20e28342d80f9cc1f0fd722dad6acb6a",
+          "lang": "Turkish - SubRip - Forced"
+        }
+      ],
+      "is_sub_clone": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=ZuiIKHzb40NVKQsM4QD6_Q"
+          }
+        }
+      }
+    }
+  ]
+}
