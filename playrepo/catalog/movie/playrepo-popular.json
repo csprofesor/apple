@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-panda-plani-2",
+      "type": "movie",
+      "name": "Panda Planı 2",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jmWgUSrqvlLytWgBHvNuRyKq0WZ.webp?v=1786655776",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jmWgUSrqvlLytWgBHvNuRyKq0WZ.webp?v=1786655776",
+      "description": "Panda Planı 2 (2026) full HD, Türkçe dublaj ve altyazılı izle. Sevimli Panda Hu Hu ve uluslararası süperstar Jackie Chan, gizli bir ilkel kabileye rastladıkları...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "100 dk"
+    },
+    {
       "id": "playrepo-nando-i-ki-dunya-arasinda",
       "type": "movie",
       "name": "Nando İki Dünya Arasında",
@@ -1225,22 +1242,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "playrepo-kefenler",
-      "type": "movie",
-      "name": "Kefenler",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kpzMKQyKbtaxf9OpJo0fiosSCMK.webp?v=1785677610",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kpzMKQyKbtaxf9OpJo0fiosSCMK.webp?v=1785677610",
-      "description": "Kefenler (2025) full HD, Türkçe dublaj ve altyazılı izle. Karısının ölümünden beri bir türlü teselli bulamayan Karsh, devrim niteliğinde ve tartışmalı bir tekno...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "119 dk"
     }
   ]
 }
