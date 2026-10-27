@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-i-ki-dunya-bir-dilek",
+      "type": "movie",
+      "name": "İki Dünya Bir Dilek",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2yZmwuXiQw58GiXwJwGNYtsDrEL.webp?v=1785129408",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2yZmwuXiQw58GiXwJwGNYtsDrEL.webp?v=1785129408",
+      "description": "İki Dünya Bir Dilek (2025) full HD, Türkçe dublaj ve altyazılı izle. Çocuk hastanesinde tanışıp büyülü anlar yaşayan Bilge ve Can, 21 yıl sonra aniden telepatik...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "118 dk"
+    },
+    {
       "id": "playrepo-kucuk-koyun-buyuk-gucu",
       "type": "movie",
       "name": "Küçük Köyün Büyük Gücü",
@@ -1358,28 +1380,6 @@
       ],
       "posterShape": "poster",
       "runtime": "105 dk"
-    },
-    {
-      "id": "playrepo-senin-hatan-londra",
-      "type": "movie",
-      "name": "Senin Hatan: Londra",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wQOhbCP6H8bO5ddlXDZT207orew.webp?v=1785102117",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wQOhbCP6H8bO5ddlXDZT207orew.webp?v=1785102117",
-      "description": "Senin Hatan: Londra (2026) full HD, Türkçe dublaj ve altyazılı izle. Nick ve Noah, aşklarının en büyük sınavıyla karşı karşıya: Noah, Oxford Üniversitesi&#039;ndeki....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "124 dk"
     }
   ]
 }
