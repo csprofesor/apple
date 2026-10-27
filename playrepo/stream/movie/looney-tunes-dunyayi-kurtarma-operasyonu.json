@@ -1,0 +1,32 @@
+{
+  "streams": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=3b52187fc2ceb7a2128f29d869569f51&token=eyJ2IjoiM2I1MjE4N2ZjMmNlYjdhMjEyOGYyOWQ4Njk1NjlmNTEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ1MjQyLCJuIjoiNDdhMjAyZTkzZGIyIn0.95c47df011fb859d0c65fe8eed884c10f2a90997561c86953db178d50f979619&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=PrDb2efLMsCxDLs4JMiZTw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=PrDb2efLMsCxDLs4JMiZTw"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=3b52187fc2ceb7a2128f29d869569f51&sid=a8434a008833140091af82bd66845cb0&token=eyJ2IjoiM2I1MjE4N2ZjMmNlYjdhMjEyOGYyOWQ4Njk1NjlmNTEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ1MjQyLCJuIjoiNDdhMjAyZTkzZGIyIn0.95c47df011fb859d0c65fe8eed884c10f2a90997561c86953db178d50f979619&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=PrDb2efLMsCxDLs4JMiZTw"
+          }
+        }
+      }
+    }
+  ]
+}
