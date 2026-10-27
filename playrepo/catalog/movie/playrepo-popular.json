@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-onu-geri-getir",
+      "type": "movie",
+      "name": "Onu Geri Getir",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2IIKts2A9vnUdM9tTC76B8tDmuZ.webp?v=1785626245",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2IIKts2A9vnUdM9tTC76B8tDmuZ.webp?v=1785626245",
+      "description": "Onu Geri Getir (2025) full HD, Türkçe dublaj ve altyazılı izle. Yakın zamanda yetim kalan kardeşler, şefkatli bir kadın tarafından evlatlık alınırlar. Ancak onu...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "104 dk"
+    },
+    {
       "id": "playrepo-chris-hemsworth-unutulmaz-bir-yolculuk",
       "type": "movie",
       "name": "Chris Hemsworth: Unutulmaz Bir Yolculuk",
@@ -1057,24 +1072,6 @@
       ],
       "posterShape": "poster",
       "runtime": "91 dk"
-    },
-    {
-      "id": "playrepo-yerime-gec",
-      "type": "movie",
-      "name": "Yerime Geç",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zMwhWailP1WY7sb6AoE6b8ugoy.webp?v=1785559075",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zMwhWailP1WY7sb6AoE6b8ugoy.webp?v=1785559075",
-      "description": "Yerime Geç (2026) full HD, Türkçe dublaj ve altyazılı izle. Ormanda yaşayan küçük bir canlıyla görkemli bir kuşun bedenleri aniden yer değiştirir ve böylece hay...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Aksiyon & Macera",
-        "Netflix",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
