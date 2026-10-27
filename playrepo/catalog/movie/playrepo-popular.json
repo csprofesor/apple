@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "playrepo-gabby-nin-hayal-evi-film",
+      "type": "movie",
+      "name": "Gabby’nin Hayal Evi: Film",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/MrcSSzWGsXf2IUJpjPPFLlNbjX.webp?v=1785637412",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/MrcSSzWGsXf2IUJpjPPFLlNbjX.webp?v=1785637412",
+      "description": "Gabby’nin Hayal Evi: Film (2025) full HD, Türkçe dublaj ve altyazılı izle. Gabby. büyükannesi Gigi ile birlikte Kedi Francisco adlı şehirde bir yolculuğa çıkar....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Aksiyon & Macera",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "85 dk"
+    },
+    {
       "id": "playrepo-mars-in-hayaletleri",
       "type": "movie",
       "name": "Mars’ın Hayaletleri",
@@ -1118,22 +1136,6 @@
       ],
       "posterShape": "poster",
       "runtime": "104 dk"
-    },
-    {
-      "id": "playrepo-kucuk-bir-rica-daha",
-      "type": "movie",
-      "name": "Küçük Bir Rica Daha",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/b6e5Nss2QNoQM4wJv2VppChswNP.webp?v=1785618363",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/b6e5Nss2QNoQM4wJv2VppChswNP.webp?v=1785618363",
-      "description": "Küçük Bir Rica Daha (2025) full HD, Türkçe dublaj ve altyazılı izle. Stephanie Smothers ile Emily Nelson, Emily&#039;nin zengin bir İtalyan iş adamıyla gösterişli dü...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "123 dk"
     }
   ]
 }
