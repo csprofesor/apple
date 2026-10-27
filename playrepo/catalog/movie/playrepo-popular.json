@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-takip",
+      "type": "movie",
+      "name": "Takip",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1ZnEOaOUj2e2Fq6Y7wo9KeH5rS6.webp?v=1785662491",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1ZnEOaOUj2e2Fq6Y7wo9KeH5rS6.webp?v=1785662491",
+      "description": "Takip (2025) full HD, Türkçe dublaj ve altyazılı izle. Takip, analog sırlar ve dijital dünya arasında zekice kurgulanmış bir kedi-fare oyunu… Tom, yozlaşmış şir...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "112 dk"
+    },
+    {
       "id": "playrepo-pismanim-ama",
       "type": "movie",
       "name": "Pişmanım Ama",
@@ -1110,21 +1127,6 @@
       ],
       "posterShape": "poster",
       "runtime": "96 dk"
-    },
-    {
-      "id": "playrepo-karate-kid-efsane-dovusculer",
-      "type": "movie",
-      "name": "Karate Kid: Efsane Dövüşçüler",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7Q2CmqIVJuDAESPPp76rWIiA0AD.webp?v=1785643289",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7Q2CmqIVJuDAESPPp76rWIiA0AD.webp?v=1785643289",
-      "description": "Karate Kid: Efsane Dövüşçüler (2025) full HD, Türkçe dublaj ve altyazılı izle. Pekin&#039;den New York&#039;a taşınan ve Kung Fu yeteneği olan genç Li Fong&#039;un hikâyesi an...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "94 dk"
     }
   ]
 }
