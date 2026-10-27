@@ -1,0 +1,72 @@
+{
+  "streams": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=2c90cd51bf22e3fb9c6b930d2191f4c0&token=eyJ2IjoiMmM5MGNkNTFiZjIyZTNmYjljNmI5MzBkMjE5MWY0YzAiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxODczLCJuIjoiZDhmZTBkN2JlODNkIn0.161d77c2ac712d02c5706d8d67579bea0d21220d149e8b4b3d7b0c781c1fbf6d&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=hRFwRptMESwL4JKxUHS8TA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=hRFwRptMESwL4JKxUHS8TA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=2c90cd51bf22e3fb9c6b930d2191f4c0&sid=4c41ca381be5a255f263ec24defb99b3&token=eyJ2IjoiMmM5MGNkNTFiZjIyZTNmYjljNmI5MzBkMjE5MWY0YzAiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxODczLCJuIjoiZDhmZTBkN2JlODNkIn0.161d77c2ac712d02c5706d8d67579bea0d21220d149e8b4b3d7b0c781c1fbf6d&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=2c90cd51bf22e3fb9c6b930d2191f4c0&sid=c142d0161ffd5dee5072290429f7b21a&token=eyJ2IjoiMmM5MGNkNTFiZjIyZTNmYjljNmI5MzBkMjE5MWY0YzAiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxODczLCJuIjoiZDhmZTBkN2JlODNkIn0.161d77c2ac712d02c5706d8d67579bea0d21220d149e8b4b3d7b0c781c1fbf6d&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=hRFwRptMESwL4JKxUHS8TA"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=2c90cd51bf22e3fb9c6b930d2191f4c0&token=eyJ2IjoiMmM5MGNkNTFiZjIyZTNmYjljNmI5MzBkMjE5MWY0YzAiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxODczLCJuIjoiZDhmZTBkN2JlODNkIn0.161d77c2ac712d02c5706d8d67579bea0d21220d149e8b4b3d7b0c781c1fbf6d&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=hRFwRptMESwL4JKxUHS8TA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=hRFwRptMESwL4JKxUHS8TA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=2c90cd51bf22e3fb9c6b930d2191f4c0&sid=4c41ca381be5a255f263ec24defb99b3&token=eyJ2IjoiMmM5MGNkNTFiZjIyZTNmYjljNmI5MzBkMjE5MWY0YzAiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxODczLCJuIjoiZDhmZTBkN2JlODNkIn0.161d77c2ac712d02c5706d8d67579bea0d21220d149e8b4b3d7b0c781c1fbf6d&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=2c90cd51bf22e3fb9c6b930d2191f4c0&sid=c142d0161ffd5dee5072290429f7b21a&token=eyJ2IjoiMmM5MGNkNTFiZjIyZTNmYjljNmI5MzBkMjE5MWY0YzAiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxODczLCJuIjoiZDhmZTBkN2JlODNkIn0.161d77c2ac712d02c5706d8d67579bea0d21220d149e8b4b3d7b0c781c1fbf6d&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=hRFwRptMESwL4JKxUHS8TA"
+          }
+        }
+      }
+    }
+  ]
+}

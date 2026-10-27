@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-birlikte",
+      "type": "movie",
+      "name": "Birlikte",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/39Niij05MXfibXBsHiUU0Ml0POX.webp?v=1785539024",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/39Niij05MXfibXBsHiUU0Ml0POX.webp?v=1785539024",
+      "description": "Birlikte (2025) full HD, Türkçe dublaj ve altyazılı izle. Romantik dramayı kara komedi ve body horror öğeleriyle harmanlayan Birlikte (Together), 10 yıla yaklaş...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "102 dk"
+    },
+    {
       "id": "playrepo-son-koruyucu",
       "type": "movie",
       "name": "Son Koruyucu",
@@ -993,36 +1009,6 @@
       ],
       "posterShape": "poster",
       "runtime": "90 dk"
-    },
-    {
-      "id": "tt27552099",
-      "type": "movie",
-      "name": "Mike & Nick & Nick & Alice",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZDBiNjIyNjUtNWZlYy00MGU4LWFjNDUtMGExYTZlNmNhZTY4XkEyXkFqcGc%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZDBiNjIyNjUtNWZlYy00MGU4LWFjNDUtMGExYTZlNmNhZTY4XkEyXkFqcGc%40._V1_.jpg",
-      "description": "Mike &amp; Nick &amp; Nick &amp; Alice (2026) full HD, Türkçe dublaj ve altyazılı izle. İki arkadaş, organize suçun tehlikeli dünyasında yol alırken suç dünyasının derinlik...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt27552099/img",
-      "trailers": [
-        {
-          "source": "pI-2t18TXqs",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Mike & Nick & Nick & Alice",
-          "ytId": "pI-2t18TXqs"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=pI-2t18TXqs",
-      "runtime": "107 dk"
     }
   ]
 }
