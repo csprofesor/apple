@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "tt36639986",
+      "type": "movie",
+      "name": "I Am Frankelda",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNDc3OTYxOTQtYzNkMy00YzQ5LWJlM2MtZDcwYTliZThkMWM0XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNDc3OTYxOTQtYzNkMy00YzQ5LWJlM2MtZDcwYTliZThkMWM0XkEyXkFqcGc%40._V1_SX250.jpg",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "I Am Frankelda (2025) full HD, Türkçe dublaj ve altyazılı izle. 19. yüzyıl Meksika&#039;sında yaşayan yetenekli genç bir yazar, bilinçaltının derinliklerine inerek k...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Animasyon & Çizgi Dizi",
+        "Komedi",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "104 dk"
+    },
+    {
       "id": "tt14905854",
       "type": "movie",
       "name": "Hamnet",
@@ -1278,28 +1295,6 @@
       ],
       "posterShape": "poster",
       "runtime": "112 dk"
-    },
-    {
-      "id": "playrepo-yok-boyle-bir-ask",
-      "type": "movie",
-      "name": "Yok Böyle Bir Aşk!",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1EVHnzF3gescyQZSqwbx5LfQ1EN.webp?v=1785163552",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1EVHnzF3gescyQZSqwbx5LfQ1EN.webp?v=1785163552",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Yok Böyle Bir Aşk! (2026) full HD, Türkçe dublaj ve altyazılı izle. Thando&#039;nun aşk hayatı talihsizliklerle dolu olsa da en yakın arkadaşı seyahatinden nişanlısı...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Suç, Polisiye & Gizem",
-        "Korku & Gerilim",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "95 dk"
     }
   ]
 }
