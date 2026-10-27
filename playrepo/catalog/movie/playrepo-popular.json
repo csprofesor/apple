@@ -1,6 +1,44 @@
 {
   "metas": [
     {
+      "id": "tt1312221",
+      "type": "movie",
+      "name": "Frankenstein",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYzYzNDYxMTQtMTU4OS00MTdlLThhMTQtZjI4NGJmMTZmNmRiXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYzYzNDYxMTQtMTU4OS00MTdlLThhMTQtZjI4NGJmMTZmNmRiXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Frankenstein (2025) full HD, Türkçe dublaj ve altyazılı izle. Dr. Victor Frankenstein (Oscar Isaac), ölümün sınırlarını zorlayan, saplantılı ve yalnız bir bilim...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt1312221/img",
+      "trailers": [
+        {
+          "source": "9WZllcEgWrM",
+          "type": "Trailer"
+        },
+        {
+          "source": "8aulMPhE12g",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Frankenstein",
+          "ytId": "9WZllcEgWrM"
+        },
+        {
+          "title": "Frankenstein",
+          "ytId": "8aulMPhE12g"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=9WZllcEgWrM",
+      "runtime": "149 dk"
+    },
+    {
       "id": "playrepo-daha-cilgin-cuma",
       "type": "movie",
       "name": "Daha Çılgın Cuma",
@@ -1090,22 +1128,6 @@
       ],
       "posterShape": "poster",
       "runtime": "105 dk"
-    },
-    {
-      "id": "playrepo-vur-kac",
-      "type": "movie",
-      "name": "Vur Kaç",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1FTw6A7FF45b40uzk0cPVlNbKS.webp?v=1785616354",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1FTw6A7FF45b40uzk0cPVlNbKS.webp?v=1785616354",
-      "description": "Vur Kaç (2022) full HD, Türkçe dublaj ve altyazılı izle. Suç ve şiddet dolu hayatını artık ardından bırakan Ray, sakin bir aile yaşamının tadını çıkarmaya çalış...",
-      "releaseInfo": "2022",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "96 dk"
     }
   ]
 }
