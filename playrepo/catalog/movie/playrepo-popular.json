@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-hayalet-filler",
+      "type": "movie",
+      "name": "Hayalet Filler",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qEqvcwXH5skWfed1rgZq45FL36G.webp?v=1785158815",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qEqvcwXH5skWfed1rgZq45FL36G.webp?v=1785158815",
+      "description": "Hayalet Filler (2026) full HD, Türkçe dublaj ve altyazılı izle. Angola&#039;nın sisli yaylalarında, üç KhoiSan usta izci, teknolojinin unuttuğu ancak atalarının tran...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "99 dk"
+    },
+    {
       "id": "playrepo-joe-039-nun-universite-ziyaretleri",
       "type": "movie",
       "name": "Joe&#039;nun Üniversite Ziyaretleri",
@@ -1320,27 +1342,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=fGonJxa87SY",
       "runtime": "118 dk"
-    },
-    {
-      "id": "playrepo-bak-postaci-geliyor",
-      "type": "movie",
-      "name": "Bak Postacı Geliyor",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eFLbbbJgjNBa77DmGjYCIlPpkZR.webp?v=1785119037",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eFLbbbJgjNBa77DmGjYCIlPpkZR.webp?v=1785119037",
-      "description": "Bak Postacı Geliyor (2025) full HD, Türkçe dublaj ve altyazılı izle. 1959 yılında küçük bir Ege kasabasında bir postacı, sevdiği kadını isimsiz mektuplarla etki...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster"
     }
   ]
 }
