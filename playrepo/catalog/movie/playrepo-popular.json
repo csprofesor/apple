@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-i-tham",
+      "type": "movie",
+      "name": "İtham",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8QRMlkCMFNKZM2ApnIaut5t4snf.webp?v=1787014084",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8QRMlkCMFNKZM2ApnIaut5t4snf.webp?v=1787014084",
+      "description": "İtham (2026) full HD, Türkçe dublaj ve altyazılı izle. Ünlü bir jinekoloğun hayatı, kariyerini ve evliliğini tehdit eden ciddi suçlamalarla altüst olur. Bu sıra...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "107 dk"
+    },
+    {
       "id": "playrepo-kosucu",
       "type": "movie",
       "name": "Koşucu",
@@ -1162,21 +1178,6 @@
       ],
       "posterShape": "poster",
       "runtime": "118 dk"
-    },
-    {
-      "id": "playrepo-catisma",
-      "type": "movie",
-      "name": "Çatışma",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/30jbD8Er4aB7FbfUbyZLORMDnJN.webp?v=1785684812",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/30jbD8Er4aB7FbfUbyZLORMDnJN.webp?v=1785684812",
-      "description": "Çatışma (2025) full HD, Türkçe dublaj ve altyazılı izle. Gözetim görevleri ters gidince kendilerini büyük bir tehlikenin içinde bulan ABD Özel Kuvvetler müfreze...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "96 dk"
     }
   ]
 }
