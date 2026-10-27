@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-kalp-gozler",
+      "type": "movie",
+      "name": "Kalp Gözler",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vh5FIqfosYaLWxCmZfSPjgUWWfn.webp?v=1785640490",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vh5FIqfosYaLWxCmZfSPjgUWWfn.webp?v=1785640490",
+      "description": "Kalp Gözler (2025) full HD, Türkçe dublaj ve altyazılı izle. İki iş arkadaşı, Sevgililer Günü&#039;nde Seattle&#039;da bir katil tarafından bir sevgili sanılır. Katilden...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "97 dk"
+    },
+    {
       "id": "tt15766876",
       "type": "movie",
       "name": "Holy Night: Demon Hunters",
@@ -1145,36 +1162,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=QleeDtH_WWE",
       "runtime": "90 dk"
-    },
-    {
-      "id": "tt32063098",
-      "type": "movie",
-      "name": "Ballad of a Small Player",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMWZhYzE5ODctNTUwYi00ZGE3LTliNTgtZTNkYjcxZWMxMWJjXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMWZhYzE5ODctNTUwYi00ZGE3LTliNTgtZTNkYjcxZWMxMWJjXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Ballad of a Small Player (2025) full HD, Türkçe dublaj ve altyazılı izle. Makao&#039;nun pırıltılı kumarhanelerinde geçmişinden ve borçlarından kaçan bir kumarbaz, b...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt32063098/img",
-      "trailers": [
-        {
-          "source": "z1B5W55TFyo",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Ballad of a Small Player",
-          "ytId": "z1B5W55TFyo"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=z1B5W55TFyo",
-      "runtime": "101 dk"
     }
   ]
 }
