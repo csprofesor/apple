@@ -7746,5 +7746,75 @@
         }
       }
     }
+  ],
+  "playrepo-louis-theroux-erkurenin-merkezine-yolculuk": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=7b7d3a7fa77eba491be2099845431d9d&token=eyJ2IjoiN2I3ZDNhN2ZhNzdlYmE0OTFiZTIwOTk4NDU0MzFkOWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyNjgyLCJuIjoiOTk3OGM5Y2RiMWI5In0.3b9ebd60636be45dfd3fe817de88439da1d65e383d78da76920f546271fc683b&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=FzYJSx6244eoQvlV1tkkYw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=FzYJSx6244eoQvlV1tkkYw"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7b7d3a7fa77eba491be2099845431d9d&sid=25fa6cf1e44559f1a3b323eb9959bd7e&token=eyJ2IjoiN2I3ZDNhN2ZhNzdlYmE0OTFiZTIwOTk4NDU0MzFkOWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyNjgyLCJuIjoiOTk3OGM5Y2RiMWI5In0.3b9ebd60636be45dfd3fe817de88439da1d65e383d78da76920f546271fc683b",
+          "lang": "Tam (Türkçe)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7b7d3a7fa77eba491be2099845431d9d&sid=31ba72b3194c243d746f0a5f18b0e2f8&token=eyJ2IjoiN2I3ZDNhN2ZhNzdlYmE0OTFiZTIwOTk4NDU0MzFkOWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyNjgyLCJuIjoiOTk3OGM5Y2RiMWI5In0.3b9ebd60636be45dfd3fe817de88439da1d65e383d78da76920f546271fc683b",
+          "lang": "Türkçe (Forced)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=FzYJSx6244eoQvlV1tkkYw"
+          }
+        }
+      }
+    }
+  ],
+  "louis-theroux-erkurenin-merkezine-yolculuk": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=7b7d3a7fa77eba491be2099845431d9d&token=eyJ2IjoiN2I3ZDNhN2ZhNzdlYmE0OTFiZTIwOTk4NDU0MzFkOWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyNjgyLCJuIjoiOTk3OGM5Y2RiMWI5In0.3b9ebd60636be45dfd3fe817de88439da1d65e383d78da76920f546271fc683b&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=FzYJSx6244eoQvlV1tkkYw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=FzYJSx6244eoQvlV1tkkYw"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7b7d3a7fa77eba491be2099845431d9d&sid=25fa6cf1e44559f1a3b323eb9959bd7e&token=eyJ2IjoiN2I3ZDNhN2ZhNzdlYmE0OTFiZTIwOTk4NDU0MzFkOWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyNjgyLCJuIjoiOTk3OGM5Y2RiMWI5In0.3b9ebd60636be45dfd3fe817de88439da1d65e383d78da76920f546271fc683b",
+          "lang": "Tam (Türkçe)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7b7d3a7fa77eba491be2099845431d9d&sid=31ba72b3194c243d746f0a5f18b0e2f8&token=eyJ2IjoiN2I3ZDNhN2ZhNzdlYmE0OTFiZTIwOTk4NDU0MzFkOWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyNjgyLCJuIjoiOTk3OGM5Y2RiMWI5In0.3b9ebd60636be45dfd3fe817de88439da1d65e383d78da76920f546271fc683b",
+          "lang": "Türkçe (Forced)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=FzYJSx6244eoQvlV1tkkYw"
+          }
+        }
+      }
+    }
   ]
 }
