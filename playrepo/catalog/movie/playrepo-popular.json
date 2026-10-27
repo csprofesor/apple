@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-adalar",
+      "type": "movie",
+      "name": "Adalar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vYu0TDdMeDJs4T1sJaxI98WQ4t4.webp?v=1785130096",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vYu0TDdMeDJs4T1sJaxI98WQ4t4.webp?v=1785130096",
+      "description": "Adalar (2025) full HD, Türkçe dublaj ve altyazılı izle. Tom, lüks bir ada otelinde tenis antrenörüdür ve dersler arasındaki zamanını alkol ve tek gecelik ilişki...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "123 dk"
+    },
+    {
       "id": "playrepo-i-ki-dunya-bir-dilek",
       "type": "movie",
       "name": "İki Dünya Bir Dilek",
@@ -1061,25 +1078,6 @@
       ],
       "posterShape": "poster",
       "runtime": "70 dk"
-    },
-    {
-      "id": "playrepo-hoplayanlar",
-      "type": "movie",
-      "name": "Hoplayanlar",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/u53UYu5XG2hNgWGvs3xGhAVzypl.webp?v=1785102410",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/u53UYu5XG2hNgWGvs3xGhAVzypl.webp?v=1785102410",
-      "description": "Hoplayanlar (2026) full HD, Türkçe dublaj ve altyazılı izle. Hayvansever Mabel, insan bilincini gerçeğe yakın robotik hayvanlara aktarmak için tasarlanmış akıll...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Disney+",
-        "Animasyon & Aile",
-        "Aksiyon & Macera",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "105 dk"
     }
   ]
 }
