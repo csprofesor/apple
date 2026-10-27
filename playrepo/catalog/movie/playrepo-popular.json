@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-oyun-bulusmasi",
+      "type": "movie",
+      "name": "Oyun Buluşması",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5lQ4euO30sDin5nCifvi0vURFNd.webp?v=1785661122",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5lQ4euO30sDin5nCifvi0vURFNd.webp?v=1785661122",
+      "description": "Oyun Buluşması (2025) full HD, Türkçe dublaj ve altyazılı izle. İşsiz kalan muhasebeci Brian, evde oğluyla ilgilenen Jeff ile çocukları için bir oyun buluşması....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "95 dk"
+    },
+    {
       "id": "playrepo-askin-fotografi",
       "type": "movie",
       "name": "Aşkın Fotoğrafı",
@@ -1089,23 +1105,6 @@
       ],
       "posterShape": "poster",
       "runtime": "93 dk"
-    },
-    {
-      "id": "playrepo-devlet-baskanlari",
-      "type": "movie",
-      "name": "Devlet Başkanları",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vJbEUMeI2AxBUZKjP6ZVeVNNTLh.webp?v=1785640680",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vJbEUMeI2AxBUZKjP6ZVeVNNTLh.webp?v=1785640680",
-      "description": "Devlet Başkanları (2025) full HD, Türkçe dublaj ve altyazılı izle. Birleşik Krallık Başbakanı ve Amerika Birleşik Devletleri Başkanı, ülkelerinin ittifakını ris...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "116 dk"
     }
   ]
 }
