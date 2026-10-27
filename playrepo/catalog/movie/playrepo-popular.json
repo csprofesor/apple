@@ -1,6 +1,75 @@
 {
   "metas": [
     {
+      "id": "tt6604188",
+      "type": "movie",
+      "name": "Tron: Ares",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYzNlY2RiYWEtMDA0YS00MTZkLWI5YmUtMDNiZDZlN2E4MTVlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYzNlY2RiYWEtMDA0YS00MTZkLWI5YmUtMDNiZDZlN2E4MTVlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "TRON: Ares (2025) full HD, Türkçe dublaj ve altyazılı izle. TRON: Ares, TRON evreninde geçen ve TRON ile TRON: Legacy filmlerinin ardından hikâyeyi devam ettire...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt6604188/img",
+      "trailers": [
+        {
+          "source": "gNa0j4mQo1k",
+          "type": "Trailer"
+        },
+        {
+          "source": "YCSdZBvtPek",
+          "type": "Trailer"
+        },
+        {
+          "source": "W_bVkV1gbCA",
+          "type": "Trailer"
+        },
+        {
+          "source": "h8VJ0LSi5gQ",
+          "type": "Trailer"
+        },
+        {
+          "source": "YShVEXb7-ic",
+          "type": "Trailer"
+        },
+        {
+          "source": "9KVG_X_7Naw",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Tron: Ares",
+          "ytId": "gNa0j4mQo1k"
+        },
+        {
+          "title": "Tron: Ares",
+          "ytId": "YCSdZBvtPek"
+        },
+        {
+          "title": "Tron: Ares",
+          "ytId": "W_bVkV1gbCA"
+        },
+        {
+          "title": "Tron: Ares",
+          "ytId": "h8VJ0LSi5gQ"
+        },
+        {
+          "title": "Tron: Ares",
+          "ytId": "YShVEXb7-ic"
+        },
+        {
+          "title": "Tron: Ares",
+          "ytId": "9KVG_X_7Naw"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=gNa0j4mQo1k",
+      "runtime": "119 dk"
+    },
+    {
       "id": "playrepo-esrarengiz-canavar-2",
       "type": "movie",
       "name": "Esrarengiz Canavar 2",
@@ -1110,23 +1179,6 @@
       ],
       "posterShape": "poster",
       "runtime": "95 dk"
-    },
-    {
-      "id": "playrepo-son-damla",
-      "type": "movie",
-      "name": "Son Damla",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fnbWrDx8w8Reau4F1tFqoGuGmDZ.webp?v=1785668046",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fnbWrDx8w8Reau4F1tFqoGuGmDZ.webp?v=1785668046",
-      "description": "Son Damla (2025) full HD, Türkçe dublaj ve altyazılı izle. Bardağı taşıran son damla hangisi olacak? Çalışkan bir bekâr anne, felaketlerle dolu bir gün nedeniyl...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "105 dk"
     }
   ]
 }
