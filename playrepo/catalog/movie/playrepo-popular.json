@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-28-yil-sonra",
+      "type": "movie",
+      "name": "28 Yıl Sonra",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6WqqEjiycNvDLjbEClM1zCwIbDD.webp?v=1785613968",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6WqqEjiycNvDLjbEClM1zCwIbDD.webp?v=1785613968",
+      "description": "28 Yıl Sonra (2025) full HD, Türkçe dublaj ve altyazılı izle. Öfke virüsünden sağ kurtulan bir grup, küçük bir adada yaşamaktadır. Grubun bir üyesi ana karaya b...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "115 dk"
+    },
+    {
       "id": "playrepo-gizli-ajan",
       "type": "movie",
       "name": "Gizli Ajan",
@@ -1184,21 +1200,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=b9Rr9ygb-ac",
       "runtime": "124 dk"
-    },
-    {
-      "id": "playrepo-merhaba-huzun",
-      "type": "movie",
-      "name": "Merhaba Hüzün",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gEWw5gy1i2jhXthQulNiGAWtB1q.webp?v=1785545170",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gEWw5gy1i2jhXthQulNiGAWtB1q.webp?v=1785545170",
-      "description": "Merhaba Hüzün (2025) full HD, Türkçe dublaj ve altyazılı izle. Yazın kavurucu sıcaklarında, 18 yaşındaki Cecile, çekici babası Raymond ve onun genç sevgilisi El...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "111 dk"
     }
   ]
 }
