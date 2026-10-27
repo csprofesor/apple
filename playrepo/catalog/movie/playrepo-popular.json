@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-son-ev",
+      "type": "movie",
+      "name": "Son Ev",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2mPmccLg8QCD4ZF6v8kSsUijPPW.webp?v=1786815218",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2mPmccLg8QCD4ZF6v8kSsUijPPW.webp?v=1786815218",
+      "description": "Son Ev (2026) full HD, Türkçe dublaj ve altyazılı izle. Evlerinde gizemli bir şekilde mahsur kalan bir ailenin fertleri, azalan kaynaklara ve onları tutsak eden...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Netflix",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "110 dk"
+    },
+    {
       "id": "tt32654916",
       "type": "movie",
       "name": "Soulm8te",
@@ -1224,22 +1241,6 @@
       ],
       "posterShape": "poster",
       "runtime": "93 dk"
-    },
-    {
-      "id": "playrepo-oteki-paris",
-      "type": "movie",
-      "name": "Öteki Paris",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/i8QHgJKnsd8csNBo8fH9wYW2Y9E.webp?v=1785679910",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/i8QHgJKnsd8csNBo8fH9wYW2Y9E.webp?v=1785679910",
-      "description": "Öteki Paris (2025) full HD, Türkçe dublaj ve altyazılı izle. Fransa&#039;daki Paris&#039;te bir flört programına katıldığını düşünen Dawn kendini Teksas&#039;taki Paris&#039;te bul...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "107 dk"
     }
   ]
 }
