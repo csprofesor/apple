@@ -1,3 +1,32 @@
 {
-  "metas": []
+  "metas": [
+    {
+      "id": "tt42456008",
+      "type": "movie",
+      "name": "Poldi",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMWNmM2Q4NGMtY2U4Ni00NjAxLWJkN2QtZjQ3YmM1NzdmOWU2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMWNmM2Q4NGMtY2U4Ni00NjAxLWJkN2QtZjQ3YmM1NzdmOWU2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Poldi (2026) full HD, Türkçe dublaj ve altyazılı izle. Bu samimi belgeselde futbolcu, girişimci, hayranların gözdesi ve gerçek bir toplum kahramanı olan Lukas P...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt42456008/img",
+      "trailers": [
+        {
+          "source": "COUkUkLAIII",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Fragman",
+          "ytId": "COUkUkLAIII"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=COUkUkLAIII",
+      "runtime": "94 dk"
+    }
+  ]
 }
