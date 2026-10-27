@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-takintili-dost",
+      "type": "movie",
+      "name": "Takıntılı Dost",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/u4JsyMpp6mtAYbg0t3GIaCgPrRy.webp?v=1785556587",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/u4JsyMpp6mtAYbg0t3GIaCgPrRy.webp?v=1785556587",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Takıntılı Dost (2025) full HD, Türkçe dublaj ve altyazılı izle. Yirmili yaşlarındaki bir perakende çalışanı yükselen bir pop yıldızıyla karşılaşınca popüler gru...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "100 dk"
+    },
+    {
       "id": "playrepo-fildisi-kral",
       "type": "movie",
       "name": "Fildişi Kral",
@@ -1272,29 +1295,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-alacakli",
-      "type": "movie",
-      "name": "Alacaklı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dk68ykaNd3HdrDJyPJqEGsgvag7.webp?v=1785183049",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dk68ykaNd3HdrDJyPJqEGsgvag7.webp?v=1785183049",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Alacaklı (2026) full HD, Türkçe dublaj ve altyazılı izle. Ölümcül bir hastalıkla yüzleşen ve geçmişinin karanlık izlerinden kaçamayan eski bir borç tahsildarı,....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Suç, Polisiye & Gizem",
-        "Korku & Gerilim",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "134 dk"
     }
   ]
 }
