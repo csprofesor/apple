@@ -1,6 +1,19 @@
 {
   "metas": [
     {
+      "id": "playrepo-hezeyanlar-dogu-demirkol",
+      "type": "movie",
+      "name": "Hezeyanlar Doğu Demirkol",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uTCKcipHrJe0hmtVHlmSn0VsMEt.webp?v=1788668409",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uTCKcipHrJe0hmtVHlmSn0VsMEt.webp?v=1788668409",
+      "description": "Hezeyanlar Doğu Demirkol (2026) full HD, Türkçe dublaj ve altyazılı izle. Doğu Demirkol kariyerinin iniş çıkışlarını, sanatla mücadelesini, sınıf çatışmasını ve...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Popüler"
+      ],
+      "posterShape": "poster"
+    },
+    {
       "id": "playrepo-i-fsa-gunu",
       "type": "movie",
       "name": "İfşa Günü",
@@ -1224,23 +1237,6 @@
       ],
       "posterShape": "poster",
       "runtime": "94 dk"
-    },
-    {
-      "id": "playrepo-kutsal-i-ncirin-tohumu",
-      "type": "movie",
-      "name": "Kutsal İncirin Tohumu",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zqZzYVE4DWv92xrYSCEELPcLnUP.webp?v=1785680230",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zqZzYVE4DWv92xrYSCEELPcLnUP.webp?v=1785680230",
-      "description": "Kutsal İncirin Tohumu (2024) full HD, Türkçe dublaj ve altyazılı izle. Tahran&#039;daki Devrim Mahkemesi&#039;ndeki bir soruşturma yargıcı, ülke çapındaki siyasi protesto...",
-      "releaseInfo": "2024",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "168 dk"
     }
   ]
 }
