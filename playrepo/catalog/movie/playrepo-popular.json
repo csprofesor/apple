@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-firtina-kiz",
+      "type": "movie",
+      "name": "Fırtına Kız",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/aspfMWgdYP3YGRbVH0OnEUdEvyP.webp?v=1787804407",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/aspfMWgdYP3YGRbVH0OnEUdEvyP.webp?v=1787804407",
+      "description": "Fırtına Kız (2026) full HD, Türkçe dublaj ve altyazılı izle. Zeynep, Diyarbakır’ın “en yetenekli ama en şanssız futbolcusu” olarak anılan babası İsmail’in tüm y...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "100 dk"
+    },
+    {
       "id": "tt36683600",
       "type": "movie",
       "name": "Efendiler",
@@ -1343,27 +1365,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=n_pEJjq-9xQ",
       "runtime": "109 dk"
-    },
-    {
-      "id": "playrepo-ofis-aski",
-      "type": "movie",
-      "name": "Ofis Aşkı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1N5yz1IDw6Ci8le1YgeM6xtBijA.webp?v=1785096639",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1N5yz1IDw6Ci8le1YgeM6xtBijA.webp?v=1785096639",
-      "description": "Ofis Aşkı (2026) full HD, Türkçe dublaj ve altyazılı izle. Gizli bir ofis aşkına dair bu keyifli romantik komedide Jennifer Lopez ve Brett Goldstein, yüreklerin...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "114 dk"
     }
   ]
 }
