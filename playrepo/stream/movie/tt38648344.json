@@ -1,0 +1,72 @@
+{
+  "streams": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=1670096d9f6df614babee96756017fe8&token=eyJ2IjoiMTY3MDA5NmQ5ZjZkZjYxNGJhYmVlOTY3NTYwMTdmZTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxMDQzLCJuIjoiOWJlNDRhZWQ1NDk0In0.6c7afdaa21207a328e1ea6867abb14500d5b1dc64a9c39c75e1e6ed46bf683c3&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=kFC_Ygma-Ueh53X_mEbPDA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kFC_Ygma-Ueh53X_mEbPDA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=1670096d9f6df614babee96756017fe8&sid=ce11e977de2c524df0559f1e23c47d5c&token=eyJ2IjoiMTY3MDA5NmQ5ZjZkZjYxNGJhYmVlOTY3NTYwMTdmZTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxMDQzLCJuIjoiOWJlNDRhZWQ1NDk0In0.6c7afdaa21207a328e1ea6867abb14500d5b1dc64a9c39c75e1e6ed46bf683c3&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=1670096d9f6df614babee96756017fe8&sid=e04d8b95863315059e51856fd9846b15&token=eyJ2IjoiMTY3MDA5NmQ5ZjZkZjYxNGJhYmVlOTY3NTYwMTdmZTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxMDQzLCJuIjoiOWJlNDRhZWQ1NDk0In0.6c7afdaa21207a328e1ea6867abb14500d5b1dc64a9c39c75e1e6ed46bf683c3&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kFC_Ygma-Ueh53X_mEbPDA"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=1670096d9f6df614babee96756017fe8&token=eyJ2IjoiMTY3MDA5NmQ5ZjZkZjYxNGJhYmVlOTY3NTYwMTdmZTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxMDQzLCJuIjoiOWJlNDRhZWQ1NDk0In0.6c7afdaa21207a328e1ea6867abb14500d5b1dc64a9c39c75e1e6ed46bf683c3&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=kFC_Ygma-Ueh53X_mEbPDA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kFC_Ygma-Ueh53X_mEbPDA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=1670096d9f6df614babee96756017fe8&sid=ce11e977de2c524df0559f1e23c47d5c&token=eyJ2IjoiMTY3MDA5NmQ5ZjZkZjYxNGJhYmVlOTY3NTYwMTdmZTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxMDQzLCJuIjoiOWJlNDRhZWQ1NDk0In0.6c7afdaa21207a328e1ea6867abb14500d5b1dc64a9c39c75e1e6ed46bf683c3&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=1670096d9f6df614babee96756017fe8&sid=e04d8b95863315059e51856fd9846b15&token=eyJ2IjoiMTY3MDA5NmQ5ZjZkZjYxNGJhYmVlOTY3NTYwMTdmZTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxMDQzLCJuIjoiOWJlNDRhZWQ1NDk0In0.6c7afdaa21207a328e1ea6867abb14500d5b1dc64a9c39c75e1e6ed46bf683c3&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kFC_Ygma-Ueh53X_mEbPDA"
+          }
+        }
+      }
+    }
+  ]
+}
