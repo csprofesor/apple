@@ -1194,5 +1194,51 @@
         }
       }
     }
+  ],
+  "playrepo-the-simpsons-extreme-makeover-homer-edition": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=4efcdd87e6e35f0b37f3cdeb97a854e6&token=eyJ2IjoiNGVmY2RkODdlNmUzNWYwYjM3ZjNjZGViOTdhODU0ZTYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzA1MTU1LCJuIjoiYjQ2ZWY1NGY1MDRjIn0.d5176e359b8e963e8bc6e71654d8caa2ffe4b70e731d2f393e959880a6fcd297&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=srvzjhcErC0vMFakND9dLA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=srvzjhcErC0vMFakND9dLA"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=srvzjhcErC0vMFakND9dLA"
+          }
+        }
+      }
+    }
+  ],
+  "the-simpsons-extreme-makeover-homer-edition": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=4efcdd87e6e35f0b37f3cdeb97a854e6&token=eyJ2IjoiNGVmY2RkODdlNmUzNWYwYjM3ZjNjZGViOTdhODU0ZTYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzA1MTU1LCJuIjoiYjQ2ZWY1NGY1MDRjIn0.d5176e359b8e963e8bc6e71654d8caa2ffe4b70e731d2f393e959880a6fcd297&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=srvzjhcErC0vMFakND9dLA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=srvzjhcErC0vMFakND9dLA"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=srvzjhcErC0vMFakND9dLA"
+          }
+        }
+      }
+    }
   ]
 }
