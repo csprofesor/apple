@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-duzen",
+      "type": "movie",
+      "name": "Düzen",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/aMbKYfaexixvsBZKc5whYO7yibR.webp?v=1785676284",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/aMbKYfaexixvsBZKc5whYO7yibR.webp?v=1785676284",
+      "description": "Düzen (2024) full HD, Türkçe dublaj ve altyazılı izle. Yıl 1983… Şiddetini artıran banka ve zırhlı araç soygunları ABD’de düzen ve huzuru sarsmaktadır. Kimsenin...",
+      "releaseInfo": "2024",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "114 dk"
+    },
+    {
       "id": "playrepo-fenike-plani",
       "type": "movie",
       "name": "Fenike Planı",
@@ -1143,24 +1160,6 @@
       ],
       "posterShape": "poster",
       "runtime": "100 dk"
-    },
-    {
-      "id": "tt43601331",
-      "type": "movie",
-      "name": "Plankton",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lsgT602GYV8ts97sKH1gWFtQs1k.webp?v=1785660787",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lsgT602GYV8ts97sKH1gWFtQs1k.webp?v=1785660787",
-      "description": "Plankton (Film) (2025) full HD, Türkçe dublaj ve altyazılı izle. Plankton&#039;ın duygusal bilgisayar eşiyle karmaşık aşk hayatı, eşi ona tavır alarak o olmadan düny...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Aksiyon & Macera",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "87 dk"
     }
   ]
 }
