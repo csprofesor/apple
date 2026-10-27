@@ -1,6 +1,36 @@
 {
   "metas": [
     {
+      "id": "tt15514498",
+      "type": "movie",
+      "name": "Eenie Meanie",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMDJiMDM4YzYtOWY3Zi00ODEwLTgxNjAtOTdiMDc2ZDI1MjczXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMDJiMDM4YzYtOWY3Zi00ODEwLTgxNjAtOTdiMDc2ZDI1MjczXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Eenie Meanie (2025) full HD, Türkçe dublaj ve altyazılı izle. Genç bir kaçış şoförü, eski işvereninin kendisine kronik olarak güvenilmez eski erkek arkadaşının....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt15514498/img",
+      "trailers": [
+        {
+          "source": "qH6SqkWS9WA",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Eenie Meanie",
+          "ytId": "qH6SqkWS9WA"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=qH6SqkWS9WA",
+      "runtime": "106 dk"
+    },
+    {
       "id": "playrepo-kopek-adam",
       "type": "movie",
       "name": "Köpek Adam",

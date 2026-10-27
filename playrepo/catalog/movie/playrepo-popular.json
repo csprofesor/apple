@@ -1,6 +1,36 @@
 {
   "metas": [
     {
+      "id": "tt15514498",
+      "type": "movie",
+      "name": "Eenie Meanie",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMDJiMDM4YzYtOWY3Zi00ODEwLTgxNjAtOTdiMDc2ZDI1MjczXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMDJiMDM4YzYtOWY3Zi00ODEwLTgxNjAtOTdiMDc2ZDI1MjczXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Eenie Meanie (2025) full HD, Türkçe dublaj ve altyazılı izle. Genç bir kaçış şoförü, eski işvereninin kendisine kronik olarak güvenilmez eski erkek arkadaşının....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt15514498/img",
+      "trailers": [
+        {
+          "source": "qH6SqkWS9WA",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Eenie Meanie",
+          "ytId": "qH6SqkWS9WA"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=qH6SqkWS9WA",
+      "runtime": "106 dk"
+    },
+    {
       "id": "playrepo-i-blis-sehri",
       "type": "movie",
       "name": "İblis Şehri",
@@ -1013,22 +1043,6 @@
       ],
       "posterShape": "poster",
       "runtime": "142 dk"
-    },
-    {
-      "id": "playrepo-kayip-otobus",
-      "type": "movie",
-      "name": "Kayıp Otobüs",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wofTDrrNvySkjrv2v34jqpPZAP6.webp?v=1785567066",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wofTDrrNvySkjrv2v34jqpPZAP6.webp?v=1785567066",
-      "description": "Kayıp Otobüs (2025) full HD, Türkçe dublaj ve altyazılı izle. Kararlı bir baba, azimli bir öğretmeni ve öğrencilerini kontrol edilemeyen bir orman yangınından k...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "130 dk"
     }
   ]
 }
