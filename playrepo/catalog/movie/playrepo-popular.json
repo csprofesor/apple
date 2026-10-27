@@ -1,6 +1,43 @@
 {
   "metas": [
     {
+      "id": "tt13098590",
+      "type": "movie",
+      "name": "Fear Below",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNmU3NzE4MjgtZDc3MS00OTYxLTk5MWEtZmFkYzE1Yjc2ODA4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNmU3NzE4MjgtZDc3MS00OTYxLTk5MWEtZmFkYzE1Yjc2ODA4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Fear Below (2025) full HD, Türkçe dublaj ve altyazılı izle. A rag-tag team of divers attempting to salvage a sunken car from a river are thwarted by a highly ag...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt13098590/img",
+      "trailers": [
+        {
+          "source": "-OnUk2ITg_w",
+          "type": "Trailer"
+        },
+        {
+          "source": "852xyIzkCf0",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Fear Below",
+          "ytId": "-OnUk2ITg_w"
+        },
+        {
+          "title": "Fear Below",
+          "ytId": "852xyIzkCf0"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=-OnUk2ITg_w",
+      "runtime": "85 dk"
+    },
+    {
       "id": "tt15514498",
       "type": "movie",
       "name": "Eenie Meanie",
@@ -1025,24 +1062,6 @@
       ],
       "posterShape": "poster",
       "runtime": "158 dk"
-    },
-    {
-      "id": "playrepo-golge-avi",
-      "type": "movie",
-      "name": "Gölge Avı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4BtL2vvEufDXDP4u6xQjjQ1Y2aT.webp?v=1785567745",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4BtL2vvEufDXDP4u6xQjjQ1Y2aT.webp?v=1785567745",
-      "description": "Gölge Avı (2025) full HD, Türkçe dublaj ve altyazılı izle. Emekli bir gözetleme uzmanı olan Wong Tak-Chung (Jackie Chan), Makao polisi tarafından, yüksek teknol...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Aksiyon & Macera",
-        "Popüler",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "runtime": "142 dk"
     }
   ]
 }
