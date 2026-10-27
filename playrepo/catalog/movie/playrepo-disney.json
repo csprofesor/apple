@@ -1,3 +1,66 @@
 {
-  "metas": []
+  "metas": [
+    {
+      "id": "tt30825738",
+      "type": "movie",
+      "name": "Star Wars: The Mandalorian and Grogu",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYjRkYzAzNjktZmRhMy00NjRiLWE0OTMtYmRmMTE5NDkzY2NlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYjRkYzAzNjktZmRhMy00NjRiLWE0OTMtYmRmMTE5NDkzY2NlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Star Wars: Mandalorian ve Grogu (2026) full HD, Türkçe dublaj ve altyazılı izle. Zalim İmparatorluk yıkılmış olsa da İmparatorluk&#039;a bağlı savaş lordları galaksi...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Disney+",
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt30825738/img",
+      "trailers": [
+        {
+          "source": "uwild1rw7Aw",
+          "type": "Trailer"
+        },
+        {
+          "source": "IHWlvwu8t1w",
+          "type": "Trailer"
+        },
+        {
+          "source": "_pa1KLXuW0Y",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Star Wars: The Mandalorian and Grogu",
+          "ytId": "uwild1rw7Aw"
+        },
+        {
+          "title": "Star Wars: The Mandalorian and Grogu",
+          "ytId": "IHWlvwu8t1w"
+        },
+        {
+          "title": "Star Wars: The Mandalorian and Grogu",
+          "ytId": "_pa1KLXuW0Y"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=uwild1rw7Aw",
+      "runtime": "132 dk"
+    },
+    {
+      "id": "playrepo-the-simpsons-extreme-makeover-homer-edition",
+      "type": "movie",
+      "name": "The Simpsons Extreme Makeover Homer Edition",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4bW2662ZiJhJmK4IseCReVzgZ3C.webp?v=1785089011",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4bW2662ZiJhJmK4IseCReVzgZ3C.webp?v=1785089011",
+      "description": "The Simpsons Extreme Makeover Homer Edition (2026) full HD, Türkçe dublaj ve altyazılı izle. Homer ve Marge&#039;ın eğlenceli çiftler randevu gecesi, Marge, Homer&#039;ın...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Disney+",
+        "Animasyon & Aile",
+        "Komedi"
+      ],
+      "posterShape": "poster",
+      "runtime": "48 dk"
+    }
+  ]
 }

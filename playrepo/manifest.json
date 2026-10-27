@@ -1,7 +1,7 @@
 {
   "id": "playRepo",
   "name": "Play",
-  "version": "1.2.11",
+  "version": "1.2.13",
   "description": "Play • Tek kaynaktan yüksek hızlı Türkçe film ve dizi akış sağlayıcısı.",
   "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
   "resources": [
@@ -25,6 +25,10 @@
       "name": "Play • 🔥 Popüler Filmler",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -35,6 +39,10 @@
       "id": "playrepo-blutv",
       "name": "Play • 🇹🇷 Yerli Filmler",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -47,6 +55,10 @@
       "name": "Play • 🔴 Netflix Yerli Filmleri",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -57,6 +69,10 @@
       "id": "playrepo-netflix",
       "name": "Play • 🔴 Netflix Filmleri",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -69,6 +85,10 @@
       "name": "Play • 🏰 Disney+ & Marvel",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -79,6 +99,10 @@
       "id": "playrepo-prime",
       "name": "Play • 📦 Prime Video",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -91,6 +115,10 @@
       "name": "Play • 🍏 Apple TV+",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -101,6 +129,10 @@
       "id": "playrepo-hbo",
       "name": "Play • ⚡ HBO Max",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -113,6 +145,10 @@
       "name": "Play • 🟢 Hulu",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -123,6 +159,10 @@
       "id": "playrepo-mubi",
       "name": "Play • 🎭 Mubi & Kült",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -135,6 +175,10 @@
       "name": "Play • 🚀 Bilim Kurgu & Fantastik",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -145,6 +189,10 @@
       "id": "playrepo-aksiyon",
       "name": "Play • 💥 Aksiyon & Macera",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -157,6 +205,10 @@
       "name": "Play • 👻 Korku & Gerilim",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -167,6 +219,10 @@
       "id": "playrepo-animasyon",
       "name": "Play • 🎨 Animasyon & Aile",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -179,6 +235,10 @@
       "name": "Play • 😂 Komedi",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -189,6 +249,10 @@
       "id": "playrepo-suc",
       "name": "Play • 🕵️ Suç & Polisiye",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -201,6 +265,10 @@
       "name": "Play • ❤️ Dram & Romantik",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -211,6 +279,10 @@
       "id": "playrepo-belgesel",
       "name": "Play • 🌍 Belgesel & Tarih",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -223,6 +295,10 @@
       "name": "Play • 🔥 Popüler Diziler",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -233,6 +309,10 @@
       "id": "playrepo-series-blutv",
       "name": "Play • 🇹🇷 Yerli Diziler",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -245,6 +325,10 @@
       "name": "Play • 🔴 Netflix Yerli Dizileri",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -255,6 +339,10 @@
       "id": "playrepo-series-netflix",
       "name": "Play • 🔴 Netflix Dizileri",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -267,6 +355,10 @@
       "name": "Play • 🏰 Disney+ Dizileri",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -277,6 +369,10 @@
       "id": "playrepo-series-prime",
       "name": "Play • 📦 Prime Video Dizileri",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -289,6 +385,10 @@
       "name": "Play • 🍏 Apple TV+ Dizileri",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -299,6 +399,10 @@
       "id": "playrepo-series-hbo",
       "name": "Play • ⚡ HBO Max Dizileri",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -311,6 +415,10 @@
       "name": "Play • 🟢 Hulu Dizileri",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -321,6 +429,10 @@
       "id": "playrepo-series-bilimkurgu",
       "name": "Play • 🚀 Bilim Kurgu & Fantastik",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -333,6 +445,10 @@
       "name": "Play • 💥 Aksiyon & Macera",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -343,6 +459,10 @@
       "id": "playrepo-series-korku",
       "name": "Play • 👻 Korku & Gerilim",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -355,6 +475,10 @@
       "name": "Play • 🎨 Animasyon & Çizgi Dizi",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -365,6 +489,10 @@
       "id": "playrepo-series-komedi",
       "name": "Play • 😂 Komedi",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -377,6 +505,10 @@
       "name": "Play • 🕵️ Suç & Polisiye",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -387,6 +519,10 @@
       "id": "playrepo-series-dram",
       "name": "Play • ❤️ Dram & Romantik",
       "extra": [
+        {
+          "name": "skip",
+          "isRequired": false
+        },
         {
           "name": "search",
           "isRequired": false
@@ -399,6 +535,10 @@
       "name": "Play • 🌍 Belgesel & Doğa",
       "extra": [
         {
+          "name": "skip",
+          "isRequired": false
+        },
+        {
           "name": "search",
           "isRequired": false
         }
@@ -410,7 +550,7 @@
       "id": "playRepo",
       "name": "Play",
       "description": "Nuvio için optimize edilmiş Play akış sağlayıcısı.",
-      "version": "1.2.11",
+      "version": "1.2.12",
       "author": "csprofesor",
       "supportedTypes": [
         "movie",

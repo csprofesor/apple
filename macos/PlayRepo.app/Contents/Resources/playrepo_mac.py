@@ -216,7 +216,14 @@ class ScraperEngine:
 
     def detect_category(self, url: str, text: str) -> str:
         lower = f"{url.lower()} {text.lower()}"
-        # 1. Platform Koleksiyonları (Öncelikli)
+        # 1. Yerli ve Platform Yerli Koleksiyonları (En Yüksek Öncelik)
+        is_yerli_kw = any(k in lower for k in ["yerli", "türk filmi", "türk dizisi", "turk filmi", "turk dizisi", "türk sinema", "türk yapımı", "blutv", "gain", "exxen", "puhutv"])
+        if "netflix" in lower and is_yerli_kw:
+            return "Netflix Yerli"
+        if is_yerli_kw:
+            return "BluTV & Yerli"
+
+        # 2. Platform Koleksiyonları
         if "netflix" in lower:
             return "Netflix"
         if any(k in lower for k in ["disney", "pixar", "marvel"]):
@@ -229,12 +236,10 @@ class ScraperEngine:
             return "HBO Max"
         if "hulu" in lower:
             return "Hulu"
-        if any(k in lower for k in ["blutv", "gain"]):
-            return "BluTV & Yerli"
         if "mubi" in lower:
             return "Mubi & Kült"
 
-        # 2. Tür Koleksiyonları
+        # 3. Tür Koleksiyonları
         if any(k in lower for k in ["animasyon", "animation", "çizgi", "anime", "çizgi dizi", "çizgi film"]):
             return "Animasyon & Aile"
         if any(k in lower for k in ["belgesel", "documentary", "tarih", "history", "biyografi", "biography"]):
@@ -778,21 +783,7 @@ class ScraperEngine:
         time_m = re.search(r'(\d{2,3})\s*(?:dk|dakika|min)', html, re.I)
         runtime = f"{time_m.group(1)} dk" if time_m else None
 
-        genres = set(initial_cats) if initial_cats else set()
-        for href, text in re.findall(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', html, re.I | re.DOTALL):
-            if any(k in href.lower() for k in ["/kategori/", "/tur/", "/filmizle/", "/genre/", "/filmler/"]):
-                cat = self.detect_category(href, re.sub(r'<[^>]+>', '', text).strip())
-                if cat != "Popüler":
-                    genres.add(cat)
-
-        # "Tür: Aksiyon, Dram" gibi metin bloklarını tara
-        for m in re.finditer(r'(?:Tür(?:ü|ler)?|Kategori|Genres?)\s*[:：]\s*([^<\n\r]+)', html, re.I):
-            clean_block = re.sub(r'<[^>]+>', '', m.group(1)).strip()
-            cat = self.detect_category("", clean_block)
-            if cat != "Popüler":
-                genres.add(cat)
-
-        # Clean HTML: remove similar movies, recommendations, sidebars, navigation bars, headers, footers, comments
+        # Clean HTML first: remove navigation bars, headers, footers, sidebars, comments to prevent navbar menus from contaminating genres
         clean_player_html = html
         for block_pat in [
             r'<div[^>]*class=["\'][^"\']*(?:similar|onerilen|benzer|related|recommend)[^"\']*["\'].*?</div>\s*</div>',
@@ -800,9 +791,23 @@ class ScraperEngine:
             r'<header\b.*?</header>',
             r'<footer\b.*?</footer>',
             r'<aside\b.*?</aside>',
-            r'<div[^>]*class=["\'][^"\']*(?:sidebar|widget|menu|comments|yorumlar)[^"\']*["\'].*?</div>'
+            r'<div[^>]*class=["\'][^"\']*(?:sidebar|widget|menu|comments|yorumlar|header|nav)[^"\']*["\'].*?</div>'
         ]:
             clean_player_html = re.sub(block_pat, '', clean_player_html, flags=re.I | re.DOTALL)
+
+        genres = set(initial_cats) if initial_cats else set()
+        for href, text in re.findall(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', clean_player_html, re.I | re.DOTALL):
+            if any(k in href.lower() for k in ["/kategori/", "/tur/", "/genre/"]):
+                cat = self.detect_category(href, re.sub(r'<[^>]+>', '', text).strip())
+                if cat != "Popüler":
+                    genres.add(cat)
+
+        # "Tür: Aksiyon, Dram" gibi metin bloklarını tara
+        for m in re.finditer(r'(?:Tür(?:ü|ler)?|Kategori|Genres?)\s*[:：]\s*([^<\n\r]+)', clean_player_html, re.I):
+            clean_block = re.sub(r'<[^>]+>', '', m.group(1)).strip()
+            cat = self.detect_category("", clean_block)
+            if cat != "Popüler":
+                genres.add(cat)
 
         candidate_embeds = []
         is_explicit_sub = ("altyaz" in raw_title.lower() or "altyaz" in movie_url.lower() or "sub" in movie_url.lower())
@@ -1395,14 +1400,10 @@ class GitHubAtomicPublisher:
         result["playrepo/catalog/movie/playrepo-popular.json"] = json.dumps({"metas": all_movies[:60]}, ensure_ascii=False, indent=2)
         result["playrepo/catalog/movie/playrepo-catalog-movies.json"] = json.dumps({"metas": all_movies}, ensure_ascii=False, indent=2)
 
-        # 1. Yerli Filmler & Netflix Yerli Koleksiyonları
-        all_yerli_movies = [m for m in all_movies if cls.is_yerli_content(m)]
-        netflix_yerli_movies = [m for m in all_yerli_movies if cls.matches_cat(m, "netflix")]
-        
-        result["playrepo/catalog/movie/playrepo-blutv.json"] = json.dumps({"metas": all_yerli_movies}, ensure_ascii=False, indent=2)
-        result["playrepo/catalog/movie/playrepo-netflix-yerli.json"] = json.dumps({"metas": netflix_yerli_movies}, ensure_ascii=False, indent=2)
-
         movie_genre_configs = [
+            # 1. Yerli Filmler & Netflix Yerli Koleksiyonları (Sadece tek kategoriye girer)
+            ("playrepo/catalog/movie/playrepo-netflix-yerli.json", lambda x: cls.is_yerli_content(x) and cls.matches_cat(x, "netflix")),
+            ("playrepo/catalog/movie/playrepo-blutv.json", lambda x: cls.is_yerli_content(x)),
             # 2. Yabancı Platform Koleksiyonları (Yerli yapımlarla karışmaz)
             ("playrepo/catalog/movie/playrepo-netflix.json", lambda x: not cls.is_yerli_content(x) and cls.matches_cat(x, "netflix")),
             ("playrepo/catalog/movie/playrepo-disney.json", lambda x: not cls.is_yerli_content(x) and cls.matches_cat(x, "disney", "pixar", "marvel")),
@@ -1435,14 +1436,10 @@ class GitHubAtomicPublisher:
         all_series = [s for s in all_metas if s.get("type") == "series"]
         result["playrepo/catalog/series/playrepo-series-popular.json"] = json.dumps({"metas": all_series}, ensure_ascii=False, indent=2)
 
-        # 1. Yerli Diziler & Netflix Yerli Dizileri
-        all_yerli_series = [s for s in all_series if cls.is_yerli_content(s)]
-        netflix_yerli_series = [s for s in all_yerli_series if cls.matches_cat(s, "netflix")]
-
-        result["playrepo/catalog/series/playrepo-series-blutv.json"] = json.dumps({"metas": all_yerli_series}, ensure_ascii=False, indent=2)
-        result["playrepo/catalog/series/playrepo-series-netflix-yerli.json"] = json.dumps({"metas": netflix_yerli_series}, ensure_ascii=False, indent=2)
-
         series_genre_configs = [
+            # 1. Yerli Diziler & Netflix Yerli Dizileri (Sadece tek kategoriye girer)
+            ("playrepo/catalog/series/playrepo-series-netflix-yerli.json", lambda x: cls.is_yerli_content(x) and cls.matches_cat(x, "netflix")),
+            ("playrepo/catalog/series/playrepo-series-blutv.json", lambda x: cls.is_yerli_content(x)),
             # 2. Yabancı Dizi Platform Koleksiyonları (Yerli dizilerle karışmaz)
             ("playrepo/catalog/series/playrepo-series-netflix.json", lambda x: not cls.is_yerli_content(x) and cls.matches_cat(x, "netflix")),
             ("playrepo/catalog/series/playrepo-series-disney.json", lambda x: not cls.is_yerli_content(x) and cls.matches_cat(x, "disney", "pixar", "marvel", "star wars")),

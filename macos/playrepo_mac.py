@@ -216,7 +216,14 @@ class ScraperEngine:
 
     def detect_category(self, url: str, text: str) -> str:
         lower = f"{url.lower()} {text.lower()}"
-        # 1. Platform Koleksiyonları (Öncelikli)
+        # 1. Yerli ve Platform Yerli Koleksiyonları (En Yüksek Öncelik)
+        is_yerli_kw = any(k in lower for k in ["yerli", "türk filmi", "türk dizisi", "turk filmi", "turk dizisi", "türk sinema", "türk yapımı", "blutv", "gain", "exxen", "puhutv"])
+        if "netflix" in lower and is_yerli_kw:
+            return "Netflix Yerli"
+        if is_yerli_kw:
+            return "BluTV & Yerli"
+
+        # 2. Platform Koleksiyonları
         if "netflix" in lower:
             return "Netflix"
         if any(k in lower for k in ["disney", "pixar", "marvel"]):
@@ -229,12 +236,10 @@ class ScraperEngine:
             return "HBO Max"
         if "hulu" in lower:
             return "Hulu"
-        if any(k in lower for k in ["blutv", "gain"]):
-            return "BluTV & Yerli"
         if "mubi" in lower:
             return "Mubi & Kült"
 
-        # 2. Tür Koleksiyonları
+        # 3. Tür Koleksiyonları
         if any(k in lower for k in ["animasyon", "animation", "çizgi", "anime", "çizgi dizi", "çizgi film"]):
             return "Animasyon & Aile"
         if any(k in lower for k in ["belgesel", "documentary", "tarih", "history", "biyografi", "biography"]):
@@ -778,21 +783,7 @@ class ScraperEngine:
         time_m = re.search(r'(\d{2,3})\s*(?:dk|dakika|min)', html, re.I)
         runtime = f"{time_m.group(1)} dk" if time_m else None
 
-        genres = set(initial_cats) if initial_cats else set()
-        for href, text in re.findall(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', html, re.I | re.DOTALL):
-            if any(k in href.lower() for k in ["/kategori/", "/tur/", "/filmizle/", "/genre/", "/filmler/"]):
-                cat = self.detect_category(href, re.sub(r'<[^>]+>', '', text).strip())
-                if cat != "Popüler":
-                    genres.add(cat)
-
-        # "Tür: Aksiyon, Dram" gibi metin bloklarını tara
-        for m in re.finditer(r'(?:Tür(?:ü|ler)?|Kategori|Genres?)\s*[:：]\s*([^<\n\r]+)', html, re.I):
-            clean_block = re.sub(r'<[^>]+>', '', m.group(1)).strip()
-            cat = self.detect_category("", clean_block)
-            if cat != "Popüler":
-                genres.add(cat)
-
-        # Clean HTML: remove similar movies, recommendations, sidebars, navigation bars, headers, footers, comments
+        # Clean HTML first: remove navigation bars, headers, footers, sidebars, comments to prevent navbar menus from contaminating genres
         clean_player_html = html
         for block_pat in [
             r'<div[^>]*class=["\'][^"\']*(?:similar|onerilen|benzer|related|recommend)[^"\']*["\'].*?</div>\s*</div>',
@@ -800,9 +791,23 @@ class ScraperEngine:
             r'<header\b.*?</header>',
             r'<footer\b.*?</footer>',
             r'<aside\b.*?</aside>',
-            r'<div[^>]*class=["\'][^"\']*(?:sidebar|widget|menu|comments|yorumlar)[^"\']*["\'].*?</div>'
+            r'<div[^>]*class=["\'][^"\']*(?:sidebar|widget|menu|comments|yorumlar|header|nav)[^"\']*["\'].*?</div>'
         ]:
             clean_player_html = re.sub(block_pat, '', clean_player_html, flags=re.I | re.DOTALL)
+
+        genres = set(initial_cats) if initial_cats else set()
+        for href, text in re.findall(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', clean_player_html, re.I | re.DOTALL):
+            if any(k in href.lower() for k in ["/kategori/", "/tur/", "/genre/"]):
+                cat = self.detect_category(href, re.sub(r'<[^>]+>', '', text).strip())
+                if cat != "Popüler":
+                    genres.add(cat)
+
+        # "Tür: Aksiyon, Dram" gibi metin bloklarını tara
+        for m in re.finditer(r'(?:Tür(?:ü|ler)?|Kategori|Genres?)\s*[:：]\s*([^<\n\r]+)', clean_player_html, re.I):
+            clean_block = re.sub(r'<[^>]+>', '', m.group(1)).strip()
+            cat = self.detect_category("", clean_block)
+            if cat != "Popüler":
+                genres.add(cat)
 
         candidate_embeds = []
         is_explicit_sub = ("altyaz" in raw_title.lower() or "altyaz" in movie_url.lower() or "sub" in movie_url.lower())

@@ -1,3 +1,86 @@
 {
-  "metas": []
+  "metas": [
+    {
+      "id": "tt17490712",
+      "type": "movie",
+      "name": "Mortal Kombat II",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYjFiMmI1NDctNzcyMi00ZGU5LWI4MzAtZjRjYzU2MWFmY2ViXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYjFiMmI1NDctNzcyMi00ZGU5LWI4MzAtZjRjYzU2MWFmY2ViXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Mortal Kombat II (2026) full HD, Türkçe dublaj ve altyazılı izle. Hayranların gözde şampiyonları, Dünya Alemi&#039;nin ve savunucularının varlığını tehdit eden Shao....",
+      "releaseInfo": "2026",
+      "genres": [
+        "Aksiyon & Macera",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt17490712/img",
+      "trailers": [
+        {
+          "source": "qGyIEis2T2o",
+          "type": "Trailer"
+        },
+        {
+          "source": "zva2PQ-ud5Y",
+          "type": "Trailer"
+        },
+        {
+          "source": "b24oG7qCwp4",
+          "type": "Trailer"
+        },
+        {
+          "source": "ZdC5mFHPldg",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Mortal Kombat II",
+          "ytId": "qGyIEis2T2o"
+        },
+        {
+          "title": "Mortal Kombat II",
+          "ytId": "zva2PQ-ud5Y"
+        },
+        {
+          "title": "Mortal Kombat II",
+          "ytId": "b24oG7qCwp4"
+        },
+        {
+          "title": "Mortal Kombat II",
+          "ytId": "ZdC5mFHPldg"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=qGyIEis2T2o",
+      "runtime": "116 dk"
+    },
+    {
+      "id": "tt26657236",
+      "type": "movie",
+      "name": "Backrooms",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYzQyYjZmMjctMzIyZi00MDI0LWJhNGQtMzQ3MTFlNDgwNGM5XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYzQyYjZmMjctMzIyZi00MDI0LWJhNGQtMzQ3MTFlNDgwNGM5XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Backrooms (2026) full HD, Türkçe dublaj ve altyazılı izle. Gerçekliğin sınırlarının beklenmedik şekilde kırıldığı bir anda, bir grup insan kendini sonsuz gibi g...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt26657236/img",
+      "trailers": [
+        {
+          "source": "0HjdiohVOik",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Backrooms",
+          "ytId": "0HjdiohVOik"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=0HjdiohVOik",
+      "runtime": "111 dk"
+    }
+  ]
 }
