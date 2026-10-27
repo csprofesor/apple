@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "id": "playrepo-astronot",
+    "type": "movie",
+    "name": "Astronot",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3C01kAcKGR6FwsUUSOvJ8N82pqr.webp?v=1785562890",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3C01kAcKGR6FwsUUSOvJ8N82pqr.webp?v=1785562890",
+    "description": "Astronot (2025) full HD, Türkçe dublaj ve altyazılı izle. Uzayın derinliklerinden dönen astronot Sam Walker, NASA’nın gözetiminde yüksek güvenlikli bir tesise y...",
+    "releaseInfo": "2025",
+    "genres": [
+      "Korku & Gerilim",
+      "Popüler",
+      "Bilim Kurgu & Fantastik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-astronot",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-astronot",
+        "title": "Astronot",
+        "name": "Astronot",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "90 dk"
+  }
+}
