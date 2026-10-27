@@ -735,10 +735,18 @@ async function resolveAndCapStreams(rawStreams) {
         seenUrls.add(st.url);
 
         const title = (st.rawTitle || "").toLowerCase();
+        const hasSubs = st.subtitles && Array.isArray(st.subtitles) && st.subtitles.length > 0;
+
         if (title.includes("altyaz")) {
             if (subList.length < 2) subList.push(st);
         } else {
             if (dubList.length < 2) dubList.push(st);
+            // Eğer akışta altyazı dosyası (subtitles) varsa ve ayrı bir altyazı akışı yoksa,
+            // kullanıcıya hem dublaj hem de altyazılı seçenek olarak sun
+            if (hasSubs && subList.length < 2) {
+                const subClone = { ...st, rawTitle: "TR Altyazı", isSubClone: true };
+                subList.push(subClone);
+            }
         }
     }
 
@@ -747,7 +755,7 @@ async function resolveAndCapStreams(rawStreams) {
         const titleLower = (s.rawTitle || "").toLowerCase();
         let formattedTitle = "";
         let streamName = "";
-        if (titleLower.includes("altyaz")) {
+        if (titleLower.includes("altyaz") || s.isSubClone) {
             subC++;
             streamName = "TR Altyazı";
             formattedTitle = `1080p • Sunucu ${subC}`;

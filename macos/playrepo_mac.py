@@ -1038,6 +1038,17 @@ class ScraperEngine:
                     oth_list.append(s)
                     if u_domain: seen_domains.add("oth_" + u_domain)
 
+        # Eğer sub_list boşsa ve dub_list içinde subtitles (altyazı) barındıran bir akış varsa,
+        # kullanıcıya hem dublaj hem de altyazılı seçenek olarak sun
+        if not sub_list and dub_list:
+            for ds in dub_list:
+                if ds.get("subtitles") and len(ds["subtitles"]) > 0:
+                    sub_clone = dict(ds)
+                    sub_clone["title"] = "[TR Altyazılı]"
+                    sub_clone["is_sub_clone"] = True
+                    sub_list.append(sub_clone)
+                    break
+
         valid_streams = dub_list + sub_list + oth_list
         if not valid_streams:
             valid_streams = alive_streams[:3]
@@ -1064,7 +1075,7 @@ class ScraperEngine:
                 "Referer": st_ref
             }
             raw_t = st.get("title", "").lower()
-            if "altyaz" in raw_t:
+            if "altyaz" in raw_t or st.get("is_sub_clone"):
                 sub_c += 1
                 stream_name = "TR Altyazı"
                 formatted_title = f"1080p • Sunucu {sub_c}"

@@ -1021,6 +1021,14 @@ class SiteScraperEngine {
                 }
             }
 
+            // Eğer subList boşsa ve dubList içinde subtitles barındıran akış varsa altyazı seçeneği de üret
+            if (subList.isEmpty() && dubList.isNotEmpty()) {
+                val withSubs = dubList.firstOrNull { it.subtitles?.isNotEmpty() == true }
+                if (withSubs != null) {
+                    subList.add(withSubs.copy(title = "[TR Altyazılı]"))
+                }
+            }
+
             val validStreams = (dubList + subList + othList).ifEmpty { sortedStreams.take(3) }
 
             val dubCount = java.util.concurrent.atomic.AtomicInteger(0)
