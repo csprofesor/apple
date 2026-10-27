@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-damat",
+      "type": "movie",
+      "name": "Damat",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hGgXH6s3klnWW3x2cbQYlrSVg0U.webp?v=1785103506",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hGgXH6s3klnWW3x2cbQYlrSVg0U.webp?v=1785103506",
+      "description": "Damat (2026) full HD, Türkçe dublaj ve altyazılı izle. Jose Sanchez zorlu bir dönemin ardından etrafa korku salan bir siyasi figür haline gelir. Fakat bu kez ne...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "103 dk"
+    },
+    {
       "id": "playrepo-toplar-havaya",
       "type": "movie",
       "name": "Toplar Havaya",
@@ -1443,28 +1465,6 @@
       ],
       "posterShape": "poster",
       "runtime": "94 dk"
-    },
-    {
-      "id": "playrepo-nasil-katil-olunur",
-      "type": "movie",
-      "name": "Nasıl Katil Olunur?",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bkUa5ZDqjQPx6rkxs0hM87vaWVa.webp?v=1785056516",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bkUa5ZDqjQPx6rkxs0hM87vaWVa.webp?v=1785056516",
-      "description": "Nasıl Katil Olunur? (2026) full HD, Türkçe dublaj ve altyazılı izle. Son derece zengin ailesi tarafından reddedilen Becket Redfellow, yoluna kaç akrabası çıkars...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "105 dk"
     }
   ]
 }
