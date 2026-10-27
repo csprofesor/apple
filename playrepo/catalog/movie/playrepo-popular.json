@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-savasin-kalbinde",
+      "type": "movie",
+      "name": "Savaşın Kalbinde",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/J5TQCmC8JEQjKaD1foK1T04eVP.webp?v=1785852855",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/J5TQCmC8JEQjKaD1foK1T04eVP.webp?v=1785852855",
+      "description": "Savaşın Kalbinde (2025) full HD, Türkçe dublaj ve altyazılı izle. Pulitzer ödüllü fotoğrafçı Lynsey Addario, Afganistan’dan Libya’ya savaşın gerçeklerini belgel...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "95 dk"
+    },
+    {
       "id": "playrepo-parcali-yillar",
       "type": "movie",
       "name": "Parçalı Yıllar",
@@ -1195,23 +1210,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=lyivgZ074PY",
       "runtime": "106 dk"
-    },
-    {
-      "id": "playrepo-duzen",
-      "type": "movie",
-      "name": "Düzen",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/aMbKYfaexixvsBZKc5whYO7yibR.webp?v=1785676284",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/aMbKYfaexixvsBZKc5whYO7yibR.webp?v=1785676284",
-      "description": "Düzen (2024) full HD, Türkçe dublaj ve altyazılı izle. Yıl 1983… Şiddetini artıran banka ve zırhlı araç soygunları ABD’de düzen ve huzuru sarsmaktadır. Kimsenin...",
-      "releaseInfo": "2024",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "114 dk"
     }
   ]
 }
