@@ -427,6 +427,45 @@ async function getMeta(arg1, arg2) {
                         if (smData && smData.meta) {
                             if (smData.meta.poster && smData.meta.poster.includes("@")) smData.meta.poster = smData.meta.poster.replace(/@/g, "%40");
                             if (smData.meta.background && smData.meta.background.includes("@")) smData.meta.background = smData.meta.background.replace(/@/g, "%40");
+
+                            // Dizilerde Cinemeta'dan tüm sezon ve bölümleri tam liste olarak al
+                            if (smData.meta.type === "series" || t === "series") {
+                                const targetImdb = (smData.meta.id && smData.meta.id.startsWith("tt")) ? smData.meta.id : (idStr.startsWith("tt") ? idStr : "");
+                                if (targetImdb) {
+                                    try {
+                                        const cmRes = await fetch(`https://v3-cinemeta.strem.io/meta/series/${targetImdb}.json`, {
+                                            headers: { "User-Agent": UA }
+                                        });
+                                        if (cmRes.ok) {
+                                            const cmData = await cmRes.json();
+                                            if (cmData && cmData.meta && Array.isArray(cmData.meta.videos) && cmData.meta.videos.length > 0) {
+                                                const vMap = new Map();
+                                                for (const cv of cmData.meta.videos) {
+                                                    if (cv && cv.id) vMap.set(cv.id, cv);
+                                                }
+                                                if (Array.isArray(smData.meta.videos)) {
+                                                    for (const sv of smData.meta.videos) {
+                                                        if (sv && sv.id) {
+                                                            const existing = vMap.get(sv.id) || {};
+                                                            vMap.set(sv.id, { ...existing, ...sv });
+                                                        }
+                                                    }
+                                                }
+                                                smData.meta.videos = Array.from(vMap.values()).sort((a, b) => {
+                                                    const sDiff = (a.season ?? 1) - (b.season ?? 1);
+                                                    if (sDiff !== 0) return sDiff;
+                                                    return (a.episode ?? a.number ?? 1) - (b.episode ?? b.number ?? 1);
+                                                });
+                                                if (cmData.meta.logo && !smData.meta.logo) smData.meta.logo = cmData.meta.logo;
+                                                if (cmData.meta.trailers && (!smData.meta.trailers || smData.meta.trailers.length === 0)) smData.meta.trailers = cmData.meta.trailers;
+                                                if (cmData.meta.trailer && !smData.meta.trailer) smData.meta.trailer = cmData.meta.trailer;
+                                                if (cmData.meta.trailerStreams && (!smData.meta.trailerStreams || smData.meta.trailerStreams.length === 0)) smData.meta.trailerStreams = cmData.meta.trailerStreams;
+                                            }
+                                        }
+                                    } catch (_) {}
+                                }
+                            }
+
                             return { meta: enrichWithUpcomingEpisode(smData.meta) };
                         }
                     }
@@ -533,7 +572,23 @@ async function getMeta(arg1, arg2) {
                                     }
                                     if (cmData.meta.trailer) metaObj.trailer = cmData.meta.trailer;
                                     if (cType === "series" && Array.isArray(cmData.meta.videos) && cmData.meta.videos.length > 0) {
-                                        metaObj.videos = cmData.meta.videos;
+                                        const vMap = new Map();
+                                        for (const cv of cmData.meta.videos) {
+                                            if (cv && cv.id) vMap.set(cv.id, cv);
+                                        }
+                                        if (Array.isArray(metaObj.videos)) {
+                                            for (const sv of metaObj.videos) {
+                                                if (sv && sv.id) {
+                                                    const existing = vMap.get(sv.id) || {};
+                                                    vMap.set(sv.id, { ...existing, ...sv });
+                                                }
+                                            }
+                                        }
+                                        metaObj.videos = Array.from(vMap.values()).sort((a, b) => {
+                                            const sDiff = (a.season ?? 1) - (b.season ?? 1);
+                                            if (sDiff !== 0) return sDiff;
+                                            return (a.episode ?? a.number ?? 1) - (b.episode ?? b.number ?? 1);
+                                        });
                                     }
                                 }
                             }

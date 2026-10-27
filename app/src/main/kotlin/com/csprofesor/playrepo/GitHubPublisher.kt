@@ -607,7 +607,7 @@ class GitHubPublisher {
                     val vidTitle = if (movie.type == "series" && movie.season != null && movie.episode != null) {
                         "${movie.season}. Sezon ${movie.episode}. Bölüm"
                     } else movie.title
-                    val v = JsonObject().apply {
+                    val defaultV = JsonObject().apply {
                         addProperty("id", defaultVid)
                         addProperty("title", vidTitle)
                         addProperty("name", vidTitle)
@@ -619,7 +619,43 @@ class GitHubPublisher {
                             addProperty("released", "${movie.year}-01-01T00:00:00.000Z")
                         }
                     }
-                    add(v)
+
+                    if (movie.type == "series" && movie.tmdbId.startsWith("tt")) {
+                        try {
+                            val cmReq = okhttp3.Request.Builder()
+                                .url("https://v3-cinemeta.strem.io/meta/series/${movie.tmdbId}.json")
+                                .header("User-Agent", "Mozilla/5.0")
+                                .build()
+                            client.newCall(cmReq).execute().use { cmResp ->
+                                if (cmResp.isSuccessful) {
+                                    val cmBody = cmResp.body?.string().orEmpty()
+                                    val cmMeta = gson.fromJson(cmBody, JsonObject::class.java)?.getAsJsonObject("meta")
+                                    val cmVideos = cmMeta?.getAsJsonArray("videos")
+                                    if (cmVideos != null && cmVideos.size() > 0) {
+                                        var foundDefault = false
+                                        for (i in 0 until cmVideos.size()) {
+                                            val vItem = cmVideos.get(i).asJsonObject
+                                            if (vItem.get("id")?.asString == defaultVid) {
+                                                foundDefault = true
+                                            }
+                                            add(vItem)
+                                        }
+                                        if (!foundDefault) {
+                                            add(defaultV)
+                                        }
+                                    } else {
+                                        add(defaultV)
+                                    }
+                                } else {
+                                    add(defaultV)
+                                }
+                            }
+                        } catch (_: Exception) {
+                            add(defaultV)
+                        }
+                    } else {
+                        add(defaultV)
+                    }
                 }
                 add("videos", videos)
             }

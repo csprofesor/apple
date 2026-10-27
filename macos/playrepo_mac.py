@@ -1126,6 +1126,8 @@ class ScraperEngine:
             movie_item["trailerStreams"] = meta_extras["trailerStreams"]
         if meta_extras.get("trailer"):
             movie_item["trailer"] = meta_extras["trailer"]
+        if meta_extras.get("videos"):
+            movie_item["videos"] = meta_extras["videos"]
 
         return movie_item
 
@@ -1177,8 +1179,10 @@ class ScraperEngine:
                         if d_meta.get("trailer"):
                             extra_data["trailer"] = d_meta["trailer"]
 
-                        # Diziler için yeni bölüm yayın tarihi kontrolü
+                        # Diziler için tüm bölüm listesi ve yeni bölüm yayın tarihi kontrolü
                         if resolved_type == "series":
+                            if d_meta.get("videos"):
+                                extra_data["videos"] = d_meta["videos"]
                             now_str = datetime.utcnow().isoformat()
                             future_vids = [v for v in d_meta.get("videos", []) if v.get("released") and str(v.get("released")) > now_str]
                             if future_vids:
@@ -1539,17 +1543,35 @@ class GitHubAtomicPublisher:
 
             all_videos = [vid_obj]
             if m_type == "series":
+                cm_videos = m.get("videos") or []
+                if not cm_videos and m_id.startswith("tt"):
+                    try:
+                        cm_res = http_json(f"https://v3-cinemeta.strem.io/meta/series/{m_id}.json")
+                        if cm_res and cm_res.get("meta", {}).get("videos"):
+                            cm_videos = cm_res["meta"]["videos"]
+                    except Exception:
+                        pass
+
+                vids_map = {}
+                if cm_videos:
+                    for v in cm_videos:
+                        if v.get("id"):
+                            vids_map[v["id"]] = v
+
                 existing_series_json = files_to_commit.get(f"playrepo/meta/series/{m_id}.json")
                 if existing_series_json:
                     try:
                         prev_meta = json.loads(existing_series_json).get("meta", {})
                         prev_vids = prev_meta.get("videos", [])
-                        vids_map = {v.get("id"): v for v in prev_vids if v.get("id")}
-                        vids_map[vid_id] = vid_obj
-                        all_videos = list(vids_map.values())
-                        all_videos.sort(key=lambda v: (v.get("season") or 1, v.get("episode") or 1))
+                        for v in prev_vids:
+                            if v.get("id") and v["id"] not in vids_map:
+                                vids_map[v["id"]] = v
                     except Exception:
                         pass
+
+                vids_map[vid_id] = vid_obj
+                all_videos = list(vids_map.values())
+                all_videos.sort(key=lambda v: (v.get("season") if v.get("season") is not None else 1, v.get("episode") or v.get("number") or 1))
 
             detail_meta = {
                 "meta": {
