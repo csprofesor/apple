@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-kardes-takimi-2",
+      "type": "movie",
+      "name": "Kardeş Takımı 2",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/smQOXVWUDJobLhLnzdDBjwNSOST.webp?v=1785132025",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/smQOXVWUDJobLhLnzdDBjwNSOST.webp?v=1785132025",
+      "description": "Kardeş Takımı 2 (2025) full HD, Türkçe dublaj ve altyazılı izle. 4 kardeş, anne ve babalarının zorlu eğitimlerini başarıyla tamamlayarak gerçek birer ajan olmuş...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "100 dk"
+    },
+    {
       "id": "playrepo-adalar",
       "type": "movie",
       "name": "Adalar",
@@ -1357,28 +1379,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "playrepo-perde-arkasi-jail-blazers",
-      "type": "movie",
-      "name": "Perde Arkası Jail Blazers",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gyYTuYSwiqGNaqNomscb6oSZ8Mt.webp?v=1785102537",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gyYTuYSwiqGNaqNomscb6oSZ8Mt.webp?v=1785102537",
-      "description": "Perde Arkası Jail Blazers (2026) full HD, Türkçe dublaj ve altyazılı izle. Değişken oyuncular. Cezai suçlamalar. Ulusal manşetler. Portland&#039;ın şampiyonluk kalib...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "70 dk"
     }
   ]
 }
