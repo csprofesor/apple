@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-noel-annem",
+      "type": "movie",
+      "name": "Noel Annem",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bXZcSDQoyXlzzUw9qxjZjiUSYov.webp?v=1785654755",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bXZcSDQoyXlzzUw9qxjZjiUSYov.webp?v=1785654755",
+      "description": "Noel Annem (2025) full HD, Türkçe dublaj ve altyazılı izle. Bekâr bir annenin işe, bir kayak otelinin de Noel Baba&#039;ya ihtiyacı vardır. Noel Baba kılığına giren....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "93 dk"
+    },
+    {
       "id": "playrepo-olu-arkadasim-zoe",
       "type": "movie",
       "name": "Ölü Arkadaşım Zoe",
@@ -1136,36 +1152,6 @@
       ],
       "posterShape": "poster",
       "runtime": "109 dk"
-    },
-    {
-      "id": "tt31495504",
-      "type": "movie",
-      "name": "The Tank",
-      "poster": "https://m.media-amazon.com/images/M/MV5BOWJkZjYzMGQtNmZhZi00NTBiLTljMTgtZGU2YzUxZmE4ZGJjXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BOWJkZjYzMGQtNmZhZi00NTBiLTljMTgtZGU2YzUxZmE4ZGJjXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Tank (2025) full HD, Türkçe dublaj ve altyazılı izle. Doğu Cephesi, 1943: Bir Alman Tiger tank mürettebatı, şiddetli çatışmanın yaşandığı cephenin derinliklerin...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt31495504/img",
-      "trailers": [
-        {
-          "source": "4uZWlKGRZis",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "The Tank",
-          "ytId": "4uZWlKGRZis"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=4uZWlKGRZis",
-      "runtime": "117 dk"
     }
   ]
 }
