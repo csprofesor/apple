@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-ruzgara-birak",
+      "type": "movie",
+      "name": "Rüzgara Bırak",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qAJqYEz0utqsaPsMQvgjbUatUwv.webp?v=1785144993",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qAJqYEz0utqsaPsMQvgjbUatUwv.webp?v=1785144993",
+      "description": "Rüzgara Bırak (2025) full HD, Türkçe dublaj ve altyazılı izle. Yazman Şirketler Grubu’nun iki veliahtı Çeşme’de yaşayan Ege Yazıcı ve şirketin CEO’luğunu yapan....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Aksiyon & Macera",
+        "Animasyon & Aile",
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler",
+        "Suç & Polisiye",
+        "Korku & Gerilim",
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-ciglik-7",
       "type": "movie",
       "name": "Çığlık 7",
@@ -1328,28 +1350,6 @@
       "posterShape": "poster",
       "logo": "https://live.metahub.space/logo/medium/tt39105882/img",
       "runtime": "102 dk"
-    },
-    {
-      "id": "playrepo-ugultulu-tepeler",
-      "type": "movie",
-      "name": "“Uğultulu Tepeler”",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nHKscpZcAPkh97OsJJjyE5yaVE0.webp?v=1785109217",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nHKscpZcAPkh97OsJJjyE5yaVE0.webp?v=1785109217",
-      "description": "“Uğultulu Tepeler” (2026) full HD, Türkçe dublaj ve altyazılı izle. Yorkshire bozkırlarında geçen, tutkulu ve fırtınalı bir aşk hikayesi; Heathcliff ve Catherin...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Aile",
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Suç & Polisiye",
-        "Korku & Gerilim",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "137 dk"
     }
   ]
 }
