@@ -1263,5 +1263,28 @@
         }
       }
     }
+  ],
+  "playrepo-david-attenborough-bir-goril-hik-yesi": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=460487c3cd290331dfb3aa6dc937c4b2&token=eyJ2IjoiNDYwNDg3YzNjZDI5MDMzMWRmYjNhYTZkYzkzN2M0YjIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzAzMjA5LCJuIjoiNmQ1MDdiYWVhZDYwIn0.407fbdaa9521be354baeb738926b2f1ff7866bd8acb64f983aee5aeb6a7d8cc4&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=bHF2kMHWsiuOa-ayhBs_XQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=bHF2kMHWsiuOa-ayhBs_XQ"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=bHF2kMHWsiuOa-ayhBs_XQ"
+          }
+        }
+      }
+    }
   ]
 }
