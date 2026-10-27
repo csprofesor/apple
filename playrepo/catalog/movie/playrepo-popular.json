@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-sev-beni",
+      "type": "movie",
+      "name": "Sev Beni",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jEB9bDNRjV6ziEzrPZrItjZBMx2.webp?v=1785689090",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jEB9bDNRjV6ziEzrPZrItjZBMx2.webp?v=1785689090",
+      "description": "Sev Beni (2025) full HD, Türkçe dublaj ve altyazılı izle. İnsanlığın yok oluşundan uzun zaman sonra Dünya, bir duba ve bir uyduya kalır ve tek rehberleri olan i...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "92 dk"
+    },
+    {
       "id": "playrepo-millers-in-marriage",
       "type": "movie",
       "name": "Millers in Marriage",
@@ -1210,22 +1226,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=L59gbXYYOAA",
       "runtime": "98 dk"
-    },
-    {
-      "id": "playrepo-sanal-ulke",
-      "type": "movie",
-      "name": "Sanal Ülke",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2n7lYEeIbucsEQCswRcVB6ZYmMP.webp?v=1785673898",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2n7lYEeIbucsEQCswRcVB6ZYmMP.webp?v=1785673898",
-      "description": "Sanal Ülke (2025) full HD, Türkçe dublaj ve altyazılı izle. Öksüz kalan bir genç kız, uzun zaman önce kaybettiği erkek kardeşini bulmak için gizemli bir robotla...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "125 dk"
     }
   ]
 }
