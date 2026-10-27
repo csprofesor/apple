@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-kucuk-am-lie",
+      "type": "movie",
+      "name": "Küçük Amélie",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2WCpiFmRqXyu5y7WoZjEa3CJbiI.webp?v=1785555592",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2WCpiFmRqXyu5y7WoZjEa3CJbiI.webp?v=1785555592",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Küçük Amélie (2025) full HD, Türkçe dublaj ve altyazılı izle. The world is a perplexing, peaceful mystery to Amélie until a miraculous encounter with chocolate....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "77 dk"
+    },
+    {
       "id": "tt27497165",
       "type": "movie",
       "name": "In Cold Light",
@@ -1272,23 +1295,6 @@
       ],
       "posterShape": "poster",
       "runtime": "109 dk"
-    },
-    {
-      "id": "tt38897659",
-      "type": "movie",
-      "name": "Yaz Evi",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNjRhMjk3NjYtMTI2NS00NjNiLTk0ZGEtOTUwYzkzZTU2Yjc0XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNjRhMjk3NjYtMTI2NS00NjNiLTk0ZGEtOTUwYzkzZTU2Yjc0XkEyXkFqcGc%40._V1_SX250.jpg",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Yaz Evi (2026) full HD, Türkçe dublaj ve altyazılı izle. Selin, gittiği yaz evinde zamanda geçmişe giderek kendini annesinin gençliğinde bulur. Ailesinin kaderi...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik",
-        "Komedi",
-        "Suç, Polisiye & Gizem"
-      ],
-      "posterShape": "poster",
-      "runtime": "105 dk"
     }
   ]
 }
