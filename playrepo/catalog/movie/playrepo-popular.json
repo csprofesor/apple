@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-tatilde-tanistigimiz-i-nsanlar",
+      "type": "movie",
+      "name": "Tatilde Tanıştığımız İnsanlar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qa3oDSDZSJKSdIdBgQgEAxO0N88.webp?v=1785146088",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qa3oDSDZSJKSdIdBgQgEAxO0N88.webp?v=1785146088",
+      "description": "Tatilde Tanıştığımız İnsanlar (2026) full HD, Türkçe dublaj ve altyazılı izle. Özgür ruhlu Poppy ile planlama meraklısı Alex... Yıllarca yaz tatillerine beraber...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "116 dk"
+    },
+    {
       "id": "playrepo-sicak-bufe",
       "type": "movie",
       "name": "Sıcak Büfe",
@@ -1032,21 +1048,6 @@
       ],
       "posterShape": "poster",
       "runtime": "99 dk"
-    },
-    {
-      "id": "playrepo-cam-sehpa",
-      "type": "movie",
-      "name": "Cam Sehpa",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nUMxXcgdQOtphcObnIbokw7dRZU.webp?v=1785110714",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nUMxXcgdQOtphcObnIbokw7dRZU.webp?v=1785110714",
-      "description": "Cam Sehpa (2026) full HD, Türkçe dublaj ve altyazılı izle. Pısırık bir kocanın evliliği içinde aldığı ilk ciddi karar bir cam sehpa alışverişidir. Karısının iti...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "88 dk"
     }
   ]
 }
