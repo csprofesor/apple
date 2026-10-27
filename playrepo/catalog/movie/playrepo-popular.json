@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-ciglik-7",
+      "type": "movie",
+      "name": "Çığlık 7",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3eUyLEF5M0ky3h6KJsWiWzaakB8.webp?v=1785144718",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3eUyLEF5M0ky3h6KJsWiWzaakB8.webp?v=1785144718",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Çığlık 7 (2026) full HD, Türkçe dublaj ve altyazılı izle. Sidney Prescott&#039;un yeni bir hayat kurduğu sakin kasabada, yeni bir Hayalet Maskeli katil ortaya çıktığ...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Komedi",
+        "Suç, Polisiye & Gizem",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "114 dk"
+    },
+    {
       "id": "tt39387657",
       "type": "movie",
       "name": "Pavane",
@@ -1238,29 +1261,6 @@
       ],
       "posterShape": "poster",
       "runtime": "102 dk"
-    },
-    {
-      "id": "playrepo-ugultulu-tepeler",
-      "type": "movie",
-      "name": "“Uğultulu Tepeler”",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nHKscpZcAPkh97OsJJjyE5yaVE0.webp?v=1785109217",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nHKscpZcAPkh97OsJJjyE5yaVE0.webp?v=1785109217",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "“Uğultulu Tepeler” (2026) full HD, Türkçe dublaj ve altyazılı izle. Yorkshire bozkırlarında geçen, tutkulu ve fırtınalı bir aşk hikayesi; Heathcliff ve Catherin...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Suç, Polisiye & Gizem",
-        "Korku & Gerilim",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "137 dk"
     }
   ]
 }
