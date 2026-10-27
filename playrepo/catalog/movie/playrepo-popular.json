@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-buzlar-kralicesi",
+      "type": "movie",
+      "name": "Buzlar Kraliçesi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/j0Xeb9a4zDpYdkXEEZhfPjz71UN.webp?v=1785566518",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/j0Xeb9a4zDpYdkXEEZhfPjz71UN.webp?v=1785566518",
+      "description": "Buzlar Kraliçesi (2025) full HD, Türkçe dublaj ve altyazılı izle. Andersen’in buzlarla kaplı ünlü masalının yeni uyarlaması, Berlinale’de ödülle taçlandırıldı.....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "118 dk"
+    },
+    {
       "id": "playrepo-chuck-039-in-hayati",
       "type": "movie",
       "name": "Chuck&#039;ın Hayatı",
@@ -1198,21 +1214,6 @@
       ],
       "posterShape": "poster",
       "runtime": "84 dk"
-    },
-    {
-      "id": "playrepo-karanligin-gozleri",
-      "type": "movie",
-      "name": "Karanlığın Gözleri",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/y5VVRsulUlskqElCV6SVQ26fFYR.webp?v=1785542709",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/y5VVRsulUlskqElCV6SVQ26fFYR.webp?v=1785542709",
-      "description": "Karanlığın Gözleri (2011) full HD, Türkçe dublaj ve altyazılı izle. Kararan Dünyanın Gizemi Üniversite öğrencisi bir kızın geçirdiği trafik kazasından sonra ort...",
-      "releaseInfo": "2011",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "111 dk"
     }
   ]
 }
