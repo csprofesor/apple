@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "id": "playrepo-yapay-zeka",
+    "type": "movie",
+    "name": "Yapay Zeka",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zhBUH1R3QJS6MMIegaL71FW47Bt.webp?v=1785548750",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zhBUH1R3QJS6MMIegaL71FW47Bt.webp?v=1785548750",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Yapay Zeka (2025) full HD, Türkçe dublaj ve altyazılı izle. Yapay Zeka, yazma sürecinde bir yapay zekadan yardım alan bir yazarın hikayesini konu ediyor. Yazar....",
+    "releaseInfo": "2025",
+    "genres": [
+      "Popüler",
+      "Aksiyon & Macera",
+      "Animasyon & Çizgi Dizi",
+      "Belgesel & Tarih",
+      "Suç, Polisiye & Gizem",
+      "Korku & Gerilim",
+      "Komedi",
+      "Dram & Romantik",
+      "Bilim Kurgu & Fantastik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-yapay-zeka",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-yapay-zeka",
+        "title": "Yapay Zeka",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "110 dk"
+  }
+}
