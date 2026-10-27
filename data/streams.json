@@ -63054,5 +63054,95 @@
         }
       }
     }
+  ],
+  "playrepo-miyazma-kampinda-ergenlik-arzulari-ve-olum": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=a352df09583c199f445de74d939ca046&token=eyJ2IjoiYTM1MmRmMDk1ODNjMTk5ZjQ0NWRlNzRkOTM5Y2EwNDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ3MDQ5LCJuIjoiNjU3OGRhNzkwOTcwIn0.b7a248e32ad55652f99707add55e4cfeb9aeaf8c96b92967aed5b4fecd47ea10&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=piwryU1crsncoJ9lIht_CQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=piwryU1crsncoJ9lIht_CQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=a352df09583c199f445de74d939ca046&sid=2c600fa12ba0cafc825c9ed4ead5e5fd&token=eyJ2IjoiYTM1MmRmMDk1ODNjMTk5ZjQ0NWRlNzRkOTM5Y2EwNDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ3MDQ5LCJuIjoiNjU3OGRhNzkwOTcwIn0.b7a248e32ad55652f99707add55e4cfeb9aeaf8c96b92967aed5b4fecd47ea10&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=a352df09583c199f445de74d939ca046&sid=741a76300f298a60013728e73a55bf9c&token=eyJ2IjoiYTM1MmRmMDk1ODNjMTk5ZjQ0NWRlNzRkOTM5Y2EwNDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ3MDQ5LCJuIjoiNjU3OGRhNzkwOTcwIn0.b7a248e32ad55652f99707add55e4cfeb9aeaf8c96b92967aed5b4fecd47ea10&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=a352df09583c199f445de74d939ca046&sid=c670588cc5d2a394865dd6856afaebd8&token=eyJ2IjoiYTM1MmRmMDk1ODNjMTk5ZjQ0NWRlNzRkOTM5Y2EwNDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ3MDQ5LCJuIjoiNjU3OGRhNzkwOTcwIn0.b7a248e32ad55652f99707add55e4cfeb9aeaf8c96b92967aed5b4fecd47ea10&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=a352df09583c199f445de74d939ca046&sid=d874f4ebc97077771c7dba2cd20e97f5&token=eyJ2IjoiYTM1MmRmMDk1ODNjMTk5ZjQ0NWRlNzRkOTM5Y2EwNDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ3MDQ5LCJuIjoiNjU3OGRhNzkwOTcwIn0.b7a248e32ad55652f99707add55e4cfeb9aeaf8c96b92967aed5b4fecd47ea10&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=piwryU1crsncoJ9lIht_CQ"
+          }
+        }
+      }
+    }
+  ],
+  "miyazma-kampinda-ergenlik-arzulari-ve-olum": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=a352df09583c199f445de74d939ca046&token=eyJ2IjoiYTM1MmRmMDk1ODNjMTk5ZjQ0NWRlNzRkOTM5Y2EwNDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ3MDQ5LCJuIjoiNjU3OGRhNzkwOTcwIn0.b7a248e32ad55652f99707add55e4cfeb9aeaf8c96b92967aed5b4fecd47ea10&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=piwryU1crsncoJ9lIht_CQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=piwryU1crsncoJ9lIht_CQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=a352df09583c199f445de74d939ca046&sid=2c600fa12ba0cafc825c9ed4ead5e5fd&token=eyJ2IjoiYTM1MmRmMDk1ODNjMTk5ZjQ0NWRlNzRkOTM5Y2EwNDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ3MDQ5LCJuIjoiNjU3OGRhNzkwOTcwIn0.b7a248e32ad55652f99707add55e4cfeb9aeaf8c96b92967aed5b4fecd47ea10&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=a352df09583c199f445de74d939ca046&sid=741a76300f298a60013728e73a55bf9c&token=eyJ2IjoiYTM1MmRmMDk1ODNjMTk5ZjQ0NWRlNzRkOTM5Y2EwNDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ3MDQ5LCJuIjoiNjU3OGRhNzkwOTcwIn0.b7a248e32ad55652f99707add55e4cfeb9aeaf8c96b92967aed5b4fecd47ea10&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=a352df09583c199f445de74d939ca046&sid=c670588cc5d2a394865dd6856afaebd8&token=eyJ2IjoiYTM1MmRmMDk1ODNjMTk5ZjQ0NWRlNzRkOTM5Y2EwNDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ3MDQ5LCJuIjoiNjU3OGRhNzkwOTcwIn0.b7a248e32ad55652f99707add55e4cfeb9aeaf8c96b92967aed5b4fecd47ea10&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=a352df09583c199f445de74d939ca046&sid=d874f4ebc97077771c7dba2cd20e97f5&token=eyJ2IjoiYTM1MmRmMDk1ODNjMTk5ZjQ0NWRlNzRkOTM5Y2EwNDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ3MDQ5LCJuIjoiNjU3OGRhNzkwOTcwIn0.b7a248e32ad55652f99707add55e4cfeb9aeaf8c96b92967aed5b4fecd47ea10&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=piwryU1crsncoJ9lIht_CQ"
+          }
+        }
+      }
+    }
   ]
 }
