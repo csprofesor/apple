@@ -695,12 +695,12 @@ async function resolveAndCapStreams(rawStreams) {
         let streamName = "";
         if (titleLower.includes("dublaj")) {
             dubC++;
-            streamName = `Play • TR Dublaj ${dubC}`;
-            formattedTitle = `Play • Dublaj ${dubC} • 1080p • [TR Dublaj]`;
+            streamName = "TR Dublaj";
+            formattedTitle = `1080p • Sunucu ${dubC}`;
         } else {
             subC++;
-            streamName = `Play • TR Altyazı ${subC}`;
-            formattedTitle = `Play • Altyazı ${subC} • 1080p • [TR Altyazılı]`;
+            streamName = "TR Altyazı";
+            formattedTitle = `1080p • Sunucu ${subC}`;
         }
 
         const streamItem = {

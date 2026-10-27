@@ -477,14 +477,18 @@ class ScraperEngine:
 
         return found_links
 
-    def unpack_embed_stream(self, embed_url: str, referer: str, depth: int = 0) -> str:
+    def unpack_embed_stream_info(self, embed_url: str, referer: str, hint_lang: str = None, depth: int = 0) -> dict:
         if depth > 3 or not embed_url or embed_url.startswith(("about:", "javascript:")):
-            return ""
+            return None
 
         lower = embed_url.lower()
 
         if (".m3u8" in lower or ".mp4" in lower) and not any(k in lower for k in ["/embed", "/e/", "/video/"]):
-            return embed_url
+            return {
+                "url": embed_url,
+                "lang": hint_lang or "[TR Altyazılı]",
+                "subtitles": []
+            }
 
         if "my.mail.ru/video/embed/" in lower or "my.mail.ru/+/video/meta/" in lower:
             try:
@@ -495,13 +499,17 @@ class ScraperEngine:
                     best = next((v for v in videos if v.get("key") in ["1080p", "720p"]), videos[0])
                     v_url = best.get("url", "")
                     if v_url:
-                        return f"https:{v_url}" if v_url.startswith("//") else v_url
+                        u_res = f"https:{v_url}" if v_url.startswith("//") else v_url
+                        return {"url": u_res, "lang": hint_lang or "[TR Altyazılı]", "subtitles": []}
             except Exception:
                 pass
 
         html = http_get(embed_url, referer=referer)
         if not html:
-            return ""
+            return None
+
+        detected_lang = hint_lang
+        extra_subs = []
 
         # Pilavyer desteği (pilavyerplay, /assets/js/s.php, /e/s.php veya window.__PLAYER__)
         if "pilavyer" in lower or "/s.php" in lower or "window.__PLAYER__" in html:
@@ -514,9 +522,42 @@ class ScraperEngine:
                         s_link = stream_link.replace(r"\/", "/")
                         if "stream.php" in s_link and ".m3u8" not in s_link:
                             s_link = f"{s_link}&ext=.m3u8" if "?" in s_link else f"{s_link}#.m3u8"
-                        return s_link
+
+                        p_title = str(p_data.get("title", "")).lower()
+                        p_subs = p_data.get("subs") or []
+                        p_audios = p_data.get("audios") or []
+
+                        for sub_item in p_subs:
+                            sub_src = sub_item.get("src")
+                            sub_lang = sub_item.get("lang") or "tr"
+                            sub_label = sub_item.get("label") or "Türkçe Altyazı"
+                            if sub_src:
+                                sub_src_clean = sub_src.replace(r"\/", "/")
+                                extra_subs.append({"id": sub_lang, "url": sub_src_clean, "lang": sub_label})
+
+                        has_tr_sub = any(s.get("lang") == "tr" or "türkçe" in str(s.get("label", "")).lower() for s in p_subs)
+                        is_dub = "dublaj" in p_title or any("dub" in str(a.get("label", "")).lower() or a.get("lang") == "tr" for a in p_audios)
+
+                        if is_dub:
+                            detected_lang = "[TR Dublaj]"
+                        elif has_tr_sub or "altyaz" in p_title or "eng" in p_title or any(a.get("lang") in ["en", ""] for a in p_audios):
+                            detected_lang = "[TR Altyazılı]"
+
+                        return {
+                            "url": s_link,
+                            "lang": detected_lang or "[TR Altyazılı]",
+                            "subtitles": extra_subs
+                        }
                 except Exception:
                     pass
+
+        # Embed HTML başlığı veya metninden dil kontrolü
+        title_tag = re.search(r'<title>(.*?)</title>', html, re.I)
+        embed_title = title_tag.group(1).lower() if title_tag else ""
+        if "dublaj" in embed_title or "türkçe dublaj" in embed_title:
+            detected_lang = "[TR Dublaj]"
+        elif "altyaz" in embed_title or "sub" in embed_title or "eng" in embed_title or "orijinal" in embed_title:
+            detected_lang = "[TR Altyazılı]"
 
         if "eval(function(p,a,c,k,e,d)" in html:
             html += "\n" + unpack_packer_js(html)
@@ -525,11 +566,11 @@ class ScraperEngine:
                  re.search(r'sources\s*:\s*\[\s*\{\s*file\s*:\s*["\'](https?://[^"\']+\.m3u8[^"\']*)["\']', html, re.I) or \
                  re.search(r'["\'](https?://[^"\']+\.m3u8[^"\']*)["\']', html, re.I)
         if m3u8_m:
-            return m3u8_m.group(1)
+            return {"url": m3u8_m.group(1), "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
 
         voe_m = re.search(r"['\"]hls['\"]\s*:\s*['\"](https?://[^'\"]+\.m3u8[^'\"]*)['\"]", html, re.I)
         if voe_m:
-            return voe_m.group(1)
+            return {"url": voe_m.group(1), "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
 
         if "streamtape.com" in lower or "streamta.pe" in lower:
             st_m = re.search(r"document\.getElementById\('robotlink'\)\.innerHTML\s*=\s*['\"](.*?)['\"]", html)
@@ -539,7 +580,7 @@ class ScraperEngine:
                 if tok_add:
                     tok += tok_add.group(1)
                 st_url = f"https:{tok}" if tok.startswith("//") else (f"https://streamtape.com{tok}" if tok.startswith("/") else tok)
-                return st_url
+                return {"url": st_url, "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
 
         if "dood" in lower or "ds2play" in lower:
             pass_m = re.search(r"/pass_md5/([^'\"]+)", html)
@@ -547,12 +588,12 @@ class ScraperEngine:
                 pass_url = f"https://dood.to/pass_md5/{pass_m.group(1)}"
                 token_res = http_get(pass_url, referer=embed_url)
                 if token_res:
-                    return f"{token_res.strip()}~PlayRepo~{int(time.time() * 1000)}"
+                    return {"url": f"{token_res.strip()}~PlayRepo~{int(time.time() * 1000)}", "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
 
         if "video.sibnet.ru" in lower:
             sib_m = re.search(r'["\'](/v/[^"\']+\.mp4)["\']', html)
             if sib_m:
-                return f"https://video.sibnet.ru{sib_m.group(1)}"
+                return {"url": f"https://video.sibnet.ru{sib_m.group(1)}", "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
 
         if "ok.ru" in lower or "odnoklassniki" in lower:
             ok_m = re.search(r'data-options=["\'](.*?)["\']', html)
@@ -568,12 +609,12 @@ class ScraperEngine:
                             meta = {}
                     hls = meta.get("ondemandHls") or meta.get("hlsManifestUrl") or fv.get("ondemandHls") or fv.get("hlsManifestUrl")
                     if hls:
-                        return hls
+                        return {"url": hls, "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
                     videos = meta.get("videos", [])
                     if videos and isinstance(videos, list):
                         last_v = videos[-1].get("url")
                         if last_v:
-                            return last_v
+                            return {"url": last_v, "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
                 except Exception:
                     pass
 
@@ -597,7 +638,7 @@ class ScraperEngine:
                         j_data = json.loads(api_res.stdout)
                         sec_link = j_data.get("securedLink") or j_data.get("videoSource")
                         if sec_link:
-                            return sec_link.replace(r"\/", "/")
+                            return {"url": sec_link.replace(r"\/", "/"), "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
                 except Exception:
                     pass
 
@@ -605,31 +646,35 @@ class ScraperEngine:
         if "vidmoly" in lower:
             vm_m = re.search(r'sources\s*:\s*\[\s*\{\s*file\s*:\s*["\'](https?://[^"\']+)["\']', html)
             if vm_m:
-                return vm_m.group(1).strip()
+                return {"url": vm_m.group(1).strip(), "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
 
         if "bitchute.com" in lower:
             bc_m = re.search(r'(https?://[^\s"\'<>]+\.bitchute\.com/[^\s"\'<>]+\.mp4)', html, re.I)
             if bc_m:
-                return bc_m.group(1)
+                return {"url": bc_m.group(1), "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
 
         # Generic JSON sources / variable matching (JWPlayer, VideoJS, Plyr, etc.)
         json_stream_m = re.search(r'["\']?(?:file|src|url|hls|stream)["\']?\s*:\s*["\'](https?://[^"\']+\.(?:m3u8|mp4)[^"\']*)["\']', html, re.I)
         if json_stream_m:
-            return json_stream_m.group(1)
+            return {"url": json_stream_m.group(1), "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
 
         # Direct .m3u8 or .mp4 anywhere in scripts / HTML
         any_stream_m = re.search(r'https?://[^\s"\'<>]+\.(?:m3u8|mp4)[^\s"\'<>]*', html, re.I)
         if any_stream_m and not any(k in any_stream_m.group(0) for k in ["/thumb", "/preview", ".jpg", ".png"]):
-            return any_stream_m.group(0)
+            return {"url": any_stream_m.group(0), "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
 
         for nested_m in re.finditer(r'<iframe\s+[^>]*src=["\']([^"\']+)["\']', html, re.I):
             nested_src = urllib.parse.urljoin(embed_url, nested_m.group(1).strip())
             if nested_src != embed_url and not any(nested_src.endswith(ext) for ext in [".jpg", ".png", ".css", ".js"]):
-                res = self.unpack_embed_stream(nested_src, referer=embed_url, depth=depth + 1)
+                res = self.unpack_embed_stream_info(nested_src, referer=embed_url, hint_lang=detected_lang, depth=depth + 1)
                 if res:
                     return res
 
-        return ""
+        return None
+
+    def unpack_embed_stream(self, embed_url: str, referer: str, depth: int = 0) -> str:
+        info = self.unpack_embed_stream_info(embed_url, referer, depth=depth)
+        return info.get("url", "") if info else ""
 
     def is_stream_alive(self, url: str, referer: str = None) -> bool:
         if not url or url.startswith(("about:", "javascript:")):
@@ -754,14 +799,15 @@ class ScraperEngine:
             clean_player_html = re.sub(block_pat, '', clean_player_html, flags=re.I | re.DOTALL)
 
         candidate_embeds = []
-        default_lang = "[TR Altyazılı]" if "altyaz" in raw_title.lower() or "altyaz" in movie_url.lower() else "[TR Dublaj]"
+        is_explicit_dub = ("dublaj" in raw_title.lower() or "dublaj" in movie_url.lower())
+        default_lang = "[TR Dublaj]" if is_explicit_dub else "[TR Altyazılı]"
 
         def get_lang(txt: str) -> str:
             t = txt.lower()
-            if any(k in t for k in ["altyaz", "sub", "original", "orijinal", "ingilizce"]):
-                return "[TR Altyazılı]"
-            if any(k in t for k in ["dublaj", "turkce", "türkçe"]):
+            if any(k in t for k in ["dublaj", "türkçe ses", "turkce ses"]):
                 return "[TR Dublaj]"
+            if any(k in t for k in ["altyaz", "sub", "original", "orijinal", "ingilizce", "eng"]):
+                return "[TR Altyazılı]"
             return default_lang
 
         def add_candidate(u: str, lang: str):
@@ -781,7 +827,7 @@ class ScraperEngine:
                 candidate_embeds.append((u_clean, lang))
 
         # 0. Pilavyer / DiziMom player detection (data-pv="OPAK_SLUG" in HTML or templates)
-        pv_matches = re.findall(r'data-pv=["\']([^"\']+)["\']', clean_player_html)
+        pv_matches = list(re.finditer(r'data-pv=["\']([^"\']+)["\']', clean_player_html))
         if pv_matches:
             pilav_base = "https://pilavyerplay.top"
             core_script_m = re.search(r'["\'](https?://[^"\'\s]*/(?:assets/js/core|e/c)\.js[^"\'\s]*)["\']', clean_player_html, re.I)
@@ -789,9 +835,12 @@ class ScraperEngine:
                 parsed_c = urllib.parse.urlsplit(core_script_m.group(1))
                 pilav_base = f"{parsed_c.scheme}://{parsed_c.netloc}"
             
-            for pv_slug in pv_matches:
+            for m in pv_matches:
+                pv_slug = m.group(1)
                 pv_url = f"{pilav_base}/assets/js/s.php?s={urllib.parse.quote(pv_slug)}"
-                add_candidate(pv_url, default_lang)
+                surrounding = clean_player_html[max(0, m.start() - 250):min(len(clean_player_html), m.end() + 250)]
+                pv_lang = get_lang(surrounding)
+                add_candidate(pv_url, pv_lang)
 
         # 1. Player switch functions (loadSource, loadPlayer, etc.) with local button language detection
         for m in re.finditer(r'(?:loadSource|loadPlayer|changeSource|setSource|playVideo|loadEmbed)\s*\(\s*["\']([^"\']+)["\']', clean_player_html, re.I):
@@ -889,13 +938,15 @@ class ScraperEngine:
                 break
             if not cand_url or cand_url in seen_urls:
                 continue
-            direct_url = self.unpack_embed_stream(cand_url, referer=movie_url)
-            if direct_url and direct_url not in seen_urls:
+            info = self.unpack_embed_stream_info(cand_url, referer=movie_url, hint_lang=cand_lang)
+            if info and info.get("url") and info["url"] not in seen_urls:
+                direct_url = info["url"]
+                actual_lang = info.get("lang") or cand_lang or default_lang
                 seen_urls.add(direct_url)
                 is_m3u8 = ".m3u8" in direct_url.lower() or "stream.php" in direct_url.lower() or "/hls" in direct_url.lower()
                 st_item = {
                     "name": "Play",
-                    "title": f"Play • 1080p • {cand_lang}",
+                    "title": f"Play • 1080p • {actual_lang}",
                     "url": direct_url,
                     "quality": 1080,
                     "format": "m3u8" if is_m3u8 else "mp4",
@@ -905,8 +956,13 @@ class ScraperEngine:
                         "Referer": cand_url
                     }
                 }
-                if subtitles:
-                    st_item["subtitles"] = subtitles
+                merged_subs = list(subtitles)
+                if info.get("subtitles"):
+                    for s in info["subtitles"]:
+                        if not any(x.get("url") == s.get("url") for x in merged_subs):
+                            merged_subs.append(s)
+                if merged_subs:
+                    st_item["subtitles"] = merged_subs
                 resolved_streams.append(st_item)
 
         if not resolved_streams:
@@ -1005,12 +1061,12 @@ class ScraperEngine:
             raw_t = st.get("title", "").lower()
             if "dublaj" in raw_t:
                 dub_c += 1
-                stream_name = f"Play • TR Dublaj {dub_c}"
-                formatted_title = f"Play • Dublaj {dub_c} • 1080p • [TR Dublaj]"
+                stream_name = "TR Dublaj"
+                formatted_title = f"1080p • Sunucu {dub_c}"
             else:
                 sub_c += 1
-                stream_name = f"Play • TR Altyazı {sub_c}"
-                formatted_title = f"Play • Altyazı {sub_c} • 1080p • [TR Altyazılı]"
+                stream_name = "TR Altyazı"
+                formatted_title = f"1080p • Sunucu {sub_c}"
             st["name"] = stream_name
             st["title"] = formatted_title
 

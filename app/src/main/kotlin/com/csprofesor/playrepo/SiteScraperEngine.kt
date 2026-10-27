@@ -524,10 +524,10 @@ class SiteScraperEngine {
 
             // Detect language & quality flags
             val pageDefaultLang = when {
-                rawTitle.contains("altyaz", true) || movieUrl.contains("altyaz", true) -> "[TR Altyazılı]"
                 rawTitle.contains("dublaj", true) || movieUrl.contains("dublaj", true) -> "[TR Dublaj]"
-                doc.selectFirst("h1, .film-title, .title")?.text()?.contains("altyaz", true) == true -> "[TR Altyazılı]"
-                else -> "[TR Dublaj]"
+                rawTitle.contains("altyaz", true) || movieUrl.contains("altyaz", true) -> "[TR Altyazılı]"
+                doc.selectFirst("h1, .film-title, .title")?.text()?.contains("dublaj", true) == true -> "[TR Dublaj]"
+                else -> "[TR Altyazılı]"
             }
             val qualityTag = if (html.contains("4k", true) || rawTitle.contains("4k", true)) "4K" else "1080p"
 
@@ -1033,12 +1033,12 @@ class SiteScraperEngine {
                 val formattedTitle: String
                 if (isDub) {
                     val count = dubCount.incrementAndGet()
-                    streamName = "Play • TR Dublaj $count"
-                    formattedTitle = "Play • Dublaj $count • 1080p • [TR Dublaj]"
+                    streamName = "TR Dublaj"
+                    formattedTitle = "1080p • Sunucu $count"
                 } else {
                     val count = subCount.incrementAndGet()
-                    streamName = "Play • TR Altyazı $count"
-                    formattedTitle = "Play • Altyazı $count • 1080p • [TR Altyazılı]"
+                    streamName = "TR Altyazı"
+                    formattedTitle = "1080p • Sunucu $count"
                 }
                 val ref = st.referer?.ifBlank { st.url } ?: st.url
                 val bh = StreamBehaviorHints(
