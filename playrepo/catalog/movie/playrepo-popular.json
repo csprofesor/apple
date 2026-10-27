@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-muhtesem-marty",
+      "type": "movie",
+      "name": "Muhteşem Marty",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6h7w8R4BA7vubEmEEW5vYEjuoz6.webp?v=1785558879",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6h7w8R4BA7vubEmEEW5vYEjuoz6.webp?v=1785558879",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Muhteşem Marty (2025) full HD, Türkçe dublaj ve altyazılı izle. Kimsenin saygı duymadığı bir hayali olan genç Marty Mauser, büyüklüğe ulaşma yolunda cehennemi b...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "115 dk"
+    },
+    {
       "id": "playrepo-predator-vahsi-topraklar",
       "type": "movie",
       "name": "Predator: Vahşi Topraklar",
@@ -1279,22 +1302,6 @@
       ],
       "posterShape": "poster",
       "runtime": "135 dk"
-    },
-    {
-      "id": "tt26452616",
-      "type": "movie",
-      "name": "Giant",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYmIwNWQ3YjktOWY4ZC00NjhlLTg2NGUtMjc0NTRkOTM0YWJjXkEyXkFqcGc%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYmIwNWQ3YjktOWY4ZC00NjhlLTg2NGUtMjc0NTRkOTM0YWJjXkEyXkFqcGc%40._V1_.jpg",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Giant (2026) full HD, Türkçe dublaj ve altyazılı izle. Follows Prince Naseem Hamed from his humble beginnings on the tough working-class streets of Sheffield an...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "110 dk"
     }
   ]
 }
