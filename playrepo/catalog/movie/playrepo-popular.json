@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-gecenin-kiyisi",
+      "type": "movie",
+      "name": "Gecenin Kıyısı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/KGCttSZur3PC2CjUS1eBfHDXOU.webp?v=1785126281",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/KGCttSZur3PC2CjUS1eBfHDXOU.webp?v=1785126281",
+      "description": "Gecenin Kıyısı (2025) full HD, Türkçe dublaj ve altyazılı izle. Gecenin Kıyısı, bir askeri darbenin hemen öncesinde, görevi ile ailesi arasında kalan iki kardeş...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "85 dk"
+    },
+    {
       "id": "tt27953589",
       "type": "movie",
       "name": "Hedda",
@@ -1336,28 +1358,6 @@
       ],
       "posterShape": "poster",
       "runtime": "127 dk"
-    },
-    {
-      "id": "playrepo-olunu-goreyim",
-      "type": "movie",
-      "name": "Ölünü Göreyim",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sb76azrAXr9U13uEQxNP5e3fujY.webp?v=1785098126",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sb76azrAXr9U13uEQxNP5e3fujY.webp?v=1785098126",
-      "description": "Ölünü Göreyim (2026) full HD, Türkçe dublaj ve altyazılı izle. Bir çiftin ilişkisi çoktan en parlak dönemini geride bırakmıştır. Güya aşklarını yeniden canlandı...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "105 dk"
     }
   ]
 }
