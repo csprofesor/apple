@@ -714,6 +714,7 @@ async function resolveAndCapStreams(rawStreams) {
             quality: s.quality || 1080,
             provider: "play",
             format: isM3u8 ? "m3u8" : "mp4",
+            subtitles: s.subtitles || undefined,
             behaviorHints: {
                 notSupported: false,
                 proxyHeaders: {
