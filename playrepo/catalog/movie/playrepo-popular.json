@@ -1,6 +1,40 @@
 {
   "metas": [
     {
+      "id": "tt15766876",
+      "type": "movie",
+      "name": "Holy Night: Demon Hunters",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZDZhYjUwMTUtNTcyZS00MWNkLWI3NGItMDZlZGNmMjQxYTQ2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZDZhYjUwMTUtNTcyZS00MWNkLWI3NGItMDZlZGNmMjQxYTQ2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Holy Night: Demon Hunters (2025) full HD, Türkçe dublaj ve altyazılı izle. Şeytana tapan bir suç şebekesi Seul&#039;ü kaosa sürüklediğinde, polis düzeni yeniden sağl...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt15766876/img",
+      "trailers": [
+        {
+          "source": "XRutVTZjTFg",
+          "type": "Trailer"
+        },
+        {
+          "source": "0l35oxLd1UI",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Fragman",
+          "ytId": "XRutVTZjTFg"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=XRutVTZjTFg",
+      "runtime": "92 dk"
+    },
+    {
       "id": "playrepo-mutlu-gilmore-2",
       "type": "movie",
       "name": "Mutlu Gilmore 2",
@@ -1141,24 +1175,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=z1B5W55TFyo",
       "runtime": "101 dk"
-    },
-    {
-      "id": "playrepo-ortak-bela",
-      "type": "movie",
-      "name": "Ortak Bela",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qtSY2SAL5QApuCUD0sXqyzgHYnl.webp?v=1785622288",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qtSY2SAL5QApuCUD0sXqyzgHYnl.webp?v=1785622288",
-      "description": "Ortak Bela (2025) full HD, Türkçe dublaj ve altyazılı izle. Haddinden fazla hevesli bir destek memuru ile pervasız bir eski dedektif ortak olmak zorunda kalınca...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Aksiyon & Macera",
-        "Popüler",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "runtime": "95 dk"
     }
   ]
 }
