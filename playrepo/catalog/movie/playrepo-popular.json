@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-kalender-pide",
+      "type": "movie",
+      "name": "Kalender Pide",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dfH7tbHEujr5o7yVKEduCbzgCt0.webp?v=1785132601",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dfH7tbHEujr5o7yVKEduCbzgCt0.webp?v=1785132601",
+      "description": "Kalender Pide (2025) full HD, Türkçe dublaj ve altyazılı izle. Pide ustası Kalender, kızı Filiz ile beraber baba yadigarı küçük bir pide salonu işletmektedir. 1...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "106 dk"
+    },
+    {
       "id": "playrepo-louis-theroux-erkurenin-merkezine-yolculuk",
       "type": "movie",
       "name": "Louis Theroux: Erkürenin Merkezine Yolculuk",
@@ -1350,35 +1372,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "tt16431404",
-      "type": "movie",
-      "name": "Apex",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNjUzODE2ZWYtMDdiMS00ZTA0LWI4MzEtNDkyODNiNmIwMWY1XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNjUzODE2ZWYtMDdiMS00ZTA0LWI4MzEtNDkyODNiNmIwMWY1XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Apex (2026) full HD, Türkçe dublaj ve altyazılı izle. Yas tutan bir kadın, Avustralya&#039;nın vahşi doğasında tek başına maceraya çıkarak sınırlarını zorlar. Ancak....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt16431404/img",
-      "trailers": [
-        {
-          "source": "kgv8jf_8dm0",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Apex",
-          "ytId": "kgv8jf_8dm0"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=kgv8jf_8dm0",
-      "runtime": "96 dk"
     }
   ]
 }
