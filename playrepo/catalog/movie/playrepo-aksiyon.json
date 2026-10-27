@@ -1,6 +1,36 @@
 {
   "metas": [
     {
+      "id": "tt30445556",
+      "type": "movie",
+      "name": "The Pickup",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNjNhNzQ5NmQtY2Q1Ny00NzI0LTgyMmUtYjU2MmI5NDE3MGQ0XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNjNhNzQ5NmQtY2Q1Ny00NzI0LTgyMmUtYjU2MmI5NDE3MGQ0XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "The Pickup (2025) full HD, Türkçe dublaj ve altyazılı izle. Birbiriyle alakasız iki zırhlı kamyon şoförü Russell ve Travis, becerikli ve zeki Zoe’nin liderliğin...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt30445556/img",
+      "trailers": [
+        {
+          "source": "YIcga73lPFE",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "The Pickup",
+          "ytId": "YIcga73lPFE"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=YIcga73lPFE",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-fenike-plani",
       "type": "movie",
       "name": "Fenike Planı",
