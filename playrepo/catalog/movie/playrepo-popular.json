@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-bizim-hatamiz",
+      "type": "movie",
+      "name": "Bizim Hatamız",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7QirCB1o80NEFpQGlQRZerZbQEp.webp?v=1785630205",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7QirCB1o80NEFpQGlQRZerZbQEp.webp?v=1785630205",
+      "description": "Bizim Hatamız (2025) full HD, Türkçe dublaj ve altyazılı izle. Uzun zaman önce ayrılan Noah ile Nick, Jenna ile Lion&#039;ın düğününde tekrar bir araya gelir. Nick&#039;i...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "110 dk"
+    },
+    {
       "id": "playrepo-dugunden-once-olum",
       "type": "movie",
       "name": "Düğünden Önce Ölüm",
@@ -1009,23 +1024,6 @@
       ],
       "posterShape": "poster",
       "runtime": "120 dk"
-    },
-    {
-      "id": "playrepo-catida-biri-var",
-      "type": "movie",
-      "name": "Çatıda Biri Var",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/E7hhuSZ1U5xymN2Olg2EOr4N4P.webp?v=1785562899",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/E7hhuSZ1U5xymN2Olg2EOr4N4P.webp?v=1785562899",
-      "description": "Çatıda Biri Var (2025) full HD, Türkçe dublaj ve altyazılı izle. Jeffrey Manchester, eski bir Özel Kuvvetler mensubudur ve restoran çatılarını delerek yaptığı s...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "126 dk"
     }
   ]
 }
