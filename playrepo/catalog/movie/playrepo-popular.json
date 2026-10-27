@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-parcali-yillar",
+      "type": "movie",
+      "name": "Parçalı Yıllar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/krCM8QAHO3gm9thX7IZWS8JM6af.webp?v=1785785560",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/krCM8QAHO3gm9thX7IZWS8JM6af.webp?v=1785785560",
+      "description": "Parçalı Yıllar (2026) full HD, Türkçe dublaj ve altyazılı izle. 1975 yılında Amerikan ambargosunun Türkiye’yi sürüklediği ağır ekonomik kriz, sinema dünyasını d...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "127 dk"
+    },
+    {
       "id": "playrepo-sampiyon-keci-tum-zamanlarin-en-i-yisi",
       "type": "movie",
       "name": "Şampiyon Keçi: Tüm Zamanların En İyisi",
@@ -1196,23 +1212,6 @@
       ],
       "posterShape": "poster",
       "runtime": "114 dk"
-    },
-    {
-      "id": "playrepo-fenike-plani",
-      "type": "movie",
-      "name": "Fenike Planı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bajke0ThKJ2V2iHE9DDYOJGdS7a.webp?v=1785676281",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bajke0ThKJ2V2iHE9DDYOJGdS7a.webp?v=1785676281",
-      "description": "Fenike Planı (2025) full HD, Türkçe dublaj ve altyazılı izle. Oldukça eksantrik bir ailenin geleneksel şirketi gizemli bir casusluk olayına karışır. Ailenin son...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Suç & Polisiye",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
