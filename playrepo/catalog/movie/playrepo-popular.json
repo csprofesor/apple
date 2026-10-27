@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-lefter-bir-ordinaryus-hikayesi",
+      "type": "movie",
+      "name": "Lefter: Bir Ordinaryüs Hikayesi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8ECv9LSLwRnisxoTAmCZBBl8E6k.webp?v=1785138438",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8ECv9LSLwRnisxoTAmCZBBl8E6k.webp?v=1785138438",
+      "description": "Lefter: Bir Ordinaryüs Hikayesi (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir futbol dehası ön yargılarla ve içinde kopan fırtınalarla boğuşarak zirveye....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Aksiyon & Macera",
+        "Animasyon & Aile",
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler",
+        "Suç & Polisiye",
+        "Korku & Gerilim",
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "126 dk"
+    },
+    {
       "id": "playrepo-metruk-adam",
       "type": "movie",
       "name": "Metruk Adam",
@@ -1322,35 +1344,6 @@
       ],
       "posterShape": "poster",
       "runtime": "114 dk"
-    },
-    {
-      "id": "tt22507216",
-      "type": "movie",
-      "name": "Amrum",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNjk2MDFjZmEtNjczNi00YmJmLTljNTgtMjRhMTQ4NjA2MDI5XkEyXkFqcGc%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNjk2MDFjZmEtNjczNi00YmJmLTljNTgtMjRhMTQ4NjA2MDI5XkEyXkFqcGc%40._V1_.jpg",
-      "description": "Amrum (2025) full HD, Türkçe dublaj ve altyazılı izle. Amrum Adası, 1945 baharı. Savaşın son günlerinde 12 yaşındaki Nanning, annesinin aileyi doyurmasına yardı...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt22507216/img",
-      "trailers": [
-        {
-          "source": "-izT0MKkvZY",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Amrum",
-          "ytId": "-izT0MKkvZY"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=-izT0MKkvZY",
-      "runtime": "93 dk"
     }
   ]
 }
