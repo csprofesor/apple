@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt33293169",
+      "type": "movie",
+      "name": "Mango",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMjcwN2U5OWEtMjA1My00ODE0LTkwYjctZmIwZWRiOWQ5YzVmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMjcwN2U5OWEtMjA1My00ODE0LTkwYjctZmIwZWRiOWQ5YzVmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Mango (2025) full HD, Türkçe dublaj ve altyazılı izle. Málaga&#039;ya giden hırslı bir otel yöneticisi ve onun isteksiz kızı, özlemini çektikleri hayatı oradaki bir....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt33293169/img",
+      "trailers": [
+        {
+          "source": "zO7uZiIhScs",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Mango",
+          "ytId": "zO7uZiIhScs"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=zO7uZiIhScs",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-bakim-gerekli",
       "type": "movie",
       "name": "Bakım Gerekli",
@@ -1205,24 +1234,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=qH6SqkWS9WA",
       "runtime": "106 dk"
-    },
-    {
-      "id": "playrepo-i-blis-sehri",
-      "type": "movie",
-      "name": "İblis Şehri",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hD2SN5bbqxk0kcRmsATJkXObgnZ.webp?v=1785632218",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hD2SN5bbqxk0kcRmsATJkXObgnZ.webp?v=1785632218",
-      "description": "İblis Şehri (2025) full HD, Türkçe dublaj ve altyazılı izle. Ailesini öldürmekle suçlanan ve ölüme terk edilen eski bir tetikçi, şehrini ele geçiren maskeli &quot;ib...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Bilim Kurgu & Fantastik",
-        "Aksiyon & Macera",
-        "Popüler",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "runtime": "107 dk"
     }
   ]
 }
