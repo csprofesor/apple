@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-aile-plani",
+      "type": "movie",
+      "name": "Aile Planı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/arNhhBd88bP3Bjoe4HT8MFE1JQA.webp?v=1786814969",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/arNhhBd88bP3Bjoe4HT8MFE1JQA.webp?v=1786814969",
+      "description": "Aile Planı (2023) full HD, Türkçe dublaj ve altyazılı izle. Dan Morgan pek çok şeydir: sadık bir koca, sevgi dolu bir baba, ünlü bir araba satıcısı. Kendisi ayn...",
+      "releaseInfo": "2023",
+      "genres": [
+        "Komedi",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "118 dk"
+    },
+    {
       "id": "playrepo-sessiz-tepe-donus",
       "type": "movie",
       "name": "Sessiz Tepe: Dönüş",
@@ -1210,22 +1226,6 @@
       ],
       "posterShape": "poster",
       "runtime": "69 dk"
-    },
-    {
-      "id": "playrepo-kursun-asker",
-      "type": "movie",
-      "name": "Kurşun Asker",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5VY1i8ET5xUeg0zEEwNjFfWYJJF.webp?v=1785679904",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5VY1i8ET5xUeg0zEEwNjFfWYJJF.webp?v=1785679904",
-      "description": "Kurşun Asker (2025) full HD, Türkçe dublaj ve altyazılı izle. Heyecan ve duygu yüklü, sürprizlerle dolu, nefes kesici bir gerilim filmi. Karizmatik bir tarikat....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "87 dk"
     }
   ]
 }
