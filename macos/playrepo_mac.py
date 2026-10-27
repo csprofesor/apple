@@ -682,7 +682,7 @@ class ScraperEngine:
 
         for term in ["türkçe dublaj", "türkçe altyazı", "turkce dublaj", "turkce altyazili", "dublaj", "altyazı", "altyazi", "izle", "full hd", "1080p", "720p", "4k", "tek parça", "tek parca", "film kovası", "hintfilmizle", "dizibox", "dizimag", "filmi"]:
             clean_title = re.sub(rf'\b{re.escape(term)}\b', '', clean_title, flags=re.I)
-        clean_title = re.sub(r'\s+', ' ', clean_title).strip(" -|/:.")
+        clean_title = re.sub(r'\s+', ' ', clean_title).strip(" -|/:.—–")
 
         if not clean_title or clean_title.lower() in ("filmkovasi.co", "www.hintfilmizle.com", "diziboxizle.com"):
             return None

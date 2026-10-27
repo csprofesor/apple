@@ -1235,7 +1235,7 @@ class SiteScraperEngine {
         for (term in buzzwords) {
             clean = clean.replace(Regex("""\b${Regex.escape(term)}\b""", RegexOption.IGNORE_CASE), "")
         }
-        clean = clean.replace(Regex("""\s+"""), " ").trim(' ', '-', '–', ':', '|', '(', ')', '/', '.', '#')
+        clean = clean.replace(Regex("""\s+"""), " ").trim(' ', '-', '–', '—', ':', '|', '(', ')', '/', '.', '#')
         return clean
     }
 
