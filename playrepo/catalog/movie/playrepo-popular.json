@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-golgedeki-yildiz",
+      "type": "movie",
+      "name": "Gölgedeki Yıldız",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jzzpCJWkVZZwAxzzLmtYN0MBWFd.webp?v=1785553349",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jzzpCJWkVZZwAxzzLmtYN0MBWFd.webp?v=1785553349",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Gölgedeki Yıldız (2025) full HD, Türkçe dublaj ve altyazılı izle. GÖLGEDEKİ YILDIZ&#039;da eski üniversite pas yakalayıcısı Tyriq Withers, (Atlanta, Geçen Yaz Ne Yap...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-tatlim-yapma",
       "type": "movie",
       "name": "Tatlım, Yapma!",
@@ -1284,21 +1307,6 @@
       ],
       "posterShape": "poster",
       "runtime": "128 dk"
-    },
-    {
-      "id": "tt34895052",
-      "type": "movie",
-      "name": "Tur Rehberi",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYjg0OGJjMGQtM2Q3OS00N2I3LTkzNWMtNTg4MTUxM2VhMDlmXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYjg0OGJjMGQtM2Q3OS00N2I3LTkzNWMtNTg4MTUxM2VhMDlmXkEyXkFqcGc%40._V1_SX250.jpg",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Tur Rehberi (2025) full HD, Türkçe dublaj ve altyazılı izle. Genç bir adam olan Ercüment, ölmeye yemin etmiş yaşlı bir tur ekibiyle birlikte yolculuğa çıktığınd...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi"
-      ],
-      "posterShape": "poster",
-      "runtime": "109 dk"
     }
   ]
 }
