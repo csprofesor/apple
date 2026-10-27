@@ -1056,5 +1056,28 @@
         }
       }
     }
+  ],
+  "playrepo-isabelle-039-e-sesli-mesaj": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=1b5739983cb3ff254178f995eb531569&token=eyJ2IjoiMWI1NzM5OTgzY2IzZmYyNTQxNzhmOTk1ZWI1MzE1NjkiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzAzMTE0LCJuIjoiOTBiZDViYzI2ZWUzIn0.95e3314c112c551045dc587c3a77aa53e7de14ea0d97badfb220ed02dba73e86&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=XRcbXHGBnxjpdQfmDeCeYg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=XRcbXHGBnxjpdQfmDeCeYg"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=XRcbXHGBnxjpdQfmDeCeYg"
+          }
+        }
+      }
+    }
   ]
 }
