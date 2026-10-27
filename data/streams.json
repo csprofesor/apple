@@ -57554,5 +57554,125 @@
         }
       }
     }
+  ],
+  "playrepo-zombiler-4-vampirlerin-safagi": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=882f17f38601e167639e89d50fbac298&token=eyJ2IjoiODgyZjE3ZjM4NjAxZTE2NzYzOWU4OWQ1MGZiYWMyOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ2MjQxLCJuIjoiM2E4ZmU2ZTkxN2YyIn0.259b696478587d4c081fdf3134eb6ef30fe1fd660d9edd520a54474ca566cd71&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=XmW1mLfNZNYwq4vXnqjLAQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=XmW1mLfNZNYwq4vXnqjLAQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=882f17f38601e167639e89d50fbac298&sid=1b541d37da625b6ad7ad16e0b2ac402c&token=eyJ2IjoiODgyZjE3ZjM4NjAxZTE2NzYzOWU4OWQ1MGZiYWMyOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ2MjQxLCJuIjoiM2E4ZmU2ZTkxN2YyIn0.259b696478587d4c081fdf3134eb6ef30fe1fd660d9edd520a54474ca566cd71&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=XmW1mLfNZNYwq4vXnqjLAQ"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=882f17f38601e167639e89d50fbac298&token=eyJ2IjoiODgyZjE3ZjM4NjAxZTE2NzYzOWU4OWQ1MGZiYWMyOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ2MjQxLCJuIjoiM2E4ZmU2ZTkxN2YyIn0.259b696478587d4c081fdf3134eb6ef30fe1fd660d9edd520a54474ca566cd71&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=XmW1mLfNZNYwq4vXnqjLAQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=XmW1mLfNZNYwq4vXnqjLAQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=882f17f38601e167639e89d50fbac298&sid=1b541d37da625b6ad7ad16e0b2ac402c&token=eyJ2IjoiODgyZjE3ZjM4NjAxZTE2NzYzOWU4OWQ1MGZiYWMyOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ2MjQxLCJuIjoiM2E4ZmU2ZTkxN2YyIn0.259b696478587d4c081fdf3134eb6ef30fe1fd660d9edd520a54474ca566cd71&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=XmW1mLfNZNYwq4vXnqjLAQ"
+          }
+        }
+      }
+    }
+  ],
+  "zombiler-4-vampirlerin-safagi": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=882f17f38601e167639e89d50fbac298&token=eyJ2IjoiODgyZjE3ZjM4NjAxZTE2NzYzOWU4OWQ1MGZiYWMyOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ2MjQxLCJuIjoiM2E4ZmU2ZTkxN2YyIn0.259b696478587d4c081fdf3134eb6ef30fe1fd660d9edd520a54474ca566cd71&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=XmW1mLfNZNYwq4vXnqjLAQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=XmW1mLfNZNYwq4vXnqjLAQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=882f17f38601e167639e89d50fbac298&sid=1b541d37da625b6ad7ad16e0b2ac402c&token=eyJ2IjoiODgyZjE3ZjM4NjAxZTE2NzYzOWU4OWQ1MGZiYWMyOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ2MjQxLCJuIjoiM2E4ZmU2ZTkxN2YyIn0.259b696478587d4c081fdf3134eb6ef30fe1fd660d9edd520a54474ca566cd71&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=XmW1mLfNZNYwq4vXnqjLAQ"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=882f17f38601e167639e89d50fbac298&token=eyJ2IjoiODgyZjE3ZjM4NjAxZTE2NzYzOWU4OWQ1MGZiYWMyOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ2MjQxLCJuIjoiM2E4ZmU2ZTkxN2YyIn0.259b696478587d4c081fdf3134eb6ef30fe1fd660d9edd520a54474ca566cd71&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=XmW1mLfNZNYwq4vXnqjLAQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=XmW1mLfNZNYwq4vXnqjLAQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=882f17f38601e167639e89d50fbac298&sid=1b541d37da625b6ad7ad16e0b2ac402c&token=eyJ2IjoiODgyZjE3ZjM4NjAxZTE2NzYzOWU4OWQ1MGZiYWMyOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ2MjQxLCJuIjoiM2E4ZmU2ZTkxN2YyIn0.259b696478587d4c081fdf3134eb6ef30fe1fd660d9edd520a54474ca566cd71&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=XmW1mLfNZNYwq4vXnqjLAQ"
+          }
+        }
+      }
+    }
   ]
 }
