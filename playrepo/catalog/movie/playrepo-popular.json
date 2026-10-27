@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-27-gece",
+      "type": "movie",
+      "name": "27 Gece",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/28xIxuw60UNZ3Tsz1tT5Gg7MS67.webp?v=1785613976",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/28xIxuw60UNZ3Tsz1tT5Gg7MS67.webp?v=1785613976",
+      "description": "27 Gece (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir kadın fütursuz davranışları nedeniyle psikiyatri kliniğine yatırılınca bir uzman, onun hasta mı old...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "108 dk"
+    },
+    {
       "id": "playrepo-olumcul-evlilik",
       "type": "movie",
       "name": "Ölümcül Evlilik",
@@ -1111,52 +1126,6 @@
       ],
       "posterShape": "poster",
       "runtime": "22 dk"
-    },
-    {
-      "id": "tt12300742",
-      "type": "movie",
-      "name": "Bugonia",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzIzNWQxMjEtZmQ3MS00OTk2LWFlZjktZDUyYWRkM2M3NWVlXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNzIzNWQxMjEtZmQ3MS00OTk2LWFlZjktZDUyYWRkM2M3NWVlXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Bugonia (2025) full HD, Türkçe dublaj ve altyazılı izle. Komplo takıntılı iki genç adam, Dünya gezegenini yok etmeye niyetli bir uzaylı olduğuna inandıkları büy...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt12300742/img",
-      "trailers": [
-        {
-          "source": "7VBigr-JHB0",
-          "type": "Trailer"
-        },
-        {
-          "source": "bd_5HcTujfc",
-          "type": "Trailer"
-        },
-        {
-          "source": "_p4BCpJ44Qg",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Bugonia",
-          "ytId": "7VBigr-JHB0"
-        },
-        {
-          "title": "Bugonia",
-          "ytId": "bd_5HcTujfc"
-        },
-        {
-          "title": "Bugonia",
-          "ytId": "_p4BCpJ44Qg"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=7VBigr-JHB0",
-      "runtime": "119 dk"
     }
   ]
 }
