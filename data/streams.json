@@ -1822,5 +1822,75 @@
         }
       }
     }
+  ],
+  "playrepo-geri-sayim-rousey-vs-carano": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=6e4940204a1c048c439f919c72020c68&token=eyJ2IjoiNmU0OTQwMjA0YTFjMDQ4YzQzOWY5MTljNzIwMjBjNjgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQwNDk2LCJuIjoiZTAwMmNjNmU2OTRiIn0.9f5e438fdeb2fd20986e052aff1c7b61fc7556da68d61c97c70492e479e59f1e&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=leggTqfZQ53COWOqP3SFTA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=leggTqfZQ53COWOqP3SFTA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=6e4940204a1c048c439f919c72020c68&sid=2825215126d8d9fe2f10a2289ca7b558&token=eyJ2IjoiNmU0OTQwMjA0YTFjMDQ4YzQzOWY5MTljNzIwMjBjNjgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQwNDk2LCJuIjoiZTAwMmNjNmU2OTRiIn0.9f5e438fdeb2fd20986e052aff1c7b61fc7556da68d61c97c70492e479e59f1e&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=6e4940204a1c048c439f919c72020c68&sid=c7bee913a16231a5b203a0e2f72c1f72&token=eyJ2IjoiNmU0OTQwMjA0YTFjMDQ4YzQzOWY5MTljNzIwMjBjNjgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQwNDk2LCJuIjoiZTAwMmNjNmU2OTRiIn0.9f5e438fdeb2fd20986e052aff1c7b61fc7556da68d61c97c70492e479e59f1e&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=leggTqfZQ53COWOqP3SFTA"
+          }
+        }
+      }
+    }
+  ],
+  "geri-sayim-rousey-vs-carano": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=6e4940204a1c048c439f919c72020c68&token=eyJ2IjoiNmU0OTQwMjA0YTFjMDQ4YzQzOWY5MTljNzIwMjBjNjgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQwNDk2LCJuIjoiZTAwMmNjNmU2OTRiIn0.9f5e438fdeb2fd20986e052aff1c7b61fc7556da68d61c97c70492e479e59f1e&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=leggTqfZQ53COWOqP3SFTA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=leggTqfZQ53COWOqP3SFTA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=6e4940204a1c048c439f919c72020c68&sid=2825215126d8d9fe2f10a2289ca7b558&token=eyJ2IjoiNmU0OTQwMjA0YTFjMDQ4YzQzOWY5MTljNzIwMjBjNjgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQwNDk2LCJuIjoiZTAwMmNjNmU2OTRiIn0.9f5e438fdeb2fd20986e052aff1c7b61fc7556da68d61c97c70492e479e59f1e&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=6e4940204a1c048c439f919c72020c68&sid=c7bee913a16231a5b203a0e2f72c1f72&token=eyJ2IjoiNmU0OTQwMjA0YTFjMDQ4YzQzOWY5MTljNzIwMjBjNjgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQwNDk2LCJuIjoiZTAwMmNjNmU2OTRiIn0.9f5e438fdeb2fd20986e052aff1c7b61fc7556da68d61c97c70492e479e59f1e&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=leggTqfZQ53COWOqP3SFTA"
+          }
+        }
+      }
+    }
   ]
 }
