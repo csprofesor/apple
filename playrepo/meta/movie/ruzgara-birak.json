@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "id": "playrepo-ruzgara-birak",
+    "type": "movie",
+    "name": "Rüzgara Bırak",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qAJqYEz0utqsaPsMQvgjbUatUwv.webp?v=1785144993",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qAJqYEz0utqsaPsMQvgjbUatUwv.webp?v=1785144993",
+    "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+    "description": "Rüzgara Bırak (2025) full HD, Türkçe dublaj ve altyazılı izle. Yazman Şirketler Grubu’nun iki veliahtı Çeşme’de yaşayan Ege Yazıcı ve şirketin CEO’luğunu yapan....",
+    "releaseInfo": "2025",
+    "genres": [
+      "Popüler",
+      "Aksiyon & Macera",
+      "Animasyon & Çizgi Dizi",
+      "Belgesel & Tarih",
+      "Suç, Polisiye & Gizem",
+      "Korku & Gerilim",
+      "Komedi",
+      "Dram & Romantik",
+      "Bilim Kurgu & Fantastik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-ruzgara-birak",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-ruzgara-birak",
+        "title": "Rüzgara Bırak",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "96 dk"
+  }
+}
