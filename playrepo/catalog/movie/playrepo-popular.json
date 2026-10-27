@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-ayakci",
+      "type": "movie",
+      "name": "Ayakçı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sUw5SRJKcVJF4t0FwnOknhmJX6H.webp?v=1785111454",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sUw5SRJKcVJF4t0FwnOknhmJX6H.webp?v=1785111454",
+      "description": "Ayakçı (2025) full HD, Türkçe dublaj ve altyazılı izle. Kargoculuk yapan iki çocuk babası Hayri’nin en büyük hayali, bir milyoncu açmaktır. Hayri, kargo dağıtır...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "99 dk"
+    },
+    {
       "id": "playrepo-cam-sehpa",
       "type": "movie",
       "name": "Cam Sehpa",
@@ -1418,28 +1440,6 @@
       ],
       "posterShape": "poster",
       "runtime": "141 dk"
-    },
-    {
-      "id": "playrepo-benden-onceki-ben",
-      "type": "movie",
-      "name": "Benden Önceki Ben",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1QiFfqaAhZi4HMlJNMvJVXOovc6.webp?v=1785064570",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1QiFfqaAhZi4HMlJNMvJVXOovc6.webp?v=1785064570",
-      "description": "Benden Önceki Ben (2026) full HD, Türkçe dublaj ve altyazılı izle. Mükemmel bir öğrenci. Talepkâr bir baba. Jati’nin hayatı panik ataklar yüzünden altüst olmaya...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "127 dk"
     }
   ]
 }
