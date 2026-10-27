@@ -1,6 +1,34 @@
 {
   "metas": [
     {
+      "id": "tt34682248",
+      "type": "movie",
+      "name": "Vini Jr.",
+      "poster": "https://m.media-amazon.com/images/M/MV5BODc3ZDE0NzktYjhhMy00NDMxLWJiNTktODU5MGVhZGNiZTdiXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BODc3ZDE0NzktYjhhMy00NDMxLWJiNTktODU5MGVhZGNiZTdiXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Vini Jr. (2025) full HD, Türkçe dublaj ve altyazılı izle. &quot;Vini Jr.&quot;, futboldaki en umut vadeden forvetlerden biri olan Vinícius Júnior&#039;un hayat hikayesini anla...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt34682248/img",
+      "trailers": [
+        {
+          "source": "Qy2I4liKGiA",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Fragman",
+          "ytId": "Qy2I4liKGiA"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=Qy2I4liKGiA",
+      "runtime": "106 dk"
+    },
+    {
       "id": "playrepo-tyler-perry-039-den-joy-039-un-kismeti",
       "type": "movie",
       "name": "Tyler Perry&#039;den Joy&#039;un Kısmeti",
@@ -1223,21 +1251,6 @@
       "posterShape": "poster",
       "logo": "https://images.metahub.space/logo/medium/tt5950044/img",
       "runtime": "129 dk"
-    },
-    {
-      "id": "playrepo-gel-yuzelim",
-      "type": "movie",
-      "name": "Gel Yüzelim",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oVph5mMhp0UxVYeSpIfUfll0kcF.webp?v=1785668794",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oVph5mMhp0UxVYeSpIfUfll0kcF.webp?v=1785668794",
-      "description": "Gel Yüzelim (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir hizmetçi ile baktığı küçük kız çalkantılı bir yaz geçirirken birbirleriyle çok yakınlaşır. Faka...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
