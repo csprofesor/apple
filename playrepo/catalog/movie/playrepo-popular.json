@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-nickel-cocuklari",
+      "type": "movie",
+      "name": "Nickel Çocukları",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kmLssINCNdXnIDjWkBsk6LUNSbe.webp?v=1785656008",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kmLssINCNdXnIDjWkBsk6LUNSbe.webp?v=1785656008",
+      "description": "Nickel Çocukları (2024) full HD, Türkçe dublaj ve altyazılı izle. Nickel Çocukları, bir çocuk ıslahevinde kalan iki siyahi genci konu alıyor. İkisinin derin dos...",
+      "releaseInfo": "2024",
+      "genres": [
+        "Mubi & Kült",
+        "Dram & Romantik",
+        "Popüler",
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "141 dk"
+    },
+    {
       "id": "playrepo-benim-hatam-londra",
       "type": "movie",
       "name": "Benim Hatam: Londra",
@@ -1136,21 +1153,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "playrepo-siz-babama-bakmayin",
-      "type": "movie",
-      "name": "Siz Babama Bakmayın",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lP5kcBL67k4aduIEzlSTVRR4RBh.webp?v=1785634161",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lP5kcBL67k4aduIEzlSTVRR4RBh.webp?v=1785634161",
-      "description": "Siz Babama Bakmayın (2025) full HD, Türkçe dublaj ve altyazılı izle. Brezilyalı bir baba, Arjantinli dünürleriyle tanışınca sert kayaya çarptığını anlar. Ailece...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "81 dk"
     }
   ]
 }
