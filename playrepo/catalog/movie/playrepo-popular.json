@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-risqu",
+      "type": "movie",
+      "name": "Risqué",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/novE5UrqfLIFEMe5QBnjm18GG4E.webp?v=1785559450",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/novE5UrqfLIFEMe5QBnjm18GG4E.webp?v=1785559450",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Risqué (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir striptiz kulübünden kovulan intikamcı bir dansçı, yolsuz patronu ve onları küçümseyen adamları alt e...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "91 dk"
+    },
+    {
       "id": "playrepo-yerime-gec",
       "type": "movie",
       "name": "Yerime Geç",
@@ -1279,29 +1302,6 @@
       ],
       "posterShape": "poster",
       "runtime": "105 dk"
-    },
-    {
-      "id": "playrepo-son-dev",
-      "type": "movie",
-      "name": "Son Dev",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2VMkpRFGCupBmAJlZiDzlAjxYL1.webp?v=1785276186",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2VMkpRFGCupBmAJlZiDzlAjxYL1.webp?v=1785276186",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Son Dev (2026) full HD, Türkçe dublaj ve altyazılı izle. Bir tur rehberi, yıllardır görüşmediği babası yeniden ortaya çıkınca eski yaraları sarmak ve her ikisin...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Suç, Polisiye & Gizem",
-        "Korku & Gerilim",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
