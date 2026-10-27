@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-acemi-suruculer",
+      "type": "movie",
+      "name": "Acemi Sürücüler",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3fs6Encf71ChabAKV6VrnpQRrjV.webp?v=1785158832",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3fs6Encf71ChabAKV6VrnpQRrjV.webp?v=1785158832",
+      "description": "Acemi Sürücüler (2025) full HD, Türkçe dublaj ve altyazılı izle. Lise son öğrencisi Jeremy, sevgilisi Samantha üniversiteye gidince ilişkilerine devam ederler.....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "102 dk"
+    },
+    {
       "id": "playrepo-dante-039-nin-elinden",
       "type": "movie",
       "name": "Dante&#039;nin Elinden",
@@ -1032,21 +1047,6 @@
       ],
       "posterShape": "poster",
       "runtime": "288 dk"
-    },
-    {
-      "id": "playrepo-konus-havla-degis",
-      "type": "movie",
-      "name": "Konuş, Havla, Değiş",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7weSO3kEzMpMgdmte4AasS0tbeV.webp?v=1785119970",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7weSO3kEzMpMgdmte4AasS0tbeV.webp?v=1785119970",
-      "description": "Konuş, Havla, Değiş (2026) full HD, Türkçe dublaj ve altyazılı izle. Beş köpek sahibi, dağlarda yaşayan efsanevi bir eğitmenden yaramaz köpekleri için yardım is...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "92 dk"
     }
   ]
 }
