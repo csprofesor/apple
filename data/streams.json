@@ -790,5 +790,75 @@
         }
       }
     }
+  ],
+  "playrepo-seytan-marka-giyer-2": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=c1bcd08f50d7b63e4a91dc20d5672b94&token=eyJ2IjoiYzFiY2QwOGY1MGQ3YjYzZTRhOTFkYzIwZDU2NzJiOTQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMxODYwLCJuIjoiZDc4Mzk5NjljYWU4In0.7746cfbcb8ae67b0af016a51bf700a928b852139ddd78b458d089e81f33f8678&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=be4c_AfYJOm1tVCGiadZig",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=be4c_AfYJOm1tVCGiadZig"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=c1bcd08f50d7b63e4a91dc20d5672b94&sid=b89f5e0feb2842be929a4d6d64d555c0&token=eyJ2IjoiYzFiY2QwOGY1MGQ3YjYzZTRhOTFkYzIwZDU2NzJiOTQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMxODYwLCJuIjoiZDc4Mzk5NjljYWU4In0.7746cfbcb8ae67b0af016a51bf700a928b852139ddd78b458d089e81f33f8678",
+          "lang": "Tam (Türkçe)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=c1bcd08f50d7b63e4a91dc20d5672b94&sid=f46a6ddab061e6a3cd2558ff8051deb8&token=eyJ2IjoiYzFiY2QwOGY1MGQ3YjYzZTRhOTFkYzIwZDU2NzJiOTQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMxODYwLCJuIjoiZDc4Mzk5NjljYWU4In0.7746cfbcb8ae67b0af016a51bf700a928b852139ddd78b458d089e81f33f8678",
+          "lang": "Türkçe (Forced)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=be4c_AfYJOm1tVCGiadZig"
+          }
+        }
+      }
+    }
+  ],
+  "seytan-marka-giyer-2": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=c1bcd08f50d7b63e4a91dc20d5672b94&token=eyJ2IjoiYzFiY2QwOGY1MGQ3YjYzZTRhOTFkYzIwZDU2NzJiOTQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMxODYwLCJuIjoiZDc4Mzk5NjljYWU4In0.7746cfbcb8ae67b0af016a51bf700a928b852139ddd78b458d089e81f33f8678&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=be4c_AfYJOm1tVCGiadZig",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=be4c_AfYJOm1tVCGiadZig"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=c1bcd08f50d7b63e4a91dc20d5672b94&sid=b89f5e0feb2842be929a4d6d64d555c0&token=eyJ2IjoiYzFiY2QwOGY1MGQ3YjYzZTRhOTFkYzIwZDU2NzJiOTQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMxODYwLCJuIjoiZDc4Mzk5NjljYWU4In0.7746cfbcb8ae67b0af016a51bf700a928b852139ddd78b458d089e81f33f8678",
+          "lang": "Tam (Türkçe)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=c1bcd08f50d7b63e4a91dc20d5672b94&sid=f46a6ddab061e6a3cd2558ff8051deb8&token=eyJ2IjoiYzFiY2QwOGY1MGQ3YjYzZTRhOTFkYzIwZDU2NzJiOTQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMxODYwLCJuIjoiZDc4Mzk5NjljYWU4In0.7746cfbcb8ae67b0af016a51bf700a928b852139ddd78b458d089e81f33f8678",
+          "lang": "Türkçe (Forced)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=be4c_AfYJOm1tVCGiadZig"
+          }
+        }
+      }
+    }
   ]
 }
