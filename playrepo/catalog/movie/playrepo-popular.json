@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-sampiyonlar",
+      "type": "movie",
+      "name": "Şampiyonlar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6nPpXflJoNQmcApyuWrrkK8LTYR.webp?v=1785153984",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6nPpXflJoNQmcApyuWrrkK8LTYR.webp?v=1785153984",
+      "description": "Şampiyonlar (2025) full HD, Türkçe dublaj ve altyazılı izle. Efe (8), ailesiyle birlikte dedesi Hakkı’yı (70) ziyaret etmek için İzmir’e gider. Tatil, ablası Hi...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "94 dk"
+    },
+    {
       "id": "tt32642706",
       "type": "movie",
       "name": "The Rip",
@@ -1055,21 +1070,6 @@
       ],
       "posterShape": "poster",
       "runtime": "108 dk"
-    },
-    {
-      "id": "playrepo-baska-bir-sen",
-      "type": "movie",
-      "name": "Başka Bir Sen",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/j4oYX4LgNnoRYHnkafGYeyVLULi.webp?v=1785117538",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/j4oYX4LgNnoRYHnkafGYeyVLULi.webp?v=1785117538",
-      "description": "Başka Bir Sen (2025) full HD, Türkçe dublaj ve altyazılı izle. Mümtaz’ın hayatında hiçbir şey yolunda gitmemektedir. Yine böyle bir günde onun yolu Derya ile ke...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "runtime": "110 dk"
     }
   ]
 }
