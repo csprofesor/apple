@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-britanya-ve-blitz",
+      "type": "movie",
+      "name": "Britanya ve Blitz",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6ZSShTmCOXoUsVE66NJz8fvMn8C.webp?v=1785625321",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6ZSShTmCOXoUsVE66NJz8fvMn8C.webp?v=1785625321",
+      "description": "Britanya ve Blitz (2025) full HD, Türkçe dublaj ve altyazılı izle. Bu sürükleyici belgesel, restore edilen renkli arşiv görüntüleri ve 2. Dünya Savaşı&#039;nda Blitz...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "77 dk"
+    },
+    {
       "id": "playrepo-merkez-36",
       "type": "movie",
       "name": "Merkez 36",
@@ -1062,22 +1077,6 @@
       ],
       "posterShape": "poster",
       "runtime": "128 dk"
-    },
-    {
-      "id": "playrepo-takintili-dost",
-      "type": "movie",
-      "name": "Takıntılı Dost",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/u4JsyMpp6mtAYbg0t3GIaCgPrRy.webp?v=1785556587",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/u4JsyMpp6mtAYbg0t3GIaCgPrRy.webp?v=1785556587",
-      "description": "Takıntılı Dost (2025) full HD, Türkçe dublaj ve altyazılı izle. Yirmili yaşlarındaki bir perakende çalışanı yükselen bir pop yıldızıyla karşılaşınca popüler gru...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "100 dk"
     }
   ]
 }
