@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "tt33362137",
+      "type": "movie",
+      "name": "Kutsal Damacana 5: Zombi",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYzE5ZDk5OGItODM1Mi00NmRhLWE5NGYtNWMxZGVlZDU3NTFmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYzE5ZDk5OGItODM1Mi00NmRhLWE5NGYtNWMxZGVlZDU3NTFmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Kutsal Damacana 5: Zombi! (2025) full HD, Türkçe dublaj ve altyazılı izle. Fikret, Asım ve Artin, ezeli düşmanları İblis’in kurduğu yeni ve tehlikeli bir planla...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt33362137/img",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-kayikci",
       "type": "movie",
       "name": "Kayıkçı",
@@ -1337,29 +1354,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=jHtGZS-TFOI",
       "runtime": "94 dk"
-    },
-    {
-      "id": "playrepo-saklambac-2",
-      "type": "movie",
-      "name": "Saklambaç 2",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fx2cEuadZK28VHKkc0F1nFR96i0.webp?v=1785103998",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fx2cEuadZK28VHKkc0F1nFR96i0.webp?v=1785103998",
-      "description": "Saklambaç 2 (2026) full HD, Türkçe dublaj ve altyazılı izle. Le Domas ailesinin ölümcül saldırısından sağ kurtulan Grace, kabus dolu oyunun henüz bitmediğini fa...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Aile",
-        "Dram & Romantik",
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Hulu",
-        "Popüler",
-        "Suç & Polisiye",
-        "Korku & Gerilim",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "104 dk"
     }
   ]
 }
