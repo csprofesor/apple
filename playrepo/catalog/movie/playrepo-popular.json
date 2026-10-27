@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-i-yi-sans",
+      "type": "movie",
+      "name": "İyi Şans",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nkxtuK4alXlGC87FRNDfAZJIFiB.webp?v=1785552910",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nkxtuK4alXlGC87FRNDfAZJIFiB.webp?v=1785552910",
+      "description": "İyi Şans (2025) full HD, Türkçe dublaj ve altyazılı izle. İyi niyetli ama beceriksiz bir melek olan Gabriel, geçim sıkıntısı çeken bir işçinin ve zengin bir kap...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "97 dk"
+    },
+    {
       "id": "playrepo-adam-039-in-i-yiligi-i-cin",
       "type": "movie",
       "name": "Adam&#039;ın İyiliği İçin",
@@ -1158,21 +1174,6 @@
       ],
       "posterShape": "poster",
       "runtime": "124 dk"
-    },
-    {
-      "id": "playrepo-acemi-suruculer",
-      "type": "movie",
-      "name": "Acemi Sürücüler",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3fs6Encf71ChabAKV6VrnpQRrjV.webp?v=1785158832",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3fs6Encf71ChabAKV6VrnpQRrjV.webp?v=1785158832",
-      "description": "Acemi Sürücüler (2025) full HD, Türkçe dublaj ve altyazılı izle. Lise son öğrencisi Jeremy, sevgilisi Samantha üniversiteye gidince ilişkilerine devam ederler.....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
