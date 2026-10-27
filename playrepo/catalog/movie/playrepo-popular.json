@@ -1,6 +1,43 @@
 {
   "metas": [
     {
+      "id": "tt31349852",
+      "type": "movie",
+      "name": "Savage House",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMGUxYTRjNmQtYzA5YS00MDhmLThlODktM2QxMGJhNzNmYjVkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMGUxYTRjNmQtYzA5YS00MDhmLThlODktM2QxMGJhNzNmYjVkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Savage House (2026) full HD, Türkçe dublaj ve altyazılı izle. Çiçek hastalığı ve Jacobit ayaklanmasının damgasını vurduğu 18. yüzyıl İngiltere&#039;sinde, Sir Chaunc...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt31349852/img",
+      "trailers": [
+        {
+          "source": "dB9HuMcaEGM",
+          "type": "Trailer"
+        },
+        {
+          "source": "4VIIZlzqdKE",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Savage House",
+          "ytId": "dB9HuMcaEGM"
+        },
+        {
+          "title": "Savage House",
+          "ytId": "4VIIZlzqdKE"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=dB9HuMcaEGM",
+      "runtime": "114 dk"
+    },
+    {
       "id": "playrepo-bataklik-krali-039-nin-kizi",
       "type": "movie",
       "name": "Bataklık Kralı&#039;nın Kızı",
@@ -1218,23 +1255,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=tDYcCHgDdfI",
       "runtime": "94 dk"
-    },
-    {
-      "id": "playrepo-bay-ve-bayan-kil",
-      "type": "movie",
-      "name": "Bay ve Bayan Kıl",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/i4o2aPGlnsxfPmDPF5lmlgjScyv.webp?v=1785677602",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/i4o2aPGlnsxfPmDPF5lmlgjScyv.webp?v=1785677602",
-      "description": "Bay ve Bayan Kıl (2025) full HD, Türkçe dublaj ve altyazılı izle. Kasabaları alçak mı alçak, rezil mi rezil kötü karakterlerce ele geçirilen korkusuz çocuklar,....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "99 dk"
     }
   ]
 }
