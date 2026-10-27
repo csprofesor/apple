@@ -1,6 +1,20 @@
 {
   "metas": [
     {
+      "id": "playrepo-kopenhag-039-da-bir-ask-hik-yesi",
+      "type": "movie",
+      "name": "Kopenhag&#039;da Bir Aşk Hikâyesi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nmyWvnSgAjoKWupWypT2DI5b5dG.webp?v=1785613970",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nmyWvnSgAjoKWupWypT2DI5b5dG.webp?v=1785613970",
+      "description": "Kopenhag&#039;da Bir Aşk Hikâyesi (2025) full HD, Türkçe dublaj ve altyazılı izle. Yazar Mia, bekâr baba Emil ile aşkı bulur. Ancak kendi çocuklarına sahip olmak içi...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "runtime": "105 dk"
+    },
+    {
       "id": "playrepo-28-yil-sonra",
       "type": "movie",
       "name": "28 Yıl Sonra",
@@ -1155,51 +1169,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=fi10nVislwk",
       "runtime": "90 dk"
-    },
-    {
-      "id": "tt7181546",
-      "type": "movie",
-      "name": "Ballerina",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzdhZmY2OTQtYWI4OC00ZThkLTlhZjAtNzE2YzRjM2Q5YjJlXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNzdhZmY2OTQtYWI4OC00ZThkLTlhZjAtNzE2YzRjM2Q5YjJlXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Ballerina (2025) full HD, Türkçe dublaj ve altyazılı izle. John Wick 3: Parabellum olayları sırasında geçen hikâyede Eve Macarro, Ruska Roma&#039;nın suikastçı gelen...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt7181546/img",
-      "trailers": [
-        {
-          "source": "b9Rr9ygb-ac",
-          "type": "Trailer"
-        },
-        {
-          "source": "yNN2PoilSp4",
-          "type": "Trailer"
-        },
-        {
-          "source": "0FSwsrFpkbw",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Ballerina",
-          "ytId": "b9Rr9ygb-ac"
-        },
-        {
-          "title": "Ballerina",
-          "ytId": "yNN2PoilSp4"
-        },
-        {
-          "title": "Ballerina",
-          "ytId": "0FSwsrFpkbw"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=b9Rr9ygb-ac",
-      "runtime": "124 dk"
     }
   ]
 }
