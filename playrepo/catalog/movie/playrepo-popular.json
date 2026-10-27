@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "playrepo-lost-bullet-3",
+      "type": "movie",
+      "name": "Lost Bullet 3",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4A5HH9HkCPqAwyYL6CnA0mxbYjn.webp?v=1785623806",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4A5HH9HkCPqAwyYL6CnA0mxbYjn.webp?v=1785623806",
+      "description": "Lost Bullet 3 (2025) full HD, Türkçe dublaj ve altyazılı izle. Üçlemenin bu turbo hızlı finalinde araba dâhisi Lino, Areski&#039;den ve hayatlarını mahveden yozlaşmı...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Aksiyon & Macera",
+        "Popüler",
+        "Suç & Polisiye"
+      ],
+      "posterShape": "poster",
+      "runtime": "111 dk"
+    },
+    {
       "id": "tt35434840",
       "type": "movie",
       "name": "Banger",
@@ -1063,35 +1081,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=S56o2SOFsIc",
       "runtime": "96 dk"
-    },
-    {
-      "id": "tt36639986",
-      "type": "movie",
-      "name": "I Am Frankelda",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNDc3OTYxOTQtYzNkMy00YzQ5LWJlM2MtZDcwYTliZThkMWM0XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNDc3OTYxOTQtYzNkMy00YzQ5LWJlM2MtZDcwYTliZThkMWM0XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "I Am Frankelda (2025) full HD, Türkçe dublaj ve altyazılı izle. 19. yüzyıl Meksika&#039;sında yaşayan yetenekli genç bir yazar, bilinçaltının derinliklerine inerek k...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt36639986/img",
-      "trailers": [
-        {
-          "source": "diRwnGRr-Ko",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "I Am Frankelda",
-          "ytId": "diRwnGRr-Ko"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=diRwnGRr-Ko",
-      "runtime": "104 dk"
     }
   ]
 }
