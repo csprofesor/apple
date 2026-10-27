@@ -9434,5 +9434,75 @@
         }
       }
     }
+  ],
+  "playrepo-irmandade-kardeslik-i-syani": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=461e5951202cfc5014156d9d4eeea593&token=eyJ2IjoiNDYxZTU5NTEyMDJjZmM1MDE0MTU2ZDlkNGVlZWE1OTMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyOTEyLCJuIjoiNjM3MzYxYjRhNzQ0In0.699f7efcb380db66ec9022af98a7d78ea3b1a81f65ee6352ece9fbf9231df536&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=nWWZs5ClFTm_heMPT62cFA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=nWWZs5ClFTm_heMPT62cFA"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=461e5951202cfc5014156d9d4eeea593&sid=755aaf4f350ebda5ea7a1770cc4cdabb&token=eyJ2IjoiNDYxZTU5NTEyMDJjZmM1MDE0MTU2ZDlkNGVlZWE1OTMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyOTEyLCJuIjoiNjM3MzYxYjRhNzQ0In0.699f7efcb380db66ec9022af98a7d78ea3b1a81f65ee6352ece9fbf9231df536",
+          "lang": "Türkçe (Forced)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=461e5951202cfc5014156d9d4eeea593&sid=e6ceb9c23a59c0673a7ad92facb78368&token=eyJ2IjoiNDYxZTU5NTEyMDJjZmM1MDE0MTU2ZDlkNGVlZWE1OTMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyOTEyLCJuIjoiNjM3MzYxYjRhNzQ0In0.699f7efcb380db66ec9022af98a7d78ea3b1a81f65ee6352ece9fbf9231df536",
+          "lang": "Tam (Türkçe)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=nWWZs5ClFTm_heMPT62cFA"
+          }
+        }
+      }
+    }
+  ],
+  "irmandade-kardeslik-i-syani": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=461e5951202cfc5014156d9d4eeea593&token=eyJ2IjoiNDYxZTU5NTEyMDJjZmM1MDE0MTU2ZDlkNGVlZWE1OTMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyOTEyLCJuIjoiNjM3MzYxYjRhNzQ0In0.699f7efcb380db66ec9022af98a7d78ea3b1a81f65ee6352ece9fbf9231df536&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=nWWZs5ClFTm_heMPT62cFA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=nWWZs5ClFTm_heMPT62cFA"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=461e5951202cfc5014156d9d4eeea593&sid=755aaf4f350ebda5ea7a1770cc4cdabb&token=eyJ2IjoiNDYxZTU5NTEyMDJjZmM1MDE0MTU2ZDlkNGVlZWE1OTMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyOTEyLCJuIjoiNjM3MzYxYjRhNzQ0In0.699f7efcb380db66ec9022af98a7d78ea3b1a81f65ee6352ece9fbf9231df536",
+          "lang": "Türkçe (Forced)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=461e5951202cfc5014156d9d4eeea593&sid=e6ceb9c23a59c0673a7ad92facb78368&token=eyJ2IjoiNDYxZTU5NTEyMDJjZmM1MDE0MTU2ZDlkNGVlZWE1OTMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyOTEyLCJuIjoiNjM3MzYxYjRhNzQ0In0.699f7efcb380db66ec9022af98a7d78ea3b1a81f65ee6352ece9fbf9231df536",
+          "lang": "Tam (Türkçe)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=nWWZs5ClFTm_heMPT62cFA"
+          }
+        }
+      }
+    }
   ]
 }
