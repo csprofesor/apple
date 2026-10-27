@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-kotu-ruh-cehennem-atesi",
+      "type": "movie",
+      "name": "Kötü Ruh: Cehennem Ateşi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/o0jkkpcN81QqSl8DMLScBCXyUH9.webp?v=1786814841",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/o0jkkpcN81QqSl8DMLScBCXyUH9.webp?v=1786814841",
+      "description": "Kötü Ruh: Cehennem Ateşi (2026) full HD, Türkçe dublaj ve altyazılı izle. Kocasını kaybetmesinin ardından teselli arayan genç bir kadın, eşinin ailesiyle birlik...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "110 dk"
+    },
+    {
       "id": "playrepo-hayvan-yarisi",
       "type": "movie",
       "name": "Hayvan Yarışı",
@@ -1211,23 +1226,6 @@
       ],
       "posterShape": "poster",
       "runtime": "94 dk"
-    },
-    {
-      "id": "playrepo-persembe-gunu-cinayet-kulubu",
-      "type": "movie",
-      "name": "Perşembe Günü Cinayet Kulübü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4KN06gns94rQFoYQWDGunK7Cob4.webp?v=1785679333",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4KN06gns94rQFoYQWDGunK7Cob4.webp?v=1785679333",
-      "description": "Perşembe Günü Cinayet Kulübü (2025) full HD, Türkçe dublaj ve altyazılı izle. Aynı adlı romandan uyarlanan bu suç komedisinde faili meçhul vakaları çözme konusu...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Suç & Polisiye",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "118 dk"
     }
   ]
 }

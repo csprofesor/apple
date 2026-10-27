@@ -61184,5 +61184,65 @@
         }
       }
     }
+  ],
+  "playrepo-kotu-ruh-cehennem-atesi": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=9722fb2863e5058c426f535793be2c57&token=eyJ2IjoiOTcyMmZiMjg2M2U1MDU4YzQyNmY1MzU3OTNiZTJjNTciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ2NjQ0LCJuIjoiYmVjY2U4MGY5ZDMxIn0.97d536aac250b401e4e44061eb1da6b5d0781fd7aeedb7d5d1ebe36715f665b1&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=9ifEHx4na2AN3dPVc3UIng",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=9ifEHx4na2AN3dPVc3UIng"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=9722fb2863e5058c426f535793be2c57&sid=4246f82bb0c30b7c8d56668ce8d65d08&token=eyJ2IjoiOTcyMmZiMjg2M2U1MDU4YzQyNmY1MzU3OTNiZTJjNTciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ2NjQ0LCJuIjoiYmVjY2U4MGY5ZDMxIn0.97d536aac250b401e4e44061eb1da6b5d0781fd7aeedb7d5d1ebe36715f665b1&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=9ifEHx4na2AN3dPVc3UIng"
+          }
+        }
+      }
+    }
+  ],
+  "kotu-ruh-cehennem-atesi": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=9722fb2863e5058c426f535793be2c57&token=eyJ2IjoiOTcyMmZiMjg2M2U1MDU4YzQyNmY1MzU3OTNiZTJjNTciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ2NjQ0LCJuIjoiYmVjY2U4MGY5ZDMxIn0.97d536aac250b401e4e44061eb1da6b5d0781fd7aeedb7d5d1ebe36715f665b1&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=9ifEHx4na2AN3dPVc3UIng",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=9ifEHx4na2AN3dPVc3UIng"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=9722fb2863e5058c426f535793be2c57&sid=4246f82bb0c30b7c8d56668ce8d65d08&token=eyJ2IjoiOTcyMmZiMjg2M2U1MDU4YzQyNmY1MzU3OTNiZTJjNTciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQ2NjQ0LCJuIjoiYmVjY2U4MGY5ZDMxIn0.97d536aac250b401e4e44061eb1da6b5d0781fd7aeedb7d5d1ebe36715f665b1&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=9ifEHx4na2AN3dPVc3UIng"
+          }
+        }
+      }
+    }
   ]
 }
