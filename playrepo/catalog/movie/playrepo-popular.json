@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "tt38648344",
+      "type": "movie",
+      "name": "Bugün Güzel",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNzI0ODQxYTItMzc4MS00Y2FlLWIwNzQtMDMyZTRiODYyOTI3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNzI0ODQxYTItMzc4MS00Y2FlLWIwNzQtMDMyZTRiODYyOTI3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Bugün Güzel (2025) full HD, Türkçe dublaj ve altyazılı izle. Sağlıklı yaşam önerileriyle tanınan televizyon programcısı Ali&#039;nin, beyninde bir tümör olduğu teşhi...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Komedi"
+      ],
+      "posterShape": "poster",
+      "runtime": "118 dk"
+    },
+    {
       "id": "playrepo-bak-postaci-geliyor",
       "type": "movie",
       "name": "Bak Postacı Geliyor",
@@ -1259,29 +1275,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "playrepo-annelik-i-cgudusu",
-      "type": "movie",
-      "name": "Annelik İçgüdüsü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oGD1dZvojZssnd9Ua6RUalEEHQu.webp?v=1785092693",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oGD1dZvojZssnd9Ua6RUalEEHQu.webp?v=1785092693",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Annelik İçgüdüsü (2026) full HD, Türkçe dublaj ve altyazılı izle. Polis, yeni doğum yaptığını söyleyen bir kadını durdurur; ama ne bebek ne üzerindeki kan kadın...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Suç, Polisiye & Gizem",
-        "Korku & Gerilim",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "97 dk"
     }
   ]
 }

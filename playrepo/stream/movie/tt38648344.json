@@ -1,0 +1,25 @@
+{
+  "streams": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=1670096d9f6df614babee96756017fe8&token=eyJ2IjoiMTY3MDA5NmQ5ZjZkZjYxNGJhYmVlOTY3NTYwMTdmZTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzA1ODQyLCJuIjoiOWIxODE4YzgxMDRmIn0.195d9e877a7937f57135eb455cd2bb982e4d7771cc44dae25cdbc314a899e2aa&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=kFC_Ygma-Ueh53X_mEbPDA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kFC_Ygma-Ueh53X_mEbPDA"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kFC_Ygma-Ueh53X_mEbPDA"
+          }
+        }
+      }
+    }
+  ]
+}
