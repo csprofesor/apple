@@ -1,6 +1,51 @@
 {
   "metas": [
     {
+      "id": "tt30472557",
+      "type": "movie",
+      "name": "Chainsaw Man - The Movie: Reze Arc",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYmUzMTk5MGQtZDg5Yy00MWEzLWIzNjUtNWIyMjFjODhiYjcyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYmUzMTk5MGQtZDg5Yy00MWEzLWIzNjUtNWIyMjFjODhiYjcyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Chainsaw Man - The Movie: Reze Arc (2025) full HD, Türkçe dublaj ve altyazılı izle. İblisler, avcılar ve gizli düşmanlar arasında süren acımasız bir savaşta, Re...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Animasyon & Aile",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt30472557/img",
+      "trailers": [
+        {
+          "source": "GJ1jrCnm-t8",
+          "type": "Trailer"
+        },
+        {
+          "source": "EPaoHkV0dYw",
+          "type": "Trailer"
+        },
+        {
+          "source": "tAzAhDNdehs",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Chainsaw Man - The Movie: Reze Arc",
+          "ytId": "GJ1jrCnm-t8"
+        },
+        {
+          "title": "Chainsaw Man - The Movie: Reze Arc",
+          "ytId": "EPaoHkV0dYw"
+        },
+        {
+          "title": "Chainsaw Man - The Movie: Reze Arc",
+          "ytId": "tAzAhDNdehs"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=GJ1jrCnm-t8",
+      "runtime": "100 dk"
+    },
+    {
       "id": "playrepo-tehlikeli-hayvanlar",
       "type": "movie",
       "name": "Tehlikeli Hayvanlar",
