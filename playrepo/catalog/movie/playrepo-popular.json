@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-nakavt",
+      "type": "movie",
+      "name": "Nakavt",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rU9kRB3rBU5O7AMReZCiuIy7zmE.webp?v=1785645925",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rU9kRB3rBU5O7AMReZCiuIy7zmE.webp?v=1785645925",
+      "description": "Nakavt (2025) full HD, Türkçe dublaj ve altyazılı izle. Eski bir dövüşçü, yıllar önce kazara öldürdüğü rakibinin kayıp oğlunu bulmalıdır. Bu uğurda Marsilya&#039;dak...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "84 dk"
+    },
+    {
       "id": "playrepo-tatli-villa",
       "type": "movie",
       "name": "Tatlı Villa",
@@ -1141,22 +1157,6 @@
       ],
       "posterShape": "poster",
       "runtime": "89 dk"
-    },
-    {
-      "id": "playrepo-sampanya-yuzunden",
-      "type": "movie",
-      "name": "Şampanya Yüzünden",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/idRDmfGxrLD0SNBq5I2J6HC0dt5.webp?v=1785627429",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/idRDmfGxrLD0SNBq5I2J6HC0dt5.webp?v=1785627429",
-      "description": "Şampanya Yüzünden (2025) full HD, Türkçe dublaj ve altyazılı izle. Hırslı bir Amerikalı yönetici, Noel&#039;den önce bir şampanya markasını satın almak üzere Paris’e...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "99 dk"
     }
   ]
 }
