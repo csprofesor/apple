@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-carman-ailesinin-gizemi",
+      "type": "movie",
+      "name": "Carman Ailesinin Gizemi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kWRlETiLSH8BRq9akHIQoMXgtfe.webp?v=1785671629",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kWRlETiLSH8BRq9akHIQoMXgtfe.webp?v=1785671629",
+      "description": "Carman Ailesinin Gizemi (2025) full HD, Türkçe dublaj ve altyazılı izle. Bu gerçek suç belgeselinde denizden dramatik bir şekilde kurtarılan genç bir adam, New....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Korku & Gerilim",
+        "Suç & Polisiye"
+      ],
+      "posterShape": "poster",
+      "runtime": "91 dk"
+    },
+    {
       "id": "playrepo-wallis-adasi-baladi",
       "type": "movie",
       "name": "Wallis Adası Baladı",
@@ -1095,23 +1111,6 @@
       ],
       "posterShape": "poster",
       "runtime": "112 dk"
-    },
-    {
-      "id": "playrepo-nickel-cocuklari",
-      "type": "movie",
-      "name": "Nickel Çocukları",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kmLssINCNdXnIDjWkBsk6LUNSbe.webp?v=1785656008",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kmLssINCNdXnIDjWkBsk6LUNSbe.webp?v=1785656008",
-      "description": "Nickel Çocukları (2024) full HD, Türkçe dublaj ve altyazılı izle. Nickel Çocukları, bir çocuk ıslahevinde kalan iki siyahi genci konu alıyor. İkisinin derin dos...",
-      "releaseInfo": "2024",
-      "genres": [
-        "Mubi & Kült",
-        "Dram & Romantik",
-        "Popüler",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "141 dk"
     }
   ]
 }
