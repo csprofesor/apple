@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-perisan",
+      "type": "movie",
+      "name": "Perişan",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/x1MiX7zp3vBUKONBfvW3v5cnHK2.webp?v=1785627996",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/x1MiX7zp3vBUKONBfvW3v5cnHK2.webp?v=1785627996",
+      "description": "Perişan (2025) full HD, Türkçe dublaj ve altyazılı izle. Perişan, sönen rodeo kariyerine tutunan ve eyersiz ata binen yabani at terbiyecisi True Brandywine&#039;ın (...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "104 dk"
+    },
+    {
       "id": "playrepo-araba-hirsizlari",
       "type": "movie",
       "name": "Araba Hırsızları",
@@ -1006,21 +1022,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "playrepo-splitsville-pek-romantik-olmayan-komedi",
-      "type": "movie",
-      "name": "Splitsville: Pek Romantik Olmayan Komedi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/AbaRJXNmyLjG4tY48k2fhNNmuW4.webp?v=1785562385",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/AbaRJXNmyLjG4tY48k2fhNNmuW4.webp?v=1785562385",
-      "description": "Splitsville: Pek Romantik Olmayan Komedi (2025) full HD, Türkçe dublaj ve altyazılı izle. Ashley (Adria Arjona) boşanmak istediğinde, iyi huylu Carey (Kyle Marv...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "runtime": "104 dk"
     }
   ]
 }
