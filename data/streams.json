@@ -3602,5 +3602,75 @@
         }
       }
     }
+  ],
+  "playrepo-kaza-mi-cinayet-mi": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=43618cf2cf8fc6824de004799d509d93&token=eyJ2IjoiNDM2MThjZjJjZjhmYzY4MjRkZTAwNDc5OWQ1MDlkOTMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyMTUzLCJuIjoiZTQ5YzVhZTc4YzA4In0.8f11834220807b52f1af98a750d82592c784af06838144237c230c622729e912&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=tCU7Ys-NWS4WnsHOPG74CA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=tCU7Ys-NWS4WnsHOPG74CA"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=43618cf2cf8fc6824de004799d509d93&sid=008930b3b2c7aa2cda86df265437a50e&token=eyJ2IjoiNDM2MThjZjJjZjhmYzY4MjRkZTAwNDc5OWQ1MDlkOTMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyMTUzLCJuIjoiZTQ5YzVhZTc4YzA4In0.8f11834220807b52f1af98a750d82592c784af06838144237c230c622729e912",
+          "lang": "Tam (Türkçe) (PGS)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=43618cf2cf8fc6824de004799d509d93&sid=c43cc10d052443bd50374847872e13b8&token=eyJ2IjoiNDM2MThjZjJjZjhmYzY4MjRkZTAwNDc5OWQ1MDlkOTMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyMTUzLCJuIjoiZTQ5YzVhZTc4YzA4In0.8f11834220807b52f1af98a750d82592c784af06838144237c230c622729e912",
+          "lang": "Türkçe (Forced) (PGS)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=tCU7Ys-NWS4WnsHOPG74CA"
+          }
+        }
+      }
+    }
+  ],
+  "kaza-mi-cinayet-mi": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=43618cf2cf8fc6824de004799d509d93&token=eyJ2IjoiNDM2MThjZjJjZjhmYzY4MjRkZTAwNDc5OWQ1MDlkOTMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyMTUzLCJuIjoiZTQ5YzVhZTc4YzA4In0.8f11834220807b52f1af98a750d82592c784af06838144237c230c622729e912&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=tCU7Ys-NWS4WnsHOPG74CA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=tCU7Ys-NWS4WnsHOPG74CA"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=43618cf2cf8fc6824de004799d509d93&sid=008930b3b2c7aa2cda86df265437a50e&token=eyJ2IjoiNDM2MThjZjJjZjhmYzY4MjRkZTAwNDc5OWQ1MDlkOTMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyMTUzLCJuIjoiZTQ5YzVhZTc4YzA4In0.8f11834220807b52f1af98a750d82592c784af06838144237c230c622729e912",
+          "lang": "Tam (Türkçe) (PGS)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=43618cf2cf8fc6824de004799d509d93&sid=c43cc10d052443bd50374847872e13b8&token=eyJ2IjoiNDM2MThjZjJjZjhmYzY4MjRkZTAwNDc5OWQ1MDlkOTMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyMTUzLCJuIjoiZTQ5YzVhZTc4YzA4In0.8f11834220807b52f1af98a750d82592c784af06838144237c230c622729e912",
+          "lang": "Türkçe (Forced) (PGS)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=tCU7Ys-NWS4WnsHOPG74CA"
+          }
+        }
+      }
+    }
   ]
 }
