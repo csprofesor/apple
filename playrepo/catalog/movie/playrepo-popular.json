@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-lilo-amp-stic",
+      "type": "movie",
+      "name": "Lilo &amp; Stiç",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.webp?v=1785653333",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.webp?v=1785653333",
+      "description": "Lilo &amp; Stiç (2025) full HD, Türkçe dublaj ve altyazılı izle. Lilo &amp; Stiç, parçalanmış ailesini onarmaya yardım eden kaçak bir uzaylıyla arkadaş olan yalnız bir....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "108 dk"
+    },
+    {
       "id": "playrepo-lucca-039-nin-dunyasi",
       "type": "movie",
       "name": "Lucca&#039;nın Dünyası",
@@ -1180,22 +1196,6 @@
       ],
       "posterShape": "poster",
       "runtime": "88 dk"
-    },
-    {
-      "id": "playrepo-leziz",
-      "type": "movie",
-      "name": "Leziz",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6iU9A1TtZKFB8222erj0UD0iYYn.webp?v=1785630522",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6iU9A1TtZKFB8222erj0UD0iYYn.webp?v=1785630522",
-      "description": "Leziz (2025) full HD, Türkçe dublaj ve altyazılı izle. Fransa kırsalında tatil yapan zengin bir Alman ailenin yolu uğursuz niyetleri olan genç bir otel çalışanı...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
