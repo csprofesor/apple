@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-catisma",
+      "type": "movie",
+      "name": "Çatışma",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/30jbD8Er4aB7FbfUbyZLORMDnJN.webp?v=1785684812",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/30jbD8Er4aB7FbfUbyZLORMDnJN.webp?v=1785684812",
+      "description": "Çatışma (2025) full HD, Türkçe dublaj ve altyazılı izle. Gözetim görevleri ters gidince kendilerini büyük bir tehlikenin içinde bulan ABD Özel Kuvvetler müfreze...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-hayat-budur",
       "type": "movie",
       "name": "Hayat Budur!",
@@ -1200,21 +1215,6 @@
       ],
       "posterShape": "poster",
       "runtime": "104 dk"
-    },
-    {
-      "id": "playrepo-en-buyuk-hayran",
-      "type": "movie",
-      "name": "En Büyük Hayran",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iznPd7PLnCBA1G50M4DuA9wvCIy.webp?v=1785670956",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iznPd7PLnCBA1G50M4DuA9wvCIy.webp?v=1785670956",
-      "description": "En Büyük Hayran (2025) full HD, Türkçe dublaj ve altyazılı izle. Hollywood&#039;da artık istenmeyen Lana Cruz, memleketine döner ve burada eski bir hayranıyken ona d...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "91 dk"
     }
   ]
 }
