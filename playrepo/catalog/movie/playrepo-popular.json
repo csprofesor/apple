@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt38346012",
+      "type": "movie",
+      "name": "The Balloonist",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZTcyMDczNjYtNzE4ZC00MmNkLWE2YjItOWE4YmMxMDgxNGIwXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZTcyMDczNjYtNzE4ZC00MmNkLWE2YjItOWE4YmMxMDgxNGIwXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "The Balloonist (2025) full HD, Türkçe dublaj ve altyazılı izle. Gaby&#039;nin hayatı, nadir tavuklarla dolu olan kümesinin üstüne küstah bir sıcak hava balonu pilotu...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt38346012/img",
+      "trailers": [
+        {
+          "source": "hhLW8hsUnMU",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "The Balloonist",
+          "ytId": "hhLW8hsUnMU"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=hhLW8hsUnMU",
+      "runtime": "108 dk"
+    },
+    {
       "id": "playrepo-looney-tunes-dunyayi-kurtarma-operasyonu",
       "type": "movie",
       "name": "Looney Tunes: Dünyayı Kurtarma Operasyonu",
@@ -1099,23 +1128,6 @@
       ],
       "posterShape": "poster",
       "runtime": "108 dk"
-    },
-    {
-      "id": "playrepo-onemsiz-biri-2",
-      "type": "movie",
-      "name": "Önemsiz Biri 2",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/82C04rTiXYZ7c8XZv91Nu53w82Y.webp?v=1785656986",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/82C04rTiXYZ7c8XZv91Nu53w82Y.webp?v=1785656986",
-      "description": "Önemsiz Biri 2 (2025) full HD, Türkçe dublaj ve altyazılı izle. Rus mafyasıyla istemeden giriştiği olayların üzerinden dört yıl geçmişken Hutch, hala suç örgütü...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "89 dk"
     }
   ]
 }
