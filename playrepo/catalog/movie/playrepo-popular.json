@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-karsi-atak",
+      "type": "movie",
+      "name": "Karşı Atak",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/deUWVEgNh2IGjShyymZhaYP40ye.webp?v=1785627980",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/deUWVEgNh2IGjShyymZhaYP40ye.webp?v=1785627980",
+      "description": "Karşı Atak (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir rehine kurtarma operasyonunun ardından yeni bir düşman edinen Yüzbaşı Guerrero ve onun elit aske...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "85 dk"
+    },
+    {
       "id": "playrepo-christopher-hayat-gercekten-guzel",
       "type": "movie",
       "name": "Christopher - Hayat Gerçekten Güzel",
@@ -1005,35 +1021,6 @@
       ],
       "posterShape": "poster",
       "runtime": "93 dk"
-    },
-    {
-      "id": "tt36428792",
-      "type": "movie",
-      "name": "Nürnberg",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZWY5NDI4ZGYtNWMwMi00ZDU5LWIxMjYtODE4YzE5NzUyZGM0XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZWY5NDI4ZGYtNWMwMi00ZDU5LWIxMjYtODE4YzE5NzUyZGM0XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Nürnberg (2025) full HD, Türkçe dublaj ve altyazılı izle. İkinci Dünya Savaşı&#039;nda görev yapan bir psikiyatrist, Nürnberg davalarından önce Nazi liderlerini değe...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://live.metahub.space/logo/medium/tt36428792/img",
-      "trailers": [
-        {
-          "source": "7PoLcEGUt9Q",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Fragman",
-          "ytId": "7PoLcEGUt9Q"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=7PoLcEGUt9Q",
-      "runtime": "149 dk"
     }
   ]
 }
