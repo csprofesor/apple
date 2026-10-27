@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-ask-pesinde-bir-yil",
+      "type": "movie",
+      "name": "Aşk Peşinde Bir Yıl",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sulUXRukzh7WSK34y8mnaUcHo3y.webp?v=1785675420",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sulUXRukzh7WSK34y8mnaUcHo3y.webp?v=1785675420",
+      "description": "Aşk Peşinde Bir Yıl (2025) full HD, Türkçe dublaj ve altyazılı izle. Annesi tarafından ergenliğindeki yapılacaklar listesini tamamlamakla görevlendirilen genç b...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "runtime": "125 dk"
+    },
+    {
       "id": "playrepo-sov-kizlarinin-sonuncusu",
       "type": "movie",
       "name": "Şov Kızlarının Sonuncusu",
@@ -1147,21 +1162,6 @@
       ],
       "posterShape": "poster",
       "runtime": "90 dk"
-    },
-    {
-      "id": "playrepo-ayi-paddington-ormanda-macera",
-      "type": "movie",
-      "name": "Ayı Paddington: Ormanda Macera",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7N7CtZftqEvgojR3QloukU0oWPg.webp?v=1785660165",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7N7CtZftqEvgojR3QloukU0oWPg.webp?v=1785660165",
-      "description": "Ayı Paddington: Ormanda Macera (2024) full HD, Türkçe dublaj ve altyazılı izle. Paddington, şu anda Emekli Ayılar Evi&#039;nde ikamet eden sevgili teyzesi Lucy&#039;yi zi...",
-      "releaseInfo": "2024",
-      "genres": [
-        "Komedi",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "106 dk"
     }
   ]
 }
