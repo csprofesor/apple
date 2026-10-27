@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt31281659",
+      "type": "movie",
+      "name": "Merv",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNmExNjYzNzMtOTJiYS00MmY2LThlN2UtODk5MjhkMmQwN2NjXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNmExNjYzNzMtOTJiYS00MmY2LThlN2UtODk5MjhkMmQwN2NjXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Merv (2025) full HD, Türkçe dublaj ve altyazılı izle. Ayrılıklarından sonra köpekleri Merv&#039;ün keyfi kaçınca, Anna ve Russ kendilerini dünyanın en tuhaf &quot;ortak v...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt31281659/img",
+      "trailers": [
+        {
+          "source": "YsQXu_9-7qA",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Merv",
+          "ytId": "YsQXu_9-7qA"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=YsQXu_9-7qA",
+      "runtime": "106 dk"
+    },
+    {
       "id": "tt35301440",
       "type": "movie",
       "name": "Mononoke the Movie: Chapter II - The Ashes of Rage",
@@ -1194,22 +1223,6 @@
       ],
       "posterShape": "poster",
       "runtime": "95 dk"
-    },
-    {
-      "id": "playrepo-daima-seninle",
-      "type": "movie",
-      "name": "Daima Seninle",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xm1FGWFXaDXdQuk3gyLt6DHDQJQ.webp?v=1785631458",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xm1FGWFXaDXdQuk3gyLt6DHDQJQ.webp?v=1785631458",
-      "description": "Daima Seninle (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir adam, trajik bir kazada kaybettiği sevgilisini Lucid rüyalar sayesinde geri getirme şansı sun...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "118 dk"
     }
   ]
 }
