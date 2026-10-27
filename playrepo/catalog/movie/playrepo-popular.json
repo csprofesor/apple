@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-i-liski-hedefleri",
+      "type": "movie",
+      "name": "İlişki Hedefleri",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dFdFQaffaBNBNM5hzinc6Q0oWDZ.webp?v=1785139624",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dFdFQaffaBNBNM5hzinc6Q0oWDZ.webp?v=1785139624",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "İlişki Hedefleri (2026) full HD, Türkçe dublaj ve altyazılı izle. İşler birden karmaşıklaştı. Televizyon yapımcısı Leah Caldwell, New York&#039;un en iyi sabah progr...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-oflu-hoca-5-evliluk",
       "type": "movie",
       "name": "Oflu Hoca 5: Evliluk",
@@ -1246,29 +1269,6 @@
       ],
       "posterShape": "poster",
       "runtime": "45 dk"
-    },
-    {
-      "id": "playrepo-sevgili-suikastcim",
-      "type": "movie",
-      "name": "Sevgili Suikastçım",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xA6AM5MvEkieZKlv1Tn3sN23I7i.webp?v=1785107581",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xA6AM5MvEkieZKlv1Tn3sN23I7i.webp?v=1785107581",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Sevgili Suikastçım (2026) full HD, Türkçe dublaj ve altyazılı izle. Nadir bulunan kan grubu sebebiyle hedef hâline gelen bir kadın, âşık olduğu ölümcül suikastç...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Suç, Polisiye & Gizem",
-        "Korku & Gerilim",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "128 dk"
     }
   ]
 }
