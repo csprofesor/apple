@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt33305511",
+      "type": "movie",
+      "name": "Umami",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNGYxMGU4YjktNmQwZS00M2M5LTkxZTctM2ZkZjA1OTYxYTRkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNGYxMGU4YjktNmQwZS00M2M5LTkxZTctM2ZkZjA1OTYxYTRkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Umami (2025) full HD, Türkçe dublaj ve altyazılı izle. İstanbul’un en prestijli restoranlarından birinin sahibi şef Sina Bora, yılın en hareketli gecesinde hem....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt33305511/img",
+      "runtime": "120 dk"
+    },
+    {
       "id": "playrepo-yikim-ekibi",
       "type": "movie",
       "name": "Yıkım Ekibi",
@@ -1313,28 +1328,6 @@
       ],
       "posterShape": "poster",
       "runtime": "88 dk"
-    },
-    {
-      "id": "playrepo-dayi-bir-adamin-hik-yesi-2",
-      "type": "movie",
-      "name": "Dayı: Bir Adamın Hikâyesi 2",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cXja2YxJblBCm1BjjaN4yvDgHqI.webp?v=1785120547",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cXja2YxJblBCm1BjjaN4yvDgHqI.webp?v=1785120547",
-      "description": "Dayı: Bir Adamın Hikâyesi 2 (2025) full HD, Türkçe dublaj ve altyazılı izle. Acımasız bir gangster, kendi şeref kurallarına göre adalet dağıtır.",
-      "releaseInfo": "2025",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Aile",
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Suç & Polisiye",
-        "Korku & Gerilim",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "108 dk"
     }
   ]
 }
