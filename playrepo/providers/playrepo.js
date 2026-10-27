@@ -796,12 +796,17 @@ async function resolveAndCapStreams(rawStreams) {
                 if (subUrl.includes("sub.php") && !subUrl.includes(".vtt")) {
                     subUrl = subUrl.includes("?") ? `${subUrl}&ext=.vtt` : `${subUrl}#.vtt`;
                 }
-                const rawLang = (sub.lang || sub.id || "").toLowerCase();
+                const rawLang = (sub.lang || sub.language || sub.id || "").toLowerCase();
                 const isTurkish = rawLang.includes("tr") || rawLang.includes("türk") || rawLang.includes("tur") || rawLang.includes("tam") || rawLang.includes("forced");
                 return {
                     id: sub.id || `sub_${sIdx}`,
                     url: subUrl,
-                    lang: isTurkish ? "tur" : (rawLang || "tur")
+                    lang: isTurkish ? "tur" : (rawLang || "tur"),
+                    language: isTurkish ? "Turkish" : (sub.language || "Turkish"),
+                    name: isTurkish ? "Türkçe" : (sub.name || "Türkçe"),
+                    label: isTurkish ? "Türkçe" : (sub.label || "Türkçe"),
+                    format: "vtt",
+                    type: "text/vtt"
                 };
             });
         }

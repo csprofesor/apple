@@ -780,6 +780,11 @@ class GitHubPublisher {
                                 addProperty("id", sub.id)
                                 addProperty("url", sub.url)
                                 addProperty("lang", sub.lang)
+                                addProperty("language", if (sub.lang.contains("tr", true) || sub.lang.contains("tur", true)) "Turkish" else sub.lang)
+                                addProperty("name", "Türkçe")
+                                addProperty("label", "Türkçe")
+                                addProperty("format", "vtt")
+                                addProperty("type", "text/vtt")
                             }
                             subArr.add(subObj)
                         }
