@@ -1,6 +1,39 @@
 {
   "metas": [
     {
+      "id": "tt26325131",
+      "type": "movie",
+      "name": "Momo",
+      "poster": "https://m.media-amazon.com/images/M/MV5BM2NmMzY3MjItM2Q2Ni00MDZjLTg4MTMtNDYxODBlN2E4MjRmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BM2NmMzY3MjItM2Q2Ni00MDZjLTg4MTMtNDYxODBlN2E4MjRmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Momo (2025) full HD, Türkçe dublaj ve altyazılı izle. Michael Ende’nin klasik romanından uyarlanan Momo, izleyiciyi zamanın değerini sorgulatan büyüleyici bir y...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt26325131/img",
+      "trailers": [
+        {
+          "source": "Ck-ryQT9B8w",
+          "type": "Trailer"
+        },
+        {
+          "source": "KnDX7WA4djM",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Fragman",
+          "ytId": "Ck-ryQT9B8w"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=Ck-ryQT9B8w",
+      "runtime": "93 dk"
+    },
+    {
       "id": "playrepo-kardes-takimi-3",
       "type": "movie",
       "name": "Kardeş Takımı 3",
@@ -1216,22 +1249,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=YIcga73lPFE",
       "runtime": "96 dk"
-    },
-    {
-      "id": "playrepo-mukemmel-komsu",
-      "type": "movie",
-      "name": "Mükemmel Komşu",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2a3CC6VpCjqZ23Fe18GstMGg5Pj.webp?v=1785676603",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2a3CC6VpCjqZ23Fe18GstMGg5Pj.webp?v=1785676603",
-      "description": "Mükemmel Komşu (2025) full HD, Türkçe dublaj ve altyazılı izle. Korkuları, ön yargıları ve &quot;nefsi müdafaa&quot; yasasını konu alan bu belgeselde polis kameraları, uz...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Suç & Polisiye",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "97 dk"
     }
   ]
 }
