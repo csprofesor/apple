@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-plastik-detoksu",
+      "type": "movie",
+      "name": "Plastik Detoksu",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/q3VkiqQi7syrVANAK8PjgIry0Vx.webp?v=1785152035",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/q3VkiqQi7syrVANAK8PjgIry0Vx.webp?v=1785152035",
+      "description": "Plastik Detoksu (2026) full HD, Türkçe dublaj ve altyazılı izle. Gerçekleri gözler önüne seren bu belgesel, açıklanamayan kısırlık sorunu olan altı çiftin çocuk...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "92 dk"
+    },
+    {
       "id": "playrepo-irmandade-kardeslik-i-syani",
       "type": "movie",
       "name": "Irmandade: Kardeşlik İsyanı",
@@ -1322,27 +1344,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-askin-yuzu",
-      "type": "movie",
-      "name": "Aşkın Yüzü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wDKJqWo8bwqdJCPQJNemeRDioKI.webp?v=1785111954",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wDKJqWo8bwqdJCPQJNemeRDioKI.webp?v=1785111954",
-      "description": "Aşkın Yüzü (2025) full HD, Türkçe dublaj ve altyazılı izle. Lise öğrencisi Özgür, nadir bir hastalık olan yüz körlüğü ile yaşar. Özlem ile tanıştığında araların...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }

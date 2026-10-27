@@ -9504,5 +9504,75 @@
         }
       }
     }
+  ],
+  "playrepo-plastik-detoksu": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=c42a208bf50520079ef436466d717ad2&token=eyJ2IjoiYzQyYTIwOGJmNTA1MjAwNzllZjQzNjQ2NmQ3MTdhZDIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyOTIwLCJuIjoiNmE0NmMyYTc5NzI2In0.a01a1bc1d680b2ed49a691d960697fbc205b51906208367fdf7c0fff1d70e7a8&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=Pbs3Kna30zJa5qYHq-fh8w",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Pbs3Kna30zJa5qYHq-fh8w"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=c42a208bf50520079ef436466d717ad2&sid=07c3633ceb77fe26327dfa187f6cc327&token=eyJ2IjoiYzQyYTIwOGJmNTA1MjAwNzllZjQzNjQ2NmQ3MTdhZDIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyOTIwLCJuIjoiNmE0NmMyYTc5NzI2In0.a01a1bc1d680b2ed49a691d960697fbc205b51906208367fdf7c0fff1d70e7a8",
+          "lang": "Tam (Türkçe) (PGS)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=c42a208bf50520079ef436466d717ad2&sid=0f03bf93c90d698a09a77f8ba094820e&token=eyJ2IjoiYzQyYTIwOGJmNTA1MjAwNzllZjQzNjQ2NmQ3MTdhZDIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyOTIwLCJuIjoiNmE0NmMyYTc5NzI2In0.a01a1bc1d680b2ed49a691d960697fbc205b51906208367fdf7c0fff1d70e7a8",
+          "lang": "Türkçe (Forced) (PGS)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Pbs3Kna30zJa5qYHq-fh8w"
+          }
+        }
+      }
+    }
+  ],
+  "plastik-detoksu": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=c42a208bf50520079ef436466d717ad2&token=eyJ2IjoiYzQyYTIwOGJmNTA1MjAwNzllZjQzNjQ2NmQ3MTdhZDIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyOTIwLCJuIjoiNmE0NmMyYTc5NzI2In0.a01a1bc1d680b2ed49a691d960697fbc205b51906208367fdf7c0fff1d70e7a8&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=Pbs3Kna30zJa5qYHq-fh8w",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Pbs3Kna30zJa5qYHq-fh8w"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=c42a208bf50520079ef436466d717ad2&sid=07c3633ceb77fe26327dfa187f6cc327&token=eyJ2IjoiYzQyYTIwOGJmNTA1MjAwNzllZjQzNjQ2NmQ3MTdhZDIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyOTIwLCJuIjoiNmE0NmMyYTc5NzI2In0.a01a1bc1d680b2ed49a691d960697fbc205b51906208367fdf7c0fff1d70e7a8",
+          "lang": "Tam (Türkçe) (PGS)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=c42a208bf50520079ef436466d717ad2&sid=0f03bf93c90d698a09a77f8ba094820e&token=eyJ2IjoiYzQyYTIwOGJmNTA1MjAwNzllZjQzNjQ2NmQ3MTdhZDIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyOTIwLCJuIjoiNmE0NmMyYTc5NzI2In0.a01a1bc1d680b2ed49a691d960697fbc205b51906208367fdf7c0fff1d70e7a8",
+          "lang": "Türkçe (Forced) (PGS)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Pbs3Kna30zJa5qYHq-fh8w"
+          }
+        }
+      }
+    }
   ]
 }
