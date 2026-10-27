@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-sicak-bufe",
+      "type": "movie",
+      "name": "Sıcak Büfe",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/atP3obwP8yfaCRzupO5T3r2cGfU.webp?v=1785145600",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/atP3obwP8yfaCRzupO5T3r2cGfU.webp?v=1785145600",
+      "description": "Sıcak Büfe (2025) full HD, Türkçe dublaj ve altyazılı izle. Cihangir ve Hakan, babalarından kalan dükkanda büfecilik yaparak geçimlerini sağlayan kardeşlerdir.....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "106 dk"
+    },
+    {
       "id": "playrepo-sicc-n-8",
       "type": "movie",
       "name": "Siccîn 8",
@@ -1032,34 +1047,6 @@
       ],
       "posterShape": "poster",
       "runtime": "88 dk"
-    },
-    {
-      "id": "tt39578551",
-      "type": "movie",
-      "name": "BTS: The Return",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYjgyNWQ0Y2MtYmNkMi00NGEyLThiNjUtYzc4ZDg0ZWVlYmU2XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYjgyNWQ0Y2MtYmNkMi00NGEyLThiNjUtYzc4ZDg0ZWVlYmU2XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "BTS: THE RETURN (2026) full HD, Türkçe dublaj ve altyazılı izle. Geri döndüler! Bu belgesel, yeni bir döneme giren ve &quot;ARIRANG&quot; albümünü kaydetmek için Los Ange...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt39578551/img",
-      "trailers": [
-        {
-          "source": "jRig7JvOpWg",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "BTS: The Return",
-          "ytId": "jRig7JvOpWg"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=jRig7JvOpWg",
-      "runtime": "93 dk"
     }
   ]
 }
