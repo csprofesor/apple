@@ -1,6 +1,42 @@
 {
   "metas": [
     {
+      "id": "tt33549447",
+      "type": "movie",
+      "name": "Anemone",
+      "poster": "https://m.media-amazon.com/images/M/MV5BM2UyNzdjZTQtN2IzNy00Yjc5LTgyMzUtN2UxMjdjYTQzMTkzXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BM2UyNzdjZTQtN2IzNy00Yjc5LTgyMzUtN2UxMjdjYTQzMTkzXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Anemone (2025) full HD, Türkçe dublaj ve altyazılı izle. Erkek kardeşler, babalar ve oğullar arasında var olan karmaşık ve derin bağları keşfedin.",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt33549447/img",
+      "trailers": [
+        {
+          "source": "uS7DHGFXkNY",
+          "type": "Trailer"
+        },
+        {
+          "source": "HVqoyMi98OI",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Anemone",
+          "ytId": "uS7DHGFXkNY"
+        },
+        {
+          "title": "Anemone",
+          "ytId": "HVqoyMi98OI"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=uS7DHGFXkNY",
+      "runtime": "125 dk"
+    },
+    {
       "id": "playrepo-wicked-i-yilik-ugruna",
       "type": "movie",
       "name": "Wicked: İyilik Uğruna",
@@ -1017,22 +1053,6 @@
       ],
       "posterShape": "poster",
       "runtime": "117 dk"
-    },
-    {
-      "id": "playrepo-i-liski-hedefleri",
-      "type": "movie",
-      "name": "İlişki Hedefleri",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dFdFQaffaBNBNM5hzinc6Q0oWDZ.webp?v=1785139624",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dFdFQaffaBNBNM5hzinc6Q0oWDZ.webp?v=1785139624",
-      "description": "İlişki Hedefleri (2026) full HD, Türkçe dublaj ve altyazılı izle. İşler birden karmaşıklaştı. Televizyon yapımcısı Leah Caldwell, New York&#039;un en iyi sabah progr...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "96 dk"
     }
   ]
 }

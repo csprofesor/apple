@@ -1,6 +1,42 @@
 {
   "metas": [
     {
+      "id": "tt33549447",
+      "type": "movie",
+      "name": "Anemone",
+      "poster": "https://m.media-amazon.com/images/M/MV5BM2UyNzdjZTQtN2IzNy00Yjc5LTgyMzUtN2UxMjdjYTQzMTkzXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BM2UyNzdjZTQtN2IzNy00Yjc5LTgyMzUtN2UxMjdjYTQzMTkzXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Anemone (2025) full HD, Türkçe dublaj ve altyazılı izle. Erkek kardeşler, babalar ve oğullar arasında var olan karmaşık ve derin bağları keşfedin.",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt33549447/img",
+      "trailers": [
+        {
+          "source": "uS7DHGFXkNY",
+          "type": "Trailer"
+        },
+        {
+          "source": "HVqoyMi98OI",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Anemone",
+          "ytId": "uS7DHGFXkNY"
+        },
+        {
+          "title": "Anemone",
+          "ytId": "HVqoyMi98OI"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=uS7DHGFXkNY",
+      "runtime": "125 dk"
+    },
+    {
       "id": "playrepo-wicked-i-yilik-ugruna",
       "type": "movie",
       "name": "Wicked: İyilik Uğruna",
