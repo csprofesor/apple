@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-orumcek-kadinin-opucugu",
+      "type": "movie",
+      "name": "Örümcek Kadının Öpücüğü",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pSjRDluxao3wVcTUG6DKanVlrcB.webp?v=1785556592",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pSjRDluxao3wVcTUG6DKanVlrcB.webp?v=1785556592",
+      "description": "Örümcek Kadının Öpücüğü (2025) full HD, Türkçe dublaj ve altyazılı izle. Manuel Puig’in ünlü romanını temel alarak sahnelenen ve Broadway’i kasıp kavuran Kander...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "128 dk"
+    },
+    {
       "id": "playrepo-takintili-dost",
       "type": "movie",
       "name": "Takıntılı Dost",
@@ -1205,24 +1221,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-alacakli",
-      "type": "movie",
-      "name": "Alacaklı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dk68ykaNd3HdrDJyPJqEGsgvag7.webp?v=1785183049",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dk68ykaNd3HdrDJyPJqEGsgvag7.webp?v=1785183049",
-      "description": "Alacaklı (2026) full HD, Türkçe dublaj ve altyazılı izle. Ölümcül bir hastalıkla yüzleşen ve geçmişinin karanlık izlerinden kaçamayan eski bir borç tahsildarı,....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Korku & Gerilim",
-        "Aksiyon & Macera",
-        "Netflix",
-        "Popüler",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "runtime": "134 dk"
     }
   ]
 }
