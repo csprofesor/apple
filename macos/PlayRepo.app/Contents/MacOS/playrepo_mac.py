@@ -143,9 +143,23 @@ def unpack_packer_js(packed: str) -> str:
 
     return re.sub(r"\b\w+\b", repl, payload).replace(r"\/", "/")
 
-def is_similar_title(target: str, cand: str) -> bool:
+def is_similar_title(target: str, cand: str, target_year: str = None, cand_year: str = None) -> bool:
     if not target or not cand:
         return False
+
+    # Yıl kontrolü: Eğer iki tarafın da yılı biliniyorsa ve fark 1 yıldan fazlaysa (örn 1993 vs 2026) ASLA eşleştirme!
+    if target_year and cand_year:
+        try:
+            m_ty = re.search(r'\d{4}', str(target_year))
+            m_cy = re.search(r'\d{4}', str(cand_year))
+            if m_ty and m_cy:
+                y_t = int(m_ty.group(0))
+                y_c = int(m_cy.group(0))
+                if abs(y_t - y_c) > 1:
+                    return False
+        except Exception:
+            pass
+
     t_clean = re.sub(r'[^a-zA-Z0-9]+', '', target).lower()
     c_clean = re.sub(r'[^a-zA-Z0-9]+', '', cand).lower()
     if t_clean == c_clean:
@@ -162,7 +176,7 @@ def is_similar_title(target: str, cand: str) -> bool:
     c_ratio = overlap / len(c_words)
 
     # Both sides must agree to prevent one-word titles matching completely different movies
-    return t_ratio >= 0.7 and c_ratio >= 0.7
+    return t_ratio >= 0.75 and c_ratio >= 0.75
 
 # -------------------------------------------------------------
 # Scraper Engine
@@ -742,10 +756,10 @@ class ScraperEngine:
                 candidate_embeds.append((u_clean, lang))
 
         # 0. Pilavyer / DiziMom player detection (data-pv="OPAK_SLUG" in HTML or templates)
-        pv_matches = re.findall(r'data-pv=["\']([^"\']+)["\']', html)
+        pv_matches = re.findall(r'data-pv=["\']([^"\']+)["\']', clean_player_html)
         if pv_matches:
             pilav_base = "https://pilavyerplay.top"
-            core_script_m = re.search(r'["\'](https?://[^"\'\s]*/(?:assets/js/core|e/c)\.js[^"\'\s]*)["\']', html, re.I)
+            core_script_m = re.search(r'["\'](https?://[^"\'\s]*/(?:assets/js/core|e/c)\.js[^"\'\s]*)["\']', clean_player_html, re.I)
             if core_script_m:
                 parsed_c = urllib.parse.urlsplit(core_script_m.group(1))
                 pilav_base = f"{parsed_c.scheme}://{parsed_c.netloc}"
@@ -999,12 +1013,12 @@ class ScraperEngine:
             q = urllib.parse.quote(clean_q)
             cm_res = http_json(f"https://v3-cinemeta.strem.io/catalog/{media_kind}/top/search={q}.json")
             metas = cm_res.get("metas", [])
-            matched = [m for m in metas if is_similar_title(clean_q, m.get("name"))]
+            matched = [m for m in metas if is_similar_title(clean_q, m.get("name"), target_year=year, cand_year=m.get("releaseInfo"))]
             if not matched:
                 alt_kind = "movie" if is_series else "series"
                 alt_res = http_json(f"https://v3-cinemeta.strem.io/catalog/{alt_kind}/top/search={q}.json")
                 alt_metas = alt_res.get("metas", [])
-                matched = [m for m in alt_metas if is_similar_title(clean_q, m.get("name"))]
+                matched = [m for m in alt_metas if is_similar_title(clean_q, m.get("name"), target_year=year, cand_year=m.get("releaseInfo"))]
 
             if matched:
                 m0 = matched[0]
@@ -1037,11 +1051,11 @@ class ScraperEngine:
                 q = urllib.parse.quote(clean_q)
                 endpoint = "tv" if is_series else "movie"
                 tm_res = http_json(f"https://api.themoviedb.org/3/search/{endpoint}?api_key={tmdb_key}&query={q}&language=tr-TR")
-                results = [r for r in tm_res.get("results", []) if is_similar_title(clean_q, r.get("title") or r.get("name"))]
+                results = [r for r in tm_res.get("results", []) if is_similar_title(clean_q, r.get("title") or r.get("name"), target_year=year, cand_year=r.get("release_date") or r.get("first_air_date"))]
                 if not results:
                     alt_ep = "movie" if is_series else "tv"
                     alt_tm = http_json(f"https://api.themoviedb.org/3/search/{alt_ep}?api_key={tmdb_key}&query={q}&language=tr-TR")
-                    results = [r for r in alt_tm.get("results", []) if is_similar_title(clean_q, r.get("title") or r.get("name"))]
+                    results = [r for r in alt_tm.get("results", []) if is_similar_title(clean_q, r.get("title") or r.get("name"), target_year=year, cand_year=r.get("release_date") or r.get("first_air_date"))]
                     if results:
                         endpoint = alt_ep
 
@@ -1191,6 +1205,9 @@ class GitHubAtomicPublisher:
             streams_map[m_id] = m["streams"]
             streams_map[hyphen_id] = m["streams"]
             streams_map[safe_id] = m["streams"]
+            if clean_id:
+                streams_map[clean_id] = m["streams"]
+                streams_map[f"playrepo-{clean_id}"] = m["streams"]
 
             vid_obj = {
                 "id": vid_id,

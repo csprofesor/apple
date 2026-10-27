@@ -402,10 +402,12 @@ async function getMeta(arg1, arg2) {
                 const metas = Array.isArray(catalogData) ? catalogData : (catalogData.metas || []);
 
                 const normTarget = idStr.toLowerCase().replace(/[:_]/g, "-");
+                const normClean = cleanId.toLowerCase().replace(/[:_]/g, "-");
                 const found = metas.find(m => {
                     if (!m || !m.id) return false;
                     const normM = m.id.toLowerCase().replace(/[:_]/g, "-");
-                    return normM === normTarget || m.id === idStr || m.id === hyphenId || m.id === safeId || m.id === cleanId || normM.endsWith(normTarget) || normTarget.endsWith(normM);
+                    return normM === normTarget || normM === normClean || normM === `playrepo-${normClean}` || normTarget === `playrepo-${normM}` ||
+                           m.id === idStr || m.id === hyphenId || m.id === safeId || m.id === cleanId;
                 });
 
                 if (found) {
@@ -678,12 +680,16 @@ async function getStreams(arg1, arg2, arg3, arg4) {
 
         if (allStreams) {
             const normTarget = idStr.toLowerCase().replace(/[:_]/g, "-");
-            let itemStreams = allStreams[idStr] || allStreams[hyphenId] || allStreams[safeId] || allStreams[cleanId] || allStreams[`movie/${cleanId}`] || allStreams[`tmdb:${cleanId}`] || allStreams[`playrepo:${cleanId}`];
+            const normClean = cleanId.toLowerCase().replace(/[:_]/g, "-");
+            let itemStreams = allStreams[idStr] || allStreams[hyphenId] || allStreams[safeId] || allStreams[cleanId] ||
+                              allStreams[`playrepo-${cleanId}`] || allStreams[`playrepo-${normClean}`] ||
+                              allStreams[`movie/${cleanId}`] || allStreams[`tmdb:${cleanId}`] || allStreams[`playrepo:${cleanId}`];
 
             if (!itemStreams || itemStreams.length === 0) {
+                // Sadece ve sadece TAM EŞLEŞME (Exact normalized match) - asla endsWith veya alt metin tahmini yapma!
                 for (const k of Object.keys(allStreams)) {
                     const normK = k.toLowerCase().replace(/[:_]/g, "-");
-                    if (normK === normTarget || normK.endsWith(normTarget) || normTarget.endsWith(normK)) {
+                    if (normK === normTarget || normK === normClean || normK === `playrepo-${normClean}` || normTarget === `playrepo-${normK}`) {
                         itemStreams = allStreams[k];
                         break;
                     }

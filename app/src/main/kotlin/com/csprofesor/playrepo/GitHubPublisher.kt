@@ -307,6 +307,7 @@ class GitHubPublisher {
                 cleanedDataMap[hyphenId] = renumbered
                 cleanedDataMap[safeId] = renumbered
                 cleanedDataMap[cleanId] = renumbered
+                cleanedDataMap["playrepo-$cleanId"] = renumbered
                 cleanedDataMap["movie/$cleanId"] = renumbered
             }
         }

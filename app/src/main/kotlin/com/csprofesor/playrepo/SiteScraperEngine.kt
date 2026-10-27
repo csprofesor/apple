@@ -25,8 +25,18 @@ class SiteScraperEngine {
     companion object {
         const val LOGO_URL = "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png"
 
-        fun isSimilarTitle(target: String, candidate: String): Boolean {
+        fun isSimilarTitle(target: String, candidate: String, targetYear: String? = null, candYear: String? = null): Boolean {
             if (target.isBlank() || candidate.isBlank()) return false
+
+            // Yıl kontrolü: Eğer iki tarafın da yılı biliniyorsa ve fark 1 yıldan fazlaysa asla eşleştirme!
+            if (!targetYear.isNullOrBlank() && !candYear.isNullOrBlank()) {
+                val yT = Regex("""\d{4}""").find(targetYear)?.value?.toIntOrNull()
+                val yC = Regex("""\d{4}""").find(candYear)?.value?.toIntOrNull()
+                if (yT != null && yC != null && Math.abs(yT - yC) > 1) {
+                    return false
+                }
+            }
+
             val tClean = target.replace(Regex("""[^a-zA-Z0-9]+"""), "").lowercase()
             val cClean = candidate.replace(Regex("""[^a-zA-Z0-9]+"""), "").lowercase()
             if (tClean == cClean) return true
@@ -40,7 +50,7 @@ class SiteScraperEngine {
             val overlap = (tWords intersect cWords).size.toDouble()
             val tRatio = overlap / tWords.size.toDouble()
             val cRatio = overlap / cWords.size.toDouble()
-            return tRatio >= 0.7 && cRatio >= 0.7
+            return tRatio >= 0.75 && cRatio >= 0.75
         }
     }
 
@@ -596,10 +606,10 @@ class SiteScraperEngine {
             }
 
             // 0. Pilavyer / DiziMom player detection (data-pv="OPAK_SLUG" in raw HTML or templates)
-            val pvMatches = Regex("""data-pv=["']([^"']+)["']""").findAll(html).map { it.groupValues[1] }.toList()
+            val pvMatches = Regex("""data-pv=["']([^"']+)["']""").findAll(doc.html()).map { it.groupValues[1] }.toList()
             if (pvMatches.isNotEmpty()) {
                 var pilavBase = "https://pilavyerplay.top"
-                val coreScriptMatch = Regex("""["'](https?://[^"'\s]*/(?:assets/js/core|e/c)\.js[^"'\s]*)["']""", RegexOption.IGNORE_CASE).find(html)
+                val coreScriptMatch = Regex("""["'](https?://[^"'\s]*/(?:assets/js/core|e/c)\.js[^"'\s]*)["']""", RegexOption.IGNORE_CASE).find(doc.html())
                 if (coreScriptMatch != null) {
                     try {
                         val parsedUri = java.net.URI(coreScriptMatch.groupValues[1])
@@ -1544,7 +1554,8 @@ class SiteScraperEngine {
                         for (i in 0 until metas.size()) {
                             val m = metas.get(i).asJsonObject
                             val name = m.get("name")?.asString.orEmpty()
-                            if (isSimilarTitle(cleanQ, name)) {
+                            val candYear = m.get("releaseInfo")?.asString
+                            if (isSimilarTitle(cleanQ, name, targetYear = year, candYear = candYear)) {
                                 matchedMeta = m
                                 break
                             }
@@ -1567,7 +1578,8 @@ class SiteScraperEngine {
                             for (i in 0 until metas.size()) {
                                 val m = metas.get(i).asJsonObject
                                 val name = m.get("name")?.asString.orEmpty()
-                                if (isSimilarTitle(cleanQ, name)) {
+                                val candYear = m.get("releaseInfo")?.asString
+                                if (isSimilarTitle(cleanQ, name, targetYear = year, candYear = candYear)) {
                                     matchedMeta = m
                                     matchedKind = altKind
                                     break
@@ -1641,7 +1653,8 @@ class SiteScraperEngine {
                             for (i in 0 until results.size()) {
                                 val r = results.get(i).asJsonObject
                                 val candTitle = r.get("title")?.asString ?: r.get("name")?.asString.orEmpty()
-                                if (isSimilarTitle(cleanQ, candTitle)) {
+                                val candYear = r.get("release_date")?.asString ?: r.get("first_air_date")?.asString
+                                if (isSimilarTitle(cleanQ, candTitle, targetYear = year, candYear = candYear)) {
                                     matchedMovie = r
                                     break
                                 }
@@ -1663,7 +1676,8 @@ class SiteScraperEngine {
                                 for (i in 0 until results.size()) {
                                     val r = results.get(i).asJsonObject
                                     val candTitle = r.get("title")?.asString ?: r.get("name")?.asString.orEmpty()
-                                    if (isSimilarTitle(cleanQ, candTitle)) {
+                                    val candYear = r.get("release_date")?.asString ?: r.get("first_air_date")?.asString
+                                    if (isSimilarTitle(cleanQ, candTitle, targetYear = year, candYear = candYear)) {
                                         matchedMovie = r
                                         matchedEp = altEp
                                         break
