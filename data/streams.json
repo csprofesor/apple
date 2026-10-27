@@ -4372,5 +4372,75 @@
         }
       }
     }
+  ],
+  "playrepo-yiya-murano-cay-saati-cinayetleri": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=d52ebefa07baa358b20b50b2a03e1606&token=eyJ2IjoiZDUyZWJlZmEwN2JhYTM1OGIyMGI1MGIyYTAzZTE2MDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMwMjM0LCJuIjoiYzBmZTMxNmY2MGYzIn0.43e32191138c0fef6ded9c2e5e9ff8f556d63029af9ca6fbb3a571ae2446f42f&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=Mh38cwCAJqz6If7J9Uf2ww",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Mh38cwCAJqz6If7J9Uf2ww"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=d52ebefa07baa358b20b50b2a03e1606&sid=907172bd711e09420b13a6570ea23906&token=eyJ2IjoiZDUyZWJlZmEwN2JhYTM1OGIyMGI1MGIyYTAzZTE2MDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMwMjM0LCJuIjoiYzBmZTMxNmY2MGYzIn0.43e32191138c0fef6ded9c2e5e9ff8f556d63029af9ca6fbb3a571ae2446f42f",
+          "lang": "Tam (Türkçe)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=d52ebefa07baa358b20b50b2a03e1606&sid=bab4b56b76b166632f5a2546ac9501e8&token=eyJ2IjoiZDUyZWJlZmEwN2JhYTM1OGIyMGI1MGIyYTAzZTE2MDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMwMjM0LCJuIjoiYzBmZTMxNmY2MGYzIn0.43e32191138c0fef6ded9c2e5e9ff8f556d63029af9ca6fbb3a571ae2446f42f",
+          "lang": "Türkçe (Forced)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Mh38cwCAJqz6If7J9Uf2ww"
+          }
+        }
+      }
+    }
+  ],
+  "yiya-murano-cay-saati-cinayetleri": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=d52ebefa07baa358b20b50b2a03e1606&token=eyJ2IjoiZDUyZWJlZmEwN2JhYTM1OGIyMGI1MGIyYTAzZTE2MDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMwMjM0LCJuIjoiYzBmZTMxNmY2MGYzIn0.43e32191138c0fef6ded9c2e5e9ff8f556d63029af9ca6fbb3a571ae2446f42f&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=Mh38cwCAJqz6If7J9Uf2ww",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Mh38cwCAJqz6If7J9Uf2ww"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=d52ebefa07baa358b20b50b2a03e1606&sid=907172bd711e09420b13a6570ea23906&token=eyJ2IjoiZDUyZWJlZmEwN2JhYTM1OGIyMGI1MGIyYTAzZTE2MDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMwMjM0LCJuIjoiYzBmZTMxNmY2MGYzIn0.43e32191138c0fef6ded9c2e5e9ff8f556d63029af9ca6fbb3a571ae2446f42f",
+          "lang": "Tam (Türkçe)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=d52ebefa07baa358b20b50b2a03e1606&sid=bab4b56b76b166632f5a2546ac9501e8&token=eyJ2IjoiZDUyZWJlZmEwN2JhYTM1OGIyMGI1MGIyYTAzZTE2MDYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMwMjM0LCJuIjoiYzBmZTMxNmY2MGYzIn0.43e32191138c0fef6ded9c2e5e9ff8f556d63029af9ca6fbb3a571ae2446f42f",
+          "lang": "Türkçe (Forced)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Mh38cwCAJqz6If7J9Uf2ww"
+          }
+        }
+      }
+    }
   ]
 }
