@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-ajan-zeta",
+      "type": "movie",
+      "name": "Ajan Zeta",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ptcyGmBonW6mDQmrPhXbt6Rjrlp.webp?v=1787012780",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ptcyGmBonW6mDQmrPhXbt6Rjrlp.webp?v=1787012780",
+      "description": "Ajan Zeta (2026) full HD, Türkçe dublaj ve altyazılı izle. Dört eski İspanyol istihbarat görevlisi, dünyanın farklı yerlerinde suikasta uğrar. CNI, hepsinin yıl...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "133 dk"
+    },
+    {
       "id": "playrepo-lee-cronin-039-den-mumya",
       "type": "movie",
       "name": "Lee Cronin&#039;den Mumya",
@@ -1161,21 +1177,6 @@
       ],
       "posterShape": "poster",
       "runtime": "91 dk"
-    },
-    {
-      "id": "playrepo-kotulugun-hediyesi",
-      "type": "movie",
-      "name": "Kötülüğün Hediyesi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/da1mXvCrQrFcw6BxovCavBFbIvz.webp?v=1785683014",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/da1mXvCrQrFcw6BxovCavBFbIvz.webp?v=1785683014",
-      "description": "Kötülüğün Hediyesi (2025) full HD, Türkçe dublaj ve altyazılı izle. Genç bir kadın, gece yarısı beklenmedik bir ziyaretçinin bıraktığı gizemli bir hediye ile ka...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "98 dk"
     }
   ]
 }
