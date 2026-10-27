@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-dugun-soleni",
+      "type": "movie",
+      "name": "Düğün Şöleni",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bqqthiW4JzYK3hz9LrqNZQWbNz6.webp?v=1785677799",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bqqthiW4JzYK3hz9LrqNZQWbNz6.webp?v=1785677799",
+      "description": "Düğün Şöleni (2025) full HD, Türkçe dublaj ve altyazılı izle. Erkek arkadaşı Chris, onun spontane evlilik teklifini reddedince, Min en iyi arkadaşı Angela&#039;yı ev...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "103 dk"
+    },
+    {
       "id": "playrepo-kefenler",
       "type": "movie",
       "name": "Kefenler",
@@ -1139,35 +1155,6 @@
       ],
       "posterShape": "poster",
       "runtime": "135 dk"
-    },
-    {
-      "id": "tt32648798",
-      "type": "movie",
-      "name": "Revelations",
-      "poster": "https://m.media-amazon.com/images/M/MV5BOGU2YWNiMTgtMDdmMi00M2FjLWE1MmQtMDg3NTE3MzA1YWQ3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BOGU2YWNiMTgtMDdmMi00M2FjLWE1MmQtMDg3NTE3MzA1YWQ3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Revelations (2025) full HD, Türkçe dublaj ve altyazılı izle. Two married surgeons navigate a series of revelations about their partners past life.",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt32648798/img",
-      "trailers": [
-        {
-          "source": "5XcVSWOKVsY",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Revelations",
-          "ytId": "5XcVSWOKVsY"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=5XcVSWOKVsY"
     }
   ]
 }
