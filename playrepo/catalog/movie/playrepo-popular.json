@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "tt38897659",
+      "type": "movie",
+      "name": "Yaz Evi",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNjRhMjk3NjYtMTI2NS00NjNiLTk0ZGEtOTUwYzkzZTU2Yjc0XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNjRhMjk3NjYtMTI2NS00NjNiLTk0ZGEtOTUwYzkzZTU2Yjc0XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Yaz Evi (2026) full HD, Türkçe dublaj ve altyazılı izle. Selin, gittiği yaz evinde zamanda geçmişe giderek kendini annesinin gençliğinde bulur. Ailesinin kaderi...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Dram & Romantik",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt38897659/img",
+      "runtime": "105 dk"
+    },
+    {
       "id": "playrepo-peaky-blinders-olumsuz-adam",
       "type": "movie",
       "name": "Peaky Blinders: Ölümsüz Adam",
@@ -1306,28 +1322,6 @@
       ],
       "posterShape": "poster",
       "runtime": "139 dk"
-    },
-    {
-      "id": "playrepo-firtina-kiz",
-      "type": "movie",
-      "name": "Fırtına Kız",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/aspfMWgdYP3YGRbVH0OnEUdEvyP.webp?v=1787804407",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/aspfMWgdYP3YGRbVH0OnEUdEvyP.webp?v=1787804407",
-      "description": "Fırtına Kız (2026) full HD, Türkçe dublaj ve altyazılı izle. Zeynep, Diyarbakır’ın “en yetenekli ama en şanssız futbolcusu” olarak anılan babası İsmail’in tüm y...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Aile",
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Suç & Polisiye",
-        "Korku & Gerilim",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "100 dk"
     }
   ]
 }
