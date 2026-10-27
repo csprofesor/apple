@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "tt32642706",
+      "type": "movie",
+      "name": "The Rip",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNjIzMGY3MzMtNDVlMS00MGU1LTkyNTItMmI4Mzk0Mjg3OTBkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNjIzMGY3MzMtNDVlMS00MGU1LTkyNTItMmI4Mzk0Mjg3OTBkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "The Rip (2026) full HD, Türkçe dublaj ve altyazılı izle. Miamili bir polis ekibi harap bir evde milyonlarca dolarlık nakit para bulunca kimsenin kimseye güveni....",
+      "releaseInfo": "2026",
+      "genres": [
+        "Suç, Polisiye & Gizem",
+        "Aksiyon & Macera",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "runtime": "115 dk"
+    },
+    {
       "id": "tt10243264",
       "type": "movie",
       "name": "Uçurum",
@@ -1241,28 +1258,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-suc-101",
-      "type": "movie",
-      "name": "Suç 101",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kKF4gEiBDArhONlCcunHVgBp3bA.webp?v=1785116024",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kKF4gEiBDArhONlCcunHVgBp3bA.webp?v=1785116024",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Suç 101 (2026) full HD, Türkçe dublaj ve altyazılı izle. Bir dizi mücevher hırsızlığı meydana geldiğinde polis, bunun arkasında Kolombiyalı kartelin olduğundan....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Korku & Gerilim",
-        "Komedi",
-        "Suç, Polisiye & Gizem",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "141 dk"
     }
   ]
 }
