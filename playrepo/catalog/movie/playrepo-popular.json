@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt32360696",
+      "type": "movie",
+      "name": "French Lover",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZjE0Y2M4N2EtODMxNi00NGUyLTk1YzMtYjI5OGY2N2MyNTEyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZjE0Y2M4N2EtODMxNi00NGUyLTk1YzMtYjI5OGY2N2MyNTEyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "French Lover (2025) full HD, Türkçe dublaj ve altyazılı izle. Paris&#039;te tanışan bezgin bir oyuncu ve şansı yaver gitmeyen bir garson arasında beklenmedik bir aşk...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt32360696/img",
+      "trailers": [
+        {
+          "source": "41jJ_1s8ZyY",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "French Lover",
+          "ytId": "41jJ_1s8ZyY"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=41jJ_1s8ZyY",
+      "runtime": "122 dk"
+    },
+    {
       "id": "playrepo-gabby-nin-hayal-evi-film",
       "type": "movie",
       "name": "Gabby’nin Hayal Evi: Film",
@@ -1120,22 +1149,6 @@
       ],
       "posterShape": "poster",
       "runtime": "139 dk"
-    },
-    {
-      "id": "playrepo-aileen-bir-kadinin-i-nfazi",
-      "type": "movie",
-      "name": "Aileen: Bir Kadının İnfazı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mrYoBknZhVI7jMsEe4nbbHLgLKa.webp?v=1785619116",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mrYoBknZhVI7jMsEe4nbbHLgLKa.webp?v=1785619116",
-      "description": "Aileen: Bir Kadının İnfazı (2025) full HD, Türkçe dublaj ve altyazılı izle. Kadın seri katil Aileen Wuornos&#039;un çocukken uğradığı istismardan idam koğuşundaki aç...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Suç & Polisiye",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "104 dk"
     }
   ]
 }
