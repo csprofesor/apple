@@ -5,3 +5,19 @@ build/
 local.properties
 *.iml
 .vscode/
+
+# Binary installers and release artifacts (Keep off GitHub)
+*.apk
+*.aab
+*.dmg
+*.pkg
+*.zip
+*.tar.gz
+
+# Secrets and local configurations
+*.env
+*.key
+*.token
+*config.json
+*.keystore
+*.jks
