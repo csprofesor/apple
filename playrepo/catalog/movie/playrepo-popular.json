@@ -1,6 +1,51 @@
 {
   "metas": [
     {
+      "id": "tt32606470",
+      "type": "movie",
+      "name": "Humint",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZjliZDRkZTYtYTBkNi00NzAxLTg0YmQtODE0YjVmNWNjNjhiXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZjliZDRkZTYtYTBkNi00NzAxLTg0YmQtODE0YjVmNWNjNjhiXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Humint (2026) full HD, Türkçe dublaj ve altyazılı izle. Rusya&#039;da bir uyuşturucu çetesinin izini süren Güney Koreli bir ajan, Kuzey Koreli bir ajanla karşı karşı...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Aksiyon & Macera",
+        "Suç & Polisiye"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt32606470/img",
+      "trailers": [
+        {
+          "source": "n6scQ_ds0x8",
+          "type": "Trailer"
+        },
+        {
+          "source": "rMx42FkANjQ",
+          "type": "Trailer"
+        },
+        {
+          "source": "QYALCiGQEtk",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Humint",
+          "ytId": "n6scQ_ds0x8"
+        },
+        {
+          "title": "Humint",
+          "ytId": "rMx42FkANjQ"
+        },
+        {
+          "title": "Humint",
+          "ytId": "QYALCiGQEtk"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=n6scQ_ds0x8",
+      "runtime": "120 dk"
+    },
+    {
       "id": "playrepo-gelin-takimi-2",
       "type": "movie",
       "name": "Gelin Takımı 2",
@@ -1336,28 +1381,6 @@
       ],
       "posterShape": "poster",
       "runtime": "95 dk"
-    },
-    {
-      "id": "playrepo-perde-arkasi-birlesik-krallik-liverpool-039-un-i-stanbul-mucizesi",
-      "type": "movie",
-      "name": "Perde Arkası - Birleşik Krallık: Liverpool&#039;un İstanbul Mucizesi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/83fohWMjp8t62bOQTrUoUhiMKvC.webp?v=1785098569",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/83fohWMjp8t62bOQTrUoUhiMKvC.webp?v=1785098569",
-      "description": "Perde Arkası - Birleşik Krallık: Liverpool&#039;un İstanbul Mucizesi (2026) full HD, Türkçe dublaj ve altyazılı izle. Liverpool, 2005 Şampiyonlar Ligi finalinin devr...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Aile",
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Suç & Polisiye",
-        "Korku & Gerilim",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "78 dk"
     }
   ]
 }
