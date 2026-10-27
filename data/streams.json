@@ -3172,5 +3172,51 @@
         }
       }
     }
+  ],
+  "playrepo-tom-clancy-039-den-jack-ryan-hayalet-savas": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=ff51e944207115a468f7f0b3e340435b&token=eyJ2IjoiZmY1MWU5NDQyMDcxMTVhNDY4ZjdmMGIzZTM0MDQzNWIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzA1NTU5LCJuIjoiYzc2NTdjZmU3YjljIn0.3f6f090b0f85759f18f072c0641872d78a5ae9dc9ae5b040147c988c1c4c67ae&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=BNqexL6isAHXjwpAjS9Adg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=BNqexL6isAHXjwpAjS9Adg"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=BNqexL6isAHXjwpAjS9Adg"
+          }
+        }
+      }
+    }
+  ],
+  "tom-clancy-039-den-jack-ryan-hayalet-savas": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=ff51e944207115a468f7f0b3e340435b&token=eyJ2IjoiZmY1MWU5NDQyMDcxMTVhNDY4ZjdmMGIzZTM0MDQzNWIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzA1NTU5LCJuIjoiYzc2NTdjZmU3YjljIn0.3f6f090b0f85759f18f072c0641872d78a5ae9dc9ae5b040147c988c1c4c67ae&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=BNqexL6isAHXjwpAjS9Adg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=BNqexL6isAHXjwpAjS9Adg"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=BNqexL6isAHXjwpAjS9Adg"
+          }
+        }
+      }
+    }
   ]
 }
