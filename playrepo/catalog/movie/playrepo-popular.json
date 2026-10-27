@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-saate-karsi",
+      "type": "movie",
+      "name": "Saate Karşı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/t25z4ggC2Uvs3EhI66lxVO2jDp5.webp?v=1785659547",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/t25z4ggC2Uvs3EhI66lxVO2jDp5.webp?v=1785659547",
+      "description": "Saate Karşı (2025) full HD, Türkçe dublaj ve altyazılı izle. En yakın arkadaş ve aynı zamanda ev arkadaşı olan Dreux ve Alyssa &quot;Saate Karşı&quot; bir gün geçirecekle...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "97 dk"
+    },
+    {
       "id": "playrepo-ne-eglence-ama",
       "type": "movie",
       "name": "Ne Eğlence Ama!",
@@ -1089,24 +1104,6 @@
       ],
       "posterShape": "poster",
       "runtime": "116 dk"
-    },
-    {
-      "id": "playrepo-derin-kargasa",
-      "type": "movie",
-      "name": "Derin Kargaşa",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7rKyFSg6SdLoCRCVoWLjL5k658k.webp?v=1785638968",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7rKyFSg6SdLoCRCVoWLjL5k658k.webp?v=1785638968",
-      "description": "Derin Kargaşa (2025) full HD, Türkçe dublaj ve altyazılı izle. Bezgin bir polis, ölümcül biçimde kontrolden çıkan bir uyuşturucu operasyonundan sonra, yolsuzluğ...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Aksiyon & Macera",
-        "Popüler",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "runtime": "107 dk"
     }
   ]
 }
