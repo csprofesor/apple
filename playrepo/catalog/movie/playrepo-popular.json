@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-kurtulus-projesi",
+      "type": "movie",
+      "name": "Kurtuluş Projesi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2I1OFQJ0L9T0dpU6FobKFWV2PxX.webp?v=1785104467",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2I1OFQJ0L9T0dpU6FobKFWV2PxX.webp?v=1785104467",
+      "description": "Kurtuluş Projesi (2026) full HD, Türkçe dublaj ve altyazılı izle. Fen bilgisi öğretmeni Ryland Grace, evinden ışık yılları uzakta bir uzay gemisinde uyanır, kim...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Prime Video",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "157 dk"
+    },
+    {
       "id": "playrepo-tom-clancy-039-den-jack-ryan-hayalet-savas",
       "type": "movie",
       "name": "Tom Clancy&#039;den Jack Ryan: Hayalet Savaş",
@@ -1155,35 +1172,6 @@
       ],
       "posterShape": "poster",
       "runtime": "97 dk"
-    },
-    {
-      "id": "tt34379307",
-      "type": "movie",
-      "name": "Is God Is",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMmI0ODU5MjUtYWY1OC00ZTNmLWE0ZDAtZTdkOTZhNzI4ZDllXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMmI0ODU5MjUtYWY1OC00ZTNmLWE0ZDAtZTdkOTZhNzI4ZDllXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Is God Is (2026) full HD, Türkçe dublaj ve altyazılı izle. İki kız kardeş, intikam için destansı bir göreve atılıyor: onları olağanüstü çabalara itecek, karanlı...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt34379307/img",
-      "trailers": [
-        {
-          "source": "pgtdkuNFoKk",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Is God Is",
-          "ytId": "pgtdkuNFoKk"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=pgtdkuNFoKk",
-      "runtime": "100 dk"
     }
   ]
 }
