@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-guller",
+      "type": "movie",
+      "name": "Güller",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3CPQc1pgYu0iWr1UNk2nwy2ylDE.webp?v=1785566512",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3CPQc1pgYu0iWr1UNk2nwy2ylDE.webp?v=1785566512",
+      "description": "Güller (2025) full HD, Türkçe dublaj ve altyazılı izle. Ivy ve Theo, başarılı kariyerleri, mutlu evlilikleri ve harika çocuklarıyla ideal bir hayat sürüyor gibi...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "105 dk"
+    },
+    {
       "id": "playrepo-sesin-hik-yesi",
       "type": "movie",
       "name": "Sesin Hikâyesi",
@@ -1197,23 +1213,6 @@
       ],
       "posterShape": "poster",
       "runtime": "109 dk"
-    },
-    {
-      "id": "playrepo-anakonda",
-      "type": "movie",
-      "name": "Anakonda",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/swxhEJsAWms6X1fDZ4HdbvYBSf9.webp?v=1785542325",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/swxhEJsAWms6X1fDZ4HdbvYBSf9.webp?v=1785542325",
-      "description": "Anakonda (2025) full HD, Türkçe dublaj ve altyazılı izle. Yıllardır en sevdikleri film olan Anakonda&#039;yı yeniden çekmenin hayalini kuran iki arkadaş Doug ve Grif...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "100 dk"
     }
   ]
 }
