@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "playrepo-yerime-gec",
+      "type": "movie",
+      "name": "Yerime Geç",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zMwhWailP1WY7sb6AoE6b8ugoy.webp?v=1785559075",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zMwhWailP1WY7sb6AoE6b8ugoy.webp?v=1785559075",
+      "description": "Yerime Geç (2026) full HD, Türkçe dublaj ve altyazılı izle. Ormanda yaşayan küçük bir canlıyla görkemli bir kuşun bedenleri aniden yer değiştirir ve böylece hay...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Aksiyon & Macera",
+        "Netflix",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "102 dk"
+    },
+    {
       "id": "playrepo-muhtesem-marty",
       "type": "movie",
       "name": "Muhteşem Marty",
@@ -1185,43 +1203,6 @@
       ],
       "posterShape": "poster",
       "runtime": "135 dk"
-    },
-    {
-      "id": "tt26452616",
-      "type": "movie",
-      "name": "Giant",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYmIwNWQ3YjktOWY4ZC00NjhlLTg2NGUtMjc0NTRkOTM0YWJjXkEyXkFqcGc%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYmIwNWQ3YjktOWY4ZC00NjhlLTg2NGUtMjc0NTRkOTM0YWJjXkEyXkFqcGc%40._V1_.jpg",
-      "description": "Giant (2026) full HD, Türkçe dublaj ve altyazılı izle. Follows Prince Naseem Hamed from his humble beginnings on the tough working-class streets of Sheffield an...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt26452616/img",
-      "trailers": [
-        {
-          "source": "cqg5PtgeNRc",
-          "type": "Trailer"
-        },
-        {
-          "source": "iUYO2kk1Fek",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Giant",
-          "ytId": "cqg5PtgeNRc"
-        },
-        {
-          "title": "Giant",
-          "ytId": "iUYO2kk1Fek"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=cqg5PtgeNRc",
-      "runtime": "110 dk"
     }
   ]
 }
