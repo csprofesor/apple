@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-kul",
+      "type": "movie",
+      "name": "Kül",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9KSGUPHZpqhqkRXE2eebu701ONU.webp?v=1785621789",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9KSGUPHZpqhqkRXE2eebu701ONU.webp?v=1785621789",
+      "description": "Kül (2025) full HD, Türkçe dublaj ve altyazılı izle. Bilim kurgu türündeki bir korku filmi olan Kül&#039;de, uzay istasyonunda çalışan bilim insanı Riya uykudan uyan...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "95 dk"
+    },
+    {
       "id": "playrepo-havaciligin-sinirlarini-zorlayanlar-thunderbirds",
       "type": "movie",
       "name": "Havacılığın Sınırlarını Zorlayanlar: Thunderbirds",
@@ -1060,21 +1076,6 @@
       ],
       "posterShape": "poster",
       "runtime": "97 dk"
-    },
-    {
-      "id": "playrepo-adam-039-in-i-yiligi-i-cin",
-      "type": "movie",
-      "name": "Adam&#039;ın İyiliği İçin",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1pfkf2gOSmDpayNB9U81B69Vuz6.webp?v=1785552907",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1pfkf2gOSmDpayNB9U81B69Vuz6.webp?v=1785552907",
-      "description": "Adam&#039;ın İyiliği İçin (2025) full HD, Türkçe dublaj ve altyazılı izle. Yetersiz beslenmiş dört yaşında bir çocuk hastaneye kaldırılır. Kısıtlamalara rağmen başhe...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "78 dk"
     }
   ]
 }

@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "id": "playrepo-kul",
+    "type": "movie",
+    "name": "Kül",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9KSGUPHZpqhqkRXE2eebu701ONU.webp?v=1785621789",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9KSGUPHZpqhqkRXE2eebu701ONU.webp?v=1785621789",
+    "description": "Kül (2025) full HD, Türkçe dublaj ve altyazılı izle. Bilim kurgu türündeki bir korku filmi olan Kül&#039;de, uzay istasyonunda çalışan bilim insanı Riya uykudan uyan...",
+    "releaseInfo": "2025",
+    "genres": [
+      "Korku & Gerilim",
+      "Popüler",
+      "Bilim Kurgu & Fantastik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-kul",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-kul",
+        "title": "Kül",
+        "name": "Kül",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "95 dk"
+  }
+}
