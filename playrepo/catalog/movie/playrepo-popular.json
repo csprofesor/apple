@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-fisilti-adam",
+      "type": "movie",
+      "name": "Fısıltı Adam",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uauoVKKCkNA9iWjgJCL8TdSfLf5.webp?v=1784412888",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uauoVKKCkNA9iWjgJCL8TdSfLf5.webp?v=1784412888",
+      "description": "Fısıltı Adam (2026) full HD, Türkçe dublaj ve altyazılı izle. When his young son vanishes, a widower enlists help from his estranged father, a retired detect...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "111 dk"
+    },
+    {
       "id": "tt3045628",
       "type": "movie",
       "name": "Holland",
@@ -1244,21 +1261,6 @@
       ],
       "posterShape": "poster",
       "runtime": "109 dk"
-    },
-    {
-      "id": "playrepo-tren-dusleri",
-      "type": "movie",
-      "name": "Tren Düşleri",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/u5NWHVhZ6HWc1fXnqn82cMar5St.webp?v=1785681261",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/u5NWHVhZ6HWc1fXnqn82cMar5St.webp?v=1785681261",
-      "description": "Tren Düşleri (2025) full HD, Türkçe dublaj ve altyazılı izle. 20. yüzyılın başlarında Amerika&#039;da yaşanan büyük değişim dönemi sırasında, sessiz ve naif bir haya...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
