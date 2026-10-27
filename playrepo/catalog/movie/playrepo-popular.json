@@ -1,6 +1,36 @@
 {
   "metas": [
     {
+      "id": "tt27497165",
+      "type": "movie",
+      "name": "In Cold Light",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZjQxMTVhMzktZmI4MC00MWI5LTg0YWEtN2E4MjMwMTU0ZTBkXkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZjQxMTVhMzktZmI4MC00MWI5LTg0YWEtN2E4MjMwMTU0ZTBkXkEyXkFqcGc%40._V1_.jpg",
+      "description": "In Cold Light (2026) full HD, Türkçe dublaj ve altyazılı izle. Genç bir kadın olan Ava, avlanıyor. O hem kardeşini öldürenler tarafından hem de kendi şeytanları...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt27497165/img",
+      "trailers": [
+        {
+          "source": "S56o2SOFsIc",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "In Cold Light",
+          "ytId": "S56o2SOFsIc"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=S56o2SOFsIc",
+      "runtime": "96 dk"
+    },
+    {
       "id": "tt36639986",
       "type": "movie",
       "name": "I Am Frankelda",
@@ -1194,21 +1224,6 @@
       ],
       "posterShape": "poster",
       "runtime": "112 dk"
-    },
-    {
-      "id": "playrepo-yok-boyle-bir-ask",
-      "type": "movie",
-      "name": "Yok Böyle Bir Aşk!",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1EVHnzF3gescyQZSqwbx5LfQ1EN.webp?v=1785163552",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1EVHnzF3gescyQZSqwbx5LfQ1EN.webp?v=1785163552",
-      "description": "Yok Böyle Bir Aşk! (2026) full HD, Türkçe dublaj ve altyazılı izle. Thando&#039;nun aşk hayatı talihsizliklerle dolu olsa da en yakın arkadaşı seyahatinden nişanlısı...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "runtime": "95 dk"
     }
   ]
 }
