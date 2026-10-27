@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-silahlar",
+      "type": "movie",
+      "name": "Silahlar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8VyTWJrNEyV2MTWvniDVp0MpOAe.webp?v=1785686992",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8VyTWJrNEyV2MTWvniDVp0MpOAe.webp?v=1785686992",
+      "description": "Silahlar (2025) full HD, Türkçe dublaj ve altyazılı izle. Maybrook adlı kasabada, aynı sınıfta bulunan bir çocuk dışında tüm çocuklar, bir gece aniden kaybolur....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "128 dk"
+    },
+    {
       "id": "playrepo-zombiler-4-vampirlerin-safagi",
       "type": "movie",
       "name": "Zombiler 4: Vampirlerin Şafağı",
@@ -1211,23 +1226,6 @@
       ],
       "posterShape": "poster",
       "runtime": "136 dk"
-    },
-    {
-      "id": "playrepo-tufan",
-      "type": "movie",
-      "name": "Tufan",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/218MafWtM9XpPRuNdh0uhrNezi5.webp?v=1785673446",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/218MafWtM9XpPRuNdh0uhrNezi5.webp?v=1785673446",
-      "description": "Tufan (2025) full HD, Türkçe dublaj ve altyazılı izle. Dünya&#039;nın belki de son gününde sel basan bir evde verilen ölüm kalım mücadelesi, insanlığın hayatta kalma...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "107 dk"
     }
   ]
 }
