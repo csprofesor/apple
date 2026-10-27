@@ -1,6 +1,34 @@
 {
   "metas": [
     {
+      "id": "tt29994753",
+      "type": "movie",
+      "name": "Oh, Canada",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYjYwYmZmODEtYjVjZC00NGI3LWFhMjEtM2QxYWMyMDdiNjc0XkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYjYwYmZmODEtYjVjZC00NGI3LWFhMjEtM2QxYWMyMDdiNjc0XkEyXkFqcGc%40._V1_.jpg",
+      "description": "Oh, Canada (2024) full HD, Türkçe dublaj ve altyazılı izle. Paul Schrader, Master Gardener / Usta Bahçıvan’ın (2022) ardından yönettiği yıldızlarla dolu yeni fi...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt29994753/img",
+      "trailers": [
+        {
+          "source": "m9HyH3RxHDs",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Oh, Canada",
+          "ytId": "m9HyH3RxHDs"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=m9HyH3RxHDs",
+      "runtime": "94 dk"
+    },
+    {
       "id": "playrepo-buyukanneler-restorani",
       "type": "movie",
       "name": "Büyükanneler Restoranı",
@@ -1117,22 +1145,6 @@
       ],
       "posterShape": "poster",
       "runtime": "98 dk"
-    },
-    {
-      "id": "playrepo-f1",
-      "type": "movie",
-      "name": "F1",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lkDYN0whyE82mcM20rwtwjbniKF.webp?v=1785636924",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lkDYN0whyE82mcM20rwtwjbniKF.webp?v=1785636924",
-      "description": "F1 Filmi (2025) full HD, Türkçe dublaj ve altyazılı izle. Yarış efsanesi Sonny Hayes, zor durumdaki bir Formula 1 takımına liderlik edip bir kez daha zafere ula...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "156 dk"
     }
   ]
 }
