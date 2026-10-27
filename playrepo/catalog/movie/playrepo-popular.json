@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-brutalist",
+      "type": "movie",
+      "name": "Brütalist",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hmZnqijPaaACjenDkrbWcCmcADI.webp?v=1785674402",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hmZnqijPaaACjenDkrbWcCmcADI.webp?v=1785674402",
+      "description": "Brütalist (2024) full HD, Türkçe dublaj ve altyazılı izle. The Brutalist filmi, İkinci Dünya Savaşı’ndan sonra &quot;Amerikan rüyasını&quot; yaşamak için ABD’ye göç eden....",
+      "releaseInfo": "2024",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "215 dk"
+    },
+    {
       "id": "tt36589671",
       "type": "movie",
       "name": "The Last Gunfight",
@@ -1113,21 +1128,6 @@
       ],
       "posterShape": "poster",
       "runtime": "96 dk"
-    },
-    {
-      "id": "playrepo-bin-babanin-oglu",
-      "type": "movie",
-      "name": "Bin Babanın Oğlu",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7jiOCYtxAzaac6OXruH59QcoEjM.webp?v=1785659010",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7jiOCYtxAzaac6OXruH59QcoEjM.webp?v=1785659010",
-      "description": "Bin Babanın Oğlu (2025) full HD, Türkçe dublaj ve altyazılı izle. Küçük bir köyde yaşayan ve bir oğul özlemi çeken yalnız bir balıkçı, uhrevi bir ışık gördükten...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "126 dk"
     }
   ]
 }
