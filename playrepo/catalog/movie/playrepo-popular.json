@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-dora-sol-dorado-nun-pesinde",
+      "type": "movie",
+      "name": "Dora: Sol Dorado’nun Peşinde",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9A0wQG38VdEu3DYh8HzXKXKhA6g.webp?v=1785549365",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9A0wQG38VdEu3DYh8HzXKXKhA6g.webp?v=1785549365",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Dora: Sol Dorado’nun Peşinde (2025) full HD, Türkçe dublaj ve altyazılı izle. Dora, Diego ve yeni dostları, düşmanlarından önce kadim ve gizemli Sol Dorado hazi...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-yapay-zeka",
       "type": "movie",
       "name": "Yapay Zeka",
@@ -1275,21 +1298,6 @@
       ],
       "posterShape": "poster",
       "runtime": "115 dk"
-    },
-    {
-      "id": "tt10243264",
-      "type": "movie",
-      "name": "Uçurum",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYzRlZmJlMjYtNmE3Mi00OWUwLWFlMmQtNTliYTFhZGE4YWI3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYzRlZmJlMjYtNmE3Mi00OWUwLWFlMmQtNTliYTFhZGE4YWI3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Uçurum (2026) full HD, Türkçe dublaj ve altyazılı izle. Uzak bir adada sürdürdüğü huzurlu hayatı, intikam hırsıyla yanan eski kaptanının dönüşüyle altüst olan y...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "103 dk"
     }
   ]
 }
