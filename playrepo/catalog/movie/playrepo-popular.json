@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-karanligin-gozleri",
+      "type": "movie",
+      "name": "Karanlığın Gözleri",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/y5VVRsulUlskqElCV6SVQ26fFYR.webp?v=1785542709",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/y5VVRsulUlskqElCV6SVQ26fFYR.webp?v=1785542709",
+      "description": "Karanlığın Gözleri (2011) full HD, Türkçe dublaj ve altyazılı izle. Kararan Dünyanın Gizemi Üniversite öğrencisi bir kızın geçirdiği trafik kazasından sonra ort...",
+      "releaseInfo": "2011",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "111 dk"
+    },
+    {
       "id": "playrepo-buyuk-cesur-ve-guzel-bir-yolculuk",
       "type": "movie",
       "name": "Büyük, Cesur ve Güzel Bir Yolculuk",
@@ -1017,22 +1032,6 @@
       ],
       "posterShape": "poster",
       "runtime": "91 dk"
-    },
-    {
-      "id": "playrepo-olumcul-zarafet",
-      "type": "movie",
-      "name": "Ölümcül Zarafet",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/z3bzhmC0CPikWeerUkLO73YvGrC.webp?v=1785138429",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/z3bzhmC0CPikWeerUkLO73YvGrC.webp?v=1785138429",
-      "description": "Ölümcül Zarafet (2026) full HD, Türkçe dublaj ve altyazılı izle. Aksiyon dolu bu gerilim filminde beş balerin, dans yarışmasına giderken ıssız bir ormanda mahsu...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "89 dk"
     }
   ]
 }
