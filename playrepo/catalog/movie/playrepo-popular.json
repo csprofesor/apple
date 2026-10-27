@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-tatlim-yapma",
+      "type": "movie",
+      "name": "Tatlım, Yapma!",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cjhq1eBLXgKq1xHDFeUnYzu61H6.webp?v=1785553037",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cjhq1eBLXgKq1xHDFeUnYzu61H6.webp?v=1785553037",
+      "description": "Tatlım, Yapma! (2025) full HD, Türkçe dublaj ve altyazılı izle. Tatlım, Yapma!, küçük bir kasabada yaşayan özel dedektif Honey O&#039;Donahue&#039;nun, gizemli bir kilise...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Suç & Polisiye",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "89 dk"
+    },
+    {
       "id": "playrepo-i-yi-sans",
       "type": "movie",
       "name": "İyi Şans",
@@ -1156,24 +1173,6 @@
       "posterShape": "poster",
       "logo": "https://images.metahub.space/logo/medium/tt33305511/img",
       "runtime": "120 dk"
-    },
-    {
-      "id": "playrepo-yikim-ekibi",
-      "type": "movie",
-      "name": "Yıkım Ekibi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cz4vLJrmaV1zJlRYbxqtvLzeLWB.webp?v=1785159083",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cz4vLJrmaV1zJlRYbxqtvLzeLWB.webp?v=1785159083",
-      "description": "Yıkım Ekibi (2026) full HD, Türkçe dublaj ve altyazılı izle. Küs olan üvey kardeşler Jonny ve James, babalarının gizemli ölümünün ardından yeniden bir araya gel...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Aksiyon & Macera",
-        "Popüler",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "runtime": "124 dk"
     }
   ]
 }
