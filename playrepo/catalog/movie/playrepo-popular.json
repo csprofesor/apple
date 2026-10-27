@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-kadin-tuzagi",
+      "type": "movie",
+      "name": "Kadın Tuzağı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1s9Gz5M2L2YWHkcxhcHwgXFD8c9.webp?v=1785489252",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1s9Gz5M2L2YWHkcxhcHwgXFD8c9.webp?v=1785489252",
+      "description": "Kadın Tuzağı (2004) full HD, Türkçe dublaj ve altyazılı izle. Bedenleri, sesleri ve hatıraları birbirine karışmış garip bir üçlü...Beklenmeyen ve ortaya çıkan t...",
+      "releaseInfo": "2004",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "55 dk"
+    },
+    {
       "id": "playrepo-son-saka",
       "type": "movie",
       "name": "Son Şaka",
@@ -1004,21 +1021,6 @@
       "posterShape": "poster",
       "logo": "https://live.metahub.space/logo/medium/tt39385320/img",
       "runtime": "94 dk"
-    },
-    {
-      "id": "playrepo-kalender-pide",
-      "type": "movie",
-      "name": "Kalender Pide",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dfH7tbHEujr5o7yVKEduCbzgCt0.webp?v=1785132601",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dfH7tbHEujr5o7yVKEduCbzgCt0.webp?v=1785132601",
-      "description": "Kalender Pide (2025) full HD, Türkçe dublaj ve altyazılı izle. Pide ustası Kalender, kızı Filiz ile beraber baba yadigarı küçük bir pide salonu işletmektedir. 1...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "106 dk"
     }
   ]
 }
