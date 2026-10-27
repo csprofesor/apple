@@ -1,6 +1,43 @@
 {
   "metas": [
     {
+      "id": "tt23476986",
+      "type": "movie",
+      "name": "G20",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTc5MTg3MTEtNzQwMi00Y2VkLWI4N2UtNDdmMzFjMGIyNTEzXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMTc5MTg3MTEtNzQwMi00Y2VkLWI4N2UtNDdmMzFjMGIyNTEzXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "G20 (2025) full HD, Türkçe dublaj ve altyazılı izle. G20 zirvesine saldırı düzenlenir. ABD Başkanı Danielle Sutton bir numaralı hedeftir. Aksiyon dolu bu macera...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt23476986/img",
+      "trailers": [
+        {
+          "source": "ZL7R8qyQXrc",
+          "type": "Trailer"
+        },
+        {
+          "source": "mhQcpvKHis4",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "G20",
+          "ytId": "ZL7R8qyQXrc"
+        },
+        {
+          "title": "G20",
+          "ytId": "mhQcpvKHis4"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=ZL7R8qyQXrc",
+      "runtime": "110 dk"
+    },
+    {
       "id": "tt32360696",
       "type": "movie",
       "name": "French Lover",
