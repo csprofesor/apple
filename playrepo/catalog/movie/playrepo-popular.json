@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-adalar",
+      "type": "movie",
+      "name": "Adalar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vYu0TDdMeDJs4T1sJaxI98WQ4t4.webp?v=1785130096",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vYu0TDdMeDJs4T1sJaxI98WQ4t4.webp?v=1785130096",
+      "description": "Adalar (2025) full HD, Türkçe dublaj ve altyazılı izle. Tom, lüks bir ada otelinde tenis antrenörüdür ve dersler arasındaki zamanını alkol ve tek gecelik ilişki...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Aksiyon & Macera",
+        "Animasyon & Aile",
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler",
+        "Suç & Polisiye",
+        "Korku & Gerilim",
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "123 dk"
+    },
+    {
       "id": "playrepo-kucuk-koyun-buyuk-gucu",
       "type": "movie",
       "name": "Küçük Köyün Büyük Gücü",
@@ -1358,28 +1380,6 @@
       ],
       "posterShape": "poster",
       "runtime": "105 dk"
-    },
-    {
-      "id": "playrepo-senin-hatan-londra",
-      "type": "movie",
-      "name": "Senin Hatan: Londra",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wQOhbCP6H8bO5ddlXDZT207orew.webp?v=1785102117",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wQOhbCP6H8bO5ddlXDZT207orew.webp?v=1785102117",
-      "description": "Senin Hatan: Londra (2026) full HD, Türkçe dublaj ve altyazılı izle. Nick ve Noah, aşklarının en büyük sınavıyla karşı karşıya: Noah, Oxford Üniversitesi&#039;ndeki....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Aile",
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Suç & Polisiye",
-        "Korku & Gerilim",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "124 dk"
     }
   ]
 }
