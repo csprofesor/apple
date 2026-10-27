@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt39578551",
+      "type": "movie",
+      "name": "BTS: The Return",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYjgyNWQ0Y2MtYmNkMi00NGEyLThiNjUtYzc4ZDg0ZWVlYmU2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYjgyNWQ0Y2MtYmNkMi00NGEyLThiNjUtYzc4ZDg0ZWVlYmU2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "BTS: THE RETURN (2026) full HD, Türkçe dublaj ve altyazılı izle. Geri döndüler! Bu belgesel, yeni bir döneme giren ve &quot;ARIRANG&quot; albümünü kaydetmek için Los Ange...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "93 dk"
+    },
+    {
       "id": "playrepo-28-yil-sonra-kemik-tapinagi",
       "type": "movie",
       "name": "28 Yıl Sonra: Kemik Tapınağı",
@@ -1265,22 +1280,6 @@
       ],
       "posterShape": "poster",
       "runtime": "113 dk"
-    },
-    {
-      "id": "tt17490712",
-      "type": "movie",
-      "name": "Mortal Kombat II",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYjFiMmI1NDctNzcyMi00ZGU5LWI4MzAtZjRjYzU2MWFmY2ViXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYjFiMmI1NDctNzcyMi00ZGU5LWI4MzAtZjRjYzU2MWFmY2ViXkEyXkFqcGc%40._V1_SX250.jpg",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Mortal Kombat II (2026) full HD, Türkçe dublaj ve altyazılı izle. Hayranların gözde şampiyonları, Dünya Alemi&#039;nin ve savunucularının varlığını tehdit eden Shao....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "116 dk"
     }
   ]
 }
