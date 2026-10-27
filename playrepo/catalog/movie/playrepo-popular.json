@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-goz-acip-kapayincaya-kadar",
+      "type": "movie",
+      "name": "Göz Açıp Kapayıncaya Kadar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uM5i623wwNfoGD97iwwQWQ7GlZL.webp?v=1785125034",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uM5i623wwNfoGD97iwwQWQ7GlZL.webp?v=1785125034",
+      "description": "Göz Açıp Kapayıncaya Kadar (2026) full HD, Türkçe dublaj ve altyazılı izle. Binlerce yıla yayılan üç hikaye kesişiyor ve umut, bağ ve yaşam döngüsü üzerine düşü...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Aksiyon & Macera",
+        "Animasyon & Aile",
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler",
+        "Suç & Polisiye",
+        "Korku & Gerilim",
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "94 dk"
+    },
+    {
       "id": "playrepo-erken-kis",
       "type": "movie",
       "name": "Erken Kış",
@@ -1323,43 +1345,6 @@
       "posterShape": "poster",
       "logo": "https://live.metahub.space/logo/medium/tt4564618/img",
       "runtime": "60 dk"
-    },
-    {
-      "id": "tt11378946",
-      "type": "movie",
-      "name": "Michael",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzllNmRlN2EtMDQyOC00ODJjLTg4OWQtZDNmNGU3YzlkNjc1XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNzllNmRlN2EtMDQyOC00ODJjLTg4OWQtZDNmNGU3YzlkNjc1XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Michael (2026) full HD, Türkçe dublaj ve altyazılı izle. Michael Jackson&#039;a gerçek hayattaki yeğeni Jaafar Jackson&#039;ın hayat verdiği filmde, onu tüm zamanların en...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt11378946/img",
-      "trailers": [
-        {
-          "source": "k-YAcjaLuSI",
-          "type": "Trailer"
-        },
-        {
-          "source": "mbtgEE6rkxw",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Michael",
-          "ytId": "k-YAcjaLuSI"
-        },
-        {
-          "title": "Michael",
-          "ytId": "mbtgEE6rkxw"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=k-YAcjaLuSI",
-      "runtime": "128 dk"
     }
   ]
 }
