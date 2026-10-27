@@ -826,5 +826,51 @@
         }
       }
     }
+  ],
+  "playrepo-suphe-sarmali": [
+    {
+      "name": "Play • TR Dublaj 1",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=2e07f2aa7a1f20c383299f6754ecf3c1&token=eyJ2IjoiMmUwN2YyYWE3YTFmMjBjMzgzMjk5ZjY3NTRlY2YzYzEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzI2MDU1LCJuIjoiYzMwYmE5Yjg5NGY2In0.04a79771f36f7256b7ea734bcd102d5dd659b18f9567389aede2c1e683735ec0&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=Oceos-7BBfd02vBAMyH_UQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Oceos-7BBfd02vBAMyH_UQ"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Oceos-7BBfd02vBAMyH_UQ"
+          }
+        }
+      }
+    }
+  ],
+  "suphe-sarmali": [
+    {
+      "name": "Play • TR Dublaj 1",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=2e07f2aa7a1f20c383299f6754ecf3c1&token=eyJ2IjoiMmUwN2YyYWE3YTFmMjBjMzgzMjk5ZjY3NTRlY2YzYzEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzI2MDU1LCJuIjoiYzMwYmE5Yjg5NGY2In0.04a79771f36f7256b7ea734bcd102d5dd659b18f9567389aede2c1e683735ec0&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=Oceos-7BBfd02vBAMyH_UQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Oceos-7BBfd02vBAMyH_UQ"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Oceos-7BBfd02vBAMyH_UQ"
+          }
+        }
+      }
+    }
   ]
 }
