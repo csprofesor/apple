@@ -1,6 +1,68 @@
 {
   "metas": [
     {
+      "id": "tt4900148",
+      "type": "movie",
+      "name": "Elio",
+      "poster": "https://m.media-amazon.com/images/M/MV5BOWE5ZDMyMWEtOTZjMi00YzFhLWE4OTEtNDc3MDMzZjFmMmIzXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BOWE5ZDMyMWEtOTZjMi00YzFhLWE4OTEtNDc3MDMzZjFmMmIzXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Elio (2025) full HD, Türkçe dublaj ve altyazılı izle. Aktif bir hayal gücüne sahip bir mazlum olan Elio, yanlışlıkla kendisini uzak ve geniş galaksilerden temsi...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Animasyon & Aile",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt4900148/img",
+      "trailers": [
+        {
+          "source": "yH5zbV7eweM",
+          "type": "Trailer"
+        },
+        {
+          "source": "is2meozrnx0",
+          "type": "Trailer"
+        },
+        {
+          "source": "ETVi5_cnnaE",
+          "type": "Trailer"
+        },
+        {
+          "source": "8ocanbiSyV4",
+          "type": "Trailer"
+        },
+        {
+          "source": "2w_K3CB8PuE",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Elio",
+          "ytId": "yH5zbV7eweM"
+        },
+        {
+          "title": "Elio",
+          "ytId": "is2meozrnx0"
+        },
+        {
+          "title": "Elio",
+          "ytId": "ETVi5_cnnaE"
+        },
+        {
+          "title": "Elio",
+          "ytId": "8ocanbiSyV4"
+        },
+        {
+          "title": "Elio",
+          "ytId": "2w_K3CB8PuE"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=yH5zbV7eweM",
+      "runtime": "98 dk"
+    },
+    {
       "id": "tt13098590",
       "type": "movie",
       "name": "Fear Below",
@@ -1044,24 +1106,6 @@
       ],
       "posterShape": "poster",
       "runtime": "115 dk"
-    },
-    {
-      "id": "playrepo-gizli-ajan",
-      "type": "movie",
-      "name": "Gizli Ajan",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eeGRpU64sIrRApjWXvTpK5Lep2K.webp?v=1785568157",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eeGRpU64sIrRApjWXvTpK5Lep2K.webp?v=1785568157",
-      "description": "Gizli Ajan (2025) full HD, Türkçe dublaj ve altyazılı izle. Brezilya, 1977. 40&#039;lı yaşlarının başındaki teknoloji uzmanı Marcelo, bir kaçaktır. Oğluyla yeniden b...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Mubi & Kült",
-        "Popüler",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "runtime": "158 dk"
     }
   ]
 }
