@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-yildiz-unicorn-thelma",
+      "type": "movie",
+      "name": "Yıldız Unicorn Thelma",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3r9aPVVNuCXNOFFXsL03abZs9xF.webp?v=1785680227",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3r9aPVVNuCXNOFFXsL03abZs9xF.webp?v=1785680227",
+      "description": "Yıldız Unicorn Thelma (2024) full HD, Türkçe dublaj ve altyazılı izle. Bir gün yıldız olmayı hayal ederek şarkı söyleyen bir midilli, bir anda parıltılı bir tek...",
+      "releaseInfo": "2024",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "93 dk"
+    },
+    {
       "id": "playrepo-oteki-paris",
       "type": "movie",
       "name": "Öteki Paris",
@@ -1132,21 +1148,6 @@
       ],
       "posterShape": "poster",
       "runtime": "89 dk"
-    },
-    {
-      "id": "playrepo-sesimi-takip-et",
-      "type": "movie",
-      "name": "Sesimi Takip Et",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vcrwsAYYYmVLX0c7iFqlV1pZRdT.webp?v=1785665352",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vcrwsAYYYmVLX0c7iFqlV1pZRdT.webp?v=1785665352",
-      "description": "Sesimi Takip Et (2025) full HD, Türkçe dublaj ve altyazılı izle. Geçirdiği sağlık sorunu nedeniyle 76 gün boyunca evinden çıkamayan Klara&#039;nın tek yaptığı en sev...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "101 dk"
     }
   ]
 }
