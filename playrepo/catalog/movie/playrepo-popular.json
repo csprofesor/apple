@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-bahcedeki-kadin",
+      "type": "movie",
+      "name": "Bahçedeki Kadın",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3lEV4CoKoeT2cZ4fbKEJugZcw6Z.webp?v=1785679330",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3lEV4CoKoeT2cZ4fbKEJugZcw6Z.webp?v=1785679330",
+      "description": "Bahçedeki Kadın (2025) full HD, Türkçe dublaj ve altyazılı izle. Hiçbir açıklama olmadan ailenin ön bahçesinde beliren siyahlar içindeki yalnız, hortlak gibi bi...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "88 dk"
+    },
+    {
       "id": "playrepo-10-numarali-kamara",
       "type": "movie",
       "name": "10 Numaralı Kamara",
@@ -1152,23 +1168,6 @@
       ],
       "posterShape": "poster",
       "runtime": "108 dk"
-    },
-    {
-      "id": "playrepo-polly-mcclusky-nin-zor-egitimi",
-      "type": "movie",
-      "name": "Polly McClusky’nin Zor Eğitimi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ytCi1wg6YHpYcFRWCO2jpzN31Kf.webp?v=1785664791",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ytCi1wg6YHpYcFRWCO2jpzN31Kf.webp?v=1785664791",
-      "description": "Polly McClusky’nin Zor Eğitimi (2025) full HD, Türkçe dublaj ve altyazılı izle. Yıllarca hapis yattıktan sonra Nate, içeride birlikte çalıştığı güçlü suç çetesi...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Suç & Polisiye",
-        "Korku & Gerilim",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "120 dk"
     }
   ]
 }
