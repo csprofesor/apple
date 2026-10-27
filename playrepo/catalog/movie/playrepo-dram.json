@@ -1,6 +1,34 @@
 {
   "metas": [
     {
+      "id": "tt14458442",
+      "type": "movie",
+      "name": "The Son",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYjE4ZTJmMWQtNWI2My00NjhhLTkwYmEtODk5YzM0YzNkNjJjXkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYjE4ZTJmMWQtNWI2My00NjhhLTkwYmEtODk5YzM0YzNkNjJjXkEyXkFqcGc%40._V1_.jpg",
+      "description": "Son (2024) full HD, Türkçe dublaj ve altyazılı izle. Yıllardır etraflarındaki harabe dünyadan izole, eski bir tuz madeninden lüks bir eve dönüştürdükleri sığına...",
+      "releaseInfo": "2023",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt14458442/img",
+      "trailers": [
+        {
+          "source": "SJWRY4DzoAQ",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "The Son",
+          "ytId": "SJWRY4DzoAQ"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=SJWRY4DzoAQ",
+      "runtime": "149 dk"
+    },
+    {
       "id": "playrepo-yavasca-soyle",
       "type": "movie",
       "name": "Yavaşça Söyle",
