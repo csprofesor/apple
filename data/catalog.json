@@ -1,6 +1,36 @@
 {
   "metas": [
     {
+      "id": "tt33312131",
+      "type": "movie",
+      "name": "Mantis",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZDc3NmI3NGEtZDFjOC00N2UwLTk3NjQtNzhiNzJkNDNjNTFkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZDc3NmI3NGEtZDFjOC00N2UwLTk3NjQtNzhiNzJkNDNjNTFkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Mantis (2025) full HD, Türkçe dublaj ve altyazılı izle. Kiralık katillerden oluşan gizli bir topluluk kaosa sürüklenince yeni suikastçılar ortaya çıkar. Eski ku...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Suç & Polisiye",
+        "Aksiyon & Macera",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt33312131/img",
+      "trailers": [
+        {
+          "source": "PItlVyrf15U",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Mantis",
+          "ytId": "PItlVyrf15U"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=PItlVyrf15U",
+      "runtime": "113 dk"
+    },
+    {
       "id": "playrepo-ask-dumeni",
       "type": "movie",
       "name": "Aşk Dümeni",
