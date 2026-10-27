@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-metruk-adam",
+      "type": "movie",
+      "name": "Metruk Adam",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/j5FNYFaSXmD3T0WAYDAvguEPVOv.webp?v=1785138436",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/j5FNYFaSXmD3T0WAYDAvguEPVOv.webp?v=1785138436",
+      "description": "Metruk Adam (2025) full HD, Türkçe dublaj ve altyazılı izle. Ağabeyinin işlediği bir suç yüzünden yıllarca hapis yatan bir adam, kırgın hâlde ailesiyle yeniden....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Aksiyon & Macera",
+        "Animasyon & Aile",
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler",
+        "Suç & Polisiye",
+        "Korku & Gerilim",
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "91 dk"
+    },
+    {
       "id": "playrepo-olumcul-zarafet",
       "type": "movie",
       "name": "Ölümcül Zarafet",
@@ -1329,28 +1351,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=-izT0MKkvZY",
       "runtime": "93 dk"
-    },
-    {
-      "id": "playrepo-olaganustu-akilli-yaratiklar",
-      "type": "movie",
-      "name": "Olağanüstü Akıllı Yaratıklar",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bVGHSe47W6oCQL1Q88pvRAet51A.webp?v=1785106302",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bVGHSe47W6oCQL1Q88pvRAet51A.webp?v=1785106302",
-      "description": "Olağanüstü Akıllı Yaratıklar (2026) full HD, Türkçe dublaj ve altyazılı izle. Çok satan romandan uyarlanan bu etkileyici dramada dul bir kadın, geceleri çalıştı...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Aile",
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Suç & Polisiye",
-        "Korku & Gerilim",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "114 dk"
     }
   ]
 }
