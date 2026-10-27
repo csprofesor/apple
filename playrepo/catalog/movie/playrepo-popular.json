@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-mukemmel-komsu",
+      "type": "movie",
+      "name": "Mükemmel Komşu",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2a3CC6VpCjqZ23Fe18GstMGg5Pj.webp?v=1785676603",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2a3CC6VpCjqZ23Fe18GstMGg5Pj.webp?v=1785676603",
+      "description": "Mükemmel Komşu (2025) full HD, Türkçe dublaj ve altyazılı izle. Korkuları, ön yargıları ve &quot;nefsi müdafaa&quot; yasasını konu alan bu belgeselde polis kameraları, uz...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Suç & Polisiye",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "97 dk"
+    },
+    {
       "id": "playrepo-fareler-bir-witcher-hik-yesi",
       "type": "movie",
       "name": "Fareler: Bir Witcher Hikâyesi",
@@ -1138,43 +1154,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "tt36463894",
-      "type": "movie",
-      "name": "Predator: Killer of Killers",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNjM2MjA4YzQtYjBkNS00YmU3LTllOTgtMDQzMjkzM2Q4MmM5XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNjM2MjA4YzQtYjBkNS00YmU3LTllOTgtMDQzMjkzM2Q4MmM5XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Predator: Killer of Killers (2025) full HD, Türkçe dublaj ve altyazılı izle. Bu orijinal animasyon antolojisi, insanlık tarihinin en dişli üç savaşçısının izind...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Animasyon & Aile",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt36463894/img",
-      "trailers": [
-        {
-          "source": "fbddYji1F8s",
-          "type": "Trailer"
-        },
-        {
-          "source": "eWzPKrNoSyM",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Predator: Killer of Killers",
-          "ytId": "fbddYji1F8s"
-        },
-        {
-          "title": "Predator: Killer of Killers",
-          "ytId": "eWzPKrNoSyM"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=fbddYji1F8s",
-      "runtime": "85 dk"
     }
   ]
 }
