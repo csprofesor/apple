@@ -1,6 +1,36 @@
 {
   "metas": [
     {
+      "id": "tt35301440",
+      "type": "movie",
+      "name": "Mononoke the Movie: Chapter II - The Ashes of Rage",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNzY1Y2E5OWUtYjA0Ni00YmQ0LWFlNWItODhjMTM2ZDk5ZmFlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNzY1Y2E5OWUtYjA0Ni00YmQ0LWFlNWItODhjMTM2ZDk5ZmFlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Mononoke the Movie: Chapter II - The Ashes of Rage (2025) full HD, Türkçe dublaj ve altyazılı izle. İlaç Satıcısı geri dönerken Edo haremi yeni bir krizle karşı...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt35301440/img",
+      "trailers": [
+        {
+          "source": "5gYyveM2FV4",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Fragman",
+          "ytId": "5gYyveM2FV4"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=5gYyveM2FV4",
+      "runtime": "75 dk"
+    },
+    {
       "id": "playrepo-koln-75",
       "type": "movie",
       "name": "Köln 75",
@@ -1180,23 +1210,6 @@
       ],
       "posterShape": "poster",
       "runtime": "118 dk"
-    },
-    {
-      "id": "playrepo-kopek-adam",
-      "type": "movie",
-      "name": "Köpek Adam",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iXU87IdtNsYt7n6OigPJBDdbFf1.webp?v=1785630718",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iXU87IdtNsYt7n6OigPJBDdbFf1.webp?v=1785630718",
-      "description": "Köpek Adam (2025) full HD, Türkçe dublaj ve altyazılı izle. Sadık bir polis köpeği ve onun polis memuru sahibi iş başında birlikte yaralandıklarında çılgınca am...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Animasyon & Aile",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "89 dk"
     }
   ]
 }
