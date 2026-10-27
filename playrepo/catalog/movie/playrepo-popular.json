@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-muhtesem-marty",
+      "type": "movie",
+      "name": "Muhteşem Marty",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6h7w8R4BA7vubEmEEW5vYEjuoz6.webp?v=1785558879",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6h7w8R4BA7vubEmEEW5vYEjuoz6.webp?v=1785558879",
+      "description": "Muhteşem Marty (2025) full HD, Türkçe dublaj ve altyazılı izle. Kimsenin saygı duymadığı bir hayali olan genç Marty Mauser, büyüklüğe ulaşma yolunda cehennemi b...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "115 dk"
+    },
+    {
       "id": "playrepo-predator-vahsi-topraklar",
       "type": "movie",
       "name": "Predator: Vahşi Topraklar",
@@ -1206,21 +1222,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=cqg5PtgeNRc",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-primat",
-      "type": "movie",
-      "name": "Primat",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/d5C5Wsx4fnMRA0tj9BK1kTPcgQe.webp?v=1785224361",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/d5C5Wsx4fnMRA0tj9BK1kTPcgQe.webp?v=1785224361",
-      "description": "Primat (2026) full HD, Türkçe dublaj ve altyazılı izle. Üniversiteden eve dönen Lucy, evcil şempanze Ben de dâhil olmak üzere ailesiyle yeniden bir araya gelir....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "92 dk"
     }
   ]
 }
