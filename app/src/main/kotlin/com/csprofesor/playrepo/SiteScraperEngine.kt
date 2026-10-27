@@ -1028,16 +1028,16 @@ class SiteScraperEngine {
             val otherCount = java.util.concurrent.atomic.AtomicInteger(0)
 
             val prioritizedStreams = validStreams.map { st ->
-                val isDub = st.title.contains("Dublaj", true)
+                val isSub = st.title.contains("Altyaz", true)
                 val streamName: String
                 val formattedTitle: String
-                if (isDub) {
-                    val count = dubCount.incrementAndGet()
-                    streamName = "TR Dublaj"
-                    formattedTitle = "1080p • Sunucu $count"
-                } else {
+                if (isSub) {
                     val count = subCount.incrementAndGet()
                     streamName = "TR Altyazı"
+                    formattedTitle = "1080p • Sunucu $count"
+                } else {
+                    val count = dubCount.incrementAndGet()
+                    streamName = "TR Dublaj"
                     formattedTitle = "1080p • Sunucu $count"
                 }
                 val ref = st.referer?.ifBlank { st.url } ?: st.url

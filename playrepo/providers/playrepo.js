@@ -680,11 +680,10 @@ async function resolveAndCapStreams(rawStreams) {
         seenUrls.add(st.url);
 
         const title = (st.rawTitle || "").toLowerCase();
-        if (title.includes("dublaj")) {
-            if (dubList.length < 2) dubList.push(st);
+        if (title.includes("altyaz")) {
+            if (subList.length < 2) subList.push(st);
         } else {
-            // Dublaj olmayan her akış Türkçe Altyazılıdır
-            if (subList.length < 3) subList.push(st);
+            if (dubList.length < 2) dubList.push(st);
         }
     }
 
@@ -693,14 +692,14 @@ async function resolveAndCapStreams(rawStreams) {
         const titleLower = (s.rawTitle || "").toLowerCase();
         let formattedTitle = "";
         let streamName = "";
-        if (titleLower.includes("dublaj")) {
-            dubC++;
-            streamName = "TR Dublaj";
-            formattedTitle = `1080p • Sunucu ${dubC}`;
-        } else {
+        if (titleLower.includes("altyaz")) {
             subC++;
             streamName = "TR Altyazı";
             formattedTitle = `1080p • Sunucu ${subC}`;
+        } else {
+            dubC++;
+            streamName = "TR Dublaj";
+            formattedTitle = `1080p • Sunucu ${dubC}`;
         }
 
         const streamItem = {

@@ -536,16 +536,19 @@ class ScraperEngine:
                                 extra_subs.append({"id": sub_lang, "url": sub_src_clean, "lang": sub_label})
 
                         has_tr_sub = any(s.get("lang") == "tr" or "türkçe" in str(s.get("label", "")).lower() for s in p_subs)
-                        is_dub = "dublaj" in p_title or any("dub" in str(a.get("label", "")).lower() or a.get("lang") == "tr" for a in p_audios)
+                        is_explicit_dub = "dublaj" in p_title or any("dub" in str(a.get("label", "")).lower() or a.get("lang") == "tr" for a in p_audios)
+                        is_explicit_sub = "altyaz" in p_title or "sub" in p_title or (has_tr_sub and any(a.get("lang") == "en" for a in p_audios))
 
-                        if is_dub:
+                        if is_explicit_dub:
                             detected_lang = "[TR Dublaj]"
-                        elif has_tr_sub or "altyaz" in p_title or "eng" in p_title or any(a.get("lang") in ["en", ""] for a in p_audios):
+                        elif is_explicit_sub:
                             detected_lang = "[TR Altyazılı]"
+                        else:
+                            detected_lang = hint_lang or "[TR Dublaj]"
 
                         return {
                             "url": s_link,
-                            "lang": detected_lang or "[TR Altyazılı]",
+                            "lang": detected_lang,
                             "subtitles": extra_subs
                         }
                 except Exception:
@@ -556,8 +559,10 @@ class ScraperEngine:
         embed_title = title_tag.group(1).lower() if title_tag else ""
         if "dublaj" in embed_title or "türkçe dublaj" in embed_title:
             detected_lang = "[TR Dublaj]"
-        elif "altyaz" in embed_title or "sub" in embed_title or "eng" in embed_title or "orijinal" in embed_title:
+        elif "altyaz" in embed_title or "sub" in embed_title:
             detected_lang = "[TR Altyazılı]"
+        else:
+            detected_lang = hint_lang or "[TR Dublaj]"
 
         if "eval(function(p,a,c,k,e,d)" in html:
             html += "\n" + unpack_packer_js(html)
@@ -566,11 +571,11 @@ class ScraperEngine:
                  re.search(r'sources\s*:\s*\[\s*\{\s*file\s*:\s*["\'](https?://[^"\']+\.m3u8[^"\']*)["\']', html, re.I) or \
                  re.search(r'["\'](https?://[^"\']+\.m3u8[^"\']*)["\']', html, re.I)
         if m3u8_m:
-            return {"url": m3u8_m.group(1), "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
+            return {"url": m3u8_m.group(1), "lang": detected_lang, "subtitles": extra_subs}
 
         voe_m = re.search(r"['\"]hls['\"]\s*:\s*['\"](https?://[^'\"]+\.m3u8[^'\"]*)['\"]", html, re.I)
         if voe_m:
-            return {"url": voe_m.group(1), "lang": detected_lang or hint_lang or "[TR Altyazılı]", "subtitles": extra_subs}
+            return {"url": voe_m.group(1), "lang": detected_lang, "subtitles": extra_subs}
 
         if "streamtape.com" in lower or "streamta.pe" in lower:
             st_m = re.search(r"document\.getElementById\('robotlink'\)\.innerHTML\s*=\s*['\"](.*?)['\"]", html)
@@ -799,15 +804,15 @@ class ScraperEngine:
             clean_player_html = re.sub(block_pat, '', clean_player_html, flags=re.I | re.DOTALL)
 
         candidate_embeds = []
-        is_explicit_dub = ("dublaj" in raw_title.lower() or "dublaj" in movie_url.lower())
-        default_lang = "[TR Dublaj]" if is_explicit_dub else "[TR Altyazılı]"
+        is_explicit_sub = ("altyaz" in raw_title.lower() or "altyaz" in movie_url.lower() or "sub" in movie_url.lower())
+        default_lang = "[TR Altyazılı]" if is_explicit_sub else "[TR Dublaj]"
 
         def get_lang(txt: str) -> str:
             t = txt.lower()
-            if any(k in t for k in ["dublaj", "türkçe ses", "turkce ses"]):
-                return "[TR Dublaj]"
-            if any(k in t for k in ["altyaz", "sub", "original", "orijinal", "ingilizce", "eng"]):
+            if any(k in t for k in ["altyaz", "sub", "orijinal", "original", "ingilizce", "eng"]):
                 return "[TR Altyazılı]"
+            if any(k in t for k in ["dublaj", "türkçe ses", "turkce ses", "tr ses", "türkçe", "turkce"]):
+                return "[TR Dublaj]"
             return default_lang
 
         def add_candidate(u: str, lang: str):
@@ -1059,14 +1064,14 @@ class ScraperEngine:
                 "Referer": st_ref
             }
             raw_t = st.get("title", "").lower()
-            if "dublaj" in raw_t:
-                dub_c += 1
-                stream_name = "TR Dublaj"
-                formatted_title = f"1080p • Sunucu {dub_c}"
-            else:
+            if "altyaz" in raw_t:
                 sub_c += 1
                 stream_name = "TR Altyazı"
                 formatted_title = f"1080p • Sunucu {sub_c}"
+            else:
+                dub_c += 1
+                stream_name = "TR Dublaj"
+                formatted_title = f"1080p • Sunucu {dub_c}"
             st["name"] = stream_name
             st["title"] = formatted_title
 
