@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-oxford-askim",
+      "type": "movie",
+      "name": "Oxford Aşkım",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/A466i5iATrpbVjX30clP1Zyfp31.webp?v=1785656012",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/A466i5iATrpbVjX30clP1Zyfp31.webp?v=1785656012",
+      "description": "Oxford Aşkım (2025) full HD, Türkçe dublaj ve altyazılı izle. Oxford&#039;da okuma hayalini gerçekleştiren hırslı bir Amerikalı, en ince ayrıntısına kadar planladığı...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "runtime": "112 dk"
+    },
+    {
       "id": "playrepo-nickel-cocuklari",
       "type": "movie",
       "name": "Nickel Çocukları",
@@ -1138,21 +1153,6 @@
       ],
       "posterShape": "poster",
       "runtime": "90 dk"
-    },
-    {
-      "id": "playrepo-ask-tuzagi",
-      "type": "movie",
-      "name": "Aşk Tuzağı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xd7YqovQSLBY7dbptsz2bPgL0ym.webp?v=1785634412",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xd7YqovQSLBY7dbptsz2bPgL0ym.webp?v=1785634412",
-      "description": "Aşk Tuzağı (2025) full HD, Türkçe dublaj ve altyazılı izle. Kız kardeşinin yeni nişanlısıyla ilgili şüpheleri olan Lilli, birdenbire hayatına giren yakışıklı bi...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "runtime": "103 dk"
     }
   ]
 }
