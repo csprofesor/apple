@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-dayi-bir-adamin-hik-yesi-2",
+      "type": "movie",
+      "name": "Dayı: Bir Adamın Hikâyesi 2",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cXja2YxJblBCm1BjjaN4yvDgHqI.webp?v=1785120547",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cXja2YxJblBCm1BjjaN4yvDgHqI.webp?v=1785120547",
+      "description": "Dayı: Bir Adamın Hikâyesi 2 (2025) full HD, Türkçe dublaj ve altyazılı izle. Acımasız bir gangster, kendi şeref kurallarına göre adalet dağıtır.",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "108 dk"
+    },
+    {
       "id": "playrepo-konus-havla-degis",
       "type": "movie",
       "name": "Konuş, Havla, Değiş",
@@ -1350,34 +1372,6 @@
       ],
       "posterShape": "poster",
       "runtime": "109 dk"
-    },
-    {
-      "id": "tt42456008",
-      "type": "movie",
-      "name": "Poldi",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMWNmM2Q4NGMtY2U4Ni00NjAxLWJkN2QtZjQ3YmM1NzdmOWU2XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMWNmM2Q4NGMtY2U4Ni00NjAxLWJkN2QtZjQ3YmM1NzdmOWU2XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Poldi (2026) full HD, Türkçe dublaj ve altyazılı izle. Bu samimi belgeselde futbolcu, girişimci, hayranların gözdesi ve gerçek bir toplum kahramanı olan Lukas P...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "logo": "https://live.metahub.space/logo/medium/tt42456008/img",
-      "trailers": [
-        {
-          "source": "COUkUkLAIII",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Fragman",
-          "ytId": "COUkUkLAIII"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=COUkUkLAIII",
-      "runtime": "94 dk"
     }
   ]
 }
