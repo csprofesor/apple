@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-devlet-baskanlari",
+      "type": "movie",
+      "name": "Devlet Başkanları",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vJbEUMeI2AxBUZKjP6ZVeVNNTLh.webp?v=1785640680",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vJbEUMeI2AxBUZKjP6ZVeVNNTLh.webp?v=1785640680",
+      "description": "Devlet Başkanları (2025) full HD, Türkçe dublaj ve altyazılı izle. Birleşik Krallık Başbakanı ve Amerika Birleşik Devletleri Başkanı, ülkelerinin ittifakını ris...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "116 dk"
+    },
+    {
       "id": "playrepo-kalp-gozler",
       "type": "movie",
       "name": "Kalp Gözler",
@@ -1123,44 +1140,6 @@
       ],
       "posterShape": "poster",
       "logo": "https://images.metahub.space/logo/medium/tt35434840/img",
-      "runtime": "90 dk"
-    },
-    {
-      "id": "tt32508210",
-      "type": "movie",
-      "name": "Batman Ninja vs. Yakuza League",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMWY0NWZiM2EtNWMzNi00NmY3LTg3Y2ItZDg0YzQ0M2E0NTA4XkEyXkFqcGc%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMWY0NWZiM2EtNWMzNi00NmY3LTg3Y2ItZDg0YzQ0M2E0NTA4XkEyXkFqcGc%40._V1_.jpg",
-      "description": "Batman Ninja vs. Yakuza League (2025) full HD, Türkçe dublaj ve altyazılı izle. Batman ailesi günümüze döndüğünde Japonya&#039;nın ortadan kaybolduğunu ve dev bir ad...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt32508210/img",
-      "trailers": [
-        {
-          "source": "QleeDtH_WWE",
-          "type": "Trailer"
-        },
-        {
-          "source": "EK5Kllx_R4U",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Batman Ninja vs. Yakuza League",
-          "ytId": "QleeDtH_WWE"
-        },
-        {
-          "title": "Batman Ninja vs. Yakuza League",
-          "ytId": "EK5Kllx_R4U"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=QleeDtH_WWE",
       "runtime": "90 dk"
     }
   ]
