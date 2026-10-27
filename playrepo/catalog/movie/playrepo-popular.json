@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-solak-kiz",
+      "type": "movie",
+      "name": "Solak Kız",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xqft4oJyMATznCFFLpTlQPiSr8N.webp?v=1785648887",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xqft4oJyMATznCFFLpTlQPiSr8N.webp?v=1785648887",
+      "description": "Solak Kız (2025) full HD, Türkçe dublaj ve altyazılı izle. Hareketli akşam pazarında noodle tezgâhı açmak için Taipei&#039;ye dönen bir annenin iki kızı ile yaptığı....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "109 dk"
+    },
+    {
       "id": "playrepo-bir-yildiz-kadar-uzak",
       "type": "movie",
       "name": "Bir Yıldız Kadar Uzak",
@@ -1148,21 +1163,6 @@
       ],
       "posterShape": "poster",
       "runtime": "104 dk"
-    },
-    {
-      "id": "playrepo-araba-hirsizlari",
-      "type": "movie",
-      "name": "Araba Hırsızları",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/is9bmV6uYXu7LjZGJczxrjJDlv8.webp?v=1785627992",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/is9bmV6uYXu7LjZGJczxrjJDlv8.webp?v=1785627992",
-      "description": "Araba Hırsızları (2025) full HD, Türkçe dublaj ve altyazılı izle. Gündüz görünmezler. Lüks bir otelde valeler, garsonlar ve barmenler. Akşamsa Araba Hırsızları,...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "97 dk"
     }
   ]
 }
