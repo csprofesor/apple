@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-tek-boynuzun-olumu",
+      "type": "movie",
+      "name": "Tek Boynuzun Ölümü",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4rLaMBcCJ1pMq72vCulBMPsbAyh.webp?v=1785631655",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4rLaMBcCJ1pMq72vCulBMPsbAyh.webp?v=1785631655",
+      "description": "Tek Boynuzun Ölümü (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir baba ve kızı, hafta sonu kaçamağına giderken tesadüfen bir tek boynuzlu atı ezip öldürür...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "107 dk"
+    },
+    {
       "id": "playrepo-drop-kabul-et-veya-reddet",
       "type": "movie",
       "name": "Drop: Kabul Et veya Reddet",
@@ -1010,22 +1027,6 @@
       ],
       "posterShape": "poster",
       "runtime": "131 dk"
-    },
-    {
-      "id": "playrepo-buzlar-kralicesi",
-      "type": "movie",
-      "name": "Buzlar Kraliçesi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/j0Xeb9a4zDpYdkXEEZhfPjz71UN.webp?v=1785566518",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/j0Xeb9a4zDpYdkXEEZhfPjz71UN.webp?v=1785566518",
-      "description": "Buzlar Kraliçesi (2025) full HD, Türkçe dublaj ve altyazılı izle. Andersen’in buzlarla kaplı ünlü masalının yeni uyarlaması, Berlinale’de ödülle taçlandırıldı.....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "118 dk"
     }
   ]
 }
