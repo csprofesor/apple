@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-catida-biri-var",
+      "type": "movie",
+      "name": "Çatıda Biri Var",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/E7hhuSZ1U5xymN2Olg2EOr4N4P.webp?v=1785562899",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/E7hhuSZ1U5xymN2Olg2EOr4N4P.webp?v=1785562899",
+      "description": "Çatıda Biri Var (2025) full HD, Türkçe dublaj ve altyazılı izle. Jeffrey Manchester, eski bir Özel Kuvvetler mensubudur ve restoran çatılarını delerek yaptığı s...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "126 dk"
+    },
+    {
       "id": "playrepo-kalpten-soylenen-bir-sarki",
       "type": "movie",
       "name": "Kalpten Söylenen Bir Şarkı",
@@ -1234,22 +1251,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "playrepo-dovus-efsanesi",
-      "type": "movie",
-      "name": "Dövüş Efsanesi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hTCr9dDf0EcBGZSUaY0YCeBjBr5.webp?v=1785539038",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hTCr9dDf0EcBGZSUaY0YCeBjBr5.webp?v=1785539038",
-      "description": "Dövüş Efsanesi (2025) full HD, Türkçe dublaj ve altyazılı izle. MMA dövüşçüsü Mark Kerr, UFC&#039;deki zirve döneminde bağımlılık, zafer ve aşkla mücadele ediyor.",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "123 dk"
     }
   ]
 }
