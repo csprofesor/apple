@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-toplar-havaya",
+      "type": "movie",
+      "name": "Toplar Havaya",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qE0FswzjACs2kvAycYVS2zcmgec.webp?v=1785103251",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qE0FswzjACs2kvAycYVS2zcmgec.webp?v=1785103251",
+      "description": "Toplar Havaya (2026) full HD, Türkçe dublaj ve altyazılı izle. Bu uçuk kaçık komedide, pazarlamacılar Brad ve Elijah gemileri yakar ve Dünya Kupası için cesur b...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "104 dk"
+    },
+    {
       "id": "playrepo-yiya-murano-cay-saati-cinayetleri",
       "type": "movie",
       "name": "Yiya Murano: Çay Saati Cinayetleri",
@@ -1150,21 +1166,6 @@
       ],
       "posterShape": "poster",
       "runtime": "105 dk"
-    },
-    {
-      "id": "playrepo-babam-evde-kaldi",
-      "type": "movie",
-      "name": "Babam Evde Kaldı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dgqBcgTzaUiSLvKJPDF9AbdFEMO.webp?v=1785056509",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dgqBcgTzaUiSLvKJPDF9AbdFEMO.webp?v=1785056509",
-      "description": "Babam Evde Kaldı (2026) full HD, Türkçe dublaj ve altyazılı izle. Komedyen Nate Bargatze, satıcı Nate Wilcox&#039;u; Mandy Moore ise eşi Katie&#039;yi canlandırıyor. Nate...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "100 dk"
     }
   ]
 }
