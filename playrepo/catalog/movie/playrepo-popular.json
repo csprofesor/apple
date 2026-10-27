@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt36683600",
+      "type": "movie",
+      "name": "Efendiler",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZWNhYjA3MjktMDUzNi00NWM1LWJlZTAtYjIzNjE0YjhjZDc3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZWNhYjA3MjktMDUzNi00NWM1LWJlZTAtYjIzNjE0YjhjZDc3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Efendiler (2025) full HD, Türkçe dublaj ve altyazılı izle. Kadıköy&#039;de 3 stand up komedyeni bir film seçmesi için Malta Adası&#039;na çağrılır. Adaya vardıklarında dü...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt36683600/img",
+      "runtime": "98 dk"
+    },
+    {
       "id": "playrepo-askimiz-bu-gece-kaybolsa-bile",
       "type": "movie",
       "name": "Aşkımız Bu Gece Kaybolsa Bile",
@@ -1349,28 +1364,6 @@
       ],
       "posterShape": "poster",
       "runtime": "114 dk"
-    },
-    {
-      "id": "playrepo-bir-koyun-polisiyesi",
-      "type": "movie",
-      "name": "Bir Koyun Polisiyesi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/a8uQvrplTkhGJQog6GZ6CqF8An6.webp?v=1785096636",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/a8uQvrplTkhGJQog6GZ6CqF8An6.webp?v=1785096636",
-      "description": "Bir Koyun Polisiyesi (2026) full HD, Türkçe dublaj ve altyazılı izle. George Hardy, her gece çok sevdiği koyunlarına anlayamayacaklarını düşünmesine rağmen dede...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Prime Video",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "109 dk"
     }
   ]
 }
