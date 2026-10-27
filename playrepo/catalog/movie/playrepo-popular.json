@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-tugla",
+      "type": "movie",
+      "name": "Tuğla",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/apNfldKI3RiaukNwJzr8EjRG7Wc.webp?v=1785625323",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/apNfldKI3RiaukNwJzr8EjRG7Wc.webp?v=1785625323",
+      "description": "Tuğla (2025) full HD, Türkçe dublaj ve altyazılı izle. Apartmanlarının etrafı bir gecede gizemli bir tuğla duvarla çevrilen Tim ve Olivia, oradan canlı çıkabilm...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "100 dk"
+    },
+    {
       "id": "playrepo-britanya-ve-blitz",
       "type": "movie",
       "name": "Britanya ve Blitz",
@@ -1061,22 +1077,6 @@
       ],
       "posterShape": "poster",
       "runtime": "107 dk"
-    },
-    {
-      "id": "playrepo-orumcek-kadinin-opucugu",
-      "type": "movie",
-      "name": "Örümcek Kadının Öpücüğü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pSjRDluxao3wVcTUG6DKanVlrcB.webp?v=1785556592",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pSjRDluxao3wVcTUG6DKanVlrcB.webp?v=1785556592",
-      "description": "Örümcek Kadının Öpücüğü (2025) full HD, Türkçe dublaj ve altyazılı izle. Manuel Puig’in ünlü romanını temel alarak sahnelenen ve Broadway’i kasıp kavuran Kander...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "128 dk"
     }
   ]
 }
