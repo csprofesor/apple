@@ -440,7 +440,8 @@ async function getMeta(arg1, arg2) {
                     // If it has IMDb ID, enrich with trailer/cast from Cinemeta but PRESERVE Turkish description and genres
                     if (idStr.startsWith("tt")) {
                         try {
-                            const cmRes = await fetch(`https://v3-cinemeta.strem.io/meta/movie/${idStr}.json`, {
+                            const cType = (found.type === "series" || mediaType === "series") ? "series" : "movie";
+                            const cmRes = await fetch(`https://v3-cinemeta.strem.io/meta/${cType}/${idStr}.json`, {
                                 headers: { "User-Agent": UA }
                             });
                             if (cmRes.ok) {
@@ -450,6 +451,9 @@ async function getMeta(arg1, arg2) {
                                     if (cmData.meta.director) metaObj.director = cmData.meta.director;
                                     if (cmData.meta.trailers) metaObj.trailers = cmData.meta.trailers;
                                     if (cmData.meta.trailerStreams) metaObj.trailerStreams = cmData.meta.trailerStreams;
+                                    if (cType === "series" && Array.isArray(cmData.meta.videos) && cmData.meta.videos.length > 0) {
+                                        metaObj.videos = cmData.meta.videos;
+                                    }
                                 }
                             }
                         } catch (_) {}
@@ -656,7 +660,19 @@ async function getStreams(arg1, arg2, arg3, arg4) {
         }
 
         if (!idStr) return [];
+
+        let baseId = idStr;
+        if (idStr.includes(":")) {
+            const parts = idStr.split(":");
+            if (parts.length >= 3) {
+                baseId = parts[0];
+                season = parseInt(parts[1], 10) || season;
+                episode = parseInt(parts[2], 10) || episode;
+            }
+        }
+
         const cleanId = idStr.replace(/^tmdb:/, "").replace(/^tmdb-/, "").replace(/^movie\//, "").replace(/^tv\//, "").replace(/^playrepo:/, "").replace(/^playrepo-/, "");
+        const cleanBaseId = baseId.replace(/^tmdb:/, "").replace(/^tmdb-/, "").replace(/^movie\//, "").replace(/^tv\//, "").replace(/^playrepo:/, "").replace(/^playrepo-/, "");
         const safeId = idStr.replace(/:/g, "_");
         const hyphenId = idStr.replace(/:/g, "-").replace(/_/g, "-");
 
@@ -679,20 +695,50 @@ async function getStreams(arg1, arg2, arg3, arg4) {
         }
 
         if (allStreams) {
-            const normTarget = idStr.toLowerCase().replace(/[:_]/g, "-");
-            const normClean = cleanId.toLowerCase().replace(/[:_]/g, "-");
-            let itemStreams = allStreams[idStr] || allStreams[hyphenId] || allStreams[safeId] || allStreams[cleanId] ||
-                              allStreams[`playrepo-${cleanId}`] || allStreams[`playrepo-${normClean}`] ||
-                              allStreams[`movie/${cleanId}`] || allStreams[`tmdb:${cleanId}`] || allStreams[`playrepo:${cleanId}`];
+            const isSeries = mediaType === "series" || idStr.includes(":") || (season != null && episode != null && (season > 1 || episode > 1));
+            const targets = [
+                idStr,
+                hyphenId,
+                safeId,
+                cleanId,
+                `playrepo-${cleanId}`,
+                `movie/${cleanId}`,
+                `tv/${cleanId}`,
+                `tmdb:${cleanId}`,
+                `playrepo:${cleanId}`
+            ];
+
+            if (isSeries && season != null && episode != null) {
+                targets.unshift(
+                    `${baseId}:${season}:${episode}`,
+                    `${baseId}-${season}-${episode}`,
+                    `${cleanBaseId}:${season}:${episode}`,
+                    `${cleanBaseId}-${season}-${episode}`,
+                    `playrepo-${cleanBaseId}:${season}:${episode}`,
+                    `playrepo-${cleanBaseId}-${season}-${episode}`
+                );
+            }
+
+            let itemStreams = null;
+            for (const t of targets) {
+                if (allStreams[t] && allStreams[t].length > 0) {
+                    itemStreams = allStreams[t];
+                    break;
+                }
+            }
 
             if (!itemStreams || itemStreams.length === 0) {
-                // Sadece ve sadece TAM EŞLEŞME (Exact normalized match) - asla endsWith veya alt metin tahmini yapma!
-                for (const k of Object.keys(allStreams)) {
-                    const normK = k.toLowerCase().replace(/[:_]/g, "-");
-                    if (normK === normTarget || normK === normClean || normK === `playrepo-${normClean}` || normTarget === `playrepo-${normK}`) {
-                        itemStreams = allStreams[k];
-                        break;
+                // Sadece ve sadece TAM EŞLEŞME (Exact normalized match)
+                for (const t of targets) {
+                    const normTarget = t.toLowerCase().replace(/[:_]/g, "-");
+                    for (const k of Object.keys(allStreams)) {
+                        const normK = k.toLowerCase().replace(/[:_]/g, "-");
+                        if (normK === normTarget) {
+                            itemStreams = allStreams[k];
+                            break;
+                        }
                     }
+                    if (itemStreams) break;
                 }
             }
 

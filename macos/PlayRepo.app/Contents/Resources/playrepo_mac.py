@@ -1202,12 +1202,25 @@ class GitHubAtomicPublisher:
                 cat_item["runtime"] = m["runtime"]
 
             new_items.append(cat_item)
-            streams_map[m_id] = m["streams"]
-            streams_map[hyphen_id] = m["streams"]
-            streams_map[safe_id] = m["streams"]
-            if clean_id:
-                streams_map[clean_id] = m["streams"]
-                streams_map[f"playrepo-{clean_id}"] = m["streams"]
+
+            if m_type == "series" and s_num is not None and e_num is not None:
+                ep_keys = [
+                    f"{m_id}:{s_num}:{e_num}",
+                    f"{hyphen_id}-{s_num}-{e_num}",
+                    f"{clean_id}:{s_num}:{e_num}",
+                    f"{clean_id}-{s_num}-{e_num}",
+                    f"playrepo-{clean_id}:{s_num}:{e_num}",
+                    f"playrepo-{clean_id}-{s_num}-{e_num}"
+                ]
+                for ek in ep_keys:
+                    streams_map[ek] = m["streams"]
+            else:
+                streams_map[m_id] = m["streams"]
+                streams_map[hyphen_id] = m["streams"]
+                streams_map[safe_id] = m["streams"]
+                if clean_id:
+                    streams_map[clean_id] = m["streams"]
+                    streams_map[f"playrepo-{clean_id}"] = m["streams"]
 
             vid_obj = {
                 "id": vid_id,
@@ -1218,6 +1231,20 @@ class GitHubAtomicPublisher:
                 vid_obj["season"] = s_num
             if m_type == "series" and e_num:
                 vid_obj["episode"] = e_num
+
+            all_videos = [vid_obj]
+            if m_type == "series":
+                existing_series_json = files_to_commit.get(f"playrepo/meta/series/{m_id}.json")
+                if existing_series_json:
+                    try:
+                        prev_meta = json.loads(existing_series_json).get("meta", {})
+                        prev_vids = prev_meta.get("videos", [])
+                        vids_map = {v.get("id"): v for v in prev_vids if v.get("id")}
+                        vids_map[vid_id] = vid_obj
+                        all_videos = list(vids_map.values())
+                        all_videos.sort(key=lambda v: (v.get("season") or 1, v.get("episode") or 1))
+                    except Exception:
+                        pass
 
             detail_meta = {
                 "meta": {
@@ -1235,7 +1262,7 @@ class GitHubAtomicPublisher:
                         "defaultVideoId": vid_id,
                         "hasScheduledVideos": False
                     },
-                    "videos": [vid_obj]
+                    "videos": all_videos
                 }
             }
             if m.get("imdbRating"):

@@ -127,7 +127,12 @@ class GitHubPublisher {
                     filesToCommit["playrepo/meta/movie/$id.json"] = metaJson
                     filesToCommit["playrepo/stream/movie/$id.json"] = streamJson
                     if (movie.type == "series") {
-                        filesToCommit["playrepo/meta/series/$id.json"] = metaJson
+                        val existingSeriesJson = filesToCommit["playrepo/meta/series/$id.json"]
+                        val finalSeriesMetaJson = if (existingSeriesJson != null) {
+                            mergeSeriesVideos(existingSeriesJson, movie, idStr)
+                        } else metaJson
+                        filesToCommit["playrepo/meta/series/$id.json"] = finalSeriesMetaJson
+
                         if (movie.season != null && movie.episode != null) {
                             val epId = "$id:${movie.season}:${movie.episode}"
                             val safeEpId = epId.replace(":", "-")
@@ -303,12 +308,26 @@ class GitHubPublisher {
                     )
                 }
 
-                cleanedDataMap[idStr] = renumbered
-                cleanedDataMap[hyphenId] = renumbered
-                cleanedDataMap[safeId] = renumbered
-                cleanedDataMap[cleanId] = renumbered
-                cleanedDataMap["playrepo-$cleanId"] = renumbered
-                cleanedDataMap["movie/$cleanId"] = renumbered
+                if (movie.type == "series" && movie.season != null && movie.episode != null) {
+                    val s = movie.season
+                    val e = movie.episode
+                    val epKeys = listOf(
+                        "$idStr:$s:$e",
+                        "$hyphenId-$s-$e",
+                        "$cleanId:$s:$e",
+                        "$cleanId-$s-$e",
+                        "playrepo-$cleanId:$s:$e",
+                        "playrepo-$cleanId-$s-$e"
+                    )
+                    epKeys.forEach { k -> cleanedDataMap[k] = renumbered }
+                } else {
+                    cleanedDataMap[idStr] = renumbered
+                    cleanedDataMap[hyphenId] = renumbered
+                    cleanedDataMap[safeId] = renumbered
+                    cleanedDataMap[cleanId] = renumbered
+                    cleanedDataMap["playrepo-$cleanId"] = renumbered
+                    cleanedDataMap["movie/$cleanId"] = renumbered
+                }
             }
         }
 
@@ -582,6 +601,31 @@ class GitHubPublisher {
             add("meta", m)
         }
         return gson.toJson(metaWrapper)
+    }
+
+    private fun mergeSeriesVideos(existingJson: String, movie: ScrapedMovie, idStr: String): String {
+        return try {
+            val root = gson.fromJson(existingJson, JsonObject::class.java)
+            val meta = root?.getAsJsonObject("meta") ?: return existingJson
+            val videos = meta.getAsJsonArray("videos") ?: JsonArray().also { meta.add("videos", it) }
+            val newVidId = if (movie.season != null && movie.episode != null) "$idStr:${movie.season}:${movie.episode}" else idStr
+            val alreadyExists = (0 until videos.size()).any { idx ->
+                videos.get(idx).asJsonObject.get("id")?.asString == newVidId
+            }
+            if (!alreadyExists) {
+                val newVid = JsonObject().apply {
+                    addProperty("id", newVidId)
+                    addProperty("title", movie.title)
+                    if (movie.season != null) addProperty("season", movie.season)
+                    if (movie.episode != null) addProperty("episode", movie.episode)
+                    if (!movie.year.isNullOrBlank()) addProperty("released", "${movie.year}-01-01T00:00:00.000Z")
+                }
+                videos.add(newVid)
+            }
+            gson.toJson(root)
+        } catch (_: Exception) {
+            existingJson
+        }
     }
 
     private fun buildStreamJson(movie: ScrapedMovie): String {
