@@ -895,5 +895,28 @@
         }
       }
     }
+  ],
+  "playrepo-i-simsiz-kadin": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=77372ce812aadb3bc0af80341477f8c0&token=eyJ2IjoiNzczNzJjZTgxMmFhZGIzYmMwYWY4MDM0MTQ3N2Y4YzAiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzAzMDQzLCJuIjoiNDk4MzEzMzVkMDlkIn0.2778cbe8fd2653439e1425bc414554011f6b851320a33aa8e952e2b6b99ebbfc&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=dsUOL78G-VRD94_S3kwKAA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=dsUOL78G-VRD94_S3kwKAA"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=dsUOL78G-VRD94_S3kwKAA"
+          }
+        }
+      }
+    }
   ]
 }
