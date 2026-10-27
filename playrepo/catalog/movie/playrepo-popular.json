@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-ay-039-in-sirri",
+      "type": "movie",
+      "name": "Ay&#039;ın Sırrı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/keo8noxQJGA0eT06Vt7pkoWVxx4.webp?v=1785409805",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/keo8noxQJGA0eT06Vt7pkoWVxx4.webp?v=1785409805",
+      "description": "Ay&#039;ın Sırrı (2015) full HD, Türkçe dublaj ve altyazılı izle. Michael ve küçük arkadaşlarının kötü kalpli uyuşturucu satıcısı Mr. Big’e karşı verdiği mücadeleyi....",
+      "releaseInfo": "2015",
+      "genres": [
+        "Komedi",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "107 dk"
+    },
+    {
       "id": "playrepo-elveda-sabata",
       "type": "movie",
       "name": "Elveda Sabata",
@@ -1003,21 +1018,6 @@
       ],
       "posterShape": "poster",
       "runtime": "123 dk"
-    },
-    {
-      "id": "playrepo-i-ki-dunya-bir-dilek",
-      "type": "movie",
-      "name": "İki Dünya Bir Dilek",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2yZmwuXiQw58GiXwJwGNYtsDrEL.webp?v=1785129408",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2yZmwuXiQw58GiXwJwGNYtsDrEL.webp?v=1785129408",
-      "description": "İki Dünya Bir Dilek (2025) full HD, Türkçe dublaj ve altyazılı izle. Çocuk hastanesinde tanışıp büyülü anlar yaşayan Bilge ve Can, 21 yıl sonra aniden telepatik...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "118 dk"
     }
   ]
 }
