@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-safaga-kadar",
+      "type": "movie",
+      "name": "Şafağa Kadar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3xKJ0nyUTlySmMBCpOcsuSnFPI1.webp?v=1785682823",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3xKJ0nyUTlySmMBCpOcsuSnFPI1.webp?v=1785682823",
+      "description": "Şafağa Kadar (2025) full HD, Türkçe dublaj ve altyazılı izle. Kız kardeşi Melanie&#039;nin gizemli bir şekilde kaybolmasının üzerinden bir yıl geçtikten sonra, Clove...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "103 dk"
+    },
+    {
       "id": "playrepo-soguk-rekabet-2",
       "type": "movie",
       "name": "Soğuk Rekabet 2",
@@ -1214,43 +1229,6 @@
       ],
       "posterShape": "poster",
       "runtime": "133 dk"
-    },
-    {
-      "id": "tt31909270",
-      "type": "movie",
-      "name": "Swiped",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzBhZTFhZDItZDU3Ni00MjQwLWJhN2UtZjYzYmJhZTBkODIyXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNzBhZTFhZDItZDU3Ni00MjQwLWJhN2UtZjYzYmJhZTBkODIyXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Swiped (2025) full HD, Türkçe dublaj ve altyazılı izle. Swiped, çevrimiçi flört platformu Bumble&#039;ın vizyon sahibi kurucusunun kışkırtıcı gerçek hayat hikayesind...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt31909270/img",
-      "trailers": [
-        {
-          "source": "8seUGDLZRIo",
-          "type": "Trailer"
-        },
-        {
-          "source": "P_F0owXLcnM",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Swiped",
-          "ytId": "8seUGDLZRIo"
-        },
-        {
-          "title": "Swiped",
-          "ytId": "P_F0owXLcnM"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=8seUGDLZRIo",
-      "runtime": "110 dk"
     }
   ]
 }
