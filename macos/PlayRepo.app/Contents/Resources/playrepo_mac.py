@@ -529,11 +529,12 @@ class ScraperEngine:
 
                         for sub_item in p_subs:
                             sub_src = sub_item.get("src")
-                            sub_lang = sub_item.get("lang") or "tr"
-                            sub_label = sub_item.get("label") or "Türkçe Altyazı"
+                            sub_lang = "tur"
                             if sub_src:
                                 sub_src_clean = sub_src.replace(r"\/", "/")
-                                extra_subs.append({"id": sub_lang, "url": sub_src_clean, "lang": sub_label})
+                                if "sub.php" in sub_src_clean and ".vtt" not in sub_src_clean:
+                                    sub_src_clean = f"{sub_src_clean}&ext=.vtt" if "?" in sub_src_clean else f"{sub_src_clean}#.vtt"
+                                extra_subs.append({"id": sub_lang, "url": sub_src_clean, "lang": "tur"})
 
                         has_tr_sub = any(s.get("lang") == "tr" or "türkçe" in str(s.get("label", "")).lower() for s in p_subs)
                         is_explicit_dub = "dublaj" in p_title or any("dub" in str(a.get("label", "")).lower() or a.get("lang") == "tr" for a in p_audios)
@@ -921,16 +922,14 @@ class ScraperEngine:
         for tr_m in re.finditer(r'<track\s+[^>]*kind=["\'](?:subtitles|captions)["\'][^>]*>', html, re.I):
             tr_tag = tr_m.group(0)
             src_m = re.search(r'src=["\']([^"\']+)["\']', tr_tag, re.I)
-            lang_m = re.search(r'(?:srclang|label)=["\']([^"\']+)["\']', tr_tag, re.I)
             if src_m:
                 s_url = urllib.parse.urljoin(movie_url, src_m.group(1).strip())
-                s_lang = lang_m.group(1).strip() if lang_m else "Turkish"
-                subtitles.append({"id": s_lang.lower(), "url": s_url, "lang": s_lang})
+                subtitles.append({"id": "tur", "url": s_url, "lang": "tur"})
 
         for vtt_m in re.finditer(r'https?://[^\s"\'<>]+\.(?:vtt|srt)[^\s"\'<>]*', html, re.I):
             u = vtt_m.group(0)
             if not any(s["url"] == u for s in subtitles):
-                subtitles.append({"id": "tr", "url": u, "lang": "Turkish"})
+                subtitles.append({"id": "tur", "url": u, "lang": "tur"})
 
         season_num = s_num
         episode_num = e_num

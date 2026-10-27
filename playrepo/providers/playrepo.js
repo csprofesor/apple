@@ -790,7 +790,19 @@ async function resolveAndCapStreams(rawStreams) {
             headers: s.headers
         };
         if (s.subtitles && Array.isArray(s.subtitles) && s.subtitles.length > 0) {
-            streamItem.subtitles = s.subtitles;
+            streamItem.subtitles = s.subtitles.map((sub, sIdx) => {
+                let subUrl = sub.url || "";
+                if (subUrl.includes("sub.php") && !subUrl.includes(".vtt")) {
+                    subUrl = subUrl.includes("?") ? `${subUrl}&ext=.vtt` : `${subUrl}#.vtt`;
+                }
+                const rawLang = (sub.lang || sub.id || "").toLowerCase();
+                const isTurkish = rawLang.includes("tr") || rawLang.includes("türk") || rawLang.includes("tur") || rawLang.includes("tam") || rawLang.includes("forced");
+                return {
+                    id: sub.id || `sub_${sIdx}`,
+                    url: subUrl,
+                    lang: isTurkish ? "tur" : (rawLang || "tur")
+                };
+            });
         }
         return streamItem;
     });

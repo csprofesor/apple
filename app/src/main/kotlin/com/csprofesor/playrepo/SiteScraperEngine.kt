@@ -900,16 +900,15 @@ class SiteScraperEngine {
             val extractedSubtitles = mutableListOf<SubtitleItem>()
             doc.select("track[kind=subtitles], track[kind=captions]").forEach { tr ->
                 val src = tr.absUrl("src").ifBlank { tr.attr("src") }
-                val srclang = tr.attr("srclang").ifBlank { tr.attr("label") }.ifBlank { "Turkish" }
                 if (src.isNotBlank() && (src.contains(".vtt") || src.contains(".srt"))) {
-                    extractedSubtitles.add(SubtitleItem(id = srclang.lowercase(), url = src, lang = srclang))
+                    extractedSubtitles.add(SubtitleItem(id = "tur", url = src, lang = "tur"))
                 }
             }
             val vttRegex = Regex("""https?://[^\s"'`<>]+?\.(?:vtt|srt)[^\s"'`<>]*""", RegexOption.IGNORE_CASE)
             vttRegex.findAll(html).forEach { m ->
                 val u = m.value
                 if (extractedSubtitles.none { it.url == u }) {
-                    extractedSubtitles.add(SubtitleItem(id = "tr", url = u, lang = "Turkish"))
+                    extractedSubtitles.add(SubtitleItem(id = "tur", url = u, lang = "tur"))
                 }
             }
 
