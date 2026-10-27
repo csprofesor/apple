@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-godzilla-resurgence",
+      "type": "movie",
+      "name": "Godzilla Resurgence",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tb0uo01w2kDHiQwTszsLlSusAm4.webp?v=1785409810",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tb0uo01w2kDHiQwTszsLlSusAm4.webp?v=1785409810",
+      "description": "Godzilla Resurgence (2016) full HD, Türkçe dublaj ve altyazılı izle. Canavarların en büyüğü, şehirleri ezmek için Tokyo&#039;ya geri döndü. Japonya&#039;da huzur dolu bir...",
+      "releaseInfo": "2016",
+      "genres": [
+        "Korku & Gerilim",
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "120 dk"
+    },
+    {
       "id": "playrepo-seytanin-agzi",
       "type": "movie",
       "name": "Şeytanın Ağzı",
@@ -1001,21 +1018,6 @@
       ],
       "posterShape": "poster",
       "runtime": "92 dk"
-    },
-    {
-      "id": "playrepo-kardes-takimi-2",
-      "type": "movie",
-      "name": "Kardeş Takımı 2",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/smQOXVWUDJobLhLnzdDBjwNSOST.webp?v=1785132025",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/smQOXVWUDJobLhLnzdDBjwNSOST.webp?v=1785132025",
-      "description": "Kardeş Takımı 2 (2025) full HD, Türkçe dublaj ve altyazılı izle. 4 kardeş, anne ve babalarının zorlu eğitimlerini başarıyla tamamlayarak gerçek birer ajan olmuş...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "100 dk"
     }
   ]
 }
