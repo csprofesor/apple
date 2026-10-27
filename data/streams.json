@@ -10660,5 +10660,125 @@
         }
       }
     }
+  ],
+  "playrepo-lefter-bir-ordinaryus-hikayesi": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=100c2e54b3ec20887cbcadd16b1419c3&token=eyJ2IjoiMTAwYzJlNTRiM2VjMjA4ODdjYmNhZGQxNmIxNDE5YzMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDE0LCJuIjoiNzdjNWQ2YzRmNThhIn0.9cb0ce9b029e38ca7891a6bc217fe4af3435f18400d3ceb36a795d9ffc2932a3&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=kS6FgD_3MEz9ipdx9ZMVZg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kS6FgD_3MEz9ipdx9ZMVZg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=100c2e54b3ec20887cbcadd16b1419c3&sid=cd72595a0e60fbda2a2d46990c8323df&token=eyJ2IjoiMTAwYzJlNTRiM2VjMjA4ODdjYmNhZGQxNmIxNDE5YzMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDE0LCJuIjoiNzdjNWQ2YzRmNThhIn0.9cb0ce9b029e38ca7891a6bc217fe4af3435f18400d3ceb36a795d9ffc2932a3&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kS6FgD_3MEz9ipdx9ZMVZg"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=100c2e54b3ec20887cbcadd16b1419c3&token=eyJ2IjoiMTAwYzJlNTRiM2VjMjA4ODdjYmNhZGQxNmIxNDE5YzMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDE0LCJuIjoiNzdjNWQ2YzRmNThhIn0.9cb0ce9b029e38ca7891a6bc217fe4af3435f18400d3ceb36a795d9ffc2932a3&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=kS6FgD_3MEz9ipdx9ZMVZg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kS6FgD_3MEz9ipdx9ZMVZg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=100c2e54b3ec20887cbcadd16b1419c3&sid=cd72595a0e60fbda2a2d46990c8323df&token=eyJ2IjoiMTAwYzJlNTRiM2VjMjA4ODdjYmNhZGQxNmIxNDE5YzMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDE0LCJuIjoiNzdjNWQ2YzRmNThhIn0.9cb0ce9b029e38ca7891a6bc217fe4af3435f18400d3ceb36a795d9ffc2932a3&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kS6FgD_3MEz9ipdx9ZMVZg"
+          }
+        }
+      }
+    }
+  ],
+  "lefter-bir-ordinaryus-hikayesi": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=100c2e54b3ec20887cbcadd16b1419c3&token=eyJ2IjoiMTAwYzJlNTRiM2VjMjA4ODdjYmNhZGQxNmIxNDE5YzMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDE0LCJuIjoiNzdjNWQ2YzRmNThhIn0.9cb0ce9b029e38ca7891a6bc217fe4af3435f18400d3ceb36a795d9ffc2932a3&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=kS6FgD_3MEz9ipdx9ZMVZg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kS6FgD_3MEz9ipdx9ZMVZg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=100c2e54b3ec20887cbcadd16b1419c3&sid=cd72595a0e60fbda2a2d46990c8323df&token=eyJ2IjoiMTAwYzJlNTRiM2VjMjA4ODdjYmNhZGQxNmIxNDE5YzMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDE0LCJuIjoiNzdjNWQ2YzRmNThhIn0.9cb0ce9b029e38ca7891a6bc217fe4af3435f18400d3ceb36a795d9ffc2932a3&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kS6FgD_3MEz9ipdx9ZMVZg"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=100c2e54b3ec20887cbcadd16b1419c3&token=eyJ2IjoiMTAwYzJlNTRiM2VjMjA4ODdjYmNhZGQxNmIxNDE5YzMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDE0LCJuIjoiNzdjNWQ2YzRmNThhIn0.9cb0ce9b029e38ca7891a6bc217fe4af3435f18400d3ceb36a795d9ffc2932a3&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=kS6FgD_3MEz9ipdx9ZMVZg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kS6FgD_3MEz9ipdx9ZMVZg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=100c2e54b3ec20887cbcadd16b1419c3&sid=cd72595a0e60fbda2a2d46990c8323df&token=eyJ2IjoiMTAwYzJlNTRiM2VjMjA4ODdjYmNhZGQxNmIxNDE5YzMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQxNDE0LCJuIjoiNzdjNWQ2YzRmNThhIn0.9cb0ce9b029e38ca7891a6bc217fe4af3435f18400d3ceb36a795d9ffc2932a3&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=kS6FgD_3MEz9ipdx9ZMVZg"
+          }
+        }
+      }
+    }
   ]
 }
