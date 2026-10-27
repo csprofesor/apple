@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-sari-zarflar",
+      "type": "movie",
+      "name": "Sarı Zarflar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jF0cgfoBkmJyknP2nii2NdhChWs.webp?v=1785161688",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jF0cgfoBkmJyknP2nii2NdhChWs.webp?v=1785161688",
+      "description": "Sarı Zarflar (2026) full HD, Türkçe dublaj ve altyazılı izle. Ankara&#039;da saygın bir sanatçı çift olan Derya ve Aziz, 13 yaşındaki kızlarıyla birlikte mutlu bir h...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "128 dk"
+    },
+    {
       "id": "tt34895052",
       "type": "movie",
       "name": "Tur Rehberi",
@@ -1033,20 +1048,6 @@
       "posterShape": "poster",
       "logo": "https://live.metahub.space/logo/medium/tt36683600/img",
       "runtime": "98 dk"
-    },
-    {
-      "id": "playrepo-askimiz-bu-gece-kaybolsa-bile",
-      "type": "movie",
-      "name": "Aşkımız Bu Gece Kaybolsa Bile",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iL5eGI9ctHdUOV4yG6dyGKctSEX.webp?v=1785122349",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iL5eGI9ctHdUOV4yG6dyGKctSEX.webp?v=1785122349",
-      "description": "Aşkımız Bu Gece Kaybolsa Bile (2025) full HD, Türkçe dublaj ve altyazılı izle. Liseli bir kız her sabah önceki güne dair hiçbir şey hatırlamayarak uyanır. Çekin...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "runtime": "106 dk"
     }
   ]
 }
