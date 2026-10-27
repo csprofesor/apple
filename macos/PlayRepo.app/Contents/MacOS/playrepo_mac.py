@@ -1653,6 +1653,30 @@ class GitHubAtomicPublisher:
             "playrepo/catalog/series/playrepo-series-dram.json": empty_catalog
         }
 
+        # Nuvio'nun cihaz önbelleğini anında temizlemesi için manifest sürümünü artır
+        manifest_data = fetch_github_file("playrepo/manifest.json", token=self.token)
+        if not isinstance(manifest_data, dict):
+            loc_man = os.path.join(WORKSPACE_DIR, "playrepo", "manifest.json")
+            if os.path.exists(loc_man):
+                try:
+                    with open(loc_man, "r", encoding="utf-8") as f:
+                        manifest_data = json.load(f)
+                except Exception:
+                    manifest_data = {}
+        if isinstance(manifest_data, dict) and "version" in manifest_data:
+            cur_ver = manifest_data.get("version", "1.1.0")
+            parts = cur_ver.split(".")
+            if len(parts) >= 3:
+                new_ver = f"{parts[0]}.{parts[1]}.{int(parts[2]) + 1}"
+            else:
+                new_ver = f"{cur_ver}.1"
+            manifest_data["version"] = new_ver
+            manifest_data["resources"] = ["catalog", "meta", "stream"]
+            if "scrapers" in manifest_data and isinstance(manifest_data["scrapers"], list) and len(manifest_data["scrapers"]) > 0:
+                manifest_data["scrapers"][0]["version"] = new_ver
+                manifest_data["scrapers"][0]["id"] = manifest_data.get("id", "playRepo")
+            files_to_commit["playrepo/manifest.json"] = json.dumps(manifest_data, ensure_ascii=False, indent=2)
+
         ref_data = http_json(f"https://api.github.com/repos/{self.owner}/{self.repo}/git/ref/heads/{DEFAULT_BRANCH}", token=self.token)
         latest_commit_sha = ref_data.get("object", {}).get("sha")
         if not latest_commit_sha:
