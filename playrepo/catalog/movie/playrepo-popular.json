@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-fareler-bir-witcher-hik-yesi",
+      "type": "movie",
+      "name": "Fareler: Bir Witcher Hikâyesi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/en0NbTEjf3qKokHvwGeaq9DBPIP.webp?v=1785676600",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/en0NbTEjf3qKokHvwGeaq9DBPIP.webp?v=1785676600",
+      "description": "Fareler: Bir Witcher Hikâyesi (2025) full HD, Türkçe dublaj ve altyazılı izle. Uyumsuz altı kanun kaçağından oluşan bir çete, cesur bir soyguna girişmek için ha...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "80 dk"
+    },
+    {
       "id": "tt14961624",
       "type": "movie",
       "name": "The Old Guard 2",
@@ -1158,22 +1175,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=fbddYji1F8s",
       "runtime": "85 dk"
-    },
-    {
-      "id": "playrepo-oyun-bulusmasi",
-      "type": "movie",
-      "name": "Oyun Buluşması",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5lQ4euO30sDin5nCifvi0vURFNd.webp?v=1785661122",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5lQ4euO30sDin5nCifvi0vURFNd.webp?v=1785661122",
-      "description": "Oyun Buluşması (2025) full HD, Türkçe dublaj ve altyazılı izle. İşsiz kalan muhasebeci Brian, evde oğluyla ilgilenen Jeff ile çocukları için bir oyun buluşması....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "95 dk"
     }
   ]
 }
