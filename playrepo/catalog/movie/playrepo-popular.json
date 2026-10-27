@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-gizli-gorev",
+      "type": "movie",
+      "name": "Gizli Görev",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lOje1iz4VYWELYWRkZAwI7oIJd0.webp?v=1785630518",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lOje1iz4VYWELYWRkZAwI7oIJd0.webp?v=1785630518",
+      "description": "Gizli Görev (2025) full HD, Türkçe dublaj ve altyazılı izle. Gizli Görev, başarı şansını kaçırıp kaçırmadığını sorgulamaya başlayan bir doğaçlama komedi öğretme...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Suç & Polisiye",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "101 dk"
+    },
+    {
       "id": "playrepo-bizim-hatamiz",
       "type": "movie",
       "name": "Bizim Hatamız",
@@ -1009,21 +1026,6 @@
       ],
       "posterShape": "poster",
       "runtime": "118 dk"
-    },
-    {
-      "id": "playrepo-springsteen-hiclikten-kurtar-beni",
-      "type": "movie",
-      "name": "Springsteen: Hiçlikten Kurtar Beni",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oOczvrnhpXUmqCbyKYFj4FQExAo.webp?v=1785563091",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oOczvrnhpXUmqCbyKYFj4FQExAo.webp?v=1785563091",
-      "description": "Springsteen: Hiçlikten Kurtar Beni (2025) full HD, Türkçe dublaj ve altyazılı izle. Bruce Springsteen, a young musician on the cusp of global superstardom, stru...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "120 dk"
     }
   ]
 }
