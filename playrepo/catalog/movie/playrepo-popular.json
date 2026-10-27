@@ -1,6 +1,36 @@
 {
   "metas": [
     {
+      "id": "tt32063098",
+      "type": "movie",
+      "name": "Ballad of a Small Player",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMWZhYzE5ODctNTUwYi00ZGE3LTliNTgtZTNkYjcxZWMxMWJjXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMWZhYzE5ODctNTUwYi00ZGE3LTliNTgtZTNkYjcxZWMxMWJjXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Ballad of a Small Player (2025) full HD, Türkçe dublaj ve altyazılı izle. Makao&#039;nun pırıltılı kumarhanelerinde geçmişinden ve borçlarından kaçan bir kumarbaz, b...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Suç & Polisiye"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt32063098/img",
+      "trailers": [
+        {
+          "source": "z1B5W55TFyo",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Ballad of a Small Player",
+          "ytId": "z1B5W55TFyo"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=z1B5W55TFyo",
+      "runtime": "101 dk"
+    },
+    {
       "id": "playrepo-ortak-bela",
       "type": "movie",
       "name": "Ortak Bela",
@@ -1061,23 +1091,6 @@
       ],
       "posterShape": "poster",
       "runtime": "96 dk"
-    },
-    {
-      "id": "playrepo-tatlim-yapma",
-      "type": "movie",
-      "name": "Tatlım, Yapma!",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cjhq1eBLXgKq1xHDFeUnYzu61H6.webp?v=1785553037",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cjhq1eBLXgKq1xHDFeUnYzu61H6.webp?v=1785553037",
-      "description": "Tatlım, Yapma! (2025) full HD, Türkçe dublaj ve altyazılı izle. Tatlım, Yapma!, küçük bir kasabada yaşayan özel dedektif Honey O&#039;Donahue&#039;nun, gizemli bir kilise...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Suç & Polisiye",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "89 dk"
     }
   ]
 }
