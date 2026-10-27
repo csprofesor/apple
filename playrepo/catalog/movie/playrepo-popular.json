@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt34964187",
+      "type": "movie",
+      "name": "DJ Ahmet",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNzUzOGM2NDgtMTZmMS00NTI2LTk0OGMtZTg2ZWRlNDNjYTJmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNzUzOGM2NDgtMTZmMS00NTI2LTk0OGMtZTg2ZWRlNDNjYTJmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "DJ Ahmet (2025) full HD, Türkçe dublaj ve altyazılı izle. Kuzey Makedonya&#039;nın ücra bir köyünde olan 15 yaşındaki Ahmet, babasının beklentileri, muhafazakar bir....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Komedi"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt34964187/img",
+      "trailers": [
+        {
+          "source": "GHBATVjjLWY",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "DJ Ahmet",
+          "ytId": "GHBATVjjLWY"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=GHBATVjjLWY",
+      "runtime": "97 dk"
+    },
+    {
       "id": "playrepo-dogulu",
       "type": "movie",
       "name": "Doğulu",
@@ -1390,28 +1419,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=1fCZhJMkBaY",
       "runtime": "94 dk"
-    },
-    {
-      "id": "playrepo-meksika-86",
-      "type": "movie",
-      "name": "Meksika 86",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5Dkv39CuytJDnJeZjkepFtOWqBr.webp?v=1785092005",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5Dkv39CuytJDnJeZjkepFtOWqBr.webp?v=1785092005",
-      "description": "Meksika 86 (2026) full HD, Türkçe dublaj ve altyazılı izle. Cesaret, çılgınlık ve Meksikalıların pratik zekâsı. 1986&#039;da Meksika, tüm olumsuzluklara rağmen futbo...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Aile",
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Suç & Polisiye",
-        "Korku & Gerilim",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "97 dk"
     }
   ]
 }
