@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-sevgili-suikastcim",
+      "type": "movie",
+      "name": "Sevgili Suikastçım",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xA6AM5MvEkieZKlv1Tn3sN23I7i.webp?v=1785107581",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xA6AM5MvEkieZKlv1Tn3sN23I7i.webp?v=1785107581",
+      "description": "Sevgili Suikastçım (2026) full HD, Türkçe dublaj ve altyazılı izle. Nadir bulunan kan grubu sebebiyle hedef hâline gelen bir kadın, âşık olduğu ölümcül suikastç...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "128 dk"
+    },
+    {
       "id": "playrepo-53-pazar",
       "type": "movie",
       "name": "53 Pazar",
@@ -1165,22 +1181,6 @@
       ],
       "posterShape": "poster",
       "runtime": "109 dk"
-    },
-    {
-      "id": "playrepo-72-saat",
-      "type": "movie",
-      "name": "72 Saat",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hL5EIk48251OXlbIbRJq3yaBHk8.webp?v=1785061378",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hL5EIk48251OXlbIbRJq3yaBHk8.webp?v=1785061378",
-      "description": "72 Saat (2026) full HD, Türkçe dublaj ve altyazılı izle. Yanlışlıkla bir grup sohbetine eklenen 40 yaşlarındaki bir yönetici, kariyerini kurtarmak için yirmilik...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Popüler",
-        "Netflix"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
