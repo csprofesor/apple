@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-uzgunum-bebegim",
+      "type": "movie",
+      "name": "Üzgünüm, Bebeğim",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nVHEjkA8vuEGJLfNUOmVW5md6yn.webp?v=1785562574",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nVHEjkA8vuEGJLfNUOmVW5md6yn.webp?v=1785562574",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Üzgünüm, Bebeğim (2025) full HD, Türkçe dublaj ve altyazılı izle. Agnes kendini çıkmazda hissediyor. New York&#039;a taşınan ve şimdi bebek bekleyen en yakın arkadaş...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "103 dk"
+    },
+    {
       "id": "playrepo-splitsville-pek-romantik-olmayan-komedi",
       "type": "movie",
       "name": "Splitsville: Pek Romantik Olmayan Komedi",
@@ -1259,28 +1282,6 @@
       ],
       "posterShape": "poster",
       "runtime": "102 dk"
-    },
-    {
-      "id": "playrepo-sungerbob-korsan-macerasi",
-      "type": "movie",
-      "name": "SüngerBob: Korsan Macerası",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pMxO1beNNFYMDM7RcDyKW5Wheuz.webp?v=1785538470",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pMxO1beNNFYMDM7RcDyKW5Wheuz.webp?v=1785538470",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "SüngerBob: Korsan Macerası (2025) full HD, Türkçe dublaj ve altyazılı izle. Büyük biri olmak için can atan SüngerBob, cesaretini Bay Yengeç&#039;e kanıtlamak amacıyl...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Suç, Polisiye & Gizem",
-        "Korku & Gerilim",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "88 dk"
     }
   ]
 }
