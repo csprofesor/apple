@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "id": "playrepo-korkunc-bir-film",
+    "type": "movie",
+    "name": "Korkunç Bir Film",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xWBiXclrRmTggQHMRsIn84YHavs.webp?v=1785057714",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xWBiXclrRmTggQHMRsIn84YHavs.webp?v=1785057714",
+    "description": "Korkunç Bir Film (2026) full HD, Türkçe dublaj ve altyazılı izle. Maskeli bir saldırganla ilk karşılaşmalarının üzerinden yirmi altı yıl geçtikten sonra orijina...",
+    "releaseInfo": "2026",
+    "genres": [
+      "Korku & Gerilim",
+      "Suç & Polisiye",
+      "Dram & Romantik",
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Animasyon & Aile",
+      "Belgesel & Tarih",
+      "Aksiyon & Macera"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-korkunc-bir-film",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-korkunc-bir-film",
+        "title": "Korkunç Bir Film",
+        "name": "Korkunç Bir Film",
+        "released": "2026-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "96 dk"
+  }
+}
