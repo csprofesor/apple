@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-oteki-paris",
+      "type": "movie",
+      "name": "Öteki Paris",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/i8QHgJKnsd8csNBo8fH9wYW2Y9E.webp?v=1785679910",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/i8QHgJKnsd8csNBo8fH9wYW2Y9E.webp?v=1785679910",
+      "description": "Öteki Paris (2025) full HD, Türkçe dublaj ve altyazılı izle. Fransa&#039;daki Paris&#039;te bir flört programına katıldığını düşünen Dawn kendini Teksas&#039;taki Paris&#039;te bul...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "107 dk"
+    },
+    {
       "id": "playrepo-titanik-dijital-dirilis",
       "type": "movie",
       "name": "Titanik: Dijital Diriliş",
@@ -1131,22 +1147,6 @@
       ],
       "posterShape": "poster",
       "runtime": "101 dk"
-    },
-    {
-      "id": "playrepo-sisu-i-ntikam-yolu",
-      "type": "movie",
-      "name": "Sisu: İntikam Yolu",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/10MiMMNzWeE53cHhSlfroPiO8vi.webp?v=1785665347",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/10MiMMNzWeE53cHhSlfroPiO8vi.webp?v=1785665347",
-      "description": "Sisu: İntikam Yolu (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir adam, savaşta katledilen ailesinin evini yıkıp başka bir yerde yeniden inşa etmek için g...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "89 dk"
     }
   ]
 }
