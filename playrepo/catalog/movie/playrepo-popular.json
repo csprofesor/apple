@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-david-attenborough-ile-okyanuslar",
+      "type": "movie",
+      "name": "David Attenborough ile Okyanuslar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2hthvh4L1pHYZ5alepSqIAFYrRv.webp?v=1785658154",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2hthvh4L1pHYZ5alepSqIAFYrRv.webp?v=1785658154",
+      "description": "David Attenborough ile Okyanuslar (2025) full HD, Türkçe dublaj ve altyazılı izle. Efsanevi belgeselci David Attenborough, ömürlük deneyimiyle okyanusların en e...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "85 dk"
+    },
+    {
       "id": "playrepo-mission-impossible-son-hesaplasma",
       "type": "movie",
       "name": "Mission: Impossible - Son Hesaplaşma",
@@ -1120,44 +1135,6 @@
       ],
       "posterShape": "poster",
       "runtime": "107 dk"
-    },
-    {
-      "id": "tt1312221",
-      "type": "movie",
-      "name": "Frankenstein",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYzYzNDYxMTQtMTU4OS00MTdlLThhMTQtZjI4NGJmMTZmNmRiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYzYzNDYxMTQtMTU4OS00MTdlLThhMTQtZjI4NGJmMTZmNmRiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Frankenstein (2025) full HD, Türkçe dublaj ve altyazılı izle. Dr. Victor Frankenstein (Oscar Isaac), ölümün sınırlarını zorlayan, saplantılı ve yalnız bir bilim...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt1312221/img",
-      "trailers": [
-        {
-          "source": "9WZllcEgWrM",
-          "type": "Trailer"
-        },
-        {
-          "source": "8aulMPhE12g",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Frankenstein",
-          "ytId": "9WZllcEgWrM"
-        },
-        {
-          "title": "Frankenstein",
-          "ytId": "8aulMPhE12g"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=9WZllcEgWrM",
-      "runtime": "149 dk"
     }
   ]
 }
