@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-bana-sans-dileme",
+      "type": "movie",
+      "name": "Bana Şans Dileme",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yzdMGn8IRHSGuV8AIzw19wkRU2W.webp?v=1786790525",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yzdMGn8IRHSGuV8AIzw19wkRU2W.webp?v=1786790525",
+      "description": "Bana Şans Dileme (2026) full HD, Türkçe dublaj ve altyazılı izle. Sophie Birenbaum bir lise müzikalinde başrol oyuncusu olarak sahne almaya hazırlanır. Ancak ya...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-panda-plani-2",
       "type": "movie",
       "name": "Panda Planı 2",
@@ -1226,22 +1242,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=PYzqa1CDTik",
       "runtime": "92 dk"
-    },
-    {
-      "id": "playrepo-dugun-soleni",
-      "type": "movie",
-      "name": "Düğün Şöleni",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bqqthiW4JzYK3hz9LrqNZQWbNz6.webp?v=1785677799",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bqqthiW4JzYK3hz9LrqNZQWbNz6.webp?v=1785677799",
-      "description": "Düğün Şöleni (2025) full HD, Türkçe dublaj ve altyazılı izle. Erkek arkadaşı Chris, onun spontane evlilik teklifini reddedince, Min en iyi arkadaşı Angela&#039;yı ev...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "103 dk"
     }
   ]
 }
