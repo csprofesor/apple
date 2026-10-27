@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-yarim-kalan-i-kizler",
+      "type": "movie",
+      "name": "Yarım Kalan İkizler",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fnvTC96lA7pf8ZlMKI2FgBZ86AP.webp?v=1785680844",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fnvTC96lA7pf8ZlMKI2FgBZ86AP.webp?v=1785680844",
+      "description": "Yarım Kalan İkizler (2025) full HD, Türkçe dublaj ve altyazılı izle. Yas tutan iki genç, ikizlere özel bir destek grubunda tanışıp beklenmedik bir dostluk kurar...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "100 dk"
+    },
+    {
       "id": "playrepo-astroworld-faciasi",
       "type": "movie",
       "name": "Astroworld Faciası",
@@ -1132,22 +1148,6 @@
       ],
       "posterShape": "poster",
       "runtime": "155 dk"
-    },
-    {
-      "id": "playrepo-star-trek-birim-31",
-      "type": "movie",
-      "name": "Star Trek: Birim 31",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3SOunz2Z0qcOVlrkYFj20HquziB.webp?v=1785667294",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3SOunz2Z0qcOVlrkYFj20HquziB.webp?v=1785667294",
-      "description": "Star Trek: Birim 31 (2025) full HD, Türkçe dublaj ve altyazılı izle. İmparator Georgiou, Birleşik Gezegenler Federasyonu&#039;nu korumakla görevli Starfleet&#039;in gizli...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "96 dk"
     }
   ]
 }
