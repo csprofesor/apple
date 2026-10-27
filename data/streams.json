@@ -642,5 +642,51 @@
         }
       }
     }
+  ],
+  "playrepo-siginak": [
+    {
+      "name": "Play • TR Dublaj 1",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=f0de9d0e208890e72f47b123abc7d3d3&token=eyJ2IjoiZjBkZTlkMGUyMDg4OTBlNzJmNDdiMTIzYWJjN2QzZDMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzI2MDI5LCJuIjoiZTNhZmE3YzNiYmU0In0.e6652dd8905e339c218bb11e1039846a4a9417d8c7cae82687c7a2c95b338e5f&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=4YH_m0cDMIaRCTuES-JcDw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=4YH_m0cDMIaRCTuES-JcDw"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=4YH_m0cDMIaRCTuES-JcDw"
+          }
+        }
+      }
+    }
+  ],
+  "siginak": [
+    {
+      "name": "Play • TR Dublaj 1",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=f0de9d0e208890e72f47b123abc7d3d3&token=eyJ2IjoiZjBkZTlkMGUyMDg4OTBlNzJmNDdiMTIzYWJjN2QzZDMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzI2MDI5LCJuIjoiZTNhZmE3YzNiYmU0In0.e6652dd8905e339c218bb11e1039846a4a9417d8c7cae82687c7a2c95b338e5f&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=4YH_m0cDMIaRCTuES-JcDw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=4YH_m0cDMIaRCTuES-JcDw"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=4YH_m0cDMIaRCTuES-JcDw"
+          }
+        }
+      }
+    }
   ]
 }
