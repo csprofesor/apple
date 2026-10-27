@@ -8692,5 +8692,51 @@
         }
       }
     }
+  ],
+  "playrepo-ne-halt-ettiginizi-biliyorum": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=ab8ada04c4f25cd86ac13811c36c31d7&token=eyJ2IjoiYWI4YWRhMDRjNGYyNWNkODZhYzEzODExYzM2YzMxZDciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzA3MDMzLCJuIjoiNjY3ODY1NDMxZjYyIn0.3f9dbbb2300d5a4a3a220a755da484c932ebe85fa6ae9501161c9bb833dfa18d&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=P7-TIMO00k-MgmTABrz5EQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=P7-TIMO00k-MgmTABrz5EQ"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=P7-TIMO00k-MgmTABrz5EQ"
+          }
+        }
+      }
+    }
+  ],
+  "ne-halt-ettiginizi-biliyorum": [
+    {
+      "name": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "title": "Play • Dublaj 1 • 1080p • [TR Dublaj]",
+      "url": "https://pilavyerplay.top/api/stream.php?v=ab8ada04c4f25cd86ac13811c36c31d7&token=eyJ2IjoiYWI4YWRhMDRjNGYyNWNkODZhYzEzODExYzM2YzMxZDciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzA3MDMzLCJuIjoiNjY3ODY1NDMxZjYyIn0.3f9dbbb2300d5a4a3a220a755da484c932ebe85fa6ae9501161c9bb833dfa18d&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=P7-TIMO00k-MgmTABrz5EQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=P7-TIMO00k-MgmTABrz5EQ"
+      },
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=P7-TIMO00k-MgmTABrz5EQ"
+          }
+        }
+      }
+    }
   ]
 }
