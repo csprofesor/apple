@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "id": "playrepo-amator",
+    "type": "movie",
+    "name": "Amatör",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/aD7FXrm2GErTmzrIFBntPyhAqS9.webp?v=1785670961",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/aD7FXrm2GErTmzrIFBntPyhAqS9.webp?v=1785670961",
+    "description": "Amatör (2025) full HD, Türkçe dublaj ve altyazılı izle. Filmde Rami Melik, Charlie Heller adında zeki ancak içine kapanık bir deşifre uzmanını canlandırıyor. La...",
+    "releaseInfo": "2025",
+    "genres": [
+      "Korku & Gerilim",
+      "Popüler",
+      "Aksiyon & Macera"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-amator",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-amator",
+        "title": "Amatör",
+        "name": "Amatör",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "123 dk"
+  }
+}
