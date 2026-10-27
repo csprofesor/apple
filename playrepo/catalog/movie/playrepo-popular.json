@@ -1,6 +1,34 @@
 {
   "metas": [
     {
+      "id": "tt36589671",
+      "type": "movie",
+      "name": "The Last Gunfight",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZjZjMGRjNGYtMTNhNC00MWM3LTg0NGUtN2U4MmM2ZjlkY2Q3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZjZjMGRjNGYtMTNhNC00MWM3LTg0NGUtN2U4MmM2ZjlkY2Q3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "The Last GunFight (2025) full HD, Türkçe dublaj ve altyazılı izle. Acımasız bir yeraltı turnuvasında, dünyanın en iyi suikastçıları ölümüne şiddetli bir mücadel...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt36589671/img",
+      "trailers": [
+        {
+          "source": "L59gbXYYOAA",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Fragman",
+          "ytId": "L59gbXYYOAA"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=L59gbXYYOAA",
+      "runtime": "98 dk"
+    },
+    {
       "id": "playrepo-sanal-ulke",
       "type": "movie",
       "name": "Sanal Ülke",
@@ -1100,23 +1128,6 @@
       ],
       "posterShape": "poster",
       "runtime": "126 dk"
-    },
-    {
-      "id": "playrepo-aciya-yer-yok",
-      "type": "movie",
-      "name": "Acıya Yer Yok",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lyBH2mFFU6qrHwD5QKotL2JnEb6.webp?v=1785658792",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lyBH2mFFU6qrHwD5QKotL2JnEb6.webp?v=1785658792",
-      "description": "Acıya Yer Yok (2025) full HD, Türkçe dublaj ve altyazılı izle. Yumuşak huylu, içe dönük bir adam olan Nate / Nathan Caine, kendisini fiziksel acıya karşı dayanı...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "110 dk"
     }
   ]
 }
