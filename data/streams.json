@@ -3322,5 +3322,75 @@
         }
       }
     }
+  ],
+  "playrepo-olunu-goreyim": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=5d9b837534c806652ab28e82163ccfbb&token=eyJ2IjoiNWQ5YjgzNzUzNGM4MDY2NTJhYjI4ZTgyMTYzY2NmYmIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyMTI0LCJuIjoiYmI5MmQ1ZjEyZTZlIn0.8d627e2bff07d95c9c5a355ccfc5366304f2d1aed58c9c8081300f52d164aea2&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=wE8m1VrDv_ScLKRU-Oq21w",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=wE8m1VrDv_ScLKRU-Oq21w"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=5d9b837534c806652ab28e82163ccfbb&sid=39725e9a318376869392c248c2cdaed8&token=eyJ2IjoiNWQ5YjgzNzUzNGM4MDY2NTJhYjI4ZTgyMTYzY2NmYmIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyMTI0LCJuIjoiYmI5MmQ1ZjEyZTZlIn0.8d627e2bff07d95c9c5a355ccfc5366304f2d1aed58c9c8081300f52d164aea2",
+          "lang": "Türkçe (Forced)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=5d9b837534c806652ab28e82163ccfbb&sid=6cc3eae64a6bdbf9da3e088696566e70&token=eyJ2IjoiNWQ5YjgzNzUzNGM4MDY2NTJhYjI4ZTgyMTYzY2NmYmIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyMTI0LCJuIjoiYmI5MmQ1ZjEyZTZlIn0.8d627e2bff07d95c9c5a355ccfc5366304f2d1aed58c9c8081300f52d164aea2",
+          "lang": "Tam (Türkçe)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=wE8m1VrDv_ScLKRU-Oq21w"
+          }
+        }
+      }
+    }
+  ],
+  "olunu-goreyim": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=5d9b837534c806652ab28e82163ccfbb&token=eyJ2IjoiNWQ5YjgzNzUzNGM4MDY2NTJhYjI4ZTgyMTYzY2NmYmIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyMTI0LCJuIjoiYmI5MmQ1ZjEyZTZlIn0.8d627e2bff07d95c9c5a355ccfc5366304f2d1aed58c9c8081300f52d164aea2&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=wE8m1VrDv_ScLKRU-Oq21w",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=wE8m1VrDv_ScLKRU-Oq21w"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=5d9b837534c806652ab28e82163ccfbb&sid=39725e9a318376869392c248c2cdaed8&token=eyJ2IjoiNWQ5YjgzNzUzNGM4MDY2NTJhYjI4ZTgyMTYzY2NmYmIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyMTI0LCJuIjoiYmI5MmQ1ZjEyZTZlIn0.8d627e2bff07d95c9c5a355ccfc5366304f2d1aed58c9c8081300f52d164aea2",
+          "lang": "Türkçe (Forced)"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=5d9b837534c806652ab28e82163ccfbb&sid=6cc3eae64a6bdbf9da3e088696566e70&token=eyJ2IjoiNWQ5YjgzNzUzNGM4MDY2NTJhYjI4ZTgyMTYzY2NmYmIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMyMTI0LCJuIjoiYmI5MmQ1ZjEyZTZlIn0.8d627e2bff07d95c9c5a355ccfc5366304f2d1aed58c9c8081300f52d164aea2",
+          "lang": "Tam (Türkçe)"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=wE8m1VrDv_ScLKRU-Oq21w"
+          }
+        }
+      }
+    }
   ]
 }
