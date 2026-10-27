@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-ask-dumeni",
+      "type": "movie",
+      "name": "Aşk Dümeni",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rFKbPDXBzgn4eYBdJXaAPEYIcyA.webp?v=1785689612",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rFKbPDXBzgn4eYBdJXaAPEYIcyA.webp?v=1785689612",
+      "description": "Aşk Dümeni (2025) full HD, Türkçe dublaj ve altyazılı izle. Borç içinde yüzen iki erkek kardeş varlıklı bir kadın vârisi dolandırmak ve Napoli&#039;deki evlerini kur...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "runtime": "101 dk"
+    },
+    {
       "id": "playrepo-sev-beni",
       "type": "movie",
       "name": "Sev Beni",
@@ -1198,34 +1213,6 @@
       ],
       "posterShape": "poster",
       "runtime": "215 dk"
-    },
-    {
-      "id": "tt36589671",
-      "type": "movie",
-      "name": "The Last Gunfight",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZjZjMGRjNGYtMTNhNC00MWM3LTg0NGUtN2U4MmM2ZjlkY2Q3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZjZjMGRjNGYtMTNhNC00MWM3LTg0NGUtN2U4MmM2ZjlkY2Q3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "The Last GunFight (2025) full HD, Türkçe dublaj ve altyazılı izle. Acımasız bir yeraltı turnuvasında, dünyanın en iyi suikastçıları ölümüne şiddetli bir mücadel...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://live.metahub.space/logo/medium/tt36589671/img",
-      "trailers": [
-        {
-          "source": "L59gbXYYOAA",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Fragman",
-          "ytId": "L59gbXYYOAA"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=L59gbXYYOAA",
-      "runtime": "98 dk"
     }
   ]
 }
