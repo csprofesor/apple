@@ -1,6 +1,20 @@
 {
   "metas": [
     {
+      "id": "tt33052623",
+      "type": "movie",
+      "name": "Minecraft 3",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2Nti3gYAX513wvhp8IiLL6ZDyOm.webp?v=1785617857",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2Nti3gYAX513wvhp8IiLL6ZDyOm.webp?v=1785617857",
+      "description": "Bir Minecraft Filmi (2025) full HD, Türkçe dublaj ve altyazılı izle. Dört uyumsuz, gizemli bir portaldan aniden Üst Dünya&#039;ya çekildiklerinde kendilerini sıradan...",
+      "releaseInfo": "2024",
+      "genres": [
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "101 dk"
+    },
+    {
       "id": "playrepo-dunyanin-en-i-yi-annesi",
       "type": "movie",
       "name": "Dünyanın En İyi Annesi",
@@ -1090,23 +1104,6 @@
       ],
       "posterShape": "poster",
       "runtime": "96 dk"
-    },
-    {
-      "id": "playrepo-yapay-zeka",
-      "type": "movie",
-      "name": "Yapay Zeka",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zhBUH1R3QJS6MMIegaL71FW47Bt.webp?v=1785548750",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zhBUH1R3QJS6MMIegaL71FW47Bt.webp?v=1785548750",
-      "description": "Yapay Zeka (2025) full HD, Türkçe dublaj ve altyazılı izle. Yapay Zeka, yazma sürecinde bir yapay zekadan yardım alan bir yazarın hikayesini konu ediyor. Yazar....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "110 dk"
     }
   ]
 }
