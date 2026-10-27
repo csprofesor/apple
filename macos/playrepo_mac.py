@@ -255,7 +255,11 @@ class ScraperEngine:
         if not path:
             return False
 
-        matches_kw = any(k in lower for k in ["/film/", "-izle", "/dizi/", "/filmler/", "/movie/", "/watch/", "/izle/", "/sinema/", "/video/", "/title/", "/bolum/", "/episode/"])
+        matches_kw = any(k in lower for k in [
+            "/film/", "-izle", "/dizi/", "/filmler/", "/movie/", "/watch/",
+            "/izle/", "/sinema/", "/video/", "/title/", "/bolum/", "/episode/",
+            "/sezon/", "/sezon-", "/bolum-"
+        ])
         is_hyphenated_slug = "-" in path and "/page" not in path and "?" not in path
 
         return matches_kw or is_hyphenated_slug
@@ -302,13 +306,14 @@ class ScraperEngine:
                 sm_content = http_get(sm_url, timeout=5)
                 if sm_content and ("<urlset" in sm_content or "<sitemapindex" in sm_content or "<rss" in sm_content):
                     self.log(f"⚡ [Sitemap Keşfi] {sm_url} üzerinden doğrudan indeks taranıyor...")
-                    locs = re.findall(r'<loc>(https?://[^<]+)</loc>', sm_content, re.I) or re.findall(r'<link>(https?://[^<]+)</link>', sm_content, re.I)
+                    locs = [l.strip() for l in (re.findall(r'<loc>(https?://[^<]+)</loc>', sm_content, re.I) or re.findall(r'<link>(https?://[^<]+)</link>', sm_content, re.I))]
+                    # Prioritize movie, series, and episode sub-sitemaps first
+                    locs.sort(key=lambda x: 0 if any(k in x.lower() for k in ["movie", "series", "episode", "dizi", "film", "bolum", "post"]) else 1)
                     sub_sitemaps_fetched = 0
                     for loc in locs:
                         loc = loc.strip()
                         if loc.endswith(".xml") or "/sitemap" in loc:
-                            # Alt sitemap tespiti (Örn: post-sitemap1.xml, en fazla 3 adet taranır)
-                            if sub_sitemaps_fetched >= 3:
+                            if sub_sitemaps_fetched >= 8:
                                 continue
                             sub_sitemaps_fetched += 1
                             try:
@@ -794,6 +799,9 @@ class ScraperEngine:
         site_base = f"{parsed_origin.scheme}://{parsed_origin.netloc}"
         for opt_m in re.finditer(r'data-post=["\'](\d+)["\'][^>]*data-nume=["\']([^"\']+)["\']', clean_player_html, re.I):
             post_id, nume = opt_m.group(1), opt_m.group(2)
+            match_start = opt_m.start()
+            surrounding = clean_player_html[max(0, match_start - 120):min(len(clean_player_html), opt_m.end() + 200)]
+            opt_lang = get_lang(surrounding)
             try:
                 ajax_cmd = [
                     "curl", "-s", "-X", "POST", f"{site_base}/wp-admin/admin-ajax.php",
@@ -805,9 +813,34 @@ class ScraperEngine:
                 ajax_res = subprocess.run(ajax_cmd, capture_output=True, text=True, timeout=5)
                 if ajax_res.stdout:
                     for if_m in re.finditer(r'<iframe\s+[^>]*src=["\']([^"\']+)["\']', ajax_res.stdout, re.I):
-                        add_candidate(urllib.parse.urljoin(movie_url, if_m.group(1).strip()), default_lang)
+                        add_candidate(urllib.parse.urljoin(movie_url, if_m.group(1).strip()), opt_lang)
             except Exception:
                 pass
+
+        # 5. Alternate Language Page Scanner (e.g. Dublaj page linking to Altyazılı page, or multi-tabs)
+        base_slug = movie_url.rstrip('/').split('/')[-1]
+        for term in ["-turkce-dublaj", "-turkce-altyazili", "-dublaj", "-altyazili", "-izle"]:
+            base_slug = base_slug.replace(term, "")
+
+        if len(base_slug) >= 4:
+            for a_m in re.finditer(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', clean_player_html, re.I | re.DOTALL):
+                a_href = urllib.parse.urljoin(movie_url, a_m.group(1).strip())
+                a_text = re.sub(r'<[^>]+>', '', a_m.group(2)).strip()
+                if a_href.startswith(site_base) and a_href != movie_url and a_href != f"{movie_url}/":
+                    if base_slug in a_href and not any(k in a_href for k in ["/kategori/", "/genre/", "/tag/", "/yorum"]):
+                        cand_lang = get_lang(f"{a_text} {a_href}")
+                        if cand_lang != default_lang and not any(c[0] == a_href for c in candidate_embeds):
+                            try:
+                                alt_html = http_get(a_href, referer=movie_url)
+                                if alt_html:
+                                    alt_pv = re.findall(r'data-pv=["\']([^"\']+)["\']', alt_html)
+                                    if alt_pv:
+                                        for s in alt_pv:
+                                            add_candidate(f"{pilav_base}/assets/js/s.php?s={urllib.parse.quote(s)}", cand_lang)
+                                    for alt_if in re.finditer(r'<iframe\s+[^>]*(?:src|data-src|data-frame)=["\']([^"\']+)["\']', alt_html, re.I):
+                                        add_candidate(urllib.parse.urljoin(a_href, alt_if.group(1).strip()), cand_lang)
+                            except Exception:
+                                pass
 
         # Extract subtitles (.vtt / .srt)
         subtitles = []
@@ -949,11 +982,11 @@ class ScraperEngine:
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
                 "Referer": st_ref
             }
-            raw_t = st.get("title", "")
-            if "Dublaj" in raw_t:
+            raw_t = st.get("title", "").lower()
+            if "dublaj" in raw_t:
                 dub_c += 1
                 formatted_title = f"Play • Dublaj {dub_c} • 1080p • [TR Dublaj]"
-            elif "Altyaz" in raw_t:
+            elif "altyaz" in raw_t:
                 sub_c += 1
                 formatted_title = f"Play • Altyazı {sub_c} • 1080p • [TR Altyazılı]"
             else:

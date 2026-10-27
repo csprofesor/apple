@@ -221,10 +221,14 @@ class SiteScraperEngine {
                             val locRegex = Regex("""<loc>(https?://[^<]+)</loc>""", RegexOption.IGNORE_CASE)
                             val linkRegex = Regex("""<link>(https?://[^<]+)</link>""", RegexOption.IGNORE_CASE)
                             val allFound = (locRegex.findAll(body) + linkRegex.findAll(body)).map { it.groupValues[1].trim() }
+                                .sortedByDescending { loc ->
+                                    val l = loc.lowercase()
+                                    if (l.contains("movie") || l.contains("film") || l.contains("series") || l.contains("dizi") || l.contains("episode") || l.contains("bolum") || l.contains("post")) 1 else 0
+                                }
                             var subSitemapsFetched = 0
                             for (loc in allFound) {
                                 if (loc.endsWith(".xml", true) || loc.contains("/sitemap", true)) {
-                                    if (subSitemapsFetched >= 3) continue
+                                    if (subSitemapsFetched >= 8) continue
                                     subSitemapsFetched++
                                     try {
                                         val subReq = Request.Builder().url(loc).header("User-Agent", getRandomUserAgent()).build()
@@ -370,7 +374,8 @@ class SiteScraperEngine {
         val matchesKeyword = lower.contains("/film/") || lower.contains("-izle") || lower.contains("/dizi/") ||
                lower.contains("/filmler/") || lower.contains("/movie/") || lower.contains("/watch/") ||
                lower.contains("/izle/") || lower.contains("/sinema/") || lower.contains("/video/") ||
-               lower.contains("/title/") || lower.contains("/bolum/") || lower.contains("/episode/")
+               lower.contains("/title/") || lower.contains("/bolum/") || lower.contains("/episode/") ||
+               lower.contains("/sezon/") || lower.contains("/sezon-") || lower.contains("/bolum-")
 
         val isHyphenatedSlug = path.contains("-") && !path.contains("/page") && !path.contains("?")
 
