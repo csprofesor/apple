@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-dovus-efsanesi",
+      "type": "movie",
+      "name": "Dövüş Efsanesi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hTCr9dDf0EcBGZSUaY0YCeBjBr5.webp?v=1785539038",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hTCr9dDf0EcBGZSUaY0YCeBjBr5.webp?v=1785539038",
+      "description": "Dövüş Efsanesi (2025) full HD, Türkçe dublaj ve altyazılı izle. MMA dövüşçüsü Mark Kerr, UFC&#039;deki zirve döneminde bağımlılık, zafer ve aşkla mücadele ediyor.",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "123 dk"
+    },
+    {
       "id": "playrepo-birlikte",
       "type": "movie",
       "name": "Birlikte",
@@ -994,21 +1010,6 @@
       ],
       "posterShape": "poster",
       "runtime": "193 dk"
-    },
-    {
-      "id": "playrepo-konusan-hayvanlar",
-      "type": "movie",
-      "name": "Konuşan Hayvanlar",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gpmwxOR5uPomDFihgtHDrV2BsHV.webp?v=1785134061",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gpmwxOR5uPomDFihgtHDrV2BsHV.webp?v=1785134061",
-      "description": "Konuşan Hayvanlar (2019) full HD, Türkçe dublaj ve altyazılı izle. Konuşan Hayvanlar, hayvan dostlarını kötü adamların elinden kurtarmak için zorlu bir mücadele...",
-      "releaseInfo": "2019",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "90 dk"
     }
   ]
 }
