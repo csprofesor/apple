@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "playrepo-gizli-ajan",
+      "type": "movie",
+      "name": "Gizli Ajan",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eeGRpU64sIrRApjWXvTpK5Lep2K.webp?v=1785568157",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eeGRpU64sIrRApjWXvTpK5Lep2K.webp?v=1785568157",
+      "description": "Gizli Ajan (2025) full HD, Türkçe dublaj ve altyazılı izle. Brezilya, 1977. 40&#039;lı yaşlarının başındaki teknoloji uzmanı Marcelo, bir kaçaktır. Oğluyla yeniden b...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Mubi & Kült",
+        "Popüler",
+        "Suç & Polisiye"
+      ],
+      "posterShape": "poster",
+      "runtime": "158 dk"
+    },
+    {
       "id": "playrepo-golge-avi",
       "type": "movie",
       "name": "Gölge Avı",
@@ -1181,42 +1199,6 @@
       ],
       "posterShape": "poster",
       "runtime": "111 dk"
-    },
-    {
-      "id": "tt33549447",
-      "type": "movie",
-      "name": "Anemone",
-      "poster": "https://m.media-amazon.com/images/M/MV5BM2UyNzdjZTQtN2IzNy00Yjc5LTgyMzUtN2UxMjdjYTQzMTkzXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BM2UyNzdjZTQtN2IzNy00Yjc5LTgyMzUtN2UxMjdjYTQzMTkzXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Anemone (2025) full HD, Türkçe dublaj ve altyazılı izle. Erkek kardeşler, babalar ve oğullar arasında var olan karmaşık ve derin bağları keşfedin.",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt33549447/img",
-      "trailers": [
-        {
-          "source": "uS7DHGFXkNY",
-          "type": "Trailer"
-        },
-        {
-          "source": "HVqoyMi98OI",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Anemone",
-          "ytId": "uS7DHGFXkNY"
-        },
-        {
-          "title": "Anemone",
-          "ytId": "HVqoyMi98OI"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=uS7DHGFXkNY",
-      "runtime": "125 dk"
     }
   ]
 }
