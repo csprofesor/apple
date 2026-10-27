@@ -541,21 +541,26 @@ class ScraperEngine:
                                     sub_src_clean = f"{sub_src_clean}&ext=.vtt" if "?" in sub_src_clean else f"{sub_src_clean}#.vtt"
                                 extra_subs.append({"id": sub_lang, "url": sub_src_clean, "lang": "tur"})
 
+                        has_tr_aud = any("dub" in str(a.get("label", "")).lower() or a.get("lang") == "tr" for a in p_audios)
+                        has_orig_aud = any(a.get("lang") in ["en", "orig", "original", "nl", "de", "fr", "es", "ru", "ja", "ko"] or "orijinal" in str(a.get("label", "")).lower() for a in p_audios)
                         has_tr_sub = any(s.get("lang") == "tr" or "türkçe" in str(s.get("label", "")).lower() for s in p_subs)
-                        is_explicit_dub = "dublaj" in p_title or any("dub" in str(a.get("label", "")).lower() or a.get("lang") == "tr" for a in p_audios)
-                        is_explicit_sub = "altyaz" in p_title or "sub" in p_title or (has_tr_sub and any(a.get("lang") == "en" for a in p_audios))
 
-                        if is_explicit_dub:
+                        if has_tr_aud and has_orig_aud:
+                            detected_lang = "[Dual Audio]"
+                        elif has_tr_aud:
                             detected_lang = "[TR Dublaj]"
-                        elif is_explicit_sub:
+                        elif has_orig_aud or has_tr_sub or "altyaz" in p_title or "sub" in p_title:
                             detected_lang = "[TR Altyazılı]"
+                        elif "dublaj" in p_title:
+                            detected_lang = "[TR Dublaj]"
                         else:
                             detected_lang = hint_lang or "[TR Dublaj]"
 
                         return {
                             "url": s_link,
                             "lang": detected_lang,
-                            "subtitles": extra_subs
+                            "subtitles": extra_subs,
+                            "is_dual": (detected_lang == "[Dual Audio]")
                         }
                 except Exception:
                     pass
@@ -990,7 +995,20 @@ class ScraperEngine:
                             merged_subs.append(s)
                 if merged_subs:
                     st_item["subtitles"] = merged_subs
-                resolved_streams.append(st_item)
+
+                if info.get("is_dual") or actual_lang == "[Dual Audio]":
+                    st_dub = dict(st_item)
+                    st_dub["title"] = "Play • 1080p • [TR Dublaj]"
+                    st_dub["name"] = "TR Dublaj"
+                    st_dub["is_dual"] = True
+                    st_sub = dict(st_item)
+                    st_sub["title"] = "Play • 1080p • [TR Altyazılı]"
+                    st_sub["name"] = "TR Altyazı"
+                    st_sub["is_dual"] = True
+                    resolved_streams.append(st_dub)
+                    resolved_streams.append(st_sub)
+                else:
+                    resolved_streams.append(st_item)
 
         if not resolved_streams:
             # Fallback: Headless Browser DOM Simulation for dynamic JS players
@@ -1060,17 +1078,6 @@ class ScraperEngine:
                     oth_list.append(s)
                     if u_domain: seen_domains.add("oth_" + u_domain)
 
-        # Eğer sub_list boşsa ve dub_list içinde subtitles (altyazı) barındıran bir akış varsa,
-        # kullanıcıya hem dublaj hem de altyazılı seçenek olarak sun
-        if not sub_list and dub_list:
-            for ds in dub_list:
-                if ds.get("subtitles") and len(ds["subtitles"]) > 0:
-                    sub_clone = dict(ds)
-                    sub_clone["title"] = "[TR Altyazılı]"
-                    sub_clone["is_sub_clone"] = True
-                    sub_list.append(sub_clone)
-                    break
-
         valid_streams = dub_list + sub_list + oth_list
         if not valid_streams:
             valid_streams = alive_streams[:3]
@@ -1097,14 +1104,21 @@ class ScraperEngine:
                 "Referer": st_ref
             }
             raw_t = st.get("title", "").lower()
-            if "altyaz" in raw_t or st.get("is_sub_clone"):
+            is_dual = st.get("is_dual", False)
+            if "altyaz" in raw_t:
                 sub_c += 1
                 stream_name = "TR Altyazı"
-                formatted_title = f"1080p • Sunucu {sub_c}"
+                if is_dual:
+                    formatted_title = f"1080p • Sunucu {sub_c} (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)"
+                else:
+                    formatted_title = f"1080p • Sunucu {sub_c}"
             else:
                 dub_c += 1
                 stream_name = "TR Dublaj"
-                formatted_title = f"1080p • Sunucu {dub_c}"
+                if is_dual:
+                    formatted_title = f"1080p • Sunucu {dub_c} (Dual Ses)"
+                else:
+                    formatted_title = f"1080p • Sunucu {dub_c}"
             st["name"] = stream_name
             st["title"] = formatted_title
 
