@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-cam-sehpa",
+      "type": "movie",
+      "name": "Cam Sehpa",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nUMxXcgdQOtphcObnIbokw7dRZU.webp?v=1785110714",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nUMxXcgdQOtphcObnIbokw7dRZU.webp?v=1785110714",
+      "description": "Cam Sehpa (2026) full HD, Türkçe dublaj ve altyazılı izle. Pısırık bir kocanın evliliği içinde aldığı ilk ciddi karar bir cam sehpa alışverişidir. Karısının iti...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "88 dk"
+    },
+    {
       "id": "tt39578551",
       "type": "movie",
       "name": "BTS: The Return",
@@ -1418,29 +1440,6 @@
       ],
       "posterShape": "poster",
       "runtime": "127 dk"
-    },
-    {
-      "id": "playrepo-yardim-cagrisi",
-      "type": "movie",
-      "name": "Yardım Çağrısı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bpp58yHuQmpt6xwggI63mVRw7po.webp?v=1785064381",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bpp58yHuQmpt6xwggI63mVRw7po.webp?v=1785064381",
-      "description": "Yardım Çağrısı (2026) full HD, Türkçe dublaj ve altyazılı izle. İki meslektaş, bir uçak kazasından sağ kurtulan tek kişiler olarak ıssız bir adada mahsur kalır....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Hulu",
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "113 dk"
     }
   ]
 }
