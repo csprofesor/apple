@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-sirinler",
+      "type": "movie",
+      "name": "Şirinler",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9whEVuKte4Qi0LI4TzPf7glinJW.webp?v=1785666287",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9whEVuKte4Qi0LI4TzPf7glinJW.webp?v=1785666287",
+      "description": "Şirinler Filmi (2025) full HD, Türkçe dublaj ve altyazılı izle. Şirin Baba, kötü büyücüler Razamel ve Gargamel tarafından gizemli bir şekilde kaçırıldığında Şir...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "89 dk"
+    },
+    {
       "id": "playrepo-sesimi-takip-et",
       "type": "movie",
       "name": "Sesimi Takip Et",
@@ -1127,23 +1143,6 @@
       ],
       "posterShape": "poster",
       "runtime": "109 dk"
-    },
-    {
-      "id": "playrepo-bir-yildiz-kadar-uzak",
-      "type": "movie",
-      "name": "Bir Yıldız Kadar Uzak",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/drSJ0HVuSNFMPq5VzAEHk37BiEC.webp?v=1785648878",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/drSJ0HVuSNFMPq5VzAEHk37BiEC.webp?v=1785648878",
-      "description": "Bir Yıldız Kadar Uzak (2025) full HD, Türkçe dublaj ve altyazılı izle. Tüm evrene yayılan bu animasyon aşk öyküsünde bir astronot, Mars&#039;a gitmek için Dünya&#039;dan....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "96 dk"
     }
   ]
 }
