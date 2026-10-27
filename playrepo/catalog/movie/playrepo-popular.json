@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-yapay-zeka",
+      "type": "movie",
+      "name": "Yapay Zeka",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zhBUH1R3QJS6MMIegaL71FW47Bt.webp?v=1785548750",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zhBUH1R3QJS6MMIegaL71FW47Bt.webp?v=1785548750",
+      "description": "Yapay Zeka (2025) full HD, Türkçe dublaj ve altyazılı izle. Yapay Zeka, yazma sürecinde bir yapay zekadan yardım alan bir yazarın hikayesini konu ediyor. Yazar....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "110 dk"
+    },
+    {
       "id": "playrepo-saftirik-greg-039-in-gunlugu-turunun-son-ornegi",
       "type": "movie",
       "name": "Saftirik Greg&#039;in Günlüğü: Türünün Son Örneği",
@@ -1127,22 +1144,6 @@
       ],
       "posterShape": "poster",
       "runtime": "97 dk"
-    },
-    {
-      "id": "playrepo-lucy-letby-sorusturmasi",
-      "type": "movie",
-      "name": "Lucy Letby Soruşturması",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qhSfXdkrIzwYsyQ3Z9ehFmO3zjy.webp?v=1785152601",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qhSfXdkrIzwYsyQ3Z9ehFmO3zjy.webp?v=1785152601",
-      "description": "Lucy Letby Soruşturması (2026) full HD, Türkçe dublaj ve altyazılı izle. Bebekleri öldürmekten suçlu bulunan yenidoğan hemşiresi Lucy Letby&#039;nin dehşet verici da...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Suç & Polisiye",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "95 dk"
     }
   ]
 }
