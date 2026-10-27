@@ -1,6 +1,36 @@
 {
   "metas": [
     {
+      "id": "tt35669009",
+      "type": "movie",
+      "name": "Ziam",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZDdlN2Q0ZjktNWI3Ny00NGYzLWJmNmItN2Y3YmNhMmZmNjY3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZDdlN2Q0ZjktNWI3Ny00NGYzLWJmNmItN2Y3YmNhMmZmNjY3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Ziam (2025) full HD, Türkçe dublaj ve altyazılı izle. Korkunç bir zombi ordusuyla mücadele eden eski bir Muay Thai dövüşçüsü, kız arkadaşını kurtarmak için bece...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Aksiyon & Macera",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt35669009/img",
+      "trailers": [
+        {
+          "source": "ATjGbAL8hWg",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Ziam",
+          "ytId": "ATjGbAL8hWg"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=ATjGbAL8hWg",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-kis-bahar-yaz-ya-da-guz",
       "type": "movie",
       "name": "Kış Bahar Yaz Ya Da Güz",
@@ -1180,35 +1210,6 @@
       ],
       "posterShape": "poster",
       "runtime": "89 dk"
-    },
-    {
-      "id": "tt38346012",
-      "type": "movie",
-      "name": "The Balloonist",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZTcyMDczNjYtNzE4ZC00MmNkLWE2YjItOWE4YmMxMDgxNGIwXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZTcyMDczNjYtNzE4ZC00MmNkLWE2YjItOWE4YmMxMDgxNGIwXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "The Balloonist (2025) full HD, Türkçe dublaj ve altyazılı izle. Gaby&#039;nin hayatı, nadir tavuklarla dolu olan kümesinin üstüne küstah bir sıcak hava balonu pilotu...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt38346012/img",
-      "trailers": [
-        {
-          "source": "hhLW8hsUnMU",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "The Balloonist",
-          "ytId": "hhLW8hsUnMU"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=hhLW8hsUnMU",
-      "runtime": "108 dk"
     }
   ]
 }
