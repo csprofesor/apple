@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-ne-eglence-ama",
+      "type": "movie",
+      "name": "Ne Eğlence Ama!",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/haAekI7zBtffqILr90DkviTe9fk.webp?v=1785659545",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/haAekI7zBtffqILr90DkviTe9fk.webp?v=1785659545",
+      "description": "Ne Eğlence Ama! (2025) full HD, Türkçe dublaj ve altyazılı izle. Claire Clauster, Noel tatillerinde kaotik ama sevimli ailesinin bireylerini bir araya getiren k...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "90 dk"
+    },
+    {
       "id": "playrepo-yaktin-bizi-fantezi-futbol",
       "type": "movie",
       "name": "Yaktın Bizi Fantezi Futbol",
@@ -1092,21 +1107,6 @@
       ],
       "posterShape": "poster",
       "runtime": "107 dk"
-    },
-    {
-      "id": "playrepo-bir-damat-i-ki-gelin",
-      "type": "movie",
-      "name": "Bir Damat, İki Gelin",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vWMt9uu77fJP5PU6MfYXANSH4Cs.webp?v=1785638470",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vWMt9uu77fJP5PU6MfYXANSH4Cs.webp?v=1785638470",
-      "description": "Bir Damat, İki Gelin (2025) full HD, Türkçe dublaj ve altyazılı izle. Aşka karşı alerjisi olan Adam, bir şekilde hem patronunun kızıyla hem de ilk aşkıyla nişan...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster"
     }
   ]
 }
