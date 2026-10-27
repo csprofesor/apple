@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-dogulu",
+      "type": "movie",
+      "name": "Doğulu",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zmd55n1onswJE7lqluqBcB5YsbC.webp?v=1785118042",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zmd55n1onswJE7lqluqBcB5YsbC.webp?v=1785118042",
+      "description": "Doğulu (2025) full HD, Türkçe dublaj ve altyazılı izle. Fırat Doğulu ve Can yoldaşı Akın, uzun yıllar kaldıkları cezaevinden çıktıktan sonra kendilerini amansız...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "90 dk"
+    },
+    {
       "id": "playrepo-c-takimi-2",
       "type": "movie",
       "name": "C Takımı 2",
@@ -1390,28 +1412,6 @@
       ],
       "posterShape": "poster",
       "runtime": "97 dk"
-    },
-    {
-      "id": "playrepo-rachel-nickell-cinayeti",
-      "type": "movie",
-      "name": "Rachel Nickell Cinayeti",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yKeYZOmBMQUMKpMlJJF8q4riYpl.webp?v=1785091940",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yKeYZOmBMQUMKpMlJJF8q4riYpl.webp?v=1785091940",
-      "description": "Rachel Nickell Cinayeti (2026) full HD, Türkçe dublaj ve altyazılı izle. Genç bir anne güpegündüz Londra&#039;daki Wimbledon Parkı&#039;nda çocuğunun gözleri önünde öldür...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "96 dk"
     }
   ]
 }
