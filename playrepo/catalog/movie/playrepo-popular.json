@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-evet-hayir-belki",
+      "type": "movie",
+      "name": "Evet, Hayır, Belki",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rFgdmHbxEocgmzExT3StrRuY4xb.webp?v=1785665061",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rFgdmHbxEocgmzExT3StrRuY4xb.webp?v=1785665061",
+      "description": "Evet, Hayır, Belki (2025) full HD, Türkçe dublaj ve altyazılı izle. Almanya&#039;da yetişen Mavi, çok zengin bir Türk ailesine mensup olduğunu öğrenince yeni ailesin...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "108 dk"
+    },
+    {
       "id": "playrepo-polly-mcclusky-nin-zor-egitimi",
       "type": "movie",
       "name": "Polly McClusky’nin Zor Eğitimi",
@@ -1110,22 +1126,6 @@
       ],
       "posterShape": "poster",
       "runtime": "84 dk"
-    },
-    {
-      "id": "playrepo-tatli-villa",
-      "type": "movie",
-      "name": "Tatlı Villa",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/s1ge9SG2zfJdMeZ69VMEbxeKuAE.webp?v=1785645921",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/s1ge9SG2zfJdMeZ69VMEbxeKuAE.webp?v=1785645921",
-      "description": "Tatlı Villa (2025) full HD, Türkçe dublaj ve altyazılı izle. Kızı Toskana&#039;daki harap bir villayı almaya karar verdiğinde, onu vazgeçirmek için İtalya&#039;nın yolunu...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "99 dk"
     }
   ]
 }
