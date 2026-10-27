@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt22507216",
+      "type": "movie",
+      "name": "Amrum",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNjk2MDFjZmEtNjczNi00YmJmLTljNTgtMjRhMTQ4NjA2MDI5XkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNjk2MDFjZmEtNjczNi00YmJmLTljNTgtMjRhMTQ4NjA2MDI5XkEyXkFqcGc%40._V1_.jpg",
+      "description": "Amrum (2025) full HD, Türkçe dublaj ve altyazılı izle. Amrum Adası, 1945 baharı. Savaşın son günlerinde 12 yaşındaki Nanning, annesinin aileyi doyurmasına yardı...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt22507216/img",
+      "trailers": [
+        {
+          "source": "-izT0MKkvZY",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Amrum",
+          "ytId": "-izT0MKkvZY"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=-izT0MKkvZY",
+      "runtime": "93 dk"
+    },
+    {
       "id": "playrepo-olaganustu-akilli-yaratiklar",
       "type": "movie",
       "name": "Olağanüstü Akıllı Yaratıklar",
@@ -1447,28 +1476,6 @@
       ],
       "posterShape": "poster",
       "runtime": "102 dk"
-    },
-    {
-      "id": "playrepo-seytan-marka-giyer-2",
-      "type": "movie",
-      "name": "Şeytan Marka Giyer 2",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/Af907x5h9W1wVis8XrSd7ynTWuy.jpg?v=1782838994",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/Af907x5h9W1wVis8XrSd7ynTWuy.jpg?v=1782838994",
-      "description": "Şeytan Marka Giyer 2 (2026) full HD, Türkçe dublaj ve altyazılı izle. Moda dünyasının efsanevi hikâyesi kaldığı yerden devam ediyor. Miranda Priestly, dergi yay...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "119 dk"
     }
   ]
 }
