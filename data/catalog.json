@@ -1,6 +1,59 @@
 {
   "metas": [
     {
+      "id": "tt17490712",
+      "type": "movie",
+      "name": "Mortal Kombat II",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYjFiMmI1NDctNzcyMi00ZGU5LWI4MzAtZjRjYzU2MWFmY2ViXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYjFiMmI1NDctNzcyMi00ZGU5LWI4MzAtZjRjYzU2MWFmY2ViXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Mortal Kombat II (2026) full HD, Türkçe dublaj ve altyazılı izle. Hayranların gözde şampiyonları, Dünya Alemi&#039;nin ve savunucularının varlığını tehdit eden Shao....",
+      "releaseInfo": "2026",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt17490712/img",
+      "trailers": [
+        {
+          "source": "qGyIEis2T2o",
+          "type": "Trailer"
+        },
+        {
+          "source": "zva2PQ-ud5Y",
+          "type": "Trailer"
+        },
+        {
+          "source": "b24oG7qCwp4",
+          "type": "Trailer"
+        },
+        {
+          "source": "ZdC5mFHPldg",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Mortal Kombat II",
+          "ytId": "qGyIEis2T2o"
+        },
+        {
+          "title": "Mortal Kombat II",
+          "ytId": "zva2PQ-ud5Y"
+        },
+        {
+          "title": "Mortal Kombat II",
+          "ytId": "b24oG7qCwp4"
+        },
+        {
+          "title": "Mortal Kombat II",
+          "ytId": "ZdC5mFHPldg"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=qGyIEis2T2o",
+      "runtime": "116 dk"
+    },
+    {
       "id": "playrepo-23-000-hayat",
       "type": "movie",
       "name": "23.000 Hayat",
