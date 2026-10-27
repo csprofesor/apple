@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-kopek-adam",
+      "type": "movie",
+      "name": "Köpek Adam",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iXU87IdtNsYt7n6OigPJBDdbFf1.webp?v=1785630718",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iXU87IdtNsYt7n6OigPJBDdbFf1.webp?v=1785630718",
+      "description": "Köpek Adam (2025) full HD, Türkçe dublaj ve altyazılı izle. Sadık bir polis köpeği ve onun polis memuru sahibi iş başında birlikte yaralandıklarında çılgınca am...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Animasyon & Aile",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "89 dk"
+    },
+    {
       "id": "playrepo-hep-yasa-bir-adamin-olumsuzluk-arayisi",
       "type": "movie",
       "name": "Hep Yaşa: Bir Adamın Ölümsüzlük Arayışı",
@@ -1010,21 +1027,6 @@
       ],
       "posterShape": "poster",
       "runtime": "105 dk"
-    },
-    {
-      "id": "playrepo-sesin-hik-yesi",
-      "type": "movie",
-      "name": "Sesin Hikâyesi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/e13Io18jl6p5UiS5Cxhug9ptTPU.webp?v=1785566016",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/e13Io18jl6p5UiS5Cxhug9ptTPU.webp?v=1785566016",
-      "description": "Sesin Hikâyesi (2025) full HD, Türkçe dublaj ve altyazılı izle. Yıl 1917, savaş dünyayı kasıp kavurmaktadır. Kentucky&#039;nin taşrasından gelen yetenekli şarkıcı Li...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "128 dk"
     }
   ]
 }
