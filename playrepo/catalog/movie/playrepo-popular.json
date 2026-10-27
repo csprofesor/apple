@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-gece-elbet-coker",
+      "type": "movie",
+      "name": "Gece Elbet Çöker",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cVqQdzqo0ymSFJqU87bIiHV8bA7.webp?v=1785656991",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cVqQdzqo0ymSFJqU87bIiHV8bA7.webp?v=1785656991",
+      "description": "Gece Elbet Çöker (2025) full HD, Türkçe dublaj ve altyazılı izle. Ailesinin artık geçinemediği bir şehirde evden çıkarılmakla yüz yüze gelen bir kadın, çaresizl...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "108 dk"
+    },
+    {
       "id": "playrepo-onemsiz-biri-2",
       "type": "movie",
       "name": "Önemsiz Biri 2",
@@ -1141,21 +1158,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-force-of-nature-the-dry-2",
-      "type": "movie",
-      "name": "Force of Nature: The Dry 2",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rFpf81V4Zxkhyd0hsIGr7TIj50s.webp?v=1785635975",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rFpf81V4Zxkhyd0hsIGr7TIj50s.webp?v=1785635975",
-      "description": "Force of Nature: The Dry 2 (2024) full HD, Türkçe dublaj ve altyazılı izle. Beş kadın, doğada bir inzivaya katılır. Ancak içlerinden sadece dördü geri dönebilir...",
-      "releaseInfo": "2024",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "112 dk"
     }
   ]
 }
