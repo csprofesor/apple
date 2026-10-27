@@ -1,6 +1,20 @@
 {
   "metas": [
     {
+      "id": "tt10243264",
+      "type": "movie",
+      "name": "Uçurum",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYzRlZmJlMjYtNmE3Mi00OWUwLWFlMmQtNTliYTFhZGE4YWI3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYzRlZmJlMjYtNmE3Mi00OWUwLWFlMmQtNTliYTFhZGE4YWI3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Uçurum (2026) full HD, Türkçe dublaj ve altyazılı izle. Uzak bir adada sürdürdüğü huzurlu hayatı, intikam hırsıyla yanan eski kaptanının dönüşüyle altüst olan y...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "103 dk"
+    },
+    {
       "id": "playrepo-moriah-wilson-039-in-trajik-ve-gercek-hik-yesi",
       "type": "movie",
       "name": "Moriah Wilson&#039;ın Trajik ve Gerçek Hikâyesi",
@@ -1324,27 +1338,6 @@
       ],
       "posterShape": "poster",
       "runtime": "141 dk"
-    },
-    {
-      "id": "playrepo-boluk-porcuk-bir-tuncel-kurtiz-biyografisi",
-      "type": "movie",
-      "name": "Bölük Pörçük – Bir Tuncel Kurtiz Biyografisi",
-      "poster": "https://ddizimom.net/storage/tmdb/posters/w780/fqYqg3DffPyZ5mfma8TEIWdzMoo.webp?v=1785115370",
-      "background": "https://ddizimom.net/storage/tmdb/posters/w780/fqYqg3DffPyZ5mfma8TEIWdzMoo.webp?v=1785115370",
-      "description": "Bölük Pörçük – Bir Tuncel Kurtiz Biyografisi (2025) full HD, Türkçe dublaj ve altyazılı izle. Bu belgesel,Tuncel Kurtiz&#039;in farklı sanatsal üretimlerini ilk kez....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "85 dk"
     }
   ]
 }
