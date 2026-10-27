@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-kucuk-bir-rica-daha",
+      "type": "movie",
+      "name": "Küçük Bir Rica Daha",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/b6e5Nss2QNoQM4wJv2VppChswNP.webp?v=1785618363",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/b6e5Nss2QNoQM4wJv2VppChswNP.webp?v=1785618363",
+      "description": "Küçük Bir Rica Daha (2025) full HD, Türkçe dublaj ve altyazılı izle. Stephanie Smothers ile Emily Nelson, Emily&#039;nin zengin bir İtalyan iş adamıyla gösterişli dü...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "123 dk"
+    },
+    {
       "id": "playrepo-kara-dul-maje",
       "type": "movie",
       "name": "Kara Dul Maje",
@@ -1074,35 +1090,6 @@
       ],
       "posterShape": "poster",
       "runtime": "123 dk"
-    },
-    {
-      "id": "tt32323252",
-      "type": "movie",
-      "name": "Christy",
-      "poster": "https://m.media-amazon.com/images/M/MV5BM2E5MjhjODgtYzg0MS00NTlhLWIyZTktYjRjOTM1MDJlZWI4XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BM2E5MjhjODgtYzg0MS00NTlhLWIyZTktYjRjOTM1MDJlZWI4XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Christy (2025) full HD, Türkçe dublaj ve altyazılı izle. Christy Martin, insanları yumruklama yeteneğini keşfedene kadar Batı Virginia&#039;daki küçük kasabasının öt...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt32323252/img",
-      "trailers": [
-        {
-          "source": "hSHwFDPfeV8",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Christy",
-          "ytId": "hSHwFDPfeV8"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=hSHwFDPfeV8",
-      "runtime": "134 dk"
     }
   ]
 }
