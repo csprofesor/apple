@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt33305511",
+      "type": "movie",
+      "name": "Umami",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNGYxMGU4YjktNmQwZS00M2M5LTkxZTctM2ZkZjA1OTYxYTRkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNGYxMGU4YjktNmQwZS00M2M5LTkxZTctM2ZkZjA1OTYxYTRkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Umami (2025) full HD, Türkçe dublaj ve altyazılı izle. İstanbul’un en prestijli restoranlarından birinin sahibi şef Sina Bora, yılın en hareketli gecesinde hem....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt33305511/img",
+      "runtime": "120 dk"
+    },
+    {
       "id": "playrepo-yikim-ekibi",
       "type": "movie",
       "name": "Yıkım Ekibi",
@@ -1033,22 +1048,6 @@
       ],
       "posterShape": "poster",
       "runtime": "105 dk"
-    },
-    {
-      "id": "playrepo-yangin-yeri-cukur",
-      "type": "movie",
-      "name": "Yangın Yeri: Çukur",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uiSaYXR0jLLWma0EPA1tcBhX6wT.webp?v=1785120922",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uiSaYXR0jLLWma0EPA1tcBhX6wT.webp?v=1785120922",
-      "description": "Yangın Yeri: Çukur (2026) full HD, Türkçe dublaj ve altyazılı izle. Fırtına sırasında yer altındaki bir çukurda mahsur kalan üç kız okulu öğrencisi, hayatta kal...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "88 dk"
     }
   ]
 }
