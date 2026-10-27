@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-ustunluk",
+      "type": "movie",
+      "name": "Üstünlük",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kyp7PSCKPZKGosthRbjfXPm8gJg.webp?v=1785640157",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kyp7PSCKPZKGosthRbjfXPm8gJg.webp?v=1785640157",
+      "description": "Üstünlük (2025) full HD, Türkçe dublaj ve altyazılı izle. Gizemli bir mahkum hapishaneye düştüğünde, sınır kasabasının şerifi acımasız bir kartelin gazabıyla ka...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Suç & Polisiye",
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "92 dk"
+    },
+    {
       "id": "playrepo-ofke-cemberi-2",
       "type": "movie",
       "name": "Öfke Çemberi 2",
@@ -1143,21 +1160,6 @@
       ],
       "posterShape": "poster",
       "runtime": "95 dk"
-    },
-    {
-      "id": "playrepo-havaciligin-sinirlarini-zorlayanlar-thunderbirds",
-      "type": "movie",
-      "name": "Havacılığın Sınırlarını Zorlayanlar: Thunderbirds",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1bWRIXsA23TJAIvBHe3PCJxHIvP.webp?v=1785620982",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1bWRIXsA23TJAIvBHe3PCJxHIvP.webp?v=1785620982",
-      "description": "Havacılığın Sınırlarını Zorlayanlar: Thunderbirds (2025) full HD, Türkçe dublaj ve altyazılı izle. Bu belgeselde ABD Hava Kuvvetlerinin Thunderbirds ekibinin se...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "91 dk"
     }
   ]
 }
