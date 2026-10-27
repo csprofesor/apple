@@ -99,7 +99,18 @@
     {
       "type": "movie",
       "id": "playrepo-blutv",
-      "name": "Play • 🇹🇷 BluTV & Yerli",
+      "name": "Play • 🇹🇷 Yerli Filmler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "movie",
+      "id": "playrepo-netflix-yerli",
+      "name": "Play • 🔴 Netflix Yerli Filmleri",
       "extra": [
         {
           "name": "search",
@@ -286,7 +297,18 @@
     {
       "type": "series",
       "id": "playrepo-series-blutv",
-      "name": "Play • 🇹🇷 BluTV & Yerli Diziler",
+      "name": "Play • 🇹🇷 Yerli Diziler",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "type": "series",
+      "id": "playrepo-series-netflix-yerli",
+      "name": "Play • 🔴 Netflix Yerli Dizileri",
       "extra": [
         {
           "name": "search",

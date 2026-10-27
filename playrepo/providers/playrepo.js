@@ -243,17 +243,32 @@ function getDisjointMetasForCatalog(allMetas, catalogId) {
         return allSeries;
     }
 
+    // 1. Yerli Filmler & Netflix Yerli Özel Koleksiyonları
+    if (catalogId === "playrepo-blutv") {
+        return allMovies.filter(m => isYerliContent(m));
+    }
+    if (catalogId === "playrepo-netflix-yerli") {
+        return allMovies.filter(m => isYerliContent(m) && matchesCatCheck(m, "netflix"));
+    }
+
+    // 1b. Yerli Diziler & Netflix Yerli Dizi Özel Koleksiyonları
+    if (catalogId === "playrepo-series-blutv") {
+        return allSeries.filter(s => isYerliContent(s));
+    }
+    if (catalogId === "playrepo-series-netflix-yerli") {
+        return allSeries.filter(s => isYerliContent(s) && matchesCatCheck(s, "netflix"));
+    }
+
     const movieConfigs = [
-        // 1. Platform Koleksiyonları (Öncelikli Tek Kategori - Birine Giren Diğerine Asla Girmez)
-        { id: "playrepo-netflix", check: (m) => matchesCatCheck(m, "netflix") },
-        { id: "playrepo-disney", check: (m) => matchesCatCheck(m, "disney", "pixar", "marvel") },
-        { id: "playrepo-prime", check: (m) => matchesCatCheck(m, "prime video", "amazon prime", "amazon") },
-        { id: "playrepo-apple", check: (m) => matchesCatCheck(m, "apple tv", "appletv", "apple original") },
-        { id: "playrepo-hbo", check: (m) => matchesCatCheck(m, "hbo", "hbomax", "max original", "warner") },
-        { id: "playrepo-hulu", check: (m) => matchesCatCheck(m, "hulu") },
-        { id: "playrepo-blutv", check: (m) => isYerliContent(m) },
+        // 2. Yabancı Platform Koleksiyonları (Yerli yapımlarla karışmaz)
+        { id: "playrepo-netflix", check: (m) => !isYerliContent(m) && matchesCatCheck(m, "netflix") },
+        { id: "playrepo-disney", check: (m) => !isYerliContent(m) && matchesCatCheck(m, "disney", "pixar", "marvel") },
+        { id: "playrepo-prime", check: (m) => !isYerliContent(m) && matchesCatCheck(m, "prime video", "amazon prime", "amazon") },
+        { id: "playrepo-apple", check: (m) => !isYerliContent(m) && matchesCatCheck(m, "apple tv", "appletv", "apple original") },
+        { id: "playrepo-hbo", check: (m) => !isYerliContent(m) && matchesCatCheck(m, "hbo", "hbomax", "max original", "warner") },
+        { id: "playrepo-hulu", check: (m) => !isYerliContent(m) && matchesCatCheck(m, "hulu") },
         { id: "playrepo-mubi", check: (m) => matchesCatCheck(m, "mubi", "arthouse", "festival") },
-        // 2. Birleştirilmiş ve Derli Toplu Tür Koleksiyonları
+        // 3. Birleştirilmiş ve Derli Toplu Tür Koleksiyonları
         { id: "playrepo-bilimkurgu", check: (m) => matchesCatCheck(m, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction", "fantastik", "fantasy") },
         { id: "playrepo-aksiyon", check: (m) => matchesCatCheck(m, "aksiyon", "action", "macera", "adventure", "savaş", "savas", "war") },
         { id: "playrepo-korku", check: (m) => matchesCatCheck(m, "korku", "horror", "gerilim", "thriller", "gizem", "mystery") },
@@ -280,15 +295,14 @@ function getDisjointMetasForCatalog(allMetas, catalogId) {
     }
 
     const seriesConfigs = [
-        // 1. Dizi Platform Koleksiyonları (Öncelikli Tek Kategori)
-        { id: "playrepo-series-netflix", check: (s) => matchesCatCheck(s, "netflix") },
-        { id: "playrepo-series-disney", check: (s) => matchesCatCheck(s, "disney", "pixar", "marvel", "star wars") },
-        { id: "playrepo-series-prime", check: (s) => matchesCatCheck(s, "prime video", "amazon prime", "amazon") },
-        { id: "playrepo-series-apple", check: (s) => matchesCatCheck(s, "apple tv", "appletv", "apple original") },
-        { id: "playrepo-series-hbo", check: (s) => matchesCatCheck(s, "hbo", "hbomax", "max original", "warner") },
-        { id: "playrepo-series-hulu", check: (s) => matchesCatCheck(s, "hulu", "fx") },
-        { id: "playrepo-series-blutv", check: (s) => isYerliContent(s) },
-        // 2. Birleştirilmiş Dizi Tür Koleksiyonları
+        // 2. Yabancı Dizi Platform Koleksiyonları (Yerli dizilerle karışmaz)
+        { id: "playrepo-series-netflix", check: (s) => !isYerliContent(s) && matchesCatCheck(s, "netflix") },
+        { id: "playrepo-series-disney", check: (s) => !isYerliContent(s) && matchesCatCheck(s, "disney", "pixar", "marvel", "star wars") },
+        { id: "playrepo-series-prime", check: (s) => !isYerliContent(s) && matchesCatCheck(s, "prime video", "amazon prime", "amazon") },
+        { id: "playrepo-series-apple", check: (s) => !isYerliContent(s) && matchesCatCheck(s, "apple tv", "appletv", "apple original") },
+        { id: "playrepo-series-hbo", check: (s) => !isYerliContent(s) && matchesCatCheck(s, "hbo", "hbomax", "max original", "warner") },
+        { id: "playrepo-series-hulu", check: (s) => !isYerliContent(s) && matchesCatCheck(s, "hulu", "fx") },
+        // 3. Birleştirilmiş Dizi Tür Koleksiyonları
         { id: "playrepo-series-bilimkurgu", check: (s) => matchesCatCheck(s, "bilim kurgu", "bilim-kurgu", "sci-fi", "science fiction", "fantastik", "fantasy") },
         { id: "playrepo-series-aksiyon", check: (s) => matchesCatCheck(s, "aksiyon", "action", "macera", "adventure", "savaş", "savas") },
         { id: "playrepo-series-korku", check: (s) => matchesCatCheck(s, "korku", "horror", "gerilim", "thriller", "gizem", "mystery") },

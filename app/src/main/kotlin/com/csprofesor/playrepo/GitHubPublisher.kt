@@ -467,18 +467,35 @@ class GitHubPublisher {
         }
         result["playrepo/catalog/movie/playrepo-catalog-movies.json"] = gson.toJson(allMoviesWrapper)
 
-        // 2. Özel Film Tür & Platform Kategorileri - Her film sadece 1 kategoriye atanır
+        // 1. Yerli Filmler & Netflix Yerli Filmleri
+        val allYerliMovies = allMovies.filter { isYerliContent(it) }
+        val netflixYerliMovies = allYerliMovies.filter { matchesCategory(it, "netflix") }
+
+        val blutvWrapper = JsonObject().apply {
+            val metasArray = JsonArray()
+            allYerliMovies.forEach { metasArray.add(it) }
+            add("metas", metasArray)
+        }
+        result["playrepo/catalog/movie/playrepo-blutv.json"] = gson.toJson(blutvWrapper)
+
+        val netflixYerliWrapper = JsonObject().apply {
+            val metasArray = JsonArray()
+            netflixYerliMovies.forEach { metasArray.add(it) }
+            add("metas", metasArray)
+        }
+        result["playrepo/catalog/movie/playrepo-netflix-yerli.json"] = gson.toJson(netflixYerliWrapper)
+
+        // 2. Özel Film Tür & Platform Kategorileri (Yerli yapımlarla yabancılar ayrışır)
         val movieGenreConfigs = listOf(
-            // 1. Platform Koleksiyonları (Öncelikli - Birine Giren Diğerine Asla Girmez)
-            "playrepo/catalog/movie/playrepo-netflix.json" to { m: JsonObject -> matchesCategory(m, "netflix") },
-            "playrepo/catalog/movie/playrepo-disney.json" to { m: JsonObject -> matchesCategory(m, "disney", "pixar", "marvel") },
-            "playrepo/catalog/movie/playrepo-prime.json" to { m: JsonObject -> matchesCategory(m, "prime video", "amazon prime", "amazon") },
-            "playrepo/catalog/movie/playrepo-apple.json" to { m: JsonObject -> matchesCategory(m, "apple tv", "appletv", "apple original") },
-            "playrepo/catalog/movie/playrepo-hbo.json" to { m: JsonObject -> matchesCategory(m, "hbo", "hbomax", "max original", "warner") },
-            "playrepo/catalog/movie/playrepo-hulu.json" to { m: JsonObject -> matchesCategory(m, "hulu") },
-            "playrepo/catalog/movie/playrepo-blutv.json" to { m: JsonObject -> isYerliContent(m) },
+            // Yabancı Platform Koleksiyonları
+            "playrepo/catalog/movie/playrepo-netflix.json" to { m: JsonObject -> !isYerliContent(m) && matchesCategory(m, "netflix") },
+            "playrepo/catalog/movie/playrepo-disney.json" to { m: JsonObject -> !isYerliContent(m) && matchesCategory(m, "disney", "pixar", "marvel") },
+            "playrepo/catalog/movie/playrepo-prime.json" to { m: JsonObject -> !isYerliContent(m) && matchesCategory(m, "prime video", "amazon prime", "amazon") },
+            "playrepo/catalog/movie/playrepo-apple.json" to { m: JsonObject -> !isYerliContent(m) && matchesCategory(m, "apple tv", "appletv", "apple original") },
+            "playrepo/catalog/movie/playrepo-hbo.json" to { m: JsonObject -> !isYerliContent(m) && matchesCategory(m, "hbo", "hbomax", "max original", "warner") },
+            "playrepo/catalog/movie/playrepo-hulu.json" to { m: JsonObject -> !isYerliContent(m) && matchesCategory(m, "hulu") },
             "playrepo/catalog/movie/playrepo-mubi.json" to { m: JsonObject -> matchesCategory(m, "mubi", "arthouse", "festival") },
-            // 2. Birleştirilmiş Tür Koleksiyonları
+            // Birleştirilmiş Tür Koleksiyonları
             "playrepo/catalog/movie/playrepo-bilimkurgu.json" to { m: JsonObject -> matchesCategory(m, "bilim kurgu", "bilim-kurgu", "bilimkurgu", "sci-fi", "science fiction", "fantastik", "fantasy") },
             "playrepo/catalog/movie/playrepo-aksiyon.json" to { m: JsonObject -> matchesCategory(m, "aksiyon", "action", "macera", "adventure", "savaş", "savas", "war") },
             "playrepo/catalog/movie/playrepo-korku.json" to { m: JsonObject -> matchesCategory(m, "korku", "horror", "gerilim", "thriller", "gizem", "mystery") },
@@ -515,16 +532,33 @@ class GitHubPublisher {
         }
         result["playrepo/catalog/series/playrepo-series-popular.json"] = gson.toJson(seriesPopWrapper)
 
+        // 1. Yerli Diziler & Netflix Yerli Dizileri
+        val allYerliSeries = allSeries.filter { isYerliContent(it) }
+        val netflixYerliSeries = allYerliSeries.filter { matchesCategory(it, "netflix") }
+
+        val blutvSeriesWrapper = JsonObject().apply {
+            val metasArray = JsonArray()
+            allYerliSeries.forEach { metasArray.add(it) }
+            add("metas", metasArray)
+        }
+        result["playrepo/catalog/series/playrepo-series-blutv.json"] = gson.toJson(blutvSeriesWrapper)
+
+        val netflixYerliSeriesWrapper = JsonObject().apply {
+            val metasArray = JsonArray()
+            netflixYerliSeries.forEach { metasArray.add(it) }
+            add("metas", metasArray)
+        }
+        result["playrepo/catalog/series/playrepo-series-netflix-yerli.json"] = gson.toJson(netflixYerliSeriesWrapper)
+
         val seriesGenreConfigs = listOf(
-            // 1. Dizi Platform Koleksiyonları (Öncelikli - Birine Giren Diğerine Asla Girmez)
-            "playrepo/catalog/series/playrepo-series-netflix.json" to { s: JsonObject -> matchesCategory(s, "netflix") },
-            "playrepo/catalog/series/playrepo-series-disney.json" to { s: JsonObject -> matchesCategory(s, "disney", "pixar", "marvel", "star wars") },
-            "playrepo/catalog/series/playrepo-series-prime.json" to { s: JsonObject -> matchesCategory(s, "prime video", "amazon prime", "amazon") },
-            "playrepo/catalog/series/playrepo-series-apple.json" to { s: JsonObject -> matchesCategory(s, "apple tv", "appletv", "apple original") },
-            "playrepo/catalog/series/playrepo-series-hbo.json" to { s: JsonObject -> matchesCategory(s, "hbo", "hbomax", "max original", "warner") },
-            "playrepo/catalog/series/playrepo-series-hulu.json" to { s: JsonObject -> matchesCategory(s, "hulu", "fx") },
-            "playrepo/catalog/series/playrepo-series-blutv.json" to { s: JsonObject -> isYerliContent(s) },
-            // 2. Birleştirilmiş Dizi Tür Koleksiyonları
+            // Yabancı Dizi Platform Koleksiyonları
+            "playrepo/catalog/series/playrepo-series-netflix.json" to { s: JsonObject -> !isYerliContent(s) && matchesCategory(s, "netflix") },
+            "playrepo/catalog/series/playrepo-series-disney.json" to { s: JsonObject -> !isYerliContent(s) && matchesCategory(s, "disney", "pixar", "marvel", "star wars") },
+            "playrepo/catalog/series/playrepo-series-prime.json" to { s: JsonObject -> !isYerliContent(s) && matchesCategory(s, "prime video", "amazon prime", "amazon") },
+            "playrepo/catalog/series/playrepo-series-apple.json" to { s: JsonObject -> !isYerliContent(s) && matchesCategory(s, "apple tv", "appletv", "apple original") },
+            "playrepo/catalog/series/playrepo-series-hbo.json" to { s: JsonObject -> !isYerliContent(s) && matchesCategory(s, "hbo", "hbomax", "max original", "warner") },
+            "playrepo/catalog/series/playrepo-series-hulu.json" to { s: JsonObject -> !isYerliContent(s) && matchesCategory(s, "hulu", "fx") },
+            // Birleştirilmiş Dizi Tür Koleksiyonları
             "playrepo/catalog/series/playrepo-series-bilimkurgu.json" to { s: JsonObject -> matchesCategory(s, "bilim kurgu", "bilim-kurgu", "sci-fi", "science fiction", "fantastik", "fantasy") },
             "playrepo/catalog/series/playrepo-series-aksiyon.json" to { s: JsonObject -> matchesCategory(s, "aksiyon", "action", "macera", "adventure", "savaş", "savas") },
             "playrepo/catalog/series/playrepo-series-korku.json" to { s: JsonObject -> matchesCategory(s, "korku", "horror", "gerilim", "thriller", "gizem", "mystery") },
