@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-olumcul-ucus",
+      "type": "movie",
+      "name": "Ölümcül Uçuş",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hwlyY7LJdEFbCPaGNXiskKKmJ5X.webp?v=1785551360",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hwlyY7LJdEFbCPaGNXiskKKmJ5X.webp?v=1785551360",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Ölümcül Uçuş (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir hava mareşali eşliğinde bir firariyi mahkemeye götüren bir pilotun hikâyesi anlatılıyor. Alask...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "91 dk"
+    },
+    {
       "id": "playrepo-hallow-yolu",
       "type": "movie",
       "name": "Hallow Yolu",
@@ -1268,29 +1291,6 @@
       ],
       "posterShape": "poster",
       "runtime": "102 dk"
-    },
-    {
-      "id": "playrepo-dante-039-nin-elinden",
-      "type": "movie",
-      "name": "Dante&#039;nin Elinden",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tJJ737CJujLXw1GlUYd7K4AH3eB.webp?v=1785158825",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tJJ737CJujLXw1GlUYd7K4AH3eB.webp?v=1785158825",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Dante&#039;nin Elinden (2026) full HD, Türkçe dublaj ve altyazılı izle. Bir yazar, Dante&#039;nin &quot;İlahî Komedya&quot;sının orijinal kopyasını çalmak için bir mafya babasına y...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Suç, Polisiye & Gizem",
-        "Korku & Gerilim",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "153 dk"
     }
   ]
 }
