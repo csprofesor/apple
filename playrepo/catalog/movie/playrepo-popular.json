@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-cumhuriyet-039-in-kartallari",
+      "type": "movie",
+      "name": "Cumhuriyet&#039;in Kartalları",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/84DgFoFDppvf3i5MKZzOctx9HFz.webp?v=1785158819",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/84DgFoFDppvf3i5MKZzOctx9HFz.webp?v=1785158819",
+      "description": "Cumhuriyet&#039;in Kartalları (2025) full HD, Türkçe dublaj ve altyazılı izle. Mısır&#039;ın en sevilen aktörü George Fahmy, en yüksek makamlar tarafından sipariş edilen....",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "128 dk"
+    },
+    {
       "id": "playrepo-hayalet-filler",
       "type": "movie",
       "name": "Hayalet Filler",
@@ -1030,35 +1046,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "tt38648344",
-      "type": "movie",
-      "name": "Bugün Güzel",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzI0ODQxYTItMzc4MS00Y2FlLWIwNzQtMDMyZTRiODYyOTI3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNzI0ODQxYTItMzc4MS00Y2FlLWIwNzQtMDMyZTRiODYyOTI3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Bugün Güzel (2025) full HD, Türkçe dublaj ve altyazılı izle. Sağlıklı yaşam önerileriyle tanınan televizyon programcısı Ali&#039;nin, beyninde bir tümör olduğu teşhi...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://live.metahub.space/logo/medium/tt38648344/img",
-      "trailers": [
-        {
-          "source": "fGonJxa87SY",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Fragman",
-          "ytId": "fGonJxa87SY"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=fGonJxa87SY",
-      "runtime": "118 dk"
     }
   ]
 }
