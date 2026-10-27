@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-hayat",
+      "type": "movie",
+      "name": "Hayat",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/to0MAYz8Y27B4gq8X4EzzsFjG2N.webp?v=1785134063",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/to0MAYz8Y27B4gq8X4EzzsFjG2N.webp?v=1785134063",
+      "description": "Hayat (2023) full HD, Türkçe dublaj ve altyazılı izle. Babasının zoruyla nişanlanmak zorunda kalan Hicran evden kaçar. Hicran’ın zaten onu istemediğini düşünen....",
+      "releaseInfo": "2023",
+      "genres": [
+        "Aksiyon & Macera",
+        "Animasyon & Aile",
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler",
+        "Suç & Polisiye",
+        "Korku & Gerilim",
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "193 dk"
+    },
+    {
       "id": "playrepo-konusan-hayvanlar",
       "type": "movie",
       "name": "Konuşan Hayvanlar",
@@ -1338,28 +1360,6 @@
       ],
       "posterShape": "poster",
       "runtime": "104 dk"
-    },
-    {
-      "id": "playrepo-yiya-murano-cay-saati-cinayetleri",
-      "type": "movie",
-      "name": "Yiya Murano: Çay Saati Cinayetleri",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/x6pJGUc9hXOEjvhtDZ0W8cPOzQy.webp?v=1785103250",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/x6pJGUc9hXOEjvhtDZ0W8cPOzQy.webp?v=1785103250",
-      "description": "Yiya Murano: Çay Saati Cinayetleri (2026) full HD, Türkçe dublaj ve altyazılı izle. Arjantin&#039;de hâlâ konuşulan bir gerçek suç vakasını konu alan bu belgeselde,....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Aile",
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Suç & Polisiye",
-        "Korku & Gerilim",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "103 dk"
     }
   ]
 }
