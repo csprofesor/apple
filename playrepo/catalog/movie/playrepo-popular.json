@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-sesin-hik-yesi",
+      "type": "movie",
+      "name": "Sesin Hikâyesi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/e13Io18jl6p5UiS5Cxhug9ptTPU.webp?v=1785566016",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/e13Io18jl6p5UiS5Cxhug9ptTPU.webp?v=1785566016",
+      "description": "Sesin Hikâyesi (2025) full HD, Türkçe dublaj ve altyazılı izle. Yıl 1917, savaş dünyayı kasıp kavurmaktadır. Kentucky&#039;nin taşrasından gelen yetenekli şarkıcı Li...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "128 dk"
+    },
+    {
       "id": "playrepo-ciplak-silah",
       "type": "movie",
       "name": "Çıplak Silah",
@@ -1199,25 +1214,6 @@
       ],
       "posterShape": "poster",
       "runtime": "100 dk"
-    },
-    {
-      "id": "playrepo-zootropolis-2",
-      "type": "movie",
-      "name": "Zootropolis 2",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lgotja3xMoJZbynwHfcQcJAEMWH.webp?v=1785542136",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lgotja3xMoJZbynwHfcQcJAEMWH.webp?v=1785542136",
-      "description": "Zootropolis 2 (2025) full HD, Türkçe dublaj ve altyazılı izle. Dedektif Judy Hopps ve Nick Wilde, Zootropolis&#039;e gelen ve memeli metropolünü alt üst eden gizemli...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Disney+",
-        "Animasyon & Aile",
-        "Aksiyon & Macera",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "108 dk"
     }
   ]
 }
