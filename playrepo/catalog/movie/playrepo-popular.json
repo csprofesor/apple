@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-fildisi-kral",
+      "type": "movie",
+      "name": "Fildişi Kral",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lUvZ5DbcmPBFuTxLFEnSbsscpOe.webp?v=1785556342",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lUvZ5DbcmPBFuTxLFEnSbsscpOe.webp?v=1785556342",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Fildişi Kral (2025) full HD, Türkçe dublaj ve altyazılı izle. Gerçek olaylara dayanır, Fentanil (nam-ı diğer Fildişi Kral), hapishane çetelerinin elindedir. Okl...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "130 dk"
+    },
+    {
       "id": "playrepo-kayip-dunya",
       "type": "movie",
       "name": "Kayıp Dünya",
@@ -1272,29 +1295,6 @@
       ],
       "posterShape": "poster",
       "runtime": "134 dk"
-    },
-    {
-      "id": "playrepo-gorev",
-      "type": "movie",
-      "name": "Görev",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mHm73HhpvGWfRkXNErcwc15Czrv.webp?v=1785183044",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mHm73HhpvGWfRkXNErcwc15Czrv.webp?v=1785183044",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "Görev (2026) full HD, Türkçe dublaj ve altyazılı izle. Bir polis memuru, ailesinin güvenliği tehlikeye girip rahatsız edici tehditler artarken görevini yerine g...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Suç, Polisiye & Gizem",
-        "Korku & Gerilim",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "108 dk"
     }
   ]
 }
