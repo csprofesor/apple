@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-konusan-hayvanlar",
+      "type": "movie",
+      "name": "Konuşan Hayvanlar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gpmwxOR5uPomDFihgtHDrV2BsHV.webp?v=1785134061",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gpmwxOR5uPomDFihgtHDrV2BsHV.webp?v=1785134061",
+      "description": "Konuşan Hayvanlar (2019) full HD, Türkçe dublaj ve altyazılı izle. Konuşan Hayvanlar, hayvan dostlarını kötü adamların elinden kurtarmak için zorlu bir mücadele...",
+      "releaseInfo": "2019",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "90 dk"
+    },
+    {
       "id": "tt27552099",
       "type": "movie",
       "name": "Mike & Nick & Nick & Alice",
@@ -1338,28 +1360,6 @@
       ],
       "posterShape": "poster",
       "runtime": "104 dk"
-    },
-    {
-      "id": "playrepo-yiya-murano-cay-saati-cinayetleri",
-      "type": "movie",
-      "name": "Yiya Murano: Çay Saati Cinayetleri",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/x6pJGUc9hXOEjvhtDZ0W8cPOzQy.webp?v=1785103250",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/x6pJGUc9hXOEjvhtDZ0W8cPOzQy.webp?v=1785103250",
-      "description": "Yiya Murano: Çay Saati Cinayetleri (2026) full HD, Türkçe dublaj ve altyazılı izle. Arjantin&#039;de hâlâ konuşulan bir gerçek suç vakasını konu alan bu belgeselde,....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "103 dk"
     }
   ]
 }
