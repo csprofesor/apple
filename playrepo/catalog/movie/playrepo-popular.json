@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "playrepo-golge-avi",
+      "type": "movie",
+      "name": "Gölge Avı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4BtL2vvEufDXDP4u6xQjjQ1Y2aT.webp?v=1785567745",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4BtL2vvEufDXDP4u6xQjjQ1Y2aT.webp?v=1785567745",
+      "description": "Gölge Avı (2025) full HD, Türkçe dublaj ve altyazılı izle. Emekli bir gözetleme uzmanı olan Wong Tak-Chung (Jackie Chan), Makao polisi tarafından, yüksek teknol...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Aksiyon & Macera",
+        "Popüler",
+        "Suç & Polisiye"
+      ],
+      "posterShape": "poster",
+      "runtime": "142 dk"
+    },
+    {
       "id": "playrepo-kayip-otobus",
       "type": "movie",
       "name": "Kayıp Otobüs",
@@ -1199,23 +1217,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=uS7DHGFXkNY",
       "runtime": "125 dk"
-    },
-    {
-      "id": "playrepo-wicked-i-yilik-ugruna",
-      "type": "movie",
-      "name": "Wicked: İyilik Uğruna",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cGbPBHKSFO7hSIjxkb3KOaGdOep.webp?v=1785543159",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cGbPBHKSFO7hSIjxkb3KOaGdOep.webp?v=1785543159",
-      "description": "Wicked: İyilik Uğruna (2025) full HD, Türkçe dublaj ve altyazılı izle. Oz&#039;un cadılarının anlatılmamış hikâyesinin destansı finali başlıyor. Batı&#039;nın Kötü Cadısı...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "137 dk"
     }
   ]
 }
