@@ -1,6 +1,44 @@
 {
   "metas": [
     {
+      "id": "tt12299608",
+      "type": "movie",
+      "name": "Mickey 17",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZGQwYmEzMzktYzBmMy00NmVmLTkyYTUtOTYyZjliZDNhZGVkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZGQwYmEzMzktYzBmMy00NmVmLTkyYTUtOTYyZjliZDNhZGVkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Mickey 17 (2025) full HD, Türkçe dublaj ve altyazılı izle. Mickey 17, öldükten sonra kopyasının üretilmesine izin veren bir işçi olarak çalışan Mickey&#039;nin hikay...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt12299608/img",
+      "trailers": [
+        {
+          "source": "tA1s65o_kYM",
+          "type": "Trailer"
+        },
+        {
+          "source": "osYpGSz_0i4",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Mickey 17",
+          "ytId": "tA1s65o_kYM"
+        },
+        {
+          "title": "Mickey 17",
+          "ytId": "osYpGSz_0i4"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=tA1s65o_kYM",
+      "runtime": "139 dk"
+    },
+    {
       "id": "playrepo-monako-039-da-cinayet",
       "type": "movie",
       "name": "Monako&#039;da Cinayet",
@@ -1180,34 +1218,6 @@
       ],
       "posterShape": "poster",
       "runtime": "89 dk"
-    },
-    {
-      "id": "tt14458442",
-      "type": "movie",
-      "name": "The Son",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYjE4ZTJmMWQtNWI2My00NjhhLTkwYmEtODk5YzM0YzNkNjJjXkEyXkFqcGc%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYjE4ZTJmMWQtNWI2My00NjhhLTkwYmEtODk5YzM0YzNkNjJjXkEyXkFqcGc%40._V1_.jpg",
-      "description": "Son (2024) full HD, Türkçe dublaj ve altyazılı izle. Yıllardır etraflarındaki harabe dünyadan izole, eski bir tuz madeninden lüks bir eve dönüştürdükleri sığına...",
-      "releaseInfo": "2023",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt14458442/img",
-      "trailers": [
-        {
-          "source": "SJWRY4DzoAQ",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "The Son",
-          "ytId": "SJWRY4DzoAQ"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=SJWRY4DzoAQ",
-      "runtime": "149 dk"
     }
   ]
 }
