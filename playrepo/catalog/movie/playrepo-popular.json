@@ -1,6 +1,83 @@
 {
   "metas": [
     {
+      "id": "tt20969586",
+      "type": "movie",
+      "name": "Thunderbolts*",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNDIzNGUwZmYtODM0Yy00NjA3LTgxOGUtOTY0ZGM5MjBkM2I3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNDIzNGUwZmYtODM0Yy00NjA3LTgxOGUtOTY0ZGM5MjBkM2I3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Thunderbolts* (2025) full HD, Türkçe dublaj ve altyazılı izle. Yelena Belova önderliğinde MCU&#039;nun en beklenmedik kahramanlarından oluşan aykırı bir takım bir ar...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt20969586/img",
+      "trailers": [
+        {
+          "source": "7rs_HhSA7XY",
+          "type": "Trailer"
+        },
+        {
+          "source": "-sAOWhvheK8",
+          "type": "Trailer"
+        },
+        {
+          "source": "BJk4wYL-_Hw",
+          "type": "Trailer"
+        },
+        {
+          "source": "bqnRzjPfb5A",
+          "type": "Trailer"
+        },
+        {
+          "source": "hUUszE29jS0",
+          "type": "Trailer"
+        },
+        {
+          "source": "8IiAm7KUuoY",
+          "type": "Trailer"
+        },
+        {
+          "source": "v-94Snw-H4o",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Thunderbolts*",
+          "ytId": "7rs_HhSA7XY"
+        },
+        {
+          "title": "Thunderbolts*",
+          "ytId": "-sAOWhvheK8"
+        },
+        {
+          "title": "Thunderbolts*",
+          "ytId": "BJk4wYL-_Hw"
+        },
+        {
+          "title": "Thunderbolts*",
+          "ytId": "bqnRzjPfb5A"
+        },
+        {
+          "title": "Thunderbolts*",
+          "ytId": "hUUszE29jS0"
+        },
+        {
+          "title": "Thunderbolts*",
+          "ytId": "8IiAm7KUuoY"
+        },
+        {
+          "title": "Thunderbolts*",
+          "ytId": "v-94Snw-H4o"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=7rs_HhSA7XY",
+      "runtime": "127 dk"
+    },
+    {
       "id": "tt6604188",
       "type": "movie",
       "name": "Tron: Ares",
@@ -1163,22 +1240,6 @@
       ],
       "posterShape": "poster",
       "runtime": "90 dk"
-    },
-    {
-      "id": "playrepo-asrin-elmas-soygunu",
-      "type": "movie",
-      "name": "Asrın Elmas Soygunu",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hz59eF5z6ObaaWiGlUKcVbODti7.webp?v=1785668054",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hz59eF5z6ObaaWiGlUKcVbODti7.webp?v=1785668054",
-      "description": "Asrın Elmas Soygunu (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir grup hırsız akıl almaz bir şey başarıyor. Bir zamanlar ele geçirilmesi imkansız olarak....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Suç & Polisiye",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "95 dk"
     }
   ]
 }
