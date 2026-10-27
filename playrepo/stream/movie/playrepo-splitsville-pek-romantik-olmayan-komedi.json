@@ -1,0 +1,72 @@
+{
+  "streams": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=6c2304f4cd1f9697cc40dd773435e743&token=eyJ2IjoiNmMyMzA0ZjRjZDFmOTY5N2NjNDBkZDc3MzQzNWU3NDMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQyNDMxLCJuIjoiM2RlMzg4YmFhZWY3In0.60bd22a3cfc0d787e80f031881d353cb7b04e02f9764157d940a8e90aaa54967&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=h8z7Px_o96ZSKRZOKunsNw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=h8z7Px_o96ZSKRZOKunsNw"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=6c2304f4cd1f9697cc40dd773435e743&sid=76d65a1003151feb9bd5b9891fe71549&token=eyJ2IjoiNmMyMzA0ZjRjZDFmOTY5N2NjNDBkZDc3MzQzNWU3NDMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQyNDMxLCJuIjoiM2RlMzg4YmFhZWY3In0.60bd22a3cfc0d787e80f031881d353cb7b04e02f9764157d940a8e90aaa54967&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=6c2304f4cd1f9697cc40dd773435e743&sid=8bb407db793e62ed02e69c222224fe8e&token=eyJ2IjoiNmMyMzA0ZjRjZDFmOTY5N2NjNDBkZDc3MzQzNWU3NDMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQyNDMxLCJuIjoiM2RlMzg4YmFhZWY3In0.60bd22a3cfc0d787e80f031881d353cb7b04e02f9764157d940a8e90aaa54967&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=h8z7Px_o96ZSKRZOKunsNw"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=6c2304f4cd1f9697cc40dd773435e743&token=eyJ2IjoiNmMyMzA0ZjRjZDFmOTY5N2NjNDBkZDc3MzQzNWU3NDMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQyNDMxLCJuIjoiM2RlMzg4YmFhZWY3In0.60bd22a3cfc0d787e80f031881d353cb7b04e02f9764157d940a8e90aaa54967&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=h8z7Px_o96ZSKRZOKunsNw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=h8z7Px_o96ZSKRZOKunsNw"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=6c2304f4cd1f9697cc40dd773435e743&sid=76d65a1003151feb9bd5b9891fe71549&token=eyJ2IjoiNmMyMzA0ZjRjZDFmOTY5N2NjNDBkZDc3MzQzNWU3NDMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQyNDMxLCJuIjoiM2RlMzg4YmFhZWY3In0.60bd22a3cfc0d787e80f031881d353cb7b04e02f9764157d940a8e90aaa54967&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=6c2304f4cd1f9697cc40dd773435e743&sid=8bb407db793e62ed02e69c222224fe8e&token=eyJ2IjoiNmMyMzA0ZjRjZDFmOTY5N2NjNDBkZDc3MzQzNWU3NDMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzQyNDMxLCJuIjoiM2RlMzg4YmFhZWY3In0.60bd22a3cfc0d787e80f031881d353cb7b04e02f9764157d940a8e90aaa54967&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=h8z7Px_o96ZSKRZOKunsNw"
+          }
+        }
+      }
+    }
+  ]
+}
