@@ -1,6 +1,29 @@
 {
   "metas": [
     {
+      "id": "playrepo-toz-yumagi",
+      "type": "movie",
+      "name": "Toz Yumağı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/AecGG1XVCmkk7fT10ko3FC0dLIP.webp?v=1785550356",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/AecGG1XVCmkk7fT10ko3FC0dLIP.webp?v=1785550356",
+      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
+      "description": "Toz Yumağı (2025) full HD, Türkçe dublaj ve altyazılı izle. Ten-year-old Aurora asks her hitman neighbor to kill the monster under her bed that she claims ate h...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera",
+        "Animasyon & Çizgi Dizi",
+        "Belgesel & Tarih",
+        "Suç, Polisiye & Gizem",
+        "Korku & Gerilim",
+        "Komedi",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "106 dk"
+    },
+    {
       "id": "playrepo-downton-abbey-buyuk",
       "type": "movie",
       "name": "Downton Abbey: Büyük",
@@ -1274,29 +1297,6 @@
       ],
       "posterShape": "poster",
       "runtime": "148 dk"
-    },
-    {
-      "id": "playrepo-i-svec-baglantisi",
-      "type": "movie",
-      "name": "İsveç Bağlantısı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/56VfTGANetZ5IIYQsXuciNePM28.webp?v=1785156703",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/56VfTGANetZ5IIYQsXuciNePM28.webp?v=1785156703",
-      "logo": "https://cdn.jsdelivr.net/gh/csprofesor/apple@main/playrepo/logo.png",
-      "description": "İsveç Bağlantısı (2026) full HD, Türkçe dublaj ve altyazılı izle. Pek bilinmeyen bu gerçek hikâyede İsveçli bir bürokrat, II. Dünya Savaşı&#039;nın en karanlık günle...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera",
-        "Animasyon & Çizgi Dizi",
-        "Belgesel & Tarih",
-        "Suç, Polisiye & Gizem",
-        "Korku & Gerilim",
-        "Komedi",
-        "Dram & Romantik",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
