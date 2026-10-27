@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-lucy-letby-sorusturmasi",
+      "type": "movie",
+      "name": "Lucy Letby Soruşturması",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qhSfXdkrIzwYsyQ3Z9ehFmO3zjy.webp?v=1785152601",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qhSfXdkrIzwYsyQ3Z9ehFmO3zjy.webp?v=1785152601",
+      "description": "Lucy Letby Soruşturması (2026) full HD, Türkçe dublaj ve altyazılı izle. Bebekleri öldürmekten suçlu bulunan yenidoğan hemşiresi Lucy Letby&#039;nin dehşet verici da...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Aksiyon & Macera",
+        "Animasyon & Aile",
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler",
+        "Suç & Polisiye",
+        "Korku & Gerilim",
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "95 dk"
+    },
+    {
       "id": "playrepo-plastik-detoksu",
       "type": "movie",
       "name": "Plastik Detoksu",
@@ -1322,27 +1344,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-askin-yuzu",
-      "type": "movie",
-      "name": "Aşkın Yüzü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wDKJqWo8bwqdJCPQJNemeRDioKI.webp?v=1785111954",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wDKJqWo8bwqdJCPQJNemeRDioKI.webp?v=1785111954",
-      "description": "Aşkın Yüzü (2025) full HD, Türkçe dublaj ve altyazılı izle. Lise öğrencisi Özgür, nadir bir hastalık olan yüz körlüğü ile yaşar. Özlem ile tanıştığında araların...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Aksiyon & Macera",
-        "Animasyon & Aile",
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Suç & Polisiye",
-        "Korku & Gerilim",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
