@@ -1210,5 +1210,75 @@
         }
       }
     }
+  ],
+  "playrepo-suphe-sarmali": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=2e07f2aa7a1f20c383299f6754ecf3c1&token=eyJ2IjoiMmUwN2YyYWE3YTFmMjBjMzgzMjk5ZjY3NTRlY2YzYzEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMxOTAxLCJuIjoiZDI1OWQ5OGJiMDZjIn0.9772729adfaa943c31d7ef26d6307a0d52f052c6553206e415396e8931a9fa60&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=Oceos-7BBfd02vBAMyH_UQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Oceos-7BBfd02vBAMyH_UQ"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=2e07f2aa7a1f20c383299f6754ecf3c1&sid=f4aeab2affec46d8bec7ac2947914506&token=eyJ2IjoiMmUwN2YyYWE3YTFmMjBjMzgzMjk5ZjY3NTRlY2YzYzEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMxOTAxLCJuIjoiZDI1OWQ5OGJiMDZjIn0.9772729adfaa943c31d7ef26d6307a0d52f052c6553206e415396e8931a9fa60",
+          "lang": "Turkish - SubRip - Forced"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=2e07f2aa7a1f20c383299f6754ecf3c1&sid=f9d983c90512214cc790843062c18a37&token=eyJ2IjoiMmUwN2YyYWE3YTFmMjBjMzgzMjk5ZjY3NTRlY2YzYzEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMxOTAxLCJuIjoiZDI1OWQ5OGJiMDZjIn0.9772729adfaa943c31d7ef26d6307a0d52f052c6553206e415396e8931a9fa60",
+          "lang": "Turkish - SubRip"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Oceos-7BBfd02vBAMyH_UQ"
+          }
+        }
+      }
+    }
+  ],
+  "suphe-sarmali": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=2e07f2aa7a1f20c383299f6754ecf3c1&token=eyJ2IjoiMmUwN2YyYWE3YTFmMjBjMzgzMjk5ZjY3NTRlY2YzYzEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMxOTAxLCJuIjoiZDI1OWQ5OGJiMDZjIn0.9772729adfaa943c31d7ef26d6307a0d52f052c6553206e415396e8931a9fa60&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=Oceos-7BBfd02vBAMyH_UQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Oceos-7BBfd02vBAMyH_UQ"
+      },
+      "subtitles": [
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=2e07f2aa7a1f20c383299f6754ecf3c1&sid=f4aeab2affec46d8bec7ac2947914506&token=eyJ2IjoiMmUwN2YyYWE3YTFmMjBjMzgzMjk5ZjY3NTRlY2YzYzEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMxOTAxLCJuIjoiZDI1OWQ5OGJiMDZjIn0.9772729adfaa943c31d7ef26d6307a0d52f052c6553206e415396e8931a9fa60",
+          "lang": "Turkish - SubRip - Forced"
+        },
+        {
+          "id": "tr",
+          "url": "https://pilavyerplay.top/api/sub.php?v=2e07f2aa7a1f20c383299f6754ecf3c1&sid=f9d983c90512214cc790843062c18a37&token=eyJ2IjoiMmUwN2YyYWE3YTFmMjBjMzgzMjk5ZjY3NTRlY2YzYzEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzMxOTAxLCJuIjoiZDI1OWQ5OGJiMDZjIn0.9772729adfaa943c31d7ef26d6307a0d52f052c6553206e415396e8931a9fa60",
+          "lang": "Turkish - SubRip"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=Oceos-7BBfd02vBAMyH_UQ"
+          }
+        }
+      }
+    }
   ]
 }
