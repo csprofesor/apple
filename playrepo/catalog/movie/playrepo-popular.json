@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-sana-cikan-yollar",
+      "type": "movie",
+      "name": "Sana Çıkan Yollar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5QKddKk1qEe8CwWYpklmKq68uyo.webp?v=1785675805",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5QKddKk1qEe8CwWYpklmKq68uyo.webp?v=1785675805",
+      "description": "Sana Çıkan Yollar (2025) full HD, Türkçe dublaj ve altyazılı izle. Film, mükemmel şekilde planlanmış hayatına başlamadan önce arkadaşlarıyla Avrupa&#039;yı gezen gen...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "96 dk"
+    },
+    {
       "id": "tt27714946",
       "type": "movie",
       "name": "The Monkey",
@@ -1146,43 +1161,6 @@
       ],
       "posterShape": "poster",
       "runtime": "162 dk"
-    },
-    {
-      "id": "tt29929565",
-      "type": "movie",
-      "name": "Opus",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNjgzMzczNmItMWEwOC00NjE0LWEwMGMtNjQ2NWY5ZjRkMDYzXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNjgzMzczNmItMWEwOC00NjE0LWEwMGMtNjQ2NWY5ZjRkMDYzXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Opus (2025) full HD, Türkçe dublaj ve altyazılı izle. Genç bir yazar, otuz yıl önce gizemli bir şekilde ortadan kaybolan efsanevi bir pop yıldızının uzak bir ev...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt29929565/img",
-      "trailers": [
-        {
-          "source": "Xh8U3nIFd5I",
-          "type": "Trailer"
-        },
-        {
-          "source": "5owo-kbx8X0",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Opus",
-          "ytId": "Xh8U3nIFd5I"
-        },
-        {
-          "title": "Opus",
-          "ytId": "5owo-kbx8X0"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=Xh8U3nIFd5I",
-      "runtime": "104 dk"
     }
   ]
 }
