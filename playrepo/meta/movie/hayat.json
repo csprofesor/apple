@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "id": "playrepo-hayat",
+    "type": "movie",
+    "name": "Hayat",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/to0MAYz8Y27B4gq8X4EzzsFjG2N.webp?v=1785134063",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/to0MAYz8Y27B4gq8X4EzzsFjG2N.webp?v=1785134063",
+    "description": "Hayat (2023) full HD, Türkçe dublaj ve altyazılı izle. Babasının zoruyla nişanlanmak zorunda kalan Hicran evden kaçar. Hicran’ın zaten onu istemediğini düşünen....",
+    "releaseInfo": "2023",
+    "genres": [
+      "Belgesel & Tarih",
+      "Dram & Romantik",
+      "Popüler",
+      "Bilim Kurgu & Fantastik",
+      "Animasyon & Aile",
+      "Komedi",
+      "Korku & Gerilim",
+      "Suç & Polisiye",
+      "Aksiyon & Macera"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-hayat",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-hayat",
+        "title": "Hayat",
+        "name": "Hayat",
+        "released": "2023-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "193 dk"
+  }
+}

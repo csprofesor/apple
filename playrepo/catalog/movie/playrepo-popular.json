@@ -1,6 +1,28 @@
 {
   "metas": [
     {
+      "id": "playrepo-hayat",
+      "type": "movie",
+      "name": "Hayat",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/to0MAYz8Y27B4gq8X4EzzsFjG2N.webp?v=1785134063",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/to0MAYz8Y27B4gq8X4EzzsFjG2N.webp?v=1785134063",
+      "description": "Hayat (2023) full HD, Türkçe dublaj ve altyazılı izle. Babasının zoruyla nişanlanmak zorunda kalan Hicran evden kaçar. Hicran’ın zaten onu istemediğini düşünen....",
+      "releaseInfo": "2023",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Komedi",
+        "Korku & Gerilim",
+        "Suç & Polisiye",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "193 dk"
+    },
+    {
       "id": "playrepo-konusan-hayvanlar",
       "type": "movie",
       "name": "Konuşan Hayvanlar",
@@ -1338,28 +1360,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "playrepo-toplar-havaya",
-      "type": "movie",
-      "name": "Toplar Havaya",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qE0FswzjACs2kvAycYVS2zcmgec.webp?v=1785103251",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qE0FswzjACs2kvAycYVS2zcmgec.webp?v=1785103251",
-      "description": "Toplar Havaya (2026) full HD, Türkçe dublaj ve altyazılı izle. Bu uçuk kaçık komedide, pazarlamacılar Brad ve Elijah gemileri yakar ve Dünya Kupası için cesur b...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Komedi",
-        "Korku & Gerilim",
-        "Suç & Polisiye",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "104 dk"
     }
   ]
 }
