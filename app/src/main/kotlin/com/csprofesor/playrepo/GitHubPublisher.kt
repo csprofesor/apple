@@ -583,9 +583,13 @@ class GitHubPublisher {
                 add("behaviorHints", bh)
 
                 val videos = JsonArray().apply {
+                    val vidTitle = if (movie.type == "series" && movie.season != null && movie.episode != null) {
+                        "${movie.season}. Sezon ${movie.episode}. Bölüm"
+                    } else movie.title
                     val v = JsonObject().apply {
                         addProperty("id", defaultVid)
-                        addProperty("title", movie.title)
+                        addProperty("title", vidTitle)
+                        addProperty("name", vidTitle)
                         if (movie.type == "series") {
                             if (movie.season != null) addProperty("season", movie.season)
                             if (movie.episode != null) addProperty("episode", movie.episode)
@@ -613,9 +617,11 @@ class GitHubPublisher {
                 videos.get(idx).asJsonObject.get("id")?.asString == newVidId
             }
             if (!alreadyExists) {
+                val vidTitle = if (movie.season != null && movie.episode != null) "${movie.season}. Sezon ${movie.episode}. Bölüm" else movie.title
                 val newVid = JsonObject().apply {
                     addProperty("id", newVidId)
-                    addProperty("title", movie.title)
+                    addProperty("title", vidTitle)
+                    addProperty("name", vidTitle)
                     if (movie.season != null) addProperty("season", movie.season)
                     if (movie.episode != null) addProperty("episode", movie.episode)
                     if (!movie.year.isNullOrBlank()) addProperty("released", "${movie.year}-01-01T00:00:00.000Z")

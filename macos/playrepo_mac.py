@@ -1255,9 +1255,11 @@ class GitHubAtomicPublisher:
                     streams_map[clean_id] = m["streams"]
                     streams_map[f"playrepo-{clean_id}"] = m["streams"]
 
+            vid_title = f"{s_num}. Sezon {e_num}. Bölüm" if (m_type == "series" and s_num and e_num) else m["title"]
             vid_obj = {
                 "id": vid_id,
-                "title": m["title"],
+                "title": vid_title,
+                "name": vid_title,
                 "released": f"{m['year']}-01-01T00:00:00.000Z" if m.get("year") else None
             }
             if m_type == "series" and s_num:

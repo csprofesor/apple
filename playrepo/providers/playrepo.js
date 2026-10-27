@@ -624,7 +624,7 @@ async function resolveAndCapStreams(rawStreams) {
             formattedTitle = `Play • Sunucu ${othC} • 1080p • [TR]`;
         }
 
-        return {
+        const streamItem = {
             name: "Play",
             title: formattedTitle,
             url: s.url,
@@ -634,6 +634,10 @@ async function resolveAndCapStreams(rawStreams) {
             behaviorHints: s.behaviorHints,
             headers: s.headers
         };
+        if (s.subtitles && Array.isArray(s.subtitles) && s.subtitles.length > 0) {
+            streamItem.subtitles = s.subtitles;
+        }
+        return streamItem;
     });
 }
 
