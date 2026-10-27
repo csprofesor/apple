@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-uykucu",
+      "type": "movie",
+      "name": "Uykucu",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fOAIBZQOyqktxjpedHZKTDJegkt.webp?v=1785165559",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fOAIBZQOyqktxjpedHZKTDJegkt.webp?v=1785165559",
+      "description": "Uykucu (2025) full HD, Türkçe dublaj ve altyazılı izle. Ferman, &quot;Masa&quot; adlı gizli örgüt adına eski ajanları ortadan kaldıran soğukkanlı bir tetikçidir. Bir göre...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "123 dk"
+    },
+    {
       "id": "playrepo-katil-makine",
       "type": "movie",
       "name": "Katil Makine",
@@ -1030,21 +1047,6 @@
       ],
       "posterShape": "poster",
       "runtime": "94 dk"
-    },
-    {
-      "id": "playrepo-erken-kis",
-      "type": "movie",
-      "name": "Erken Kış",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/d83m7WTVV9xFuyjvdbFjN9mSxgi.webp?v=1785124786",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/d83m7WTVV9xFuyjvdbFjN9mSxgi.webp?v=1785124786",
-      "description": "Erken Kış (2025) full HD, Türkçe dublaj ve altyazılı izle. İstanbul&#039;da bir fabrika müdürü olan Ferhat ve bir banka müdürü olan Handan, Gürcü ve Ukrayna kökenli....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "92 dk"
     }
   ]
 }
