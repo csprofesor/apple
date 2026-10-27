@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-ortbas-savasin-cirkin-gercekleri",
+      "type": "movie",
+      "name": "Örtbas: Savaşın Çirkin Gerçekleri",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/e0z1lFuOLuQibEKtodWbUdI9jL5.webp?v=1785629206",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/e0z1lFuOLuQibEKtodWbUdI9jL5.webp?v=1785629206",
+      "description": "Örtbas: Savaşın Çirkin Gerçekleri (2025) full HD, Türkçe dublaj ve altyazılı izle. Güçlülerin gizli tutmak istediği hikâyeleri ortaya çıkarmaya adanmış bir kari...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "117 dk"
+    },
+    {
       "id": "playrepo-hizli-tren-dehseti",
       "type": "movie",
       "name": "Hızlı Tren Dehşeti",
@@ -1010,22 +1025,6 @@
       ],
       "posterShape": "poster",
       "runtime": "133 dk"
-    },
-    {
-      "id": "playrepo-astronot",
-      "type": "movie",
-      "name": "Astronot",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3C01kAcKGR6FwsUUSOvJ8N82pqr.webp?v=1785562890",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3C01kAcKGR6FwsUUSOvJ8N82pqr.webp?v=1785562890",
-      "description": "Astronot (2025) full HD, Türkçe dublaj ve altyazılı izle. Uzayın derinliklerinden dönen astronot Sam Walker, NASA’nın gözetiminde yüksek güvenlikli bir tesise y...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "90 dk"
     }
   ]
 }
