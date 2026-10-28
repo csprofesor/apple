@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-ragnarok",
+    "type": "series",
+    "name": "Ragnarok",
+    "poster": "https://ddizimom.net/storage/tmdb/stills/w300/eqpkwb3KFfYuW1ia2fV27Mekgkh.webp?v=1784392228",
+    "background": "https://ddizimom.net/storage/tmdb/stills/w300/eqpkwb3KFfYuW1ia2fV27Mekgkh.webp?v=1784392228",
+    "description": "Ragnarok 3. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Çekicinden mahrum kalan Magne, modern dünyanın kurallarına uyarak Devlerle savaş...",
+    "releaseInfo": "2023",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-ragnarok:3:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-ragnarok:3:1",
+        "title": "3. Sezon 1. Bölüm",
+        "name": "3. Sezon 1. Bölüm",
+        "released": "2023-01-01T00:00:00.000Z",
+        "season": 3,
+        "episode": 1
+      }
+    ]
+  }
+}
