@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-avci",
+      "type": "movie",
+      "name": "Avcı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/a5zBQfXmLk3qqRYF7AioWpiAxk2.webp?v=1790270431",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/a5zBQfXmLk3qqRYF7AioWpiAxk2.webp?v=1790270431",
+      "description": "Avcı (1978) full HD, Türkçe dublaj ve altyazılı izle. Vietnam sonrası sendromunu en iyi anlatan filmlerden birisi Avcı. Savaş sonrası herşeyin bittiğine ve artı...",
+      "releaseInfo": "1978",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "183 dk"
+    },
+    {
       "id": "playrepo-jeanne-d-039-arc-039-in-tutkusu",
       "type": "movie",
       "name": "Jeanne d&#039;Arc&#039;ın Tutkusu",
@@ -1236,22 +1252,6 @@
       ],
       "posterShape": "poster",
       "runtime": "119 dk"
-    },
-    {
-      "id": "playrepo-bir-gecede-oldu",
-      "type": "movie",
-      "name": "Bir Gecede Oldu",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hmiC0MsI0PDd1TJXC62xyw0tX0s.webp?v=1790234552",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hmiC0MsI0PDd1TJXC62xyw0tX0s.webp?v=1790234552",
-      "description": "Bir Gecede Oldu (1934) full HD, Türkçe dublaj ve altyazılı izle. Zengin ve güçlü Alexander Andrews, kızı Ellie’nin King Westley’yle olan evliliğini onaylamaz. K...",
-      "releaseInfo": "1934",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "105 dk"
     }
   ]
 }
