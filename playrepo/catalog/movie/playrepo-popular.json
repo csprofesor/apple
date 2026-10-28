@@ -1,6 +1,42 @@
 {
   "metas": [
     {
+      "id": "tt37334010",
+      "type": "movie",
+      "name": "The Jester 2",
+      "poster": "https://m.media-amazon.com/images/M/MV5BODc0NGI2NDItZGI2Yy00YzRhLTkwMDYtZTViMTRlMGE3MzFkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BODc0NGI2NDItZGI2Yy00YzRhLTkwMDYtZTViMTRlMGE3MzFkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Jester 2 (2025) full HD, Türkçe dublaj ve altyazılı izle. Genç, içine kapanık bir sihirbaz olan Max’ın yolu Cadılar Bayramı gecesinde uğursuz Soytarı&#039;yla kesişi...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt37334010/img",
+      "trailers": [
+        {
+          "source": "7ogVp-d-CdE",
+          "type": "Trailer"
+        },
+        {
+          "source": "TvcOWSl4w50",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "The Jester 2",
+          "ytId": "7ogVp-d-CdE"
+        },
+        {
+          "title": "The Jester 2",
+          "ytId": "TvcOWSl4w50"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=7ogVp-d-CdE",
+      "runtime": "87 dk"
+    },
+    {
       "id": "playrepo-sen-aydinlatirsin-geceyi",
       "type": "movie",
       "name": "Sen Aydınlatırsın Geceyi",
@@ -1339,43 +1375,6 @@
         "Aksiyon & Macera"
       ],
       "posterShape": "poster",
-      "runtime": "115 dk"
-    },
-    {
-      "id": "tt0800369",
-      "type": "movie",
-      "name": "Thor",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNjRhNGZjZjEtYTQzYS00OWUxLThjNGEtMTIwMTE2ZDFlZTZkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNjRhNGZjZjEtYTQzYS00OWUxLThjNGEtMTIwMTE2ZDFlZTZkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Thor (2011) full HD, Türkçe dublaj ve altyazılı izle. Dünyada birçok kahraman vardır... Ama sadece bir tanesi tanrıdır. Kendi dünyası Asgard&#039;dan Dünya&#039;ya sürülm...",
-      "releaseInfo": "2011",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0800369/img",
-      "trailers": [
-        {
-          "source": "uHBnrJowBZE",
-          "type": "Trailer"
-        },
-        {
-          "source": "JOddp-nlNvQ",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Thor",
-          "ytId": "uHBnrJowBZE"
-        },
-        {
-          "title": "Thor",
-          "ytId": "JOddp-nlNvQ"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=uHBnrJowBZE",
       "runtime": "115 dk"
     }
   ]
