@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-heldin",
+      "type": "movie",
+      "name": "Heldin",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hBTOBzXTa5q1Hpxo7sWfXVBkpv3.webp?v=1791611027",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hBTOBzXTa5q1Hpxo7sWfXVBkpv3.webp?v=1791611027",
+      "description": "Heldin (2025) full HD, Türkçe dublaj ve altyazılı izle.",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "92 dk"
+    },
+    {
       "id": "tt31049299",
       "type": "movie",
       "name": "Animals",
@@ -1003,34 +1018,6 @@
       ],
       "posterShape": "poster",
       "runtime": "88 dk"
-    },
-    {
-      "id": "tt7798632",
-      "type": "movie",
-      "name": "Hamlet",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMDE5ZjIwNDMtODEzNy00ZTA3LTk0NzUtYTIwMTEwZjdlZDI5XkEyXkFqcGc%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMDE5ZjIwNDMtODEzNy00ZTA3LTk0NzUtYTIwMTEwZjdlZDI5XkEyXkFqcGc%40._V1_.jpg",
-      "description": "Hamlet (2026) full HD, Türkçe dublaj ve altyazılı izle. Hamlet, babasının cenazesi için Londra&#039;ya döner, ancak amcası Claudius&#039;un, Hamlet&#039;in yeni dul kalmış ann...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt7798632/img",
-      "trailers": [
-        {
-          "source": "TXTA2CUWmsE",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Hamlet",
-          "ytId": "TXTA2CUWmsE"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=TXTA2CUWmsE",
-      "runtime": "113 dk"
     }
   ]
 }
