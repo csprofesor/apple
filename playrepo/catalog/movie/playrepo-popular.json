@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-cezayir-savasi",
+      "type": "movie",
+      "name": "Cezayir Savaşı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ze7GsNSv418o7pzqc9fb00LWWDk.webp?v=1790264361",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ze7GsNSv418o7pzqc9fb00LWWDk.webp?v=1790264361",
+      "description": "Cezayir Savaşı (1966) full HD, Türkçe dublaj ve altyazılı izle. 1950&#039;lerin ikinci yarısında geçen film, Cezayir&#039;in Fransa sömürgesi altından kurtuluşunun öyküsü...",
+      "releaseInfo": "1966",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "122 dk"
+    },
+    {
       "id": "playrepo-kwai-koprusu",
       "type": "movie",
       "name": "Kwai Köprüsü",
@@ -1240,34 +1256,6 @@
       ],
       "posterShape": "poster",
       "runtime": "139 dk"
-    },
-    {
-      "id": "tt1205489",
-      "type": "movie",
-      "name": "Gran Torino",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTc5NTk2OTU1Nl5BMl5BanBnXkFtZTcwMDc3NjAwMg%40%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMTc5NTk2OTU1Nl5BMl5BanBnXkFtZTcwMDc3NjAwMg%40%40._V1_.jpg",
-      "description": "Gran Torino (2008) full HD, Türkçe dublaj ve altyazılı izle. Kore gazisi Walt Kowalski oğulları ile olan ilişkisi eşinin ölümünün ardından daha mesafeli bir hal...",
-      "releaseInfo": "2009",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt1205489/img",
-      "trailers": [
-        {
-          "source": "F8zue_BzNsw",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Gran Torino",
-          "ytId": "F8zue_BzNsw"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=F8zue_BzNsw",
-      "runtime": "116 dk"
     }
   ]
 }
