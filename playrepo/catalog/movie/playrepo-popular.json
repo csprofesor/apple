@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt41228546",
+      "type": "movie",
+      "name": "Sultana",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNWYxNzhkY2UtYzA0Mi00YjlmLTlkZDEtZGU4OGQ1MTEwNjg4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNWYxNzhkY2UtYzA0Mi00YjlmLTlkZDEtZGU4OGQ1MTEwNjg4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Sultana (2026) full HD, Türkçe dublaj ve altyazılı izle. İstanbul’un tek strip kulübü Sultana’da hüküm süren Meral, genç dansçı Anna’yı koruması altına alır. An...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt41228546/img",
+      "runtime": "120 dk"
+    },
+    {
       "id": "playrepo-kara-sovalye",
       "type": "movie",
       "name": "Kara Şövalye",
@@ -1069,22 +1084,6 @@
       ],
       "posterShape": "poster",
       "runtime": "133 dk"
-    },
-    {
-      "id": "playrepo-x-men-baslangic-wolverine",
-      "type": "movie",
-      "name": "X-Men Başlangıç: Wolverine",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/p4GzAzjlL7lXIVGvayg7zvzGTSi.webp?v=1787174710",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/p4GzAzjlL7lXIVGvayg7zvzGTSi.webp?v=1787174710",
-      "description": "X-Men Başlangıç: Wolverine (2009) full HD, Türkçe dublaj ve altyazılı izle. Mutant hayatı yaşayan Wolverine, kız arkadaşının ölümü nedeniyle Victor Greed’ten in...",
-      "releaseInfo": "2009",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "107 dk"
     }
   ]
 }
