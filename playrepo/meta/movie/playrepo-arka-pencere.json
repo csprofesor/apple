@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "id": "playrepo-arka-pencere",
+    "type": "movie",
+    "name": "Arka Pencere",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zGs5tZOlvc9cprdcU6kDOVNpujf.webp?v=1790168839",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zGs5tZOlvc9cprdcU6kDOVNpujf.webp?v=1790168839",
+    "description": "Arka Pencere (1954) full HD, Türkçe dublaj ve altyazılı izle. Fotoğrafçı L. B. “Jeff” Jeffries, geçirdiği kaza sonucunda bacağını kırar. New York’taki apartman....",
+    "releaseInfo": "1954",
+    "genres": [
+      "Korku & Gerilim",
+      "Dram & Romantik",
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-arka-pencere",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-arka-pencere",
+        "title": "Arka Pencere",
+        "name": "Arka Pencere",
+        "released": "1954-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "128 dk"
+  }
+}

@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-arka-pencere",
+      "type": "movie",
+      "name": "Arka Pencere",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zGs5tZOlvc9cprdcU6kDOVNpujf.webp?v=1790168839",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zGs5tZOlvc9cprdcU6kDOVNpujf.webp?v=1790168839",
+      "description": "Arka Pencere (1954) full HD, Türkçe dublaj ve altyazılı izle. Fotoğrafçı L. B. “Jeff” Jeffries, geçirdiği kaza sonucunda bacağını kırar. New York’taki apartman....",
+      "releaseInfo": "1954",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "128 dk"
+    },
+    {
       "id": "playrepo-bir-zamanlar-amerika",
       "type": "movie",
       "name": "Bir Zamanlar Amerika",
@@ -1179,23 +1195,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=aqYHOsuje1E",
       "runtime": "112 dk"
-    },
-    {
-      "id": "playrepo-schindler-039-in-listesi",
-      "type": "movie",
-      "name": "Schindler&#039;in Listesi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zb6fM1CX41D9rF9hdgclu0peUmy.webp?v=1789643843",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zb6fM1CX41D9rF9hdgclu0peUmy.webp?v=1789643843",
-      "description": "Schindler&#039;in Listesi (1993) full HD, Türkçe dublaj ve altyazılı izle. Tüm zamanların tarihsel açıdan en önemli filmlerinden biri olan Steven Spielberg&#039;in Schind...",
-      "releaseInfo": "1993",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "195 dk"
     }
   ]
 }
