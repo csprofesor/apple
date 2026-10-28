@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt0017136",
+      "type": "movie",
+      "name": "Metropolis",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMjhjMGYyMjAtMzJkYy00NzhlLWIwY2MtMWQ2ODIxZDUyOGYyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMjhjMGYyMjAtMzJkYy00NzhlLWIwY2MtMWQ2ODIxZDUyOGYyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Metropolis (1927) full HD, Türkçe dublaj ve altyazılı izle. Gelecek zaman… İnsanlar iki gruba ayrılmış durumdadır: düşünenler (ancak hiçbir makinenin nasıl çalı...",
+      "releaseInfo": "1927",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0017136/img",
+      "trailers": [
+        {
+          "source": "ZAvzaOxDt2c",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Metropolis",
+          "ytId": "ZAvzaOxDt2c"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=ZAvzaOxDt2c",
+      "runtime": "148 dk"
+    },
+    {
       "id": "playrepo-monty-python-ve-kutsal-k-se",
       "type": "movie",
       "name": "Monty Python ve Kutsal Kâse",

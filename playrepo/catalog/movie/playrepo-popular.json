@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt0017136",
+      "type": "movie",
+      "name": "Metropolis",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMjhjMGYyMjAtMzJkYy00NzhlLWIwY2MtMWQ2ODIxZDUyOGYyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMjhjMGYyMjAtMzJkYy00NzhlLWIwY2MtMWQ2ODIxZDUyOGYyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Metropolis (1927) full HD, Türkçe dublaj ve altyazılı izle. Gelecek zaman… İnsanlar iki gruba ayrılmış durumdadır: düşünenler (ancak hiçbir makinenin nasıl çalı...",
+      "releaseInfo": "1927",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0017136/img",
+      "trailers": [
+        {
+          "source": "ZAvzaOxDt2c",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Metropolis",
+          "ytId": "ZAvzaOxDt2c"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=ZAvzaOxDt2c",
+      "runtime": "148 dk"
+    },
+    {
       "id": "playrepo-milyonluk-bebek",
       "type": "movie",
       "name": "Milyonluk Bebek",
@@ -1258,21 +1287,6 @@
       ],
       "posterShape": "poster",
       "runtime": "122 dk"
-    },
-    {
-      "id": "playrepo-perde-aciliyor",
-      "type": "movie",
-      "name": "Perde Açılıyor",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zAL3LOswagN9onjN8DPcNFTqKuD.webp?v=1790209670",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zAL3LOswagN9onjN8DPcNFTqKuD.webp?v=1790209670",
-      "description": "Perde Açılıyor (1950) full HD, Türkçe dublaj ve altyazılı izle. En İyi Film başta olmak üzere tam 6 Oscar&#039;lı bir başyapıt Ünlü yıldız Margo Channing (Bette Davi...",
-      "releaseInfo": "1950",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "139 dk"
     }
   ]
 }
