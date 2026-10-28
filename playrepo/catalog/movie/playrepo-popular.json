@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-oz-buyucusu",
+      "type": "movie",
+      "name": "Oz Büyücüsü",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/g1OvTd1eF346vmx8qsJnjaiooZ6.webp?v=1790293123",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/g1OvTd1eF346vmx8qsJnjaiooZ6.webp?v=1790293123",
+      "description": "Oz Büyücüsü (1939) full HD, Türkçe dublaj ve altyazılı izle. Halası ve amcasıyla çiftliklerinde mutlu bir yaşantısı olan Dorothy, sevimli köpeği Toto komşusu ta...",
+      "releaseInfo": "1939",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "102 dk"
+    },
+    {
       "id": "playrepo-sierra-madre-hazineleri",
       "type": "movie",
       "name": "Sierra Madre Hazineleri",
@@ -1214,21 +1230,6 @@
       ],
       "posterShape": "poster",
       "runtime": "129 dk"
-    },
-    {
-      "id": "playrepo-sebeke",
-      "type": "movie",
-      "name": "Şebeke",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/m4Iyzh9YVOh0ra7UwdMoJcrjxkx.webp?v=1790249109",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/m4Iyzh9YVOh0ra7UwdMoJcrjxkx.webp?v=1790249109",
-      "description": "Şebeke (1976) full HD, Türkçe dublaj ve altyazılı izle. Şebeke, uzun yıllardır UBS Akşam Haberleri isimli programda haber spikerliği yapan Howard Beale’nin hika...",
-      "releaseInfo": "1976",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "122 dk"
     }
   ]
 }
