@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-dinozorlar",
+    "type": "series",
+    "name": "Dinozorlar",
+    "poster": "https://ddizimom.net/storage/tmdb/stills/w300/cLrKgHtnPVZqKtwjocQydg7ASHY.webp?v=1784583826",
+    "background": "https://ddizimom.net/storage/tmdb/stills/w300/cLrKgHtnPVZqKtwjocQydg7ASHY.webp?v=1784583826",
+    "description": "Dinozorlar 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. 235 milyon yıl önce yumurtadan çıkan küçük ve tüylü bir yaratık, kaotik iklime...",
+    "releaseInfo": "2026",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-dinozorlar:1:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-dinozorlar:1:1",
+        "title": "1. Sezon 1. Bölüm",
+        "name": "1. Sezon 1. Bölüm",
+        "released": "2026-01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
