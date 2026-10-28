@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-zaman-carki",
+    "type": "series",
+    "name": "Zaman Çarkı",
+    "poster": "https://ddizimom.net/storage/tmdb/stills/w300/ucVwvH0NqJC5LdN1C8d4qfaLgDt.webp?v=1784701761",
+    "background": "https://ddizimom.net/storage/tmdb/stills/w300/ucVwvH0NqJC5LdN1C8d4qfaLgDt.webp?v=1784701761",
+    "description": "Zaman Çarkı 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Tuhaf bir soylu kadın, uzak bir dağ köyüne gelir ve beş gençten birinin, bir....",
+    "releaseInfo": "2021",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-zaman-carki:1:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-zaman-carki:1:1",
+        "title": "1. Sezon 1. Bölüm",
+        "name": "1. Sezon 1. Bölüm",
+        "released": "2021-01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
