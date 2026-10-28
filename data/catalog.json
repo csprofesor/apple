@@ -1,6 +1,51 @@
 {
   "metas": [
     {
+      "id": "tt3230854",
+      "type": "series",
+      "name": "The Expanse",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYzUyYmI3MjctY2Q2MC00NmFjLTgwZGUtNWQzZWNlYmVjNzE2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYzUyYmI3MjctY2Q2MC00NmFjLTgwZGUtNWQzZWNlYmVjNzE2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "The Expanse 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Asteroit Kuşağı&#039;nda, Satürn yakınlarında, James Holden ve kargo gemisi Canter...",
+      "releaseInfo": "2015-2022",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt3230854/img",
+      "trailers": [
+        {
+          "source": "M0QwBp_da28",
+          "type": "Trailer"
+        },
+        {
+          "source": "ydKmedH336Q",
+          "type": "Trailer"
+        },
+        {
+          "source": "8X5gXIQmY-E",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "The Expanse",
+          "ytId": "M0QwBp_da28"
+        },
+        {
+          "title": "The Expanse",
+          "ytId": "ydKmedH336Q"
+        },
+        {
+          "title": "The Expanse",
+          "ytId": "8X5gXIQmY-E"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=M0QwBp_da28"
+    },
+    {
       "id": "playrepo-the-chosen",
       "type": "series",
       "name": "The Chosen",
