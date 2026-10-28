@@ -1,6 +1,34 @@
 {
   "metas": [
     {
+      "id": "tt7798632",
+      "type": "movie",
+      "name": "Hamlet",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMDE5ZjIwNDMtODEzNy00ZTA3LTk0NzUtYTIwMTEwZjdlZDI5XkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMDE5ZjIwNDMtODEzNy00ZTA3LTk0NzUtYTIwMTEwZjdlZDI5XkEyXkFqcGc%40._V1_.jpg",
+      "description": "Hamlet (2026) full HD, Türkçe dublaj ve altyazılı izle. Hamlet, babasının cenazesi için Londra&#039;ya döner, ancak amcası Claudius&#039;un, Hamlet&#039;in yeni dul kalmış ann...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt7798632/img",
+      "trailers": [
+        {
+          "source": "TXTA2CUWmsE",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Hamlet",
+          "ytId": "TXTA2CUWmsE"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=TXTA2CUWmsE",
+      "runtime": "113 dk"
+    },
+    {
       "id": "playrepo-hamilton",
       "type": "movie",
       "name": "Hamilton",
@@ -1234,23 +1262,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "playrepo-gizli-dunya",
-      "type": "movie",
-      "name": "Gizli Dünya",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cGV6R2vzT4TYIabf3JgmrOISQ0y.webp?v=1790256302",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cGV6R2vzT4TYIabf3JgmrOISQ0y.webp?v=1790256302",
-      "description": "Gizli Dünya (2015) full HD, Türkçe dublaj ve altyazılı izle. Jack ile annesi, 5 yıl boyunca tek odada hayatlarını sürdürmek zorunda kalmıştır. Hiç dışarı çıkama...",
-      "releaseInfo": "2015",
-      "genres": [
-        "Mubi & Kült",
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "118 dk"
     }
   ]
 }
