@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-catlak",
+      "type": "movie",
+      "name": "Çatlak",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/twN87vhUMr0cf6psAcSTokHA4K3.webp?v=1788580295",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/twN87vhUMr0cf6psAcSTokHA4K3.webp?v=1788580295",
+      "description": "Çatlak (2020) full HD, Türkçe dublaj ve altyazılı izle. Göçmen işçi olarak İngiltere’de çalışan Fatih, arkadaşı Ayhan’dan ailesine göndermek üzere yüklü miktard...",
+      "releaseInfo": "2020",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "82 dk"
+    },
+    {
       "id": "tt33071426",
       "type": "movie",
       "name": "The Drama",
@@ -1369,23 +1384,6 @@
       ],
       "posterShape": "poster",
       "runtime": "132 dk"
-    },
-    {
-      "id": "playrepo-demir-adam",
-      "type": "movie",
-      "name": "Demir Adam",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cKvDv2LpwVEqbdXWoQl4XgGN6le.webp?v=1787099815",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cKvDv2LpwVEqbdXWoQl4XgGN6le.webp?v=1787099815",
-      "description": "Demir Adam (2008) full HD, Türkçe dublaj ve altyazılı izle. Milyarder bir sanayici ve dâhi bir mucit olan Tony Stark kaçırılır ve yıkıcı bir silah inşa etmeye z...",
-      "releaseInfo": "2008",
-      "genres": [
-        "Hulu",
-        "Bilim Kurgu & Fantastik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "127 dk"
     }
   ]
 }

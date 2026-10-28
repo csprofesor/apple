@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-catlak",
+    "type": "movie",
+    "name": "Çatlak",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/twN87vhUMr0cf6psAcSTokHA4K3.webp?v=1788580295",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/twN87vhUMr0cf6psAcSTokHA4K3.webp?v=1788580295",
+    "description": "Çatlak (2020) full HD, Türkçe dublaj ve altyazılı izle. Göçmen işçi olarak İngiltere’de çalışan Fatih, arkadaşı Ayhan’dan ailesine göndermek üzere yüklü miktard...",
+    "releaseInfo": "2020",
+    "genres": [
+      "Dram & Romantik",
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-catlak",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-catlak",
+        "title": "Çatlak",
+        "name": "Çatlak",
+        "released": "2020-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "82 dk"
+  }
+}
