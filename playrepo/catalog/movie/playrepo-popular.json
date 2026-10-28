@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-babam-i-cin",
+      "type": "movie",
+      "name": "Babam İçin",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gUIVD0rFWVB8Okk8wU8dQxjOYnZ.webp?v=1790237089",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gUIVD0rFWVB8Okk8wU8dQxjOYnZ.webp?v=1790237089",
+      "description": "Babam İçin (1993) full HD, Türkçe dublaj ve altyazılı izle. Basit kaygıları olan saf İrlandalı genç Gerry Conlon, 70’li yıllarda Londra’ya gelir. Kendini hayatı...",
+      "releaseInfo": "1993",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "133 dk"
+    },
+    {
       "id": "tt0073195",
       "type": "movie",
       "name": "Jaws",
@@ -1196,59 +1211,6 @@
       ],
       "posterShape": "poster",
       "runtime": "189 dk"
-    },
-    {
-      "id": "tt0133093",
-      "type": "movie",
-      "name": "The Matrix",
-      "poster": "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Matrix (1999) full HD, Türkçe dublaj ve altyazılı izle. Bir bilgisayar programcısı olan Thomas Anderson aynı zamanda Neo takma isimli çok usta bir bilgisayar ko...",
-      "releaseInfo": "1999",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0133093/img",
-      "trailers": [
-        {
-          "source": "FVI84Dfx2-I",
-          "type": "Trailer"
-        },
-        {
-          "source": "d0XTFAMmhrE",
-          "type": "Trailer"
-        },
-        {
-          "source": "nUEQNVV3Gfs",
-          "type": "Trailer"
-        },
-        {
-          "source": "L0fw0WzFaBM",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "The Matrix",
-          "ytId": "FVI84Dfx2-I"
-        },
-        {
-          "title": "The Matrix",
-          "ytId": "d0XTFAMmhrE"
-        },
-        {
-          "title": "The Matrix",
-          "ytId": "nUEQNVV3Gfs"
-        },
-        {
-          "title": "The Matrix",
-          "ytId": "L0fw0WzFaBM"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=FVI84Dfx2-I",
-      "runtime": "136 dk"
     }
   ]
 }
