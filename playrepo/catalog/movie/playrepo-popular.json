@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-guguk-kusu",
+      "type": "movie",
+      "name": "Guguk Kuşu",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uA8eSNAUUUyfHNIrG4h0zHxzt9W.webp?v=1790167569",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uA8eSNAUUUyfHNIrG4h0zHxzt9W.webp?v=1790167569",
+      "description": "Guguk Kuşu (1975) full HD, Türkçe dublaj ve altyazılı izle. Eyalet Akıl Hastanesi&#039;nde kısa bir tatil kulağa pek de kötü gelmiyor, öyle değil mi? Randle P. McMur...",
+      "releaseInfo": "1975",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "135 dk"
+    },
+    {
       "id": "tt15398776",
       "type": "movie",
       "name": "Oppenheimer",
@@ -1181,34 +1196,6 @@
       ],
       "posterShape": "poster",
       "runtime": "97 dk"
-    },
-    {
-      "id": "tt8637438",
-      "type": "movie",
-      "name": "Night Patrol",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMzY2Mjg2YzUtZmQwZC00ZjIwLTg2YzUtZmZmNmU4OTliZTYwXkEyXkFqcGc%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMzY2Mjg2YzUtZmQwZC00ZjIwLTg2YzUtZmZmNmU4OTliZTYwXkEyXkFqcGc%40._V1_.jpg",
-      "description": "Night Patrol (2026) full HD, Türkçe dublaj ve altyazılı izle. Afroamerika kökenli bir Los Angeles Polis Departmanı (LAPD) memuru, yerel bir özel birimle ilgili....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt8637438/img",
-      "trailers": [
-        {
-          "source": "8J_pMGZScB8",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Night Patrol",
-          "ytId": "8J_pMGZScB8"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=8J_pMGZScB8",
-      "runtime": "104 dk"
     }
   ]
 }
