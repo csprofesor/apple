@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-gizli-teskilat",
+      "type": "movie",
+      "name": "Gizli Teşkilat",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/OR8oloCZ3klJtB7Y0i8pSqWw5a.webp?v=1790248787",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/OR8oloCZ3klJtB7Y0i8pSqWw5a.webp?v=1790248787",
+      "description": "Gizli Teşkilat (1959) full HD, Türkçe dublaj ve altyazılı izle. Cary Grant yönetmen Alfred Hitchcock&#039;un en güzel gerilim filmlerinden biri olan bu filmde casus....",
+      "releaseInfo": "1959",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "137 dk"
+    },
+    {
       "id": "playrepo-yol-turkusu",
       "type": "movie",
       "name": "Yol Türküsü",
@@ -1271,23 +1287,6 @@
       ],
       "posterShape": "poster",
       "runtime": "154 dk"
-    },
-    {
-      "id": "playrepo-bicak-sirti",
-      "type": "movie",
-      "name": "Bıçak Sırtı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2spEHYDcyE9r9mS7AFEscfKVDzO.webp?v=1790213449",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2spEHYDcyE9r9mS7AFEscfKVDzO.webp?v=1790213449",
-      "description": "Bıçak Sırtı (1982) full HD, Türkçe dublaj ve altyazılı izle. 2019&#039;un dumanla boğuşan distopik Los Angeles&#039;ında, kısa ömürlerini uzatmanın bir yolunu bulmak için...",
-      "releaseInfo": "1982",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "118 dk"
     }
   ]
 }
