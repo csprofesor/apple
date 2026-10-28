@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-kayip-balik-nemo",
+      "type": "movie",
+      "name": "Kayıp Balık Nemo",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eCynaAOgYYiw5yN5lBwz3IxqvaW.webp?v=1790220699",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eCynaAOgYYiw5yN5lBwz3IxqvaW.webp?v=1790220699",
+      "description": "Kayıp Balık Nemo (2003) full HD, Türkçe dublaj ve altyazılı izle. Dünyaya gelir gelmez annesini kaybeden Nemo babası tarafından büyütülmektedir. Artık İlkokul ç...",
+      "releaseInfo": "2003",
+      "genres": [
+        "Hulu",
+        "Animasyon & Aile",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "100 dk"
+    },
+    {
       "id": "tt0116282",
       "type": "movie",
       "name": "Fargo",
@@ -1129,22 +1146,6 @@
       ],
       "posterShape": "poster",
       "runtime": "127 dk"
-    },
-    {
-      "id": "playrepo-bir-ruya-i-cin-agit",
-      "type": "movie",
-      "name": "Bir Rüya İçin Ağıt",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fAGYRJCujRBMw7TCuTp893eSG8e.webp?v=1790173746",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fAGYRJCujRBMw7TCuTp893eSG8e.webp?v=1790173746",
-      "description": "Bir Rüya İçin Ağıt (2000) full HD, Türkçe dublaj ve altyazılı izle. Uyuşturucu bağımlısı bir genç, televizyon bağımlısı annesi ve aralarında günden güne yüksele...",
-      "releaseInfo": "2000",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
