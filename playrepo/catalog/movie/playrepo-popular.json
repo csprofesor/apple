@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-uzay-yolu-macerasi",
+      "type": "movie",
+      "name": "Uzay Yolu Macerası",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/w5IDXtifKntw0ajv2co7jFlTQDM.webp?v=1790137052",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/w5IDXtifKntw0ajv2co7jFlTQDM.webp?v=1790137052",
+      "description": "2001: Uzay Yolu Macerası (1968) full HD, Türkçe dublaj ve altyazılı izle. Stanley Kubrick, klasik bilim kurgu başyapıtı olan insanlığın doğası üzerine bir yorum...",
+      "releaseInfo": "2001",
+      "genres": [
+        "Korku & Gerilim",
+        "Aksiyon & Macera",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "149 dk"
+    },
+    {
       "id": "playrepo-amerikan-guzeli",
       "type": "movie",
       "name": "Amerikan Güzeli",
@@ -1093,42 +1109,6 @@
       ],
       "posterShape": "poster",
       "runtime": "92 dk"
-    },
-    {
-      "id": "tt37334010",
-      "type": "movie",
-      "name": "The Jester 2",
-      "poster": "https://m.media-amazon.com/images/M/MV5BODc0NGI2NDItZGI2Yy00YzRhLTkwMDYtZTViMTRlMGE3MzFkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BODc0NGI2NDItZGI2Yy00YzRhLTkwMDYtZTViMTRlMGE3MzFkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Jester 2 (2025) full HD, Türkçe dublaj ve altyazılı izle. Genç, içine kapanık bir sihirbaz olan Max’ın yolu Cadılar Bayramı gecesinde uğursuz Soytarı&#039;yla kesişi...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt37334010/img",
-      "trailers": [
-        {
-          "source": "7ogVp-d-CdE",
-          "type": "Trailer"
-        },
-        {
-          "source": "TvcOWSl4w50",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "The Jester 2",
-          "ytId": "7ogVp-d-CdE"
-        },
-        {
-          "title": "The Jester 2",
-          "ytId": "TvcOWSl4w50"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=7ogVp-d-CdE",
-      "runtime": "87 dk"
     }
   ]
 }

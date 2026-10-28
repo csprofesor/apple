@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-uzay-yolu-macerasi",
+      "type": "movie",
+      "name": "Uzay Yolu Macerası",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/w5IDXtifKntw0ajv2co7jFlTQDM.webp?v=1790137052",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/w5IDXtifKntw0ajv2co7jFlTQDM.webp?v=1790137052",
+      "description": "2001: Uzay Yolu Macerası (1968) full HD, Türkçe dublaj ve altyazılı izle. Stanley Kubrick, klasik bilim kurgu başyapıtı olan insanlığın doğası üzerine bir yorum...",
+      "releaseInfo": "2001",
+      "genres": [
+        "Korku & Gerilim",
+        "Aksiyon & Macera",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "149 dk"
+    },
+    {
       "id": "playrepo-yaratik",
       "type": "movie",
       "name": "Yaratık",
