@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-zor-bir-karar",
+      "type": "movie",
+      "name": "Zor Bir Karar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/s3TSNvG1QezSvLfAtZ5xoPNbL8q.webp?v=1791730528",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/s3TSNvG1QezSvLfAtZ5xoPNbL8q.webp?v=1791730528",
+      "description": "Zor Bir Karar (2017) full HD, Türkçe dublaj ve altyazılı izle. Eylem, babası ve büyük kardeşiyle birlikte Hakkari’de yaşamakta ve bir kilim atölyesinde çalışmak...",
+      "releaseInfo": "2017",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "90 dk"
+    },
+    {
       "id": "tt23060038",
       "type": "movie",
       "name": "N.A.R.",
@@ -1020,21 +1035,6 @@
       ],
       "posterShape": "poster",
       "runtime": "195 dk"
-    },
-    {
-      "id": "playrepo-korkunc-dul-olum-bizi-ayirana-dek",
-      "type": "movie",
-      "name": "Korkunç Dul: Ölüm Bizi Ayırana Dek",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kejOti7YfpTr88Y4fWnd3UVDr8e.webp?v=1790891385",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kejOti7YfpTr88Y4fWnd3UVDr8e.webp?v=1790891385",
-      "description": "Korkunç Dul: Ölüm Bizi Ayırana Dek (2026) full HD, Türkçe dublaj ve altyazılı izle. Bu belgeselde bir gazeteci ve bir dedektif, ardında bıraktığı başarısız evli...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "91 dk"
     }
   ]
 }
