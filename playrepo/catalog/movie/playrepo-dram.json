@@ -1,6 +1,50 @@
 {
   "metas": [
     {
+      "id": "tt7286456",
+      "type": "movie",
+      "name": "Joker",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Joker (2019) full HD, Türkçe dublaj ve altyazılı izle. Joker, başarısız bir komedyen olan Arthur Fleck&#039;in hayatına odaklanıyor. Toplum tarafından dışlanan bir a...",
+      "releaseInfo": "2019",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt7286456/img",
+      "trailers": [
+        {
+          "source": "-RFFRxcoKfA",
+          "type": "Trailer"
+        },
+        {
+          "source": "zAGVQLHvwOY",
+          "type": "Trailer"
+        },
+        {
+          "source": "t433PEQGErc",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Joker",
+          "ytId": "-RFFRxcoKfA"
+        },
+        {
+          "title": "Joker",
+          "ytId": "zAGVQLHvwOY"
+        },
+        {
+          "title": "Joker",
+          "ytId": "t433PEQGErc"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=-RFFRxcoKfA",
+      "runtime": "122 dk"
+    },
+    {
       "id": "playrepo-yasamak",
       "type": "movie",
       "name": "Yaşamak",
