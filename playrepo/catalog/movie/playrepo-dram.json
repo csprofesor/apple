@@ -1,6 +1,34 @@
 {
   "metas": [
     {
+      "id": "tt1205489",
+      "type": "movie",
+      "name": "Gran Torino",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTc5NTk2OTU1Nl5BMl5BanBnXkFtZTcwMDc3NjAwMg%40%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMTc5NTk2OTU1Nl5BMl5BanBnXkFtZTcwMDc3NjAwMg%40%40._V1_.jpg",
+      "description": "Gran Torino (2008) full HD, Türkçe dublaj ve altyazılı izle. Kore gazisi Walt Kowalski oğulları ile olan ilişkisi eşinin ölümünün ardından daha mesafeli bir hal...",
+      "releaseInfo": "2009",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt1205489/img",
+      "trailers": [
+        {
+          "source": "F8zue_BzNsw",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Gran Torino",
+          "ytId": "F8zue_BzNsw"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=F8zue_BzNsw",
+      "runtime": "116 dk"
+    },
+    {
       "id": "playrepo-hachi-bir-kopegin-hikayesi",
       "type": "movie",
       "name": "Hachi: Bir Köpeğin Hikayesi",
