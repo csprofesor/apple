@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-milyonluk-bebek",
+      "type": "movie",
+      "name": "Milyonluk Bebek",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oGMomeS7bE43eN8SGJUaKvQnmud.webp?v=1790246551",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oGMomeS7bE43eN8SGJUaKvQnmud.webp?v=1790246551",
+      "description": "Milyonluk Bebek (2004) full HD, Türkçe dublaj ve altyazılı izle. Frankie Dunn ringlerde yaşadığı yıllar boyunca müthiş dövüşçüler yetiştirmiştir. Öğrencisi olan...",
+      "releaseInfo": "2004",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "132 dk"
+    },
+    {
       "id": "playrepo-monty-python-ve-kutsal-k-se",
       "type": "movie",
       "name": "Monty Python ve Kutsal Kâse",
@@ -1258,22 +1273,6 @@
       ],
       "posterShape": "poster",
       "runtime": "139 dk"
-    },
-    {
-      "id": "playrepo-12-yillik-esaret",
-      "type": "movie",
-      "name": "12 Yıllık Esaret",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4Bb1kMIfrT2tYRZ9M6Jhqy6gkeF.webp?v=1790209533",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4Bb1kMIfrT2tYRZ9M6Jhqy6gkeF.webp?v=1790209533",
-      "description": "12 Yıllık Esaret (2013) full HD, Türkçe dublaj ve altyazılı izle. 1841&#039;de New York&#039;ta yaşayan Solomon Northup, kendisini müziğe adamış siyahi bir adamdır. Ailes...",
-      "releaseInfo": "2013",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "134 dk"
     }
   ]
 }
