@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-tokyo-hikayesi",
+      "type": "movie",
+      "name": "Tokyo Hikayesi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jLq0ol1f0ZKXni9R9GsPBcyPrNN.webp?v=1790456759",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jLq0ol1f0ZKXni9R9GsPBcyPrNN.webp?v=1790456759",
+      "description": "Tokyo Hikayesi (1953) full HD, Türkçe dublaj ve altyazılı izle. Müthiş bir dönüşüm ve modernleşmenin pençesinde bölünmekte olan Japonya&#039;dayız. Taşralı, emekli b...",
+      "releaseInfo": "1953",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "137 dk"
+    },
+    {
       "id": "playrepo-rasomon",
       "type": "movie",
       "name": "Raşomon",
@@ -1247,22 +1262,6 @@
       ],
       "posterShape": "poster",
       "runtime": "123 dk"
-    },
-    {
-      "id": "playrepo-zindan-adasi",
-      "type": "movie",
-      "name": "Zindan Adası",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rbZvGN1A1QyZuoKzhCw8QPmf2q0.webp?v=1790257834",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rbZvGN1A1QyZuoKzhCw8QPmf2q0.webp?v=1790257834",
-      "description": "Zindan Adası (2010) full HD, Türkçe dublaj ve altyazılı izle. Amerikan Marşal&#039;ı Teddy Daniels, (DiCaprio) Shutter Island’daki cani delilerin bulunduğu akıl hast...",
-      "releaseInfo": "2010",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "138 dk"
     }
   ]
 }
