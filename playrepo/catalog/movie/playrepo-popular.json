@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-yargic-dredd",
+      "type": "movie",
+      "name": "Yargıç Dredd",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jUqDBi02CDjqrroC3Zl8hroBbSr.webp?v=1789931829",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jUqDBi02CDjqrroC3Zl8hroBbSr.webp?v=1789931829",
+      "description": "Yargıç Dredd (2012) full HD, Türkçe dublaj ve altyazılı izle. Dünyanın Atom Çağı&#039;na girdiği gelecekte insanlar megapollerde yaşamaya başlamıştır ve suça karşı a...",
+      "releaseInfo": "2012",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "96 dk"
+    },
+    {
       "id": "tt27200708",
       "type": "movie",
       "name": "Mother Mary",
@@ -1098,21 +1114,6 @@
       ],
       "posterShape": "poster",
       "runtime": "118 dk"
-    },
-    {
-      "id": "playrepo-kardesler-arastirma",
-      "type": "movie",
-      "name": "Kardeşler Araştırma",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hFryJ9CT29cwiJkW9lYufsAD5zl.webp?v=1787372623",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hFryJ9CT29cwiJkW9lYufsAD5zl.webp?v=1787372623",
-      "description": "Kardeşler Araştırma (2026) full HD, Türkçe dublaj ve altyazılı izle. İstanbul&#039;da sadakat testleri ve ilişki takibi yürüten küçük bir ekip, İngiliz bir diplomatı...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "105 dk"
     }
   ]
 }
