@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-son-bir-sans",
+      "type": "movie",
+      "name": "Son Bir Şans",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8giIQcHpxgsPVP6c7aQtHl3txuh.webp?v=1791872201",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8giIQcHpxgsPVP6c7aQtHl3txuh.webp?v=1791872201",
+      "description": "Son Bir Şans (2026) full HD, Türkçe dublaj ve altyazılı izle. Navy SEAL Jake Harris, eski bir silah arkadaşı dünyayı tehdit edince yeniden göreve çağrılır.",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "98 dk"
+    },
+    {
       "id": "tt1142977",
       "type": "movie",
       "name": "Frankenweenie",
@@ -1132,21 +1148,6 @@
       "posterShape": "poster",
       "logo": "https://images.metahub.space/logo/medium/tt0090201/img",
       "runtime": "81 dk"
-    },
-    {
-      "id": "tt5524044",
-      "type": "movie",
-      "name": "Madde 438",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNmViMDhjNmQtOGU1YS00MWJkLTkyZWUtZGVmZGJjNDdmZjRhXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNmViMDhjNmQtOGU1YS00MWJkLTkyZWUtZGVmZGJjNDdmZjRhXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Madde 438 (1991) full HD, Türkçe dublaj ve altyazılı izle. Film, ceza kanununda bulunan bir madde yüzünden yaşanan bir dramı konu alır. Naciye, bir grup adamın....",
-      "releaseInfo": "1991",
-      "genres": [
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "logo": "https://live.metahub.space/logo/medium/tt5524044/img",
-      "runtime": "83 dk"
     }
   ]
 }
