@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt2861424",
+      "type": "series",
+      "name": "Rick and Morty",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZGQyZjk2MzMtMTcyNC00NGU3LTlmNjItNDExMWM4ZDFhYmQ2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZGQyZjk2MzMtMTcyNC00NGU3LTlmNjItNDExMWM4ZDFhYmQ2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Rick and Morty 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Rick, Morty’yi ‘mega-ağaç’ tohumları bulmak için başka bir boyuta götürür....",
+      "releaseInfo": "2013-",
+      "genres": [
+        "Komedi",
+        "Animasyon & Aile",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt2861424/img",
+      "trailers": [
+        {
+          "source": "WNhH00OIPP0",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Rick and Morty",
+          "ytId": "WNhH00OIPP0"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=WNhH00OIPP0"
+    },
+    {
       "id": "tt14278524",
       "type": "series",
       "name": "Santo",
