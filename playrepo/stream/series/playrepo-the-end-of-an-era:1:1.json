@@ -1,0 +1,72 @@
+{
+  "streams": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=91248b3790ce4b8bd88603608d7c8a81&token=eyJ2IjoiOTEyNDhiMzc5MGNlNGI4YmQ4ODYwMzYwOGQ3YzhhODEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0MzE1LCJuIjoiYTlhYTU5NGFlNDYzIn0.be1f0291b7f32fd00f74597ab8645a2cc900c250ea672d4622dcf2cf758fe158&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=XtqXr13VK5Hzg93NASmmWA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=XtqXr13VK5Hzg93NASmmWA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=91248b3790ce4b8bd88603608d7c8a81&sid=eeb3f0e50ff164dbd6c6eca28fa6f478&token=eyJ2IjoiOTEyNDhiMzc5MGNlNGI4YmQ4ODYwMzYwOGQ3YzhhODEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0MzE1LCJuIjoiYTlhYTU5NGFlNDYzIn0.be1f0291b7f32fd00f74597ab8645a2cc900c250ea672d4622dcf2cf758fe158&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=91248b3790ce4b8bd88603608d7c8a81&sid=066fa6d45b6e8faff160297899f58c8e&token=eyJ2IjoiOTEyNDhiMzc5MGNlNGI4YmQ4ODYwMzYwOGQ3YzhhODEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0MzE1LCJuIjoiYTlhYTU5NGFlNDYzIn0.be1f0291b7f32fd00f74597ab8645a2cc900c250ea672d4622dcf2cf758fe158&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=XtqXr13VK5Hzg93NASmmWA"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=91248b3790ce4b8bd88603608d7c8a81&token=eyJ2IjoiOTEyNDhiMzc5MGNlNGI4YmQ4ODYwMzYwOGQ3YzhhODEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0MzE1LCJuIjoiYTlhYTU5NGFlNDYzIn0.be1f0291b7f32fd00f74597ab8645a2cc900c250ea672d4622dcf2cf758fe158&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=XtqXr13VK5Hzg93NASmmWA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=XtqXr13VK5Hzg93NASmmWA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=91248b3790ce4b8bd88603608d7c8a81&sid=eeb3f0e50ff164dbd6c6eca28fa6f478&token=eyJ2IjoiOTEyNDhiMzc5MGNlNGI4YmQ4ODYwMzYwOGQ3YzhhODEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0MzE1LCJuIjoiYTlhYTU5NGFlNDYzIn0.be1f0291b7f32fd00f74597ab8645a2cc900c250ea672d4622dcf2cf758fe158&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=91248b3790ce4b8bd88603608d7c8a81&sid=066fa6d45b6e8faff160297899f58c8e&token=eyJ2IjoiOTEyNDhiMzc5MGNlNGI4YmQ4ODYwMzYwOGQ3YzhhODEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0MzE1LCJuIjoiYTlhYTU5NGFlNDYzIn0.be1f0291b7f32fd00f74597ab8645a2cc900c250ea672d4622dcf2cf758fe158&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=XtqXr13VK5Hzg93NASmmWA"
+          }
+        }
+      }
+    }
+  ]
+}
