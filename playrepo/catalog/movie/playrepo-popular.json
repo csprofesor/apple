@@ -1,6 +1,34 @@
 {
   "metas": [
     {
+      "id": "tt8637438",
+      "type": "movie",
+      "name": "Night Patrol",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMzY2Mjg2YzUtZmQwZC00ZjIwLTg2YzUtZmZmNmU4OTliZTYwXkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMzY2Mjg2YzUtZmQwZC00ZjIwLTg2YzUtZmZmNmU4OTliZTYwXkEyXkFqcGc%40._V1_.jpg",
+      "description": "Night Patrol (2026) full HD, Türkçe dublaj ve altyazılı izle. Afroamerika kökenli bir Los Angeles Polis Departmanı (LAPD) memuru, yerel bir özel birimle ilgili....",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt8637438/img",
+      "trailers": [
+        {
+          "source": "8J_pMGZScB8",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Night Patrol",
+          "ytId": "8J_pMGZScB8"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=8J_pMGZScB8",
+      "runtime": "104 dk"
+    },
+    {
       "id": "playrepo-ekmek-kizartma-makinesi",
       "type": "movie",
       "name": "Ekmek Kızartma Makinesi",
@@ -1080,22 +1108,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=Jer8XjMrUB4",
       "runtime": "144 dk"
-    },
-    {
-      "id": "playrepo-x-men-birinci-sinif",
-      "type": "movie",
-      "name": "X-Men: Birinci Sınıf",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yhp5Pt4GugkCs5mz63qWz5khHXe.webp?v=1787177302",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yhp5Pt4GugkCs5mz63qWz5khHXe.webp?v=1787177302",
-      "description": "X-Men: Birinci Sınıf (2011) full HD, Türkçe dublaj ve altyazılı izle. İnsanların akıllarını okuyup, kontrol edebilen, telepatik güçlere sahip Oxford mezunu genç...",
-      "releaseInfo": "2011",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "132 dk"
     }
   ]
 }
