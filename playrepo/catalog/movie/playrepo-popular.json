@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "playrepo-tom-ve-jerry-willy-wonka-ve-cikolata-fabrikasi",
+      "type": "movie",
+      "name": "Tom ve Jerry: Willy Wonka ve Çikolata Fabrikası",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6ap4H34b89utijPSMGXJ6WjIoOb.webp?v=1789937273",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6ap4H34b89utijPSMGXJ6WjIoOb.webp?v=1789937273",
+      "description": "Tom ve Jerry: Willy Wonka ve Çikolata Fabrikası (2017) full HD, Türkçe dublaj ve altyazılı izle. “Willy Wonka ve Çikolata Fabrikası”nın yeniden canlandırılmasın...",
+      "releaseInfo": "2017",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Aksiyon & Macera",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "79 dk"
+    },
+    {
       "id": "playrepo-amerikan-sapigi",
       "type": "movie",
       "name": "Amerikan Sapığı",
@@ -1099,24 +1117,6 @@
       ],
       "posterShape": "poster",
       "runtime": "27 dk"
-    },
-    {
-      "id": "playrepo-tom-ve-jerry-kayip-pusula",
-      "type": "movie",
-      "name": "Tom ve Jerry: Kayıp Pusula",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9VM1KI9sVZETl0d00FK7CnBzxiw.webp?v=1787723257",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9VM1KI9sVZETl0d00FK7CnBzxiw.webp?v=1787723257",
-      "description": "Tom ve Jerry: Kayıp Pusula (2025) full HD, Türkçe dublaj ve altyazılı izle. Tom ve Jerry, bir müzenin içinde yaşanan kovalamaca sırasında buldukları gizemli bir...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Aksiyon & Macera",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "88 dk"
     }
   ]
 }
