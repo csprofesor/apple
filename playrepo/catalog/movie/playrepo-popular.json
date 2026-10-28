@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-zafer-yollari",
+      "type": "movie",
+      "name": "Zafer Yolları",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nbMY2UcNnaAr3jrrowzN0NaxQyr.webp?v=1790164499",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nbMY2UcNnaAr3jrrowzN0NaxQyr.webp?v=1790164499",
+      "description": "Zafer Yolları (1957) full HD, Türkçe dublaj ve altyazılı izle. Filmin konusu Fransız ordusundaki komuta kademesinin savaşmak istemeyen askerlere gözdağı verip k...",
+      "releaseInfo": "1957",
+      "genres": [
+        "Mubi & Kült",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "88 dk"
+    },
+    {
       "id": "playrepo-i-htiyar-delikanli",
       "type": "movie",
       "name": "İhtiyar Delikanlı",
@@ -1164,34 +1181,6 @@
       ],
       "posterShape": "poster",
       "runtime": "126 dk"
-    },
-    {
-      "id": "tt31116965",
-      "type": "movie",
-      "name": "My Dearest Señorita",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMGM2ODBiZTItOTdkMi00NmM0LTllZmQtNTE1YjljNjkxNzRiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMGM2ODBiZTItOTdkMi00NmM0LTllZmQtNTE1YjljNjkxNzRiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "My Dearest Señorita (2026) full HD, Türkçe dublaj ve altyazılı izle. Geleneksel bir ailede yetişen genç bir kadın interseks olduğunu öğrenince kendini ve cinsel...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt31116965/img",
-      "trailers": [
-        {
-          "source": "u0OhgW-RtW0",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "My Dearest Señorita",
-          "ytId": "u0OhgW-RtW0"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=u0OhgW-RtW0",
-      "runtime": "116 dk"
     }
   ]
 }
