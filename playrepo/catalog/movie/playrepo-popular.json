@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-yeni-mutantlar",
+      "type": "movie",
+      "name": "Yeni Mutantlar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1MoeNacOltBWojkStjhT3svBTOK.webp?v=1787176934",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1MoeNacOltBWojkStjhT3svBTOK.webp?v=1787176934",
+      "description": "Yeni Mutantlar (2020) full HD, Türkçe dublaj ve altyazılı izle. X-Men evreninde geçen Yeni Mutantlar filminde, mutant olduklarını travmatik olaylarla keşfeden b...",
+      "releaseInfo": "2020",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "94 dk"
+    },
+    {
       "id": "playrepo-x-men-son-direnis",
       "type": "movie",
       "name": "X-Men: Son Direniş",
@@ -1339,22 +1355,6 @@
       ],
       "posterShape": "poster",
       "runtime": "117 dk"
-    },
-    {
-      "id": "playrepo-ajan-zeta",
-      "type": "movie",
-      "name": "Ajan Zeta",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ptcyGmBonW6mDQmrPhXbt6Rjrlp.webp?v=1787012780",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ptcyGmBonW6mDQmrPhXbt6Rjrlp.webp?v=1787012780",
-      "description": "Ajan Zeta (2026) full HD, Türkçe dublaj ve altyazılı izle. Dört eski İspanyol istihbarat görevlisi, dünyanın farklı yerlerinde suikasta uğrar. CNI, hepsinin yıl...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "133 dk"
     }
   ]
 }
