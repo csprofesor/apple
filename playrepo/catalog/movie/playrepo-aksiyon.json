@@ -1,6 +1,43 @@
 {
   "metas": [
     {
+      "id": "tt5095030",
+      "type": "movie",
+      "name": "Ant-Man and the Wasp",
+      "poster": "https://m.media-amazon.com/images/M/MV5BODVkY2ZmZTAtYzFhMi00YzZlLWE2YWMtMDBiYjY2OTU4ZWM0XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BODVkY2ZmZTAtYzFhMi00YzZlLWE2YWMtMDBiYjY2OTU4ZWM0XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Ant-Man ve Wasp (2018) full HD, Türkçe dublaj ve altyazılı izle. Scott, &quot;Kaptan Amerika: Kahramanların Savaşı&quot; olaylarından sonra ev hapsine çarptırılmıştır. Kı...",
+      "releaseInfo": "2018",
+      "genres": [
+        "Komedi",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt5095030/img",
+      "trailers": [
+        {
+          "source": "UUkn-enk2RU",
+          "type": "Trailer"
+        },
+        {
+          "source": "8_rTIAOohas",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Ant-Man and the Wasp",
+          "ytId": "UUkn-enk2RU"
+        },
+        {
+          "title": "Ant-Man and the Wasp",
+          "ytId": "8_rTIAOohas"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=UUkn-enk2RU",
+      "runtime": "119 dk"
+    },
+    {
       "id": "playrepo-oyuncak-hikayesi-5",
       "type": "movie",
       "name": "Oyuncak Hikayesi 5",
