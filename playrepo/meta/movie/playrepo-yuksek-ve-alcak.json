@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "playrepo-yuksek-ve-alcak",
+    "type": "movie",
+    "name": "Yüksek ve Alçak",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/i1NjlccZcuqbgDCS92RHdhEnx59.webp?v=1790154431",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/i1NjlccZcuqbgDCS92RHdhEnx59.webp?v=1790154431",
+    "description": "Yüksek ve Alçak (1963) full HD, Türkçe dublaj ve altyazılı izle. Bay Gondo ulusal ayakkabıcılık şirketinde payı olan bir iş adamıdır. Bir gün şirketteki payını....",
+    "releaseInfo": "1963",
+    "genres": [
+      "Suç & Polisiye",
+      "Dram & Romantik",
+      "Popüler",
+      "Korku & Gerilim"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-yuksek-ve-alcak",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-yuksek-ve-alcak",
+        "title": "Yüksek ve Alçak",
+        "name": "Yüksek ve Alçak",
+        "released": "1963-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "142 dk"
+  }
+}
