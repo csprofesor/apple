@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt11261270",
+      "type": "movie",
+      "name": "Zengo",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZWU0ODBiNGUtZjRmOS00YTY2LWJkMDctMjkxZGZhMmZiNDZmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZWU0ODBiNGUtZjRmOS00YTY2LWJkMDctMjkxZGZhMmZiNDZmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Zengo (2020) full HD, Türkçe dublaj ve altyazılı izle. Zengo, ünlü bir modacı olmanın hayalini kurarken, kendisini büyük bir rekabetin içinde bulan genç bir kad...",
+      "releaseInfo": "2020",
+      "genres": [
+        "Komedi"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt11261270/img",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-hayata-mahk-m",
       "type": "movie",
       "name": "Hayata Mahkûm",
@@ -1195,22 +1210,6 @@
       ],
       "posterShape": "poster",
       "runtime": "173 dk"
-    },
-    {
-      "id": "playrepo-yedinci-muhur",
-      "type": "movie",
-      "name": "Yedinci Mühür",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6s2BqtDvp1BMiP70zCDU5OW6hMy.webp?v=1790273249",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6s2BqtDvp1BMiP70zCDU5OW6hMy.webp?v=1790273249",
-      "description": "Yedinci Mühür (1957) full HD, Türkçe dublaj ve altyazılı izle. Ortaçağ&#039;da Haçlı Seferleri&#039;nden dönen bir şövalye savaşlar sırasında hep ölümle burun buruna gels...",
-      "releaseInfo": "1957",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "96 dk"
     }
   ]
 }
