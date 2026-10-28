@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-super-ajanlar",
+      "type": "movie",
+      "name": "Süper Ajanlar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3nQrVnuYy0qDnyKT3EiedkCK1hg.webp?v=1791694832",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3nQrVnuYy0qDnyKT3EiedkCK1hg.webp?v=1791694832",
+      "description": "Süper Ajanlar (2020) full HD, Türkçe dublaj ve altyazılı izle. Özel ajan Vladimir, gizli servisin en iyi casusudur ancak emirlere pek uymaz. Aldığı disiplin cez...",
+      "releaseInfo": "2020",
+      "genres": [
+        "Komedi",
+        "Animasyon & Aile",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-koralin-ve-gizli-dunya",
       "type": "movie",
       "name": "Koralin ve Gizli Dünya",
@@ -1009,21 +1026,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=6zRVP-ZgMm8",
       "runtime": "113 dk"
-    },
-    {
-      "id": "playrepo-uc-usta-ve-aykiri-dunyalar",
-      "type": "movie",
-      "name": "Üç Usta ve Aykırı Dünyalar",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4T9YTIeLQAt6dvGmUzk1cfh3o32.webp?v=1790533770",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4T9YTIeLQAt6dvGmUzk1cfh3o32.webp?v=1790533770",
-      "description": "Üç Usta ve Aykırı Dünyalar (2021) full HD, Türkçe dublaj ve altyazılı izle. Bu hikaye, alışılagelmişin dışındaki üç tamircinin, her biri birbirinden garip ve ek...",
-      "releaseInfo": "2021",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "85 dk"
     }
   ]
 }
