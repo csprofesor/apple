@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-tanri-kent",
+      "type": "movie",
+      "name": "Tanrı Kent",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uvitbjFU4JqvMwIkMWHp69bmUzG.webp?v=1790148554",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uvitbjFU4JqvMwIkMWHp69bmUzG.webp?v=1790148554",
+      "description": "Tanrı Kent (2002) full HD, Türkçe dublaj ve altyazılı izle. 1960’larda inşa edilmiş ve 80’lerin başında Rio De Janeiro’nun en tehlikeli mahallelerinden birine d...",
+      "releaseInfo": "2002",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "130 dk"
+    },
+    {
       "id": "playrepo-cennet-sinemasi",
       "type": "movie",
       "name": "Cennet Sineması",
@@ -1147,21 +1163,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=uphThaa97ig",
       "runtime": "27 dk"
-    },
-    {
-      "id": "playrepo-recep-i-vedik-7",
-      "type": "movie",
-      "name": "Recep İvedik 7",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hOfmfSL2urbiju9E6TcuEgVR2uB.webp?v=1788811691",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hOfmfSL2urbiju9E6TcuEgVR2uB.webp?v=1788811691",
-      "description": "Recep İvedik 7 (2022) full HD, Türkçe dublaj ve altyazılı izle. Recep İvedik ve Nurullah Recep&#039;in babaannesinden kalan köy evine gitmeye karar verirler. Recep,....",
-      "releaseInfo": "2022",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "134 dk"
     }
   ]
 }
