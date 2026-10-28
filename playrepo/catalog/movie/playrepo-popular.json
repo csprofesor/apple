@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-tutsak",
+      "type": "movie",
+      "name": "Tutsak",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3RFmTz5h2UuFWEV4oH00XICBR9y.webp?v=1790253561",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3RFmTz5h2UuFWEV4oH00XICBR9y.webp?v=1790253561",
+      "description": "Tutsak (2013) full HD, Türkçe dublaj ve altyazılı izle. Altı yaşındaki kızı kaçırıldıktan sonra, soruşturmayı yürüten dedektife olan inancını kaybeden çaresiz b...",
+      "releaseInfo": "2013",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "153 dk"
+    },
+    {
       "id": "tt0032976",
       "type": "movie",
       "name": "Rebecca",
@@ -1260,22 +1277,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=zFUKn_75m1o",
       "runtime": "179 dk"
-    },
-    {
-      "id": "playrepo-cin-mahallesi",
-      "type": "movie",
-      "name": "Çin Mahallesi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pyvkujOZ5qvY2NlQVC71flfgVWE.webp?v=1790219309",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pyvkujOZ5qvY2NlQVC71flfgVWE.webp?v=1790219309",
-      "description": "Çin Mahallesi (1974) full HD, Türkçe dublaj ve altyazılı izle. Mulwray&#039;in karısı Evelyn, özel dedektif Jake Gittes&#039;den kocasının diğer kadınlarla olan ilişkisin...",
-      "releaseInfo": "1974",
-      "genres": [
-        "Suç & Polisiye",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "130 dk"
     }
   ]
 }
