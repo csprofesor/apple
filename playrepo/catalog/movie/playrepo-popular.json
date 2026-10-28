@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-gecmisin-golgesinde",
+      "type": "movie",
+      "name": "Geçmişin Gölgesinde",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6qHI1IYj7QlLSCwHRzkL62X175s.webp?v=1790138918",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6qHI1IYj7QlLSCwHRzkL62X175s.webp?v=1790138918",
+      "description": "Geçmişin Gölgesinde (1998) full HD, Türkçe dublaj ve altyazılı izle. Derek Vinyard (EDWARD NORTON), beyaz ırkın üstünlüğüne inanan bir grup gencin karizmatik li...",
+      "releaseInfo": "1998",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "119 dk"
+    },
+    {
       "id": "playrepo-uzay-yolu-macerasi",
       "type": "movie",
       "name": "Uzay Yolu Macerası",
@@ -1091,24 +1106,6 @@
       ],
       "posterShape": "poster",
       "runtime": "107 dk"
-    },
-    {
-      "id": "playrepo-troller",
-      "type": "movie",
-      "name": "Troller",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gXyYOWAkk4FdQU3adK8WFj8nN9J.webp?v=1788590407",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gXyYOWAkk4FdQU3adK8WFj8nN9J.webp?v=1788590407",
-      "description": "Troller (2016) full HD, Türkçe dublaj ve altyazılı izle. Kendilerine ait kasabada mutlu ve dünyadaki diğer tehlikelerden uzak bir hayat süren \\&quot;Troll\\&quot; adlı min...",
-      "releaseInfo": "2016",
-      "genres": [
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Aksiyon & Macera",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "92 dk"
     }
   ]
 }
