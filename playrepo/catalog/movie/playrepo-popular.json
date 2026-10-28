@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "playrepo-terminator",
+      "type": "movie",
+      "name": "Terminatör",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ffdqHMWkh1h9MABwIfbfRJhgFW6.webp?v=1790293128",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ffdqHMWkh1h9MABwIfbfRJhgFW6.webp?v=1790293128",
+      "description": "Terminatör (1984) full HD, Türkçe dublaj ve altyazılı izle. 1984 yılında, doğmamış oğlu gelecekte insanlığın kurtuluşu olacak genç bir kadını öldürmek için 2029...",
+      "releaseInfo": "1984",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Korku & Gerilim",
+        "Aksiyon & Macera",
+        "Netflix",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "108 dk"
+    },
+    {
       "id": "playrepo-dehset-yolculari",
       "type": "movie",
       "name": "Dehşet Yolcuları",
@@ -1214,23 +1232,6 @@
       ],
       "posterShape": "poster",
       "runtime": "120 dk"
-    },
-    {
-      "id": "playrepo-pan-039-in-labirenti",
-      "type": "movie",
-      "name": "Pan&#039;ın Labirenti",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6G6nqSW9S7EHA9HrYl0Z8uo2H7f.webp?v=1790251296",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6G6nqSW9S7EHA9HrYl0Z8uo2H7f.webp?v=1790251296",
-      "description": "Pan&#039;ın Labirenti (2006) full HD, Türkçe dublaj ve altyazılı izle. 1944 yılı İspanya&#039;sında, sivil savaş kargaşası sona ermiş görünse de, Navarra&#039;nın kuzeyindeki....",
-      "releaseInfo": "2006",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "118 dk"
     }
   ]
 }
