@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "tt23060038",
+      "type": "movie",
+      "name": "N.A.R.",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/y4rXjGGc3qLdhX2yLSUPjYEcDnC.webp?v=1791730210",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/y4rXjGGc3qLdhX2yLSUPjYEcDnC.webp?v=1791730210",
+      "description": "Nar (2011) full HD, Türkçe dublaj ve altyazılı izle. Hepimiz nar taneleri gibi birbirinden ayrıyız: Hem çok benzeriz, hem de çok farklıyız. Ama açılmamış bir bü...",
+      "releaseInfo": "2011",
+      "genres": [
+        "Korku & Gerilim",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt23060038/img",
+      "runtime": "81 dk"
+    },
+    {
       "id": "playrepo-tuysuz-039-un-yolculugu",
       "type": "movie",
       "name": "Tüysüz&#039;ün Yolculuğu",
@@ -1019,22 +1035,6 @@
       ],
       "posterShape": "poster",
       "runtime": "91 dk"
-    },
-    {
-      "id": "playrepo-the-island-of-lost-girls",
-      "type": "movie",
-      "name": "The Island of Lost Girls",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/SLl4ul9CTR0oEO2sqUn4erbr50.webp?v=1790623796",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/SLl4ul9CTR0oEO2sqUn4erbr50.webp?v=1790623796",
-      "description": "The Island of Lost Girls (2024) full HD, Türkçe dublaj ve altyazılı izle. Dalgaların fırtınalı bir kıyıda şiddetle çarptığı ıssz bir bölgede, üç genç kız beklen...",
-      "releaseInfo": "2024",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "104 dk"
     }
   ]
 }
