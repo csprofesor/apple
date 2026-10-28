@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-atesten-kalbe-akildan-dumana",
+      "type": "movie",
+      "name": "Ateşten Kalbe, Akıldan Dumana",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cXQH2u7wUIX1eoIdEj51kHXoWhX.webp?v=1790239428",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cXQH2u7wUIX1eoIdEj51kHXoWhX.webp?v=1790239428",
+      "description": "Ateşten Kalbe, Akıldan Dumana (1998) full HD, Türkçe dublaj ve altyazılı izle. Sevimli sokak serserisi Eddy hayatının kumarına üç arkadaşı ile zar zor kazandıkl...",
+      "releaseInfo": "1998",
+      "genres": [
+        "Komedi",
+        "Suç & Polisiye",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "105 dk"
+    },
+    {
       "id": "playrepo-protesto",
       "type": "movie",
       "name": "Protesto",
@@ -1235,24 +1251,6 @@
       ],
       "posterShape": "poster",
       "runtime": "106 dk"
-    },
-    {
-      "id": "playrepo-oyuncak-hikayesi",
-      "type": "movie",
-      "name": "Oyuncak Hikayesi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3Rfvhy1Nl6sSGJwyjb0QiZzZYlB.webp?v=1790202461",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3Rfvhy1Nl6sSGJwyjb0QiZzZYlB.webp?v=1790202461",
-      "description": "Oyuncak Hikayesi (1995) full HD, Türkçe dublaj ve altyazılı izle. Buzz Lightyear adlı yeni çıkan oyuncak, Andy&#039;e hediye edilir. Oyuncağı çok seven Andy, eski gö...",
-      "releaseInfo": "1995",
-      "genres": [
-        "Komedi",
-        "Animasyon & Aile",
-        "Hulu",
-        "Aksiyon & Macera",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "81 dk"
     }
   ]
 }
