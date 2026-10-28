@@ -1,6 +1,58 @@
 {
   "metas": [
     {
+      "id": "tt0109830",
+      "type": "movie",
+      "name": "Forrest Gump",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNDYwNzVjMTItZmU5YS00YjQ5LTljYjgtMjY2NDVmYWMyNWFmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNDYwNzVjMTItZmU5YS00YjQ5LTljYjgtMjY2NDVmYWMyNWFmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Forrest Gump (1994) full HD, Türkçe dublaj ve altyazılı izle. Forrest Gump, düşük IQ’su olmasına rağmen, Amerikan tarihinin en önemli olaylarının tam ortasında....",
+      "releaseInfo": "1994",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0109830/img",
+      "trailers": [
+        {
+          "source": "0jKUpBmYO1Q",
+          "type": "Trailer"
+        },
+        {
+          "source": "m-btyJIYLyI",
+          "type": "Trailer"
+        },
+        {
+          "source": "Mj9IA9tTfio",
+          "type": "Trailer"
+        },
+        {
+          "source": "bLvqoHBptjg",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Forrest Gump",
+          "ytId": "0jKUpBmYO1Q"
+        },
+        {
+          "title": "Forrest Gump",
+          "ytId": "m-btyJIYLyI"
+        },
+        {
+          "title": "Forrest Gump",
+          "ytId": "Mj9IA9tTfio"
+        },
+        {
+          "title": "Forrest Gump",
+          "ytId": "bLvqoHBptjg"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=0jKUpBmYO1Q",
+      "runtime": "142 dk"
+    },
+    {
       "id": "playrepo-harakiri",
       "type": "movie",
       "name": "Harakiri",
@@ -1149,21 +1201,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=xkPbV3IRe4Y",
       "runtime": "104 dk"
-    },
-    {
-      "id": "tt3995416",
-      "type": "movie",
-      "name": "Toz Bezi",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMDE5NjlmMzctN2I2OC00MTkxLWI1ODctMGU4MGFmNmFjZjM4XkEyXkFqcGc%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMDE5NjlmMzctN2I2OC00MTkxLWI1ODctMGU4MGFmNmFjZjM4XkEyXkFqcGc%40._V1_.jpg",
-      "description": "Toz Bezi (2015) full HD, Türkçe dublaj ve altyazılı izle. Film, İstanbul&#039;un farklı kutupları arasında hayatı anlamaya çalışıp kendilerine yeni yollar çizmeye ça...",
-      "releaseInfo": "2015",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt3995416/img",
-      "runtime": "98 dk"
     }
   ]
 }
