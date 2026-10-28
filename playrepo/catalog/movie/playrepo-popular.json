@@ -1,6 +1,52 @@
 {
   "metas": [
     {
+      "id": "tt1142977",
+      "type": "movie",
+      "name": "Frankenweenie",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMjIxODY3MjEwNV5BMl5BanBnXkFtZTcwOTMzNjc4Nw%40%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMjIxODY3MjEwNV5BMl5BanBnXkFtZTcwOTMzNjc4Nw%40%40._V1_SX250.jpg",
+      "description": "Frankenweenie (2012) full HD, Türkçe dublaj ve altyazılı izle. Victor, sevgili köpeği Sparky&#039;yi aniden kaybedince, en iyi dostunu tekrar yaşama döndürmek için b...",
+      "releaseInfo": "2012",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Animasyon & Aile"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt1142977/img",
+      "trailers": [
+        {
+          "source": "2e1_XxakM-I",
+          "type": "Trailer"
+        },
+        {
+          "source": "xrxEQPBbkjY",
+          "type": "Trailer"
+        },
+        {
+          "source": "qLtYoGUxs5g",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Frankenweenie",
+          "ytId": "2e1_XxakM-I"
+        },
+        {
+          "title": "Frankenweenie",
+          "ytId": "xrxEQPBbkjY"
+        },
+        {
+          "title": "Frankenweenie",
+          "ytId": "qLtYoGUxs5g"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=2e1_XxakM-I",
+      "runtime": "87 dk"
+    },
+    {
       "id": "tt5461944",
       "type": "movie",
       "name": "Hotel Mumbai",
@@ -1101,21 +1147,6 @@
       "posterShape": "poster",
       "logo": "https://live.metahub.space/logo/medium/tt5524044/img",
       "runtime": "83 dk"
-    },
-    {
-      "id": "tt0287906",
-      "type": "movie",
-      "name": "Alev Alev",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNTJiNTQ4YTYtMTg4Ni00N2JkLWFiMDItZTk1MWNlODk0NTc5XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNTJiNTQ4YTYtMTg4Ni00N2JkLWFiMDItZTk1MWNlODk0NTc5XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Alev Alev (1984) full HD, Türkçe dublaj ve altyazılı izle. Yakışıklı yat kaptanı Murat’la (Tarık Akan) güzel Alev (Gülşen Bubikoğlu) evlilik hazırlığı yapan iki...",
-      "releaseInfo": "1984",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0287906/img",
-      "runtime": "118 dk"
     }
   ]
 }
