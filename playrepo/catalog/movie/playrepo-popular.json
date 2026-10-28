@@ -1,6 +1,50 @@
 {
   "metas": [
     {
+      "id": "tt2582802",
+      "type": "movie",
+      "name": "Whiplash",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMDFjOWFkYzktYzhhMC00NmYyLTkwY2EtYjViMDhmNzg0OGFkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMDFjOWFkYzktYzhhMC00NmYyLTkwY2EtYjViMDhmNzg0OGFkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Whiplash (2014) full HD, Türkçe dublaj ve altyazılı izle. Bir tarafta öğrencilerinin korkulu rüyası, jazz öğretmeni Terrence Fletcher, diğer tarafta \\&quot;en iyi\\&quot;....",
+      "releaseInfo": "2014",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt2582802/img",
+      "trailers": [
+        {
+          "source": "Q7kZy3T6vRM",
+          "type": "Trailer"
+        },
+        {
+          "source": "JeShKC6Alyk",
+          "type": "Trailer"
+        },
+        {
+          "source": "Df1xkYYbYrY",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Whiplash",
+          "ytId": "Q7kZy3T6vRM"
+        },
+        {
+          "title": "Whiplash",
+          "ytId": "JeShKC6Alyk"
+        },
+        {
+          "title": "Whiplash",
+          "ytId": "Df1xkYYbYrY"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=Q7kZy3T6vRM",
+      "runtime": "107 dk"
+    },
+    {
       "id": "playrepo-vol-i",
       "type": "movie",
       "name": "VOL-İ",
@@ -1064,21 +1108,6 @@
       ],
       "posterShape": "poster",
       "runtime": "145 dk"
-    },
-    {
-      "id": "playrepo-can-dostum",
-      "type": "movie",
-      "name": "Can Dostum",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xj1Sv1xm4Y0ydBueGuf10Y9qM0O.webp?v=1790155592",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xj1Sv1xm4Y0ydBueGuf10Y9qM0O.webp?v=1790155592",
-      "description": "Can Dostum (1997) full HD, Türkçe dublaj ve altyazılı izle. Can Dostum’da Will Hunting, toplumdaki genel zeka seviyesinin çok çok üzerinde bir zeka seviyesine s...",
-      "releaseInfo": "1997",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "127 dk"
     }
   ]
 }
