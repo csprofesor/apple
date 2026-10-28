@@ -108034,5 +108034,65 @@
         }
       }
     }
+  ],
+  "playrepo-the-island-of-lost-girls": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=9a65d735431b149c2ae07b7e6a595584&token=eyJ2IjoiOWE2NWQ3MzU0MzFiMTQ5YzJhZTA3YjdlNmE1OTU1ODQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY3MTE2LCJuIjoiYmQ4YTEwMzcwMmQ5In0.6e5faa61512842be89f3102b3280c712db3b8aa03e67820c901295dca3058046&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=gSGHEB_xJ_ncKs4QTRaluA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=gSGHEB_xJ_ncKs4QTRaluA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=9a65d735431b149c2ae07b7e6a595584&sid=37de202795ffdb7a377e9669410e0db1&token=eyJ2IjoiOWE2NWQ3MzU0MzFiMTQ5YzJhZTA3YjdlNmE1OTU1ODQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY3MTE2LCJuIjoiYmQ4YTEwMzcwMmQ5In0.6e5faa61512842be89f3102b3280c712db3b8aa03e67820c901295dca3058046&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=gSGHEB_xJ_ncKs4QTRaluA"
+          }
+        }
+      }
+    }
+  ],
+  "the-island-of-lost-girls": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=9a65d735431b149c2ae07b7e6a595584&token=eyJ2IjoiOWE2NWQ3MzU0MzFiMTQ5YzJhZTA3YjdlNmE1OTU1ODQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY3MTE2LCJuIjoiYmQ4YTEwMzcwMmQ5In0.6e5faa61512842be89f3102b3280c712db3b8aa03e67820c901295dca3058046&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=gSGHEB_xJ_ncKs4QTRaluA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=gSGHEB_xJ_ncKs4QTRaluA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=9a65d735431b149c2ae07b7e6a595584&sid=37de202795ffdb7a377e9669410e0db1&token=eyJ2IjoiOWE2NWQ3MzU0MzFiMTQ5YzJhZTA3YjdlNmE1OTU1ODQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY3MTE2LCJuIjoiYmQ4YTEwMzcwMmQ5In0.6e5faa61512842be89f3102b3280c712db3b8aa03e67820c901295dca3058046&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=gSGHEB_xJ_ncKs4QTRaluA"
+          }
+        }
+      }
+    }
   ]
 }
