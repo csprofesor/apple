@@ -1,6 +1,50 @@
 {
   "metas": [
     {
+      "id": "tt0075148",
+      "type": "movie",
+      "name": "Rocky",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZDEyY2M2MGMtYjg5OC00ZWFjLWFkZDQtNmQzZTdiYmYzZTBkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZDEyY2M2MGMtYjg5OC00ZWFjLWFkZDQtNmQzZTdiYmYzZTBkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Rocky (1976) full HD, Türkçe dublaj ve altyazılı izle. Dünya Ağır Sıklet şampiyonu Apollo Creed’in Philadelphia’da yapacağı unvan maçında ki rakibi maç gününe b...",
+      "releaseInfo": "1976",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0075148/img",
+      "trailers": [
+        {
+          "source": "dmd9tEt9F30",
+          "type": "Trailer"
+        },
+        {
+          "source": "-Hk-LYcavrw",
+          "type": "Trailer"
+        },
+        {
+          "source": "3VUblDwa648",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Rocky",
+          "ytId": "dmd9tEt9F30"
+        },
+        {
+          "title": "Rocky",
+          "ytId": "-Hk-LYcavrw"
+        },
+        {
+          "title": "Rocky",
+          "ytId": "3VUblDwa648"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=dmd9tEt9F30",
+      "runtime": "119 dk"
+    },
+    {
       "id": "playrepo-ratatuy",
       "type": "movie",
       "name": "Ratatuy",
@@ -1233,23 +1277,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=x_7YlGv9u1g",
       "runtime": "161 dk"
-    },
-    {
-      "id": "playrepo-cinayet-var",
-      "type": "movie",
-      "name": "Cinayet Var",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mD6EAjfIr7CLdFlCIJjh7CJeWX3.webp?v=1790218001",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mD6EAjfIr7CLdFlCIJjh7CJeWX3.webp?v=1790218001",
-      "description": "Cinayet Var (1954) full HD, Türkçe dublaj ve altyazılı izle. Alfred Hitchcock, Frederick Knott&#039;un beğenilen oyunu Dial M for Murder&#039;ı Grace Kelly, Ray Milland v...",
-      "releaseInfo": "1954",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "105 dk"
     }
   ]
 }
