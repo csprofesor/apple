@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-gozlerindeki-sir",
+      "type": "movie",
+      "name": "Gözlerindeki Sır",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zaANf06OtqDJr5saqp5ymEkDPsi.webp?v=1790274085",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zaANf06OtqDJr5saqp5ymEkDPsi.webp?v=1790274085",
+      "description": "Gözlerindeki Sır (2009) full HD, Türkçe dublaj ve altyazılı izle. Görevinden yeni emekli olan sorgu müfettişi Benjamin, bir türlü peşini bırakmayan ve mazisi 25...",
+      "releaseInfo": "2009",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "130 dk"
+    },
+    {
       "id": "playrepo-buyuk-firar",
       "type": "movie",
       "name": "Büyük Firar",
@@ -1170,21 +1186,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=bx46tthKXmc",
       "runtime": "127 dk"
-    },
-    {
-      "id": "playrepo-babam-i-cin",
-      "type": "movie",
-      "name": "Babam İçin",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gUIVD0rFWVB8Okk8wU8dQxjOYnZ.webp?v=1790237089",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gUIVD0rFWVB8Okk8wU8dQxjOYnZ.webp?v=1790237089",
-      "description": "Babam İçin (1993) full HD, Türkçe dublaj ve altyazılı izle. Basit kaygıları olan saf İrlandalı genç Gerry Conlon, 70’li yıllarda Londra’ya gelir. Kendini hayatı...",
-      "releaseInfo": "1993",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "133 dk"
     }
   ]
 }
