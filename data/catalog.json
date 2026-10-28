@@ -1,6 +1,43 @@
 {
   "metas": [
     {
+      "id": "tt0800369",
+      "type": "movie",
+      "name": "Thor",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNjRhNGZjZjEtYTQzYS00OWUxLThjNGEtMTIwMTE2ZDFlZTZkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNjRhNGZjZjEtYTQzYS00OWUxLThjNGEtMTIwMTE2ZDFlZTZkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Thor (2011) full HD, Türkçe dublaj ve altyazılı izle. Dünyada birçok kahraman vardır... Ama sadece bir tanesi tanrıdır. Kendi dünyası Asgard&#039;dan Dünya&#039;ya sürülm...",
+      "releaseInfo": "2011",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0800369/img",
+      "trailers": [
+        {
+          "source": "uHBnrJowBZE",
+          "type": "Trailer"
+        },
+        {
+          "source": "JOddp-nlNvQ",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Thor",
+          "ytId": "uHBnrJowBZE"
+        },
+        {
+          "title": "Thor",
+          "ytId": "JOddp-nlNvQ"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=uHBnrJowBZE",
+      "runtime": "115 dk"
+    },
+    {
       "id": "playrepo-kaptan-amerika-kis-askeri",
       "type": "movie",
       "name": "Kaptan Amerika: Kış Askeri",
