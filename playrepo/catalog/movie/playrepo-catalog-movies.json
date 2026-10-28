@@ -1,6 +1,51 @@
 {
   "metas": [
     {
+      "id": "tt10676048",
+      "type": "movie",
+      "name": "The Marvels",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYzczOWM4MzItMWMyOS00ZDczLWIxMzctNzBmYTgzOTI1MzI3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYzczOWM4MzItMWMyOS00ZDczLWIxMzctNzBmYTgzOTI1MzI3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "The Marvels (2023) full HD, Türkçe dublaj ve altyazılı izle. Carol Danvers yani Captain Marvel, despot Kree tarafından çalınan kimliğini geri kazanır ve Yüce Ze...",
+      "releaseInfo": "2023",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt10676048/img",
+      "trailers": [
+        {
+          "source": "uwmDH12MAA4",
+          "type": "Trailer"
+        },
+        {
+          "source": "wS_qbDztgVY",
+          "type": "Trailer"
+        },
+        {
+          "source": "iuk77TjvfmE",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "The Marvels",
+          "ytId": "uwmDH12MAA4"
+        },
+        {
+          "title": "The Marvels",
+          "ytId": "wS_qbDztgVY"
+        },
+        {
+          "title": "The Marvels",
+          "ytId": "iuk77TjvfmE"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=uwmDH12MAA4",
+      "runtime": "105 dk"
+    },
+    {
       "id": "playrepo-galaksinin-koruyuculari-3",
       "type": "movie",
       "name": "Galaksinin Koruyucuları 3",
