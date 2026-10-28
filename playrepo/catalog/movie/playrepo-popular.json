@@ -1,6 +1,34 @@
 {
   "metas": [
     {
+      "id": "tt13491834",
+      "type": "movie",
+      "name": "Sacramento",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMGIzYWM0YmUtZjFkZS00N2MwLWEyMDUtZGU5NTgwOTFiZGJhXkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMGIzYWM0YmUtZjFkZS00N2MwLWEyMDUtZGU5NTgwOTFiZGJhXkEyXkFqcGc%40._V1_.jpg",
+      "description": "Sacramento (2025) full HD, Türkçe dublaj ve altyazılı izle. Babasının ölümünün ardından enerjik ve özgür ruhlu Rickey, uzun zamandır arkadaşı olan Glenn&#039;i Los A...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Komedi"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt13491834/img",
+      "trailers": [
+        {
+          "source": "jZRbFs_WhX0",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Sacramento",
+          "ytId": "jZRbFs_WhX0"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=jZRbFs_WhX0",
+      "runtime": "89 dk"
+    },
+    {
       "id": "tt23149780",
       "type": "movie",
       "name": "Eden",
@@ -1064,21 +1092,6 @@
       "posterShape": "poster",
       "logo": "https://images.metahub.space/logo/medium/tt11261270/img",
       "runtime": "96 dk"
-    },
-    {
-      "id": "playrepo-hayata-mahk-m",
-      "type": "movie",
-      "name": "Hayata Mahkûm",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nDScZ6YR2nfNCeK5bmJ1ujb355b.webp?v=1791014306",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nDScZ6YR2nfNCeK5bmJ1ujb355b.webp?v=1791014306",
-      "description": "Hayata Mahkûm (2026) full HD, Türkçe dublaj ve altyazılı izle. Bekâr bir anne ile hapisteki bir adam arasındaki samimi mektuplaşma sayesinde kurulan sıra dışı b...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "108 dk"
     }
   ]
 }
