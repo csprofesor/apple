@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-cadilar-bayrami",
+      "type": "movie",
+      "name": "Cadılar Bayramı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8VjIXC2x8SHwAO52rfFpejKL4wc.webp?v=1792591440",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8VjIXC2x8SHwAO52rfFpejKL4wc.webp?v=1792591440",
+      "description": "Cadılar Bayramı (2018) full HD, Türkçe dublaj ve altyazılı izle. 1978 yılı Cadılar Bayramı’nda dört masum genci öldüren Michael Myers ile ilgili araştırma yapan...",
+      "releaseInfo": "2018",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "106 dk"
+    },
+    {
       "id": "playrepo-cadilar-bayrami-oldurur",
       "type": "movie",
       "name": "Cadılar Bayramı Öldürür",
@@ -1159,20 +1174,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-casper-ve-emma-atlantis-039-in-altin-yuzugu",
-      "type": "movie",
-      "name": "Casper ve Emma: Atlantis&#039;in Altın Yüzüğü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wtau2cfwtMcgWdWRX5KwS89dXeb.webp?v=1791393788",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wtau2cfwtMcgWdWRX5KwS89dXeb.webp?v=1791393788",
-      "description": "Casper ve Emma: Atlantis&#039;in Altın Yüzüğü (2023) full HD, Türkçe dublaj ve altyazılı izle. Karsten ve Petra, Malta’da tatildeyken gizemli bir altın yüzük bulurla...",
-      "releaseInfo": "2023",
-      "genres": [
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "80 dk"
     }
   ]
 }
