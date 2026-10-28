@@ -1,6 +1,42 @@
 {
   "metas": [
     {
+      "id": "tt12262202",
+      "type": "series",
+      "name": "The Acolyte",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYzkxYjcxOWUtNWM5Zi00MzY3LTliYjAtNGYyNjE5OWY2MmU4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYzkxYjcxOWUtNWM5Zi00MzY3LTliYjAtNGYyNjE5OWY2MmU4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "The Acolyte 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Korkunç bir suç işlenince, Jedi’lar bir şüphelinin peşine düşer.",
+      "releaseInfo": "2024",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt12262202/img",
+      "trailers": [
+        {
+          "source": "6tzur6JrUEA",
+          "type": "Trailer"
+        },
+        {
+          "source": "BtytYWhg2mc",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "The Acolyte",
+          "ytId": "6tzur6JrUEA"
+        },
+        {
+          "title": "The Acolyte",
+          "ytId": "BtytYWhg2mc"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=6tzur6JrUEA"
+    },
+    {
       "id": "tt32166552",
       "type": "series",
       "name": "The Atypical Family",
