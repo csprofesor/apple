@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-hayata-mahk-m",
+      "type": "movie",
+      "name": "Hayata Mahkûm",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nDScZ6YR2nfNCeK5bmJ1ujb355b.webp?v=1791014306",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nDScZ6YR2nfNCeK5bmJ1ujb355b.webp?v=1791014306",
+      "description": "Hayata Mahkûm (2026) full HD, Türkçe dublaj ve altyazılı izle. Bekâr bir anne ile hapisteki bir adam arasındaki samimi mektuplaşma sayesinde kurulan sıra dışı b...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "108 dk"
+    },
+    {
       "id": "playrepo-olum-hatti",
       "type": "movie",
       "name": "Ölüm Hattı",
@@ -1196,21 +1211,6 @@
       ],
       "posterShape": "poster",
       "runtime": "96 dk"
-    },
-    {
-      "id": "playrepo-gazap-uzumleri",
-      "type": "movie",
-      "name": "Gazap Üzümleri",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/r7AcmVk6kGhdFdesViGaI3dEHWd.webp?v=1790271249",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/r7AcmVk6kGhdFdesViGaI3dEHWd.webp?v=1790271249",
-      "description": "Gazap Üzümleri (1940) full HD, Türkçe dublaj ve altyazılı izle. John Steinbeck&#039;in Pulitzer ödüllü romanından uyarlanmış, John Ford imzalı 2 Oscarlı bir başyapıt...",
-      "releaseInfo": "1940",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "129 dk"
     }
   ]
 }
