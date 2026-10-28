@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "playrepo-bugun-aslinda-dundu",
+      "type": "movie",
+      "name": "Bugün Aslında Dündü",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4W6RYDNe4OByNryOCvJprrutm9h.webp?v=1790226344",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4W6RYDNe4OByNryOCvJprrutm9h.webp?v=1790226344",
+      "description": "Bugün Aslında Dündü (1993) full HD, Türkçe dublaj ve altyazılı izle. Bir hava durumu spikeri olan Phil Connors, yapımcısı ve sevimli kameramanı ile birlikte Pen...",
+      "releaseInfo": "1993",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Mubi & Kült",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "101 dk"
+    },
+    {
       "id": "playrepo-cokus",
       "type": "movie",
       "name": "Çöküş",
@@ -1152,21 +1170,6 @@
       ],
       "posterShape": "poster",
       "runtime": "207 dk"
-    },
-    {
-      "id": "playrepo-yildiz-savaslari-i-mparator-039-un-donusu",
-      "type": "movie",
-      "name": "Yıldız Savaşları: İmparator&#039;un Dönüşü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/k9pshruhCpJAdH9RaGJO6jaWQ4X.webp?v=1790179824",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/k9pshruhCpJAdH9RaGJO6jaWQ4X.webp?v=1790179824",
-      "description": "Yıldız Savaşları: İmparator&#039;un Dönüşü (1980) full HD, Türkçe dublaj ve altyazılı izle. Yıldız Savaşları: İmparator&#039;un Dönüşü&#039;nde iyiyle kötü arasındaki çatışmay...",
-      "releaseInfo": "1980",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "128 dk"
     }
   ]
 }
