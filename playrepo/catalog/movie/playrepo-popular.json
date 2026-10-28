@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-superman-batman-kiyamet",
+      "type": "movie",
+      "name": "Superman/Batman: Kıyamet",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/74H4XXU0q22TSrkPmlqkcWoX5ZZ.webp?v=1791174556",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/74H4XXU0q22TSrkPmlqkcWoX5ZZ.webp?v=1791174556",
+      "description": "Superman/Batman: Kıyamet (2010) full HD, Türkçe dublaj ve altyazılı izle. Kriptonlu kara bir gece ani gelişi ile Batman ve Superman&#039;in hakim olduğu gezegene yen...",
+      "releaseInfo": "2010",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "79 dk"
+    },
+    {
       "id": "playrepo-kelebek-etkisi",
       "type": "movie",
       "name": "Kelebek Etkisi",
@@ -1052,22 +1069,6 @@
       ],
       "posterShape": "poster",
       "runtime": "154 dk"
-    },
-    {
-      "id": "playrepo-oz-buyucusu",
-      "type": "movie",
-      "name": "Oz Büyücüsü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/g1OvTd1eF346vmx8qsJnjaiooZ6.webp?v=1790293123",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/g1OvTd1eF346vmx8qsJnjaiooZ6.webp?v=1790293123",
-      "description": "Oz Büyücüsü (1939) full HD, Türkçe dublaj ve altyazılı izle. Halası ve amcasıyla çiftliklerinde mutlu bir yaşantısı olan Dorothy, sevimli köpeği Toto komşusu ta...",
-      "releaseInfo": "1939",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
