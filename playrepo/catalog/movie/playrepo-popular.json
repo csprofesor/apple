@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-akil-defteri",
+      "type": "movie",
+      "name": "Akıl Defteri",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7Wev9JMo6R5XAfz2KDvXb7oPMmy.webp?v=1790160134",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7Wev9JMo6R5XAfz2KDvXb7oPMmy.webp?v=1790160134",
+      "description": "Akıl Defteri (2000) full HD, Türkçe dublaj ve altyazılı izle. Karısını tecavüz edip öldüren adamın peşine düşen Leonard Shelby&#039;nin tek amacı intikam almaktır. A...",
+      "releaseInfo": "2000",
+      "genres": [
+        "Hulu",
+        "Mubi & Kült",
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "113 dk"
+    },
+    {
       "id": "playrepo-baslangic",
       "type": "movie",
       "name": "Başlangıç",
@@ -1174,23 +1191,6 @@
       ],
       "posterShape": "poster",
       "runtime": "152 dk"
-    },
-    {
-      "id": "playrepo-ruyalar-evreni",
-      "type": "movie",
-      "name": "Rüyalar Evreni",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/AdsSM2GIlub3dB74ibSnWLJYsT0.webp?v=1789536840",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/AdsSM2GIlub3dB74ibSnWLJYsT0.webp?v=1789536840",
-      "description": "Rüyalar Evreni (2026) full HD, Türkçe dublaj ve altyazılı izle. Yakın gelecekte geçen hikaye, insanların kendi yarattıkları rüyalarda arzu ettikleri her şeyi ya...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "111 dk"
     }
   ]
 }
