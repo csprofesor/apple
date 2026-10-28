@@ -1,6 +1,20 @@
 {
   "metas": [
     {
+      "id": "playrepo-aska-sapka-cikart",
+      "type": "movie",
+      "name": "Aşka Şapka Çıkart",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nETz6bf1OwulMiThXJaQeJdL7SW.webp?v=1791038262",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nETz6bf1OwulMiThXJaQeJdL7SW.webp?v=1791038262",
+      "description": "Aşka Şapka Çıkart (2025) full HD, Türkçe dublaj ve altyazılı izle. Stella, kendi butiğini işleten yetenekli bir şapka tasarımcısıdır. Cemiyet hayatının tanınmış...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "runtime": "84 dk"
+    },
+    {
       "id": "playrepo-kaptan-nova",
       "type": "movie",
       "name": "Kaptan Nova",
@@ -1193,22 +1207,6 @@
       ],
       "posterShape": "poster",
       "runtime": "105 dk"
-    },
-    {
-      "id": "playrepo-altinci-his",
-      "type": "movie",
-      "name": "Altıncı His",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6TjllWT3cGrPFyqDXurVZ3L8bBi.webp?v=1790274229",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6TjllWT3cGrPFyqDXurVZ3L8bBi.webp?v=1790274229",
-      "description": "Altıncı His (1999) full HD, Türkçe dublaj ve altyazılı izle. Bir çocuk psikiyatrisi olan Dr. Crowe, yıllar önce bir saldırıya uğramış ve hayatı değişmiştir. Son...",
-      "releaseInfo": "1999",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "107 dk"
     }
   ]
 }
