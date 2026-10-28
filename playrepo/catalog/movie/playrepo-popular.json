@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-x-men-gecmis-gunler-gelecek",
+      "type": "movie",
+      "name": "X-Men: Geçmiş Günler Gelecek",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3czpqXzFy5UcNuD1AubecRLWkwD.webp?v=1787175830",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3czpqXzFy5UcNuD1AubecRLWkwD.webp?v=1787175830",
+      "description": "X-Men: Geçmiş Günler Gelecek (2014) full HD, Türkçe dublaj ve altyazılı izle. Mutantlar soylarının tükenmemesi için zamanda yolculuk yapmak zorundadır zira gele...",
+      "releaseInfo": "2014",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "132 dk"
+    },
+    {
       "id": "playrepo-yuzuklerin-efendisi-yuzuk-kardesligi",
       "type": "movie",
       "name": "Yüzüklerin Efendisi: Yüzük Kardeşliği",
@@ -1339,34 +1355,6 @@
       ],
       "posterShape": "poster",
       "runtime": "133 dk"
-    },
-    {
-      "id": "tt13611778",
-      "type": "movie",
-      "name": "The Mongoose",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNDBmN2E2YTQtMWE2Ni00ZjMxLWE4NGItODk2ZDZjZDU0MjdlXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNDBmN2E2YTQtMWE2Ni00ZjMxLWE4NGItODk2ZDZjZDU0MjdlXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "The Mongoose (2026) full HD, Türkçe dublaj ve altyazılı izle. A falsely accused war hero with nothing to lose leads police on an epic televised cross-country ca...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Korku & Gerilim",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt13611778/img",
-      "trailers": [
-        {
-          "source": "aHrMFtt40_Q",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "The Mongoose",
-          "ytId": "aHrMFtt40_Q"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=aHrMFtt40_Q"
     }
   ]
 }
