@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-hachi-bir-kopegin-hikayesi",
+      "type": "movie",
+      "name": "Hachi: Bir Köpeğin Hikayesi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gOeSj4YzwxZb6FgcYPRK2hEzTdt.webp?v=1790227301",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gOeSj4YzwxZb6FgcYPRK2hEzTdt.webp?v=1790227301",
+      "description": "Hachi: Bir Köpeğin Hikayesi (2009) full HD, Türkçe dublaj ve altyazılı izle. Bir profesör ile bir köpek arasındaki müthiş dostluğu konu edinen. 1987 yılında Hac...",
+      "releaseInfo": "2009",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "93 dk"
+    },
+    {
       "id": "playrepo-bugun-aslinda-dundu",
       "type": "movie",
       "name": "Bugün Aslında Dündü",
@@ -1154,22 +1169,6 @@
       ],
       "posterShape": "poster",
       "runtime": "156 dk"
-    },
-    {
-      "id": "playrepo-yedi-samuray",
-      "type": "movie",
-      "name": "Yedi Samuray",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qvZ91FwMq6O47VViAr8vZNQz3WI.webp?v=1790180035",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qvZ91FwMq6O47VViAr8vZNQz3WI.webp?v=1790180035",
-      "description": "Yedi Samuray (1954) full HD, Türkçe dublaj ve altyazılı izle. Usta Samuray Kambei&#039;nin cesareti ve fedakarlığına şahit olan bir grup köylü ondan sürekli olarak h...",
-      "releaseInfo": "1954",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "207 dk"
     }
   ]
 }
