@@ -1,6 +1,34 @@
 {
   "metas": [
     {
+      "id": "tt28797114",
+      "type": "movie",
+      "name": "Alpha.",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMjIxOGNjNWItZjYyMy00OWM2LTliZDktMjc3NjhiZDE3ODFiXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMjIxOGNjNWItZjYyMy00OWM2LTliZDktMjc3NjhiZDE3ODFiXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "ALPHA (2024) full HD, Türkçe dublaj ve altyazılı izle.",
+      "releaseInfo": "2024",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt28797114/img",
+      "trailers": [
+        {
+          "source": "x2FyFQWsgR8",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Fragman",
+          "ytId": "x2FyFQWsgR8"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=x2FyFQWsgR8",
+      "runtime": "19 dk"
+    },
+    {
       "id": "playrepo-moda",
       "type": "movie",
       "name": "Moda",
