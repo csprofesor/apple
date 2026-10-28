@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-elbet-yarin",
+    "type": "series",
+    "name": "Elbet Yarın",
+    "poster": "https://ddizimom.net/storage/tmdb/stills/w300/A1RHpsooDEKnKPDveV8YDZOpJ9r.webp?v=1784546553",
+    "background": "https://ddizimom.net/storage/tmdb/stills/w300/A1RHpsooDEKnKPDveV8YDZOpJ9r.webp?v=1784546553",
+    "description": "Elbet Yarın 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Magazin muhabiri Kyeong-do, bir aktris ve zengin bir ailenin damadına ilişkin...",
+    "releaseInfo": "2025",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-elbet-yarin:1:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-elbet-yarin:1:1",
+        "title": "1. Sezon 1. Bölüm",
+        "name": "1. Sezon 1. Bölüm",
+        "released": "2025-01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
