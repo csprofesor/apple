@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-dehset-yolculari",
+      "type": "movie",
+      "name": "Dehşet Yolcuları",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hTP6H7sNlWXdGxAciXQSjNJ1ob7.webp?v=1790293126",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hTP6H7sNlWXdGxAciXQSjNJ1ob7.webp?v=1790293126",
+      "description": "Dehşet Yolcuları (1953) full HD, Türkçe dublaj ve altyazılı izle. Berlin ve Cannes&#039;dan ödülle dönmüş sıradışı bir gerilim/macera… Güney Amerika&#039;daki gözden ırak...",
+      "releaseInfo": "1953",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "154 dk"
+    },
+    {
       "id": "playrepo-oz-buyucusu",
       "type": "movie",
       "name": "Oz Büyücüsü",
@@ -1214,22 +1231,6 @@
       ],
       "posterShape": "poster",
       "runtime": "118 dk"
-    },
-    {
-      "id": "playrepo-kizgin-boga",
-      "type": "movie",
-      "name": "Kızgın Boğa",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tvNuhRlpRozDgsX1zR9gQ2aHv1X.webp?v=1790250835",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tvNuhRlpRozDgsX1zR9gQ2aHv1X.webp?v=1790250835",
-      "description": "Kızgın Boğa (1980) full HD, Türkçe dublaj ve altyazılı izle. Boksör Jakc la mottanın kendi ağzından anlattığı şampiyonluklardan bar komedyenliğine uzanan hırslı...",
-      "releaseInfo": "1980",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "129 dk"
     }
   ]
 }
