@@ -1,6 +1,68 @@
 {
   "metas": [
     {
+      "id": "tt23149780",
+      "type": "movie",
+      "name": "Eden",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMmU3YjQ1YzAtMGU4OS00MWJkLTg2NGMtM2NmMmQ3NTM3NjNjXkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMmU3YjQ1YzAtMGU4OS00MWJkLTg2NGMtM2NmMmQ3NTM3NjNjXkEyXkFqcGc%40._V1_.jpg",
+      "description": "Eden (2025) full HD, Türkçe dublaj ve altyazılı izle. 1929’da Almanya’dan kaçarak Galápagos Adaları’ndaki Floreana Adası&#039;na yerleşen Dr. Friedrich Ritter ve eşi...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt23149780/img",
+      "trailers": [
+        {
+          "source": "2HRB36E5N6g",
+          "type": "Trailer"
+        },
+        {
+          "source": "N7qYSKw8JkQ",
+          "type": "Trailer"
+        },
+        {
+          "source": "tTFxfoR5bT8",
+          "type": "Trailer"
+        },
+        {
+          "source": "w860o1CceTk",
+          "type": "Trailer"
+        },
+        {
+          "source": "EVSyZQ7S8hc",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Eden",
+          "ytId": "2HRB36E5N6g"
+        },
+        {
+          "title": "Eden",
+          "ytId": "N7qYSKw8JkQ"
+        },
+        {
+          "title": "Eden",
+          "ytId": "tTFxfoR5bT8"
+        },
+        {
+          "title": "Eden",
+          "ytId": "w860o1CceTk"
+        },
+        {
+          "title": "Eden",
+          "ytId": "EVSyZQ7S8hc"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=2HRB36E5N6g",
+      "runtime": "129 dk"
+    },
+    {
       "id": "playrepo-kong-kafatasi-adasi",
       "type": "movie",
       "name": "Kong: Kafatası Adası",
