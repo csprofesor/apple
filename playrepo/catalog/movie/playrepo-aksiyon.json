@@ -1,6 +1,51 @@
 {
   "metas": [
     {
+      "id": "tt0955308",
+      "type": "movie",
+      "name": "Robin Hood",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTM5NzcwMzEwOF5BMl5BanBnXkFtZTcwNjg5MTgwMw%40%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMTM5NzcwMzEwOF5BMl5BanBnXkFtZTcwNjg5MTgwMw%40%40._V1_SX250.jpg",
+      "description": "Robin Hood (2010) full HD, Türkçe dublaj ve altyazılı izle. 13. yüzyıl İngiltere’sinde Robin Hood ve arkadaşları, yaşadıkları köydeki yozlaşmanın karşısına diki...",
+      "releaseInfo": "2010",
+      "genres": [
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0955308/img",
+      "trailers": [
+        {
+          "source": "gnT3DRvQXXM",
+          "type": "Trailer"
+        },
+        {
+          "source": "3f3toYy63KA",
+          "type": "Trailer"
+        },
+        {
+          "source": "sQChwpjrcMw",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Robin Hood",
+          "ytId": "gnT3DRvQXXM"
+        },
+        {
+          "title": "Robin Hood",
+          "ytId": "3f3toYy63KA"
+        },
+        {
+          "title": "Robin Hood",
+          "ytId": "sQChwpjrcMw"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=gnT3DRvQXXM",
+      "runtime": "140 dk"
+    },
+    {
       "id": "tt13087500",
       "type": "movie",
       "name": "Batman: Knightfall",
