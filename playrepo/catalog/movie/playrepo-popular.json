@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-cokus",
+      "type": "movie",
+      "name": "Çöküş",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cT80aGpjWZLn8rd7cLtsbktFMhf.webp?v=1790225918",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cT80aGpjWZLn8rd7cLtsbktFMhf.webp?v=1790225918",
+      "description": "Çöküş (2004) full HD, Türkçe dublaj ve altyazılı izle. Hitler ve yakın arkadaşları kendilerini sığınaklarda güvene almışlardır. Aralarında Führer&#039;in özel sekret...",
+      "releaseInfo": "2004",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "155 dk"
+    },
+    {
       "id": "playrepo-birkac-dolar-i-cin",
       "type": "movie",
       "name": "Birkaç Dolar İçin",
@@ -1150,21 +1167,6 @@
       ],
       "posterShape": "poster",
       "runtime": "128 dk"
-    },
-    {
-      "id": "playrepo-sunset-bulvari",
-      "type": "movie",
-      "name": "Sunset Bulvarı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/p47ihFj4A7EpBjmPHdTj4ipyq1S.webp?v=1790178542",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/p47ihFj4A7EpBjmPHdTj4ipyq1S.webp?v=1790178542",
-      "description": "Sunset Bulvarı (1950) full HD, Türkçe dublaj ve altyazılı izle. Joe Gillis (William Holden) genç bir senaristtir. Film, Gills’in bir havuzda kanlar içinde yatar...",
-      "releaseInfo": "1950",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "110 dk"
     }
   ]
 }
