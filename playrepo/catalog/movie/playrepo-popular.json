@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-terminator-2-mahser-gunu",
+      "type": "movie",
+      "name": "Terminatör 2: Mahşer Günü",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/izkMjmhauFx9DjoBQqM5sM5WAwE.webp?v=1790183612",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/izkMjmhauFx9DjoBQqM5sM5WAwE.webp?v=1790183612",
+      "description": "Terminatör 2: Mahşer Günü (1991) full HD, Türkçe dublaj ve altyazılı izle. Sarah Connor&#039;ın Skynet tarafından gelecekten gönderilen Terminator&#039;ın elinden kurtulm...",
+      "releaseInfo": "1991",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "156 dk"
+    },
+    {
       "id": "playrepo-yedi-samuray",
       "type": "movie",
       "name": "Yedi Samuray",
@@ -1129,21 +1146,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=pNnugovJdzM",
       "runtime": "160 dk"
-    },
-    {
-      "id": "playrepo-gecmisin-golgesinde",
-      "type": "movie",
-      "name": "Geçmişin Gölgesinde",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6qHI1IYj7QlLSCwHRzkL62X175s.webp?v=1790138918",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6qHI1IYj7QlLSCwHRzkL62X175s.webp?v=1790138918",
-      "description": "Geçmişin Gölgesinde (1998) full HD, Türkçe dublaj ve altyazılı izle. Derek Vinyard (EDWARD NORTON), beyaz ırkın üstünlüğüne inanan bir grup gencin karizmatik li...",
-      "releaseInfo": "1998",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "119 dk"
     }
   ]
 }
