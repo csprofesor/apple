@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-avengers-sonsuzluk-savasi",
+      "type": "movie",
+      "name": "Avengers: Sonsuzluk Savaşı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mDfJG3LC3Dqb67AZ52x3Z0jU0uB.webp?v=1787135540",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mDfJG3LC3Dqb67AZ52x3Z0jU0uB.webp?v=1787135540",
+      "description": "Avengers: Sonsuzluk Savaşı (2018) full HD, Türkçe dublaj ve altyazılı izle. Kaptan Amerika ve Iron Man&#039;in arasında yaşanan olayların ardından bölünen kahramanla...",
+      "releaseInfo": "2018",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Disney+",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "154 dk"
+    },
+    {
       "id": "playrepo-yenilmezler-ultron-cagi",
       "type": "movie",
       "name": "Yenilmezler: Ultron Çağı",
@@ -1128,21 +1144,6 @@
       ],
       "posterShape": "poster",
       "runtime": "100 dk"
-    },
-    {
-      "id": "playrepo-baskan",
-      "type": "movie",
-      "name": "Başkan",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oBcPnpr0jpbQWu2wkVAr79HuNbo.webp?v=1785772799",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oBcPnpr0jpbQWu2wkVAr79HuNbo.webp?v=1785772799",
-      "description": "Başkan (2024) full HD, Türkçe dublaj ve altyazılı izle. Tunceli Ovacık’ta yapılacak seçimlerde mevcut başkan Fikri Donsuz’a rakip olarak Zeynel Korkmaz adaylığı...",
-      "releaseInfo": "2024",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "runtime": "122 dk"
     }
   ]
 }
