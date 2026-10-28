@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-gun-dogmadan",
+      "type": "movie",
+      "name": "Gün Doğmadan",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qA2TyqPldTtoTVY3LKrNIG5g6bH.webp?v=1790211092",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qA2TyqPldTtoTVY3LKrNIG5g6bH.webp?v=1790211092",
+      "description": "Gün Doğmadan (1995) full HD, Türkçe dublaj ve altyazılı izle. Fransız yüksek lisans öğrencisi Celine ile Amerikalı Jesse, Budapeşte-Viyana treninde bir çiftin k...",
+      "releaseInfo": "1995",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "105 dk"
+    },
+    {
       "id": "playrepo-amelie",
       "type": "movie",
       "name": "Amelie",
@@ -1061,23 +1076,6 @@
       ],
       "posterShape": "poster",
       "runtime": "131 dk"
-    },
-    {
-      "id": "playrepo-akil-defteri",
-      "type": "movie",
-      "name": "Akıl Defteri",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7Wev9JMo6R5XAfz2KDvXb7oPMmy.webp?v=1790160134",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7Wev9JMo6R5XAfz2KDvXb7oPMmy.webp?v=1790160134",
-      "description": "Akıl Defteri (2000) full HD, Türkçe dublaj ve altyazılı izle. Karısını tecavüz edip öldüren adamın peşine düşen Leonard Shelby&#039;nin tek amacı intikam almaktır. A...",
-      "releaseInfo": "2000",
-      "genres": [
-        "Hulu",
-        "Mubi & Kült",
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "113 dk"
     }
   ]
 }
