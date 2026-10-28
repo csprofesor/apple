@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-mevlana-mest-i-ask",
+      "type": "movie",
+      "name": "Mevlana: Mest-i Aşk",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5nyXTZ1upvFdFmM6LVvHBTqTdr1.webp?v=1787631377",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5nyXTZ1upvFdFmM6LVvHBTqTdr1.webp?v=1787631377",
+      "description": "Mevlana: Mest-i Aşk (2024) full HD, Türkçe dublaj ve altyazılı izle. On üçüncü yüzyılın mistik atmosferinde geçen Mevlana: Mest-i Aşk, İran ve Türkiye ortak yap...",
+      "releaseInfo": "2024",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "runtime": "118 dk"
+    },
+    {
       "id": "playrepo-kardesler-arastirma",
       "type": "movie",
       "name": "Kardeşler Araştırma",
@@ -1359,34 +1374,6 @@
         }
       ],
       "trailer": "https://www.youtube.com/watch?v=BPIyAvBd6a4"
-    },
-    {
-      "id": "tt42839367",
-      "type": "movie",
-      "name": "Snoopy Presents: There's No Place Like Home, Snoopy",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNWNmMWNlNzItMzFiNC00MzE2LTliNWUtODFiOTUzMzc1OWJjXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNWNmMWNlNzItMzFiNC00MzE2LTliNWUtODFiOTUzMzc1OWJjXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Snoopy Presents: There&#039;s No Place Like Home, Snoopy (2026) full HD, Türkçe dublaj ve altyazılı izle. Snoopy’nin çok sevdiği köpek kulübesi kaybolunca bulmaya ça...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Animasyon & Aile"
-      ],
-      "posterShape": "poster",
-      "logo": "https://live.metahub.space/logo/medium/tt42839367/img",
-      "trailers": [
-        {
-          "source": "A-NQmpNsZIc",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Fragman",
-          "ytId": "A-NQmpNsZIc"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=A-NQmpNsZIc",
-      "runtime": "32 dk"
     }
   ]
 }
