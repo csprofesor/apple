@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-ah-mary-vah-mary",
+      "type": "movie",
+      "name": "Ah Mary Vah Mary",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/egJQ3nIon5fT8wyXcKRHzvmtZpD.webp?v=1792323225",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/egJQ3nIon5fT8wyXcKRHzvmtZpD.webp?v=1792323225",
+      "description": "Ah Mary Vah Mary (1998) full HD, Türkçe dublaj ve altyazılı izle. Çekingen, etrafına kızgın genç Ted(Ben Stiller), üçüncü sınıf bir özel dedektifin yardımıyla,....",
+      "releaseInfo": "1998",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "120 dk"
+    },
+    {
       "id": "playrepo-raya-ve-son-ejderha",
       "type": "movie",
       "name": "Raya ve Son Ejderha",
@@ -1147,23 +1163,6 @@
       ],
       "posterShape": "poster",
       "runtime": "93 dk"
-    },
-    {
-      "id": "playrepo-addams-ailesi",
-      "type": "movie",
-      "name": "Addams Ailesi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/grY5sfuT9YeXWlp4JYCmRZVqjk0.webp?v=1791174785",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/grY5sfuT9YeXWlp4JYCmRZVqjk0.webp?v=1791174785",
-      "description": "Addams Ailesi (2019) full HD, Türkçe dublaj ve altyazılı izle. Gomez ve Morticia düğün gecelerinde onları artık istemeyen komşuları tarafından evlerinden kovulu...",
-      "releaseInfo": "2019",
-      "genres": [
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "86 dk"
     }
   ]
 }
