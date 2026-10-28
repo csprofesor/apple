@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-proje-x",
+      "type": "movie",
+      "name": "Proje X",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cUqXHZtnptgvyAE1hN47Wsf3ami.webp?v=1790386801",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cUqXHZtnptgvyAE1hN47Wsf3ami.webp?v=1790386801",
+      "description": "Proje X (2012) full HD, Türkçe dublaj ve altyazılı izle. 3 çılgın lise öğrencisi, kaybeden hallerinden kurtulmak ve &quot;biraz&quot; eğlenmek için büyük bir doğum günü p...",
+      "releaseInfo": "2012",
+      "genres": [
+        "Komedi",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "88 dk"
+    },
+    {
       "id": "playrepo-belalilar",
       "type": "movie",
       "name": "Belalılar",

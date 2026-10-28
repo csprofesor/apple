@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-proje-x",
+      "type": "movie",
+      "name": "Proje X",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cUqXHZtnptgvyAE1hN47Wsf3ami.webp?v=1790386801",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cUqXHZtnptgvyAE1hN47Wsf3ami.webp?v=1790386801",
+      "description": "Proje X (2012) full HD, Türkçe dublaj ve altyazılı izle. 3 çılgın lise öğrencisi, kaybeden hallerinden kurtulmak ve &quot;biraz&quot; eğlenmek için büyük bir doğum günü p...",
+      "releaseInfo": "2012",
+      "genres": [
+        "Komedi",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "88 dk"
+    },
+    {
       "id": "tt37850679",
       "type": "movie",
       "name": "Spidey and the Avengers: Halloween Team-Up!",
@@ -1215,23 +1230,6 @@
       ],
       "posterShape": "poster",
       "runtime": "143 dk"
-    },
-    {
-      "id": "playrepo-genc-sherlock",
-      "type": "movie",
-      "name": "Genç Sherlock",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tSipsYTp565LkopntX1lZNLPYHP.webp?v=1790252329",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tSipsYTp565LkopntX1lZNLPYHP.webp?v=1790252329",
-      "description": "Genç Sherlock (1924) full HD, Türkçe dublaj ve altyazılı izle. Sherlock, bir sinema salonunda film oynatıcısıdır ama hayal dünyasında yaşar. Esas hayali sıkı bi...",
-      "releaseInfo": "1924",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "45 dk"
     }
   ]
 }
