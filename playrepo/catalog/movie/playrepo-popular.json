@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-sevimli-canavarlar",
+      "type": "movie",
+      "name": "Sevimli Canavarlar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sDTnMOJ3H5wI38OxObmCtK7wfd5.webp?v=1790242361",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sDTnMOJ3H5wI38OxObmCtK7wfd5.webp?v=1790242361",
+      "description": "Sevimli Canavarlar (2001) full HD, Türkçe dublaj ve altyazılı izle. Canavarlar Dünyası isimli kendilerine ait bir dünyada yaşayan ve yaşayabilmek için insanlara...",
+      "releaseInfo": "2001",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "92 dk"
+    },
+    {
       "id": "tt0978762",
       "type": "movie",
       "name": "Mary and Max",
@@ -1247,23 +1264,6 @@
       ],
       "posterShape": "poster",
       "runtime": "98 dk"
-    },
-    {
-      "id": "playrepo-esaretin-bedeli",
-      "type": "movie",
-      "name": "Esaretin Bedeli",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pNjh59JSxChQktamG3LMp9ZoQzp.webp?v=1790203318",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pNjh59JSxChQktamG3LMp9ZoQzp.webp?v=1790203318",
-      "description": "Esaretin Bedeli (1994) full HD, Türkçe dublaj ve altyazılı izle. Genç ve başarılı bir banker olan Andy Dufresne, karısını ve onun sevgilisini öldürmek suçundan....",
-      "releaseInfo": "1994",
-      "genres": [
-        "Suç & Polisiye",
-        "HBO Max",
-        "Popüler",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "runtime": "142 dk"
     }
   ]
 }
