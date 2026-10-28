@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-kelebek-etkisi",
+      "type": "movie",
+      "name": "Kelebek Etkisi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/75UPGUm2Zm6M60szq1gQisDF4g.webp?v=1791134817",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/75UPGUm2Zm6M60szq1gQisDF4g.webp?v=1791134817",
+      "description": "Kelebek Etkisi (2004) full HD, Türkçe dublaj ve altyazılı izle. Çocukluğundan gelen korkunç hatıralarıyla mücadele etmek zorunda kalan genç bir adam zaman içind...",
+      "releaseInfo": "2004",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "113 dk"
+    },
+    {
       "id": "playrepo-okul-tirasi",
       "type": "movie",
       "name": "Okul Tıraşı",
@@ -1052,22 +1068,6 @@
       ],
       "posterShape": "poster",
       "runtime": "102 dk"
-    },
-    {
-      "id": "playrepo-sierra-madre-hazineleri",
-      "type": "movie",
-      "name": "Sierra Madre Hazineleri",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/osytHgkv86CTFKxo46l9P7ACEjm.webp?v=1790292335",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/osytHgkv86CTFKxo46l9P7ACEjm.webp?v=1790292335",
-      "description": "Sierra Madre Hazineleri (1948) full HD, Türkçe dublaj ve altyazılı izle. Zengin olma hırsıyla son parasını da piyangoya yatırarak tüketen Fred (Humphrey Bogart)...",
-      "releaseInfo": "1948",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "126 dk"
     }
   ]
 }
