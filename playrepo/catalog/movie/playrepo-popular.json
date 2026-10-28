@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-ceset",
+      "type": "movie",
+      "name": "Ceset",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mje7UHKBiIOQglqoXIRlU4rFHVl.webp?v=1791078482",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mje7UHKBiIOQglqoXIRlU4rFHVl.webp?v=1791078482",
+      "description": "Ceset (2024) full HD, Türkçe dublaj ve altyazılı izle. Zengin karısını zehirleyerek öldüren Álex, aynı gece morgdan karısının cesedinin kaybolduğunu öğrenir. Ol...",
+      "releaseInfo": "2024",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "115 dk"
+    },
+    {
       "id": "playrepo-cenaze",
       "type": "movie",
       "name": "Cenaze",
@@ -1162,51 +1177,6 @@
       ],
       "posterShape": "poster",
       "runtime": "96 dk"
-    },
-    {
-      "id": "tt0117951",
-      "type": "movie",
-      "name": "Trainspotting",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYmVkNGJkMzQtYWQwOS00OTZmLThjODQtZjNjNzllYzRiNTE0XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYmVkNGJkMzQtYWQwOS00OTZmLThjODQtZjNjNzllYzRiNTE0XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Trainspotting (1996) full HD, Türkçe dublaj ve altyazılı izle. Kült klasiği filmde Ewan McGregor, eroini ve ‘kötü arkadaş’ları ardında bırakmak isteyen Mark Ren...",
-      "releaseInfo": "1996",
-      "genres": [
-        "Dram & Romantik",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0117951/img",
-      "trailers": [
-        {
-          "source": "bKrbNruyFVE",
-          "type": "Trailer"
-        },
-        {
-          "source": "r9v3UXKhVQM",
-          "type": "Trailer"
-        },
-        {
-          "source": "KhGT6itWByA",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Trainspotting",
-          "ytId": "bKrbNruyFVE"
-        },
-        {
-          "title": "Trainspotting",
-          "ytId": "r9v3UXKhVQM"
-        },
-        {
-          "title": "Trainspotting",
-          "ytId": "KhGT6itWByA"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=bKrbNruyFVE",
-      "runtime": "94 dk"
     }
   ]
 }
