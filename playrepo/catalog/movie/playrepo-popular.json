@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-goklerin-hakimi",
+      "type": "movie",
+      "name": "Göklerin Hakimi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6KLKdhk9wZvJ6OcTzDCoxup0Kmh.webp?v=1789939072",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6KLKdhk9wZvJ6OcTzDCoxup0Kmh.webp?v=1789939072",
+      "description": "Göklerin Hakimi (2004) full HD, Türkçe dublaj ve altyazılı izle. Ergenlikten yeni çıkmış Hughes, babasının matkap ucu fabrikasından kalan serveti, I. Dünya Sava...",
+      "releaseInfo": "2004",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "170 dk"
+    },
+    {
       "id": "tt0378194",
       "type": "movie",
       "name": "Kill Bill: Vol. 2",
@@ -1136,19 +1151,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=0ZDzsH3XGFA",
       "runtime": "105 dk"
-    },
-    {
-      "id": "tt46670747",
-      "type": "movie",
-      "name": "Iki Tez Arasinda",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMWJlZjFmYjQtZGIyYy00NTgyLWEyYjAtZDk1OTNhOWJhNzNlXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMWJlZjFmYjQtZGIyYy00NTgyLWEyYjAtZDk1OTNhOWJhNzNlXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Iki Tez Arasinda (2026) full HD, Türkçe dublaj ve altyazılı izle.",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster"
     }
   ]
 }
