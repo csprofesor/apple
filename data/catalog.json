@@ -1,6 +1,59 @@
 {
   "metas": [
     {
+      "id": "tt1392190",
+      "type": "movie",
+      "name": "Mad Max: Fury Road",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZDRkODJhOTgtOTc1OC00NTgzLTk4NjItNDgxZDY4YjlmNDY2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZDRkODJhOTgtOTc1OC00NTgzLTk4NjItNDgxZDY4YjlmNDY2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Mad Max: Fury Road (2015) full HD, Türkçe dublaj ve altyazılı izle. Çalkantılı geçmişi Mad Max’i hayatta kalmak için en iyi yolun yalnız olmak gerektiğine inand...",
+      "releaseInfo": "2015",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt1392190/img",
+      "trailers": [
+        {
+          "source": "MonFNCgK4WE",
+          "type": "Trailer"
+        },
+        {
+          "source": "hEJnMQG9ev8",
+          "type": "Trailer"
+        },
+        {
+          "source": "YWNWi-ZWL3c",
+          "type": "Trailer"
+        },
+        {
+          "source": "akX3Is3qBpw",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Mad Max: Fury Road",
+          "ytId": "MonFNCgK4WE"
+        },
+        {
+          "title": "Mad Max: Fury Road",
+          "ytId": "hEJnMQG9ev8"
+        },
+        {
+          "title": "Mad Max: Fury Road",
+          "ytId": "YWNWi-ZWL3c"
+        },
+        {
+          "title": "Mad Max: Fury Road",
+          "ytId": "akX3Is3qBpw"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=MonFNCgK4WE",
+      "runtime": "121 dk"
+    },
+    {
       "id": "playrepo-yerdeki-yildizlar",
       "type": "movie",
       "name": "Yerdeki Yıldızlar",
