@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-arabistanli-lawrence",
+      "type": "movie",
+      "name": "Arabistanlı Lawrence",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eULrEMwgXnWmzdowUfegaw2YYgD.webp?v=1790169196",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eULrEMwgXnWmzdowUfegaw2YYgD.webp?v=1790169196",
+      "description": "Arabistanlı Lawrence (1962) full HD, Türkçe dublaj ve altyazılı izle. T.E. Lawrence, Kuzey Afrika’da konuşlanmış İngiliz ordusunda görevli genç bir teğmendir. İ...",
+      "releaseInfo": "1962",
+      "genres": [
+        "Mubi & Kült",
+        "Belgesel & Tarih",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "227 dk"
+    },
+    {
       "id": "playrepo-sapik",
       "type": "movie",
       "name": "Sapık",
@@ -1141,22 +1158,6 @@
       ],
       "posterShape": "poster",
       "runtime": "102 dk"
-    },
-    {
-      "id": "playrepo-yargic-dredd",
-      "type": "movie",
-      "name": "Yargıç Dredd",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jUqDBi02CDjqrroC3Zl8hroBbSr.webp?v=1789931829",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jUqDBi02CDjqrroC3Zl8hroBbSr.webp?v=1789931829",
-      "description": "Yargıç Dredd (2012) full HD, Türkçe dublaj ve altyazılı izle. Dünyanın Atom Çağı&#039;na girdiği gelecekte insanlar megapollerde yaşamaya başlamıştır ve suça karşı a...",
-      "releaseInfo": "2012",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "96 dk"
     }
   ]
 }
