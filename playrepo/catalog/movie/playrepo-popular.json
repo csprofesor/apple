@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-i-se-yaramazlar",
+      "type": "movie",
+      "name": "İşe Yaramazlar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1BOrGO9c86ctTeZxECYsmoxHwjL.webp?v=1791134327",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1BOrGO9c86ctTeZxECYsmoxHwjL.webp?v=1791134327",
+      "description": "İşe Yaramazlar (2015) full HD, Türkçe dublaj ve altyazılı izle. Azılı hacker Drew Reynolds C.I.A. tarafından yakalanır ve bir teklif verilir, onlar için çalışır...",
+      "releaseInfo": "2015",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "90 dk"
+    },
+    {
       "id": "playrepo-otel-transilvanya-3-yaz-tatili",
       "type": "movie",
       "name": "Otel Transilvanya 3: Yaz Tatili",
@@ -1053,43 +1070,6 @@
       ],
       "posterShape": "poster",
       "runtime": "129 dk"
-    },
-    {
-      "id": "tt0120382",
-      "type": "movie",
-      "name": "The Truman Show",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzA3ZjZlNzYtMTdjMy00NjMzLTk5ZGYtMTkyYzNiOGM1YmM3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNzA3ZjZlNzYtMTdjMy00NjMzLTk5ZGYtMTkyYzNiOGM1YmM3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Truman Show (1998) full HD, Türkçe dublaj ve altyazılı izle. Truman küçük kasabasının aslında, yenilikçi bir yapımcı/yönetmen/ yazar (Ed Harris) tarafından kuru...",
-      "releaseInfo": "1998",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0120382/img",
-      "trailers": [
-        {
-          "source": "N1VlDVRiFrk",
-          "type": "Trailer"
-        },
-        {
-          "source": "loTIzXAS7v4",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "The Truman Show",
-          "ytId": "N1VlDVRiFrk"
-        },
-        {
-          "title": "The Truman Show",
-          "ytId": "loTIzXAS7v4"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=N1VlDVRiFrk",
-      "runtime": "103 dk"
     }
   ]
 }
