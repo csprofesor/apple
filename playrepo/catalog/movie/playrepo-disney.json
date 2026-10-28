@@ -1,6 +1,59 @@
 {
   "metas": [
     {
+      "id": "tt4154796",
+      "type": "movie",
+      "name": "Avengers: Endgame",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM%40._V1_SX250.jpg",
+      "description": "Avengers: Endgame (2019) full HD, Türkçe dublaj ve altyazılı izle. Marvel Sinematik Evreni&#039;nin dördüncü aşamasının zirve noktası olarak kabul edilen bu epik fil...",
+      "releaseInfo": "2019",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt4154796/img",
+      "trailers": [
+        {
+          "source": "L2NAh3CIdig",
+          "type": "Trailer"
+        },
+        {
+          "source": "AMSITikqKiM",
+          "type": "Trailer"
+        },
+        {
+          "source": "TcMBFSGVi1c",
+          "type": "Trailer"
+        },
+        {
+          "source": "hA6hldpSTF8",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Avengers: Endgame",
+          "ytId": "L2NAh3CIdig"
+        },
+        {
+          "title": "Avengers: Endgame",
+          "ytId": "AMSITikqKiM"
+        },
+        {
+          "title": "Avengers: Endgame",
+          "ytId": "TcMBFSGVi1c"
+        },
+        {
+          "title": "Avengers: Endgame",
+          "ytId": "hA6hldpSTF8"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=L2NAh3CIdig",
+      "runtime": "182 dk"
+    },
+    {
       "id": "playrepo-yenilmezler",
       "type": "movie",
       "name": "Yenilmezler",
