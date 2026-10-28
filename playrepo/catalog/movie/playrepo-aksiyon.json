@@ -1,6 +1,51 @@
 {
   "metas": [
     {
+      "id": "tt0072684",
+      "type": "movie",
+      "name": "Barry Lyndon",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNmM2MGQ5Y2UtYzA3ZC00ZDJlLTkwNDYtMjBmZGExZDJiN2RlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNmM2MGQ5Y2UtYzA3ZC00ZDJlLTkwNDYtMjBmZGExZDJiN2RlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Barry Lyndon (1975) full HD, Türkçe dublaj ve altyazılı izle. 1700&#039;lerin tam ortasındayız. Genç bir İrlandalı olan Redmond Barry, bir subayı düelloda öldürünce....",
+      "releaseInfo": "1975",
+      "genres": [
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0072684/img",
+      "trailers": [
+        {
+          "source": "JH8j_1dUlUU",
+          "type": "Trailer"
+        },
+        {
+          "source": "XjPSGuJskxM",
+          "type": "Trailer"
+        },
+        {
+          "source": "9lzSoKOs1fc",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Barry Lyndon",
+          "ytId": "JH8j_1dUlUU"
+        },
+        {
+          "title": "Barry Lyndon",
+          "ytId": "XjPSGuJskxM"
+        },
+        {
+          "title": "Barry Lyndon",
+          "ytId": "9lzSoKOs1fc"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=JH8j_1dUlUU",
+      "runtime": "188 dk"
+    },
+    {
       "id": "playrepo-batman-basliyor",
       "type": "movie",
       "name": "Batman Başlıyor",
