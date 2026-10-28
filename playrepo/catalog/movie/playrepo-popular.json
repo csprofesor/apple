@@ -1,6 +1,25 @@
 {
   "metas": [
     {
+      "id": "playrepo-i-nanilmaz-orumcek-adam-2",
+      "type": "movie",
+      "name": "İnanılmaz Örümcek-Adam 2",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/k0hlAzTryCYX1O1LyC6P8tAa8s0.webp?v=1787165432",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/k0hlAzTryCYX1O1LyC6P8tAa8s0.webp?v=1787165432",
+      "description": "İnanılmaz Örümcek-Adam 2 (2014) full HD, Türkçe dublaj ve altyazılı izle. Gwen Stacy&#039;yi tehlikeli hayatının dışında bırakma sözünü tutmakta zorlanan Örümcek Ada...",
+      "releaseInfo": "2014",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Disney+",
+        "Prime Video",
+        "Aksiyon & Macera",
+        "Netflix",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "141 dk"
+    },
+    {
       "id": "playrepo-orumcek-adam-eve-donus",
       "type": "movie",
       "name": "Örümcek-Adam: Eve Dönüş",
@@ -1320,19 +1339,6 @@
       ],
       "posterShape": "poster",
       "runtime": "92 dk"
-    },
-    {
-      "id": "playrepo-hezeyanlar-dogu-demirkol",
-      "type": "movie",
-      "name": "Hezeyanlar Doğu Demirkol",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uTCKcipHrJe0hmtVHlmSn0VsMEt.webp?v=1788668409",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uTCKcipHrJe0hmtVHlmSn0VsMEt.webp?v=1788668409",
-      "description": "Hezeyanlar Doğu Demirkol (2026) full HD, Türkçe dublaj ve altyazılı izle. Doğu Demirkol kariyerinin iniş çıkışlarını, sanatla mücadelesini, sınıf çatışmasını ve...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Popüler"
-      ],
-      "posterShape": "poster"
     }
   ]
 }
