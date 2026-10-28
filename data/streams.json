@@ -85588,5 +85588,97 @@
         }
       }
     }
+  ],
+  "playrepo-orumcek-adam-orumcek-evrenine-gecis": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=a0348056ac66b559a95111c71468389d&token=eyJ2IjoiYTAzNDgwNTZhYzY2YjU1OWE5NTExMWM3MTQ2ODM4OWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzNTk3LCJuIjoiMWJkNGVhZmNkNTJiIn0.2f4adfdb53093f48fc58c19df86b454612363d78962f940106b26f807db19429&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=fZnk9FarAPaAnsYRizuyhw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=fZnk9FarAPaAnsYRizuyhw"
+      },
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=fZnk9FarAPaAnsYRizuyhw"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=a0348056ac66b559a95111c71468389d&token=eyJ2IjoiYTAzNDgwNTZhYzY2YjU1OWE5NTExMWM3MTQ2ODM4OWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzNTk3LCJuIjoiMWJkNGVhZmNkNTJiIn0.2f4adfdb53093f48fc58c19df86b454612363d78962f940106b26f807db19429&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=fZnk9FarAPaAnsYRizuyhw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=fZnk9FarAPaAnsYRizuyhw"
+      },
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=fZnk9FarAPaAnsYRizuyhw"
+          }
+        }
+      }
+    }
+  ],
+  "orumcek-adam-orumcek-evrenine-gecis": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=a0348056ac66b559a95111c71468389d&token=eyJ2IjoiYTAzNDgwNTZhYzY2YjU1OWE5NTExMWM3MTQ2ODM4OWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzNTk3LCJuIjoiMWJkNGVhZmNkNTJiIn0.2f4adfdb53093f48fc58c19df86b454612363d78962f940106b26f807db19429&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=fZnk9FarAPaAnsYRizuyhw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=fZnk9FarAPaAnsYRizuyhw"
+      },
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=fZnk9FarAPaAnsYRizuyhw"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=a0348056ac66b559a95111c71468389d&token=eyJ2IjoiYTAzNDgwNTZhYzY2YjU1OWE5NTExMWM3MTQ2ODM4OWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzNTk3LCJuIjoiMWJkNGVhZmNkNTJiIn0.2f4adfdb53093f48fc58c19df86b454612363d78962f940106b26f807db19429&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=fZnk9FarAPaAnsYRizuyhw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=fZnk9FarAPaAnsYRizuyhw"
+      },
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=fZnk9FarAPaAnsYRizuyhw"
+          }
+        }
+      }
+    }
   ]
 }
