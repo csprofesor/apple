@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-super-dolandiricilar",
+      "type": "movie",
+      "name": "Süper Dolandırıcılar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cLA7LxfHF75U2m6zx9sEd7yhQBL.webp?v=1792589356",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cLA7LxfHF75U2m6zx9sEd7yhQBL.webp?v=1792589356",
+      "description": "Süper Dolandırıcılar (2026) full HD, Türkçe dublaj ve altyazılı izle. Ödüllü araştırmacı gazeteci Mariana van Zeller&#039;ın, milyar dolarlık bir sektöre dönüşen çev...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Belgesel & Tarih",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "64 dk"
+    },
+    {
       "id": "tt36042156",
       "type": "movie",
       "name": "The Punisher: One Last Kill",
@@ -1159,22 +1174,6 @@
       ],
       "posterShape": "poster",
       "runtime": "93 dk"
-    },
-    {
-      "id": "playrepo-tavuklar-firarda",
-      "type": "movie",
-      "name": "Tavuklar Firarda",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3eYkMSjWbvTaZso7ow5ub9ikNNq.webp?v=1791220703",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3eYkMSjWbvTaZso7ow5ub9ikNNq.webp?v=1791220703",
-      "description": "Tavuklar Firarda (2000) full HD, Türkçe dublaj ve altyazılı izle. Çiftliğini adeta bir diktatör gibi yönetmekte olan gaddar bayan Tweety&#039;nin baskılarından bıkan...",
-      "releaseInfo": "2000",
-      "genres": [
-        "Komedi",
-        "Animasyon & Aile",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "84 dk"
     }
   ]
 }
