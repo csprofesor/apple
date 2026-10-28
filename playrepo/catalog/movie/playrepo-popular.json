@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt0089881",
+      "type": "movie",
+      "name": "Ran",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZDk2NDY5YjktMjEyMC00OTJhLTkzM2EtY2Q4Y2RjYzc2Yjk4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZDk2NDY5YjktMjEyMC00OTJhLTkzM2EtY2Q4Y2RjYzc2Yjk4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Ran (1985) full HD, Türkçe dublaj ve altyazılı izle. Shakespeare’in Kral Lear’inde, 16. yy’ın yaşlı lordu Lear krallığını üç kızı arasında paylaştırmaya karar v...",
+      "releaseInfo": "1985",
+      "genres": [
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0089881/img",
+      "trailers": [
+        {
+          "source": "29ukiH4_GvQ",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Ran",
+          "ytId": "29ukiH4_GvQ"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=29ukiH4_GvQ",
+      "runtime": "160 dk"
+    },
+    {
       "id": "playrepo-bazilari-sicak-sever",
       "type": "movie",
       "name": "Bazıları Sıcak Sever",
@@ -1250,22 +1279,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=Pg_CqV3VlPg",
       "runtime": "98 dk"
-    },
-    {
-      "id": "playrepo-zor-olum",
-      "type": "movie",
-      "name": "Zor Ölüm",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bvk2AAH64lP2YZs02Q3jskfHT8j.webp?v=1790220021",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bvk2AAH64lP2YZs02Q3jskfHT8j.webp?v=1790220021",
-      "description": "Zor Ölüm (1988) full HD, Türkçe dublaj ve altyazılı izle. Bruce Willis, Los Angeles&#039;a Noel tatilini ayrı olduğu karısıyla geçirmeye gelen New York şehri polisi....",
-      "releaseInfo": "1988",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "132 dk"
     }
   ]
 }
