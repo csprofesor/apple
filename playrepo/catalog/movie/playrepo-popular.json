@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-kazablanka",
+      "type": "movie",
+      "name": "Kazablanka",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/87wqeMeUeMRLjsE1IWNKJcPlpuC.webp?v=1790141922",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/87wqeMeUeMRLjsE1IWNKJcPlpuC.webp?v=1790141922",
+      "description": "Kazablanka (1943) full HD, Türkçe dublaj ve altyazılı izle. İkinci dünya savaşında çok direnişli örgütün lideri Victor Lazlow Alman konsantrsayonu kampından kaç...",
+      "releaseInfo": "1943",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "102 dk"
+    },
+    {
       "id": "playrepo-yaratigin-donusu",
       "type": "movie",
       "name": "Yaratığın Dönüşü",
@@ -1105,19 +1120,6 @@
       ],
       "posterShape": "poster",
       "runtime": "90 dk"
-    },
-    {
-      "id": "tt45370840",
-      "type": "movie",
-      "name": "Yalanci Komsu",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNjhmYjE5MTYtYTBjNS00OTMyLTgyMDUtNzNmMWYwMzRmMzlmXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNjhmYjE5MTYtYTBjNS00OTMyLTgyMDUtNzNmMWYwMzRmMzlmXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Yalanci Komsu (2026) full HD, Türkçe dublaj ve altyazılı izle. Yeni taşınan bir ailenin huzurlu hayatı, yan dairede oturan gizemli komşuyla tanıştığı anda alt ü...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster"
     }
   ]
 }
