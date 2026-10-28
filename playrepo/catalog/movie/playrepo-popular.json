@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-bisiklet-hirsizlari",
+      "type": "movie",
+      "name": "Bisiklet Hırsızları",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nd6ItWuWGmTKhHXuxVC8kp86CmQ.webp?v=1790211467",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nd6ItWuWGmTKhHXuxVC8kp86CmQ.webp?v=1790211467",
+      "description": "Bisiklet Hırsızları (1948) full HD, Türkçe dublaj ve altyazılı izle. İkinci Dünya Savaşı sonrasında geçen hikaye, fakir bir babanın ve oğlunun dramını anlatıyor...",
+      "releaseInfo": "1948",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "89 dk"
+    },
+    {
       "id": "playrepo-gun-dogmadan",
       "type": "movie",
       "name": "Gün Doğmadan",
@@ -1060,22 +1075,6 @@
       ],
       "posterShape": "poster",
       "runtime": "116 dk"
-    },
-    {
-      "id": "playrepo-sahane-hayat",
-      "type": "movie",
-      "name": "Şahane Hayat",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3q35nBLCIdEbxYfsr7D5ocYQXKz.webp?v=1790160854",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3q35nBLCIdEbxYfsr7D5ocYQXKz.webp?v=1790160854",
-      "description": "Şahane Hayat (1946) full HD, Türkçe dublaj ve altyazılı izle. İflasın eşiğine gelen George Bailey (James Stewart) bir Noel gecesinde kendini nehre atarak intiha...",
-      "releaseInfo": "1946",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "131 dk"
     }
   ]
 }
