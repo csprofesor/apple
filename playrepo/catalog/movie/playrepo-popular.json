@@ -1,6 +1,34 @@
 {
   "metas": [
     {
+      "id": "tt38120070",
+      "type": "movie",
+      "name": "Annemin Solgun Çiçekleri",
+      "poster": "https://m.media-amazon.com/images/M/MV5BOWI2YmQ3YjYtYTAxMC00OTg4LTliZmUtNzc3YmUzNTI5MmMxXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BOWI2YmQ3YjYtYTAxMC00OTg4LTliZmUtNzc3YmUzNTI5MmMxXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Annemin Solgun Çiçekleri (2025) full HD, Türkçe dublaj ve altyazılı izle.",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt38120070/img",
+      "trailers": [
+        {
+          "source": "yG9oQ-CiTgQ",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Fragman",
+          "ytId": "yG9oQ-CiTgQ"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=yG9oQ-CiTgQ",
+      "runtime": "90 dk"
+    },
+    {
       "id": "tt27419466",
       "type": "movie",
       "name": "Moana",
@@ -1179,21 +1207,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=kIF-uZhCeIc",
       "runtime": "74 dk"
-    },
-    {
-      "id": "playrepo-drugelio-irdis",
-      "type": "movie",
-      "name": "Drugelio širdis",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wFmkkoG2z8YHMMJWLEEYxIyo8mh.webp?v=1791396326",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wFmkkoG2z8YHMMJWLEEYxIyo8mh.webp?v=1791396326",
-      "description": "Drugelio širdis (2022) full HD, Türkçe dublaj ve altyazılı izle.",
-      "releaseInfo": "2022",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "108 dk"
     }
   ]
 }
