@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-buyuk-firar",
+      "type": "movie",
+      "name": "Büyük Firar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lb87H6BFXXKMJlUnDHvPOMGfh8z.webp?v=1790273415",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lb87H6BFXXKMJlUnDHvPOMGfh8z.webp?v=1790273415",
+      "description": "Büyük Firar (1963) full HD, Türkçe dublaj ve altyazılı izle. Bir grup müttefik kaçışa imkan vermeyecek şekilde tasarlanmış özel bir kampa hapsedilir. Üç farklı....",
+      "releaseInfo": "1963",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "173 dk"
+    },
+    {
       "id": "playrepo-yedinci-muhur",
       "type": "movie",
       "name": "Yedinci Mühür",
@@ -1169,84 +1185,6 @@
       ],
       "posterShape": "poster",
       "runtime": "133 dk"
-    },
-    {
-      "id": "tt0073195",
-      "type": "movie",
-      "name": "Jaws",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYjViNDQzNmUtYzkxZi00NTk5LTljMmItYjJlZmZkODIxNjU1XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYjViNDQzNmUtYzkxZi00NTk5LTljMmItYjJlZmZkODIxNjU1XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Jaws (1975) full HD, Türkçe dublaj ve altyazılı izle. Küçük bir sahil kasabasının tek geçim kaynağı yaz ayları boyunca kasabaya tatil yapmaya gelen turistlerin....",
-      "releaseInfo": "1975",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0073195/img",
-      "trailers": [
-        {
-          "source": "N9hzLQUGr34",
-          "type": "Trailer"
-        },
-        {
-          "source": "lL0EjdZPo8U",
-          "type": "Trailer"
-        },
-        {
-          "source": "WKuZJjPSLXQ",
-          "type": "Trailer"
-        },
-        {
-          "source": "YIhxgIZJSbk",
-          "type": "Trailer"
-        },
-        {
-          "source": "8KxiYWYY3Kw",
-          "type": "Trailer"
-        },
-        {
-          "source": "GNmYEg3aLds",
-          "type": "Trailer"
-        },
-        {
-          "source": "BU_j7fyBF-A",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Jaws",
-          "ytId": "N9hzLQUGr34"
-        },
-        {
-          "title": "Jaws",
-          "ytId": "lL0EjdZPo8U"
-        },
-        {
-          "title": "Jaws",
-          "ytId": "WKuZJjPSLXQ"
-        },
-        {
-          "title": "Jaws",
-          "ytId": "YIhxgIZJSbk"
-        },
-        {
-          "title": "Jaws",
-          "ytId": "8KxiYWYY3Kw"
-        },
-        {
-          "title": "Jaws",
-          "ytId": "GNmYEg3aLds"
-        },
-        {
-          "title": "Jaws",
-          "ytId": "BU_j7fyBF-A"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=N9hzLQUGr34",
-      "runtime": "65 dk"
     }
   ]
 }

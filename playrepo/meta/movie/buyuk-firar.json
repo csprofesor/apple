@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "id": "playrepo-buyuk-firar",
+    "type": "movie",
+    "name": "Büyük Firar",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lb87H6BFXXKMJlUnDHvPOMGfh8z.webp?v=1790273415",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lb87H6BFXXKMJlUnDHvPOMGfh8z.webp?v=1790273415",
+    "description": "Büyük Firar (1963) full HD, Türkçe dublaj ve altyazılı izle. Bir grup müttefik kaçışa imkan vermeyecek şekilde tasarlanmış özel bir kampa hapsedilir. Üç farklı....",
+    "releaseInfo": "1963",
+    "genres": [
+      "Dram & Romantik",
+      "Popüler",
+      "Aksiyon & Macera"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-buyuk-firar",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-buyuk-firar",
+        "title": "Büyük Firar",
+        "name": "Büyük Firar",
+        "released": "1963-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "173 dk"
+  }
+}
