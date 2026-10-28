@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-asfaltin-krallari",
+      "type": "movie",
+      "name": "Asfaltın Kralları",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2vq5GTJOahE03mNYZGxIynlHcWr.webp?v=1790227509",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2vq5GTJOahE03mNYZGxIynlHcWr.webp?v=1790227509",
+      "description": "Asfaltın Kralları (2019) full HD, Türkçe dublaj ve altyazılı izle. Ford v. Ferrari, 1966 yılında düzenlenen Le Mans 24 Saat Yarışı’nın gerçek hikayesini konu al...",
+      "releaseInfo": "2019",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "152 dk"
+    },
+    {
       "id": "playrepo-hachi-bir-kopegin-hikayesi",
       "type": "movie",
       "name": "Hachi: Bir Köpeğin Hikayesi",
@@ -1152,23 +1169,6 @@
       ],
       "posterShape": "poster",
       "runtime": "136 dk"
-    },
-    {
-      "id": "playrepo-terminator-2-mahser-gunu",
-      "type": "movie",
-      "name": "Terminatör 2: Mahşer Günü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/izkMjmhauFx9DjoBQqM5sM5WAwE.webp?v=1790183612",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/izkMjmhauFx9DjoBQqM5sM5WAwE.webp?v=1790183612",
-      "description": "Terminatör 2: Mahşer Günü (1991) full HD, Türkçe dublaj ve altyazılı izle. Sarah Connor&#039;ın Skynet tarafından gelecekten gönderilen Terminator&#039;ın elinden kurtulm...",
-      "releaseInfo": "1991",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Korku & Gerilim",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "156 dk"
     }
   ]
 }
