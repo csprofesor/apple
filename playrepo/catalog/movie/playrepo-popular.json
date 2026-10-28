@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt9114286",
+      "type": "movie",
+      "name": "Black Panther: Wakanda Forever",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYWY5NDY1ZjItZDQxMy00MTAzLTgyOGQtNTQxYjFiMzZjMjUyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYWY5NDY1ZjItZDQxMy00MTAzLTgyOGQtNTQxYjFiMzZjMjUyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Black Panther: Yaşasın Wakanda (2022) full HD, Türkçe dublaj ve altyazılı izle. Queen Ramonda, Shuri, M’Baku, Okoye ve Dora Milaje, Kral T’Challa’nın ölümünün a...",
+      "releaseInfo": "2022",
+      "genres": [
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt9114286/img",
+      "trailers": [
+        {
+          "source": "_Z3QKkl1WyM",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Black Panther: Wakanda Forever",
+          "ytId": "_Z3QKkl1WyM"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=_Z3QKkl1WyM",
+      "runtime": "162 dk"
+    },
+    {
       "id": "playrepo-galaksinin-koruyuculari",
       "type": "movie",
       "name": "Galaksinin Koruyucuları",
@@ -1189,21 +1218,6 @@
       ],
       "posterShape": "poster",
       "runtime": "100 dk"
-    },
-    {
-      "id": "playrepo-nando-i-ki-dunya-arasinda",
-      "type": "movie",
-      "name": "Nando İki Dünya Arasında",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jQEBI1EQWspRVPCYzhoRi30fadD.webp?v=1786555976",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jQEBI1EQWspRVPCYzhoRi30fadD.webp?v=1786555976",
-      "description": "Nando İki Dünya Arasında (2026) full HD, Türkçe dublaj ve altyazılı izle. Nando İki Dünya Arasında, Sintonia evreninden doğa...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster"
     }
   ]
 }
