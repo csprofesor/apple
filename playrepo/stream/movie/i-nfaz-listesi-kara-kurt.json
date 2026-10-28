@@ -1,0 +1,87 @@
+{
+  "streams": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=9db0089b7b9a551a6ba246299732336d&token=eyJ2IjoiOWRiMDA4OWI3YjlhNTUxYTZiYTI0NjI5OTczMjMzNmQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxOTMyLCJuIjoiZGZiMWMxNDliMWY5In0.02bd0604fdcfe468e7d6a41d7dfb2e6c70f03358ba8465f335114fc7e13515db&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=lYsLo3wT9GoWsIbioCl0YQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=lYsLo3wT9GoWsIbioCl0YQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=9db0089b7b9a551a6ba246299732336d&sid=84f1987ba84d302c517c23e0d9c03d5f&token=eyJ2IjoiOWRiMDA4OWI3YjlhNTUxYTZiYTI0NjI5OTczMjMzNmQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxOTMyLCJuIjoiZGZiMWMxNDliMWY5In0.02bd0604fdcfe468e7d6a41d7dfb2e6c70f03358ba8465f335114fc7e13515db&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=9db0089b7b9a551a6ba246299732336d&sid=1400db382ad3e0ab053e9f0797c14a42&token=eyJ2IjoiOWRiMDA4OWI3YjlhNTUxYTZiYTI0NjI5OTczMjMzNmQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxOTMyLCJuIjoiZGZiMWMxNDliMWY5In0.02bd0604fdcfe468e7d6a41d7dfb2e6c70f03358ba8465f335114fc7e13515db&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=9db0089b7b9a551a6ba246299732336d&sid=15ebf0c42ff2a0521268143545c023a6&token=eyJ2IjoiOWRiMDA4OWI3YjlhNTUxYTZiYTI0NjI5OTczMjMzNmQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxOTMyLCJuIjoiZGZiMWMxNDliMWY5In0.02bd0604fdcfe468e7d6a41d7dfb2e6c70f03358ba8465f335114fc7e13515db&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=9db0089b7b9a551a6ba246299732336d&sid=231d5aa87116401553e18e2b2b79c4cc&token=eyJ2IjoiOWRiMDA4OWI3YjlhNTUxYTZiYTI0NjI5OTczMjMzNmQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxOTMyLCJuIjoiZGZiMWMxNDliMWY5In0.02bd0604fdcfe468e7d6a41d7dfb2e6c70f03358ba8465f335114fc7e13515db&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=9db0089b7b9a551a6ba246299732336d&sid=3075677607f20c39441954064d27f503&token=eyJ2IjoiOWRiMDA4OWI3YjlhNTUxYTZiYTI0NjI5OTczMjMzNmQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxOTMyLCJuIjoiZGZiMWMxNDliMWY5In0.02bd0604fdcfe468e7d6a41d7dfb2e6c70f03358ba8465f335114fc7e13515db&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=9db0089b7b9a551a6ba246299732336d&sid=64a0ebf8f54b8a49c7a3d4e9c1093ca6&token=eyJ2IjoiOWRiMDA4OWI3YjlhNTUxYTZiYTI0NjI5OTczMjMzNmQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxOTMyLCJuIjoiZGZiMWMxNDliMWY5In0.02bd0604fdcfe468e7d6a41d7dfb2e6c70f03358ba8465f335114fc7e13515db&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=9db0089b7b9a551a6ba246299732336d&sid=6cd6a8772edb286d36436b8fe2f44acc&token=eyJ2IjoiOWRiMDA4OWI3YjlhNTUxYTZiYTI0NjI5OTczMjMzNmQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxOTMyLCJuIjoiZGZiMWMxNDliMWY5In0.02bd0604fdcfe468e7d6a41d7dfb2e6c70f03358ba8465f335114fc7e13515db&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=9db0089b7b9a551a6ba246299732336d&sid=96e4fb2c94964c915034fc8c7ddc67f7&token=eyJ2IjoiOWRiMDA4OWI3YjlhNTUxYTZiYTI0NjI5OTczMjMzNmQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxOTMyLCJuIjoiZGZiMWMxNDliMWY5In0.02bd0604fdcfe468e7d6a41d7dfb2e6c70f03358ba8465f335114fc7e13515db&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=9db0089b7b9a551a6ba246299732336d&sid=c223a14236279fe3e679bba47cce183d&token=eyJ2IjoiOWRiMDA4OWI3YjlhNTUxYTZiYTI0NjI5OTczMjMzNmQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxOTMyLCJuIjoiZGZiMWMxNDliMWY5In0.02bd0604fdcfe468e7d6a41d7dfb2e6c70f03358ba8465f335114fc7e13515db&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=9db0089b7b9a551a6ba246299732336d&sid=cbca52ae8e12c37ab8cfe13174007662&token=eyJ2IjoiOWRiMDA4OWI3YjlhNTUxYTZiYTI0NjI5OTczMjMzNmQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxOTMyLCJuIjoiZGZiMWMxNDliMWY5In0.02bd0604fdcfe468e7d6a41d7dfb2e6c70f03358ba8465f335114fc7e13515db&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=9db0089b7b9a551a6ba246299732336d&sid=e50a4c6f9d5601b42b46280f15a9d251&token=eyJ2IjoiOWRiMDA4OWI3YjlhNTUxYTZiYTI0NjI5OTczMjMzNmQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxOTMyLCJuIjoiZGZiMWMxNDliMWY5In0.02bd0604fdcfe468e7d6a41d7dfb2e6c70f03358ba8465f335114fc7e13515db&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=9db0089b7b9a551a6ba246299732336d&sid=edbd669ae2f6c41d9ab25b5cea0b4704&token=eyJ2IjoiOWRiMDA4OWI3YjlhNTUxYTZiYTI0NjI5OTczMjMzNmQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxOTMyLCJuIjoiZGZiMWMxNDliMWY5In0.02bd0604fdcfe468e7d6a41d7dfb2e6c70f03358ba8465f335114fc7e13515db&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=lYsLo3wT9GoWsIbioCl0YQ"
+          }
+        }
+      }
+    }
+  ]
+}
