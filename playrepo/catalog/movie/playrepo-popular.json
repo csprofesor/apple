@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-otel-ruanda",
+      "type": "movie",
+      "name": "Otel Ruanda",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jkvvXaN7FPVKGlk8oj9PL0FHNtj.webp?v=1790231650",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jkvvXaN7FPVKGlk8oj9PL0FHNtj.webp?v=1790231650",
+      "description": "Otel Ruanda (2004) full HD, Türkçe dublaj ve altyazılı izle. Dünyanın öbür ucundaki bir ülkede, Rwanda&#039;da 1994&#039;de Hutu&#039;larla Tutsi&#039;ler arasında çıkan savaş yüzü...",
+      "releaseInfo": "2004",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "122 dk"
+    },
+    {
       "id": "playrepo-yesil-rehber",
       "type": "movie",
       "name": "Yeşil Rehber",
@@ -1161,22 +1178,6 @@
       ],
       "posterShape": "poster",
       "runtime": "115 dk"
-    },
-    {
-      "id": "playrepo-buyuk-diktator",
-      "type": "movie",
-      "name": "Büyük Diktatör",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/c8Pi8F1FzpNebtgXcSjC9nWCdSW.webp?v=1790190446",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/c8Pi8F1FzpNebtgXcSjC9nWCdSW.webp?v=1790190446",
-      "description": "Büyük Diktatör (1940) full HD, Türkçe dublaj ve altyazılı izle. Nazi Almanya&#039;sının tıpkısının aynısı bir başka diktatörlükte, kararları ve yönetimi ile ülkesini...",
-      "releaseInfo": "1940",
-      "genres": [
-        "Komedi",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "125 dk"
     }
   ]
 }
