@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-rasomon",
+      "type": "movie",
+      "name": "Raşomon",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tDn1dA52bQH9B85vilHeU7C83W1.webp?v=1790456757",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tDn1dA52bQH9B85vilHeU7C83W1.webp?v=1790456757",
+      "description": "Raşomon (1950) full HD, Türkçe dublaj ve altyazılı izle. Ormanda devriye gezen polisler tarafından, öldürülmüş bir adamın cesedi bulunur. Adamın karısı da tecav...",
+      "releaseInfo": "1950",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "88 dk"
+    },
+    {
       "id": "tt7798632",
       "type": "movie",
       "name": "Hamlet",
@@ -1246,22 +1263,6 @@
       ],
       "posterShape": "poster",
       "runtime": "138 dk"
-    },
-    {
-      "id": "playrepo-kapisma",
-      "type": "movie",
-      "name": "Kapışma",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gTghF8ardwJ48XLHkiapWk3ZmSo.webp?v=1790257588",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gTghF8ardwJ48XLHkiapWk3ZmSo.webp?v=1790257588",
-      "description": "Kapışma (2000) full HD, Türkçe dublaj ve altyazılı izle. Benicio Del Toro ve gangster/detektif filmlerinin demirbaşı Dennis Farrina&#039;yı biraraya getiren film şu....",
-      "releaseInfo": "2000",
-      "genres": [
-        "Komedi",
-        "Suç & Polisiye",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "103 dk"
     }
   ]
 }
