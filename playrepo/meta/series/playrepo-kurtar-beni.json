@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-kurtar-beni",
+    "type": "series",
+    "name": "Kurtar Beni",
+    "poster": "https://ddizimom.net/storage/tmdb/stills/w300/p4U4u0RPWlhRCGoEjwP1vr84QYK.webp?v=1784205350",
+    "background": "https://ddizimom.net/storage/tmdb/stills/w300/p4U4u0RPWlhRCGoEjwP1vr84QYK.webp?v=1784205350",
+    "description": "Kurtar Beni 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Yerel bir çeteden kaçan bir genç vurulduğunda dedektif Farid, çocukları çete....",
+    "releaseInfo": "2024",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-kurtar-beni:1:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-kurtar-beni:1:1",
+        "title": "1. Sezon 1. Bölüm",
+        "name": "1. Sezon 1. Bölüm",
+        "released": "2024-01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
