@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-dusler-fabrikasi",
+      "type": "movie",
+      "name": "Düşler Fabrikası",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iVpjYzVvCU9n4FpYk7gnZWbKcg.webp?v=1791692463",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iVpjYzVvCU9n4FpYk7gnZWbKcg.webp?v=1791692463",
+      "description": "Düşler Fabrikası (2020) full HD, Türkçe dublaj ve altyazılı izle. Zengin bir hayal gücüne sahip ve maceraperest bir kız olan Minna, bir gece rüyasında, rüyaları...",
+      "releaseInfo": "2020",
+      "genres": [
+        "Animasyon & Aile",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "81 dk"
+    },
+    {
       "id": "playrepo-axel-2-uzay-cocuklarinin-maceralari",
       "type": "movie",
       "name": "Axel 2: Uzay Çocuklarının Maceraları",
@@ -1004,21 +1020,6 @@
       ],
       "posterShape": "poster",
       "runtime": "114 dk"
-    },
-    {
-      "id": "playrepo-senden-kalanlar",
-      "type": "movie",
-      "name": "Senden Kalanlar",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mOIBMxBylXkROPSYamo16sUAZMG.webp?v=1790527438",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mOIBMxBylXkROPSYamo16sUAZMG.webp?v=1790527438",
-      "description": "Senden Kalanlar (2025) full HD, Türkçe dublaj ve altyazılı izle. The Remnants of You, babasının ani ölümünün ardından New York&#039;taki caz piyanistliği kariyerini....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "91 dk"
     }
   ]
 }
