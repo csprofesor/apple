@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-davet",
+      "type": "movie",
+      "name": "Davet",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lEwqBGNR65KZv6Ej5ufcmhZu2y2.webp?v=1788614241",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lEwqBGNR65KZv6Ej5ufcmhZu2y2.webp?v=1788614241",
+      "description": "Davet (2026) full HD, Türkçe dublaj ve altyazılı izle. Olivia Wilde ve Seth Rogen&#039;ın canlandırdığı ev sahibi çift, Edward Norton ve Penelope Cruz tarafından can...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "107 dk"
+    },
+    {
       "id": "playrepo-troller",
       "type": "movie",
       "name": "Troller",
@@ -1361,23 +1377,6 @@
       ],
       "posterShape": "poster",
       "runtime": "144 dk"
-    },
-    {
-      "id": "playrepo-thor-ask-ve-gok-gurultusu",
-      "type": "movie",
-      "name": "Thor: Aşk ve Gök Gürültüsü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jsoz1HlxczSuTx0mDl2h0lxy36l.webp?v=1787134928",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jsoz1HlxczSuTx0mDl2h0lxy36l.webp?v=1787134928",
-      "description": "Thor: Aşk ve Gök Gürültüsü (2022) full HD, Türkçe dublaj ve altyazılı izle. Marvel Studios&#039;un &quot;Thor: Aşk ve Gök Gürültüsü&quot; filminde Gök Gürültüsü Tanrısı, kendi...",
-      "releaseInfo": "2022",
-      "genres": [
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "120 dk"
     }
   ]
 }
