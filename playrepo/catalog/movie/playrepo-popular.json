@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-sierra-madre-hazineleri",
+      "type": "movie",
+      "name": "Sierra Madre Hazineleri",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/osytHgkv86CTFKxo46l9P7ACEjm.webp?v=1790292335",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/osytHgkv86CTFKxo46l9P7ACEjm.webp?v=1790292335",
+      "description": "Sierra Madre Hazineleri (1948) full HD, Türkçe dublaj ve altyazılı izle. Zengin olma hırsıyla son parasını da piyangoya yatırarak tüketen Fred (Humphrey Bogart)...",
+      "releaseInfo": "1948",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "126 dk"
+    },
+    {
       "id": "playrepo-belalilar",
       "type": "movie",
       "name": "Belalılar",
@@ -1213,22 +1229,6 @@
       ],
       "posterShape": "poster",
       "runtime": "122 dk"
-    },
-    {
-      "id": "playrepo-gizli-teskilat",
-      "type": "movie",
-      "name": "Gizli Teşkilat",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/OR8oloCZ3klJtB7Y0i8pSqWw5a.webp?v=1790248787",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/OR8oloCZ3klJtB7Y0i8pSqWw5a.webp?v=1790248787",
-      "description": "Gizli Teşkilat (1959) full HD, Türkçe dublaj ve altyazılı izle. Cary Grant yönetmen Alfred Hitchcock&#039;un en güzel gerilim filmlerinden biri olan bu filmde casus....",
-      "releaseInfo": "1959",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "137 dk"
     }
   ]
 }
