@@ -1,6 +1,59 @@
 {
   "metas": [
     {
+      "id": "tt0133093",
+      "type": "movie",
+      "name": "The Matrix",
+      "poster": "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Matrix (1999) full HD, Türkçe dublaj ve altyazılı izle. Bir bilgisayar programcısı olan Thomas Anderson aynı zamanda Neo takma isimli çok usta bir bilgisayar ko...",
+      "releaseInfo": "1999",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0133093/img",
+      "trailers": [
+        {
+          "source": "FVI84Dfx2-I",
+          "type": "Trailer"
+        },
+        {
+          "source": "d0XTFAMmhrE",
+          "type": "Trailer"
+        },
+        {
+          "source": "nUEQNVV3Gfs",
+          "type": "Trailer"
+        },
+        {
+          "source": "L0fw0WzFaBM",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "The Matrix",
+          "ytId": "FVI84Dfx2-I"
+        },
+        {
+          "title": "The Matrix",
+          "ytId": "d0XTFAMmhrE"
+        },
+        {
+          "title": "The Matrix",
+          "ytId": "nUEQNVV3Gfs"
+        },
+        {
+          "title": "The Matrix",
+          "ytId": "L0fw0WzFaBM"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=FVI84Dfx2-I",
+      "runtime": "136 dk"
+    },
+    {
       "id": "playrepo-baba-ii",
       "type": "movie",
       "name": "Baba II",
@@ -1064,24 +1117,6 @@
       ],
       "posterShape": "poster",
       "runtime": "150 dk"
-    },
-    {
-      "id": "playrepo-gel-ve-gor",
-      "type": "movie",
-      "name": "Gel ve Gör",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3Na31ta8vDuKOgQuPLdSZLs8bCB.webp?v=1790148910",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3Na31ta8vDuKOgQuPLdSZLs8bCB.webp?v=1790148910",
-      "description": "Gel ve Gör (1985) full HD, Türkçe dublaj ve altyazılı izle. 1943&#039;te Nazi işgali altındaki Belarus&#039;ta yaşayan on altı yaşındaki Flyora, toprağından kopan bir sav...",
-      "releaseInfo": "1985",
-      "genres": [
-        "Belgesel & Tarih",
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Aksiyon & Macera",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "142 dk"
     }
   ]
 }
