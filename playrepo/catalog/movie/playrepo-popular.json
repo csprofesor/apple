@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-bulbulu-oldurmek",
+      "type": "movie",
+      "name": "Bülbülü Öldürmek",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wYRpVySPCC7wA28p54yAaoMT478.webp?v=1790285164",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wYRpVySPCC7wA28p54yAaoMT478.webp?v=1790285164",
+      "description": "Bülbülü Öldürmek (1962) full HD, Türkçe dublaj ve altyazılı izle. Tecavüzle suçlanan bir zenciyi savunan güneyli bir avukatın çevresindekilerin tepkilerine rağm...",
+      "releaseInfo": "1962",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "129 dk"
+    },
+    {
       "id": "playrepo-neseli-gunler",
       "type": "movie",
       "name": "Neşeli Günler",
@@ -1111,23 +1126,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-sevimli-canavarlar",
-      "type": "movie",
-      "name": "Sevimli Canavarlar",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sDTnMOJ3H5wI38OxObmCtK7wfd5.webp?v=1790242361",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sDTnMOJ3H5wI38OxObmCtK7wfd5.webp?v=1790242361",
-      "description": "Sevimli Canavarlar (2001) full HD, Türkçe dublaj ve altyazılı izle. Canavarlar Dünyası isimli kendilerine ait bir dünyada yaşayan ve yaşayabilmek için insanlara...",
-      "releaseInfo": "2001",
-      "genres": [
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "92 dk"
     }
   ]
 }
