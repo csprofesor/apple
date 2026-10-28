@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-modern-kadin",
+    "type": "series",
+    "name": "Modern Kadın",
+    "poster": "https://ddizimom.net/storage/tmdb/stills/w300/pR0AwT069c5Y1H7aanCZQswplae.webp?v=1784261554",
+    "background": "https://ddizimom.net/storage/tmdb/stills/w300/pR0AwT069c5Y1H7aanCZQswplae.webp?v=1784261554",
+    "description": "Modern Kadın 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. 35 yaşına yalnız giren Pınar, bayram tatilini de ailesiyle memlekette geçiri...",
+    "releaseInfo": "2025",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-modern-kadin:1:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-modern-kadin:1:1",
+        "title": "1. Sezon 1. Bölüm",
+        "name": "1. Sezon 1. Bölüm",
+        "released": "2025-01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
