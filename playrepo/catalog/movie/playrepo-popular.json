@@ -1,6 +1,51 @@
 {
   "metas": [
     {
+      "id": "tt0086879",
+      "type": "movie",
+      "name": "Amadeus",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMzc2MjM0NTMtOGY4NC00NzY1LWE2ODUtZjMzY2RhNGNkZDAyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMzc2MjM0NTMtOGY4NC00NzY1LWE2ODUtZjMzY2RhNGNkZDAyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Amadeus (1984) full HD, Türkçe dublaj ve altyazılı izle. Vasat bir besteci olan Salieri ile rakip olan Wolfgang Amadeus Mozart, müzikal dehasıyla ölümsüzlük kaz...",
+      "releaseInfo": "1984",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0086879/img",
+      "trailers": [
+        {
+          "source": "pNnugovJdzM",
+          "type": "Trailer"
+        },
+        {
+          "source": "ZQV9yySOmhs",
+          "type": "Trailer"
+        },
+        {
+          "source": "_R4fbdzzXok",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Amadeus",
+          "ytId": "pNnugovJdzM"
+        },
+        {
+          "title": "Amadeus",
+          "ytId": "ZQV9yySOmhs"
+        },
+        {
+          "title": "Amadeus",
+          "ytId": "_R4fbdzzXok"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=pNnugovJdzM",
+      "runtime": "160 dk"
+    },
+    {
       "id": "playrepo-gecmisin-golgesinde",
       "type": "movie",
       "name": "Geçmişin Gölgesinde",
@@ -1090,22 +1135,6 @@
       ],
       "posterShape": "poster",
       "logo": "https://live.metahub.space/logo/medium/tt3746920/img"
-    },
-    {
-      "id": "playrepo-davet",
-      "type": "movie",
-      "name": "Davet",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lEwqBGNR65KZv6Ej5ufcmhZu2y2.webp?v=1788614241",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lEwqBGNR65KZv6Ej5ufcmhZu2y2.webp?v=1788614241",
-      "description": "Davet (2026) full HD, Türkçe dublaj ve altyazılı izle. Olivia Wilde ve Seth Rogen&#039;ın canlandırdığı ev sahibi çift, Edward Norton ve Penelope Cruz tarafından can...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "107 dk"
     }
   ]
 }
