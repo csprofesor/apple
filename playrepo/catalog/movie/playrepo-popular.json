@@ -1,6 +1,25 @@
 {
   "metas": [
     {
+      "id": "playrepo-joker-i-kili-delilik",
+      "type": "movie",
+      "name": "Joker: İkili Delilik",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/AVWlQpVhpudyFsSh3OQIieHHYf.webp?v=1792096699",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/AVWlQpVhpudyFsSh3OQIieHHYf.webp?v=1792096699",
+      "description": "Joker: İkili Delilik (2024) full HD, Türkçe dublaj ve altyazılı izle. İçindeki iki kimliğiyle boğuşan Arthur Fleck, sadece gerçek aşkı bulmakla kalmaz, aynı zam...",
+      "releaseInfo": "2024",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "HBO Max",
+        "Netflix",
+        "Popüler",
+        "Suç & Polisiye"
+      ],
+      "posterShape": "poster",
+      "runtime": "138 dk"
+    },
+    {
       "id": "playrepo-oyun-gecesi",
       "type": "movie",
       "name": "Oyun Gecesi",
@@ -1133,21 +1152,6 @@
       ],
       "posterShape": "poster",
       "runtime": "115 dk"
-    },
-    {
-      "id": "playrepo-cenaze",
-      "type": "movie",
-      "name": "Cenaze",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bYNwZn7TlX6CEkJIHdbirFHQrjS.webp?v=1791078474",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bYNwZn7TlX6CEkJIHdbirFHQrjS.webp?v=1791078474",
-      "description": "Cenaze (2024) full HD, Türkçe dublaj ve altyazılı izle. 40 yaşındaki Cemal, yalnız bir cenaze arabası şoförüdür. Rutininde hiç değişiklik yoktur. Gündüzleri ağl...",
-      "releaseInfo": "2024",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "98 dk"
     }
   ]
 }
