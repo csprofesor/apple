@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-yenilmezler-ultron-cagi",
+      "type": "movie",
+      "name": "Yenilmezler: Ultron Çağı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kIBK5SKwgqIIuRKhhWrJn3XkbPq.webp?v=1787134930",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kIBK5SKwgqIIuRKhhWrJn3XkbPq.webp?v=1787134930",
+      "description": "Yenilmezler: Ultron Çağı (2015) full HD, Türkçe dublaj ve altyazılı izle. Iron Man Tony Stark önderliğinde bir grup süper kahraman, aktif olarak kullanılmayan b...",
+      "releaseInfo": "2015",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Disney+",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "144 dk"
+    },
+    {
       "id": "playrepo-thor-ask-ve-gok-gurultusu",
       "type": "movie",
       "name": "Thor: Aşk ve Gök Gürültüsü",
@@ -1126,34 +1143,6 @@
       ],
       "posterShape": "poster",
       "runtime": "122 dk"
-    },
-    {
-      "id": "tt32306048",
-      "type": "movie",
-      "name": "Ruth & Boaz",
-      "poster": "https://m.media-amazon.com/images/M/MV5BOWY2ZGNkYTQtOWQzZC00MGM2LTg5OTEtNjE0MGM3N2M3ZjdiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BOWY2ZGNkYTQtOWQzZC00MGM2LTg5OTEtNjE0MGM3N2M3ZjdiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Ruth ve Boaz (2025) full HD, Türkçe dublaj ve altyazılı izle. Yetenekli bir şarkıcı, Atlanta müzik dünyasını bırakarak Tennessee&#039;deki küçük bir kasabada hayata....",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt32306048/img",
-      "trailers": [
-        {
-          "source": "TXPxYr5Efn4",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Ruth & Boaz",
-          "ytId": "TXPxYr5Efn4"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=TXPxYr5Efn4",
-      "runtime": "93 dk"
     }
   ]
 }
