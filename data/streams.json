@@ -137026,5 +137026,145 @@
         }
       }
     }
+  ],
+  "playrepo-falcon-ve-kis-askeri:1:1": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=483e344a51f139304d13218d5f7ce13e&token=eyJ2IjoiNDgzZTM0NGE1MWYxMzkzMDRkMTMyMThkNWY3Y2UxM2UiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0ODgwLCJuIjoiNWE1ODhkNjcwNDY5In0.85e454c2d71534cb043f813fac79082eae8d54c04a15f55bc0afd95d7ffd133c&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=nNECnvijAg1P-0xCkdmsOg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=nNECnvijAg1P-0xCkdmsOg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=483e344a51f139304d13218d5f7ce13e&sid=2200a976e1777e9c68419de427704c1a&token=eyJ2IjoiNDgzZTM0NGE1MWYxMzkzMDRkMTMyMThkNWY3Y2UxM2UiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0ODgwLCJuIjoiNWE1ODhkNjcwNDY5In0.85e454c2d71534cb043f813fac79082eae8d54c04a15f55bc0afd95d7ffd133c&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=483e344a51f139304d13218d5f7ce13e&sid=632cb85d0c4204485b5a09deca0004ea&token=eyJ2IjoiNDgzZTM0NGE1MWYxMzkzMDRkMTMyMThkNWY3Y2UxM2UiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0ODgwLCJuIjoiNWE1ODhkNjcwNDY5In0.85e454c2d71534cb043f813fac79082eae8d54c04a15f55bc0afd95d7ffd133c&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=nNECnvijAg1P-0xCkdmsOg"
+          }
+        }
+      }
+    }
+  ],
+  "playrepo-falcon-ve-kis-askeri-1-1": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=483e344a51f139304d13218d5f7ce13e&token=eyJ2IjoiNDgzZTM0NGE1MWYxMzkzMDRkMTMyMThkNWY3Y2UxM2UiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0ODgwLCJuIjoiNWE1ODhkNjcwNDY5In0.85e454c2d71534cb043f813fac79082eae8d54c04a15f55bc0afd95d7ffd133c&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=nNECnvijAg1P-0xCkdmsOg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=nNECnvijAg1P-0xCkdmsOg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=483e344a51f139304d13218d5f7ce13e&sid=2200a976e1777e9c68419de427704c1a&token=eyJ2IjoiNDgzZTM0NGE1MWYxMzkzMDRkMTMyMThkNWY3Y2UxM2UiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0ODgwLCJuIjoiNWE1ODhkNjcwNDY5In0.85e454c2d71534cb043f813fac79082eae8d54c04a15f55bc0afd95d7ffd133c&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=483e344a51f139304d13218d5f7ce13e&sid=632cb85d0c4204485b5a09deca0004ea&token=eyJ2IjoiNDgzZTM0NGE1MWYxMzkzMDRkMTMyMThkNWY3Y2UxM2UiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0ODgwLCJuIjoiNWE1ODhkNjcwNDY5In0.85e454c2d71534cb043f813fac79082eae8d54c04a15f55bc0afd95d7ffd133c&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=nNECnvijAg1P-0xCkdmsOg"
+          }
+        }
+      }
+    }
+  ],
+  "falcon-ve-kis-askeri:1:1": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=483e344a51f139304d13218d5f7ce13e&token=eyJ2IjoiNDgzZTM0NGE1MWYxMzkzMDRkMTMyMThkNWY3Y2UxM2UiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0ODgwLCJuIjoiNWE1ODhkNjcwNDY5In0.85e454c2d71534cb043f813fac79082eae8d54c04a15f55bc0afd95d7ffd133c&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=nNECnvijAg1P-0xCkdmsOg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=nNECnvijAg1P-0xCkdmsOg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=483e344a51f139304d13218d5f7ce13e&sid=2200a976e1777e9c68419de427704c1a&token=eyJ2IjoiNDgzZTM0NGE1MWYxMzkzMDRkMTMyMThkNWY3Y2UxM2UiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0ODgwLCJuIjoiNWE1ODhkNjcwNDY5In0.85e454c2d71534cb043f813fac79082eae8d54c04a15f55bc0afd95d7ffd133c&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=483e344a51f139304d13218d5f7ce13e&sid=632cb85d0c4204485b5a09deca0004ea&token=eyJ2IjoiNDgzZTM0NGE1MWYxMzkzMDRkMTMyMThkNWY3Y2UxM2UiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0ODgwLCJuIjoiNWE1ODhkNjcwNDY5In0.85e454c2d71534cb043f813fac79082eae8d54c04a15f55bc0afd95d7ffd133c&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=nNECnvijAg1P-0xCkdmsOg"
+          }
+        }
+      }
+    }
+  ],
+  "falcon-ve-kis-askeri-1-1": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=483e344a51f139304d13218d5f7ce13e&token=eyJ2IjoiNDgzZTM0NGE1MWYxMzkzMDRkMTMyMThkNWY3Y2UxM2UiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0ODgwLCJuIjoiNWE1ODhkNjcwNDY5In0.85e454c2d71534cb043f813fac79082eae8d54c04a15f55bc0afd95d7ffd133c&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=nNECnvijAg1P-0xCkdmsOg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=nNECnvijAg1P-0xCkdmsOg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=483e344a51f139304d13218d5f7ce13e&sid=2200a976e1777e9c68419de427704c1a&token=eyJ2IjoiNDgzZTM0NGE1MWYxMzkzMDRkMTMyMThkNWY3Y2UxM2UiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0ODgwLCJuIjoiNWE1ODhkNjcwNDY5In0.85e454c2d71534cb043f813fac79082eae8d54c04a15f55bc0afd95d7ffd133c&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=483e344a51f139304d13218d5f7ce13e&sid=632cb85d0c4204485b5a09deca0004ea&token=eyJ2IjoiNDgzZTM0NGE1MWYxMzkzMDRkMTMyMThkNWY3Y2UxM2UiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc0ODgwLCJuIjoiNWE1ODhkNjcwNDY5In0.85e454c2d71534cb043f813fac79082eae8d54c04a15f55bc0afd95d7ffd133c&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=nNECnvijAg1P-0xCkdmsOg"
+          }
+        }
+      }
+    }
   ]
 }
