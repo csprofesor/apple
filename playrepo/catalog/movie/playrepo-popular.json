@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "tt0090201",
+      "type": "movie",
+      "name": "Süpermenler",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTBlOWMzZTctNmM2ZC00YjZiLTllZWYtMzdhY2FhYWNmNDQzXkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMTBlOWMzZTctNmM2ZC00YjZiLTllZWYtMzdhY2FhYWNmNDQzXkEyXkFqcGc%40._V1_.jpg",
+      "description": "Süpermenler (1979) full HD, Türkçe dublaj ve altyazılı izle. Film, tarihi Bizans altınlarını elde etmeye çalışan süper kahramanların maceralarını konu alır. Ünl...",
+      "releaseInfo": "1979",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Suç & Polisiye"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0090201/img",
+      "runtime": "81 dk"
+    },
+    {
       "id": "tt5524044",
       "type": "movie",
       "name": "Madde 438",
@@ -1190,21 +1207,6 @@
       ],
       "posterShape": "poster",
       "runtime": "108 dk"
-    },
-    {
-      "id": "playrepo-duygularin-rengi",
-      "type": "movie",
-      "name": "Duyguların Rengi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wyvUmyzqGOBDyqLHRSukGDjI7bH.webp?v=1790283524",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wyvUmyzqGOBDyqLHRSukGDjI7bH.webp?v=1790283524",
-      "description": "Duyguların Rengi (2011) full HD, Türkçe dublaj ve altyazılı izle. 1960&#039;lı yılların Mississippi eyaletinde geçen filmde Eugenie “Skeeter” Phelan, iyi bir eğitim....",
-      "releaseInfo": "2011",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "146 dk"
     }
   ]
 }
