@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-kefernahum",
+      "type": "movie",
+      "name": "Kefernahum",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sEW8q9al73rtow257dXAusD9yS7.webp?v=1790146763",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sEW8q9al73rtow257dXAusD9yS7.webp?v=1790146763",
+      "description": "Kefernahum (2018) full HD, Türkçe dublaj ve altyazılı izle. Film, Zain&#039;in sıradan bir küçük çocuktan, kendisini istismar eden ailesine baş kaldırıp kaçan, zekas...",
+      "releaseInfo": "2018",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "126 dk"
+    },
+    {
       "id": "tt2380307",
       "type": "movie",
       "name": "Coco",
@@ -1147,21 +1162,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-recep-i-vedik-5",
-      "type": "movie",
-      "name": "Recep İvedik 5",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ifT6iEO8RC2BxPtJ2BrGwhigzWK.webp?v=1788808473",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ifT6iEO8RC2BxPtJ2BrGwhigzWK.webp?v=1788808473",
-      "description": "Recep İvedik 5 (2017) full HD, Türkçe dublaj ve altyazılı izle. Recep İvedik mahalle sakinlerinden İsmet&#039;in ailesine taziye ziyaretinde bulunduğu sırada eşinin....",
-      "releaseInfo": "2017",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "100 dk"
     }
   ]
 }
