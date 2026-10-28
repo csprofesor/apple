@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-kirginim-sana",
+      "type": "movie",
+      "name": "Kırgınım Sana",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9cnUiMidzgt2tsxUc2qhhlxU1bk.webp?v=1791313113",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9cnUiMidzgt2tsxUc2qhhlxU1bk.webp?v=1791313113",
+      "description": "Kırgınım Sana (2023) full HD, Türkçe dublaj ve altyazılı izle. Komedi türündeki filmde Julia Louis-Dreyfus, onu seven ve her şekilde destekleyen Don ile inanılm...",
+      "releaseInfo": "2023",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "93 dk"
+    },
+    {
       "id": "playrepo-tavuklar-firarda",
       "type": "movie",
       "name": "Tavuklar Firarda",
@@ -1053,21 +1069,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=B3tR6qQjbgI",
       "runtime": "101 dk"
-    },
-    {
-      "id": "playrepo-proje-x",
-      "type": "movie",
-      "name": "Proje X",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cUqXHZtnptgvyAE1hN47Wsf3ami.webp?v=1790386801",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cUqXHZtnptgvyAE1hN47Wsf3ami.webp?v=1790386801",
-      "description": "Proje X (2012) full HD, Türkçe dublaj ve altyazılı izle. 3 çılgın lise öğrencisi, kaybeden hallerinden kurtulmak ve &quot;biraz&quot; eğlenmek için büyük bir doğum günü p...",
-      "releaseInfo": "2012",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "88 dk"
     }
   ]
 }
