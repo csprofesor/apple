@@ -1,6 +1,25 @@
 {
   "metas": [
     {
+      "id": "playrepo-orumcek-adam",
+      "type": "movie",
+      "name": "Örümcek Adam",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zQ8AxTPiCiS5nnwXpwTBPBHSaa5.webp?v=1787152726",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zQ8AxTPiCiS5nnwXpwTBPBHSaa5.webp?v=1787152726",
+      "description": "Örümcek Adam (2002) full HD, Türkçe dublaj ve altyazılı izle. Sıradan bir lise öğrencisi olan Peter Parker&#039;ın hayatı bir gün bir örümcek tarafından ısırılmasıyl...",
+      "releaseInfo": "2002",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Disney+",
+        "Aksiyon & Macera",
+        "Netflix",
+        "Hulu",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "189 dk"
+    },
+    {
       "id": "tt5463162",
       "type": "movie",
       "name": "Deadpool 2",
@@ -1324,22 +1343,6 @@
       ],
       "posterShape": "poster",
       "runtime": "118 dk"
-    },
-    {
-      "id": "playrepo-sessiz-tepe-donus",
-      "type": "movie",
-      "name": "Sessiz Tepe: Dönüş",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/v0NEB75SZjxY8GS3ho8WeEvjIT3.webp?v=1786814844",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/v0NEB75SZjxY8GS3ho8WeEvjIT3.webp?v=1786814844",
-      "description": "Sessiz Tepe: Dönüş (2026) full HD, Türkçe dublaj ve altyazılı izle. Hayatının aşkı Mary&#039;yi kaybetmesinin ardından ondan gizemli bir mesaj alan James, Sessiz Tep...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Hulu",
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "106 dk"
     }
   ]
 }
