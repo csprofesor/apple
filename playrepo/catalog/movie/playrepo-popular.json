@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-seytan-cocuk",
+      "type": "movie",
+      "name": "Şeytan Çocuk",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sB0OKXxvADdXprh4e26Lm9wgM12.webp?v=1790030006",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sB0OKXxvADdXprh4e26Lm9wgM12.webp?v=1790030006",
+      "description": "Şeytan Çocuk (2026) full HD, Türkçe dublaj ve altyazılı izle. Üç yıldır sahnelenen &quot;Şeytan Çocuk&quot;ta Baturay Özdemir; metropol hayatından, 30&#039;lu yaşlarda değişen...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "99 dk"
+    },
+    {
       "id": "playrepo-yolda-kaldim",
       "type": "movie",
       "name": "Yolda Kaldım",
@@ -1114,21 +1129,6 @@
       ],
       "posterShape": "poster",
       "runtime": "91 dk"
-    },
-    {
-      "id": "tt12737834",
-      "type": "movie",
-      "name": "Plaza",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNGY3MGU1NWEtZWRiMy00YzUwLWJlNTYtZGVlODFjMWI1MjM1XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNGY3MGU1NWEtZWRiMy00YzUwLWJlNTYtZGVlODFjMWI1MjM1XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Plaza (2020) full HD, Türkçe dublaj ve altyazılı izle. Atanamamış bir öğretmen olan Emre ailesinin yönlendirmesiyle, eğitimini alıp güvenlik görevlisi olur. Önc...",
-      "releaseInfo": "2020",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://live.metahub.space/logo/medium/tt12737834/img",
-      "runtime": "88 dk"
     }
   ]
 }
