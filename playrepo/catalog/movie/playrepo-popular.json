@@ -1,6 +1,37 @@
 {
   "metas": [
     {
+      "id": "tt43689138",
+      "type": "movie",
+      "name": "Lego Disney Princess: Magical Mayhem",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNGE3OWMxNWEtOThjZi00YzZmLTliYjctMDdkZTcxYjBiMmYwXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNGE3OWMxNWEtOThjZi00YzZmLTliYjctMDdkZTcxYjBiMmYwXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "LEGO Disney Princess: Magical Mayhem (2026) full HD, Türkçe dublaj ve altyazılı izle.",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt43689138/img",
+      "trailers": [
+        {
+          "source": "xcxi10laLUQ",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Fragman",
+          "ytId": "xcxi10laLUQ"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=xcxi10laLUQ",
+      "runtime": "22 dk"
+    },
+    {
       "id": "playrepo-ejderhalar-kurtarici-ekibi-altin-ejder-avi",
       "type": "movie",
       "name": "Ejderhalar: Kurtarıcı Ekibi: Altın Ejder Avı",
@@ -1145,25 +1176,6 @@
       ],
       "posterShape": "poster",
       "runtime": "96 dk"
-    },
-    {
-      "id": "playrepo-koralin-ve-gizli-dunya",
-      "type": "movie",
-      "name": "Koralin ve Gizli Dünya",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hofnlIyF6bePkgQOpcuRWLvzf15.webp?v=1791694209",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hofnlIyF6bePkgQOpcuRWLvzf15.webp?v=1791694209",
-      "description": "Koralin ve Gizli Dünya (2009) full HD, Türkçe dublaj ve altyazılı izle. Coraline eski bir eve taşındığında canı çok sıkılır ve ailesi tarafından da ihmal edilir...",
-      "releaseInfo": "2009",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Korku & Gerilim",
-        "Animasyon & Aile",
-        "Hulu",
-        "HBO Max",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "100 dk"
     }
   ]
 }

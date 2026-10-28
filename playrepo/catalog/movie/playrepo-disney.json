@@ -1,6 +1,37 @@
 {
   "metas": [
     {
+      "id": "tt43689138",
+      "type": "movie",
+      "name": "Lego Disney Princess: Magical Mayhem",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNGE3OWMxNWEtOThjZi00YzZmLTliYjctMDdkZTcxYjBiMmYwXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNGE3OWMxNWEtOThjZi00YzZmLTliYjctMDdkZTcxYjBiMmYwXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "LEGO Disney Princess: Magical Mayhem (2026) full HD, Türkçe dublaj ve altyazılı izle.",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt43689138/img",
+      "trailers": [
+        {
+          "source": "xcxi10laLUQ",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Fragman",
+          "ytId": "xcxi10laLUQ"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=xcxi10laLUQ",
+      "runtime": "22 dk"
+    },
+    {
       "id": "playrepo-orumcek-adam-3",
       "type": "movie",
       "name": "Örümcek Adam 3",
