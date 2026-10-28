@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-yellow-mirror",
+      "type": "movie",
+      "name": "Yellow Mirror",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qKdkPfBASoy7dmOEklAeAtNHXm9.webp?v=1787753842",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qKdkPfBASoy7dmOEklAeAtNHXm9.webp?v=1787753842",
+      "description": "Yellow Mirror (2026) full HD, Türkçe dublaj ve altyazılı izle. Yellow Mirror, The Simpsons karakterlerinin Black Mirror tarzı teknoloji distopyasını alay eden 2...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "27 dk"
+    },
+    {
       "id": "playrepo-tom-ve-jerry-kayip-pusula",
       "type": "movie",
       "name": "Tom ve Jerry: Kayıp Pusula",
@@ -1352,19 +1369,6 @@
       ],
       "posterShape": "poster",
       "logo": "https://live.metahub.space/logo/medium/tt44929926/img"
-    },
-    {
-      "id": "playrepo-son-perde-ask",
-      "type": "movie",
-      "name": "Son Perde Aşk",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/32KaQprnGgZQBBJA4qYcHWvfgHH.webp?v=1787044087",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/32KaQprnGgZQBBJA4qYcHWvfgHH.webp?v=1787044087",
-      "description": "Son Perde Aşk (2026) full HD, Türkçe dublaj ve altyazılı izle. Gizem, kızı Bade’yi korumak için yıllardır kurduğu düzeni sürdürürken hayatına Onur’un girmesiyle...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster"
     }
   ]
 }
