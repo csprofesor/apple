@@ -114764,5 +114764,75 @@
         }
       }
     }
+  ],
+  "playrepo-baba-parasi": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=f24f6f688b57f6ccdf019d27572abf81&token=eyJ2IjoiZjI0ZjZmNjg4YjU3ZjZjY2RmMDE5ZDI3NTcyYWJmODEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY4MTQzLCJuIjoiYjRhZDQyMmMwMTk1In0.2e75695b23050ecd9a0e2c0163668f255dab7f9fb9f79b47b268b2e39b471456&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=2mxsgBDMJqxFkgbxeW_6wg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=2mxsgBDMJqxFkgbxeW_6wg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=f24f6f688b57f6ccdf019d27572abf81&sid=1efb8f52aecf03bd2c0d7117b3aea5c1&token=eyJ2IjoiZjI0ZjZmNjg4YjU3ZjZjY2RmMDE5ZDI3NTcyYWJmODEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY4MTQzLCJuIjoiYjRhZDQyMmMwMTk1In0.2e75695b23050ecd9a0e2c0163668f255dab7f9fb9f79b47b268b2e39b471456&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=f24f6f688b57f6ccdf019d27572abf81&sid=80b410e09ce1cdb984ddceab61f136be&token=eyJ2IjoiZjI0ZjZmNjg4YjU3ZjZjY2RmMDE5ZDI3NTcyYWJmODEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY4MTQzLCJuIjoiYjRhZDQyMmMwMTk1In0.2e75695b23050ecd9a0e2c0163668f255dab7f9fb9f79b47b268b2e39b471456&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=2mxsgBDMJqxFkgbxeW_6wg"
+          }
+        }
+      }
+    }
+  ],
+  "baba-parasi": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=f24f6f688b57f6ccdf019d27572abf81&token=eyJ2IjoiZjI0ZjZmNjg4YjU3ZjZjY2RmMDE5ZDI3NTcyYWJmODEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY4MTQzLCJuIjoiYjRhZDQyMmMwMTk1In0.2e75695b23050ecd9a0e2c0163668f255dab7f9fb9f79b47b268b2e39b471456&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=2mxsgBDMJqxFkgbxeW_6wg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=2mxsgBDMJqxFkgbxeW_6wg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=f24f6f688b57f6ccdf019d27572abf81&sid=1efb8f52aecf03bd2c0d7117b3aea5c1&token=eyJ2IjoiZjI0ZjZmNjg4YjU3ZjZjY2RmMDE5ZDI3NTcyYWJmODEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY4MTQzLCJuIjoiYjRhZDQyMmMwMTk1In0.2e75695b23050ecd9a0e2c0163668f255dab7f9fb9f79b47b268b2e39b471456&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=f24f6f688b57f6ccdf019d27572abf81&sid=80b410e09ce1cdb984ddceab61f136be&token=eyJ2IjoiZjI0ZjZmNjg4YjU3ZjZjY2RmMDE5ZDI3NTcyYWJmODEiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY4MTQzLCJuIjoiYjRhZDQyMmMwMTk1In0.2e75695b23050ecd9a0e2c0163668f255dab7f9fb9f79b47b268b2e39b471456&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=2mxsgBDMJqxFkgbxeW_6wg"
+          }
+        }
+      }
+    }
   ]
 }

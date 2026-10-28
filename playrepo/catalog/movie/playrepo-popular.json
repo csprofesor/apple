@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-baba-parasi",
+      "type": "movie",
+      "name": "Baba Parası",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6nlwVQe1BFoeCBWNJQEPYnQVcpm.webp?v=1791694105",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6nlwVQe1BFoeCBWNJQEPYnQVcpm.webp?v=1791694105",
+      "description": "Baba Parası (2020) full HD, Türkçe dublaj ve altyazılı izle. Hiçbir ortak noktası olmayan kardeşler, babalarının ölümünün ardından aile mirasının bulunduğu kasa...",
+      "releaseInfo": "2020",
+      "genres": [
+        "Komedi",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "116 dk"
+    },
+    {
       "id": "playrepo-dusler-fabrikasi",
       "type": "movie",
       "name": "Düşler Fabrikası",
@@ -1005,21 +1020,6 @@
       "posterShape": "poster",
       "logo": "https://images.metahub.space/logo/medium/tt15353166/img",
       "runtime": "84 dk"
-    },
-    {
-      "id": "playrepo-yaz-askim",
-      "type": "movie",
-      "name": "Yaz Aşkım",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/y6lSJean1Q103TymChBKig231Fy.webp?v=1790528798",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/y6lSJean1Q103TymChBKig231Fy.webp?v=1790528798",
-      "description": "Yaz Aşkım (2024) full HD, Türkçe dublaj ve altyazılı izle. 1999 yılında geçen hikâyede, genç Sasha ve ailesi yaz tatillerini bir sanatoryumda geçirmektedir. Sas...",
-      "releaseInfo": "2024",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "runtime": "114 dk"
     }
   ]
 }
