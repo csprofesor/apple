@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-yol-turkusu",
+      "type": "movie",
+      "name": "Yol Türküsü",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wadoNHCMPElgYuOqLxqDQqXpTMx.webp?v=1790248427",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wadoNHCMPElgYuOqLxqDQqXpTMx.webp?v=1790248427",
+      "description": "Yol Türküsü (1955) full HD, Türkçe dublaj ve altyazılı izle. 20. yüzyılın başlarında, Bangladeş&#039;in bir köyünde fakir bir Brahman ailesinin Apu adında bir çocukl...",
+      "releaseInfo": "1955",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "125 dk"
+    },
+    {
       "id": "playrepo-bay-smith-washington-039-a-gidiyor",
       "type": "movie",
       "name": "Bay Smith Washington&#039;a Gidiyor",
@@ -1272,23 +1288,6 @@
       ],
       "posterShape": "poster",
       "runtime": "118 dk"
-    },
-    {
-      "id": "playrepo-batman-basliyor",
-      "type": "movie",
-      "name": "Batman Başlıyor",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9IIBboV7MCT0bTxzXHmWK1Hq558.webp?v=1790211471",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9IIBboV7MCT0bTxzXHmWK1Hq558.webp?v=1790211471",
-      "description": "Batman Başlıyor (2005) full HD, Türkçe dublaj ve altyazılı izle. Çocukken yaşadığı trajik kayıptan beslenen milyarder Bruce Wayne, adaletin izini sürmek ve suçu...",
-      "releaseInfo": "2005",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "140 dk"
     }
   ]
 }
