@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-i-nanilmaz-aile",
+      "type": "movie",
+      "name": "İnanılmaz Aile",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lxwzY9vNwjDgxWKt3zZ6zcU6rEJ.webp?v=1790270991",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lxwzY9vNwjDgxWKt3zZ6zcU6rEJ.webp?v=1790270991",
+      "description": "İnanılmaz Aile (2004) full HD, Türkçe dublaj ve altyazılı izle. Animasyon kahramanı Mr Incredible adı altında dünyada var olan kötülüklerle mücadele eden ve ins...",
+      "releaseInfo": "2004",
+      "genres": [
+        "Animasyon & Aile",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "115 dk"
+    },
+    {
       "id": "playrepo-avci",
       "type": "movie",
       "name": "Avcı",
@@ -1233,25 +1249,6 @@
       ],
       "posterShape": "poster",
       "runtime": "127 dk"
-    },
-    {
-      "id": "playrepo-yuruyen-sato",
-      "type": "movie",
-      "name": "Yürüyen Şato",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nv5wwZou159v5OC61i4ElR7OqyY.webp?v=1790234558",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nv5wwZou159v5OC61i4ElR7OqyY.webp?v=1790234558",
-      "description": "Yürüyen Şato (2004) full HD, Türkçe dublaj ve altyazılı izle. Sıradan bir genç kız olan Sophie şeytani bir cadı tarafından büyüyle doksan yaşında bir kadına dön...",
-      "releaseInfo": "2004",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "HBO Max",
-        "Aksiyon & Macera",
-        "Netflix",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "119 dk"
     }
   ]
 }
