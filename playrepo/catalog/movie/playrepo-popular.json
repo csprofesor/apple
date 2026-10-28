@@ -1,6 +1,43 @@
 {
   "metas": [
     {
+      "id": "tt3501632",
+      "type": "movie",
+      "name": "Thor: Ragnarok",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMjMyNDkzMzI1OF5BMl5BanBnXkFtZTgwODcxODg5MjI%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMjMyNDkzMzI1OF5BMl5BanBnXkFtZTgwODcxODg5MjI%40._V1_SX250.jpg",
+      "description": "Thor: Ragnarok (2017) full HD, Türkçe dublaj ve altyazılı izle. Marvel Stüdyoları&#039;nın Thor: Ragnarok filminde, Thor evrenin diğer tarafında tutukludur ve güçlü....",
+      "releaseInfo": "2017",
+      "genres": [
+        "Komedi",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt3501632/img",
+      "trailers": [
+        {
+          "source": "ue80QwXMRHg",
+          "type": "Trailer"
+        },
+        {
+          "source": "v7MGUNV8MxU",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Thor: Ragnarok",
+          "ytId": "ue80QwXMRHg"
+        },
+        {
+          "title": "Thor: Ragnarok",
+          "ytId": "v7MGUNV8MxU"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=ue80QwXMRHg",
+      "runtime": "131 dk"
+    },
+    {
       "id": "playrepo-avengers-sonsuzluk-savasi",
       "type": "movie",
       "name": "Avengers: Sonsuzluk Savaşı",
@@ -1128,22 +1165,6 @@
       ],
       "posterShape": "poster",
       "runtime": "127 dk"
-    },
-    {
-      "id": "playrepo-sampiyon-keci-tum-zamanlarin-en-i-yisi",
-      "type": "movie",
-      "name": "Şampiyon Keçi: Tüm Zamanların En İyisi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tq3h43fZy0H80vzf47MAY7R9Mxo.webp?v=1785774223",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tq3h43fZy0H80vzf47MAY7R9Mxo.webp?v=1785774223",
-      "description": "Şampiyon Keçi: Tüm Zamanların En İyisi (2026) full HD, Türkçe dublaj ve altyazılı izle. Büyük hayalleri olan minik bir keçi olan Will, hayatında bir kez karşına...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Animasyon & Aile",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "100 dk"
     }
   ]
 }
