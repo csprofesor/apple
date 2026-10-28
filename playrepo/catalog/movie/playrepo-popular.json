@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-robot-ron-bir-sorun-var",
+      "type": "movie",
+      "name": "Robot Ron: Bir Sorun Var",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sdL37sfUBth7mdkAolI83bXAl7L.webp?v=1792850369",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/sdL37sfUBth7mdkAolI83bXAl7L.webp?v=1792850369",
+      "description": "Robot Ron: Bir Sorun Var (2021) full HD, Türkçe dublaj ve altyazılı izle. Dünya, robotlala çocukların yakın arkadaş olduğu bir hale gelmiştir. 11 yaşındaki sosy...",
+      "releaseInfo": "2021",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "106 dk"
+    },
+    {
       "id": "playrepo-penguen-arkadasim",
       "type": "movie",
       "name": "Penguen Arkadaşım",
@@ -1149,22 +1166,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "playrepo-altin-pusula",
-      "type": "movie",
-      "name": "Altın Pusula",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qifYc5jT4CZxmLH9DfOlipioSPp.webp?v=1791613256",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qifYc5jT4CZxmLH9DfOlipioSPp.webp?v=1791613256",
-      "description": "Altın Pusula (2007) full HD, Türkçe dublaj ve altyazılı izle. Bizimkine paralel bir dünyada, on iki yaşındaki didişken Lyra ile cini Pantalaimon, bildiğimiz Oxf...",
-      "releaseInfo": "2007",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "113 dk"
     }
   ]
 }
