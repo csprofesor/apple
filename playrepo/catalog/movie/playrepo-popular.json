@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-kurtulus",
+      "type": "movie",
+      "name": "Kurtuluş",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9LXbwBaFz4lvhLrIc1uxoSvp8n9.webp?v=1791612309",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9LXbwBaFz4lvhLrIc1uxoSvp8n9.webp?v=1791612309",
+      "description": "Kurtuluş (2026) full HD, Türkçe dublaj ve altyazılı izle. Kurtuluş, korucu Hazeran Aşireti ile yıllar önce terk etmek zorunda kaldıkları köylerine geri dönen Be...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "120 dk"
+    },
+    {
       "id": "playrepo-askin-gucu",
       "type": "movie",
       "name": "Aşkın Gücü",
@@ -1001,21 +1017,6 @@
       ],
       "posterShape": "poster",
       "runtime": "106 dk"
-    },
-    {
-      "id": "playrepo-yaban-cilekleri",
-      "type": "movie",
-      "name": "Yaban Çilekleri",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/BBVAUchYvkmPThVIqipgAfabfl.webp?v=1790456782",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/BBVAUchYvkmPThVIqipgAfabfl.webp?v=1790456782",
-      "description": "Yaban Çilekleri (1957) full HD, Türkçe dublaj ve altyazılı izle. En Uzun Yolculuğun Sonunda Yine Yalnızlık Vardır... Berlin Film Festivali&#039;nde En İyi Film ödülü...",
-      "releaseInfo": "1957",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "91 dk"
     }
   ]
 }
