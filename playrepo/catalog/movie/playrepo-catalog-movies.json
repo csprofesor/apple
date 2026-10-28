@@ -1,6 +1,34 @@
 {
   "metas": [
     {
+      "id": "tt37538335",
+      "type": "movie",
+      "name": "Lego Friends: Heartlake the Musical",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTRkZmFmNTQtNTk3OS00YzljLWIwNTQtNTcxYjk3YzE3NTQ1XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMTRkZmFmNTQtNTk3OS00YzljLWIwNTQtNTcxYjk3YzE3NTQ1XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "LEGO Friends: Heartlake the Musical (2026) full HD, Türkçe dublaj ve altyazılı izle.",
+      "releaseInfo": "2026",
+      "genres": [
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt37538335/img",
+      "trailers": [
+        {
+          "source": "0rT0C92Z2ks",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Fragman",
+          "ytId": "0rT0C92Z2ks"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=0rT0C92Z2ks",
+      "runtime": "50 dk"
+    },
+    {
       "id": "playrepo-sense8-creating-the-world",
       "type": "movie",
       "name": "Sense8: Creating the World",
