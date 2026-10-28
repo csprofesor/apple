@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-olum-korkusu",
+      "type": "movie",
+      "name": "Ölüm Korkusu",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rtVwkTqllcmyY4TVOycgVBHppWf.webp?v=1790290017",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rtVwkTqllcmyY4TVOycgVBHppWf.webp?v=1790290017",
+      "description": "Ölüm Korkusu (1958) full HD, Türkçe dublaj ve altyazılı izle. Vertigo, Hitchcock’un teknik ve işlediği konu itibariyle sinema tarihinin en önemli yapıtlarından....",
+      "releaseInfo": "1958",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "runtime": "128 dk"
+    },
+    {
       "id": "tt0434409",
       "type": "movie",
       "name": "V for Vendetta",
@@ -1193,35 +1208,6 @@
       ],
       "posterShape": "poster",
       "runtime": "108 dk"
-    },
-    {
-      "id": "tt0017136",
-      "type": "movie",
-      "name": "Metropolis",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMjhjMGYyMjAtMzJkYy00NzhlLWIwY2MtMWQ2ODIxZDUyOGYyXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMjhjMGYyMjAtMzJkYy00NzhlLWIwY2MtMWQ2ODIxZDUyOGYyXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Metropolis (1927) full HD, Türkçe dublaj ve altyazılı izle. Gelecek zaman… İnsanlar iki gruba ayrılmış durumdadır: düşünenler (ancak hiçbir makinenin nasıl çalı...",
-      "releaseInfo": "1927",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0017136/img",
-      "trailers": [
-        {
-          "source": "ZAvzaOxDt2c",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Metropolis",
-          "ytId": "ZAvzaOxDt2c"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=ZAvzaOxDt2c",
-      "runtime": "148 dk"
     }
   ]
 }
