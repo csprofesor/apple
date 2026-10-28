@@ -1,6 +1,25 @@
 {
   "metas": [
     {
+      "id": "playrepo-yildizlararasi",
+      "type": "movie",
+      "name": "Yıldızlararası",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8sNiAPPYU14PUepFNeSNGUTiHW.webp?v=1790163060",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8sNiAPPYU14PUepFNeSNGUTiHW.webp?v=1790163060",
+      "description": "Yıldızlararası (2014) full HD, Türkçe dublaj ve altyazılı izle. Dünya&#039;nın kuraklık ve kıtlıkla yok oluşun eşiğine geldiği bir gelecekte, insanlığın hayatta kala...",
+      "releaseInfo": "2014",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Prime Video",
+        "Dram & Romantik",
+        "HBO Max",
+        "Aksiyon & Macera",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "169 dk"
+    },
+    {
       "id": "playrepo-leon-sevginin-gucu",
       "type": "movie",
       "name": "Leon: Sevginin Gücü",
@@ -1173,21 +1192,6 @@
       ],
       "posterShape": "poster",
       "runtime": "162 dk"
-    },
-    {
-      "id": "playrepo-mezuniyet-gezisi-mallorca",
-      "type": "movie",
-      "name": "Mezuniyet Gezisi: Mallorca",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/z5caDtY3tn6rwbzB8iIA8PFCqYN.webp?v=1789625619",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/z5caDtY3tn6rwbzB8iIA8PFCqYN.webp?v=1789625619",
-      "description": "Mezuniyet Gezisi: Mallorca (2025) full HD, Türkçe dublaj ve altyazılı izle. 2021. Bir yıl süren kapanmanın ardından bir grup öğrenci Mallorca&#039;ya mezuniyet gezis...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "113 dk"
     }
   ]
 }
