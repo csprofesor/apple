@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "id": "playrepo-ratatuy",
+    "type": "movie",
+    "name": "Ratatuy",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qxGmHvmjlBlH5WZOhdHEHAjHaMB.webp?v=1790252541",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qxGmHvmjlBlH5WZOhdHEHAjHaMB.webp?v=1790252541",
+    "description": "Ratatuy (2007) full HD, Türkçe dublaj ve altyazılı izle. Şişman fare Remy, yemeğe olan düşkünlüğü nedeniyle tek bir hayale sahiptir: Aşçı olabilmek! Bu idealini...",
+    "releaseInfo": "2007",
+    "genres": [
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Animasyon & Aile",
+      "Hulu",
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-ratatuy",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-ratatuy",
+        "title": "Ratatuy",
+        "name": "Ratatuy",
+        "released": "2007-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "111 dk"
+  }
+}
