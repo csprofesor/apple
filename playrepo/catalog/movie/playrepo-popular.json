@@ -1,6 +1,19 @@
 {
   "metas": [
     {
+      "id": "playrepo-ongoru",
+      "type": "movie",
+      "name": "Öngörü",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/y8oP4rlDrhflW7LlRDfgVKePW7q.webp?v=1787909922",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/y8oP4rlDrhflW7LlRDfgVKePW7q.webp?v=1787909922",
+      "description": "Öngörü (2026) full HD, Türkçe dublaj ve altyazılı izle. Selen’in rüyaları geleceği haber verir. Yıllarca başkalarının kaderine dokunan bu öngörüler, bir gün onu...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Popüler"
+      ],
+      "posterShape": "poster"
+    },
+    {
       "id": "playrepo-yellow-mirror",
       "type": "movie",
       "name": "Yellow Mirror",
@@ -1355,20 +1368,6 @@
       ],
       "posterShape": "poster",
       "runtime": "111 dk"
-    },
-    {
-      "id": "tt44929926",
-      "type": "movie",
-      "name": "Kör Talih",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMGJkMzg2ZTgtZjFkMy00Zjg2LThjNTAtY2FjM2YxZmE5YzVhXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMGJkMzg2ZTgtZjFkMy00Zjg2LThjNTAtY2FjM2YxZmE5YzVhXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Kör Talih (2025) full HD, Türkçe dublaj ve altyazılı izle. At her friend&#039;s insistence, Damla goes on a date she doesn&#039;t want to, mistaking Zafer, the owner of t...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://live.metahub.space/logo/medium/tt44929926/img"
     }
   ]
 }
