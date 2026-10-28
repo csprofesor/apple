@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-karsilasma",
+      "type": "movie",
+      "name": "Karşılaşma",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tVCg0HYPLFVYljiQXJCWTY43LJR.webp?v=1791078486",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tVCg0HYPLFVYljiQXJCWTY43LJR.webp?v=1791078486",
+      "description": "Karşılaşma (2025) full HD, Türkçe dublaj ve altyazılı izle. Efsanevi bir Go ustası, bir zamanlar arkadaşı ve öğrencisi olan bir oyuncuya şampiyonluğu kaptırınca...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "115 dk"
+    },
+    {
       "id": "playrepo-ceset",
       "type": "movie",
       "name": "Ceset",
@@ -1160,23 +1176,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=Klc__shdj88",
       "runtime": "131 dk"
-    },
-    {
-      "id": "playrepo-yukari-bak",
-      "type": "movie",
-      "name": "Yukarı Bak",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hGGC9gKo7CFE3fW07RA587e5kol.webp?v=1790288578",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hGGC9gKo7CFE3fW07RA587e5kol.webp?v=1790288578",
-      "description": "Yukarı Bak (2009) full HD, Türkçe dublaj ve altyazılı izle. Hayatı boyunca yaşamak istediği macera hayalini gerçekleştirmek için evine binlerce balon bağlayıp G...",
-      "releaseInfo": "2009",
-      "genres": [
-        "Komedi",
-        "Animasyon & Aile",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "96 dk"
     }
   ]
 }
