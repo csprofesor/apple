@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-komsum-totoro",
+      "type": "movie",
+      "name": "Komşum Totoro",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zkThiZAaAie8Lw7RAc5yPTOewBV.webp?v=1790243788",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zkThiZAaAie8Lw7RAc5yPTOewBV.webp?v=1790243788",
+      "description": "Komşum Totoro (1988) full HD, Türkçe dublaj ve altyazılı izle. İki sevimli kız kardeş olan Satsuke ve Mei, babaları ile birlikte hastanede yatan annelerine daha...",
+      "releaseInfo": "1988",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "86 dk"
+    },
+    {
       "id": "tt1392190",
       "type": "movie",
       "name": "Mad Max: Fury Road",
@@ -1254,24 +1270,6 @@
       ],
       "posterShape": "poster",
       "runtime": "135 dk"
-    },
-    {
-      "id": "playrepo-alaaddin",
-      "type": "movie",
-      "name": "Alaaddin",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nenJjvfe2Eq8uBMXFJnWj5mw4bi.webp?v=1790206169",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nenJjvfe2Eq8uBMXFJnWj5mw4bi.webp?v=1790206169",
-      "description": "Alaaddin (1992) full HD, Türkçe dublaj ve altyazılı izle. Agrabah şehrinin kalbinde, köylü Alaaddin ve onun yaramaz maymunu Abu, özgür ruhlu güzel prenses Yasem...",
-      "releaseInfo": "1992",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Dram & Romantik",
-        "Aksiyon & Macera",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "91 dk"
     }
   ]
 }
