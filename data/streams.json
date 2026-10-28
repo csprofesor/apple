@@ -179692,5 +179692,145 @@
         }
       }
     }
+  ],
+  "playrepo-monarch-canavarlarin-mirasi:1:1": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=7aaad63748b012a3863153109b5bbf87&token=eyJ2IjoiN2FhYWQ2Mzc0OGIwMTJhMzg2MzE1MzEwOWI1YmJmODciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4Mjc4LCJuIjoiY2M2NDFkNWE0MzNlIn0.35690cbc0b8b8cb6f0dd79532f932b92fd966b13bbbc02efaced88bc25853ef6&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=HFktxE5lA3aTfiwz78C2cQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=HFktxE5lA3aTfiwz78C2cQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7aaad63748b012a3863153109b5bbf87&sid=37b79ea2eb684c1deec8721aa15c30b1&token=eyJ2IjoiN2FhYWQ2Mzc0OGIwMTJhMzg2MzE1MzEwOWI1YmJmODciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4Mjc4LCJuIjoiY2M2NDFkNWE0MzNlIn0.35690cbc0b8b8cb6f0dd79532f932b92fd966b13bbbc02efaced88bc25853ef6&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7aaad63748b012a3863153109b5bbf87&sid=c011539aff7bc737a83728f00914a905&token=eyJ2IjoiN2FhYWQ2Mzc0OGIwMTJhMzg2MzE1MzEwOWI1YmJmODciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4Mjc4LCJuIjoiY2M2NDFkNWE0MzNlIn0.35690cbc0b8b8cb6f0dd79532f932b92fd966b13bbbc02efaced88bc25853ef6&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=HFktxE5lA3aTfiwz78C2cQ"
+          }
+        }
+      }
+    }
+  ],
+  "playrepo-monarch-canavarlarin-mirasi-1-1": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=7aaad63748b012a3863153109b5bbf87&token=eyJ2IjoiN2FhYWQ2Mzc0OGIwMTJhMzg2MzE1MzEwOWI1YmJmODciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4Mjc4LCJuIjoiY2M2NDFkNWE0MzNlIn0.35690cbc0b8b8cb6f0dd79532f932b92fd966b13bbbc02efaced88bc25853ef6&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=HFktxE5lA3aTfiwz78C2cQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=HFktxE5lA3aTfiwz78C2cQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7aaad63748b012a3863153109b5bbf87&sid=37b79ea2eb684c1deec8721aa15c30b1&token=eyJ2IjoiN2FhYWQ2Mzc0OGIwMTJhMzg2MzE1MzEwOWI1YmJmODciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4Mjc4LCJuIjoiY2M2NDFkNWE0MzNlIn0.35690cbc0b8b8cb6f0dd79532f932b92fd966b13bbbc02efaced88bc25853ef6&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7aaad63748b012a3863153109b5bbf87&sid=c011539aff7bc737a83728f00914a905&token=eyJ2IjoiN2FhYWQ2Mzc0OGIwMTJhMzg2MzE1MzEwOWI1YmJmODciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4Mjc4LCJuIjoiY2M2NDFkNWE0MzNlIn0.35690cbc0b8b8cb6f0dd79532f932b92fd966b13bbbc02efaced88bc25853ef6&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=HFktxE5lA3aTfiwz78C2cQ"
+          }
+        }
+      }
+    }
+  ],
+  "monarch-canavarlarin-mirasi:1:1": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=7aaad63748b012a3863153109b5bbf87&token=eyJ2IjoiN2FhYWQ2Mzc0OGIwMTJhMzg2MzE1MzEwOWI1YmJmODciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4Mjc4LCJuIjoiY2M2NDFkNWE0MzNlIn0.35690cbc0b8b8cb6f0dd79532f932b92fd966b13bbbc02efaced88bc25853ef6&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=HFktxE5lA3aTfiwz78C2cQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=HFktxE5lA3aTfiwz78C2cQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7aaad63748b012a3863153109b5bbf87&sid=37b79ea2eb684c1deec8721aa15c30b1&token=eyJ2IjoiN2FhYWQ2Mzc0OGIwMTJhMzg2MzE1MzEwOWI1YmJmODciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4Mjc4LCJuIjoiY2M2NDFkNWE0MzNlIn0.35690cbc0b8b8cb6f0dd79532f932b92fd966b13bbbc02efaced88bc25853ef6&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7aaad63748b012a3863153109b5bbf87&sid=c011539aff7bc737a83728f00914a905&token=eyJ2IjoiN2FhYWQ2Mzc0OGIwMTJhMzg2MzE1MzEwOWI1YmJmODciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4Mjc4LCJuIjoiY2M2NDFkNWE0MzNlIn0.35690cbc0b8b8cb6f0dd79532f932b92fd966b13bbbc02efaced88bc25853ef6&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=HFktxE5lA3aTfiwz78C2cQ"
+          }
+        }
+      }
+    }
+  ],
+  "monarch-canavarlarin-mirasi-1-1": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=7aaad63748b012a3863153109b5bbf87&token=eyJ2IjoiN2FhYWQ2Mzc0OGIwMTJhMzg2MzE1MzEwOWI1YmJmODciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4Mjc4LCJuIjoiY2M2NDFkNWE0MzNlIn0.35690cbc0b8b8cb6f0dd79532f932b92fd966b13bbbc02efaced88bc25853ef6&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=HFktxE5lA3aTfiwz78C2cQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=HFktxE5lA3aTfiwz78C2cQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7aaad63748b012a3863153109b5bbf87&sid=37b79ea2eb684c1deec8721aa15c30b1&token=eyJ2IjoiN2FhYWQ2Mzc0OGIwMTJhMzg2MzE1MzEwOWI1YmJmODciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4Mjc4LCJuIjoiY2M2NDFkNWE0MzNlIn0.35690cbc0b8b8cb6f0dd79532f932b92fd966b13bbbc02efaced88bc25853ef6&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7aaad63748b012a3863153109b5bbf87&sid=c011539aff7bc737a83728f00914a905&token=eyJ2IjoiN2FhYWQ2Mzc0OGIwMTJhMzg2MzE1MzEwOWI1YmJmODciLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4Mjc4LCJuIjoiY2M2NDFkNWE0MzNlIn0.35690cbc0b8b8cb6f0dd79532f932b92fd966b13bbbc02efaced88bc25853ef6&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=HFktxE5lA3aTfiwz78C2cQ"
+          }
+        }
+      }
+    }
   ]
 }
