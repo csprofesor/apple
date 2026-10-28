@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "playrepo-shazam-6-guc",
+      "type": "movie",
+      "name": "Shazam! 6 Güç",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/o7JVhqMmrex1TPbmuxl8YXVlcfl.webp?v=1792146201",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/o7JVhqMmrex1TPbmuxl8YXVlcfl.webp?v=1792146201",
+      "description": "Shazam! 6 Güç (2019) full HD, Türkçe dublaj ve altyazılı izle. Bir erkek çocuğuna, ihtiyaç anında tek bir sihirli kelimeyle yetişkin bir süper kahramana dönüşme...",
+      "releaseInfo": "2019",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "HBO Max",
+        "Aksiyon & Macera",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "132 dk"
+    },
+    {
       "id": "playrepo-evdeki-dusman",
       "type": "movie",
       "name": "Evdeki Düşman",
@@ -1137,22 +1155,6 @@
       ],
       "posterShape": "poster",
       "runtime": "89 dk"
-    },
-    {
-      "id": "playrepo-kofte-yagmuru-2",
-      "type": "movie",
-      "name": "Köfte Yağmuru 2",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vWriOBVlgW0XWdgbOiijhyLW7B8.webp?v=1791132116",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vWriOBVlgW0XWdgbOiijhyLW7B8.webp?v=1791132116",
-      "description": "Köfte Yağmuru 2 (2013) full HD, Türkçe dublaj ve altyazılı izle. Mucit Flint Lockwood, suyu yiyeceğe dönüştüren ama bir süre sonra kontrolden çıkarak gökten dev...",
-      "releaseInfo": "2013",
-      "genres": [
-        "Komedi",
-        "Animasyon & Aile",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "95 dk"
     }
   ]
 }
