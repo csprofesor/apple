@@ -1,6 +1,60 @@
 {
   "metas": [
     {
+      "id": "tt0116282",
+      "type": "movie",
+      "name": "Fargo",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNjg4MWE0MjEtODFhNy00MjA5LTg5ODktMzgwNWFmZTAwNjBlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNjg4MWE0MjEtODFhNy00MjA5LTg5ODktMzgwNWFmZTAwNjBlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Fargo (1996) full HD, Türkçe dublaj ve altyazılı izle. Jerry Lundegaard borçları olan bir sahtekârdır. İhtiyaç duyduğu meblağda parayı acilen edinmeli ve borçla...",
+      "releaseInfo": "1996",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Suç & Polisiye"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0116282/img",
+      "trailers": [
+        {
+          "source": "Pg_CqV3VlPg",
+          "type": "Trailer"
+        },
+        {
+          "source": "aoOZDiswNaw",
+          "type": "Trailer"
+        },
+        {
+          "source": "zGDRHfUzlzo",
+          "type": "Trailer"
+        },
+        {
+          "source": "ju75Sd4yAZw",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Fargo",
+          "ytId": "Pg_CqV3VlPg"
+        },
+        {
+          "title": "Fargo",
+          "ytId": "aoOZDiswNaw"
+        },
+        {
+          "title": "Fargo",
+          "ytId": "zGDRHfUzlzo"
+        },
+        {
+          "title": "Fargo",
+          "ytId": "ju75Sd4yAZw"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=Pg_CqV3VlPg",
+      "runtime": "98 dk"
+    },
+    {
       "id": "playrepo-zor-olum",
       "type": "movie",
       "name": "Zor Ölüm",
@@ -1091,22 +1145,6 @@
       ],
       "posterShape": "poster",
       "runtime": "102 dk"
-    },
-    {
-      "id": "playrepo-rezervuar-kopekleri",
-      "type": "movie",
-      "name": "Rezervuar Köpekleri",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jwt159hXWA9Q5xpBo8hWb3zwLi7.webp?v=1790172148",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jwt159hXWA9Q5xpBo8hWb3zwLi7.webp?v=1790172148",
-      "description": "Rezervuar Köpekleri (1992) full HD, Türkçe dublaj ve altyazılı izle. Bir grup suçlu, bir mücevher deposunu soyarlar. Polis o kadar çabuk peşlerine düşer ki aral...",
-      "releaseInfo": "1992",
-      "genres": [
-        "Suç & Polisiye",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "99 dk"
     }
   ]
 }
