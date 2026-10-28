@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-cinnet",
+      "type": "movie",
+      "name": "Cinnet",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/AdKA2F1SzYPhSZdEbjH1Zh75UVQ.webp?v=1790203269",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/AdKA2F1SzYPhSZdEbjH1Zh75UVQ.webp?v=1790203269",
+      "description": "Cinnet (1980) full HD, Türkçe dublaj ve altyazılı izle. Kışın kapalı olan ıssız Overlook Oteli’nin bakımını üstlenen Jack Torrance, ailesiyle birlikte buraya ta...",
+      "releaseInfo": "1980",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "144 dk"
+    },
+    {
       "id": "playrepo-kuzularin-sessizligi",
       "type": "movie",
       "name": "Kuzuların Sessizliği",
