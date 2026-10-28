@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "id": "playrepo-hamilton",
+    "type": "movie",
+    "name": "Hamilton",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uWVkEo9PWHu9algZsiLPi6sRU64.webp?v=1790456752",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uWVkEo9PWHu9algZsiLPi6sRU64.webp?v=1790456752",
+    "description": "Hamilton (2025) full HD, Türkçe dublaj ve altyazılı izle. Alexander 11 yaşındayken yarı İngiliz yarı Fransız annesi ölmüş ve babası da uzun süre önce onları ter...",
+    "releaseInfo": "2025",
+    "genres": [
+      "Belgesel & Tarih",
+      "Dram & Romantik",
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-hamilton",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-hamilton",
+        "title": "Hamilton",
+        "name": "Hamilton",
+        "released": "2025-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "160 dk"
+  }
+}

@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-hamilton",
+      "type": "movie",
+      "name": "Hamilton",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uWVkEo9PWHu9algZsiLPi6sRU64.webp?v=1790456752",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uWVkEo9PWHu9algZsiLPi6sRU64.webp?v=1790456752",
+      "description": "Hamilton (2025) full HD, Türkçe dublaj ve altyazılı izle. Alexander 11 yaşındayken yarı İngiliz yarı Fransız annesi ölmüş ve babası da uzun süre önce onları ter...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "160 dk"
+    },
+    {
       "id": "tt23289160",
       "type": "movie",
       "name": "Godzilla Minus One",
@@ -1235,35 +1251,6 @@
       ],
       "posterShape": "poster",
       "runtime": "118 dk"
-    },
-    {
-      "id": "tt0089881",
-      "type": "movie",
-      "name": "Ran",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZDk2NDY5YjktMjEyMC00OTJhLTkzM2EtY2Q4Y2RjYzc2Yjk4XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZDk2NDY5YjktMjEyMC00OTJhLTkzM2EtY2Q4Y2RjYzc2Yjk4XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Ran (1985) full HD, Türkçe dublaj ve altyazılı izle. Shakespeare’in Kral Lear’inde, 16. yy’ın yaşlı lordu Lear krallığını üç kızı arasında paylaştırmaya karar v...",
-      "releaseInfo": "1985",
-      "genres": [
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0089881/img",
-      "trailers": [
-        {
-          "source": "29ukiH4_GvQ",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Ran",
-          "ytId": "29ukiH4_GvQ"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=29ukiH4_GvQ",
-      "runtime": "160 dk"
     }
   ]
 }
