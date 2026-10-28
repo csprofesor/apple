@@ -1,0 +1,72 @@
+{
+  "streams": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=dd532827a09a5d746bd656e332760185&token=eyJ2IjoiZGQ1MzI4MjdhMDlhNWQ3NDZiZDY1NmUzMzI3NjAxODUiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc1OTc4LCJuIjoiNjg1NDQ1YTk4NjAzIn0.49bd9684c5529edb85415c630b2990db8de8ce14af366f1679839ec28137cdea&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=SpLR24d4jtKsOmgn7BINOw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=SpLR24d4jtKsOmgn7BINOw"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=dd532827a09a5d746bd656e332760185&sid=b78bcd95b2bfbe7b914bbb637fabbdff&token=eyJ2IjoiZGQ1MzI4MjdhMDlhNWQ3NDZiZDY1NmUzMzI3NjAxODUiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc1OTc4LCJuIjoiNjg1NDQ1YTk4NjAzIn0.49bd9684c5529edb85415c630b2990db8de8ce14af366f1679839ec28137cdea&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=dd532827a09a5d746bd656e332760185&sid=f8f7d15cca50d1b59dd4be176cfc2cea&token=eyJ2IjoiZGQ1MzI4MjdhMDlhNWQ3NDZiZDY1NmUzMzI3NjAxODUiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc1OTc4LCJuIjoiNjg1NDQ1YTk4NjAzIn0.49bd9684c5529edb85415c630b2990db8de8ce14af366f1679839ec28137cdea&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=SpLR24d4jtKsOmgn7BINOw"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=dd532827a09a5d746bd656e332760185&token=eyJ2IjoiZGQ1MzI4MjdhMDlhNWQ3NDZiZDY1NmUzMzI3NjAxODUiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc1OTc4LCJuIjoiNjg1NDQ1YTk4NjAzIn0.49bd9684c5529edb85415c630b2990db8de8ce14af366f1679839ec28137cdea&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=SpLR24d4jtKsOmgn7BINOw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=SpLR24d4jtKsOmgn7BINOw"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=dd532827a09a5d746bd656e332760185&sid=b78bcd95b2bfbe7b914bbb637fabbdff&token=eyJ2IjoiZGQ1MzI4MjdhMDlhNWQ3NDZiZDY1NmUzMzI3NjAxODUiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc1OTc4LCJuIjoiNjg1NDQ1YTk4NjAzIn0.49bd9684c5529edb85415c630b2990db8de8ce14af366f1679839ec28137cdea&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=dd532827a09a5d746bd656e332760185&sid=f8f7d15cca50d1b59dd4be176cfc2cea&token=eyJ2IjoiZGQ1MzI4MjdhMDlhNWQ3NDZiZDY1NmUzMzI3NjAxODUiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzc1OTc4LCJuIjoiNjg1NDQ1YTk4NjAzIn0.49bd9684c5529edb85415c630b2990db8de8ce14af366f1679839ec28137cdea&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=SpLR24d4jtKsOmgn7BINOw"
+          }
+        }
+      }
+    }
+  ]
+}
