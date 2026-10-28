@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt0288603",
+      "type": "movie",
+      "name": "Leyla ile Mecnun",
+      "poster": "https://m.media-amazon.com/images/M/MV5BOWRiNTZhMWEtYzkxNC00YjRjLWJjYjctYmM0NDFiZTMyYzhkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BOWRiNTZhMWEtYzkxNC00YjRjLWJjYjctYmM0NDFiZTMyYzhkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Leyla ile Mecnun (1983) full HD, Türkçe dublaj ve altyazılı izle. Bir falcı, kızının onunla aynı gün doğan fakir biriyle evleneceğini Sultan&#039;a haber verir. Böyl...",
+      "releaseInfo": "1983",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0288603/img",
+      "runtime": "95 dk"
+    },
+    {
       "id": "playrepo-katil-kim",
       "type": "movie",
       "name": "Katil Kim?",
@@ -1194,22 +1209,6 @@
       ],
       "posterShape": "poster",
       "runtime": "86 dk"
-    },
-    {
-      "id": "playrepo-sey",
-      "type": "movie",
-      "name": "Şey",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/r9leYNa8nTRCceZrZhP1DXkgKVb.webp?v=1790282537",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/r9leYNa8nTRCceZrZhP1DXkgKVb.webp?v=1790282537",
-      "description": "Şey (1982) full HD, Türkçe dublaj ve altyazılı izle. Antarktika&#039;da bir grup ABD&#039;li bilim insanı Norveçli meslekdaşlarının boş ve yıkık araştırma üssünü incelerl...",
-      "releaseInfo": "1982",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "109 dk"
     }
   ]
 }
