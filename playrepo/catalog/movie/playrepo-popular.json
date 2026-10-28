@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-yarali-yuz",
+      "type": "movie",
+      "name": "Yaralı Yüz",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cCvp5Sni75agCtyJkNOMapORUQV.webp?v=1790262189",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cCvp5Sni75agCtyJkNOMapORUQV.webp?v=1790262189",
+      "description": "Yaralı Yüz (1983) full HD, Türkçe dublaj ve altyazılı izle. Tony Montana isimli Kübalı suçlu, Miami&#039;ye gelip uyuşturucu lordu Robert Loggia&#039;nın emrinde çalışmay...",
+      "releaseInfo": "1983",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "170 dk"
+    },
+    {
       "id": "playrepo-buyuk-lebowski",
       "type": "movie",
       "name": "Büyük Lebowski",
@@ -1222,23 +1239,6 @@
       ],
       "posterShape": "poster",
       "runtime": "101 dk"
-    },
-    {
-      "id": "playrepo-cokus",
-      "type": "movie",
-      "name": "Çöküş",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cT80aGpjWZLn8rd7cLtsbktFMhf.webp?v=1790225918",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cT80aGpjWZLn8rd7cLtsbktFMhf.webp?v=1790225918",
-      "description": "Çöküş (2004) full HD, Türkçe dublaj ve altyazılı izle. Hitler ve yakın arkadaşları kendilerini sığınaklarda güvene almışlardır. Aralarında Führer&#039;in özel sekret...",
-      "releaseInfo": "2004",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "155 dk"
     }
   ]
 }
