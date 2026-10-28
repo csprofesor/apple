@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-klaus-sihirli-plan",
+      "type": "movie",
+      "name": "Klaus - Sihirli Plan",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cYQvXNPZLow73lhspVQ7CYlT3Mi.webp?v=1790239432",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cYQvXNPZLow73lhspVQ7CYlT3Mi.webp?v=1790239432",
+      "description": "Klaus - Sihirli Plan (2019) full HD, Türkçe dublaj ve altyazılı izle. Bencil bir postacı ile münzevi bir oyuncakçı arasında kurulan beklenmedik dostluk, soğuk v...",
+      "releaseInfo": "2019",
+      "genres": [
+        "Komedi",
+        "Animasyon & Aile",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "97 dk"
+    },
+    {
       "id": "playrepo-atesten-kalbe-akildan-dumana",
       "type": "movie",
       "name": "Ateşten Kalbe, Akıldan Dumana",
@@ -1234,23 +1250,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "playrepo-olagan-supheliler",
-      "type": "movie",
-      "name": "Olağan Şüpheliler",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hy0Hx9fMPk2fmw26Li60z1S2giU.webp?v=1790202715",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hy0Hx9fMPk2fmw26Li60z1S2giU.webp?v=1790202715",
-      "description": "Olağan Şüpheliler (1995) full HD, Türkçe dublaj ve altyazılı izle. Polis San Pedro&#039;da patlayan bir tekneyi araştırdığında 27 ceset ve 91 milyon dolarlık uyuştur...",
-      "releaseInfo": "1995",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "106 dk"
     }
   ]
 }
