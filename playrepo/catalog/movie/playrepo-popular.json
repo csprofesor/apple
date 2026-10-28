@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-bilmemek",
+      "type": "movie",
+      "name": "Bilmemek",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/r67XwSpy7fdTJxGwU0fAfsDRxpG.webp?v=1790011197",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/r67XwSpy7fdTJxGwU0fAfsDRxpG.webp?v=1790011197",
+      "description": "Bilmemek (2019) full HD, Türkçe dublaj ve altyazılı izle. Bilmemek, hayatlarından memnun olmayan bir ailenin yaşamına odaklanıyor. Selma ve Sinan, artık birbirl...",
+      "releaseInfo": "2019",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "95 dk"
+    },
+    {
       "id": "playrepo-maskeler-dustugunde",
       "type": "movie",
       "name": "Maskeler Düştüğünde",
@@ -1112,21 +1127,6 @@
       ],
       "posterShape": "poster",
       "runtime": "92 dk"
-    },
-    {
-      "id": "playrepo-catlak",
-      "type": "movie",
-      "name": "Çatlak",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/twN87vhUMr0cf6psAcSTokHA4K3.webp?v=1788580295",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/twN87vhUMr0cf6psAcSTokHA4K3.webp?v=1788580295",
-      "description": "Çatlak (2020) full HD, Türkçe dublaj ve altyazılı izle. Göçmen işçi olarak İngiltere’de çalışan Fatih, arkadaşı Ayhan’dan ailesine göndermek üzere yüklü miktard...",
-      "releaseInfo": "2020",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "82 dk"
     }
   ]
 }
