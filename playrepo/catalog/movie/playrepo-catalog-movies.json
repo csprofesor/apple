@@ -1,6 +1,43 @@
 {
   "metas": [
     {
+      "id": "tt33071426",
+      "type": "movie",
+      "name": "The Drama",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTcwOGZhYmItYTg3ZS00NjUwLWJiMmQtMjU5YjEwYWY0NmNkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMTcwOGZhYmItYTg3ZS00NjUwLWJiMmQtMjU5YjEwYWY0NmNkXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Drama (2026) full HD, Türkçe dublaj ve altyazılı izle. Mutlu bir nişanlı çift, beklenmedik bir gelişmeyle düğün haftalarının altüst olmasıyla birlikte zor bir s...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt33071426/img",
+      "trailers": [
+        {
+          "source": "0ZDzsH3XGFA",
+          "type": "Trailer"
+        },
+        {
+          "source": "6zmKcUa4Xxk",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "The Drama",
+          "ytId": "0ZDzsH3XGFA"
+        },
+        {
+          "title": "The Drama",
+          "ytId": "6zmKcUa4Xxk"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=0ZDzsH3XGFA",
+      "runtime": "105 dk"
+    },
+    {
       "id": "tt46670747",
       "type": "movie",
       "name": "Iki Tez Arasinda",
