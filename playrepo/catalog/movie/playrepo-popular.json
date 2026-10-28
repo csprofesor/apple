@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-thor-karanlik-dunya",
+      "type": "movie",
+      "name": "Thor: Karanlık Dünya",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5QEOy0QEpad9QsXeMxuGHPXMale.webp?v=1787134559",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5QEOy0QEpad9QsXeMxuGHPXMale.webp?v=1787134559",
+      "description": "Thor: Karanlık Dünya (2013) full HD, Türkçe dublaj ve altyazılı izle. Bu epik macera, günümüz Yeryüzü&#039;nden Asgard&#039;ın kozmik diyarına kadar Marvel evrenini başta...",
+      "releaseInfo": "2013",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "115 dk"
+    },
+    {
       "id": "tt0800369",
       "type": "movie",
       "name": "Thor",
@@ -1138,44 +1154,6 @@
       ],
       "posterShape": "poster",
       "runtime": "83 dk"
-    },
-    {
-      "id": "tt12299608",
-      "type": "movie",
-      "name": "Mickey 17",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZGQwYmEzMzktYzBmMy00NmVmLTkyYTUtOTYyZjliZDNhZGVkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZGQwYmEzMzktYzBmMy00NmVmLTkyYTUtOTYyZjliZDNhZGVkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Mickey 17 (2025) full HD, Türkçe dublaj ve altyazılı izle. Mickey 17, öldükten sonra kopyasının üretilmesine izin veren bir işçi olarak çalışan Mickey&#039;nin hikay...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt12299608/img",
-      "trailers": [
-        {
-          "source": "tA1s65o_kYM",
-          "type": "Trailer"
-        },
-        {
-          "source": "osYpGSz_0i4",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Mickey 17",
-          "ytId": "tA1s65o_kYM"
-        },
-        {
-          "title": "Mickey 17",
-          "ytId": "osYpGSz_0i4"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=tA1s65o_kYM",
-      "runtime": "139 dk"
     }
   ]
 }
