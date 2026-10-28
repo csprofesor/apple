@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-leylekler",
+      "type": "movie",
+      "name": "Leylekler",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3dhuShnYmB0UOQrn8v8gT9DBf0T.webp?v=1792755574",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3dhuShnYmB0UOQrn8v8gT9DBf0T.webp?v=1792755574",
+      "description": "Leylekler (2016) full HD, Türkçe dublaj ve altyazılı izle. Tarihin en eski devirlerinden beri yeni doğmuş bebekleri ailelerine teslim etme görevini üstlenmiş ol...",
+      "releaseInfo": "2016",
+      "genres": [
+        "Komedi",
+        "Animasyon & Aile",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "87 dk"
+    },
+    {
       "id": "playrepo-ruhlar-bolgesi-kirmizi-kapi",
       "type": "movie",
       "name": "Ruhlar Bölgesi: Kırmızı Kapı",
@@ -1145,44 +1162,6 @@
       ],
       "posterShape": "poster",
       "runtime": "92 dk"
-    },
-    {
-      "id": "tt31049299",
-      "type": "movie",
-      "name": "Animals",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZmY3MmZiZjctOTgyYy00OGIxLTkwMDUtNDU3MGNkMGI3YWJlXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZmY3MmZiZjctOTgyYy00OGIxLTkwMDUtNDU3MGNkMGI3YWJlXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Animals (2026) full HD, Türkçe dublaj ve altyazılı izle.",
-      "releaseInfo": "2026",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt31049299/img",
-      "trailers": [
-        {
-          "source": "ZkN2M4ODdys",
-          "type": "Trailer"
-        },
-        {
-          "source": "mlBfQJ8oxB0",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Animals",
-          "ytId": "ZkN2M4ODdys"
-        },
-        {
-          "title": "Animals",
-          "ytId": "mlBfQJ8oxB0"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=ZkN2M4ODdys",
-      "runtime": "106 dk"
     }
   ]
 }
