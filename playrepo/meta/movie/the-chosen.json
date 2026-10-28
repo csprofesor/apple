@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-the-chosen",
+    "type": "series",
+    "name": "The Chosen",
+    "poster": "https://ddizimom.net/storage/tmdb/stills/w300/eOJOHuAVF8n01jZGKuD8e5f3otL.webp?v=1784581330",
+    "background": "https://ddizimom.net/storage/tmdb/stills/w300/eOJOHuAVF8n01jZGKuD8e5f3otL.webp?v=1784581330",
+    "description": "The Chosen 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Two brothers struggle with their tax debts to Rome while a woman in the Red Qu...",
+    "releaseInfo": "2019",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-the-chosen:1:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-the-chosen:1:1",
+        "title": "1. Sezon 1. Bölüm",
+        "name": "1. Sezon 1. Bölüm",
+        "released": "2019-01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
