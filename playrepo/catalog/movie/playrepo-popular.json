@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "tt31925259",
+      "type": "movie",
+      "name": "3. Gün",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMjI0ZmEzMjMtYzRlNi00MzM1LWE0NWItYTRlYzM2YWFlMjM1XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMjI0ZmEzMjMtYzRlNi00MzM1LWE0NWItYTRlYzM2YWFlMjM1XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "3. Gün (2024) full HD, Türkçe dublaj ve altyazılı izle. İzmir&#039;in sıcak esintisi altında yaşayan Elya, şehrin zengin lezzetlerinden ilham alarak gastronomi alanı...",
+      "releaseInfo": "2024",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt31925259/img",
+      "runtime": "98 dk"
+    },
+    {
       "id": "playrepo-sicc-n-9",
       "type": "movie",
       "name": "Siccîn 9",
@@ -1131,21 +1147,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-karilar-kogusu",
-      "type": "movie",
-      "name": "Karılar Koğuşu",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8QhI5JInrgclg3BWQIkytJJHaFc.webp?v=1791051101",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8QhI5JInrgclg3BWQIkytJJHaFc.webp?v=1791051101",
-      "description": "Karılar Koğuşu (1990) full HD, Türkçe dublaj ve altyazılı izle. Kemal Tahir&#039;in Malatya Cezaevi&#039;nde yattığı 3 aylık bir dönemin öyküsü. 1943 Türkiye&#039;sini sergile...",
-      "releaseInfo": "1990",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "146 dk"
     }
   ]
 }
