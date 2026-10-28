@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-sikismislik",
+    "type": "series",
+    "name": "Sıkışmışlık",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/m9BgJ244X3CqtQMne6bFVeBeDPk.webp?v=1784461876",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/m9BgJ244X3CqtQMne6bFVeBeDPk.webp?v=1784461876",
+    "description": "Sıkışmışlık 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. 140journos x BluTV’nin yeni belgesel serisi aile, devlet ve toplumun hayatlar...",
+    "releaseInfo": "2019",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-sikismislik:1:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-sikismislik:1:1",
+        "title": "1. Sezon 1. Bölüm",
+        "name": "1. Sezon 1. Bölüm",
+        "released": "2019-01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
