@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-bahar-esintisi",
+    "type": "series",
+    "name": "Bahar Esintisi",
+    "poster": "https://ddizimom.net/storage/tmdb/stills/w300/uOTbf7hvWzapH00Omwaxq6wIa4c.webp?v=1784499197",
+    "background": "https://ddizimom.net/storage/tmdb/stills/w300/uOTbf7hvWzapH00Omwaxq6wIa4c.webp?v=1784499197",
+    "description": "Bahar Esintisi 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Yoon Bom, Shinsu adlı küçük sahil kasabasında herkesin merakını uyandırır....",
+    "releaseInfo": "2026",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-bahar-esintisi:1:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-bahar-esintisi:1:1",
+        "title": "1. Sezon 1. Bölüm",
+        "name": "1. Sezon 1. Bölüm",
+        "released": "2026-01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
