@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "tt15097216",
+      "type": "movie",
+      "name": "Jai Bhim",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZjEyNDIzNmEtMjdkYS00ZDAwLTljOWYtNDRhYTVhYTlmOTk1XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZjEyNDIzNmEtMjdkYS00ZDAwLTljOWYtNDRhYTVhYTlmOTk1XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Jai Bhim (2021) full HD, Türkçe dublaj ve altyazılı izle. Hırsızlık yaptığı suçlamasıyla tutuklanan ve hakkında dava açılan Rajakannu&#039;yla (K. Manikandan) eşi Se...",
+      "releaseInfo": "2021",
+      "genres": [
+        "Dram & Romantik",
+        "Suç & Polisiye"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt15097216/img",
+      "runtime": "164 dk"
+    },
+    {
       "id": "playrepo-nuremberg-durusmasi",
       "type": "movie",
       "name": "Nuremberg Duruşması",
@@ -1233,23 +1249,6 @@
       ],
       "posterShape": "poster",
       "runtime": "144 dk"
-    },
-    {
-      "id": "playrepo-kuzularin-sessizligi",
-      "type": "movie",
-      "name": "Kuzuların Sessizliği",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/aYcnDyLMnpKce1FOYUpZrXtgUye.webp?v=1790203264",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/aYcnDyLMnpKce1FOYUpZrXtgUye.webp?v=1790203264",
-      "description": "Kuzuların Sessizliği (1991) full HD, Türkçe dublaj ve altyazılı izle. Akademiden başarıyla mezun olmuş genç FBI ajanı Clarice Starling, kurbanlarının derilerini...",
-      "releaseInfo": "1991",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "119 dk"
     }
   ]
 }
