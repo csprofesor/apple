@@ -1,6 +1,36 @@
 {
   "metas": [
     {
+      "id": "tt1621429",
+      "type": "movie",
+      "name": "S.W.A.T.: Firefight",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYzkyMTQ4ZjYtYTM5ZS00ODhjLWFkN2YtNzFiMzJlYWQ3OWYwXkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYzkyMTQ4ZjYtYTM5ZS00ODhjLWFkN2YtNzFiMzJlYWQ3OWYwXkEyXkFqcGc%40._V1_.jpg",
+      "description": "S.W.A.T.: Firefight (2011) full HD, Türkçe dublaj ve altyazılı izle. Detroit’e bir SWAT timi kurması için gönderilen LAPD şefi Paul Cutler,birden kendini devlet...",
+      "releaseInfo": "2011",
+      "genres": [
+        "Suç & Polisiye",
+        "Aksiyon & Macera",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt1621429/img",
+      "trailers": [
+        {
+          "source": "m1OCLApuHjE",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "S.W.A.T.: Firefight",
+          "ytId": "m1OCLApuHjE"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=m1OCLApuHjE",
+      "runtime": "89 dk"
+    },
+    {
       "id": "playrepo-hayalet-avcilari",
       "type": "movie",
       "name": "Hayalet Avcıları",
@@ -1060,21 +1090,6 @@
       ],
       "posterShape": "poster",
       "runtime": "122 dk"
-    },
-    {
-      "id": "playrepo-buyuk-dovus",
-      "type": "movie",
-      "name": "Büyük Dövüş",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zb7b40ieuRGiIc9ebIEapneaCsl.webp?v=1790290251",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zb7b40ieuRGiIc9ebIEapneaCsl.webp?v=1790290251",
-      "description": "Büyük Dövüş (2011) full HD, Türkçe dublaj ve altyazılı izle. Trajik bir geçmişin kovaladığı eski bir denizci olan Tommy Riordan doğduğu kasaba olan Pittisburgh&#039;...",
-      "releaseInfo": "2011",
-      "genres": [
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "140 dk"
     }
   ]
 }
