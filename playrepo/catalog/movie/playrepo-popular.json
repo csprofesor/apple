@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "playrepo-gel-ve-gor",
+      "type": "movie",
+      "name": "Gel ve Gör",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3Na31ta8vDuKOgQuPLdSZLs8bCB.webp?v=1790148910",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3Na31ta8vDuKOgQuPLdSZLs8bCB.webp?v=1790148910",
+      "description": "Gel ve Gör (1985) full HD, Türkçe dublaj ve altyazılı izle. 1943&#039;te Nazi işgali altındaki Belarus&#039;ta yaşayan on altı yaşındaki Flyora, toprağından kopan bir sav...",
+      "releaseInfo": "1985",
+      "genres": [
+        "Belgesel & Tarih",
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Aksiyon & Macera",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "142 dk"
+    },
+    {
       "id": "playrepo-tanri-kent",
       "type": "movie",
       "name": "Tanrı Kent",
@@ -1134,35 +1152,6 @@
       ],
       "posterShape": "poster",
       "runtime": "109 dk"
-    },
-    {
-      "id": "tt43749709",
-      "type": "movie",
-      "name": "Grand Theft Auto VI: An Extended Look",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYjg0ZTExNWMtNjk4Ni00YmYxLWE0YjItODdjY2ZjNWM5ZDkzXkEyXkFqcGc%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYjg0ZTExNWMtNjk4Ni00YmYxLWE0YjItODdjY2ZjNWM5ZDkzXkEyXkFqcGc%40._V1_.jpg",
-      "description": "Grand Theft Auto VI: An Extended Look (2026) full HD, Türkçe dublaj ve altyazılı izle. PlayStation 5&#039;e ait oynanış görüntülerden derlenen bu kapsamlı tanıtım vi...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Animasyon & Aile",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt43749709/img",
-      "trailers": [
-        {
-          "source": "uphThaa97ig",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Grand Theft Auto VI: An Extended Look",
-          "ytId": "uphThaa97ig"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=uphThaa97ig",
-      "runtime": "27 dk"
     }
   ]
 }
