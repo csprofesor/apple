@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-keskin-nisanci",
+      "type": "movie",
+      "name": "Keskin Nişancı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rl95VDEP3nsUQmGzE0S1S7y6T0N.webp?v=1788674547",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rl95VDEP3nsUQmGzE0S1S7y6T0N.webp?v=1788674547",
+      "description": "Keskin Nişancı (2014) full HD, Türkçe dublaj ve altyazılı izle. Bahriye Komandoları&#039;na katılan ve Irak&#039;ta 150&#039;den fazla insanın ölümüne sebep olan Chris Kyle (1...",
+      "releaseInfo": "2014",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "133 dk"
+    },
+    {
       "id": "tt5013056",
       "type": "movie",
       "name": "Dunkirk",
@@ -1359,43 +1374,6 @@
       ],
       "posterShape": "poster",
       "runtime": "145 dk"
-    },
-    {
-      "id": "tt3501632",
-      "type": "movie",
-      "name": "Thor: Ragnarok",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMjMyNDkzMzI1OF5BMl5BanBnXkFtZTgwODcxODg5MjI%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMjMyNDkzMzI1OF5BMl5BanBnXkFtZTgwODcxODg5MjI%40._V1_SX250.jpg",
-      "description": "Thor: Ragnarok (2017) full HD, Türkçe dublaj ve altyazılı izle. Marvel Stüdyoları&#039;nın Thor: Ragnarok filminde, Thor evrenin diğer tarafında tutukludur ve güçlü....",
-      "releaseInfo": "2017",
-      "genres": [
-        "Komedi",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt3501632/img",
-      "trailers": [
-        {
-          "source": "ue80QwXMRHg",
-          "type": "Trailer"
-        },
-        {
-          "source": "v7MGUNV8MxU",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Thor: Ragnarok",
-          "ytId": "ue80QwXMRHg"
-        },
-        {
-          "title": "Thor: Ragnarok",
-          "ytId": "v7MGUNV8MxU"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=ue80QwXMRHg",
-      "runtime": "131 dk"
     }
   ]
 }
