@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "playrepo-gelecege-donus",
+    "type": "movie",
+    "name": "Geleceğe Dönüş",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5bzPWQ2dFUl2aZKkp7ILJVVkRed.webp?v=1790140258",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5bzPWQ2dFUl2aZKkp7ILJVVkRed.webp?v=1790140258",
+    "description": "Geleceğe Dönüş (1985) full HD, Türkçe dublaj ve altyazılı izle. Dönemin özellikle tasarımıyla öne çıkan otomobillerinden olan bir DeLoran&#039;ın içine gizlenmiş ica...",
+    "releaseInfo": "1985",
+    "genres": [
+      "Komedi",
+      "Bilim Kurgu & Fantastik",
+      "Popüler",
+      "Aksiyon & Macera"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-gelecege-donus",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-gelecege-donus",
+        "title": "Geleceğe Dönüş",
+        "name": "Geleceğe Dönüş",
+        "released": "1985-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "116 dk"
+  }
+}
