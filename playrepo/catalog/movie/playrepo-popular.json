@@ -1,6 +1,26 @@
 {
   "metas": [
     {
+      "id": "playrepo-kara-sovalye",
+      "type": "movie",
+      "name": "Kara Şövalye",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9FE5eD92WfVCiivM9Pq9GVSrlWk.webp?v=1789601912",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9FE5eD92WfVCiivM9Pq9GVSrlWk.webp?v=1789601912",
+      "description": "Kara Şövalye (2008) full HD, Türkçe dublaj ve altyazılı izle. Batman, Teğmen Jim Gordon ve Bölge Savcısı Harvey Dent’in yardımlarıyla, şehir sokaklarını sarmış....",
+      "releaseInfo": "2008",
+      "genres": [
+        "Korku & Gerilim",
+        "Prime Video",
+        "HBO Max",
+        "Aksiyon & Macera",
+        "Netflix",
+        "Suç & Polisiye",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "152 dk"
+    },
+    {
       "id": "playrepo-ruyalar-evreni",
       "type": "movie",
       "name": "Rüyalar Evreni",
@@ -1065,35 +1085,6 @@
       ],
       "posterShape": "poster",
       "runtime": "107 dk"
-    },
-    {
-      "id": "tt0120903",
-      "type": "movie",
-      "name": "X-Men",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNzNjZjQwOTAtNWQ3NC00MmJlLThlZDEtZmUyMWQ3NmE4Y2Y5XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNzNjZjQwOTAtNWQ3NC00MmJlLThlZDEtZmUyMWQ3NmE4Y2Y5XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "X-Men (2000) full HD, Türkçe dublaj ve altyazılı izle. Profesör Xavier, dünyada birçok kişinin farkında olmadığı bir durumdan haberdardır. Bu nedenle kendi iste...",
-      "releaseInfo": "2000",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0120903/img",
-      "trailers": [
-        {
-          "source": "s4Wqw8tqgdM",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "X-Men",
-          "ytId": "s4Wqw8tqgdM"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=s4Wqw8tqgdM",
-      "runtime": "104 dk"
     }
   ]
 }
