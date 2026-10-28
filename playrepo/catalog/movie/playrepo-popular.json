@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-genc-sherlock",
+      "type": "movie",
+      "name": "Genç Sherlock",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tSipsYTp565LkopntX1lZNLPYHP.webp?v=1790252329",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tSipsYTp565LkopntX1lZNLPYHP.webp?v=1790252329",
+      "description": "Genç Sherlock (1924) full HD, Türkçe dublaj ve altyazılı izle. Sherlock, bir sinema salonunda film oynatıcısıdır ama hayal dünyasında yaşar. Esas hayali sıkı bi...",
+      "releaseInfo": "1924",
+      "genres": [
+        "Komedi",
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "45 dk"
+    },
+    {
       "id": "playrepo-mufreze",
       "type": "movie",
       "name": "Müfreze",
@@ -1231,21 +1248,6 @@
       ],
       "posterShape": "poster",
       "runtime": "126 dk"
-    },
-    {
-      "id": "playrepo-bitmeyen-sinav",
-      "type": "movie",
-      "name": "Bitmeyen Sınav",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6RV2o8PBCEyw9ylOWViV1CtULIF.webp?v=1790216604",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6RV2o8PBCEyw9ylOWViV1CtULIF.webp?v=1790216604",
-      "description": "Bitmeyen Sınav (2023) full HD, Türkçe dublaj ve altyazılı izle. Küçük bir kasabada yaşayan azimli bir adam, polis olmak için Delhi&#039;ye gider. Ama zorluğu dillere...",
-      "releaseInfo": "2023",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "147 dk"
     }
   ]
 }

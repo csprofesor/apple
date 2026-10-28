@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-genc-sherlock",
+      "type": "movie",
+      "name": "Genç Sherlock",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tSipsYTp565LkopntX1lZNLPYHP.webp?v=1790252329",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tSipsYTp565LkopntX1lZNLPYHP.webp?v=1790252329",
+      "description": "Genç Sherlock (1924) full HD, Türkçe dublaj ve altyazılı izle. Sherlock, bir sinema salonunda film oynatıcısıdır ama hayal dünyasında yaşar. Esas hayali sıkı bi...",
+      "releaseInfo": "1924",
+      "genres": [
+        "Komedi",
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "45 dk"
+    },
+    {
       "id": "playrepo-mufreze",
       "type": "movie",
       "name": "Müfreze",
