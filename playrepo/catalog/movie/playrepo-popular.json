@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-vay-kaynanam-vay",
+      "type": "movie",
+      "name": "Vay Kaynanam Vay",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/FjqN9Aaqxd63Bfjoft6APu4Fua.webp?v=1788973566",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/FjqN9Aaqxd63Bfjoft6APu4Fua.webp?v=1788973566",
+      "description": "Vay Kaynanam Vay (2005) full HD, Türkçe dublaj ve altyazılı izle. Uzun yıllar boyunca Bay Doğru&#039;yu arayan Charlotte sonunda hayallerinin erkeğine rastladığını d...",
+      "releaseInfo": "2005",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "101 dk"
+    },
+    {
       "id": "playrepo-yuzlesme",
       "type": "movie",
       "name": "Yüzleşme",
@@ -1134,43 +1150,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=20bpjtCbCz0",
       "runtime": "120 dk"
-    },
-    {
-      "id": "tt6263850",
-      "type": "movie",
-      "name": "Deadpool & Wolverine",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZTk5ODY0MmQtMzA3Ni00NGY1LThiYzItZThiNjFiNDM4MTM3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZTk5ODY0MmQtMzA3Ni00NGY1LThiYzItZThiNjFiNDM4MTM3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Deadpool ve Wolverine (2024) full HD, Türkçe dublaj ve altyazılı izle. Wade Wilson’ın bir paralı asker olarak geçirdiği günler ve Deadpool kimliği artık geride...",
-      "releaseInfo": "2024",
-      "genres": [
-        "Komedi",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt6263850/img",
-      "trailers": [
-        {
-          "source": "Idh8n5XuYIA",
-          "type": "Trailer"
-        },
-        {
-          "source": "73_1biulkYk",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Deadpool & Wolverine",
-          "ytId": "Idh8n5XuYIA"
-        },
-        {
-          "title": "Deadpool & Wolverine",
-          "ytId": "73_1biulkYk"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=Idh8n5XuYIA",
-      "runtime": "128 dk"
     }
   ]
 }
