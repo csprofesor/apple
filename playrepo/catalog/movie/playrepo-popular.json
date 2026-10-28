@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-gazap-uzumleri",
+      "type": "movie",
+      "name": "Gazap Üzümleri",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/r7AcmVk6kGhdFdesViGaI3dEHWd.webp?v=1790271249",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/r7AcmVk6kGhdFdesViGaI3dEHWd.webp?v=1790271249",
+      "description": "Gazap Üzümleri (1940) full HD, Türkçe dublaj ve altyazılı izle. John Steinbeck&#039;in Pulitzer ödüllü romanından uyarlanmış, John Ford imzalı 2 Oscarlı bir başyapıt...",
+      "releaseInfo": "1940",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "129 dk"
+    },
+    {
       "id": "playrepo-i-nanilmaz-aile",
       "type": "movie",
       "name": "İnanılmaz Aile",
@@ -1235,20 +1250,6 @@
       ],
       "posterShape": "poster",
       "runtime": "95 dk"
-    },
-    {
-      "id": "playrepo-indiana-jones-son-macera",
-      "type": "movie",
-      "name": "Indiana Jones: Son Macera",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7KGdTzKux4fp5sW7hUM33NWqBU1.webp?v=1790235310",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7KGdTzKux4fp5sW7hUM33NWqBU1.webp?v=1790235310",
-      "description": "Indiana Jones: Son Macera (1989) full HD, Türkçe dublaj ve altyazılı izle. Tarihin en ünlü maceracı arkeologu Indiana Jones’a babası Dr. Henry Jones tarafından....",
-      "releaseInfo": "1989",
-      "genres": [
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "127 dk"
     }
   ]
 }
