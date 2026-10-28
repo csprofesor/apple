@@ -1,6 +1,19 @@
 {
   "metas": [
     {
+      "id": "playrepo-maskeler-dustugunde",
+      "type": "movie",
+      "name": "Maskeler Düştüğünde",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/o8dPqDQ33rljhmLYzp4tZhhyDg8.webp?v=1790009830",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/o8dPqDQ33rljhmLYzp4tZhhyDg8.webp?v=1790009830",
+      "description": "Maskeler Düştüğünde (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir gece, üç arkadaş ve ölümle mühürlenen bir sır… Yıllar sonra, o gecenin kurbanı geri dön...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster"
+    },
+    {
       "id": "playrepo-goklerin-hakimi",
       "type": "movie",
       "name": "Göklerin Hakimi",
@@ -1114,43 +1127,6 @@
       ],
       "posterShape": "poster",
       "runtime": "82 dk"
-    },
-    {
-      "id": "tt33071426",
-      "type": "movie",
-      "name": "The Drama",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTcwOGZhYmItYTg3ZS00NjUwLWJiMmQtMjU5YjEwYWY0NmNkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMTcwOGZhYmItYTg3ZS00NjUwLWJiMmQtMjU5YjEwYWY0NmNkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Drama (2026) full HD, Türkçe dublaj ve altyazılı izle. Mutlu bir nişanlı çift, beklenmedik bir gelişmeyle düğün haftalarının altüst olmasıyla birlikte zor bir s...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt33071426/img",
-      "trailers": [
-        {
-          "source": "0ZDzsH3XGFA",
-          "type": "Trailer"
-        },
-        {
-          "source": "6zmKcUa4Xxk",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "The Drama",
-          "ytId": "0ZDzsH3XGFA"
-        },
-        {
-          "title": "The Drama",
-          "ytId": "6zmKcUa4Xxk"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=0ZDzsH3XGFA",
-      "runtime": "105 dk"
     }
   ]
 }
