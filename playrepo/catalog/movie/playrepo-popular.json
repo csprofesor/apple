@@ -1,6 +1,36 @@
 {
   "metas": [
     {
+      "id": "tt0978762",
+      "type": "movie",
+      "name": "Mary and Max",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNzY2Mjc4NjMtNGY4Mi00NzM5LTk3ZTQtN2VkNzVkMzRmM2Y2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNzY2Mjc4NjMtNGY4Mi00NzM5LTk3ZTQtN2VkNzVkMzRmM2Y2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Mary ve Max (2009) full HD, Türkçe dublaj ve altyazılı izle. Avusturalyalı 8 yaşındaki küçük Mary, alkolik bir anne ile ilgisiz bir babanın meraklı ve bir o kad...",
+      "releaseInfo": "2009",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Animasyon & Aile"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0978762/img",
+      "trailers": [
+        {
+          "source": "kGATShQbydk",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Mary and Max",
+          "ytId": "kGATShQbydk"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=kGATShQbydk",
+      "runtime": "92 dk"
+    },
+    {
       "id": "tt15097216",
       "type": "movie",
       "name": "Jai Bhim",
@@ -1234,21 +1264,6 @@
       ],
       "posterShape": "poster",
       "runtime": "142 dk"
-    },
-    {
-      "id": "playrepo-cinnet",
-      "type": "movie",
-      "name": "Cinnet",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/AdKA2F1SzYPhSZdEbjH1Zh75UVQ.webp?v=1790203269",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/AdKA2F1SzYPhSZdEbjH1Zh75UVQ.webp?v=1790203269",
-      "description": "Cinnet (1980) full HD, Türkçe dublaj ve altyazılı izle. Kışın kapalı olan ıssız Overlook Oteli’nin bakımını üstlenen Jack Torrance, ailesiyle birlikte buraya ta...",
-      "releaseInfo": "1980",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "144 dk"
     }
   ]
 }
