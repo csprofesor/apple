@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-genc-anneler",
+      "type": "movie",
+      "name": "Genç Anneler",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7UsW6pKkCdCmceBmdQ0MvV6zKhL.webp?v=1793056962",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7UsW6pKkCdCmceBmdQ0MvV6zKhL.webp?v=1793056962",
+      "description": "Genç Anneler (2025) full HD, Türkçe dublaj ve altyazılı izle. Genç anneler için bir sığınma evinde barınan ve hepsi zorlu koşullarda büyümüş olan Jessica, Perla...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "106 dk"
+    },
+    {
       "id": "playrepo-ejderhalar-kurtarici-ekibi-songwing-039-in-sirlari",
       "type": "movie",
       "name": "Ejderhalar Kurtarıcı Ekibi: Songwing&#039;in Sırları",
@@ -1148,22 +1163,6 @@
       "posterShape": "poster",
       "logo": "https://live.metahub.space/logo/medium/tt23060038/img",
       "runtime": "81 dk"
-    },
-    {
-      "id": "playrepo-tuysuz-039-un-yolculugu",
-      "type": "movie",
-      "name": "Tüysüz&#039;ün Yolculuğu",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rUqjPLWomM9Ter1oN6Df7Y4ZOlC.webp?v=1791713936",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rUqjPLWomM9Ter1oN6Df7Y4ZOlC.webp?v=1791713936",
-      "description": "Tüysüz&#039;ün Yolculuğu (2020) full HD, Türkçe dublaj ve altyazılı izle. Bir kız ve en iyi dostu, bir dağı altın peşindeki açgözlü bir şirketin pençesinden kurtarma...",
-      "releaseInfo": "2020",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "86 dk"
     }
   ]
 }
