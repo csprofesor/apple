@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-cadilar-bayrami-oldurur",
+      "type": "movie",
+      "name": "Cadılar Bayramı Öldürür",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fuuZFPc8x6gQ8mLGoBp9vrmcQMT.webp?v=1792591435",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/fuuZFPc8x6gQ8mLGoBp9vrmcQMT.webp?v=1792591435",
+      "description": "Cadılar Bayramı Öldürür (2021) full HD, Türkçe dublaj ve altyazılı izle. Laurie Strode, kızı Karen ve torunu Allyson’ın maskeli canavar Michael Myers’ı Laurie’n...",
+      "releaseInfo": "2021",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "105 dk"
+    },
+    {
       "id": "playrepo-super-dolandiricilar",
       "type": "movie",
       "name": "Süper Dolandırıcılar",
@@ -1158,22 +1173,6 @@
       ],
       "posterShape": "poster",
       "runtime": "80 dk"
-    },
-    {
-      "id": "playrepo-kirginim-sana",
-      "type": "movie",
-      "name": "Kırgınım Sana",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9cnUiMidzgt2tsxUc2qhhlxU1bk.webp?v=1791313113",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9cnUiMidzgt2tsxUc2qhhlxU1bk.webp?v=1791313113",
-      "description": "Kırgınım Sana (2023) full HD, Türkçe dublaj ve altyazılı izle. Komedi türündeki filmde Julia Louis-Dreyfus, onu seven ve her şekilde destekleyen Don ile inanılm...",
-      "releaseInfo": "2023",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "93 dk"
     }
   ]
 }
