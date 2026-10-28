@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-yakalandin",
+      "type": "movie",
+      "name": "Yakalandın",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/n8UzZ7gd3lmsBeYAH539pfnwGwu.webp?v=1790390144",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/n8UzZ7gd3lmsBeYAH539pfnwGwu.webp?v=1790390144",
+      "description": "Yakalandın (2018) full HD, Türkçe dublaj ve altyazılı izle. Filmde hepimizin bildiği elim sende oyunu üzerinden yürütülmüş bir senaryo işlenmektedir. Bir grup a...",
+      "releaseInfo": "2018",
+      "genres": [
+        "Komedi",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "100 dk"
+    },
+    {
       "id": "playrepo-space-jam-yeni-efsane",
       "type": "movie",
       "name": "Space Jam: Yeni Efsane",
@@ -1200,50 +1216,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=cJok8CPtHRw",
       "runtime": "130 dk"
-    },
-    {
-      "id": "tt0075148",
-      "type": "movie",
-      "name": "Rocky",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZDEyY2M2MGMtYjg5OC00ZWFjLWFkZDQtNmQzZTdiYmYzZTBkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZDEyY2M2MGMtYjg5OC00ZWFjLWFkZDQtNmQzZTdiYmYzZTBkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Rocky (1976) full HD, Türkçe dublaj ve altyazılı izle. Dünya Ağır Sıklet şampiyonu Apollo Creed’in Philadelphia’da yapacağı unvan maçında ki rakibi maç gününe b...",
-      "releaseInfo": "1976",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0075148/img",
-      "trailers": [
-        {
-          "source": "dmd9tEt9F30",
-          "type": "Trailer"
-        },
-        {
-          "source": "-Hk-LYcavrw",
-          "type": "Trailer"
-        },
-        {
-          "source": "3VUblDwa648",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Rocky",
-          "ytId": "dmd9tEt9F30"
-        },
-        {
-          "title": "Rocky",
-          "ytId": "-Hk-LYcavrw"
-        },
-        {
-          "title": "Rocky",
-          "ytId": "3VUblDwa648"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=dmd9tEt9F30",
-      "runtime": "119 dk"
     }
   ]
 }
