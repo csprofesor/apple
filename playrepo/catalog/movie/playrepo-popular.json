@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-altina-hucum",
+      "type": "movie",
+      "name": "Altına Hücum",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/doacHxCEmwtb7JeKVsnV1atf5vU.webp?v=1787085153",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/doacHxCEmwtb7JeKVsnV1atf5vU.webp?v=1787085153",
+      "description": "Altına Hücum (2022) full HD, Türkçe dublaj ve altyazılı izle. Mahmut ve Osman köy köy dolaşıp köye baz istasyonu kurma bahanesi ile köyün zengin ailelerin kızla...",
+      "releaseInfo": "2022",
+      "genres": [
+        "Komedi",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "111 dk"
+    },
+    {
       "id": "tt44929926",
       "type": "movie",
       "name": "Kör Talih",
@@ -1167,36 +1182,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=qdgVwlTaVC0",
       "runtime": "123 dk"
-    },
-    {
-      "id": "tt35669009",
-      "type": "movie",
-      "name": "Ziam",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZDdlN2Q0ZjktNWI3Ny00NGYzLWJmNmItN2Y3YmNhMmZmNjY3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZDdlN2Q0ZjktNWI3Ny00NGYzLWJmNmItN2Y3YmNhMmZmNjY3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Ziam (2025) full HD, Türkçe dublaj ve altyazılı izle. Korkunç bir zombi ordusuyla mücadele eden eski bir Muay Thai dövüşçüsü, kız arkadaşını kurtarmak için bece...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Korku & Gerilim",
-        "Aksiyon & Macera",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt35669009/img",
-      "trailers": [
-        {
-          "source": "ATjGbAL8hWg",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Ziam",
-          "ytId": "ATjGbAL8hWg"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=ATjGbAL8hWg",
-      "runtime": "96 dk"
     }
   ]
 }
