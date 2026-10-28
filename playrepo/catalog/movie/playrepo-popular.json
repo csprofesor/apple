@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-yasak-meyveler",
+      "type": "movie",
+      "name": "Yasak Meyveler",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jAOpZDgy4eMY6o6oGdUiXk4SqvE.webp?v=1790541408",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jAOpZDgy4eMY6o6oGdUiXk4SqvE.webp?v=1790541408",
+      "description": "Yasak Meyveler (2026) full HD, Türkçe dublaj ve altyazılı izle. Özgür Cennet çalışanı Elma, mesai bitince, Kiraz ve İncir ile birlikte, AVM&#039;deki mağazanın bodru...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "103 dk"
+    },
+    {
       "id": "tt31851518",
       "type": "movie",
       "name": "The Choral",
@@ -1195,23 +1211,6 @@
       ],
       "posterShape": "poster",
       "runtime": "68 dk"
-    },
-    {
-      "id": "playrepo-fil-adam",
-      "type": "movie",
-      "name": "Fil Adam",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6huSptAsqYg3wbsi1jbMognSgmp.webp?v=1790266006",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6huSptAsqYg3wbsi1jbMognSgmp.webp?v=1790266006",
-      "description": "Fil Adam (1980) full HD, Türkçe dublaj ve altyazılı izle. Victoria dönemi İngilteresi&#039;nde yaşayan John Merrick, ender görülen bir hastalık yüzünden ileri derece...",
-      "releaseInfo": "1980",
-      "genres": [
-        "Mubi & Kült",
-        "Dram & Romantik",
-        "Popüler",
-        "Belgesel & Tarih"
-      ],
-      "posterShape": "poster",
-      "runtime": "124 dk"
     }
   ]
 }
