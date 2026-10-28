@@ -83264,5 +83264,145 @@
         }
       }
     }
+  ],
+  "playrepo-sahane-hayat": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=616d706c974cccf0c6a903e5e81cfe98&token=eyJ2IjoiNjE2ZDcwNmM5NzRjY2NmMGM2YTkwM2U1ZTgxY2ZlOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzMjg0LCJuIjoiNzQ0YzA1MDc3NTZhIn0.fae0cf05640319e9002ed80e0a8abdf73c53dec14375d33fa29bdc2ea476dd4b&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=c7ZS71NetJe9Ih9IsgkIqQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=c7ZS71NetJe9Ih9IsgkIqQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=616d706c974cccf0c6a903e5e81cfe98&sid=468b03fb13fd75261427f2bfc88d3198&token=eyJ2IjoiNjE2ZDcwNmM5NzRjY2NmMGM2YTkwM2U1ZTgxY2ZlOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzMjg0LCJuIjoiNzQ0YzA1MDc3NTZhIn0.fae0cf05640319e9002ed80e0a8abdf73c53dec14375d33fa29bdc2ea476dd4b&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=616d706c974cccf0c6a903e5e81cfe98&sid=8d30f3a7a364b61455853a5bc8c6793f&token=eyJ2IjoiNjE2ZDcwNmM5NzRjY2NmMGM2YTkwM2U1ZTgxY2ZlOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzMjg0LCJuIjoiNzQ0YzA1MDc3NTZhIn0.fae0cf05640319e9002ed80e0a8abdf73c53dec14375d33fa29bdc2ea476dd4b&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=c7ZS71NetJe9Ih9IsgkIqQ"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=616d706c974cccf0c6a903e5e81cfe98&token=eyJ2IjoiNjE2ZDcwNmM5NzRjY2NmMGM2YTkwM2U1ZTgxY2ZlOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzMjg0LCJuIjoiNzQ0YzA1MDc3NTZhIn0.fae0cf05640319e9002ed80e0a8abdf73c53dec14375d33fa29bdc2ea476dd4b&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=c7ZS71NetJe9Ih9IsgkIqQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=c7ZS71NetJe9Ih9IsgkIqQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=616d706c974cccf0c6a903e5e81cfe98&sid=468b03fb13fd75261427f2bfc88d3198&token=eyJ2IjoiNjE2ZDcwNmM5NzRjY2NmMGM2YTkwM2U1ZTgxY2ZlOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzMjg0LCJuIjoiNzQ0YzA1MDc3NTZhIn0.fae0cf05640319e9002ed80e0a8abdf73c53dec14375d33fa29bdc2ea476dd4b&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=616d706c974cccf0c6a903e5e81cfe98&sid=8d30f3a7a364b61455853a5bc8c6793f&token=eyJ2IjoiNjE2ZDcwNmM5NzRjY2NmMGM2YTkwM2U1ZTgxY2ZlOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzMjg0LCJuIjoiNzQ0YzA1MDc3NTZhIn0.fae0cf05640319e9002ed80e0a8abdf73c53dec14375d33fa29bdc2ea476dd4b&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=c7ZS71NetJe9Ih9IsgkIqQ"
+          }
+        }
+      }
+    }
+  ],
+  "sahane-hayat": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=616d706c974cccf0c6a903e5e81cfe98&token=eyJ2IjoiNjE2ZDcwNmM5NzRjY2NmMGM2YTkwM2U1ZTgxY2ZlOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzMjg0LCJuIjoiNzQ0YzA1MDc3NTZhIn0.fae0cf05640319e9002ed80e0a8abdf73c53dec14375d33fa29bdc2ea476dd4b&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=c7ZS71NetJe9Ih9IsgkIqQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=c7ZS71NetJe9Ih9IsgkIqQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=616d706c974cccf0c6a903e5e81cfe98&sid=468b03fb13fd75261427f2bfc88d3198&token=eyJ2IjoiNjE2ZDcwNmM5NzRjY2NmMGM2YTkwM2U1ZTgxY2ZlOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzMjg0LCJuIjoiNzQ0YzA1MDc3NTZhIn0.fae0cf05640319e9002ed80e0a8abdf73c53dec14375d33fa29bdc2ea476dd4b&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=616d706c974cccf0c6a903e5e81cfe98&sid=8d30f3a7a364b61455853a5bc8c6793f&token=eyJ2IjoiNjE2ZDcwNmM5NzRjY2NmMGM2YTkwM2U1ZTgxY2ZlOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzMjg0LCJuIjoiNzQ0YzA1MDc3NTZhIn0.fae0cf05640319e9002ed80e0a8abdf73c53dec14375d33fa29bdc2ea476dd4b&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=c7ZS71NetJe9Ih9IsgkIqQ"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=616d706c974cccf0c6a903e5e81cfe98&token=eyJ2IjoiNjE2ZDcwNmM5NzRjY2NmMGM2YTkwM2U1ZTgxY2ZlOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzMjg0LCJuIjoiNzQ0YzA1MDc3NTZhIn0.fae0cf05640319e9002ed80e0a8abdf73c53dec14375d33fa29bdc2ea476dd4b&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=c7ZS71NetJe9Ih9IsgkIqQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=c7ZS71NetJe9Ih9IsgkIqQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=616d706c974cccf0c6a903e5e81cfe98&sid=468b03fb13fd75261427f2bfc88d3198&token=eyJ2IjoiNjE2ZDcwNmM5NzRjY2NmMGM2YTkwM2U1ZTgxY2ZlOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzMjg0LCJuIjoiNzQ0YzA1MDc3NTZhIn0.fae0cf05640319e9002ed80e0a8abdf73c53dec14375d33fa29bdc2ea476dd4b&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=616d706c974cccf0c6a903e5e81cfe98&sid=8d30f3a7a364b61455853a5bc8c6793f&token=eyJ2IjoiNjE2ZDcwNmM5NzRjY2NmMGM2YTkwM2U1ZTgxY2ZlOTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYzMjg0LCJuIjoiNzQ0YzA1MDc3NTZhIn0.fae0cf05640319e9002ed80e0a8abdf73c53dec14375d33fa29bdc2ea476dd4b&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=c7ZS71NetJe9Ih9IsgkIqQ"
+          }
+        }
+      }
+    }
   ]
 }

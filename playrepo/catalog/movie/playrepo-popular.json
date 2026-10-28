@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-sahane-hayat",
+      "type": "movie",
+      "name": "Şahane Hayat",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3q35nBLCIdEbxYfsr7D5ocYQXKz.webp?v=1790160854",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3q35nBLCIdEbxYfsr7D5ocYQXKz.webp?v=1790160854",
+      "description": "Şahane Hayat (1946) full HD, Türkçe dublaj ve altyazılı izle. İflasın eşiğine gelen George Bailey (James Stewart) bir Noel gecesinde kendini nehre atarak intiha...",
+      "releaseInfo": "1946",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "131 dk"
+    },
+    {
       "id": "playrepo-akil-defteri",
       "type": "movie",
       "name": "Akıl Defteri",
@@ -1171,26 +1187,6 @@
       "posterShape": "poster",
       "logo": "https://images.metahub.space/logo/medium/tt41228546/img",
       "runtime": "120 dk"
-    },
-    {
-      "id": "playrepo-kara-sovalye",
-      "type": "movie",
-      "name": "Kara Şövalye",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9FE5eD92WfVCiivM9Pq9GVSrlWk.webp?v=1789601912",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9FE5eD92WfVCiivM9Pq9GVSrlWk.webp?v=1789601912",
-      "description": "Kara Şövalye (2008) full HD, Türkçe dublaj ve altyazılı izle. Batman, Teğmen Jim Gordon ve Bölge Savcısı Harvey Dent’in yardımlarıyla, şehir sokaklarını sarmış....",
-      "releaseInfo": "2008",
-      "genres": [
-        "Korku & Gerilim",
-        "Prime Video",
-        "HBO Max",
-        "Aksiyon & Macera",
-        "Netflix",
-        "Suç & Polisiye",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "152 dk"
     }
   ]
 }
