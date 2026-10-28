@@ -1,0 +1,37 @@
+{
+  "streams": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=b103839b81618cc443b5f7f4c121bea8&token=eyJ2IjoiYjEwMzgzOWI4MTYxOGNjNDQzYjVmN2Y0YzEyMWJlYTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxNjg0LCJuIjoiMDI5NDNiMDY0YTkyIn0.c44735f8d87fc49b31155d19b7a6897fd06360e37f4c41a148df8d41121ba1da&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=83bF3_w7Mr82DCu5GZrKhw",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=83bF3_w7Mr82DCu5GZrKhw"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=b103839b81618cc443b5f7f4c121bea8&sid=17a48e7adb858786e383e5aeccaca72c&token=eyJ2IjoiYjEwMzgzOWI4MTYxOGNjNDQzYjVmN2Y0YzEyMWJlYTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxNjg0LCJuIjoiMDI5NDNiMDY0YTkyIn0.c44735f8d87fc49b31155d19b7a6897fd06360e37f4c41a148df8d41121ba1da&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=b103839b81618cc443b5f7f4c121bea8&sid=22b0dfe08d06a342c4f769a5930f47bb&token=eyJ2IjoiYjEwMzgzOWI4MTYxOGNjNDQzYjVmN2Y0YzEyMWJlYTgiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcxNjg0LCJuIjoiMDI5NDNiMDY0YTkyIn0.c44735f8d87fc49b31155d19b7a6897fd06360e37f4c41a148df8d41121ba1da&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=83bF3_w7Mr82DCu5GZrKhw"
+          }
+        }
+      }
+    }
+  ]
+}
