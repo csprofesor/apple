@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-motorcu",
+      "type": "movie",
+      "name": "Motorcu",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yrsWvYxnmA7ntxZtO9K0OInjyRA.webp?v=1789625621",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yrsWvYxnmA7ntxZtO9K0OInjyRA.webp?v=1789625621",
+      "description": "Motorcu (2026) full HD, Türkçe dublaj ve altyazılı izle. Deneyimli bir motokrosçu, bıraktığı bu zorlu spora geri dönerken çetin bir rekabet ve sınırlarını zorla...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "162 dk"
+    },
+    {
       "id": "playrepo-mezuniyet-gezisi-mallorca",
       "type": "movie",
       "name": "Mezuniyet Gezisi: Mallorca",
@@ -1067,22 +1083,6 @@
       ],
       "posterShape": "poster",
       "runtime": "104 dk"
-    },
-    {
-      "id": "playrepo-x-men-gecmis-gunler-gelecek",
-      "type": "movie",
-      "name": "X-Men: Geçmiş Günler Gelecek",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3czpqXzFy5UcNuD1AubecRLWkwD.webp?v=1787175830",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3czpqXzFy5UcNuD1AubecRLWkwD.webp?v=1787175830",
-      "description": "X-Men: Geçmiş Günler Gelecek (2014) full HD, Türkçe dublaj ve altyazılı izle. Mutantlar soylarının tükenmemesi için zamanda yolculuk yapmak zorundadır zira gele...",
-      "releaseInfo": "2014",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "132 dk"
     }
   ]
 }
