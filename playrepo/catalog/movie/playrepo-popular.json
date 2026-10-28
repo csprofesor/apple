@@ -1,6 +1,44 @@
 {
   "metas": [
     {
+      "id": "tt31049299",
+      "type": "movie",
+      "name": "Animals",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZmY3MmZiZjctOTgyYy00OGIxLTkwMDUtNDU3MGNkMGI3YWJlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZmY3MmZiZjctOTgyYy00OGIxLTkwMDUtNDU3MGNkMGI3YWJlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Animals (2026) full HD, Türkçe dublaj ve altyazılı izle.",
+      "releaseInfo": "2026",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt31049299/img",
+      "trailers": [
+        {
+          "source": "ZkN2M4ODdys",
+          "type": "Trailer"
+        },
+        {
+          "source": "mlBfQJ8oxB0",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Animals",
+          "ytId": "ZkN2M4ODdys"
+        },
+        {
+          "title": "Animals",
+          "ytId": "mlBfQJ8oxB0"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=ZkN2M4ODdys",
+      "runtime": "106 dk"
+    },
+    {
       "id": "playrepo-catli",
       "type": "movie",
       "name": "Çatlı",
@@ -993,22 +1031,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=TXTA2CUWmsE",
       "runtime": "113 dk"
-    },
-    {
-      "id": "playrepo-hamilton",
-      "type": "movie",
-      "name": "Hamilton",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uWVkEo9PWHu9algZsiLPi6sRU64.webp?v=1790456752",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uWVkEo9PWHu9algZsiLPi6sRU64.webp?v=1790456752",
-      "description": "Hamilton (2025) full HD, Türkçe dublaj ve altyazılı izle. Alexander 11 yaşındayken yarı İngiliz yarı Fransız annesi ölmüş ve babası da uzun süre önce onları ter...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "160 dk"
     }
   ]
 }
