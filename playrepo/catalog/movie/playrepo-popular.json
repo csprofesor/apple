@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-yasamak",
+      "type": "movie",
+      "name": "Yaşamak",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pQ06lTkmJd1mbotdl847HoV2iaA.webp?v=1790157052",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pQ06lTkmJd1mbotdl847HoV2iaA.webp?v=1790157052",
+      "description": "Yaşamak (1952) full HD, Türkçe dublaj ve altyazılı izle. 30 yılını bir masanın başında mühür basarak ve hiçbir iş yapmayarak geçirmiş olan Bay Watanabe 1 yıldan...",
+      "releaseInfo": "1952",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "143 dk"
+    },
+    {
       "id": "playrepo-indiana-jones-kutsal-hazine-avcilari",
       "type": "movie",
       "name": "Indiana Jones: Kutsal Hazine Avcıları",
@@ -1171,21 +1186,6 @@
       ],
       "posterShape": "poster",
       "runtime": "120 dk"
-    },
-    {
-      "id": "playrepo-perde-arkasi-vince-young-039-in-hikayesi",
-      "type": "movie",
-      "name": "Perde Arkası: Vince Young&#039;ın Hikayesi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eVOuDbCLElehZr1U5aZtK1yAU3f.webp?v=1789475275",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eVOuDbCLElehZr1U5aZtK1yAU3f.webp?v=1789475275",
-      "description": "Perde Arkası: Vince Young&#039;ın Hikayesi (2026) full HD, Türkçe dublaj ve altyazılı izle. Amerikan futbolu efsanesi Vince Young’ın üniversite yıllarındaki muhteşem...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Belgesel & Tarih",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "78 dk"
     }
   ]
 }
