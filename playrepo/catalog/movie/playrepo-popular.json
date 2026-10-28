@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-belalilar",
+      "type": "movie",
+      "name": "Belalılar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1r9lH3DaSWKGyvZaoo6BF5STOk5.webp?v=1790292116",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1r9lH3DaSWKGyvZaoo6BF5STOk5.webp?v=1790292116",
+      "description": "Belalılar (1973) full HD, Türkçe dublaj ve altyazılı izle. Chicago&#039;da dolandırıcılık yaparak yaşayan Johnny Hooker ve Luther Coleman arasında usta-çırak ilişkis...",
+      "releaseInfo": "1973",
+      "genres": [
+        "Komedi",
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "129 dk"
+    },
+    {
       "id": "tt0120382",
       "type": "movie",
       "name": "The Truman Show",
@@ -1212,22 +1229,6 @@
       ],
       "posterShape": "poster",
       "runtime": "137 dk"
-    },
-    {
-      "id": "playrepo-yol-turkusu",
-      "type": "movie",
-      "name": "Yol Türküsü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wadoNHCMPElgYuOqLxqDQqXpTMx.webp?v=1790248427",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wadoNHCMPElgYuOqLxqDQqXpTMx.webp?v=1790248427",
-      "description": "Yol Türküsü (1955) full HD, Türkçe dublaj ve altyazılı izle. 20. yüzyılın başlarında, Bangladeş&#039;in bir köyünde fakir bir Brahman ailesinin Apu adında bir çocukl...",
-      "releaseInfo": "1955",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "125 dk"
     }
   ]
 }
