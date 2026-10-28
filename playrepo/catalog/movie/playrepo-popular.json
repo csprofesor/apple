@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt31851518",
+      "type": "movie",
+      "name": "The Choral",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMjI5OTUzOGUtMjkyMS00NWNkLWIyNjctMGU3MjNjMjFhMDZiXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMjI5OTUzOGUtMjkyMS00NWNkLWIyNjctMGU3MjNjMjFhMDZiXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "The Choral (2025) full HD, Türkçe dublaj ve altyazılı izle. 1916. Fransa&#039;nın Batı Cephesi&#039;nde Büyük Savaş şiddetlenirken, Yorkshire, Ramsden&#039;deki Koro Derneği a...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt31851518/img",
+      "trailers": [
+        {
+          "source": "6zRVP-ZgMm8",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "The Choral",
+          "ytId": "6zRVP-ZgMm8"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=6zRVP-ZgMm8",
+      "runtime": "113 dk"
+    },
+    {
       "id": "playrepo-uc-usta-ve-aykiri-dunyalar",
       "type": "movie",
       "name": "Üç Usta ve Aykırı Dünyalar",
@@ -1183,22 +1212,6 @@
       ],
       "posterShape": "poster",
       "runtime": "124 dk"
-    },
-    {
-      "id": "playrepo-cezayir-savasi",
-      "type": "movie",
-      "name": "Cezayir Savaşı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ze7GsNSv418o7pzqc9fb00LWWDk.webp?v=1790264361",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ze7GsNSv418o7pzqc9fb00LWWDk.webp?v=1790264361",
-      "description": "Cezayir Savaşı (1966) full HD, Türkçe dublaj ve altyazılı izle. 1950&#039;lerin ikinci yarısında geçen film, Cezayir&#039;in Fransa sömürgesi altından kurtuluşunun öyküsü...",
-      "releaseInfo": "1966",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "122 dk"
     }
   ]
 }
