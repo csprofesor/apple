@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-kayip-kiz",
+      "type": "movie",
+      "name": "Kayıp Kız",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iWak7wT0j6ycCc8lKr4NBz9c7n5.webp?v=1790223977",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iWak7wT0j6ycCc8lKr4NBz9c7n5.webp?v=1790223977",
+      "description": "Kayıp Kız (2014) full HD, Türkçe dublaj ve altyazılı izle. Eski bir New York&#039;lu yazar olan Nick ve karısı &quot;havalı kız&quot; Amy. Beşinci evlilik yıl dönümlerinde Amy...",
+      "releaseInfo": "2014",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "149 dk"
+    },
+    {
       "id": "playrepo-olu-ozanlar-dernegi",
       "type": "movie",
       "name": "Ölü Ozanlar Derneği",
@@ -1124,27 +1140,6 @@
       ],
       "posterShape": "poster",
       "runtime": "117 dk"
-    },
-    {
-      "id": "playrepo-orumcek-adam-orumcek-evrenine-gecis",
-      "type": "movie",
-      "name": "Örümcek-Adam: Örümcek-Evrenine Geçiş",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kVd3a9YeLGkoeR50jGEXM6EqseS.webp?v=1790175115",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kVd3a9YeLGkoeR50jGEXM6EqseS.webp?v=1790175115",
-      "description": "Örümcek-Adam: Örümcek-Evrenine Geçiş (2023) full HD, Türkçe dublaj ve altyazılı izle. Spider-Man: Across the Spider-Verse, radyoaktif bir örümcek tarafından ısı...",
-      "releaseInfo": "2023",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "HBO Max",
-        "Disney+",
-        "Animasyon & Aile",
-        "Netflix",
-        "Aksiyon & Macera",
-        "Prime Video",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "140 dk"
     }
   ]
 }
