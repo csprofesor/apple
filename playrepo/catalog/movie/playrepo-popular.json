@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "playrepo-troller",
+      "type": "movie",
+      "name": "Troller",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gXyYOWAkk4FdQU3adK8WFj8nN9J.webp?v=1788590407",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gXyYOWAkk4FdQU3adK8WFj8nN9J.webp?v=1788590407",
+      "description": "Troller (2016) full HD, Türkçe dublaj ve altyazılı izle. Kendilerine ait kasabada mutlu ve dünyadaki diğer tehlikelerden uzak bir hayat süren \\&quot;Troll\\&quot; adlı min...",
+      "releaseInfo": "2016",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Aksiyon & Macera",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "92 dk"
+    },
+    {
       "id": "tt37334010",
       "type": "movie",
       "name": "The Jester 2",
@@ -1360,22 +1378,6 @@
       ],
       "posterShape": "poster",
       "runtime": "120 dk"
-    },
-    {
-      "id": "playrepo-thor-karanlik-dunya",
-      "type": "movie",
-      "name": "Thor: Karanlık Dünya",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5QEOy0QEpad9QsXeMxuGHPXMale.webp?v=1787134559",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5QEOy0QEpad9QsXeMxuGHPXMale.webp?v=1787134559",
-      "description": "Thor: Karanlık Dünya (2013) full HD, Türkçe dublaj ve altyazılı izle. Bu epik macera, günümüz Yeryüzü&#039;nden Asgard&#039;ın kozmik diyarına kadar Marvel evrenini başta...",
-      "releaseInfo": "2013",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "115 dk"
     }
   ]
 }
