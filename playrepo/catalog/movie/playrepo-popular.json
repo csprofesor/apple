@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-yedi-samuray",
+      "type": "movie",
+      "name": "Yedi Samuray",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qvZ91FwMq6O47VViAr8vZNQz3WI.webp?v=1790180035",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qvZ91FwMq6O47VViAr8vZNQz3WI.webp?v=1790180035",
+      "description": "Yedi Samuray (1954) full HD, Türkçe dublaj ve altyazılı izle. Usta Samuray Kambei&#039;nin cesareti ve fedakarlığına şahit olan bir grup köylü ondan sürekli olarak h...",
+      "releaseInfo": "1954",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "207 dk"
+    },
+    {
       "id": "playrepo-yildiz-savaslari-i-mparator-039-un-donusu",
       "type": "movie",
       "name": "Yıldız Savaşları: İmparator&#039;un Dönüşü",
@@ -1128,22 +1144,6 @@
       ],
       "posterShape": "poster",
       "runtime": "119 dk"
-    },
-    {
-      "id": "playrepo-uzay-yolu-macerasi",
-      "type": "movie",
-      "name": "Uzay Yolu Macerası",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/w5IDXtifKntw0ajv2co7jFlTQDM.webp?v=1790137052",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/w5IDXtifKntw0ajv2co7jFlTQDM.webp?v=1790137052",
-      "description": "2001: Uzay Yolu Macerası (1968) full HD, Türkçe dublaj ve altyazılı izle. Stanley Kubrick, klasik bilim kurgu başyapıtı olan insanlığın doğası üzerine bir yorum...",
-      "releaseInfo": "2001",
-      "genres": [
-        "Korku & Gerilim",
-        "Aksiyon & Macera",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "149 dk"
     }
   ]
 }
