@@ -1,6 +1,24 @@
 {
   "metas": [
     {
+      "id": "playrepo-parazit",
+      "type": "movie",
+      "name": "Parazit",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hiKmpZMGZsrkA3cdce8a7Dpos1j.webp?v=1790169825",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hiKmpZMGZsrkA3cdce8a7Dpos1j.webp?v=1790169825",
+      "description": "Parazit (2019) full HD, Türkçe dublaj ve altyazılı izle. Yoksul Kim ailesi, hileyle zengin Park ailesinin yanında çalışmaya başlar; ancak konutun altında gizli....",
+      "releaseInfo": "2019",
+      "genres": [
+        "Komedi",
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Mubi & Kült",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "133 dk"
+    },
+    {
       "id": "playrepo-arabistanli-lawrence",
       "type": "movie",
       "name": "Arabistanlı Lawrence",
@@ -1140,24 +1158,6 @@
       ],
       "posterShape": "poster",
       "runtime": "79 dk"
-    },
-    {
-      "id": "playrepo-amerikan-sapigi",
-      "type": "movie",
-      "name": "Amerikan Sapığı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5oaMV2q0qzxkIW2ukU3lldLu5q2.webp?v=1789936206",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5oaMV2q0qzxkIW2ukU3lldLu5q2.webp?v=1789936206",
-      "description": "Amerikan Sapığı (2000) full HD, Türkçe dublaj ve altyazılı izle. Patrick Bateman, aileden zengin bir adamdır. Gençliği ve yakışıklı olması, kendisine hem işinde...",
-      "releaseInfo": "2000",
-      "genres": [
-        "Korku & Gerilim",
-        "Hulu",
-        "Dram & Romantik",
-        "Popüler",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
