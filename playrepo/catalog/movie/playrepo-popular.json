@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-gozetleme-kulesi",
+      "type": "movie",
+      "name": "Gözetleme Kulesi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jx4lkFMfRbRZjB0FCqJlHryQNGl.webp?v=1792156089",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jx4lkFMfRbRZjB0FCqJlHryQNGl.webp?v=1792156089",
+      "description": "Gözetleme Kulesi (2012) full HD, Türkçe dublaj ve altyazılı izle. Nihat ıssız bir ormanın tepesinde bir yangın gözetleme kulesine bekçi olarak sığınmıştır. Sehe...",
+      "releaseInfo": "2012",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "100 dk"
+    },
+    {
       "id": "playrepo-koleksiyoncu",
       "type": "movie",
       "name": "Koleksiyoncu",
@@ -1137,21 +1152,6 @@
       ],
       "posterShape": "poster",
       "runtime": "116 dk"
-    },
-    {
-      "id": "playrepo-bal",
-      "type": "movie",
-      "name": "Bal",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rqUj70pNdivzKknRAgqurydLvJE.webp?v=1791132596",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rqUj70pNdivzKknRAgqurydLvJE.webp?v=1791132596",
-      "description": "Bal (2010) full HD, Türkçe dublaj ve altyazılı izle. Yusuf Üçlemesi&#039;nin son filmi... Yumurta&#039;da olgunluk, Süt&#039;te gençlik halini izlediğimiz Yusuf&#039;un bu kez çocu...",
-      "releaseInfo": "2010",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "103 dk"
     }
   ]
 }
