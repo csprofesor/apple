@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-i-htiyar-delikanli",
+      "type": "movie",
+      "name": "İhtiyar Delikanlı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rwf5SUTiEsmfkXAgy15R0UtJUtv.webp?v=1790164041",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rwf5SUTiEsmfkXAgy15R0UtJUtv.webp?v=1790164041",
+      "description": "İhtiyar Delikanlı (2003) full HD, Türkçe dublaj ve altyazılı izle. Oh Dae-su, bir gün kendisini küçük karanlık bir hücrede bulur. Oraya kimler tarafından ve niy...",
+      "releaseInfo": "2003",
+      "genres": [
+        "Mubi & Kült",
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "120 dk"
+    },
+    {
       "id": "playrepo-yildizlararasi",
       "type": "movie",
       "name": "Yıldızlararası",
@@ -1176,22 +1192,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=u0OhgW-RtW0",
       "runtime": "116 dk"
-    },
-    {
-      "id": "playrepo-motorcu",
-      "type": "movie",
-      "name": "Motorcu",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yrsWvYxnmA7ntxZtO9K0OInjyRA.webp?v=1789625621",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yrsWvYxnmA7ntxZtO9K0OInjyRA.webp?v=1789625621",
-      "description": "Motorcu (2026) full HD, Türkçe dublaj ve altyazılı izle. Deneyimli bir motokrosçu, bıraktığı bu zorlu spora geri dönerken çetin bir rekabet ve sınırlarını zorla...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "162 dk"
     }
   ]
 }
