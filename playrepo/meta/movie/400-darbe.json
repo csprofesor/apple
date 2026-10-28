@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "id": "playrepo-400-darbe",
+    "type": "movie",
+    "name": "400 Darbe",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cy7ymUaMEWRoig7LWXpfzaaw2vv.webp?v=1790258265",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cy7ymUaMEWRoig7LWXpfzaaw2vv.webp?v=1790258265",
+    "description": "400 Darbe (1959) full HD, Türkçe dublaj ve altyazılı izle. Dokuz buçuk yaşındaki Antoine ceza olarak aldığı ödevi yapamaz ve ertesi gün okula gitmekten korkar.....",
+    "releaseInfo": "1959",
+    "genres": [
+      "Mubi & Kült",
+      "Dram & Romantik",
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-400-darbe",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-400-darbe",
+        "title": "400 Darbe",
+        "name": "400 Darbe",
+        "released": "1959-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "99 dk"
+  }
+}

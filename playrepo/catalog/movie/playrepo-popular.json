@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-400-darbe",
+      "type": "movie",
+      "name": "400 Darbe",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cy7ymUaMEWRoig7LWXpfzaaw2vv.webp?v=1790258265",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cy7ymUaMEWRoig7LWXpfzaaw2vv.webp?v=1790258265",
+      "description": "400 Darbe (1959) full HD, Türkçe dublaj ve altyazılı izle. Dokuz buçuk yaşındaki Antoine ceza olarak aldığı ödevi yapamaz ve ertesi gün okula gitmekten korkar.....",
+      "releaseInfo": "1959",
+      "genres": [
+        "Mubi & Kült",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "99 dk"
+    },
+    {
       "id": "playrepo-zafere-hucum",
       "type": "movie",
       "name": "Zafere Hücum",
@@ -1227,22 +1243,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=n2i917l5RFc",
       "runtime": "116 dk"
-    },
-    {
-      "id": "playrepo-kayip-kiz",
-      "type": "movie",
-      "name": "Kayıp Kız",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iWak7wT0j6ycCc8lKr4NBz9c7n5.webp?v=1790223977",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iWak7wT0j6ycCc8lKr4NBz9c7n5.webp?v=1790223977",
-      "description": "Kayıp Kız (2014) full HD, Türkçe dublaj ve altyazılı izle. Eski bir New York&#039;lu yazar olan Nick ve karısı &quot;havalı kız&quot; Amy. Beşinci evlilik yıl dönümlerinde Amy...",
-      "releaseInfo": "2014",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "149 dk"
     }
   ]
 }
