@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-sebeke",
+      "type": "movie",
+      "name": "Şebeke",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/m4Iyzh9YVOh0ra7UwdMoJcrjxkx.webp?v=1790249109",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/m4Iyzh9YVOh0ra7UwdMoJcrjxkx.webp?v=1790249109",
+      "description": "Şebeke (1976) full HD, Türkçe dublaj ve altyazılı izle. Şebeke, uzun yıllardır UBS Akşam Haberleri isimli programda haber spikerliği yapan Howard Beale’nin hika...",
+      "releaseInfo": "1976",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "122 dk"
+    },
+    {
       "id": "playrepo-gizli-teskilat",
       "type": "movie",
       "name": "Gizli Teşkilat",
@@ -1271,22 +1286,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=JH8j_1dUlUU",
       "runtime": "188 dk"
-    },
-    {
-      "id": "playrepo-paramparca-asklar-kopekler",
-      "type": "movie",
-      "name": "Paramparça Aşklar Köpekler",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iTkxwBriD9YKg4Q35qWEIlLXd6e.webp?v=1790213561",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/iTkxwBriD9YKg4Q35qWEIlLXd6e.webp?v=1790213561",
-      "description": "Paramparça Aşklar Köpekler (2000) full HD, Türkçe dublaj ve altyazılı izle. Octavio, genç bir delikanlıdır, kardeşinin karısı Susana ile kaçmaya karar verir. Kö...",
-      "releaseInfo": "2000",
-      "genres": [
-        "Mubi & Kült",
-        "Korku & Gerilim",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "runtime": "154 dk"
     }
   ]
 }
