@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt43749709",
+      "type": "movie",
+      "name": "Grand Theft Auto VI: An Extended Look",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYjg0ZTExNWMtNjk4Ni00YmYxLWE0YjItODdjY2ZjNWM5ZDkzXkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYjg0ZTExNWMtNjk4Ni00YmYxLWE0YjItODdjY2ZjNWM5ZDkzXkEyXkFqcGc%40._V1_.jpg",
+      "description": "Grand Theft Auto VI: An Extended Look (2026) full HD, Türkçe dublaj ve altyazılı izle. PlayStation 5&#039;e ait oynanış görüntülerden derlenen bu kapsamlı tanıtım vi...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Animasyon & Aile",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt43749709/img",
+      "trailers": [
+        {
+          "source": "uphThaa97ig",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Grand Theft Auto VI: An Extended Look",
+          "ytId": "uphThaa97ig"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=uphThaa97ig",
+      "runtime": "27 dk"
+    },
+    {
       "id": "playrepo-recep-i-vedik-7",
       "type": "movie",
       "name": "Recep İvedik 7",
@@ -1224,35 +1253,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=xjDjIWPwcPU",
       "runtime": "138 dk"
-    },
-    {
-      "id": "tt9114286",
-      "type": "movie",
-      "name": "Black Panther: Wakanda Forever",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYWY5NDY1ZjItZDQxMy00MTAzLTgyOGQtNTQxYjFiMzZjMjUyXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BYWY5NDY1ZjItZDQxMy00MTAzLTgyOGQtNTQxYjFiMzZjMjUyXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Black Panther: Yaşasın Wakanda (2022) full HD, Türkçe dublaj ve altyazılı izle. Queen Ramonda, Shuri, M’Baku, Okoye ve Dora Milaje, Kral T’Challa’nın ölümünün a...",
-      "releaseInfo": "2022",
-      "genres": [
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt9114286/img",
-      "trailers": [
-        {
-          "source": "_Z3QKkl1WyM",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Black Panther: Wakanda Forever",
-          "ytId": "_Z3QKkl1WyM"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=_Z3QKkl1WyM",
-      "runtime": "162 dk"
     }
   ]
 }
