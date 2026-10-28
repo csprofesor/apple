@@ -1,6 +1,51 @@
 {
   "metas": [
     {
+      "id": "tt15398776",
+      "type": "movie",
+      "name": "Oppenheimer",
+      "poster": "https://m.media-amazon.com/images/M/MV5BN2JkMDc5MGQtZjg3YS00NmFiLWIyZmQtZTJmNTM5MjVmYTQ4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BN2JkMDc5MGQtZjg3YS00NmFiLWIyZmQtZTJmNTM5MjVmYTQ4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Oppenheimer (2023) full HD, Türkçe dublaj ve altyazılı izle. İkinci Dünya Savaşı sırasında atom bombasının geliştirilmesine liderlik eden Amerikalı fizikçi J. R...",
+      "releaseInfo": "2023",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt15398776/img",
+      "trailers": [
+        {
+          "source": "qiuSBWVdgLI",
+          "type": "Trailer"
+        },
+        {
+          "source": "uYPbbksJxIg",
+          "type": "Trailer"
+        },
+        {
+          "source": "bK6ldnjE3Y0",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Oppenheimer",
+          "ytId": "qiuSBWVdgLI"
+        },
+        {
+          "title": "Oppenheimer",
+          "ytId": "uYPbbksJxIg"
+        },
+        {
+          "title": "Oppenheimer",
+          "ytId": "bK6ldnjE3Y0"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=qiuSBWVdgLI",
+      "runtime": "181 dk"
+    },
+    {
       "id": "playrepo-zafer-yollari",
       "type": "movie",
       "name": "Zafer Yolları",
@@ -1164,23 +1209,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=8J_pMGZScB8",
       "runtime": "104 dk"
-    },
-    {
-      "id": "playrepo-ekmek-kizartma-makinesi",
-      "type": "movie",
-      "name": "Ekmek Kızartma Makinesi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3gI8gS7YIpmEzUehg3cZVQ62phl.webp?v=1789625624",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3gI8gS7YIpmEzUehg3cZVQ62phl.webp?v=1789625624",
-      "description": "Ekmek Kızartma Makinesi (2026) full HD, Türkçe dublaj ve altyazılı izle. Pinti bir adam, düğünlerini iptal eden bir çifte hediye olarak verdiği ekmek kızartma m...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Suç & Polisiye",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "126 dk"
     }
   ]
 }
