@@ -1,6 +1,25 @@
 {
   "metas": [
     {
+      "id": "playrepo-ters-yuz",
+      "type": "movie",
+      "name": "Ters Yüz",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jJKZaTBNenlFclQyjrnvzkRmvWE.webp?v=1790235433",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jJKZaTBNenlFclQyjrnvzkRmvWE.webp?v=1790235433",
+      "description": "Ters Yüz (2015) full HD, Türkçe dublaj ve altyazılı izle. Küçük Riley için hayat, babasının San Francisco’da yeni bir işe başlamasıyla baştan aşağıya değişir. O...",
+      "releaseInfo": "2015",
+      "genres": [
+        "Komedi",
+        "Disney+",
+        "Animasyon & Aile",
+        "Dram & Romantik",
+        "Aksiyon & Macera",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "95 dk"
+    },
+    {
       "id": "playrepo-indiana-jones-son-macera",
       "type": "movie",
       "name": "Indiana Jones: Son Macera",
@@ -1168,22 +1187,6 @@
       ],
       "posterShape": "poster",
       "runtime": "202 dk"
-    },
-    {
-      "id": "playrepo-baba",
-      "type": "movie",
-      "name": "Baba",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tSPT36ZKlP2WVHJLM4cQPLSzv3b.webp?v=1790195505",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tSPT36ZKlP2WVHJLM4cQPLSzv3b.webp?v=1790195505",
-      "description": "Baba (1972) full HD, Türkçe dublaj ve altyazılı izle. Mario Puzo&#039;nun çok satan kitabından Puzo ve yönetmen Francis Ford Coppola tarafından sinemaya uyarlanan es...",
-      "releaseInfo": "1972",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "175 dk"
     }
   ]
 }
