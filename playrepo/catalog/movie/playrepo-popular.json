@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-zafere-hucum",
+      "type": "movie",
+      "name": "Zafere Hücum",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/D3eDUNEzJPBDG3TCJcR7RyRgTA.webp?v=1790257838",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/D3eDUNEzJPBDG3TCJcR7RyRgTA.webp?v=1790257838",
+      "description": "Zafere Hücum (2013) full HD, Türkçe dublaj ve altyazılı izle. 1976 yılında gerçekleşen Alman Grand Prix yarışında Niki Lauda&#039;nın kullandığı Ferrari ikinci round...",
+      "releaseInfo": "2013",
+      "genres": [
+        "Mubi & Kült",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "123 dk"
+    },
+    {
       "id": "playrepo-zindan-adasi",
       "type": "movie",
       "name": "Zindan Adası",
@@ -1226,21 +1243,6 @@
       ],
       "posterShape": "poster",
       "runtime": "149 dk"
-    },
-    {
-      "id": "playrepo-olu-ozanlar-dernegi",
-      "type": "movie",
-      "name": "Ölü Ozanlar Derneği",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lFIXZpwwlF9hg8NM3RazaIJDuaj.webp?v=1790221400",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/lFIXZpwwlF9hg8NM3RazaIJDuaj.webp?v=1790221400",
-      "description": "Ölü Ozanlar Derneği (1989) full HD, Türkçe dublaj ve altyazılı izle. 50&#039;lerin Welton Akademisi, ciddi, disiplinli ve akademik çevrelerde saygınlığı yüksek olan....",
-      "releaseInfo": "1989",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "129 dk"
     }
   ]
 }
