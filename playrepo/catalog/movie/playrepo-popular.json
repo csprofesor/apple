@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-karilar-kogusu",
+      "type": "movie",
+      "name": "Karılar Koğuşu",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8QhI5JInrgclg3BWQIkytJJHaFc.webp?v=1791051101",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8QhI5JInrgclg3BWQIkytJJHaFc.webp?v=1791051101",
+      "description": "Karılar Koğuşu (1990) full HD, Türkçe dublaj ve altyazılı izle. Kemal Tahir&#039;in Malatya Cezaevi&#039;nde yattığı 3 aylık bir dönemin öyküsü. 1943 Türkiye&#039;sini sergile...",
+      "releaseInfo": "1990",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "146 dk"
+    },
+    {
       "id": "tt0090201",
       "type": "movie",
       "name": "Süpermenler",
@@ -1190,23 +1205,6 @@
       ],
       "posterShape": "poster",
       "runtime": "174 dk"
-    },
-    {
-      "id": "playrepo-olmak-ya-da-olamamak",
-      "type": "movie",
-      "name": "Olmak ya da Olamamak",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qT9Nb4CmSmzdUPysn0KggAh1Efu.webp?v=1790284331",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qT9Nb4CmSmzdUPysn0KggAh1Efu.webp?v=1790284331",
-      "description": "Olmak ya da Olamamak (1983) full HD, Türkçe dublaj ve altyazılı izle. 1939-1941 yılları arasında geçen öyküde, Nazi istilasına uğrayan Varşova&#039;da yaşanan olayla...",
-      "releaseInfo": "1983",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "108 dk"
     }
   ]
 }
