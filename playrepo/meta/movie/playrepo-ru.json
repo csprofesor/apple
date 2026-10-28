@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-ru",
+    "type": "series",
+    "name": "RU",
+    "poster": "https://ddizimom.net/storage/tmdb/stills/w300/37CONBSNqK1FmupXGyUinEVfCbj.webp?v=1784408191",
+    "background": "https://ddizimom.net/storage/tmdb/stills/w300/37CONBSNqK1FmupXGyUinEVfCbj.webp?v=1784408191",
+    "description": "RU 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Üniversite sınavından sonra Uzer, alışveriş için bostana uğrar ve Reyan’la tanışır. Re...",
+    "releaseInfo": "2024",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-ru:1:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-ru:1:1",
+        "title": "1. Sezon 1. Bölüm",
+        "name": "1. Sezon 1. Bölüm",
+        "released": "2024-01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
