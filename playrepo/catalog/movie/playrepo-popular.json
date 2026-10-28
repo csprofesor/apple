@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-uslu-cocuk",
+      "type": "movie",
+      "name": "Uslu Çocuk",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6AYl4PU29o2WXUPZzAo56GVQs5r.webp?v=1791073907",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6AYl4PU29o2WXUPZzAo56GVQs5r.webp?v=1791073907",
+      "description": "Uslu Çocuk (2026) full HD, Türkçe dublaj ve altyazılı izle. 19 yaşında, değişken bir genç olan Tommy, uyuşturucudan, partilerden ve şiddetten keyif alıyor. Sarh...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "110 dk"
+    },
+    {
       "id": "playrepo-karilar-kogusu",
       "type": "movie",
       "name": "Karılar Koğuşu",
@@ -1190,21 +1206,6 @@
       ],
       "posterShape": "poster",
       "runtime": "129 dk"
-    },
-    {
-      "id": "playrepo-neseli-gunler",
-      "type": "movie",
-      "name": "Neşeli Günler",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ioQYjcRnU54ir5ltgyS7k53zw5x.webp?v=1790284597",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ioQYjcRnU54ir5ltgyS7k53zw5x.webp?v=1790284597",
-      "description": "Neşeli Günler (1965) full HD, Türkçe dublaj ve altyazılı izle. Eski bir rahibe, sert bir disiplinle yetişmiş Avusturyalı zengin bir dul adamın 7 çocuğuna mürebb...",
-      "releaseInfo": "1965",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "174 dk"
     }
   ]
 }
