@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-cennet-sinemasi",
+      "type": "movie",
+      "name": "Cennet Sineması",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zoVeIgKzGJzpdG6Gwnr7iOYfIMU.webp?v=1790147730",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zoVeIgKzGJzpdG6Gwnr7iOYfIMU.webp?v=1790147730",
+      "description": "Cennet Sineması (1988) full HD, Türkçe dublaj ve altyazılı izle. Sicilya&#039;nın küçük bir kasabasında, savaş sonrası İtalya&#039;sında büyüyen Salvatore&#039;nin hayatı, kas...",
+      "releaseInfo": "1988",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "155 dk"
+    },
+    {
       "id": "playrepo-kefernahum",
       "type": "movie",
       "name": "Kefernahum",
@@ -1147,21 +1162,6 @@
       ],
       "posterShape": "poster",
       "runtime": "134 dk"
-    },
-    {
-      "id": "playrepo-recep-i-vedik-6",
-      "type": "movie",
-      "name": "Recep İvedik 6",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qKZ2uSPXsm7eKnxdjliwtWV1bRf.webp?v=1788809106",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qKZ2uSPXsm7eKnxdjliwtWV1bRf.webp?v=1788809106",
-      "description": "Recep İvedik 6 (2019) full HD, Türkçe dublaj ve altyazılı izle. Recep İvedik evinde televizyon izlerken, kapıya gelen postacının teslim ettiği davetiyeyi görünc...",
-      "releaseInfo": "2019",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "110 dk"
     }
   ]
 }
