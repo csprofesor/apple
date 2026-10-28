@@ -1,6 +1,43 @@
 {
   "metas": [
     {
+      "id": "tt10954600",
+      "type": "movie",
+      "name": "Ant-Man and the Wasp: Quantumania",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMThkYWY5ZjQtYjJlMS00MDFmLWFkYzEtODEzZjg5YWFmMGY4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMThkYWY5ZjQtYjJlMS00MDFmLWFkYzEtODEzZjg5YWFmMGY4XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Ant-Man ve Wasp: Quantumania (2023) full HD, Türkçe dublaj ve altyazılı izle. Ant-Man serisinin bu üçüncü bölümünde Scott ve Hope&#039;un birlikte geçirdiği zamanın....",
+      "releaseInfo": "2023",
+      "genres": [
+        "Komedi",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt10954600/img",
+      "trailers": [
+        {
+          "source": "5WfTEZJnv_8",
+          "type": "Trailer"
+        },
+        {
+          "source": "ZlNFpri-Y40",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Ant-Man and the Wasp: Quantumania",
+          "ytId": "5WfTEZJnv_8"
+        },
+        {
+          "title": "Ant-Man and the Wasp: Quantumania",
+          "ytId": "ZlNFpri-Y40"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=5WfTEZJnv_8",
+      "runtime": "125 dk"
+    },
+    {
       "id": "tt5095030",
       "type": "movie",
       "name": "Ant-Man and the Wasp",
