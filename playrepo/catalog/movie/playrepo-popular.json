@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-gizemli-kadin",
+      "type": "movie",
+      "name": "Gizemli Kadın",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ziOpmyZufqM7IusfThzBr1E9wqa.webp?v=1787925791",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ziOpmyZufqM7IusfThzBr1E9wqa.webp?v=1787925791",
+      "description": "Gizemli Kadın (2026) full HD, Türkçe dublaj ve altyazılı izle. Norveç&#039;in Hidra adasında sevgilisi Joachim&#039;le küçük bir kafe işleten Louise Andersen, huzu...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Suç & Polisiye"
+      ],
+      "posterShape": "poster"
+    },
+    {
       "id": "playrepo-ongoru",
       "type": "movie",
       "name": "Öngörü",
@@ -1353,21 +1368,6 @@
       ],
       "posterShape": "poster",
       "runtime": "102 dk"
-    },
-    {
-      "id": "playrepo-altina-hucum",
-      "type": "movie",
-      "name": "Altına Hücum",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/doacHxCEmwtb7JeKVsnV1atf5vU.webp?v=1787085153",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/doacHxCEmwtb7JeKVsnV1atf5vU.webp?v=1787085153",
-      "description": "Altına Hücum (2022) full HD, Türkçe dublaj ve altyazılı izle. Mahmut ve Osman köy köy dolaşıp köye baz istasyonu kurma bahanesi ile köyün zengin ailelerin kızla...",
-      "releaseInfo": "2022",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "111 dk"
     }
   ]
 }
