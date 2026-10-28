@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-bir-sans-daha",
+      "type": "movie",
+      "name": "Bir Şans Daha",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qIjyBgsMDbpeEO3CJx7vxVn4KO8.webp?v=1792086299",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qIjyBgsMDbpeEO3CJx7vxVn4KO8.webp?v=1792086299",
+      "description": "Bir Şans Daha (2019) full HD, Türkçe dublaj ve altyazılı izle. Kate, Londra&#039;da yaşayan genç bir kadındır. Hayatında birçok yanlış karar alan genç kadın, elf rol...",
+      "releaseInfo": "2019",
+      "genres": [
+        "Hulu",
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "102 dk"
+    },
+    {
       "id": "tt31925259",
       "type": "movie",
       "name": "3. Gün",
@@ -1131,22 +1148,6 @@
       ],
       "posterShape": "poster",
       "runtime": "107 dk"
-    },
-    {
-      "id": "playrepo-uslu-cocuk",
-      "type": "movie",
-      "name": "Uslu Çocuk",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6AYl4PU29o2WXUPZzAo56GVQs5r.webp?v=1791073907",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6AYl4PU29o2WXUPZzAo56GVQs5r.webp?v=1791073907",
-      "description": "Uslu Çocuk (2026) full HD, Türkçe dublaj ve altyazılı izle. 19 yaşında, değişken bir genç olan Tommy, uyuşturucudan, partilerden ve şiddetten keyif alıyor. Sarh...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "110 dk"
     }
   ]
 }
