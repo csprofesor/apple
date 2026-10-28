@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-kapisma",
+      "type": "movie",
+      "name": "Kapışma",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gTghF8ardwJ48XLHkiapWk3ZmSo.webp?v=1790257588",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gTghF8ardwJ48XLHkiapWk3ZmSo.webp?v=1790257588",
+      "description": "Kapışma (2000) full HD, Türkçe dublaj ve altyazılı izle. Benicio Del Toro ve gangster/detektif filmlerinin demirbaşı Dennis Farrina&#039;yı biraraya getiren film şu....",
+      "releaseInfo": "2000",
+      "genres": [
+        "Komedi",
+        "Suç & Polisiye",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "103 dk"
+    },
+    {
       "id": "playrepo-gizli-dunya",
       "type": "movie",
       "name": "Gizli Dünya",
@@ -1225,23 +1241,6 @@
       ],
       "posterShape": "poster",
       "runtime": "107 dk"
-    },
-    {
-      "id": "playrepo-kayip-balik-nemo",
-      "type": "movie",
-      "name": "Kayıp Balık Nemo",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eCynaAOgYYiw5yN5lBwz3IxqvaW.webp?v=1790220699",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eCynaAOgYYiw5yN5lBwz3IxqvaW.webp?v=1790220699",
-      "description": "Kayıp Balık Nemo (2003) full HD, Türkçe dublaj ve altyazılı izle. Dünyaya gelir gelmez annesini kaybeden Nemo babası tarafından büyütülmektedir. Artık İlkokul ç...",
-      "releaseInfo": "2003",
-      "genres": [
-        "Hulu",
-        "Animasyon & Aile",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "100 dk"
     }
   ]
 }
