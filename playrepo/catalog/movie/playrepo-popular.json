@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-gladyator",
+      "type": "movie",
+      "name": "Gladyatör",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/Ar7QuJ7sJEiC0oP3I8fKBKIQD9u.webp?v=1790156369",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/Ar7QuJ7sJEiC0oP3I8fKBKIQD9u.webp?v=1790156369",
+      "description": "Gladyatör (2000) full HD, Türkçe dublaj ve altyazılı izle. Roma İmparatorluğu&#039;na en parlak dönemi yaşatan General Maximus, girdiği bir meydan savaşından daha za...",
+      "releaseInfo": "2000",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "171 dk"
+    },
+    {
       "id": "playrepo-siki-dostlar",
       "type": "movie",
       "name": "Sıkı Dostlar",
@@ -1172,22 +1188,6 @@
       ],
       "posterShape": "poster",
       "runtime": "112 dk"
-    },
-    {
-      "id": "playrepo-sen-ben-ve-toscana",
-      "type": "movie",
-      "name": "Sen, Ben ve Toscana",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2TWIlmhE06ghspeQLEX1VmnEBiE.webp?v=1789472940",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2TWIlmhE06ghspeQLEX1VmnEBiE.webp?v=1789472940",
-      "description": "Sen, Ben ve Toscana (2026) full HD, Türkçe dublaj ve altyazılı izle. Anna, şef olma hayallerinden vazgeçmiş ve yirmili yaşlarında bir dizi kötü tercihle boğuşan...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "105 dk"
     }
   ]
 }
