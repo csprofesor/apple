@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-m-bir-sehir-katilini-ariyor",
+      "type": "movie",
+      "name": "M - Bir Şehir Katilini Arıyor",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5Pk1rGAtyblh9Xaq72T7ARCQSDQ.webp?v=1790242468",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5Pk1rGAtyblh9Xaq72T7ARCQSDQ.webp?v=1790242468",
+      "description": "M - Bir Şehir Katilini Arıyor (1931) full HD, Türkçe dublaj ve altyazılı izle. Usta yönetmen Fritz Lang’ın kült suç filminde Berlin sokaklarında amansız bir müc...",
+      "releaseInfo": "1931",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "110 dk"
+    },
+    {
       "id": "playrepo-sevimli-canavarlar",
       "type": "movie",
       "name": "Sevimli Canavarlar",
@@ -1248,22 +1265,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=Q7kZy3T6vRM",
       "runtime": "107 dk"
-    },
-    {
-      "id": "playrepo-vol-i",
-      "type": "movie",
-      "name": "VOL-İ",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nYs4ZwnJBK4AgljhvzwNz7fpr3E.webp?v=1790203531",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nYs4ZwnJBK4AgljhvzwNz7fpr3E.webp?v=1790203531",
-      "description": "VOL-İ (2008) full HD, Türkçe dublaj ve altyazılı izle. Vol-i, günümüzden çok uzak bir gelecekte geçmektedir. Filmde, insanoğlu aşırı kirlenme sebebiyle Dünya’yı...",
-      "releaseInfo": "2008",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "98 dk"
     }
   ]
 }
