@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-penguen-arkadasim",
+      "type": "movie",
+      "name": "Penguen Arkadaşım",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jMH6VkqkUdBPPIiTmOv2VpmrH2L.webp?v=1792849957",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/jMH6VkqkUdBPPIiTmOv2VpmrH2L.webp?v=1792849957",
+      "description": "Penguen Arkadaşım (2024) full HD, Türkçe dublaj ve altyazılı izle. Mütevazı balıkçı João (Jean Reno)yaşadığı trajedinin ardından dünyadan elini eteğini çekmişti...",
+      "releaseInfo": "2024",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "98 dk"
+    },
+    {
       "id": "playrepo-bildigin-gibi-degil",
       "type": "movie",
       "name": "Bildiğin Gibi Değil",
@@ -1149,22 +1165,6 @@
       ],
       "posterShape": "poster",
       "runtime": "113 dk"
-    },
-    {
-      "id": "playrepo-kurtulus",
-      "type": "movie",
-      "name": "Kurtuluş",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9LXbwBaFz4lvhLrIc1uxoSvp8n9.webp?v=1791612309",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9LXbwBaFz4lvhLrIc1uxoSvp8n9.webp?v=1791612309",
-      "description": "Kurtuluş (2026) full HD, Türkçe dublaj ve altyazılı izle. Kurtuluş, korucu Hazeran Aşireti ile yıllar önce terk etmek zorunda kaldıkları köylerine geri dönen Be...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "120 dk"
     }
   ]
 }
