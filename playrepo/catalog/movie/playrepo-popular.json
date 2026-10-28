@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-kralice-lear",
+      "type": "movie",
+      "name": "Kraliçe Lear",
+      "poster": "https://ddizimom.net/storage/tmdb/posters/w780/7ExW7j3zJevqRybQZ5X7L2wlHHa.webp?v=1792156399",
+      "background": "https://ddizimom.net/storage/tmdb/posters/w780/7ExW7j3zJevqRybQZ5X7L2wlHHa.webp?v=1792156399",
+      "description": "Kraliçe Lear (2019) full HD, Türkçe dublaj ve altyazılı izle. Toroslar&#039;da bir avuç köylü kadın, 2000&#039;li yılların başında bir araya gelerek bir tiyatro topluluğu...",
+      "releaseInfo": "2019",
+      "genres": [
+        "Belgesel & Tarih",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "84 dk"
+    },
+    {
       "id": "playrepo-gozetleme-kulesi",
       "type": "movie",
       "name": "Gözetleme Kulesi",
@@ -1135,23 +1150,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=m1OCLApuHjE",
       "runtime": "89 dk"
-    },
-    {
-      "id": "playrepo-hayalet-avcilari",
-      "type": "movie",
-      "name": "Hayalet Avcıları",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3KDHaahgXlUhmpXzoRZrLc7QSBM.webp?v=1791132847",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3KDHaahgXlUhmpXzoRZrLc7QSBM.webp?v=1791132847",
-      "description": "Hayalet Avcıları (2016) full HD, Türkçe dublaj ve altyazılı izle. 80&#039;li yılların ikonik filmlerinden Ghostbusters&#039;ın devamında hayaletler Manhattan&#039;ı ele geçirm...",
-      "releaseInfo": "2016",
-      "genres": [
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "116 dk"
     }
   ]
 }
