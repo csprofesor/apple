@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-x-men-birinci-sinif",
+      "type": "movie",
+      "name": "X-Men: Birinci Sınıf",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yhp5Pt4GugkCs5mz63qWz5khHXe.webp?v=1787177302",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yhp5Pt4GugkCs5mz63qWz5khHXe.webp?v=1787177302",
+      "description": "X-Men: Birinci Sınıf (2011) full HD, Türkçe dublaj ve altyazılı izle. İnsanların akıllarını okuyup, kontrol edebilen, telepatik güçlere sahip Oxford mezunu genç...",
+      "releaseInfo": "2011",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "132 dk"
+    },
+    {
       "id": "playrepo-yeni-mutantlar",
       "type": "movie",
       "name": "Yeni Mutantlar",
@@ -1339,22 +1355,6 @@
       ],
       "posterShape": "poster",
       "runtime": "84 dk"
-    },
-    {
-      "id": "playrepo-menajerimi-arayin-film",
-      "type": "movie",
-      "name": "Menajerimi Arayın! (Film)",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/blh99dDTXa0Gpiuws2BoVyas8Pp.webp?v=1789080253",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/blh99dDTXa0Gpiuws2BoVyas8Pp.webp?v=1789080253",
-      "description": "Menajerimi Arayın! (Film) (2026) full HD, Türkçe dublaj ve altyazılı izle. ASK ajansının kapanmasından beş yıl sonra, ilk filminin çekimlerine günler kala başro...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "117 dk"
     }
   ]
 }
