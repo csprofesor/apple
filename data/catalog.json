@@ -1,6 +1,44 @@
 {
   "metas": [
     {
+      "id": "tt1186373",
+      "type": "movie",
+      "name": "Wonder Woman",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZDUwZWIxNDItMjFmNi00ZjY4LWIzNTUtMmVhNmFhMjk0YjU4XkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZDUwZWIxNDItMjFmNi00ZjY4LWIzNTUtMmVhNmFhMjk0YjU4XkEyXkFqcGc%40._V1_.jpg",
+      "description": "Wonder Woman (2009) full HD, Türkçe dublaj ve altyazılı izle. Mistik bir adada, Prenses Diana&#039;yı yetiştiren Amazonlar yaşamaktadır. Askeri pilot Steve Travor bi...",
+      "releaseInfo": "2009",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt1186373/img",
+      "trailers": [
+        {
+          "source": "kIF-uZhCeIc",
+          "type": "Trailer"
+        },
+        {
+          "source": "eMBHb0DfzkY",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Wonder Woman",
+          "ytId": "kIF-uZhCeIc"
+        },
+        {
+          "title": "Wonder Woman",
+          "ytId": "eMBHb0DfzkY"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=kIF-uZhCeIc",
+      "runtime": "74 dk"
+    },
+    {
       "id": "tt10059460",
       "type": "series",
       "name": "Vixen",
