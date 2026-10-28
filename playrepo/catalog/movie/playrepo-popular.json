@@ -1,6 +1,60 @@
 {
   "metas": [
     {
+      "id": "tt2380307",
+      "type": "movie",
+      "name": "Coco",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMDIyM2E2NTAtMzlhNy00ZGUxLWI1NjgtZDY5MzhiMDc5NGU3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMDIyM2E2NTAtMzlhNy00ZGUxLWI1NjgtZDY5MzhiMDc5NGU3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Coco (2017) full HD, Türkçe dublaj ve altyazılı izle. Miguel, ailesinin nesiller boyu süren yasağına rağmen idolü Ernesto de la Cruz gibi başarılı bir müzisyen....",
+      "releaseInfo": "2017",
+      "genres": [
+        "Dram & Romantik",
+        "Animasyon & Aile",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt2380307/img",
+      "trailers": [
+        {
+          "source": "Rvr68u6k5sI",
+          "type": "Trailer"
+        },
+        {
+          "source": "bvomHFZO0mk",
+          "type": "Trailer"
+        },
+        {
+          "source": "xlnPHQ3TLX8",
+          "type": "Trailer"
+        },
+        {
+          "source": "zNCz4mQzfEI",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Coco",
+          "ytId": "Rvr68u6k5sI"
+        },
+        {
+          "title": "Coco",
+          "ytId": "bvomHFZO0mk"
+        },
+        {
+          "title": "Coco",
+          "ytId": "xlnPHQ3TLX8"
+        },
+        {
+          "title": "Coco",
+          "ytId": "zNCz4mQzfEI"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=Rvr68u6k5sI",
+      "runtime": "105 dk"
+    },
+    {
       "id": "playrepo-kiyamet",
       "type": "movie",
       "name": "Kıyamet",
@@ -1108,21 +1162,6 @@
       ],
       "posterShape": "poster",
       "runtime": "100 dk"
-    },
-    {
-      "id": "playrepo-recep-i-vedik-4",
-      "type": "movie",
-      "name": "Recep İvedik 4",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nsT4LRAz5OZDHIqoQK3iK0YkyiU.webp?v=1788808002",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nsT4LRAz5OZDHIqoQK3iK0YkyiU.webp?v=1788808002",
-      "description": "Recep İvedik 4 (2014) full HD, Türkçe dublaj ve altyazılı izle. Recep İvedik, her gün top oynadığı arsanın bir inşaat firması tarafından alındığını ve oraya bin...",
-      "releaseInfo": "2014",
-      "genres": [
-        "Komedi",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "117 dk"
     }
   ]
 }
