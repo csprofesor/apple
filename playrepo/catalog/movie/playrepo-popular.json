@@ -1,6 +1,25 @@
 {
   "metas": [
     {
+      "id": "playrepo-dovus-kulubu",
+      "type": "movie",
+      "name": "Dövüş Kulübü",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/c6OLXfKAk5BKeR6broC8pYiCquX.webp?v=1790151736",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/c6OLXfKAk5BKeR6broC8pYiCquX.webp?v=1790151736",
+      "description": "Dövüş Kulübü (1999) full HD, Türkçe dublaj ve altyazılı izle. Saatli bomba gibi patlamaya hazır, uykusuzluk çeken bir adam ile tekinsiz bir sabun satıcısı; ilke...",
+      "releaseInfo": "1999",
+      "genres": [
+        "Korku & Gerilim",
+        "Disney+",
+        "Dram & Romantik",
+        "HBO Max",
+        "Aksiyon & Macera",
+        "Netflix"
+      ],
+      "posterShape": "poster",
+      "runtime": "139 dk"
+    },
+    {
       "id": "playrepo-zincirsiz",
       "type": "movie",
       "name": "Zincirsiz",
@@ -1140,22 +1159,6 @@
       ],
       "posterShape": "poster",
       "runtime": "102 dk"
-    },
-    {
-      "id": "playrepo-vay-kaynanam-vay",
-      "type": "movie",
-      "name": "Vay Kaynanam Vay",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/FjqN9Aaqxd63Bfjoft6APu4Fua.webp?v=1788973566",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/FjqN9Aaqxd63Bfjoft6APu4Fua.webp?v=1788973566",
-      "description": "Vay Kaynanam Vay (2005) full HD, Türkçe dublaj ve altyazılı izle. Uzun yıllar boyunca Bay Doğru&#039;yu arayan Charlotte sonunda hayallerinin erkeğine rastladığını d...",
-      "releaseInfo": "2005",
-      "genres": [
-        "Komedi",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "101 dk"
     }
   ]
 }
