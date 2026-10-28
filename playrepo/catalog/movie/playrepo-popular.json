@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-meteliksiz-zenginler",
+      "type": "movie",
+      "name": "Meteliksiz Zenginler",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/e20V500lJHkQbf1iGet34Jc5h8r.webp?v=1790970014",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/e20V500lJHkQbf1iGet34Jc5h8r.webp?v=1790970014",
+      "description": "Meteliksiz Zenginler (2026) full HD, Türkçe dublaj ve altyazılı izle. Varlıklı ve züppe AlThahabi ailesi düşündükleri kadar zengin olmadıklarını anlayınca ayakt...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster"
+    },
+    {
       "id": "playrepo-orumcek-adam-3",
       "type": "movie",
       "name": "Örümcek Adam 3",
@@ -1196,21 +1211,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-seytan",
-      "type": "movie",
-      "name": "Şeytan",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xcjJ5khg2yzOa282mza39Lbrm7j.webp?v=1790267622",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xcjJ5khg2yzOa282mza39Lbrm7j.webp?v=1790267622",
-      "description": "Şeytan (1973) full HD, Türkçe dublaj ve altyazılı izle. Bir sokaktaki bir evde küçük bir kıza alışılmadık şeyler olur. Son çare olarak onu kurtarması için bir a...",
-      "releaseInfo": "1973",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "122 dk"
     }
   ]
 }
