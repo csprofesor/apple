@@ -1,0 +1,72 @@
+{
+  "streams": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=ec534577653926882cdc57aa76808a4f&token=eyJ2IjoiZWM1MzQ1Nzc2NTM5MjY4ODJjZGM1N2FhNzY4MDhhNGYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4MjI0LCJuIjoiYWJiNmQ2MjAzOWNhIn0.96173159d5e6b9026c0e59ddafabb2dc80b3b2ebbeb25f23ab7fa7936f6bffda&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=ttpuz3tuvCzP9hD1O4olmg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=ttpuz3tuvCzP9hD1O4olmg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=ec534577653926882cdc57aa76808a4f&sid=1b53a660f5598c2702b3a5a6a182faad&token=eyJ2IjoiZWM1MzQ1Nzc2NTM5MjY4ODJjZGM1N2FhNzY4MDhhNGYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4MjI0LCJuIjoiYWJiNmQ2MjAzOWNhIn0.96173159d5e6b9026c0e59ddafabb2dc80b3b2ebbeb25f23ab7fa7936f6bffda&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=ec534577653926882cdc57aa76808a4f&sid=d54ef6033204126e3249efd49c802027&token=eyJ2IjoiZWM1MzQ1Nzc2NTM5MjY4ODJjZGM1N2FhNzY4MDhhNGYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4MjI0LCJuIjoiYWJiNmQ2MjAzOWNhIn0.96173159d5e6b9026c0e59ddafabb2dc80b3b2ebbeb25f23ab7fa7936f6bffda&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=ttpuz3tuvCzP9hD1O4olmg"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=ec534577653926882cdc57aa76808a4f&token=eyJ2IjoiZWM1MzQ1Nzc2NTM5MjY4ODJjZGM1N2FhNzY4MDhhNGYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4MjI0LCJuIjoiYWJiNmQ2MjAzOWNhIn0.96173159d5e6b9026c0e59ddafabb2dc80b3b2ebbeb25f23ab7fa7936f6bffda&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=ttpuz3tuvCzP9hD1O4olmg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=ttpuz3tuvCzP9hD1O4olmg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=ec534577653926882cdc57aa76808a4f&sid=1b53a660f5598c2702b3a5a6a182faad&token=eyJ2IjoiZWM1MzQ1Nzc2NTM5MjY4ODJjZGM1N2FhNzY4MDhhNGYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4MjI0LCJuIjoiYWJiNmQ2MjAzOWNhIn0.96173159d5e6b9026c0e59ddafabb2dc80b3b2ebbeb25f23ab7fa7936f6bffda&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=ec534577653926882cdc57aa76808a4f&sid=d54ef6033204126e3249efd49c802027&token=eyJ2IjoiZWM1MzQ1Nzc2NTM5MjY4ODJjZGM1N2FhNzY4MDhhNGYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzg4MjI0LCJuIjoiYWJiNmQ2MjAzOWNhIn0.96173159d5e6b9026c0e59ddafabb2dc80b3b2ebbeb25f23ab7fa7936f6bffda&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=ttpuz3tuvCzP9hD1O4olmg"
+          }
+        }
+      }
+    }
+  ]
+}
