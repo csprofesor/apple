@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-bal",
+      "type": "movie",
+      "name": "Bal",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rqUj70pNdivzKknRAgqurydLvJE.webp?v=1791132596",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rqUj70pNdivzKknRAgqurydLvJE.webp?v=1791132596",
+      "description": "Bal (2010) full HD, Türkçe dublaj ve altyazılı izle. Yusuf Üçlemesi&#039;nin son filmi... Yumurta&#039;da olgunluk, Süt&#039;te gençlik halini izlediğimiz Yusuf&#039;un bu kez çocu...",
+      "releaseInfo": "2010",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "103 dk"
+    },
+    {
       "id": "playrepo-otel-transilvanya-2",
       "type": "movie",
       "name": "Otel Transilvanya 2",
@@ -1058,68 +1073,6 @@
       ],
       "posterShape": "poster",
       "runtime": "128 dk"
-    },
-    {
-      "id": "tt0434409",
-      "type": "movie",
-      "name": "V for Vendetta",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZDEwOTRjNjgtOGY0MC00NGYxLWFmYmQtNjc1ZjVhMTc0OWUxXkEyXkFqcGc%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZDEwOTRjNjgtOGY0MC00NGYxLWFmYmQtNjc1ZjVhMTc0OWUxXkEyXkFqcGc%40._V1_.jpg",
-      "description": "V for Vendetta (2006) full HD, Türkçe dublaj ve altyazılı izle. Korkunç yüzünü bir maskenin ardında gizleyen bu gizemli adam kim? Kahraman mı yoksa sadece çılgı...",
-      "releaseInfo": "2006",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0434409/img",
-      "trailers": [
-        {
-          "source": "krWn5ta9RG4",
-          "type": "Trailer"
-        },
-        {
-          "source": "3ge0navn9E0",
-          "type": "Trailer"
-        },
-        {
-          "source": "V5VGq23aZ-g",
-          "type": "Trailer"
-        },
-        {
-          "source": "lSA7mAHolAw",
-          "type": "Trailer"
-        },
-        {
-          "source": "IHVzzxrPt1c",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "V for Vendetta",
-          "ytId": "krWn5ta9RG4"
-        },
-        {
-          "title": "V for Vendetta",
-          "ytId": "3ge0navn9E0"
-        },
-        {
-          "title": "V for Vendetta",
-          "ytId": "V5VGq23aZ-g"
-        },
-        {
-          "title": "V for Vendetta",
-          "ytId": "lSA7mAHolAw"
-        },
-        {
-          "title": "V for Vendetta",
-          "ytId": "IHVzzxrPt1c"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=krWn5ta9RG4",
-      "runtime": "134 dk"
     }
   ]
 }
