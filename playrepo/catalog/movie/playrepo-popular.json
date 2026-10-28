@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-kuculen-hayatlar",
+      "type": "movie",
+      "name": "Küçülen Hayatlar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rtr0l61RxLPkmZHbZj0WFlGx5G5.webp?v=1792755578",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rtr0l61RxLPkmZHbZj0WFlGx5G5.webp?v=1792755578",
+      "description": "Küçülen Hayatlar (2017) full HD, Türkçe dublaj ve altyazılı izle. Nüfusun aşırı artması sonucunda Norveçli bilim adamları buna bir çözüm olarak insanların boyun...",
+      "releaseInfo": "2017",
+      "genres": [
+        "Komedi",
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "135 dk"
+    },
+    {
       "id": "playrepo-leylekler",
       "type": "movie",
       "name": "Leylekler",
@@ -1147,21 +1164,6 @@
       ],
       "posterShape": "poster",
       "runtime": "81 dk"
-    },
-    {
-      "id": "playrepo-heldin",
-      "type": "movie",
-      "name": "Heldin",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hBTOBzXTa5q1Hpxo7sWfXVBkpv3.webp?v=1791611027",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hBTOBzXTa5q1Hpxo7sWfXVBkpv3.webp?v=1791611027",
-      "description": "Heldin (2025) full HD, Türkçe dublaj ve altyazılı izle.",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "92 dk"
     }
   ]
 }
