@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-3-aptal",
+      "type": "movie",
+      "name": "3 Aptal",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/u7kuUaySqXBVAtqEl9vkTkAzHV9.webp?v=1790140815",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/u7kuUaySqXBVAtqEl9vkTkAzHV9.webp?v=1790140815",
+      "description": "3 Aptal (2009) full HD, Türkçe dublaj ve altyazılı izle. Hindistan’da mühendislik okuyan Farhan, bu bölüme ailesinin zoruyla girmiştir. Farhan&#039;ın asıl arzusu is...",
+      "releaseInfo": "2009",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "171 dk"
+    },
+    {
       "id": "playrepo-gelecege-donus",
       "type": "movie",
       "name": "Geleceğe Dönüş",
@@ -1100,44 +1116,6 @@
       ],
       "posterShape": "poster",
       "runtime": "133 dk"
-    },
-    {
-      "id": "tt5013056",
-      "type": "movie",
-      "name": "Dunkirk",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTE0Mjg4MTMwMDZeQTJeQWpwZ15BbWU4MDAwMDQ1ODAy._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMTE0Mjg4MTMwMDZeQTJeQWpwZ15BbWU4MDAwMDQ1ODAy._V1_SX250.jpg",
-      "description": "Dunkirk (2017) full HD, Türkçe dublaj ve altyazılı izle. 2. Dünya Savaşı&#039;nın kaderini belirleyen olaylardan biri olan Dunkerque Tahliyesi&#039;ni konu edinen film, y...",
-      "releaseInfo": "2017",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt5013056/img",
-      "trailers": [
-        {
-          "source": "T7O7BtBnsG4",
-          "type": "Trailer"
-        },
-        {
-          "source": "F-eMt3SrfFU",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Dunkirk",
-          "ytId": "T7O7BtBnsG4"
-        },
-        {
-          "title": "Dunkirk",
-          "ytId": "F-eMt3SrfFU"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=T7O7BtBnsG4",
-      "runtime": "107 dk"
     }
   ]
 }
