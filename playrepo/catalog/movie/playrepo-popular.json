@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-kan-dokulecek",
+      "type": "movie",
+      "name": "Kan Dökülecek",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9UAKA6ceZi6TgQwTAAMt7DWwYPI.webp?v=1790285872",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9UAKA6ceZi6TgQwTAAMt7DWwYPI.webp?v=1790285872",
+      "description": "Kan Dökülecek (2007) full HD, Türkçe dublaj ve altyazılı izle. Upton Sinclair’in “Petrol-Oil!” adlı romanından uyarlanan filmin konusu, 20. yüzyılın başlarında....",
+      "releaseInfo": "2007",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "158 dk"
+    },
+    {
       "id": "playrepo-bulbulu-oldurmek",
       "type": "movie",
       "name": "Bülbülü Öldürmek",
@@ -1109,23 +1124,6 @@
       ],
       "posterShape": "poster",
       "runtime": "162 dk"
-    },
-    {
-      "id": "playrepo-m-bir-sehir-katilini-ariyor",
-      "type": "movie",
-      "name": "M - Bir Şehir Katilini Arıyor",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5Pk1rGAtyblh9Xaq72T7ARCQSDQ.webp?v=1790242468",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5Pk1rGAtyblh9Xaq72T7ARCQSDQ.webp?v=1790242468",
-      "description": "M - Bir Şehir Katilini Arıyor (1931) full HD, Türkçe dublaj ve altyazılı izle. Usta yönetmen Fritz Lang’ın kült suç filminde Berlin sokaklarında amansız bir müc...",
-      "releaseInfo": "1931",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "110 dk"
     }
   ]
 }
