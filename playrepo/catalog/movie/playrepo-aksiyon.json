@@ -1,6 +1,67 @@
 {
   "metas": [
     {
+      "id": "tt1745960",
+      "type": "movie",
+      "name": "Top Gun: Maverick",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMDBkZDNjMWEtOTdmMi00NmExLTg5MmMtNTFlYTJlNWY5YTdmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMDBkZDNjMWEtOTdmMi00NmExLTg5MmMtNTFlYTJlNWY5YTdmXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Top Gun: Maverick (2022) full HD, Türkçe dublaj ve altyazılı izle. Donanmanın en iyi pilotlarından biri olan Pete “Maverick” Mitchell, 30 yıllık hizmetten sonra...",
+      "releaseInfo": "2022",
+      "genres": [
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt1745960/img",
+      "trailers": [
+        {
+          "source": "Klc__shdj88",
+          "type": "Trailer"
+        },
+        {
+          "source": "ODZMo8HXqwA",
+          "type": "Trailer"
+        },
+        {
+          "source": "giXco2jaZ_4",
+          "type": "Trailer"
+        },
+        {
+          "source": "g4U4BQW9OEk",
+          "type": "Trailer"
+        },
+        {
+          "source": "qSqVVswa420",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Top Gun: Maverick",
+          "ytId": "Klc__shdj88"
+        },
+        {
+          "title": "Top Gun: Maverick",
+          "ytId": "ODZMo8HXqwA"
+        },
+        {
+          "title": "Top Gun: Maverick",
+          "ytId": "giXco2jaZ_4"
+        },
+        {
+          "title": "Top Gun: Maverick",
+          "ytId": "g4U4BQW9OEk"
+        },
+        {
+          "title": "Top Gun: Maverick",
+          "ytId": "qSqVVswa420"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=Klc__shdj88",
+      "runtime": "131 dk"
+    },
+    {
       "id": "playrepo-yukari-bak",
       "type": "movie",
       "name": "Yukarı Bak",
