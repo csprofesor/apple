@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-baskalarinin-hayati",
+      "type": "movie",
+      "name": "Başkalarının Hayatı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/g11nKgir3nIhlG2gIDWIvJeR4fz.webp?v=1790195486",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/g11nKgir3nIhlG2gIDWIvJeR4fz.webp?v=1790195486",
+      "description": "Başkalarının Hayatı (2006) full HD, Türkçe dublaj ve altyazılı izle. Doğu Almanya&#039;nın kapalı politik atmosferi içinde, partiye ve devlete sadakatleri sürekli so...",
+      "releaseInfo": "2006",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "runtime": "137 dk"
+    },
+    {
       "id": "playrepo-batida-kan-var",
       "type": "movie",
       "name": "Batıda Kan Var",
@@ -1066,60 +1081,6 @@
       ],
       "posterShape": "poster",
       "runtime": "126 dk"
-    },
-    {
-      "id": "tt2380307",
-      "type": "movie",
-      "name": "Coco",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMDIyM2E2NTAtMzlhNy00ZGUxLWI1NjgtZDY5MzhiMDc5NGU3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMDIyM2E2NTAtMzlhNy00ZGUxLWI1NjgtZDY5MzhiMDc5NGU3XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Coco (2017) full HD, Türkçe dublaj ve altyazılı izle. Miguel, ailesinin nesiller boyu süren yasağına rağmen idolü Ernesto de la Cruz gibi başarılı bir müzisyen....",
-      "releaseInfo": "2017",
-      "genres": [
-        "Dram & Romantik",
-        "Animasyon & Aile",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt2380307/img",
-      "trailers": [
-        {
-          "source": "Rvr68u6k5sI",
-          "type": "Trailer"
-        },
-        {
-          "source": "bvomHFZO0mk",
-          "type": "Trailer"
-        },
-        {
-          "source": "xlnPHQ3TLX8",
-          "type": "Trailer"
-        },
-        {
-          "source": "zNCz4mQzfEI",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Coco",
-          "ytId": "Rvr68u6k5sI"
-        },
-        {
-          "title": "Coco",
-          "ytId": "bvomHFZO0mk"
-        },
-        {
-          "title": "Coco",
-          "ytId": "xlnPHQ3TLX8"
-        },
-        {
-          "title": "Coco",
-          "ytId": "zNCz4mQzfEI"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=Rvr68u6k5sI",
-      "runtime": "105 dk"
     }
   ]
 }
