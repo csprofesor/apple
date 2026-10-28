@@ -1,0 +1,37 @@
+{
+  "streams": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=14ff371449b70c48bd0b2a05fd833733&token=eyJ2IjoiMTRmZjM3MTQ0OWI3MGM0OGJkMGIyYTA1ZmQ4MzM3MzMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYxODg2LCJuIjoiMzM1NjgwODg4YjQxIn0.d4f65288dda6a6caf1f6b4c7a04f67bdcbce38da2bff8cefe11fc0c6d7e26d5d&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=mwWmS58qXfGNKgv15acHuQ",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=mwWmS58qXfGNKgv15acHuQ"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=14ff371449b70c48bd0b2a05fd833733&sid=001566b8fbf9e15dcdb917725d0ceedd&token=eyJ2IjoiMTRmZjM3MTQ0OWI3MGM0OGJkMGIyYTA1ZmQ4MzM3MzMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYxODg2LCJuIjoiMzM1NjgwODg4YjQxIn0.d4f65288dda6a6caf1f6b4c7a04f67bdcbce38da2bff8cefe11fc0c6d7e26d5d&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=14ff371449b70c48bd0b2a05fd833733&sid=350b0e769584eb15a63cb6b05218635a&token=eyJ2IjoiMTRmZjM3MTQ0OWI3MGM0OGJkMGIyYTA1ZmQ4MzM3MzMiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzYxODg2LCJuIjoiMzM1NjgwODg4YjQxIn0.d4f65288dda6a6caf1f6b4c7a04f67bdcbce38da2bff8cefe11fc0c6d7e26d5d&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=mwWmS58qXfGNKgv15acHuQ"
+          }
+        }
+      }
+    }
+  ]
+}
