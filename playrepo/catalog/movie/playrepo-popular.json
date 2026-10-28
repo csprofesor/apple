@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-gunes-sonrasi",
+      "type": "movie",
+      "name": "Güneş Sonrası",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4jdduww9j5RyzO4ITRcuBFhqNN1.webp?v=1791823380",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4jdduww9j5RyzO4ITRcuBFhqNN1.webp?v=1791823380",
+      "description": "Güneş Sonrası (2022) full HD, Türkçe dublaj ve altyazılı izle. Daha kendi hayatını bir düzene oturtamamışken genç yaşta baba olması Calum&#039;u altüst eder. Karısın...",
+      "releaseInfo": "2022",
+      "genres": [
+        "Mubi & Kült",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "101 dk"
+    },
+    {
       "id": "tt22298570",
       "type": "movie",
       "name": "Benim Babam Bir Kahraman",
@@ -1077,24 +1093,6 @@
       "posterShape": "poster",
       "logo": "https://images.metahub.space/logo/medium/tt0288603/img",
       "runtime": "95 dk"
-    },
-    {
-      "id": "playrepo-katil-kim",
-      "type": "movie",
-      "name": "Katil Kim?",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7yBfRP8CpLfAIiqI9LZ7mJHKxou.webp?v=1791038901",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7yBfRP8CpLfAIiqI9LZ7mJHKxou.webp?v=1791038901",
-      "description": "Katil Kim? (2022) full HD, Türkçe dublaj ve altyazılı izle. Zeki bir mimar olan Jeanne, kutu oyunu imparatoru eksantrik Daguerre ailesinin görkemli malikanesini...",
-      "releaseInfo": "2022",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "runtime": "103 dk"
     }
   ]
 }
