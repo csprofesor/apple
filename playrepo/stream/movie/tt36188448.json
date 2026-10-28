@@ -1,0 +1,72 @@
+{
+  "streams": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1 (Dual Ses)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=490c26eedd89e9eb81cf392374f155b2&token=eyJ2IjoiNDkwYzI2ZWVkZDg5ZTllYjgxY2YzOTIzNzRmMTU1YjIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcwOTEzLCJuIjoiYmVjOWFhYWQwNGZiIn0.861f4e60701cabe54256ab06cbf4a33836b70379c30779ffeb973ba043c73c95&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=gB6GaXu3v47z669QAqXPVA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=gB6GaXu3v47z669QAqXPVA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=490c26eedd89e9eb81cf392374f155b2&sid=4ca4d654a477dc9561306f727e973d0d&token=eyJ2IjoiNDkwYzI2ZWVkZDg5ZTllYjgxY2YzOTIzNzRmMTU1YjIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcwOTEzLCJuIjoiYmVjOWFhYWQwNGZiIn0.861f4e60701cabe54256ab06cbf4a33836b70379c30779ffeb973ba043c73c95&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=490c26eedd89e9eb81cf392374f155b2&sid=13e89381aaf84f852363cf737d6ca1e8&token=eyJ2IjoiNDkwYzI2ZWVkZDg5ZTllYjgxY2YzOTIzNzRmMTU1YjIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcwOTEzLCJuIjoiYmVjOWFhYWQwNGZiIn0.861f4e60701cabe54256ab06cbf4a33836b70379c30779ffeb973ba043c73c95&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=gB6GaXu3v47z669QAqXPVA"
+          }
+        }
+      }
+    },
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1 (Dual Ses - Orijinal Ses İçin 'Ses' Menüsünü Kullanın)",
+      "url": "https://pilavyerplay.top/api/stream.php?v=490c26eedd89e9eb81cf392374f155b2&token=eyJ2IjoiNDkwYzI2ZWVkZDg5ZTllYjgxY2YzOTIzNzRmMTU1YjIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcwOTEzLCJuIjoiYmVjOWFhYWQwNGZiIn0.861f4e60701cabe54256ab06cbf4a33836b70379c30779ffeb973ba043c73c95&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=gB6GaXu3v47z669QAqXPVA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=gB6GaXu3v47z669QAqXPVA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=490c26eedd89e9eb81cf392374f155b2&sid=4ca4d654a477dc9561306f727e973d0d&token=eyJ2IjoiNDkwYzI2ZWVkZDg5ZTllYjgxY2YzOTIzNzRmMTU1YjIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcwOTEzLCJuIjoiYmVjOWFhYWQwNGZiIn0.861f4e60701cabe54256ab06cbf4a33836b70379c30779ffeb973ba043c73c95&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=490c26eedd89e9eb81cf392374f155b2&sid=13e89381aaf84f852363cf737d6ca1e8&token=eyJ2IjoiNDkwYzI2ZWVkZDg5ZTllYjgxY2YzOTIzNzRmMTU1YjIiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzcwOTEzLCJuIjoiYmVjOWFhYWQwNGZiIn0.861f4e60701cabe54256ab06cbf4a33836b70379c30779ffeb973ba043c73c95&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "is_dual": true,
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=gB6GaXu3v47z669QAqXPVA"
+          }
+        }
+      }
+    }
+  ]
+}
