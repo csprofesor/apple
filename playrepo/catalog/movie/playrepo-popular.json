@@ -1,6 +1,19 @@
 {
   "metas": [
     {
+      "id": "tt18266422",
+      "type": "movie",
+      "name": "Star Girl",
+      "poster": "https://m.media-amazon.com/images/M/MV5BOWRiNmYwZTctZmJlYy00NWQ2LWFlZWYtZTFlMzVkYjViYzEyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BOWRiNmYwZTctZmJlYy00NWQ2LWFlZWYtZTFlMzVkYjViYzEyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Stargirl 3. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. With Starman back from the dead and her former super-villain enemies vowing to r...",
+      "releaseInfo": "2021",
+      "genres": [
+        "Komedi"
+      ],
+      "posterShape": "poster"
+    },
+    {
       "id": "tt26934833",
       "type": "movie",
       "name": "Spartacus Z",
@@ -1159,22 +1172,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=2HRB36E5N6g",
       "runtime": "129 dk"
-    },
-    {
-      "id": "playrepo-kong-kafatasi-adasi",
-      "type": "movie",
-      "name": "Kong: Kafatası Adası",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nVodCGKYLpqNC8YwQAbivKlWCgZ.webp?v=1791794992",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/nVodCGKYLpqNC8YwQAbivKlWCgZ.webp?v=1791794992",
-      "description": "Kong: Kafatası Adası (2017) full HD, Türkçe dublaj ve altyazılı izle. 1970&#039;li yıllarda bir grup bilim insanı ve asker, Amerikan hükümetinin desteklediği bir keş...",
-      "releaseInfo": "2017",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "120 dk"
     }
   ]
 }
