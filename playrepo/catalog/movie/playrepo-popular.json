@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-sahinbey-saatin-sirri",
+      "type": "movie",
+      "name": "Sahinbey: Saatin Sırrı",
+      "poster": "https://ddizimom.net/storage/tmdb/posters/w780/lyUPrwCnZkK0D2i9s26cEGvbQhy.webp?v=1787156265",
+      "background": "https://ddizimom.net/storage/tmdb/posters/w780/lyUPrwCnZkK0D2i9s26cEGvbQhy.webp?v=1787156265",
+      "description": "Sahinbey: Saatin Sırrı () full HD, Türkçe dublaj ve altyazılı izle. It tells the story of children who are researching the defense of Gaziantep during the Turki...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Animasyon & Aile",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "89 dk"
+    },
+    {
       "id": "playrepo-orumcek-adam-2",
       "type": "movie",
       "name": "Örümcek Adam 2",
@@ -1315,35 +1330,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "tt32654916",
-      "type": "movie",
-      "name": "Soulm8te",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNmY1NmU5NjMtYjU2YS00YjI5LWExNDItNDA3N2M5YWJiZDhiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNmY1NmU5NjMtYjU2YS00YjI5LWExNDItNDA3N2M5YWJiZDhiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Soulm8te (2026) full HD, Türkçe dublaj ve altyazılı izle. Acımasız bir teknoloji devinin şirketini satın almasının ardından, kederli bir mühendis şirketin yeni....",
-      "releaseInfo": "2026",
-      "genres": [
-        "Korku & Gerilim",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt32654916/img",
-      "trailers": [
-        {
-          "source": "DF9I1wLlXbk",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Soulm8te",
-          "ytId": "DF9I1wLlXbk"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=DF9I1wLlXbk",
-      "runtime": "99 dk"
     }
   ]
 }
