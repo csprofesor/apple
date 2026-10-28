@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-yolda-kaldim",
+      "type": "movie",
+      "name": "Yolda Kaldım",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cRhOM5UDUpBV7EdpdXxkstpli86.webp?v=1790027710",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cRhOM5UDUpBV7EdpdXxkstpli86.webp?v=1790027710",
+      "description": "Yolda Kaldım (2026) full HD, Türkçe dublaj ve altyazılı izle. Amanda Ogle&#039;nin gerçek hikayesinden esinlenen YOLDA KALDIM, Seattle&#039;lı evsiz bir kadının (Rose Byr...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "105 dk"
+    },
+    {
       "id": "playrepo-moss-amp-freud",
       "type": "movie",
       "name": "Moss &amp; Freud",
@@ -1114,20 +1129,6 @@
       "posterShape": "poster",
       "logo": "https://live.metahub.space/logo/medium/tt12737834/img",
       "runtime": "88 dk"
-    },
-    {
-      "id": "playrepo-kacak-gocek-ask",
-      "type": "movie",
-      "name": "Kaçak Göçek Aşk",
-      "poster": "https://ddizimom.net/storage/tmdb/posters/w780/1Y5HeaotC0exFRTIlrUOECrXLJx.webp?v=1788582618",
-      "background": "https://ddizimom.net/storage/tmdb/posters/w780/1Y5HeaotC0exFRTIlrUOECrXLJx.webp?v=1788582618",
-      "description": "Kaçak Göçek Aşk (2025) full HD, Türkçe dublaj ve altyazılı izle. Bir düğünde fotoğrafçı olarak çalışan Doruk, kendisini bir anda gelini kaçırmak zorunda kaldığı...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "runtime": "79 dk"
     }
   ]
 }
