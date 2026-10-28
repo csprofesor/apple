@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-yesil-rehber",
+      "type": "movie",
+      "name": "Yeşil Rehber",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5En0fmDagt3Pk8d7P3uTwfeQceg.webp?v=1790230513",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/5En0fmDagt3Pk8d7P3uTwfeQceg.webp?v=1790230513",
+      "description": "Yeşil Rehber (2018) full HD, Türkçe dublaj ve altyazılı izle. 1962 yılında geçen, gerçek bir hikâyeden esinlenen film, ırkçılığın Amerika Birleşik Devletleri&#039;ni...",
+      "releaseInfo": "2018",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler",
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "130 dk"
+    },
+    {
       "id": "playrepo-ruzg-r-gibi-gecti",
       "type": "movie",
       "name": "Rüzgâr Gibi Geçti",
@@ -1160,26 +1177,6 @@
       ],
       "posterShape": "poster",
       "runtime": "125 dk"
-    },
-    {
-      "id": "playrepo-kara-sovalye-yukseliyor",
-      "type": "movie",
-      "name": "Kara Şövalye Yükseliyor",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/c3OHQncTAnKFhdOTX7D3LTW6son.webp?v=1790189904",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/c3OHQncTAnKFhdOTX7D3LTW6son.webp?v=1790189904",
-      "description": "Kara Şövalye Yükseliyor (2012) full HD, Türkçe dublaj ve altyazılı izle. Bölge Başsavcısı Harvey Dent&#039;in ölümünün ardından Batman, savcının itibarının zedelenme...",
-      "releaseInfo": "2012",
-      "genres": [
-        "Korku & Gerilim",
-        "Prime Video",
-        "Dram & Romantik",
-        "HBO Max",
-        "Aksiyon & Macera",
-        "Popüler",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "runtime": "165 dk"
     }
   ]
 }
