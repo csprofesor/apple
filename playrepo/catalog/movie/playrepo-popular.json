@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-logan-wolverine",
+      "type": "movie",
+      "name": "Logan: Wolverine",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qTdCfGyDisY9e8BLycszlyTsPWx.webp?v=1787171851",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qTdCfGyDisY9e8BLycszlyTsPWx.webp?v=1787171851",
+      "description": "Logan: Wolverine (2017) full HD, Türkçe dublaj ve altyazılı izle. Yakın gelecekte yaşlanmış ve yorgun olan Wolverine ve Professor X, Meksika sınırında saklanmak...",
+      "releaseInfo": "2017",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "137 dk"
+    },
+    {
       "id": "playrepo-doktor-strange",
       "type": "movie",
       "name": "Doktor Strange",
@@ -1306,23 +1323,6 @@
       ],
       "posterShape": "poster",
       "runtime": "99 dk"
-    },
-    {
-      "id": "playrepo-fisilti-adam",
-      "type": "movie",
-      "name": "Fısıltı Adam",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uauoVKKCkNA9iWjgJCL8TdSfLf5.webp?v=1784412888",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uauoVKKCkNA9iWjgJCL8TdSfLf5.webp?v=1784412888",
-      "description": "Fısıltı Adam (2026) full HD, Türkçe dublaj ve altyazılı izle. When his young son vanishes, a widower enlists help from his estranged father, a retired detect...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "111 dk"
     }
   ]
 }
