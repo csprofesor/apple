@@ -1,6 +1,84 @@
 {
   "metas": [
     {
+      "id": "tt0073195",
+      "type": "movie",
+      "name": "Jaws",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYjViNDQzNmUtYzkxZi00NTk5LTljMmItYjJlZmZkODIxNjU1XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYjViNDQzNmUtYzkxZi00NTk5LTljMmItYjJlZmZkODIxNjU1XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Jaws (1975) full HD, Türkçe dublaj ve altyazılı izle. Küçük bir sahil kasabasının tek geçim kaynağı yaz ayları boyunca kasabaya tatil yapmaya gelen turistlerin....",
+      "releaseInfo": "1975",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0073195/img",
+      "trailers": [
+        {
+          "source": "N9hzLQUGr34",
+          "type": "Trailer"
+        },
+        {
+          "source": "lL0EjdZPo8U",
+          "type": "Trailer"
+        },
+        {
+          "source": "WKuZJjPSLXQ",
+          "type": "Trailer"
+        },
+        {
+          "source": "YIhxgIZJSbk",
+          "type": "Trailer"
+        },
+        {
+          "source": "8KxiYWYY3Kw",
+          "type": "Trailer"
+        },
+        {
+          "source": "GNmYEg3aLds",
+          "type": "Trailer"
+        },
+        {
+          "source": "BU_j7fyBF-A",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Jaws",
+          "ytId": "N9hzLQUGr34"
+        },
+        {
+          "title": "Jaws",
+          "ytId": "lL0EjdZPo8U"
+        },
+        {
+          "title": "Jaws",
+          "ytId": "WKuZJjPSLXQ"
+        },
+        {
+          "title": "Jaws",
+          "ytId": "YIhxgIZJSbk"
+        },
+        {
+          "title": "Jaws",
+          "ytId": "8KxiYWYY3Kw"
+        },
+        {
+          "title": "Jaws",
+          "ytId": "GNmYEg3aLds"
+        },
+        {
+          "title": "Jaws",
+          "ytId": "BU_j7fyBF-A"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=N9hzLQUGr34",
+      "runtime": "65 dk"
+    },
+    {
       "id": "playrepo-indiana-jones-son-macera",
       "type": "movie",
       "name": "Indiana Jones: Son Macera",
