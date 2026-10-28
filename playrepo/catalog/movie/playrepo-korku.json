@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt0032976",
+      "type": "movie",
+      "name": "Rebecca",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYTI0MjUyODAtZTBkNC00MmIwLWFlNmYtMWE3ZmJlOWJjM2QyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYTI0MjUyODAtZTBkNC00MmIwLWFlNmYtMWE3ZmJlOWJjM2QyXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Rebecca (1940) full HD, Türkçe dublaj ve altyazılı izle. Genç bir kadın aşık olduğu yakışıklı Maxim De Winter&#039;la evlendikten bir süre sonra Maxim&#039;in eski eşi Re...",
+      "releaseInfo": "1940",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0032976/img",
+      "trailers": [
+        {
+          "source": "cJok8CPtHRw",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Rebecca",
+          "ytId": "cJok8CPtHRw"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=cJok8CPtHRw",
+      "runtime": "130 dk"
+    },
+    {
       "id": "playrepo-m-bir-sehir-katilini-ariyor",
       "type": "movie",
       "name": "M - Bir Şehir Katilini Arıyor",
