@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-okul-tirasi",
+      "type": "movie",
+      "name": "Okul Tıraşı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kIsyRhnS3v88Z29Vg5gpdjR9XDn.webp?v=1791134329",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/kIsyRhnS3v88Z29Vg5gpdjR9XDn.webp?v=1791134329",
+      "description": "Okul Tıraşı (2021) full HD, Türkçe dublaj ve altyazılı izle. Yusuf ve en yakın arkadaşı Memo, Doğu Anadolu&#039;nun dağlarında gözlerden uzak Kürt erkekleri için bir...",
+      "releaseInfo": "2021",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "85 dk"
+    },
+    {
       "id": "playrepo-i-se-yaramazlar",
       "type": "movie",
       "name": "İşe Yaramazlar",
@@ -1053,23 +1068,6 @@
       ],
       "posterShape": "poster",
       "runtime": "126 dk"
-    },
-    {
-      "id": "playrepo-belalilar",
-      "type": "movie",
-      "name": "Belalılar",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1r9lH3DaSWKGyvZaoo6BF5STOk5.webp?v=1790292116",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1r9lH3DaSWKGyvZaoo6BF5STOk5.webp?v=1790292116",
-      "description": "Belalılar (1973) full HD, Türkçe dublaj ve altyazılı izle. Chicago&#039;da dolandırıcılık yaparak yaşayan Johnny Hooker ve Luther Coleman arasında usta-çırak ilişkis...",
-      "releaseInfo": "1973",
-      "genres": [
-        "Komedi",
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "129 dk"
     }
   ]
 }
