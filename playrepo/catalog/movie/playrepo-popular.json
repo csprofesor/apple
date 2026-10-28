@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-akil-oyunlari",
+      "type": "movie",
+      "name": "Akıl Oyunları",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hCJFWTPghXCwwSpvPpAoIB8318Q.webp?v=1790208415",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hCJFWTPghXCwwSpvPpAoIB8318Q.webp?v=1790208415",
+      "description": "Akıl Oyunları (2001) full HD, Türkçe dublaj ve altyazılı izle. John Forbes Nash kazandığı bir bursla Princeton Üniversitesi&#039;nde öğrenim görmeye başlar. Bu süreç...",
+      "releaseInfo": "2001",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "135 dk"
+    },
+    {
       "id": "playrepo-alaaddin",
       "type": "movie",
       "name": "Alaaddin",
@@ -1096,21 +1111,6 @@
       ],
       "posterShape": "poster",
       "runtime": "143 dk"
-    },
-    {
-      "id": "playrepo-indiana-jones-kutsal-hazine-avcilari",
-      "type": "movie",
-      "name": "Indiana Jones: Kutsal Hazine Avcıları",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zPACwR32amTNvzId9qyapCWXYDJ.webp?v=1790156936",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zPACwR32amTNvzId9qyapCWXYDJ.webp?v=1790156936",
-      "description": "Indiana Jones: Kutsal Hazine Avcıları (1981) full HD, Türkçe dublaj ve altyazılı izle. Amerikan Hükümeti Ark of the Conenant’ı bulması için Arkeolog Dr. Indiana...",
-      "releaseInfo": "1981",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "115 dk"
     }
   ]
 }
