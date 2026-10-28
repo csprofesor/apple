@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-kaptan-amerika-kis-askeri",
+      "type": "movie",
+      "name": "Kaptan Amerika: Kış Askeri",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1RWLMyC9KcFfcaoViMiJGSSZzzr.webp?v=1787100556",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1RWLMyC9KcFfcaoViMiJGSSZzzr.webp?v=1787100556",
+      "description": "Kaptan Amerika: Kış Askeri (2014) full HD, Türkçe dublaj ve altyazılı izle. Marvel&#039;in &quot;Kaptan Amerika: Kış Askeri&quot; filminde Steve Rogers&#039;ı, nam-ı diğer Kaptan A...",
+      "releaseInfo": "2014",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "138 dk"
+    },
+    {
       "id": "playrepo-i-lk-yenilmez-kaptan-amerika",
       "type": "movie",
       "name": "İlk Yenilmez: Kaptan Amerika",
@@ -1139,36 +1155,6 @@
       ],
       "posterShape": "poster",
       "runtime": "90 dk"
-    },
-    {
-      "id": "tt33312131",
-      "type": "movie",
-      "name": "Mantis",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZDc3NmI3NGEtZDFjOC00N2UwLTk3NjQtNzhiNzJkNDNjNTFkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZDc3NmI3NGEtZDFjOC00N2UwLTk3NjQtNzhiNzJkNDNjNTFkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Mantis (2025) full HD, Türkçe dublaj ve altyazılı izle. Kiralık katillerden oluşan gizli bir topluluk kaosa sürüklenince yeni suikastçılar ortaya çıkar. Eski ku...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Suç & Polisiye",
-        "Aksiyon & Macera",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt33312131/img",
-      "trailers": [
-        {
-          "source": "PItlVyrf15U",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Mantis",
-          "ytId": "PItlVyrf15U"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=PItlVyrf15U",
-      "runtime": "113 dk"
     }
   ]
 }
