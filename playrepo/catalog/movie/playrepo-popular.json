@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-en-sevdigim-pastam",
+      "type": "movie",
+      "name": "En Sevdiğim Pastam",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3p1bD9QYA41lb5MBijhYee70Fxz.webp?v=1793056964",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3p1bD9QYA41lb5MBijhYee70Fxz.webp?v=1793056964",
+      "description": "En Sevdiğim Pastam (2024) full HD, Türkçe dublaj ve altyazılı izle. Aniden geliveren mutluluk taptaze, ışıltılı bir ikinci bahar getirebilir, üstelik bunun yaşl...",
+      "releaseInfo": "2024",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "97 dk"
+    },
+    {
       "id": "playrepo-genc-anneler",
       "type": "movie",
       "name": "Genç Anneler",
@@ -1147,22 +1163,6 @@
       ],
       "posterShape": "poster",
       "runtime": "90 dk"
-    },
-    {
-      "id": "tt23060038",
-      "type": "movie",
-      "name": "N.A.R.",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/y4rXjGGc3qLdhX2yLSUPjYEcDnC.webp?v=1791730210",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/y4rXjGGc3qLdhX2yLSUPjYEcDnC.webp?v=1791730210",
-      "description": "Nar (2011) full HD, Türkçe dublaj ve altyazılı izle. Hepimiz nar taneleri gibi birbirinden ayrıyız: Hem çok benzeriz, hem de çok farklıyız. Ama açılmamış bir bü...",
-      "releaseInfo": "2011",
-      "genres": [
-        "Korku & Gerilim",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://live.metahub.space/logo/medium/tt23060038/img",
-      "runtime": "81 dk"
     }
   ]
 }

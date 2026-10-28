@@ -123016,5 +123016,75 @@
         }
       }
     }
+  ],
+  "playrepo-en-sevdigim-pastam": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=6e4ed26ce7697342bc347d5ba9ea1876&token=eyJ2IjoiNmU0ZWQyNmNlNzY5NzM0MmJjMzQ3ZDViYTllYTE4NzYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY5NDExLCJuIjoiNDM2MTY0YmYwZjRkIn0.ab5a81655ed204eaba5f350c9082273aae9a2b0500b7a007f4aa7f3a12452c8a&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=-QgPtSWAxmeYiM4hWC3AMg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=-QgPtSWAxmeYiM4hWC3AMg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=6e4ed26ce7697342bc347d5ba9ea1876&sid=31d628aac281080abe4fefa48d27978c&token=eyJ2IjoiNmU0ZWQyNmNlNzY5NzM0MmJjMzQ3ZDViYTllYTE4NzYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY5NDExLCJuIjoiNDM2MTY0YmYwZjRkIn0.ab5a81655ed204eaba5f350c9082273aae9a2b0500b7a007f4aa7f3a12452c8a&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=6e4ed26ce7697342bc347d5ba9ea1876&sid=31fdc8b5fd15f3cfa190b5041c611717&token=eyJ2IjoiNmU0ZWQyNmNlNzY5NzM0MmJjMzQ3ZDViYTllYTE4NzYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY5NDExLCJuIjoiNDM2MTY0YmYwZjRkIn0.ab5a81655ed204eaba5f350c9082273aae9a2b0500b7a007f4aa7f3a12452c8a&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=-QgPtSWAxmeYiM4hWC3AMg"
+          }
+        }
+      }
+    }
+  ],
+  "en-sevdigim-pastam": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=6e4ed26ce7697342bc347d5ba9ea1876&token=eyJ2IjoiNmU0ZWQyNmNlNzY5NzM0MmJjMzQ3ZDViYTllYTE4NzYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY5NDExLCJuIjoiNDM2MTY0YmYwZjRkIn0.ab5a81655ed204eaba5f350c9082273aae9a2b0500b7a007f4aa7f3a12452c8a&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=-QgPtSWAxmeYiM4hWC3AMg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=-QgPtSWAxmeYiM4hWC3AMg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=6e4ed26ce7697342bc347d5ba9ea1876&sid=31d628aac281080abe4fefa48d27978c&token=eyJ2IjoiNmU0ZWQyNmNlNzY5NzM0MmJjMzQ3ZDViYTllYTE4NzYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY5NDExLCJuIjoiNDM2MTY0YmYwZjRkIn0.ab5a81655ed204eaba5f350c9082273aae9a2b0500b7a007f4aa7f3a12452c8a&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=6e4ed26ce7697342bc347d5ba9ea1876&sid=31fdc8b5fd15f3cfa190b5041c611717&token=eyJ2IjoiNmU0ZWQyNmNlNzY5NzM0MmJjMzQ3ZDViYTllYTE4NzYiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY5NDExLCJuIjoiNDM2MTY0YmYwZjRkIn0.ab5a81655ed204eaba5f350c9082273aae9a2b0500b7a007f4aa7f3a12452c8a&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=-QgPtSWAxmeYiM4hWC3AMg"
+          }
+        }
+      }
+    }
   ]
 }
