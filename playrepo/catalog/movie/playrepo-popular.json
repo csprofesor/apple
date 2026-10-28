@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt0112641",
+      "type": "movie",
+      "name": "Casino",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMDRlZWZjZjYtYzY2NS00ZWVjLTkwYzAtZTA2ZDAzMGRiYmYwXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMDRlZWZjZjYtYzY2NS00ZWVjLTkwYzAtZTA2ZDAzMGRiYmYwXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Casino (1995) full HD, Türkçe dublaj ve altyazılı izle. Ace Rothstein, 1970&#039;lerin Las Vegas&#039;ında bir kumarhane işletmecisidir. İşini korumak için gereken her yo...",
+      "releaseInfo": "1995",
+      "genres": [
+        "Dram & Romantik",
+        "Suç & Polisiye"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0112641/img",
+      "trailers": [
+        {
+          "source": "zFUKn_75m1o",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Casino",
+          "ytId": "zFUKn_75m1o"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=zFUKn_75m1o",
+      "runtime": "179 dk"
+    },
+    {
       "id": "playrepo-cin-mahallesi",
       "type": "movie",
       "name": "Çin Mahallesi",
@@ -1079,24 +1108,6 @@
       ],
       "posterShape": "poster",
       "runtime": "134 dk"
-    },
-    {
-      "id": "playrepo-ucuz-roman",
-      "type": "movie",
-      "name": "Ucuz Roman",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/suaEOtk1N1sgg2MTM7oZd2cfVp3.webp?v=1790170189",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/suaEOtk1N1sgg2MTM7oZd2cfVp3.webp?v=1790170189",
-      "description": "Ucuz Roman (1994) full HD, Türkçe dublaj ve altyazılı izle. Jules Winnfield ve Vincent Vega, mafya babası patronları Marsellus Wallace’tan çalınan bir çantayı g...",
-      "releaseInfo": "1994",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Prime Video",
-        "Popüler",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "runtime": "154 dk"
     }
   ]
 }
