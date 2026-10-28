@@ -1,6 +1,44 @@
 {
   "metas": [
     {
+      "id": "tt5461944",
+      "type": "movie",
+      "name": "Hotel Mumbai",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZDE5NTVmM2UtMjYyZC00NTYzLTgyMjMtYzc5OTZkODliNTA1XkEyXkFqcGc%40._V1_.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZDE5NTVmM2UtMjYyZC00NTYzLTgyMjMtYzc5OTZkODliNTA1XkEyXkFqcGc%40._V1_.jpg",
+      "description": "Hotel Mumbai (2019) full HD, Türkçe dublaj ve altyazılı izle. Bir süredir işsiz olan Arjun, ailesini geçindirmek için şehrin en ünlü oteli olan Taj Mahal’de gar...",
+      "releaseInfo": "2019",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt5461944/img",
+      "trailers": [
+        {
+          "source": "F6szJsykTQw",
+          "type": "Trailer"
+        },
+        {
+          "source": "A8IxhVslvro",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Hotel Mumbai",
+          "ytId": "F6szJsykTQw"
+        },
+        {
+          "title": "Hotel Mumbai",
+          "ytId": "A8IxhVslvro"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=F6szJsykTQw",
+      "runtime": "125 dk"
+    },
+    {
       "id": "tt23149780",
       "type": "movie",
       "name": "Eden",
