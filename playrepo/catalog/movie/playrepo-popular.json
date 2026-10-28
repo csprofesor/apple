@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-yerdeki-yildizlar",
+      "type": "movie",
+      "name": "Yerdeki Yıldızlar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bPwdy3zaNnMdZ22u0WCcYu0xxgt.webp?v=1790242692",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bPwdy3zaNnMdZ22u0WCcYu0xxgt.webp?v=1790242692",
+      "description": "Yerdeki Yıldızlar (2007) full HD, Türkçe dublaj ve altyazılı izle. 8 yaşındaki Ishaan Awasthi, hiç kimse tarafından takdir edilmeyen bir çocuktur. Okulda dersle...",
+      "releaseInfo": "2007",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "162 dk"
+    },
+    {
       "id": "playrepo-m-bir-sehir-katilini-ariyor",
       "type": "movie",
       "name": "M - Bir Şehir Katilini Arıyor",
@@ -1221,50 +1236,6 @@
       ],
       "posterShape": "poster",
       "runtime": "116 dk"
-    },
-    {
-      "id": "tt2582802",
-      "type": "movie",
-      "name": "Whiplash",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMDFjOWFkYzktYzhhMC00NmYyLTkwY2EtYjViMDhmNzg0OGFkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMDFjOWFkYzktYzhhMC00NmYyLTkwY2EtYjViMDhmNzg0OGFkXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Whiplash (2014) full HD, Türkçe dublaj ve altyazılı izle. Bir tarafta öğrencilerinin korkulu rüyası, jazz öğretmeni Terrence Fletcher, diğer tarafta \\&quot;en iyi\\&quot;....",
-      "releaseInfo": "2014",
-      "genres": [
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt2582802/img",
-      "trailers": [
-        {
-          "source": "Q7kZy3T6vRM",
-          "type": "Trailer"
-        },
-        {
-          "source": "JeShKC6Alyk",
-          "type": "Trailer"
-        },
-        {
-          "source": "Df1xkYYbYrY",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Whiplash",
-          "ytId": "Q7kZy3T6vRM"
-        },
-        {
-          "title": "Whiplash",
-          "ytId": "JeShKC6Alyk"
-        },
-        {
-          "title": "Whiplash",
-          "ytId": "Df1xkYYbYrY"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=Q7kZy3T6vRM",
-      "runtime": "107 dk"
     }
   ]
 }
