@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt12737834",
+      "type": "movie",
+      "name": "Plaza",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNGY3MGU1NWEtZWRiMy00YzUwLWJlNTYtZGVlODFjMWI1MjM1XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNGY3MGU1NWEtZWRiMy00YzUwLWJlNTYtZGVlODFjMWI1MjM1XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Plaza (2020) full HD, Türkçe dublaj ve altyazılı izle. Atanamamış bir öğretmen olan Emre ailesinin yönlendirmesiyle, eğitimini alıp güvenlik görevlisi olur. Önc...",
+      "releaseInfo": "2020",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt12737834/img",
+      "runtime": "88 dk"
+    },
+    {
       "id": "playrepo-kacak-gocek-ask",
       "type": "movie",
       "name": "Kaçak Göçek Aşk",
@@ -1363,22 +1378,6 @@
       ],
       "posterShape": "poster",
       "runtime": "126 dk"
-    },
-    {
-      "id": "playrepo-kaptan-amerika-kahramanlarin-savasi",
-      "type": "movie",
-      "name": "Kaptan Amerika: Kahramanların Savaşı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wdwcOBMkt3zmPQuEMxB3FUtMio2.webp?v=1787100066",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/wdwcOBMkt3zmPQuEMxB3FUtMio2.webp?v=1787100066",
-      "description": "Kaptan Amerika: Kahramanların Savaşı (2016) full HD, Türkçe dublaj ve altyazılı izle. Steve Rogers insanlığı korumayı amaçlayan yeni bir Yenilmezler oluşumuna l...",
-      "releaseInfo": "2016",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Disney+",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "151 dk"
     }
   ]
 }
