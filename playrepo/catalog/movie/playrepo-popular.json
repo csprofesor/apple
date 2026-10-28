@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-ruhlarin-kacisi",
+      "type": "movie",
+      "name": "Ruhların Kaçışı",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6oaL4DP75yABrd5EbC4H2zq5ghc.webp?v=1790177417",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6oaL4DP75yABrd5EbC4H2zq5ghc.webp?v=1790177417",
+      "description": "Ruhların Kaçışı (2001) full HD, Türkçe dublaj ve altyazılı izle. Film, küçük Chihiro ve ailesinin yeni bir kasabaya taşınmalarıyla açılır. Yolculuk esnasında yo...",
+      "releaseInfo": "2001",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Animasyon & Aile",
+        "HBO Max",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "125 dk"
+    },
+    {
       "id": "playrepo-orumcek-adam-orumcek-evreninde",
       "type": "movie",
       "name": "Örümcek Adam: Örümcek Evreninde",
@@ -1128,21 +1145,6 @@
       ],
       "posterShape": "poster",
       "runtime": "99 dk"
-    },
-    {
-      "id": "playrepo-yolda-kaldim",
-      "type": "movie",
-      "name": "Yolda Kaldım",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cRhOM5UDUpBV7EdpdXxkstpli86.webp?v=1790027710",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cRhOM5UDUpBV7EdpdXxkstpli86.webp?v=1790027710",
-      "description": "Yolda Kaldım (2026) full HD, Türkçe dublaj ve altyazılı izle. Amanda Ogle&#039;nin gerçek hikayesinden esinlenen YOLDA KALDIM, Seattle&#039;lı evsiz bir kadının (Rose Byr...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "105 dk"
     }
   ]
 }
