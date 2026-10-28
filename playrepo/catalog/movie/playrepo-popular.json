@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt0287906",
+      "type": "movie",
+      "name": "Alev Alev",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNTJiNTQ4YTYtMTg4Ni00N2JkLWFiMDItZTk1MWNlODk0NTc5XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNTJiNTQ4YTYtMTg4Ni00N2JkLWFiMDItZTk1MWNlODk0NTc5XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Alev Alev (1984) full HD, Türkçe dublaj ve altyazılı izle. Yakışıklı yat kaptanı Murat’la (Tarık Akan) güzel Alev (Gülşen Bubikoğlu) evlilik hazırlığı yapan iki...",
+      "releaseInfo": "1984",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0287906/img",
+      "runtime": "118 dk"
+    },
+    {
       "id": "tt0288603",
       "type": "movie",
       "name": "Leyla ile Mecnun",
@@ -1191,24 +1206,6 @@
       ],
       "posterShape": "poster",
       "runtime": "115 dk"
-    },
-    {
-      "id": "playrepo-demir-dev",
-      "type": "movie",
-      "name": "Demir Dev",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ni5cXCrrGzoiIEoIwOzGiIwMZlH.webp?v=1790282701",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/ni5cXCrrGzoiIEoIwOzGiIwMZlH.webp?v=1790282701",
-      "description": "Demir Dev (1999) full HD, Türkçe dublaj ve altyazılı izle. 1958 yılında dev bir robot, Amerika’nın Maine eyaletinin küçük bir kasabasına düşer ve çevre halkını....",
-      "releaseInfo": "1999",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Dram & Romantik",
-        "Aksiyon & Macera",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "86 dk"
     }
   ]
 }
