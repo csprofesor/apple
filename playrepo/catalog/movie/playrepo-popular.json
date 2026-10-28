@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-gizli-dunya",
+      "type": "movie",
+      "name": "Gizli Dünya",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cGV6R2vzT4TYIabf3JgmrOISQ0y.webp?v=1790256302",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cGV6R2vzT4TYIabf3JgmrOISQ0y.webp?v=1790256302",
+      "description": "Gizli Dünya (2015) full HD, Türkçe dublaj ve altyazılı izle. Jack ile annesi, 5 yıl boyunca tek odada hayatlarını sürdürmek zorunda kalmıştır. Hiç dışarı çıkama...",
+      "releaseInfo": "2015",
+      "genres": [
+        "Mubi & Kült",
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "118 dk"
+    },
+    {
       "id": "tt0089881",
       "type": "movie",
       "name": "Ran",
@@ -1225,60 +1242,6 @@
       ],
       "posterShape": "poster",
       "runtime": "100 dk"
-    },
-    {
-      "id": "tt0116282",
-      "type": "movie",
-      "name": "Fargo",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNjg4MWE0MjEtODFhNy00MjA5LTg5ODktMzgwNWFmZTAwNjBlXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNjg4MWE0MjEtODFhNy00MjA5LTg5ODktMzgwNWFmZTAwNjBlXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Fargo (1996) full HD, Türkçe dublaj ve altyazılı izle. Jerry Lundegaard borçları olan bir sahtekârdır. İhtiyaç duyduğu meblağda parayı acilen edinmeli ve borçla...",
-      "releaseInfo": "1996",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0116282/img",
-      "trailers": [
-        {
-          "source": "Pg_CqV3VlPg",
-          "type": "Trailer"
-        },
-        {
-          "source": "aoOZDiswNaw",
-          "type": "Trailer"
-        },
-        {
-          "source": "zGDRHfUzlzo",
-          "type": "Trailer"
-        },
-        {
-          "source": "ju75Sd4yAZw",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Fargo",
-          "ytId": "Pg_CqV3VlPg"
-        },
-        {
-          "title": "Fargo",
-          "ytId": "aoOZDiswNaw"
-        },
-        {
-          "title": "Fargo",
-          "ytId": "zGDRHfUzlzo"
-        },
-        {
-          "title": "Fargo",
-          "ytId": "ju75Sd4yAZw"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=Pg_CqV3VlPg",
-      "runtime": "98 dk"
     }
   ]
 }
