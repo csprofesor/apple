@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "playrepo-fil-adam",
+    "type": "movie",
+    "name": "Fil Adam",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6huSptAsqYg3wbsi1jbMognSgmp.webp?v=1790266006",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6huSptAsqYg3wbsi1jbMognSgmp.webp?v=1790266006",
+    "description": "Fil Adam (1980) full HD, Türkçe dublaj ve altyazılı izle. Victoria dönemi İngilteresi&#039;nde yaşayan John Merrick, ender görülen bir hastalık yüzünden ileri derece...",
+    "releaseInfo": "1980",
+    "genres": [
+      "Mubi & Kült",
+      "Dram & Romantik",
+      "Popüler",
+      "Belgesel & Tarih"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-fil-adam",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-fil-adam",
+        "title": "Fil Adam",
+        "name": "Fil Adam",
+        "released": "1980-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "124 dk"
+  }
+}

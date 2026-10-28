@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-fil-adam",
+      "type": "movie",
+      "name": "Fil Adam",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6huSptAsqYg3wbsi1jbMognSgmp.webp?v=1790266006",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6huSptAsqYg3wbsi1jbMognSgmp.webp?v=1790266006",
+      "description": "Fil Adam (1980) full HD, Türkçe dublaj ve altyazılı izle. Victoria dönemi İngilteresi&#039;nde yaşayan John Merrick, ender görülen bir hastalık yüzünden ileri derece...",
+      "releaseInfo": "1980",
+      "genres": [
+        "Mubi & Kült",
+        "Dram & Romantik",
+        "Popüler",
+        "Belgesel & Tarih"
+      ],
+      "posterShape": "poster",
+      "runtime": "124 dk"
+    },
+    {
       "id": "playrepo-cezayir-savasi",
       "type": "movie",
       "name": "Cezayir Savaşı",
@@ -1240,22 +1257,6 @@
       ],
       "posterShape": "poster",
       "runtime": "233 dk"
-    },
-    {
-      "id": "playrepo-savas-vadisi",
-      "type": "movie",
-      "name": "Savaş Vadisi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vDKRMZGFTKP9nQolzeSB1rB1w6p.webp?v=1790229529",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vDKRMZGFTKP9nQolzeSB1rB1w6p.webp?v=1790229529",
-      "description": "Savaş Vadisi (2016) full HD, Türkçe dublaj ve altyazılı izle. Amerika Birleşik Devletleri&#039;nin 2. Dünya Savaşı&#039;na girmesinin ardından Desmond T. Doss da birçok A...",
-      "releaseInfo": "2016",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "139 dk"
     }
   ]
 }
