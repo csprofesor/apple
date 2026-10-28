@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-cin-mahallesi",
+      "type": "movie",
+      "name": "Çin Mahallesi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pyvkujOZ5qvY2NlQVC71flfgVWE.webp?v=1790219309",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/pyvkujOZ5qvY2NlQVC71flfgVWE.webp?v=1790219309",
+      "description": "Çin Mahallesi (1974) full HD, Türkçe dublaj ve altyazılı izle. Mulwray&#039;in karısı Evelyn, özel dedektif Jake Gittes&#039;den kocasının diğer kadınlarla olan ilişkisin...",
+      "releaseInfo": "1974",
+      "genres": [
+        "Suç & Polisiye",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "130 dk"
+    },
+    {
       "id": "tt5074352",
       "type": "movie",
       "name": "Dangal",
@@ -1081,24 +1097,6 @@
       ],
       "posterShape": "poster",
       "runtime": "154 dk"
-    },
-    {
-      "id": "playrepo-parazit",
-      "type": "movie",
-      "name": "Parazit",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hiKmpZMGZsrkA3cdce8a7Dpos1j.webp?v=1790169825",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hiKmpZMGZsrkA3cdce8a7Dpos1j.webp?v=1790169825",
-      "description": "Parazit (2019) full HD, Türkçe dublaj ve altyazılı izle. Yoksul Kim ailesi, hileyle zengin Park ailesinin yanında çalışmaya başlar; ancak konutun altında gizli....",
-      "releaseInfo": "2019",
-      "genres": [
-        "Komedi",
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Mubi & Kült",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "133 dk"
     }
   ]
 }
