@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-seytan",
+      "type": "movie",
+      "name": "Şeytan",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xcjJ5khg2yzOa282mza39Lbrm7j.webp?v=1790267622",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xcjJ5khg2yzOa282mza39Lbrm7j.webp?v=1790267622",
+      "description": "Şeytan (1973) full HD, Türkçe dublaj ve altyazılı izle. Bir sokaktaki bir evde küçük bir kıza alışılmadık şeyler olur. Son çare olarak onu kurtarması için bir a...",
+      "releaseInfo": "1973",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "122 dk"
+    },
+    {
       "id": "playrepo-buyuk-budapeste-oteli",
       "type": "movie",
       "name": "Büyük Budapeşte Oteli",
@@ -1238,23 +1253,6 @@
       ],
       "posterShape": "poster",
       "runtime": "170 dk"
-    },
-    {
-      "id": "playrepo-i-cimdeki-yangin",
-      "type": "movie",
-      "name": "İçimdeki Yangın",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/f3ATwil5vmUeTsogBaMEKbBYBth.webp?v=1790232569",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/f3ATwil5vmUeTsogBaMEKbBYBth.webp?v=1790232569",
-      "description": "İçimdeki Yangın (2010) full HD, Türkçe dublaj ve altyazılı izle. Aile dostları olan bir avukatın çağrısı üzerine annelerinin ölümünün ardından kendilerine yazıl...",
-      "releaseInfo": "2010",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "131 dk"
     }
   ]
 }
