@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-buyuk-hesaplasma",
+      "type": "movie",
+      "name": "Büyük Hesaplaşma",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uI22JkEMediWyiRqhllNqeeGtW0.webp?v=1790234327",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uI22JkEMediWyiRqhllNqeeGtW0.webp?v=1790234327",
+      "description": "Büyük Hesaplaşma (1995) full HD, Türkçe dublaj ve altyazılı izle. İnatçı bir Los Angeles emniyet müdürlüğü komiseri acımasız ve ölümcül bir profesyonel hırsızın...",
+      "releaseInfo": "1995",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "170 dk"
+    },
+    {
       "id": "playrepo-i-cimdeki-yangin",
       "type": "movie",
       "name": "İçimdeki Yangın",
@@ -1164,22 +1181,6 @@
       ],
       "posterShape": "poster",
       "runtime": "166 dk"
-    },
-    {
-      "id": "playrepo-aslan-kral",
-      "type": "movie",
-      "name": "Aslan Kral",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bqFxtuGNsz30HTk5mzgGs8m9Po.webp?v=1790192392",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bqFxtuGNsz30HTk5mzgGs8m9Po.webp?v=1790192392",
-      "description": "Aslan Kral (1994) full HD, Türkçe dublaj ve altyazılı izle. Vahşi Afrika’da henüz yeni doğan bir aslan doğaya egemen düzenin kökünden sarsılacağı bir döneme tan...",
-      "releaseInfo": "1994",
-      "genres": [
-        "Animasyon & Aile",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "88 dk"
     }
   ]
 }
