@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt38934749",
+      "type": "movie",
+      "name": "Barselo",
+      "poster": "https://m.media-amazon.com/images/M/MV5BN2ZmOGZkZmEtMDEwYy00NmI1LTk5NWUtNWE3NzhjMDgwNTc2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BN2ZmOGZkZmEtMDEwYy00NmI1LTk5NWUtNWE3NzhjMDgwNTc2XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Barselo (2025) full HD, Türkçe dublaj ve altyazılı izle. Büyük şehrin büyük otogarının görünen yüzünde alışılmış kalabalık. Görünmeyen yüzünde ise, akşamın çökm...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://live.metahub.space/logo/medium/tt38934749/img",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-avicii-son-konserim",
       "type": "movie",
       "name": "Avicii - Son Konserim",
@@ -1194,22 +1209,6 @@
       ],
       "posterShape": "poster",
       "runtime": "115 dk"
-    },
-    {
-      "id": "playrepo-avci",
-      "type": "movie",
-      "name": "Avcı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/a5zBQfXmLk3qqRYF7AioWpiAxk2.webp?v=1790270431",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/a5zBQfXmLk3qqRYF7AioWpiAxk2.webp?v=1790270431",
-      "description": "Avcı (1978) full HD, Türkçe dublaj ve altyazılı izle. Vietnam sonrası sendromunu en iyi anlatan filmlerden birisi Avcı. Savaş sonrası herşeyin bittiğine ve artı...",
-      "releaseInfo": "1978",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "183 dk"
     }
   ]
 }
