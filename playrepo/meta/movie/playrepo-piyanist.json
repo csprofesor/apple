@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "id": "playrepo-piyanist",
+    "type": "movie",
+    "name": "Piyanist",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/c0fB9xk7D1aVb3Bg2rk2SVJcGn.webp?v=1790199460",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/c0fB9xk7D1aVb3Bg2rk2SVJcGn.webp?v=1790199460",
+    "description": "Piyanist (2002) full HD, Türkçe dublaj ve altyazılı izle. Wladyslaw Szpilman, Polonyalı başarılı bir piyanisttir. İkinci Dünya Savaşı&#039;nda Almanların Polonya&#039;yı....",
+    "releaseInfo": "2002",
+    "genres": [
+      "Dram & Romantik",
+      "Popüler",
+      "Aksiyon & Macera"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-piyanist",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-piyanist",
+        "title": "Piyanist",
+        "name": "Piyanist",
+        "released": "2002-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "150 dk"
+  }
+}
