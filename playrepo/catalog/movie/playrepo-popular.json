@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-buyuk-diktator",
+      "type": "movie",
+      "name": "Büyük Diktatör",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/c8Pi8F1FzpNebtgXcSjC9nWCdSW.webp?v=1790190446",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/c8Pi8F1FzpNebtgXcSjC9nWCdSW.webp?v=1790190446",
+      "description": "Büyük Diktatör (1940) full HD, Türkçe dublaj ve altyazılı izle. Nazi Almanya&#039;sının tıpkısının aynısı bir başka diktatörlükte, kararları ve yönetimi ile ülkesini...",
+      "releaseInfo": "1940",
+      "genres": [
+        "Komedi",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "125 dk"
+    },
+    {
       "id": "playrepo-kara-sovalye-yukseliyor",
       "type": "movie",
       "name": "Kara Şövalye Yükseliyor",
@@ -1105,21 +1121,6 @@
       ],
       "posterShape": "poster",
       "runtime": "87 dk"
-    },
-    {
-      "id": "playrepo-kazablanka",
-      "type": "movie",
-      "name": "Kazablanka",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/87wqeMeUeMRLjsE1IWNKJcPlpuC.webp?v=1790141922",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/87wqeMeUeMRLjsE1IWNKJcPlpuC.webp?v=1790141922",
-      "description": "Kazablanka (1943) full HD, Türkçe dublaj ve altyazılı izle. İkinci dünya savaşında çok direnişli örgütün lideri Victor Lazlow Alman konsantrsayonu kampından kaç...",
-      "releaseInfo": "1943",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
