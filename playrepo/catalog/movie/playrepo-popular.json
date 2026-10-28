@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-funye",
+      "type": "movie",
+      "name": "Fünye",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8wIaBCeGv3UhIn5CJOWQGHT1Cif.webp?v=1792144382",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/8wIaBCeGv3UhIn5CJOWQGHT1Cif.webp?v=1792144382",
+      "description": "Fünye (2026) full HD, Türkçe dublaj ve altyazılı izle. Londra&#039;nın merkezindeki işlek bir inşaat alanında II. Dünya Savaşı&#039;ndan kalma patlamamış bir bomba bulunu...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Suç & Polisiye",
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "96 dk"
+    },
+    {
       "id": "playrepo-joker-i-kili-delilik",
       "type": "movie",
       "name": "Joker: İkili Delilik",
@@ -1133,21 +1150,6 @@
       "genres": [
         "Belgesel & Tarih",
         "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "115 dk"
-    },
-    {
-      "id": "playrepo-ceset",
-      "type": "movie",
-      "name": "Ceset",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mje7UHKBiIOQglqoXIRlU4rFHVl.webp?v=1791078482",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/mje7UHKBiIOQglqoXIRlU4rFHVl.webp?v=1791078482",
-      "description": "Ceset (2024) full HD, Türkçe dublaj ve altyazılı izle. Zengin karısını zehirleyerek öldüren Álex, aynı gece morgdan karısının cesedinin kaybolduğunu öğrenir. Ol...",
-      "releaseInfo": "2024",
-      "genres": [
-        "Korku & Gerilim",
         "Popüler"
       ],
       "posterShape": "poster",
