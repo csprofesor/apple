@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-simdi-yandik",
+      "type": "movie",
+      "name": "Şimdi Yandık",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9EEmfkKjvkmahuHM8tSKHW0BUVL.webp?v=1787086254",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9EEmfkKjvkmahuHM8tSKHW0BUVL.webp?v=1787086254",
+      "description": "Şimdi Yandık (2022) full HD, Türkçe dublaj ve altyazılı izle. Mert, Cemil ve Faruk birlikte aynı evde yaşayan üç eski arkadaştır. Mert&#039;in sevgilisi Ceyda ile mu...",
+      "releaseInfo": "2022",
+      "genres": [
+        "Komedi",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "100 dk"
+    },
+    {
       "id": "playrepo-oyuncak-hikayesi-5",
       "type": "movie",
       "name": "Oyuncak Hikayesi 5",
@@ -1149,24 +1164,6 @@
       ],
       "posterShape": "poster",
       "runtime": "128 dk"
-    },
-    {
-      "id": "playrepo-zombiler-4-vampirlerin-safagi",
-      "type": "movie",
-      "name": "Zombiler 4: Vampirlerin Şafağı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/68TGPnvmZ21NBOoV5IUZ4fQDyvZ.webp?v=1785686186",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/68TGPnvmZ21NBOoV5IUZ4fQDyvZ.webp?v=1785686186",
-      "description": "Zombiler 4: Vampirlerin Şafağı (2025) full HD, Türkçe dublaj ve altyazılı izle. Zombiler serisinin bu yeni bölümünde zombi Zed, amigo kız Addison, Eliza ve kurt...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Komedi",
-        "Bilim Kurgu & Fantastik",
-        "Dram & Romantik",
-        "Aksiyon & Macera",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "86 dk"
     }
   ]
 }

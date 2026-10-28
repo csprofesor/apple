@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-simdi-yandik",
+    "type": "movie",
+    "name": "Şimdi Yandık",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9EEmfkKjvkmahuHM8tSKHW0BUVL.webp?v=1787086254",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/9EEmfkKjvkmahuHM8tSKHW0BUVL.webp?v=1787086254",
+    "description": "Şimdi Yandık (2022) full HD, Türkçe dublaj ve altyazılı izle. Mert, Cemil ve Faruk birlikte aynı evde yaşayan üç eski arkadaştır. Mert&#039;in sevgilisi Ceyda ile mu...",
+    "releaseInfo": "2022",
+    "genres": [
+      "Komedi",
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-simdi-yandik",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-simdi-yandik",
+        "title": "Şimdi Yandık",
+        "name": "Şimdi Yandık",
+        "released": "2022-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "100 dk"
+  }
+}
