@@ -1,6 +1,20 @@
 {
   "metas": [
     {
+      "id": "playrepo-takim-mahalle-askina",
+      "type": "movie",
+      "name": "Takım: Mahalle Aşkına!",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eFf5IZWwDrtTZKBt6feby7m6EOY.webp?v=1789334717",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/eFf5IZWwDrtTZKBt6feby7m6EOY.webp?v=1789334717",
+      "description": "Takım: Mahalle Aşkına! (2015) full HD, Türkçe dublaj ve altyazılı izle. Gökdelenlerin arasında kalmış bir mahallede halı saha işleten Turgay ve eski bir futbolc...",
+      "releaseInfo": "2015",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "runtime": "102 dk"
+    },
+    {
       "id": "playrepo-vay-kaynanam-vay",
       "type": "movie",
       "name": "Vay Kaynanam Vay",
@@ -1113,43 +1127,6 @@
       ],
       "posterShape": "poster",
       "runtime": "189 dk"
-    },
-    {
-      "id": "tt5463162",
-      "type": "movie",
-      "name": "Deadpool 2",
-      "poster": "https://image.tmdb.org/t/p/w500/gyfPKfFYcVW54MoqhYlwwDDIfJR.jpg",
-      "background": "https://image.tmdb.org/t/p/w500/gyfPKfFYcVW54MoqhYlwwDDIfJR.jpg",
-      "description": "Deadpool 2 (2018) full HD, Türkçe dublaj ve altyazılı izle. Deadpool, kahramanlık işlerini devam ettirmekte, bir yandan da gündelik hayatını sürdürmektedir. Kız...",
-      "releaseInfo": "2018",
-      "genres": [
-        "Komedi",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt5463162/img",
-      "trailers": [
-        {
-          "source": "20bpjtCbCz0",
-          "type": "Trailer"
-        },
-        {
-          "source": "D86RtevtfrA",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Deadpool 2",
-          "ytId": "20bpjtCbCz0"
-        },
-        {
-          "title": "Deadpool 2",
-          "ytId": "D86RtevtfrA"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=20bpjtCbCz0",
-      "runtime": "120 dk"
     }
   ]
 }
