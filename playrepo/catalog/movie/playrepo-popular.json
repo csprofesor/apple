@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-sey",
+      "type": "movie",
+      "name": "Şey",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/r9leYNa8nTRCceZrZhP1DXkgKVb.webp?v=1790282537",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/r9leYNa8nTRCceZrZhP1DXkgKVb.webp?v=1790282537",
+      "description": "Şey (1982) full HD, Türkçe dublaj ve altyazılı izle. Antarktika&#039;da bir grup ABD&#039;li bilim insanı Norveçli meslekdaşlarının boş ve yıkık araştırma üssünü incelerl...",
+      "releaseInfo": "1982",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "109 dk"
+    },
+    {
       "id": "playrepo-ucuncu-adam",
       "type": "movie",
       "name": "Üçüncü Adam",
@@ -1125,21 +1141,6 @@
       ],
       "posterShape": "poster",
       "runtime": "105 dk"
-    },
-    {
-      "id": "playrepo-protesto",
-      "type": "movie",
-      "name": "Protesto",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/viGCwLxupyoaLsa6hrnu1gYrB0B.webp?v=1790237835",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/viGCwLxupyoaLsa6hrnu1gYrB0B.webp?v=1790237835",
-      "description": "Protesto (1995) full HD, Türkçe dublaj ve altyazılı izle. Paris’in gettolarında hararetli saatler yaşanmaktadır. Grup halinde dolaşan yerel gençlerle, çevreyi k...",
-      "releaseInfo": "1995",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "98 dk"
     }
   ]
 }
