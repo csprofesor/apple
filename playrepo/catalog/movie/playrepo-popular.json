@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-kofte-yagmuru-2",
+      "type": "movie",
+      "name": "Köfte Yağmuru 2",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vWriOBVlgW0XWdgbOiijhyLW7B8.webp?v=1791132116",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vWriOBVlgW0XWdgbOiijhyLW7B8.webp?v=1791132116",
+      "description": "Köfte Yağmuru 2 (2013) full HD, Türkçe dublaj ve altyazılı izle. Mucit Flint Lockwood, suyu yiyeceğe dönüştüren ama bir süre sonra kontrolden çıkarak gökten dev...",
+      "releaseInfo": "2013",
+      "genres": [
+        "Komedi",
+        "Animasyon & Aile",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "95 dk"
+    },
+    {
       "id": "playrepo-merhaba-benim-adim-doris",
       "type": "movie",
       "name": "Merhaba, Benim Adım Doris",
@@ -1116,21 +1132,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=nazk6Zpm_Ks",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-affedilmeyen",
-      "type": "movie",
-      "name": "Affedilmeyen",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rvRGFevvZK48onX0PYI1eQLbuJd.webp?v=1790289041",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rvRGFevvZK48onX0PYI1eQLbuJd.webp?v=1790289041",
-      "description": "Affedilmeyen (1992) full HD, Türkçe dublaj ve altyazılı izle. Küçük bir kovboy kasabası olan Big Whiskey, şerif &quot;Küçük Bill&quot; Daggett&#039;in sert idaresi altında sak...",
-      "releaseInfo": "1992",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "130 dk"
     }
   ]
 }
