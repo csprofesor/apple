@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-buyuk-lebowski",
+      "type": "movie",
+      "name": "Büyük Lebowski",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/77ElMccPnTMPouRxSdbJ4nEjf69.webp?v=1790261181",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/77ElMccPnTMPouRxSdbJ4nEjf69.webp?v=1790261181",
+      "description": "Büyük Lebowski (1998) full HD, Türkçe dublaj ve altyazılı izle. “Ahbap” olarak da bilinen Jeff Lebowski bir gün adaşı bir milyonerle karıştırılır. Milyonerin ka...",
+      "releaseInfo": "1998",
+      "genres": [
+        "Komedi",
+        "Suç & Polisiye",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "117 dk"
+    },
+    {
       "id": "tt1895587",
       "type": "movie",
       "name": "Spotlight",
@@ -1223,21 +1239,6 @@
       ],
       "posterShape": "poster",
       "runtime": "155 dk"
-    },
-    {
-      "id": "playrepo-birkac-dolar-i-cin",
-      "type": "movie",
-      "name": "Birkaç Dolar İçin",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hs6OPto38fF589ScpGhl7uSU4MI.webp?v=1790225555",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hs6OPto38fF589ScpGhl7uSU4MI.webp?v=1790225555",
-      "description": "Birkaç Dolar İçin (1965) full HD, Türkçe dublaj ve altyazılı izle. Indio adındaki bir kanun kaçağını yakalamak için iki kelle avcısı işbirliği yaparlar. Monco&#039;n...",
-      "releaseInfo": "1965",
-      "genres": [
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "131 dk"
     }
   ]
 }

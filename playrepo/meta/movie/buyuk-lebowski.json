@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "id": "playrepo-buyuk-lebowski",
+    "type": "movie",
+    "name": "Büyük Lebowski",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/77ElMccPnTMPouRxSdbJ4nEjf69.webp?v=1790261181",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/77ElMccPnTMPouRxSdbJ4nEjf69.webp?v=1790261181",
+    "description": "Büyük Lebowski (1998) full HD, Türkçe dublaj ve altyazılı izle. “Ahbap” olarak da bilinen Jeff Lebowski bir gün adaşı bir milyonerle karıştırılır. Milyonerin ka...",
+    "releaseInfo": "1998",
+    "genres": [
+      "Komedi",
+      "Suç & Polisiye",
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-buyuk-lebowski",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-buyuk-lebowski",
+        "title": "Büyük Lebowski",
+        "name": "Büyük Lebowski",
+        "released": "1998-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "117 dk"
+  }
+}
