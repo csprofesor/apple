@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt0120903",
+      "type": "movie",
+      "name": "X-Men",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNzNjZjQwOTAtNWQ3NC00MmJlLThlZDEtZmUyMWQ3NmE4Y2Y5XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNzNjZjQwOTAtNWQ3NC00MmJlLThlZDEtZmUyMWQ3NmE4Y2Y5XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "X-Men (2000) full HD, Türkçe dublaj ve altyazılı izle. Profesör Xavier, dünyada birçok kişinin farkında olmadığı bir durumdan haberdardır. Bu nedenle kendi iste...",
+      "releaseInfo": "2000",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt0120903/img",
+      "trailers": [
+        {
+          "source": "s4Wqw8tqgdM",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "X-Men",
+          "ytId": "s4Wqw8tqgdM"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=s4Wqw8tqgdM",
+      "runtime": "104 dk"
+    },
+    {
       "id": "tt9032400",
       "type": "movie",
       "name": "Eternals",
