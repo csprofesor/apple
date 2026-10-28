@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-ekmek-kizartma-makinesi",
+      "type": "movie",
+      "name": "Ekmek Kızartma Makinesi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3gI8gS7YIpmEzUehg3cZVQ62phl.webp?v=1789625624",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/3gI8gS7YIpmEzUehg3cZVQ62phl.webp?v=1789625624",
+      "description": "Ekmek Kızartma Makinesi (2026) full HD, Türkçe dublaj ve altyazılı izle. Pinti bir adam, düğünlerini iptal eden bir çifte hediye olarak verdiği ekmek kızartma m...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Suç & Polisiye",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "126 dk"
+    },
+    {
       "id": "tt31116965",
       "type": "movie",
       "name": "My Dearest Señorita",
@@ -1079,22 +1096,6 @@
       ],
       "posterShape": "poster",
       "runtime": "132 dk"
-    },
-    {
-      "id": "playrepo-yeni-mutantlar",
-      "type": "movie",
-      "name": "Yeni Mutantlar",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1MoeNacOltBWojkStjhT3svBTOK.webp?v=1787176934",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1MoeNacOltBWojkStjhT3svBTOK.webp?v=1787176934",
-      "description": "Yeni Mutantlar (2020) full HD, Türkçe dublaj ve altyazılı izle. X-Men evreninde geçen Yeni Mutantlar filminde, mutant olduklarını travmatik olaylarla keşfeden b...",
-      "releaseInfo": "2020",
-      "genres": [
-        "Korku & Gerilim",
-        "Popüler",
-        "Bilim Kurgu & Fantastik"
-      ],
-      "posterShape": "poster",
-      "runtime": "94 dk"
     }
   ]
 }
