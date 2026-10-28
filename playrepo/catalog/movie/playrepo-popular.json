@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-siki-dostlar",
+      "type": "movie",
+      "name": "Sıkı Dostlar",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gILte6Zd7m1YneIr6MVhh30S9pr.webp?v=1790156361",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/gILte6Zd7m1YneIr6MVhh30S9pr.webp?v=1790156361",
+      "description": "Sıkı Dostlar (1990) full HD, Türkçe dublaj ve altyazılı izle. Gerçek bir hayat hikayesinden uyarlanan filmde Henry Hill adında bir gangster, Jimmy Conway ve Tom...",
+      "releaseInfo": "1990",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "145 dk"
+    },
+    {
       "id": "playrepo-can-dostum",
       "type": "movie",
       "name": "Can Dostum",
@@ -1172,23 +1188,6 @@
       ],
       "posterShape": "poster",
       "runtime": "105 dk"
-    },
-    {
-      "id": "playrepo-100-kurt",
-      "type": "movie",
-      "name": "100% Kurt",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7TxeZVg2evMG42p0uSbMJpWNQ8A.webp?v=1789471758",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7TxeZVg2evMG42p0uSbMJpWNQ8A.webp?v=1789471758",
-      "description": "100% Kurt (2020) full HD, Türkçe dublaj ve altyazılı izle. Kurtların soyundan gelen Freddy Lupin’in gurur duyulacak bir soy ağacı vardır. Bu zamana dek gelmiş g...",
-      "releaseInfo": "2020",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Animasyon & Aile",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "96 dk"
     }
   ]
 }
