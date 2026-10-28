@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-yedi",
+      "type": "movie",
+      "name": "Yedi",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/i5H7zusQGsysGQ8i6P361Vnr0n2.webp?v=1790174434",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/i5H7zusQGsysGQ8i6P361Vnr0n2.webp?v=1790174434",
+      "description": "Yedi (1995) full HD, Türkçe dublaj ve altyazılı izle. Se7en, seri cinayetler işleyen bir katilin peşine düşen iki dedektifin hikayesini anlatıyor. Bir seri kati...",
+      "releaseInfo": "1995",
+      "genres": [
+        "Suç & Polisiye",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "127 dk"
+    },
+    {
       "id": "playrepo-bir-ruya-i-cin-agit",
       "type": "movie",
       "name": "Bir Rüya İçin Ağıt",
@@ -1115,21 +1131,6 @@
         "Dram & Romantik"
       ],
       "posterShape": "poster"
-    },
-    {
-      "id": "playrepo-goklerin-hakimi",
-      "type": "movie",
-      "name": "Göklerin Hakimi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6KLKdhk9wZvJ6OcTzDCoxup0Kmh.webp?v=1789939072",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6KLKdhk9wZvJ6OcTzDCoxup0Kmh.webp?v=1789939072",
-      "description": "Göklerin Hakimi (2004) full HD, Türkçe dublaj ve altyazılı izle. Ergenlikten yeni çıkmış Hughes, babasının matkap ucu fabrikasından kalan serveti, I. Dünya Sava...",
-      "releaseInfo": "2004",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "170 dk"
     }
   ]
 }
