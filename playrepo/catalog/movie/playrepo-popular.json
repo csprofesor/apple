@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-galaksinin-koruyuculari",
+      "type": "movie",
+      "name": "Galaksinin Koruyucuları",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uLtVbjvS1O7gXL8lUOwsFOH4man.webp?v=1787144022",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/uLtVbjvS1O7gXL8lUOwsFOH4man.webp?v=1787144022",
+      "description": "Galaksinin Koruyucuları (2014) full HD, Türkçe dublaj ve altyazılı izle. Peter Quill adındaki bir hırsızın, bir uzaylı varlık olan Ronan&#039;ın eline geçtiği güçlü....",
+      "releaseInfo": "2014",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "121 dk"
+    },
+    {
       "id": "tt10954600",
       "type": "movie",
       "name": "Ant-Man and the Wasp: Quantumania",
@@ -1188,21 +1204,6 @@
         "Popüler"
       ],
       "posterShape": "poster"
-    },
-    {
-      "id": "playrepo-kocamin-avukatiyim",
-      "type": "movie",
-      "name": "Kocamın Avukatıyım",
-      "poster": "https://ddizimom.net/storage/tmdb/posters/w780/k2ZFleSzdZw9D8qR1Su8qsuFxau.webp?v=1786490974",
-      "background": "https://ddizimom.net/storage/tmdb/posters/w780/k2ZFleSzdZw9D8qR1Su8qsuFxau.webp?v=1786490974",
-      "description": "Kocamın Avukatıyım (2026) full HD, Türkçe dublaj ve altyazılı izle. Başarılı avukat Sedef’in hayatı, eşi Özgür’ün yasak ilişki yaşadığı sevgilisini öldürmekle s...",
-      "releaseInfo": "2026",
-      "genres": [
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "78 dk"
     }
   ]
 }
