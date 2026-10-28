@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-odul-avcisi",
+    "type": "series",
+    "name": "Ödül Avcısı",
+    "poster": "https://ddizimom.net/storage/tmdb/stills/w300/l1iDCsGmXl4Lm8XIJnhdYrvblQe.webp?v=1784566084",
+    "background": "https://ddizimom.net/storage/tmdb/stills/w300/l1iDCsGmXl4Lm8XIJnhdYrvblQe.webp?v=1784566084",
+    "description": "Ödül Avcısı 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Hub Halloran, dünyevi bir intikam hikâyesine başlar, ancak kısa sürede doğaüs...",
+    "releaseInfo": "2025",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-odul-avcisi:1:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-odul-avcisi:1:1",
+        "title": "1. Sezon 1. Bölüm",
+        "name": "1. Sezon 1. Bölüm",
+        "released": "2025-01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
