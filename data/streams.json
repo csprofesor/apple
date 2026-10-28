@@ -114528,5 +114528,75 @@
         }
       }
     }
+  ],
+  "playrepo-anadolu-leopari": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=6db4b9b5b3d29ea751626c565658228d&token=eyJ2IjoiNmRiNGI5YjViM2QyOWVhNzUxNjI2YzU2NTY1ODIyOGQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY4MDkwLCJuIjoiMjcyMDY4YTUxNmM4In0.a3014e072d9d9dfa8472b1d1aa9ed01a9de78dd742583959e2fe3cb783d52bab&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=IYbrqwndTnkM8GtHjyDUzA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=IYbrqwndTnkM8GtHjyDUzA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=6db4b9b5b3d29ea751626c565658228d&sid=0eff7ed83c7ad4ecbbde475a77d5fea3&token=eyJ2IjoiNmRiNGI5YjViM2QyOWVhNzUxNjI2YzU2NTY1ODIyOGQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY4MDkwLCJuIjoiMjcyMDY4YTUxNmM4In0.a3014e072d9d9dfa8472b1d1aa9ed01a9de78dd742583959e2fe3cb783d52bab&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=6db4b9b5b3d29ea751626c565658228d&sid=8a9c82e43accbc5a5805d502813f5be0&token=eyJ2IjoiNmRiNGI5YjViM2QyOWVhNzUxNjI2YzU2NTY1ODIyOGQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY4MDkwLCJuIjoiMjcyMDY4YTUxNmM4In0.a3014e072d9d9dfa8472b1d1aa9ed01a9de78dd742583959e2fe3cb783d52bab&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=IYbrqwndTnkM8GtHjyDUzA"
+          }
+        }
+      }
+    }
+  ],
+  "anadolu-leopari": [
+    {
+      "name": "TR Dublaj",
+      "title": "1080p • Sunucu 1",
+      "url": "https://play2.pilavyerplay.top/api/stream.php?v=6db4b9b5b3d29ea751626c565658228d&token=eyJ2IjoiNmRiNGI5YjViM2QyOWVhNzUxNjI2YzU2NTY1ODIyOGQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY4MDkwLCJuIjoiMjcyMDY4YTUxNmM4In0.a3014e072d9d9dfa8472b1d1aa9ed01a9de78dd742583959e2fe3cb783d52bab&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=IYbrqwndTnkM8GtHjyDUzA",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=IYbrqwndTnkM8GtHjyDUzA"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=6db4b9b5b3d29ea751626c565658228d&sid=0eff7ed83c7ad4ecbbde475a77d5fea3&token=eyJ2IjoiNmRiNGI5YjViM2QyOWVhNzUxNjI2YzU2NTY1ODIyOGQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY4MDkwLCJuIjoiMjcyMDY4YTUxNmM4In0.a3014e072d9d9dfa8472b1d1aa9ed01a9de78dd742583959e2fe3cb783d52bab&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://play2.pilavyerplay.top/api/sub.php?v=6db4b9b5b3d29ea751626c565658228d&sid=8a9c82e43accbc5a5805d502813f5be0&token=eyJ2IjoiNmRiNGI5YjViM2QyOWVhNzUxNjI2YzU2NTY1ODIyOGQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzY4MDkwLCJuIjoiMjcyMDY4YTUxNmM4In0.a3014e072d9d9dfa8472b1d1aa9ed01a9de78dd742583959e2fe3cb783d52bab&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://play2.pilavyerplay.top/assets/js/s.php?s=IYbrqwndTnkM8GtHjyDUzA"
+          }
+        }
+      }
+    }
   ]
 }
