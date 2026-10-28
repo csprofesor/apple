@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-cifte-tazminat",
+      "type": "movie",
+      "name": "Çifte Tazminat",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/byQdu1nzQLI9t1VeoP1xuQfru3L.webp?v=1790220810",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/byQdu1nzQLI9t1VeoP1xuQfru3L.webp?v=1790220810",
+      "description": "Çifte Tazminat (1944) full HD, Türkçe dublaj ve altyazılı izle. Büyük bir sigorta şirketinde çalışan Walter, sondaj işinde çalışan zengin kocası sürekli seyahat...",
+      "releaseInfo": "1944",
+      "genres": [
+        "Suç & Polisiye",
+        "Popüler",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster",
+      "runtime": "107 dk"
+    },
+    {
       "id": "playrepo-kayip-balik-nemo",
       "type": "movie",
       "name": "Kayıp Balık Nemo",
@@ -1130,22 +1146,6 @@
       ],
       "posterShape": "poster",
       "runtime": "103 dk"
-    },
-    {
-      "id": "playrepo-yedi",
-      "type": "movie",
-      "name": "Yedi",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/i5H7zusQGsysGQ8i6P361Vnr0n2.webp?v=1790174434",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/i5H7zusQGsysGQ8i6P361Vnr0n2.webp?v=1790174434",
-      "description": "Yedi (1995) full HD, Türkçe dublaj ve altyazılı izle. Se7en, seri cinayetler işleyen bir katilin peşine düşen iki dedektifin hikayesini anlatıyor. Bir seri kati...",
-      "releaseInfo": "1995",
-      "genres": [
-        "Suç & Polisiye",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "127 dk"
     }
   ]
 }
