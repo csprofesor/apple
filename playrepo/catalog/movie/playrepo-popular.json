@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-sen-ben-ve-toscana",
+      "type": "movie",
+      "name": "Sen, Ben ve Toscana",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2TWIlmhE06ghspeQLEX1VmnEBiE.webp?v=1789472940",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/2TWIlmhE06ghspeQLEX1VmnEBiE.webp?v=1789472940",
+      "description": "Sen, Ben ve Toscana (2026) full HD, Türkçe dublaj ve altyazılı izle. Anna, şef olma hayallerinden vazgeçmiş ve yirmili yaşlarında bir dizi kötü tercihle boğuşan...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "105 dk"
+    },
+    {
       "id": "playrepo-100-kurt",
       "type": "movie",
       "name": "100% Kurt",
@@ -1112,25 +1128,6 @@
       ],
       "posterShape": "poster",
       "runtime": "136 dk"
-    },
-    {
-      "id": "playrepo-i-nanilmaz-orumcek-adam-2",
-      "type": "movie",
-      "name": "İnanılmaz Örümcek-Adam 2",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/k0hlAzTryCYX1O1LyC6P8tAa8s0.webp?v=1787165432",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/k0hlAzTryCYX1O1LyC6P8tAa8s0.webp?v=1787165432",
-      "description": "İnanılmaz Örümcek-Adam 2 (2014) full HD, Türkçe dublaj ve altyazılı izle. Gwen Stacy&#039;yi tehlikeli hayatının dışında bırakma sözünü tutmakta zorlanan Örümcek Ada...",
-      "releaseInfo": "2014",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Disney+",
-        "Prime Video",
-        "Aksiyon & Macera",
-        "Netflix",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "141 dk"
     }
   ]
 }
