@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt8901582",
+      "type": "movie",
+      "name": "Saf",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMzQ4MTQwMjktYThiZC00YjUwLWFlYjgtOTAyNzY5ZGJmOWIxXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMzQ4MTQwMjktYThiZC00YjUwLWFlYjgtOTAyNzY5ZGJmOWIxXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Saf (2018) full HD, Türkçe dublaj ve altyazılı izle. Gecekondu mahallesinde yaşayan bir çiftin hayatını konu edinen yapımda Kamil ve karısı oldukça mütevazi bir...",
+      "releaseInfo": "2018",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt8901582/img",
+      "runtime": "97 dk"
+    },
+    {
       "id": "playrepo-takim-mahalle-askina",
       "type": "movie",
       "name": "Takım: Mahalle Aşkına!",
@@ -1108,25 +1123,6 @@
       ],
       "posterShape": "poster",
       "runtime": "202 dk"
-    },
-    {
-      "id": "playrepo-orumcek-adam",
-      "type": "movie",
-      "name": "Örümcek Adam",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zQ8AxTPiCiS5nnwXpwTBPBHSaa5.webp?v=1787152726",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zQ8AxTPiCiS5nnwXpwTBPBHSaa5.webp?v=1787152726",
-      "description": "Örümcek Adam (2002) full HD, Türkçe dublaj ve altyazılı izle. Sıradan bir lise öğrencisi olan Peter Parker&#039;ın hayatı bir gün bir örümcek tarafından ısırılmasıyl...",
-      "releaseInfo": "2002",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Disney+",
-        "Aksiyon & Macera",
-        "Netflix",
-        "Hulu",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "189 dk"
     }
   ]
 }
