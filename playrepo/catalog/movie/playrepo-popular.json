@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt15353166",
+      "type": "movie",
+      "name": "Switched Before Birth",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMWE4NjYwMGYtODg4MS00MDcxLWE4YjktMTFhYzdjMTY3OWI5XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BMWE4NjYwMGYtODg4MS00MDcxLWE4YjktMTFhYzdjMTY3OWI5XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Switched Before Birth (2021) full HD, Türkçe dublaj ve altyazılı izle. Switched Before Birth, tüp bebek tedavisi sırasında bebekleri karışan iki kadının yaşadığ...",
+      "releaseInfo": "2021",
+      "genres": [
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt15353166/img",
+      "runtime": "84 dk"
+    },
+    {
       "id": "playrepo-yaz-askim",
       "type": "movie",
       "name": "Yaz Aşkım",
@@ -1186,51 +1201,6 @@
       ],
       "posterShape": "poster",
       "runtime": "162 dk"
-    },
-    {
-      "id": "tt0017925",
-      "type": "movie",
-      "name": "The General",
-      "poster": "https://m.media-amazon.com/images/M/MV5BMTVhM2Y1MDUtMDkxYi00Y2UxLWI2MTMtZjMzYTY4ODM4MGIzXkEyXkFqcGc%40._V1_.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BMTVhM2Y1MDUtMDkxYi00Y2UxLWI2MTMtZjMzYTY4ODM4MGIzXkEyXkFqcGc%40._V1_.jpg",
-      "description": "General (1926) full HD, Türkçe dublaj ve altyazılı izle. Güneyli bir demiryolu mühendisi olan Johnny Gray, General adını verdiği tren motorunu neredeyse kız ark...",
-      "releaseInfo": "1927",
-      "genres": [
-        "Komedi",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0017925/img",
-      "trailers": [
-        {
-          "source": "eEVWb9NcSuY",
-          "type": "Trailer"
-        },
-        {
-          "source": "7EcZPcFfjqY",
-          "type": "Trailer"
-        },
-        {
-          "source": "rBWdhiOUyEw",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "The General",
-          "ytId": "eEVWb9NcSuY"
-        },
-        {
-          "title": "The General",
-          "ytId": "7EcZPcFfjqY"
-        },
-        {
-          "title": "The General",
-          "ytId": "rBWdhiOUyEw"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=eEVWb9NcSuY",
-      "runtime": "79 dk"
     }
   ]
 }
