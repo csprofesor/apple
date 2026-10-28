@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-birkac-dolar-i-cin",
+      "type": "movie",
+      "name": "Birkaç Dolar İçin",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hs6OPto38fF589ScpGhl7uSU4MI.webp?v=1790225555",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/hs6OPto38fF589ScpGhl7uSU4MI.webp?v=1790225555",
+      "description": "Birkaç Dolar İçin (1965) full HD, Türkçe dublaj ve altyazılı izle. Indio adındaki bir kanun kaçağını yakalamak için iki kelle avcısı işbirliği yaparlar. Monco&#039;n...",
+      "releaseInfo": "1965",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "131 dk"
+    },
+    {
       "id": "playrepo-kurtlarla-dans",
       "type": "movie",
       "name": "Kurtlarla Dans",
@@ -1150,21 +1165,6 @@
       ],
       "posterShape": "poster",
       "runtime": "110 dk"
-    },
-    {
-      "id": "playrepo-yildiz-savaslari-yeni-umut",
-      "type": "movie",
-      "name": "Yıldız Savaşları: Yeni Umut",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zqkmTXzjkAgXmEWLRsY4UpTWCeo.webp?v=1790177753",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zqkmTXzjkAgXmEWLRsY4UpTWCeo.webp?v=1790177753",
-      "description": "Yıldız Savaşları: Yeni Umut (1977) full HD, Türkçe dublaj ve altyazılı izle. Sıradan bir çiftlik çocuğu olan Luke Skywalker&#039;ın hayatı, çöl gezegeni Tatooine&#039;de....",
-      "releaseInfo": "1977",
-      "genres": [
-        "Bilim Kurgu & Fantastik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "125 dk"
     }
   ]
 }
