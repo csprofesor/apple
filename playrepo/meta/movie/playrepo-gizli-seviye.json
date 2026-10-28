@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-gizli-seviye",
+    "type": "series",
+    "name": "Gizli Seviye",
+    "poster": "https://ddizimom.net/storage/tmdb/stills/w300/aXARYuv0ud1pY3vrVnYaIWV0jX9.webp?v=1784431049",
+    "background": "https://ddizimom.net/storage/tmdb/stills/w300/aXARYuv0ud1pY3vrVnYaIWV0jX9.webp?v=1784431049",
+    "description": "Gizli Seviye 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Bir ejderha tarikatının peşindeki bir grup maceracı, şeytani bir gücün musal...",
+    "releaseInfo": "2024",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-gizli-seviye:1:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-gizli-seviye:1:1",
+        "title": "1. Sezon 1. Bölüm",
+        "name": "1. Sezon 1. Bölüm",
+        "released": "2024-01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
