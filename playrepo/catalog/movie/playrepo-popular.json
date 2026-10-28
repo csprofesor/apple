@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-isiklar-sonunce",
+      "type": "movie",
+      "name": "Işıklar Sönünce",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xxyAStrE7vVeKto3dGDAKAZRM68.webp?v=1791611478",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xxyAStrE7vVeKto3dGDAKAZRM68.webp?v=1791611478",
+      "description": "Işıklar Sönünce (2016) full HD, Türkçe dublaj ve altyazılı izle. Rebecca evden ayrıldığında çocukluk korkularını da ardında bıraktığını düşünür. Büyürken, ışıkl...",
+      "releaseInfo": "2016",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "81 dk"
+    },
+    {
       "id": "playrepo-heldin",
       "type": "movie",
       "name": "Heldin",
@@ -1001,23 +1016,6 @@
       ],
       "posterShape": "poster",
       "runtime": "137 dk"
-    },
-    {
-      "id": "playrepo-rasomon",
-      "type": "movie",
-      "name": "Raşomon",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tDn1dA52bQH9B85vilHeU7C83W1.webp?v=1790456757",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tDn1dA52bQH9B85vilHeU7C83W1.webp?v=1790456757",
-      "description": "Raşomon (1950) full HD, Türkçe dublaj ve altyazılı izle. Ormanda devriye gezen polisler tarafından, öldürülmüş bir adamın cesedi bulunur. Adamın karısı da tecav...",
-      "releaseInfo": "1950",
-      "genres": [
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "88 dk"
     }
   ]
 }
