@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt2372162",
+      "type": "series",
+      "name": "Orange Is the New Black",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNjRjMTAyYjUtZDk0Mi00OGQ5LWJjNzMtMzBhNDMwMmI5NzVjXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BNjRjMTAyYjUtZDk0Mi00OGQ5LWJjNzMtMzBhNDMwMmI5NzVjXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Orange Is the New Black 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Gençliğinde işlediği bir suç yüzünden 15 ay ceza alan Piper Chapm...",
+      "releaseInfo": "2013-2019",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Suç & Polisiye"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt2372162/img",
+      "trailers": [
+        {
+          "source": "vY0qzXi5oJg",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Orange Is the New Black",
+          "ytId": "vY0qzXi5oJg"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=vY0qzXi5oJg"
+    },
+    {
       "id": "playrepo-oyun",
       "type": "series",
       "name": "Oyun",
