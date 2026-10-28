@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-cesur-yurek",
+      "type": "movie",
+      "name": "Cesur Yürek",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1m1c5gIWWkb1FEC9lzsoXHhhs7b.webp?v=1790149886",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1m1c5gIWWkb1FEC9lzsoXHhhs7b.webp?v=1790149886",
+      "description": "Cesur Yürek (1995) full HD, Türkçe dublaj ve altyazılı izle. 13. yüzyıl İskoçyası. İngiliz Kralı I. Edward, İskoçya&#039;yı da krallığına katmak istemektedir. İngili...",
+      "releaseInfo": "1995",
+      "genres": [
+        "Belgesel & Tarih",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "178 dk"
+    },
+    {
       "id": "playrepo-mukaddes-vazife",
       "type": "movie",
       "name": "Mukaddes Vazife",
@@ -1137,22 +1154,6 @@
       ],
       "posterShape": "poster",
       "runtime": "106 dk"
-    },
-    {
-      "id": "tt13087500",
-      "type": "movie",
-      "name": "Batman: Knightfall",
-      "poster": "https://m.media-amazon.com/images/M/MV5BOGM4OTc4MmMtMGM5OS00MGRjLTllNDktM2MyNjYwZDcwYjJiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BOGM4OTc4MmMtMGM5OS00MGRjLTllNDktM2MyNjYwZDcwYjJiXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Batman: Knightfall Part 1: Knightfall (2026) full HD, Türkçe dublaj ve altyazılı izle.",
-      "releaseInfo": "2026",
-      "genres": [
-        "Suç & Polisiye",
-        "Aksiyon & Macera",
-        "Korku & Gerilim"
-      ],
-      "posterShape": "poster",
-      "runtime": "79 dk"
     }
   ]
 }
