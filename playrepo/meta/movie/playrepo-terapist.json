@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "playrepo-terapist",
+    "type": "series",
+    "name": "Terapist",
+    "poster": "https://ddizimom.net/storage/tmdb/stills/w300/62b1sOa0dPXGjk7cojE5p1KwFY5.webp?v=1784555286",
+    "background": "https://ddizimom.net/storage/tmdb/stills/w300/62b1sOa0dPXGjk7cojE5p1KwFY5.webp?v=1784555286",
+    "description": "Terapist 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Sıradan bir grup terapisi seansının ardından Çetin, danışanlarına terapiyi başka...",
+    "releaseInfo": "2021",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-terapist:1:1",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-terapist:1:1",
+        "title": "1. Sezon 1. Bölüm",
+        "name": "1. Sezon 1. Bölüm",
+        "released": "2021-01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 1
+      }
+    ]
+  }
+}
