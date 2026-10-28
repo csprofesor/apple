@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-yesil-yol",
+      "type": "movie",
+      "name": "Yeşil Yol",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/amZavErrjrdgDwhsIdpWxHNenIx.webp?v=1790197561",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/amZavErrjrdgDwhsIdpWxHNenIx.webp?v=1790197561",
+      "description": "Yeşil Yol (1999) full HD, Türkçe dublaj ve altyazılı izle. Edgecomb, hikayesini anlatırken bir huzurevinde yaşamaktadır ve hapishanedeki görevinin üzerinden yıl...",
+      "releaseInfo": "1999",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "189 dk"
+    },
+    {
       "id": "tt0133093",
       "type": "movie",
       "name": "The Matrix",
@@ -1100,23 +1117,6 @@
       ],
       "posterShape": "poster",
       "runtime": "178 dk"
-    },
-    {
-      "id": "playrepo-mukaddes-vazife",
-      "type": "movie",
-      "name": "Mukaddes Vazife",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zzzhbZnSPMOON9uGt0LsdUJWYoC.webp?v=1790149425",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/zzzhbZnSPMOON9uGt0LsdUJWYoC.webp?v=1790149425",
-      "description": "Mukaddes Vazife (1981) full HD, Türkçe dublaj ve altyazılı izle. 1979 yılında çekilmiş 1981 yılında vizyona giren, İkinci Dünya Savaşı&#039;nda U-96 adlı tip 7 sınıf...",
-      "releaseInfo": "1981",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "150 dk"
     }
   ]
 }

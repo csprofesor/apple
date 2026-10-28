@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "playrepo-yesil-yol",
+    "type": "movie",
+    "name": "Yeşil Yol",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/amZavErrjrdgDwhsIdpWxHNenIx.webp?v=1790197561",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/amZavErrjrdgDwhsIdpWxHNenIx.webp?v=1790197561",
+    "description": "Yeşil Yol (1999) full HD, Türkçe dublaj ve altyazılı izle. Edgecomb, hikayesini anlatırken bir huzurevinde yaşamaktadır ve hapishanedeki görevinin üzerinden yıl...",
+    "releaseInfo": "1999",
+    "genres": [
+      "Suç & Polisiye",
+      "Dram & Romantik",
+      "Popüler",
+      "Bilim Kurgu & Fantastik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-yesil-yol",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-yesil-yol",
+        "title": "Yeşil Yol",
+        "name": "Yeşil Yol",
+        "released": "1999-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "189 dk"
+  }
+}
