@@ -157258,5 +157258,145 @@
         }
       }
     }
+  ],
+  "playrepo-sas-rogue-heroes:1:1": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=7983f38f30898e536bd77fb1e5b0961d&token=eyJ2IjoiNzk4M2YzOGYzMDg5OGU1MzZiZDc3ZmIxZTViMDk2MWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzgxMDk5LCJuIjoiM2Y1OGQ3OTJkYjk0In0.5ca35032b3c243fef100a8cdd593bb2931519556a58f9ba7861bd1825863b007&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=WV8PfpKFvldv-PsBWGx7Mg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=WV8PfpKFvldv-PsBWGx7Mg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7983f38f30898e536bd77fb1e5b0961d&sid=e8403e701757ad683be4e57a0cd25d73&token=eyJ2IjoiNzk4M2YzOGYzMDg5OGU1MzZiZDc3ZmIxZTViMDk2MWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzgxMDk5LCJuIjoiM2Y1OGQ3OTJkYjk0In0.5ca35032b3c243fef100a8cdd593bb2931519556a58f9ba7861bd1825863b007&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7983f38f30898e536bd77fb1e5b0961d&sid=71a114c0ff1c4ea6567eb0e99781bbf0&token=eyJ2IjoiNzk4M2YzOGYzMDg5OGU1MzZiZDc3ZmIxZTViMDk2MWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzgxMDk5LCJuIjoiM2Y1OGQ3OTJkYjk0In0.5ca35032b3c243fef100a8cdd593bb2931519556a58f9ba7861bd1825863b007&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=WV8PfpKFvldv-PsBWGx7Mg"
+          }
+        }
+      }
+    }
+  ],
+  "playrepo-sas-rogue-heroes-1-1": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=7983f38f30898e536bd77fb1e5b0961d&token=eyJ2IjoiNzk4M2YzOGYzMDg5OGU1MzZiZDc3ZmIxZTViMDk2MWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzgxMDk5LCJuIjoiM2Y1OGQ3OTJkYjk0In0.5ca35032b3c243fef100a8cdd593bb2931519556a58f9ba7861bd1825863b007&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=WV8PfpKFvldv-PsBWGx7Mg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=WV8PfpKFvldv-PsBWGx7Mg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7983f38f30898e536bd77fb1e5b0961d&sid=e8403e701757ad683be4e57a0cd25d73&token=eyJ2IjoiNzk4M2YzOGYzMDg5OGU1MzZiZDc3ZmIxZTViMDk2MWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzgxMDk5LCJuIjoiM2Y1OGQ3OTJkYjk0In0.5ca35032b3c243fef100a8cdd593bb2931519556a58f9ba7861bd1825863b007&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7983f38f30898e536bd77fb1e5b0961d&sid=71a114c0ff1c4ea6567eb0e99781bbf0&token=eyJ2IjoiNzk4M2YzOGYzMDg5OGU1MzZiZDc3ZmIxZTViMDk2MWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzgxMDk5LCJuIjoiM2Y1OGQ3OTJkYjk0In0.5ca35032b3c243fef100a8cdd593bb2931519556a58f9ba7861bd1825863b007&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=WV8PfpKFvldv-PsBWGx7Mg"
+          }
+        }
+      }
+    }
+  ],
+  "sas-rogue-heroes:1:1": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=7983f38f30898e536bd77fb1e5b0961d&token=eyJ2IjoiNzk4M2YzOGYzMDg5OGU1MzZiZDc3ZmIxZTViMDk2MWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzgxMDk5LCJuIjoiM2Y1OGQ3OTJkYjk0In0.5ca35032b3c243fef100a8cdd593bb2931519556a58f9ba7861bd1825863b007&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=WV8PfpKFvldv-PsBWGx7Mg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=WV8PfpKFvldv-PsBWGx7Mg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7983f38f30898e536bd77fb1e5b0961d&sid=e8403e701757ad683be4e57a0cd25d73&token=eyJ2IjoiNzk4M2YzOGYzMDg5OGU1MzZiZDc3ZmIxZTViMDk2MWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzgxMDk5LCJuIjoiM2Y1OGQ3OTJkYjk0In0.5ca35032b3c243fef100a8cdd593bb2931519556a58f9ba7861bd1825863b007&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7983f38f30898e536bd77fb1e5b0961d&sid=71a114c0ff1c4ea6567eb0e99781bbf0&token=eyJ2IjoiNzk4M2YzOGYzMDg5OGU1MzZiZDc3ZmIxZTViMDk2MWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzgxMDk5LCJuIjoiM2Y1OGQ3OTJkYjk0In0.5ca35032b3c243fef100a8cdd593bb2931519556a58f9ba7861bd1825863b007&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=WV8PfpKFvldv-PsBWGx7Mg"
+          }
+        }
+      }
+    }
+  ],
+  "sas-rogue-heroes-1-1": [
+    {
+      "name": "TR Altyazı",
+      "title": "1080p • Sunucu 1",
+      "url": "https://pilavyerplay.top/api/stream.php?v=7983f38f30898e536bd77fb1e5b0961d&token=eyJ2IjoiNzk4M2YzOGYzMDg5OGU1MzZiZDc3ZmIxZTViMDk2MWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzgxMDk5LCJuIjoiM2Y1OGQ3OTJkYjk0In0.5ca35032b3c243fef100a8cdd593bb2931519556a58f9ba7861bd1825863b007&ext=.m3u8",
+      "quality": 1080,
+      "format": "m3u8",
+      "referer": "https://pilavyerplay.top/assets/js/s.php?s=WV8PfpKFvldv-PsBWGx7Mg",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://pilavyerplay.top/assets/js/s.php?s=WV8PfpKFvldv-PsBWGx7Mg"
+      },
+      "subtitles": [
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7983f38f30898e536bd77fb1e5b0961d&sid=e8403e701757ad683be4e57a0cd25d73&token=eyJ2IjoiNzk4M2YzOGYzMDg5OGU1MzZiZDc3ZmIxZTViMDk2MWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzgxMDk5LCJuIjoiM2Y1OGQ3OTJkYjk0In0.5ca35032b3c243fef100a8cdd593bb2931519556a58f9ba7861bd1825863b007&ext=.vtt",
+          "lang": "tur"
+        },
+        {
+          "id": "tur",
+          "url": "https://pilavyerplay.top/api/sub.php?v=7983f38f30898e536bd77fb1e5b0961d&sid=71a114c0ff1c4ea6567eb0e99781bbf0&token=eyJ2IjoiNzk4M2YzOGYzMDg5OGU1MzZiZDc3ZmIxZTViMDk2MWQiLCJvIjoiZGRpemltb20ubmV0IiwiZXhwIjoxNzkzNzgxMDk5LCJuIjoiM2Y1OGQ3OTJkYjk0In0.5ca35032b3c243fef100a8cdd593bb2931519556a58f9ba7861bd1825863b007&ext=.vtt",
+          "lang": "tur"
+        }
+      ],
+      "behaviorHints": {
+        "notSupported": false,
+        "proxyHeaders": {
+          "request": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            "Referer": "https://pilavyerplay.top/assets/js/s.php?s=WV8PfpKFvldv-PsBWGx7Mg"
+          }
+        }
+      }
+    }
   ]
 }
