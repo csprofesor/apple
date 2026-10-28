@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-cenaze",
+      "type": "movie",
+      "name": "Cenaze",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bYNwZn7TlX6CEkJIHdbirFHQrjS.webp?v=1791078474",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/bYNwZn7TlX6CEkJIHdbirFHQrjS.webp?v=1791078474",
+      "description": "Cenaze (2024) full HD, Türkçe dublaj ve altyazılı izle. 40 yaşındaki Cemal, yalnız bir cenaze arabası şoförüdür. Rutininde hiç değişiklik yoktur. Gündüzleri ağl...",
+      "releaseInfo": "2024",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "98 dk"
+    },
+    {
       "id": "playrepo-kutup-ekspresi",
       "type": "movie",
       "name": "Kutup Ekspresi",
@@ -1192,23 +1207,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=bKrbNruyFVE",
       "runtime": "94 dk"
-    },
-    {
-      "id": "playrepo-para-avcisi",
-      "type": "movie",
-      "name": "Para Avcısı",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7Nwnmyzrtd0FkcRyPqmdzTPppQa.webp?v=1790286038",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7Nwnmyzrtd0FkcRyPqmdzTPppQa.webp?v=1790286038",
-      "description": "Para Avcısı (2013) full HD, Türkçe dublaj ve altyazılı izle. Jordan Belfort 24 yaşında genç ve hırslı bir adamdır. Para kazanma arzusuyla Wall Street borsasında...",
-      "releaseInfo": "2013",
-      "genres": [
-        "Komedi",
-        "Suç & Polisiye",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "180 dk"
     }
   ]
 }
