@@ -1,6 +1,43 @@
 {
   "metas": [
     {
+      "id": "tt6263850",
+      "type": "movie",
+      "name": "Deadpool & Wolverine",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZTk5ODY0MmQtMzA3Ni00NGY1LThiYzItZThiNjFiNDM4MTM3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZTk5ODY0MmQtMzA3Ni00NGY1LThiYzItZThiNjFiNDM4MTM3XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Deadpool ve Wolverine (2024) full HD, Türkçe dublaj ve altyazılı izle. Wade Wilson’ın bir paralı asker olarak geçirdiği günler ve Deadpool kimliği artık geride...",
+      "releaseInfo": "2024",
+      "genres": [
+        "Komedi",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt6263850/img",
+      "trailers": [
+        {
+          "source": "Idh8n5XuYIA",
+          "type": "Trailer"
+        },
+        {
+          "source": "73_1biulkYk",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Deadpool & Wolverine",
+          "ytId": "Idh8n5XuYIA"
+        },
+        {
+          "title": "Deadpool & Wolverine",
+          "ytId": "73_1biulkYk"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=Idh8n5XuYIA",
+      "runtime": "128 dk"
+    },
+    {
       "id": "tt9114286",
       "type": "movie",
       "name": "Black Panther: Wakanda Forever",
