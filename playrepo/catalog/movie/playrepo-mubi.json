@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-amelie",
+      "type": "movie",
+      "name": "Amelie",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6n53UI4mX9QMfe2S0Pgt8mGebY1.webp?v=1790209911",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6n53UI4mX9QMfe2S0Pgt8mGebY1.webp?v=1790209911",
+      "description": "Amelie (2001) full HD, Türkçe dublaj ve altyazılı izle. Paris&#039;te garsonluk yaparak, kendine özgü bir dünyada yaşayan saf, çekingen ve masum bir kızdır Amelie. A...",
+      "releaseInfo": "2001",
+      "genres": [
+        "Komedi",
+        "Mubi & Kült",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "122 dk"
+    },
+    {
       "id": "playrepo-garsoniyer",
       "type": "movie",
       "name": "Garsoniyer",
