@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "id": "tt33163584",
+    "type": "series",
+    "name": "Les disparues de la gare de Perpignan",
+    "poster": "https://ddizimom.net/storage/tmdb/stills/w300/IXAcyHgosVn6JgNBDrow0Y1bAe.webp?v=1784631560",
+    "background": "https://ddizimom.net/storage/tmdb/stills/w300/IXAcyHgosVn6JgNBDrow0Y1bAe.webp?v=1784631560",
+    "description": "Les Disparues de la gare 1. sezon 2. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle.",
+    "releaseInfo": "2025-",
+    "genres": [
+      "Popüler"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "tt33163584:1:2",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "name": "Le Boulevard de la Mort",
+        "season": 1,
+        "number": 1,
+        "firstAired": "2025-01-18T00:00:00.000Z",
+        "rating": "0",
+        "id": "tt33163584:1:1",
+        "overview": "",
+        "imdb_id": "tt35624084"
+      },
+      {
+        "id": "tt33163584:1:2",
+        "title": "1. Sezon 2. Bölüm",
+        "name": "1. Sezon 2. Bölüm",
+        "released": "2025--01-01T00:00:00.000Z",
+        "season": 1,
+        "episode": 2
+      },
+      {
+        "name": "Le Monstre a Parlé",
+        "season": 1,
+        "number": 3,
+        "firstAired": "2025-01-25T00:00:00.000Z",
+        "rating": "0",
+        "id": "tt33163584:1:3",
+        "overview": "",
+        "imdb_id": "tt35624092"
+      }
+    ]
+  }
+}
