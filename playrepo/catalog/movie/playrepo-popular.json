@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-prestij",
+      "type": "movie",
+      "name": "Prestij",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yaExZh6qE2cfyK3o4kAMEq0mkgy.webp?v=1790198528",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yaExZh6qE2cfyK3o4kAMEq0mkgy.webp?v=1790198528",
+      "description": "Prestij (2006) full HD, Türkçe dublaj ve altyazılı izle. 19. yüzyılın sonlarında Londra&#039;da yaşayan Robert Angier ve Alfred Borden, trajik bir kazanın ardından b...",
+      "releaseInfo": "2006",
+      "genres": [
+        "Korku & Gerilim",
+        "Dram & Romantik",
+        "Popüler",
+        "Bilim Kurgu & Fantastik"
+      ],
+      "posterShape": "poster",
+      "runtime": "130 dk"
+    },
+    {
       "id": "playrepo-yesil-yol",
       "type": "movie",
       "name": "Yeşil Yol",
@@ -1100,23 +1117,6 @@
       ],
       "posterShape": "poster",
       "runtime": "108 dk"
-    },
-    {
-      "id": "playrepo-cesur-yurek",
-      "type": "movie",
-      "name": "Cesur Yürek",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1m1c5gIWWkb1FEC9lzsoXHhhs7b.webp?v=1790149886",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/1m1c5gIWWkb1FEC9lzsoXHhhs7b.webp?v=1790149886",
-      "description": "Cesur Yürek (1995) full HD, Türkçe dublaj ve altyazılı izle. 13. yüzyıl İskoçyası. İngiliz Kralı I. Edward, İskoçya&#039;yı da krallığına katmak istemektedir. İngili...",
-      "releaseInfo": "1995",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "runtime": "178 dk"
     }
   ]
 }

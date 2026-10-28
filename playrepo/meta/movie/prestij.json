@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "playrepo-prestij",
+    "type": "movie",
+    "name": "Prestij",
+    "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yaExZh6qE2cfyK3o4kAMEq0mkgy.webp?v=1790198528",
+    "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/yaExZh6qE2cfyK3o4kAMEq0mkgy.webp?v=1790198528",
+    "description": "Prestij (2006) full HD, Türkçe dublaj ve altyazılı izle. 19. yüzyılın sonlarında Londra&#039;da yaşayan Robert Angier ve Alfred Borden, trajik bir kazanın ardından b...",
+    "releaseInfo": "2006",
+    "genres": [
+      "Korku & Gerilim",
+      "Dram & Romantik",
+      "Popüler",
+      "Bilim Kurgu & Fantastik"
+    ],
+    "posterShape": "poster",
+    "behaviorHints": {
+      "defaultVideoId": "playrepo-prestij",
+      "hasScheduledVideos": false
+    },
+    "videos": [
+      {
+        "id": "playrepo-prestij",
+        "title": "Prestij",
+        "name": "Prestij",
+        "released": "2006-01-01T00:00:00.000Z"
+      }
+    ],
+    "runtime": "130 dk"
+  }
+}
