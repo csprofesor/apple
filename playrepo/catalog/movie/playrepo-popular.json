@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-affedilmeyen",
+      "type": "movie",
+      "name": "Affedilmeyen",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rvRGFevvZK48onX0PYI1eQLbuJd.webp?v=1790289041",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/rvRGFevvZK48onX0PYI1eQLbuJd.webp?v=1790289041",
+      "description": "Affedilmeyen (1992) full HD, Türkçe dublaj ve altyazılı izle. Küçük bir kovboy kasabası olan Big Whiskey, şerif &quot;Küçük Bill&quot; Daggett&#039;in sert idaresi altında sak...",
+      "releaseInfo": "1992",
+      "genres": [
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "130 dk"
+    },
+    {
       "id": "tt1745960",
       "type": "movie",
       "name": "Top Gun: Maverick",
@@ -1147,24 +1162,6 @@
       ],
       "posterShape": "poster",
       "runtime": "91 dk"
-    },
-    {
-      "id": "playrepo-cinayet-gunlugu",
-      "type": "movie",
-      "name": "Cinayet Günlüğü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6Kn6qW3an3DkPl3MahWemTzrjCt.webp?v=1790244922",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6Kn6qW3an3DkPl3MahWemTzrjCt.webp?v=1790244922",
-      "description": "Cinayet Günlüğü (2003) full HD, Türkçe dublaj ve altyazılı izle. 1980&#039;lerin Güney Kore&#039;sinde, askeri diktatörlüğün gölgesinde küçük bir kasabada zincirleme kadı...",
-      "releaseInfo": "2003",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik",
-        "Mubi & Kült",
-        "Popüler",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "runtime": "132 dk"
     }
   ]
 }
