@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-mufreze",
+      "type": "movie",
+      "name": "Müfreze",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vr0gwTvit5pTZs2wXOkvpsxCfli.webp?v=1790252205",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/vr0gwTvit5pTZs2wXOkvpsxCfli.webp?v=1790252205",
+      "description": "Müfreze (1986) full HD, Türkçe dublaj ve altyazılı izle. Chris Taylor, genç ve idealist bir Amerikalı&#039;dır, ve çok geçmeden Vietnam&#039;da sadece Viet Cong&#039;larda değ...",
+      "releaseInfo": "1986",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "120 dk"
+    },
+    {
       "id": "playrepo-pan-039-in-labirenti",
       "type": "movie",
       "name": "Pan&#039;ın Labirenti",
@@ -1230,35 +1246,6 @@
       ],
       "posterShape": "poster",
       "runtime": "147 dk"
-    },
-    {
-      "id": "tt0052618",
-      "type": "movie",
-      "name": "Ben-Hur",
-      "poster": "https://m.media-amazon.com/images/M/MV5BNjg2M2E1YzYtOThmMC00NjAyLWI5MzgtMDEwOGFiODdlOGUzXkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BNjg2M2E1YzYtOThmMC00NjAyLWI5MzgtMDEwOGFiODdlOGUzXkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Ben Hur (1959) full HD, Türkçe dublaj ve altyazılı izle. Judah Ben Hur zengin yahudi bir prenstir. Bir gün çocukluk arkadaşı Messela ile buluşup konuşurlar ve h...",
-      "releaseInfo": "1959",
-      "genres": [
-        "Dram & Romantik",
-        "Aksiyon & Macera"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt0052618/img",
-      "trailers": [
-        {
-          "source": "f2y1gDeZ230",
-          "type": "Trailer"
-        }
-      ],
-      "trailerStreams": [
-        {
-          "title": "Ben-Hur",
-          "ytId": "f2y1gDeZ230"
-        }
-      ],
-      "trailer": "https://www.youtube.com/watch?v=f2y1gDeZ230",
-      "runtime": "212 dk"
     }
   ]
 }
