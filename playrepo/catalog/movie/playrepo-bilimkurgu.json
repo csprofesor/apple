@@ -1,6 +1,43 @@
 {
   "metas": [
     {
+      "id": "tt9032400",
+      "type": "movie",
+      "name": "Eternals",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZTBiZjI2M2UtZTNiNy00NmU4LWJiMjYtZjk4MDIzMzhlMjFlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BZTBiZjI2M2UtZTNiNy00NmU4LWJiMjYtZjk4MDIzMzhlMjFlXkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "Eternals (2021) full HD, Türkçe dublaj ve altyazılı izle. Deviantlar&#039;ın artık tarihe karıştığı düşünülmektedir. Ancak insanlığın en eski düşmanı olan Deviantlar...",
+      "releaseInfo": "2021",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt9032400/img",
+      "trailers": [
+        {
+          "source": "x_me3xsvDgk",
+          "type": "Trailer"
+        },
+        {
+          "source": "0WVDKZJkGlY",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "Eternals",
+          "ytId": "x_me3xsvDgk"
+        },
+        {
+          "title": "Eternals",
+          "ytId": "0WVDKZJkGlY"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=x_me3xsvDgk",
+      "runtime": "73 dk"
+    },
+    {
       "id": "tt6565702",
       "type": "movie",
       "name": "X-Men: Dark Phoenix",
