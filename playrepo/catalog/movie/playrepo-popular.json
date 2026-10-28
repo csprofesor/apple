@@ -1,6 +1,23 @@
 {
   "metas": [
     {
+      "id": "playrepo-olmak-ya-da-olamamak",
+      "type": "movie",
+      "name": "Olmak ya da Olamamak",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qT9Nb4CmSmzdUPysn0KggAh1Efu.webp?v=1790284331",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/qT9Nb4CmSmzdUPysn0KggAh1Efu.webp?v=1790284331",
+      "description": "Olmak ya da Olamamak (1983) full HD, Türkçe dublaj ve altyazılı izle. 1939-1941 yılları arasında geçen öyküde, Nazi istilasına uğrayan Varşova&#039;da yaşanan olayla...",
+      "releaseInfo": "1983",
+      "genres": [
+        "Komedi",
+        "Dram & Romantik",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "108 dk"
+    },
+    {
       "id": "playrepo-duygularin-rengi",
       "type": "movie",
       "name": "Duyguların Rengi",
@@ -1126,22 +1143,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=kGATShQbydk",
       "runtime": "92 dk"
-    },
-    {
-      "id": "tt15097216",
-      "type": "movie",
-      "name": "Jai Bhim",
-      "poster": "https://m.media-amazon.com/images/M/MV5BZjEyNDIzNmEtMjdkYS00ZDAwLTljOWYtNDRhYTVhYTlmOTk1XkEyXkFqcGc%40._V1_SX250.jpg",
-      "background": "https://m.media-amazon.com/images/M/MV5BZjEyNDIzNmEtMjdkYS00ZDAwLTljOWYtNDRhYTVhYTlmOTk1XkEyXkFqcGc%40._V1_SX250.jpg",
-      "description": "Jai Bhim (2021) full HD, Türkçe dublaj ve altyazılı izle. Hırsızlık yaptığı suçlamasıyla tutuklanan ve hakkında dava açılan Rajakannu&#039;yla (K. Manikandan) eşi Se...",
-      "releaseInfo": "2021",
-      "genres": [
-        "Dram & Romantik",
-        "Suç & Polisiye"
-      ],
-      "posterShape": "poster",
-      "logo": "https://images.metahub.space/logo/medium/tt15097216/img",
-      "runtime": "164 dk"
     }
   ]
 }
