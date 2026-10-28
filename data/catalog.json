@@ -1,6 +1,35 @@
 {
   "metas": [
     {
+      "id": "tt30423279",
+      "type": "series",
+      "name": "The 8 Show",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYjM1OWEzZDctMTZkZS00ZjIyLTk5OGEtZGIzZWZhNjNlNmM5XkEyXkFqcGc%40._V1_SX250.jpg",
+      "background": "https://m.media-amazon.com/images/M/MV5BYjM1OWEzZDctMTZkZS00ZjIyLTk5OGEtZGIzZWZhNjNlNmM5XkEyXkFqcGc%40._V1_SX250.jpg",
+      "description": "The 8 Show 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Fena hâlde borca batmış bir adam, çekinceleri olsa da gizemli bir şov programı...",
+      "releaseInfo": "2024",
+      "genres": [
+        "Komedi",
+        "Korku & Gerilim",
+        "Dram & Romantik"
+      ],
+      "posterShape": "poster",
+      "logo": "https://images.metahub.space/logo/medium/tt30423279/img",
+      "trailers": [
+        {
+          "source": "ZPWGfNU20vQ",
+          "type": "Trailer"
+        }
+      ],
+      "trailerStreams": [
+        {
+          "title": "The 8 Show",
+          "ytId": "ZPWGfNU20vQ"
+        }
+      ],
+      "trailer": "https://www.youtube.com/watch?v=ZPWGfNU20vQ"
+    },
+    {
       "id": "playrepo-teletabiler",
       "type": "series",
       "name": "Teletabiler",
