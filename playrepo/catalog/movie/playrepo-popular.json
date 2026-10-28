@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-can-dostum",
+      "type": "movie",
+      "name": "Can Dostum",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xj1Sv1xm4Y0ydBueGuf10Y9qM0O.webp?v=1790155592",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/xj1Sv1xm4Y0ydBueGuf10Y9qM0O.webp?v=1790155592",
+      "description": "Can Dostum (1997) full HD, Türkçe dublaj ve altyazılı izle. Can Dostum’da Will Hunting, toplumdaki genel zeka seviyesinin çok çok üzerinde bir zeka seviyesine s...",
+      "releaseInfo": "1997",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "127 dk"
+    },
+    {
       "id": "playrepo-yuksek-ve-alcak",
       "type": "movie",
       "name": "Yüksek ve Alçak",
@@ -1174,21 +1189,6 @@
       ],
       "posterShape": "poster",
       "runtime": "96 dk"
-    },
-    {
-      "id": "playrepo-barbie-findikkiran-balesinde",
-      "type": "movie",
-      "name": "Barbie Fındıkkıran Balesinde",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/budvUJdSNKVzEkNdoh4qa4r7Vj1.webp?v=1789423401",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/budvUJdSNKVzEkNdoh4qa4r7Vj1.webp?v=1789423401",
-      "description": "Barbie Fındıkkıran Balesinde (2001) full HD, Türkçe dublaj ve altyazılı izle. Barbie, E.T.A Hoffmann&#039;ın klasik eserinin bilgisayar animasyonu uyarlamasıyla bir....",
-      "releaseInfo": "2001",
-      "genres": [
-        "Animasyon & Aile",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "77 dk"
     }
   ]
 }
