@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "tt12415866",
+      "type": "movie",
+      "name": "Leviathan",
+      "poster": "https://ddizimom.net/storage/tmdb/stills/w300/sZVUYDTIzwTmadqPrEK244ce8CG.webp?v=1784205620",
+      "background": "https://ddizimom.net/storage/tmdb/stills/w300/sZVUYDTIzwTmadqPrEK244ce8CG.webp?v=1784205620",
+      "description": "Leviathan 1. sezon 1. bölüm full HD, Türkçe dublaj ve altyazılı izle 1080p izle. Yıl 1914. Avusturya-Macaristan Prensi Alek, bir Fırtına Gezgini ile alışılmadık...",
+      "releaseInfo": "1914",
+      "genres": [
+        "Bilim Kurgu & Fantastik",
+        "Dram & Romantik",
+        "Korku & Gerilim"
+      ],
+      "posterShape": "poster"
+    },
+    {
       "id": "tt26340796",
       "type": "movie",
       "name": "La Casa de Papel: O Jogo",
@@ -1112,22 +1127,6 @@
       ],
       "trailer": "https://www.youtube.com/watch?v=F6szJsykTQw",
       "runtime": "125 dk"
-    },
-    {
-      "id": "playrepo-gunes-sonrasi",
-      "type": "movie",
-      "name": "Güneş Sonrası",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4jdduww9j5RyzO4ITRcuBFhqNN1.webp?v=1791823380",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/4jdduww9j5RyzO4ITRcuBFhqNN1.webp?v=1791823380",
-      "description": "Güneş Sonrası (2022) full HD, Türkçe dublaj ve altyazılı izle. Daha kendi hayatını bir düzene oturtamamışken genç yaşta baba olması Calum&#039;u altüst eder. Karısın...",
-      "releaseInfo": "2022",
-      "genres": [
-        "Mubi & Kült",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "101 dk"
     }
   ]
 }
