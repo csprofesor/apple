@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-esas-plan",
+      "type": "movie",
+      "name": "Esas Plan",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dgUDj84BWtW6EZzee8BkgKnjDhh.webp?v=1792145891",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/dgUDj84BWtW6EZzee8BkgKnjDhh.webp?v=1792145891",
+      "description": "Esas Plan (2026) full HD, Türkçe dublaj ve altyazılı izle. Gözünü Mona Lisa&#039;ya diken efsanevi bir hırsız, kendisine yardım etmeleri için birbirini tanımayan iki...",
+      "releaseInfo": "2026",
+      "genres": [
+        "Korku & Gerilim",
+        "Popüler",
+        "Aksiyon & Macera"
+      ],
+      "posterShape": "poster",
+      "runtime": "109 dk"
+    },
+    {
       "id": "playrepo-funye",
       "type": "movie",
       "name": "Fünye",
@@ -1138,22 +1154,6 @@
       ],
       "posterShape": "poster",
       "runtime": "95 dk"
-    },
-    {
-      "id": "playrepo-karsilasma",
-      "type": "movie",
-      "name": "Karşılaşma",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tVCg0HYPLFVYljiQXJCWTY43LJR.webp?v=1791078486",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/tVCg0HYPLFVYljiQXJCWTY43LJR.webp?v=1791078486",
-      "description": "Karşılaşma (2025) full HD, Türkçe dublaj ve altyazılı izle. Efsanevi bir Go ustası, bir zamanlar arkadaşı ve öğrencisi olan bir oyuncuya şampiyonluğu kaptırınca...",
-      "releaseInfo": "2025",
-      "genres": [
-        "Belgesel & Tarih",
-        "Dram & Romantik",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "115 dk"
     }
   ]
 }
