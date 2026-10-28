@@ -1,6 +1,22 @@
 {
   "metas": [
     {
+      "id": "playrepo-uc-billboard-ebbing-cikisi-missouri",
+      "type": "movie",
+      "name": "Üç Billboard Ebbing Çıkışı, Missouri",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oQHF0Y4gCw6VdPmapjsbZoxY2ht.webp?v=1790283380",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/oQHF0Y4gCw6VdPmapjsbZoxY2ht.webp?v=1790283380",
+      "description": "Üç Billboard Ebbing Çıkışı, Missouri (2017) full HD, Türkçe dublaj ve altyazılı izle. Film, kızı bir süre önce evlerine yakın bir yerde tecavüz edilerek katledi...",
+      "releaseInfo": "2017",
+      "genres": [
+        "Suç & Polisiye",
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "115 dk"
+    },
+    {
       "id": "playrepo-demir-dev",
       "type": "movie",
       "name": "Demir Dev",
@@ -1127,22 +1143,6 @@
       ],
       "posterShape": "poster",
       "runtime": "191 dk"
-    },
-    {
-      "id": "playrepo-klaus-sihirli-plan",
-      "type": "movie",
-      "name": "Klaus - Sihirli Plan",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cYQvXNPZLow73lhspVQ7CYlT3Mi.webp?v=1790239432",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/cYQvXNPZLow73lhspVQ7CYlT3Mi.webp?v=1790239432",
-      "description": "Klaus - Sihirli Plan (2019) full HD, Türkçe dublaj ve altyazılı izle. Bencil bir postacı ile münzevi bir oyuncakçı arasında kurulan beklenmedik dostluk, soğuk v...",
-      "releaseInfo": "2019",
-      "genres": [
-        "Komedi",
-        "Animasyon & Aile",
-        "Popüler"
-      ],
-      "posterShape": "poster",
-      "runtime": "97 dk"
     }
   ]
 }
