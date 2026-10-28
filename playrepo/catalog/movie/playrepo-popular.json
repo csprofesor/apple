@@ -1,6 +1,21 @@
 {
   "metas": [
     {
+      "id": "playrepo-bildigin-gibi-degil",
+      "type": "movie",
+      "name": "Bildiğin Gibi Değil",
+      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7dXHMZ4z4JiGl1oiGgo4ul6me0n.webp?v=1792849751",
+      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/7dXHMZ4z4JiGl1oiGgo4ul6me0n.webp?v=1792849751",
+      "description": "Bildiğin Gibi Değil (2025) full HD, Türkçe dublaj ve altyazılı izle. Düşünce biçimi ve hayat tarzı açısından birbirinden farklı üç kardeş. Tahsin, Yasin ve Rem...",
+      "releaseInfo": "2025",
+      "genres": [
+        "Dram & Romantik",
+        "Popüler"
+      ],
+      "posterShape": "poster",
+      "runtime": "107 dk"
+    },
+    {
       "id": "playrepo-yirtici-kuslar-ve-muhtesem-harley-quinn",
       "type": "movie",
       "name": "Yırtıcı Kuşlar ve Muhteşem Harley Quinn",
@@ -1150,21 +1165,6 @@
       ],
       "posterShape": "poster",
       "runtime": "120 dk"
-    },
-    {
-      "id": "playrepo-askin-gucu",
-      "type": "movie",
-      "name": "Aşkın Gücü",
-      "poster": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6r38uhBZTZl0KGfEcfi3HNP2N0z.webp?v=1791611695",
-      "background": "https://ddizimom.net/storage/tmdb/backdrops/w1280/6r38uhBZTZl0KGfEcfi3HNP2N0z.webp?v=1791611695",
-      "description": "Aşkın Gücü (2001) full HD, Türkçe dublaj ve altyazılı izle. Polis Sharon Pogue (Jennifer Lopez), görevi sırasında ölümcül bir tuzağa düşmek üzereyken, orada tes...",
-      "releaseInfo": "2001",
-      "genres": [
-        "Korku & Gerilim",
-        "Dram & Romantik"
-      ],
-      "posterShape": "poster",
-      "runtime": "102 dk"
     }
   ]
 }
